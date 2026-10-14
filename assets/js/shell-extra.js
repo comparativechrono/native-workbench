@@ -30,7 +30,7 @@
       const rest = MG.shellUtil.inherited(ctx);
       return rest == null ? new Uint8Array(0) : enc.encode(rest);
     }
-    if (MG.FileRef && s instanceof MG.FileRef) return await MG.wasm.readBytes(s.apath);
+    if (MG.FileRef && s instanceof MG.FileRef) return await MG.exec.readBytes(s);
     return enc.encode(String(s));
   }
   /** a file name in a message: as it is – in quotes when it holds a blank or another character special to the shell */
@@ -1930,7 +1930,7 @@
       if (!ctx.fs.isDir(MG.path.dirname(abs))) throw userErr(`split: ${name}: No such file or directory`);
       if (ctx.fs.isDir(abs)) throw userErr(`split: ${name}: Is a directory`);
       if (verbose) ctx.out(`creating file '${name}'\n`);
-      await MG.wasm.writeBytes(ctx.fs, abs, pieces[k].slice());
+      await MG.exec.writeBytes(ctx.fs, abs, pieces[k].slice());
     }
     return 0;
   };
@@ -2002,7 +2002,7 @@
       }
       const now = new Uint8Array(len);
       now.set(old.subarray(0, Math.min(len, old.length)));
-      await MG.wasm.writeBytes(ctx.fs, ctx.fs.resolve(f), now);
+      await MG.exec.writeBytes(ctx.fs, ctx.fs.resolve(f), now);
     }
     return code;
   };
@@ -3260,7 +3260,7 @@ Show a file in the Files tab (an HTML report, a table, a text).`
 
   /* ------------------------------------------------------------------ help */
   B.help = (ctx) => {
-    const v = (MG.wasm && MG.wasm.versions) || {};
+    const v = MG.exec.versions;
     ctx.out(
       [
         'Programs in this terminal – every one runs here, in your browser',

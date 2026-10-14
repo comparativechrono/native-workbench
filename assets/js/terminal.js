@@ -44,6 +44,10 @@
       if (Array.isArray(saved)) this.shell.history = saved.slice(-200);
       this.fs.onChange(() => this._filesSoon());
       if (opts.welcome) this.note(opts.welcome);
+      // (the programs were to run elsewhere – ?backend=local – and run in this page instead: said once)
+      MG.exec.whenChosen().then(() => {
+        if (MG.exec.fallback) this.note(MG.exec.fallback.message);
+      });
       this._renderPrompt();
       this.renderFiles();
       // the person gave the workbench a name (the button with the name at the top): the prompt shows it
@@ -381,22 +385,22 @@
       this.root.classList.remove('locked');
     }
     /** Ctrl+C. The first time: the program that is running finishes, the rest is skipped.
-        A second time (or force): the program is stopped by force – see MG.wasm.kill */
+        A second time (or force): the program is stopped by force – see MG.exec.kill */
     stop(force) {
       if (!this.busy) return [];
       this._q = [];
-      if ((this.cancelled || force) && MG.wasm && MG.wasm.running) {
+      if ((this.cancelled || force) && MG.exec.running) {
         this.cancelled = true;
-        const program = MG.wasm.running;
-        const lost = MG.wasm.kill(this.fs);
+        const program = MG.exec.running;
+        const lost = MG.exec.kill(this.fs);
         // (featureCounts, Salmon, PLINK 2, Cutadapt, MACS3, LoFreq, SomaticSniper, Strelka2, Kraken2, Bracken, Prodigal, HMMER and bustools run in a worker
         // of their own: only that one is stopped)
-        this.note(MG.wasm.lastKill === 'threads' ? `${program} was stopped by force.` : `${program} was stopped by force, and the programs were started again.`);
+        this.note(MG.exec.lastKill === 'threads' ? `${program} was stopped by force.` : `${program} was stopped by force, and the programs were started again.`);
         // files that programs had written lived in the stopped programs' memory: the copies kept in the browser come back.
         // (Not here for a command of the AI agent: there the files come back as they were before the command, when what
         // the command changed is put back – see undoOutside in assistant.js – and the agent's card says what was lost.)
         if (lost.length && MG.project && MG.project.afterKill && !(this.agentCmd || (MG.app && MG.app.agentBusy))) {
-          const times = MG.wasm.lostTimes || new Map();
+          const times = MG.exec.lostTimes;
           MG.project.afterKill(this.fs, lost).then((n) => {
             const list = (xs) => `${xs.slice(0, 5).map((x) => this.fs.pretty(x)).join(', ')}${xs.length > 5 ? ' and ' + (xs.length - 5) + ' more' : ''}`;
             const gone = lost.filter((x) => !this.fs.exists(x));

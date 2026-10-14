@@ -157,7 +157,7 @@
     const T = MG.shellTools || {};
     const v = (n) => (T[n] && T[n].version) || '';
     const one = (n, label) => (T[n] ? `${label || n} ${v(n)}`.trim() : null);
-    const W = (MG.wasm && MG.wasm.versions) || {};
+    const W = MG.exec.versions;
     return [
       one('fastp'), one('seqtk'), one('minimap2'), T.bowtie2 ? `bowtie2 ${v('bowtie2')} (with bowtie2-build)` : null, T.bwa ? `bwa ${v('bwa')} (bwa index, bwa mem)` : null, T['bwa-mem2'] ? `bwa-mem2 ${v('bwa-mem2')} (its own index: bwa-mem2 index)` : null, T.hisat2 ? `hisat2 ${v('hisat2')} (spliced RNA-seq alignment; with hisat2-build and hisat2-inspect; reads .gz files)` : null, one('samtools'), one('bcftools'), one('freebayes'), T.bgzip ? `bgzip and tabix (htslib ${v('bgzip')})` : null, one('bedtools'),
       one('mosdepth'), T.featureCounts ? `featureCounts ${v('featureCounts')} (Subread; paired reads need -p --countReadPairs; up to 4 threads, -T)` : null, T.stringtie ? `stringtie ${v('stringtie')} (needs a sorted BAM; hisat2 --dta)` : null, T.kallisto ? `kallisto ${v('kallisto')} (index, quant; writes abundance.tsv, no .h5)` : null, T.salmon ? `salmon ${v('salmon')} (index, quant; the Rust Salmon)` : null,
@@ -413,7 +413,7 @@
   }
   /* A file that a program wrote (BAM, .gz …) has its bytes in the programs' memory only. Two copies are taken before
      a step of the agent runs:
-     - of the files outside the agent's folder, MG.wasm keeps one in that memory (keep) and writes it back after the
+     - of the files outside the agent's folder, the execution backend keeps one in that memory (keep) and writes it back after the
        step, where the step changed or removed the file (putBack);
      - of all such files – in the user's folders and in the agent's – the page holds one itself (holdBytes). If the
        programs have to be stopped by force (a command that does not end: the time limit, or Stop pressed twice),
@@ -427,7 +427,7 @@
     let total = 0;
     for (const b of held.values()) total += b.length;
     for (const [k, v] of Array.from(fs.entries)) {
-      if (v.kind !== 'aioli' || held.has(v) || insideDir(k, '/tmp')) continue;
+      if (!MG.exec.holds(v) || held.has(v) || insideDir(k, '/tmp')) continue;
       if (total + (v.size || 0) > AGENT_HOLD) continue;
       try {
         const bytes = await fs.readBytes(k);
@@ -441,11 +441,11 @@
   /** After a step: what it changed outside the agent's folder is put back; after a forced stop of the programs, the
       files that programs had written before the step are written again.
       snap: the entries outside the folder before the step; keep: paths the user changed meanwhile (theirs);
-      since, gen: when the step started, and MG.wasm.gen then; held: see holdBytes; before: every program-written
+      since, gen: when the step started, and MG.exec.gen then; held: see holdBytes; before: every program-written
       file before the step (path → entry).
       → { changed: paths outside that were put back or removed again, lost: paths whose bytes could not be had, killed } */
   async function undoOutside(fs, root, snap, keep, since, gen, held, before) {
-    const W = MG.wasm, changed = [], lost = [], back = [];
+    const W = MG.exec, changed = [], lost = [], back = [];
     const killed = !!W && W.gen !== gen;
     // 1. what the step made outside the folder goes
     for (const k of Array.from(fs.entries.keys())) {
@@ -466,7 +466,7 @@
     for (const [k, v] of snap) {
       if (keep.has(k)) continue;
       const now = fs.entries.get(k);
-      if (v.kind === 'aioli' && killed) {
+      if (W.holds(v) && killed) {
         // (whatever is there now is not the user's file: it goes, and the file comes back below)
         if (now) {
           fs.entries.delete(k);
@@ -477,7 +477,7 @@
       if (now === v) continue;
       fs.entries.set(k, v);
       changed.push(k);
-      if (v.kind !== 'aioli' || !W || !W.putBack) continue;
+      if (!W.holds(v) || !W.putBack) continue;
       let ok = false;
       try {
         ok = await W.putBack(k, v, since);
@@ -1335,7 +1335,7 @@
             result = 'Not run: ' + refused;
           } else {
             // run it in the terminal; what it changes outside the agent's folder is put back
-            const W = MG.wasm;
+            const W = MG.exec;
             const snap = outsideSnapshot(fs, run);
             if (W && W.keep) {
               try {
@@ -1345,7 +1345,7 @@
               }
             }
             const before = new Map();
-            for (const [p, e] of fs.entries) if (e.kind === 'aioli' && !insideDir(p, '/tmp')) before.set(p, e);
+            for (const [p, e] of fs.entries) if (W.holds(e) && !insideDir(p, '/tmp')) before.set(p, e);
             try {
               await holdBytes(fs, held);
             } catch (e) {
@@ -1460,7 +1460,7 @@
         if (T.unlock) T.unlock();
         if (shellState && T.shell.restoreState) T.shell.restoreState(shellState);
         held.clear();
-        if (MG.wasm && MG.wasm.dropKept) MG.wasm.dropKept().catch(() => {});
+        MG.exec.dropKept().catch(() => {});
         T._renderPrompt();
         rec.report = outcome === 'done' ? final : '';
         rec.outcome = outcome === 'done' ? 'done' : outcome === 'stopped' ? 'stopped by the user' : 'the AI service returned an error';

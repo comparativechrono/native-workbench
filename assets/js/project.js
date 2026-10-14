@@ -233,7 +233,7 @@
             rec.k = 'u';
             rec.url = siteRelative(e.url); // the site may move: kept relative to it
             rec.size = e.size;
-          } else if (e.kind === 'blob' || e.kind === 'aioli') {
+          } else if (e.kind === 'blob' || (MG.exec && MG.exec.holds(e))) {
             const size = fs.size(e);
             if (size > MAX_FILE) {
               this._big = this._big || new Set();

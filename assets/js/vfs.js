@@ -6,7 +6,8 @@
      text     – a small text file held in memory       { text }
      url      – a real file hosted with the site        { url, size }
      blob     – a real file on the student's computer   { blob }
-     aioli    – a real file that lives in the WebAssembly file system { apath, size }
+     aioli    – a real file whose bytes the browser's programs hold (exec-browser.js) { apath, size }
+   An entry whose bytes an execution backend holds (aioli, in the browser) is read through MG.exec (exec.js).
    ===================================================================== */
 (function () {
   'use strict';
@@ -436,10 +437,7 @@
         return await r.text();
       }
       if (e.kind === 'blob') return await e.blob.text();
-      if (e.kind === 'aioli') {
-        if (!MG.wasm || !MG.wasm.ready) throw new Error(`${p}: not available yet`);
-        return await MG.wasm.readText(e.apath);
-      }
+      if (MG.exec && MG.exec.holds(e)) return await MG.exec.entryText(e, p);
       throw new Error(`${p}: cannot read`);
     }
     async readBytes(p) {
@@ -448,7 +446,7 @@
       if (e.kind === 'text') return new TextEncoder().encode(e.text);
       if (e.kind === 'url') { const r=await fetch(e.url);if(!r.ok)throw new Error(`${p}: could not be read (${r.status})`);return new Uint8Array(await r.arrayBuffer()); }
       if (e.kind === 'blob') return new Uint8Array(await e.blob.arrayBuffer());
-      if (e.kind === 'aioli' && MG.wasm) return await MG.wasm.readBytes(e.apath);
+      if (MG.exec && MG.exec.holds(e)) return await MG.exec.entryBytes(e);
       throw new Error(`${p}: cannot read bytes`);
     }
     /** get a Blob for downloading / handing to igv.js */
@@ -458,7 +456,7 @@
       if (e.kind === 'text') return new Blob([e.text], { type: 'text/plain' });
       if (e.kind === 'blob') return e.blob;
       if (e.kind === 'url') return await (await fetch(e.url)).blob();
-      if (e.kind === 'aioli') return new Blob([await MG.wasm.readBytes(e.apath)]);
+      if (MG.exec && MG.exec.holds(e)) return new Blob([await MG.exec.entryBytes(e)]);
       throw new Error(`${p}: this simulated file cannot be downloaded`);
     }
     /** paths for tab completion */

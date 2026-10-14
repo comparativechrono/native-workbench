@@ -478,7 +478,7 @@
   async function inputOf(ctx, files, cmdName) {
     if (!files.length || (files.length === 1 && (files[0] === '-' || files[0] === '/dev/stdin'))) {
       if (ctx.stdin == null) return inherited(ctx) || '';
-      if (MG.FileRef && ctx.stdin instanceof MG.FileRef) return await MG.wasm.readText(ctx.stdin.apath);
+      if (MG.FileRef && ctx.stdin instanceof MG.FileRef) return await MG.exec.readText(ctx.stdin);
       return ctx.stdin;
     }
     let all = '';
@@ -591,7 +591,7 @@
          its end; what would have happened is worked out afterwards, and only where it is certain: the writer wrote
          more than a pipe holds (64 KiB) beyond what the reader took. piped: the bytes the command before wrote
          into the pipe; see "took" below. */
-      const sizeOfInput = async (x) => (x == null ? null : MG.FileRef && x instanceof MG.FileRef ? (MG.wasm && MG.wasm.sizeOf ? await MG.wasm.sizeOf(x.apath) : null) : typeof x === 'string' ? x.length : null);
+      const sizeOfInput = async (x) => (x == null ? null : MG.FileRef && x instanceof MG.FileRef ? await MG.exec.sizeOf(x) : typeof x === 'string' ? x.length : null);
       let piped = null;
       for (let s = 0; s < pipeline.length; s++) {
         if (this.term?.cancelled) return 130;
@@ -668,12 +668,9 @@
           continue;
         }
         if (inR) {
-          if (MG.wasm) {
-            await MG.wasm.ensure();
-            // everything, not this file alone: writing one file could destroy the bytes that a copy of it (cp, mv) still needs
-            await MG.wasm.syncAll(this.fs);
-            stdin = new MG.FileRef(MG.wasm.apath(this.fs.resolve(inR.target)));
-            stdin.fromFile = true; // a file, not a pipe: see _stream
+          if (MG.exec.backend) {
+            // the program reads the file itself: the backend's handle to it (a file, not a pipe – see _stream)
+            stdin = await MG.exec.inputRef(this.fs, this.fs.resolve(inR.target));
             if (/^\/tmp\/\.psub-\d+$/.test(this.fs.resolve(inR.target))) stdin.psub = true; // (… but of < <(command) wc must think it is one)
           } else stdin = await this.fs.readText(inR.target);
         }
@@ -774,8 +771,8 @@
         let took = false, input = stdin;
         Object.defineProperty(ctx, 'stdin', { get: () => ((took = true), input), set: (v) => (input = v), enumerable: true, configurable: true });
         // (the file that is this command's input stays until the command has ended, whatever it runs itself)
-        const held = MG.FileRef && stdin instanceof MG.FileRef && MG.wasm && MG.wasm.hold ? stdin.apath : null;
-        if (held) MG.wasm.hold(held);
+        const held = MG.FileRef && stdin instanceof MG.FileRef ? stdin : null;
+        if (held) MG.exec.hold(held);
         try {
           code = await this.dispatch(name, ctx);
         } catch (e) {
@@ -797,7 +794,7 @@
           }
           code = e && e.code ? e.code : 1;
         } finally {
-          if (held) MG.wasm.release(held);
+          if (held) MG.exec.release(held);
         }
         // How much of what was piped in did the command take? A program: as far as it read (0: not known – wc -c
         // asks for the size of its input and reads nothing). A command of the page: all of it if it looked, nothing
@@ -838,7 +835,7 @@
             if (outRef) {
               // the bytes of the program, then what the page added
               all = new Sink();
-              all.add(await MG.wasm.readBytes(outRef.apath));
+              all.add(await MG.exec.readBytes(outRef));
               sink.parts.forEach((part) => all.add(part));
             }
             // (Nothing was printed: the file stays as it was opened – made, or emptied, before the command ran – or
@@ -851,15 +848,15 @@
           if (outRef && sink.empty) stdin = outRef;
           else if (outRef || sink.binary) {
             const all = new Sink();
-            if (outRef) all.add(await MG.wasm.readBytes(outRef.apath));
+            if (outRef) all.add(await MG.exec.readBytes(outRef));
             sink.parts.forEach((part) => all.add(part));
-            stdin = await MG.wasm.tempBytes(all.bytes(), !!(outRef && outRef.binary));
+            stdin = await MG.exec.tempBytes(all.bytes(), !!(outRef && outRef.binary));
           } else stdin = sink.text();
           piped = await sizeOfInput(stdin);
         } else if (outRef) {
-          if (io.bytes) io.out(await MG.wasm.readBytes(outRef.apath));
+          if (io.bytes) io.out(await MG.exec.readBytes(outRef));
           else if (outRef.binary) io.note('Binary output: save it in a file with  > FILE');
-          else io.out(await MG.wasm.readText(outRef.apath));
+          else io.out(await MG.exec.readText(outRef));
         }
         // As in bash, a failed stage does not stop the pipe: the next program gets whatever
         // was written (often nothing). The status of the pipe is that of the LAST program –
@@ -887,14 +884,14 @@
     /** what was printed becomes the contents of a file (> FILE), or is added to it (>> FILE): text – or bytes, and
         then the file is one of the programs' files (a BAM file written by a function, a loop that writes .gz) */
     async writeOut(target, sink, append) {
-      if (!sink.binary || !MG.wasm) {
+      if (!sink.binary || !MG.exec.backend) {
         const text = sink.text();
         if (append) return this.appendTo(target, text);
         return this.fs.rewrite(target, text);
       }
       let bytes = sink.bytes();
       if (append && this.fs.exists(target) && !this.fs.isDir(target)) bytes = joinBytes(await this.fs.readBytes(target), bytes);
-      return MG.wasm.writeBytes(this.fs, this.fs.resolve(target), bytes);
+      return MG.exec.writeBytes(this.fs, this.fs.resolve(target), bytes);
     }
 
     async dispatch(name, ctx) {
@@ -1968,9 +1965,9 @@ Try 'ls --help' for more information.`, 2);
   /** a date as GNU date reads it ("next month", "3 weeks ago", 01/15/2024, "Mon, 15 Jan 2024 10:30 +0000") → the
       time in milliseconds, or NaN. The date program itself does the reading. */
   async function gnuDate(ctx, text) {
-    if (MG.wasm && MG.wasm.run) {
+    if (MG.exec.backend) {
       try {
-        const r = await MG.wasm.run(Object.assign({}, ctx, { stdin: '', inherit: null, name: 'date', args: [], mergeStderr: false }), 'date', ['-d', text, '+%s %N']);
+        const r = await MG.exec.run(Object.assign({}, ctx, { stdin: '', inherit: null, name: 'date', args: [], mergeStderr: false }), 'date', ['-d', text, '+%s %N']);
         const m = /^(-?\d+) (\d{9})\s*$/.exec(r.stdout || '');
         return r.code === 0 && m ? +m[1] * 1000 + Math.floor(+m[2] / 1e6) : NaN;
       } catch (e) {

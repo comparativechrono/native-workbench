@@ -31,7 +31,7 @@
       const rest = MG.shellUtil.inherited ? MG.shellUtil.inherited(ctx) : null;
       return rest == null ? new Uint8Array(0) : enc.encode(rest);
     }
-    if (MG.FileRef && s instanceof MG.FileRef) return await MG.wasm.readBytes(s.apath);
+    if (MG.FileRef && s instanceof MG.FileRef) return await MG.exec.readBytes(s);
     return typeof s === 'string' ? enc.encode(s) : s instanceof Uint8Array ? s : enc.encode(String(s));
   }
 
@@ -1483,7 +1483,7 @@
 
   /* ------------------------------------------------------------------ help */
   B.help = (ctx) => {
-    const v = (MG.wasm && MG.wasm.versions) || {};
+    const v = MG.exec.versions;
     const has = (n) => !!(MG.shellTools && MG.shellTools[n]);
     // a program, its version, and what it is for – the descriptions start in one column
     const row = (name, text) => '  ' + name.padEnd(34) + text;

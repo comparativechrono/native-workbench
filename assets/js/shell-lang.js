@@ -2423,16 +2423,16 @@
   };
   /** The input of a block, a function or a script, as the commands in it read it: { text, pos } – read takes a
       line, a program takes what it reads (see inherited() in shell.js and _run in tools-wasm.js), and what is left
-      is there for the next command. pipe: it came through a pipe (a program cannot go back in it); path, apath:
+      is there for the next command. pipe: it came through a pipe (a program cannot go back in it); path, handle:
       the file it is (a program that reads it from the start gets the file itself, byte for byte).
       s: a text that was piped in, a file of the programs, or the stream of the caller (which is then shared). */
   /** … < /dev/null: an empty input that is a device ([ -c /dev/stdin ]), not a pipe ([ -p /dev/stdin ]) */
-  const devStream = (s, opts) => (s && opts && opts.stdinDev && s.text === '' && !s.path && !s.apath ? Object.assign({}, s, { dev: true, pipe: false }) : s);
+  const devStream = (s, opts) => (s && opts && opts.stdinDev && s.text === '' && !s.path && !s.handle ? Object.assign({}, s, { dev: true, pipe: false }) : s);
   Shell.prototype._stream = async function (s) {
     if (s == null) return null;
     if (typeof s === 'string') return { text: s, pos: 0, pipe: true };
-    // (apath: the file itself – the first program that reads gets it byte for byte: cat x.bam | { samtools view -c -; })
-    if (MG.FileRef && s instanceof MG.FileRef) return { text: await MG.wasm.readText(s.apath), pos: 0, pipe: !s.fromFile, apath: s.apath };
+    // (handle: the file itself – the first program that reads gets it byte for byte: cat x.bam | { samtools view -c -; })
+    if (MG.FileRef && s instanceof MG.FileRef) return { text: await MG.exec.readText(s), pos: 0, pipe: !s.fromFile, handle: s.handle };
     return s;
   };
   /* An associative array (declare -A). bash keeps one in a hash table, and "${!m[@]}", "${m[@]}" and declare -p
@@ -4763,14 +4763,14 @@
         }
         codes.push(code);
         if (last) break;
-        if (sink.binary && MG.wasm) {
-          stdin = await MG.wasm.tempBytes(sink.bytes(), true);
-          MG.wasm.hold(stdin.apath);
-          held.push(stdin.apath);
+        if (sink.binary && MG.exec.backend) {
+          stdin = await MG.exec.tempBytes(sink.bytes(), true);
+          MG.exec.hold(stdin);
+          held.push(stdin);
         } else stdin = sink.text();
       }
     } finally {
-      held.forEach((f) => MG.wasm.release(f));
+      held.forEach((f) => MG.exec.release(f));
       if (!hadFresh) this._fresh = null;
       if (opening) this._opening.pop();
     }
@@ -5978,7 +5978,7 @@
     if (fd != null && fd !== 0) {
       src = st.fds && st.fds[fd] && st.fds[fd].in;
       if (!src) throw userErr(`bash: read: ${fd}: invalid file descriptor: Bad file descriptor`);
-    } else if (ctx.stdin != null) src = { text: typeof ctx.stdin === 'string' ? ctx.stdin : await MG.wasm.readText(ctx.stdin.apath), pos: 0 };
+    } else if (ctx.stdin != null) src = { text: typeof ctx.stdin === 'string' ? ctx.stdin : await MG.exec.readText(ctx.stdin), pos: 0 };
     else if (st.stdin) src = st.stdin;
     if (!src) {
       ctx.io.note('read: this terminal cannot ask you for input – give the value on the command line or in a variable.');
@@ -7847,7 +7847,7 @@
       // -u N: from descriptor N (exec 3< FILE; mapfile -t -u 3 lines)
       src = st.fds && st.fds[fd] && st.fds[fd].in;
       if (!src) throw userErr(`bash: ${ctx.name}: ${fd}: invalid file descriptor: Bad file descriptor`);
-    } else if (ctx.stdin != null) src = { text: typeof ctx.stdin === 'string' ? ctx.stdin : await MG.wasm.readText(ctx.stdin.apath), pos: 0 };
+    } else if (ctx.stdin != null) src = { text: typeof ctx.stdin === 'string' ? ctx.stdin : await MG.exec.readText(ctx.stdin), pos: 0 };
     else if (st.stdin) src = st.stdin;
     if (!src) {
       ctx.io.note(`${ctx.name}: this terminal cannot ask you for input – give it a file:  ${ctx.name} -t ${name} < FILE`);
@@ -8152,7 +8152,7 @@
     }
     if (!args.length || fromInput) {
       // bash without a script: its commands are its input (echo 'ls' | bash) – that of the block it stands in, too
-      const script = ctx.stdin != null ? (typeof ctx.stdin === 'string' ? ctx.stdin : await MG.wasm.readText(ctx.stdin.apath)) : MG.shellUtil.inherited(ctx);
+      const script = ctx.stdin != null ? (typeof ctx.stdin === 'string' ? ctx.stdin : await MG.exec.readText(ctx.stdin)) : MG.shellUtil.inherited(ctx);
       if (script != null) return ctx.shell.exec(script, io, { fromStdin: true, st: stOf(ctx), shopt: shopts, flags: f, errexit: !!f.e, nounset: !!f.u, xtrace: !!f.x, verbose: !!f.v, pipefail: !!f.pipefail, stdin: '', args: fromInput ? args : undefined });
       ctx.io.note('You are already in a bash-like shell. To run a script:  bash script.sh');
       return 0;
@@ -8183,7 +8183,7 @@
     if (!ctx.args.length) throw userErr(`bash: ${name}: filename argument required\n${name}: usage: ${name} filename [arguments]`, 2);
     const path = ctx.args[0], st = stOf(ctx);
     if (/^\/dev\/(stdin|fd\/0)$/.test(path)) {
-      const text = ctx.stdin != null ? (typeof ctx.stdin === 'string' ? ctx.stdin : await MG.wasm.readText(ctx.stdin.apath)) : MG.shellUtil.inherited(ctx) || '';
+      const text = ctx.stdin != null ? (typeof ctx.stdin === 'string' ? ctx.stdin : await MG.exec.readText(ctx.stdin)) : MG.shellUtil.inherited(ctx) || '';
       return ctx.shell.runScript(path, ctx.args.slice(1), innerIO(ctx), { st, sourced: true, text });
     }
     if (path === '/dev/null') return 0;

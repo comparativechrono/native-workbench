@@ -338,7 +338,7 @@ Options:
     const fail = (msg) => { ctx.err(`\nCONFIGURATION ERROR:\n${msg}\n\n`); return 1; };
     const sq = [];
     for (const [b] of bams) {
-      const r = await MG.wasm.run({ ...ctx, stdin: null, inherit: null, redirectTarget: null, mergeStderr: false }, 'samtools', ['view', '-H', b]);
+      const r = await MG.exec.run({ ...ctx, stdin: null, inherit: null, redirectTarget: null, mergeStderr: false }, 'samtools', ['view', '-H', b]);
       if (r.code) { ctx.err(r.stderr); return fail(`Can't read the header of the BAM/CRAM file: '${b}'`); }
       const info = new Map();
       for (const line of r.stdout.split('\n')) if (line.startsWith('@SQ\t')) {
