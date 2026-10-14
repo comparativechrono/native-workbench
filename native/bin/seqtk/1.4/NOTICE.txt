@@ -1,0 +1,10 @@
+seqtk 1.4 – native build for the local runner of native-workbench
+
+File: seqtk.exe (430226 bytes), SHA-256 f36ef9279e9ef6347cbd44740a5892d43a0564d0980f151c726478056b16920b
+What it is: a Cosmopolitan "actually portable executable" – a Windows program; on Linux and macOS (x86-64) the loader in native/bin starts it.
+Licence: MIT (the licence files in this folder); Cosmopolitan's C library, which it contains: ISC, with the notices of its parts in native/bin/licenses/cosmopolitan-3.3.10.
+Source: https://codeload.github.com/lh3/seqtk/tar.gz/refs/tags/v1.4 (SHA-256 d124604ec24f29ed14ce127426ab90e0f3a2c0280c80d1a3ff8b1c09feede19c)
+Recipe: native/workbench/baselines/build_upstream.py, native/workbench/vendor/provenance.json, run by native/build.py with cosmocc 3.3.10 (https://cosmo.zip/pub/cosmocc/cosmocc-3.3.10.zip, SHA-256 00d61c1215667314f66e288c8285bae38cc6137fca083e5bba6c74e3a52439de).
+Changes: None to the source.
+Threads: no – the terminal leaves the option out, with a note.
+Built and installed on 2026-10-14.

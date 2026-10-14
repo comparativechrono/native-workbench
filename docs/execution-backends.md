@@ -1,6 +1,7 @@
 # Execution backends
 
-These are steps 1 and 2 of the plan in the memory review of 13 October 2026.
+These are steps 1 and 2 of the plan in the memory review of 13 October 2026, and phase 1 of the roadmap that
+followed it (native programs in the local runner).
 
 - **Step 1, an execution-backend boundary.** Every part of the workbench that runs a program, or touches the bytes
   that programs read and write, does so through one object, `MG.exec` (`assets/js/exec.js`).
@@ -10,11 +11,15 @@ These are steps 1 and 2 of the plan in the memory review of 13 October 2026.
   From the page, SAMtools sorted a 5 GiB BAM file (18.8 GiB of records) in 380 MiB of memory. That is more than twice
   the 2 GiB a program may have, and nine times as much uncompressed. The result is the same as native SAMtools'
   (see below).
+- **Phase 1, native programs in the local runner.** Where `native/bin` has a program built for the computer itself,
+  the runner runs that one in place of the WebAssembly build: SAMtools, BCFtools, bgzip, tabix, minimap2, BWA,
+  FreeBayes, fastp and seqtk, as Cosmopolitan executables that run on Windows, Linux and macOS (see
+  [Native programs](#native-programs-in-the-local-runner) below).
 
 | Backend | Files | Status |
 | --- | --- | --- |
 | `browser` | `assets/js/exec-browser.js` | The default. The programs run in the page, compiled to WebAssembly, exactly as before. |
-| `local` | `assets/js/exec-local.js`, `runner/` | The programs run on this computer, in the local runner, with their files in a folder on disk. Every program of the Biowasm builds (SAMtools, BCFtools, minimap2, BWA, HISAT2, …, the GNU tools); not yet the programs with a worker of their own (below). |
+| `local` | `assets/js/exec-local.js`, `runner/` | The programs run on this computer, in the local runner, with their files in a folder on disk. Every program of the Biowasm builds (SAMtools, BCFtools, minimap2, BWA, HISAT2, …, the GNU tools) – nine of them as native programs; not yet the programs with a worker of their own (below). |
 
 `tools-wasm.js` holds only the terminal's commands for the programs (the wrappers, the options these builds cannot
 take, gzip, grep -P, where a program's output goes). It reaches the programs through `MG.exec` alone.
@@ -192,10 +197,11 @@ node runner/runner.mjs --workspace ~/my-analysis     # then open the address it 
 | --- | --- | --- |
 | Where the files are | in the browser's memory (kept in its storage between visits) | in a folder on disk |
 | Largest file | what a browser tab can hold, in all | what the disk can hold |
-| A program's memory | 2 GiB (32-bit WebAssembly) | 2 GiB (the same builds); step 5 lifts it |
-| Threads | featureCounts, Salmon …; the Biowasm programs run on one | one (the Biowasm builds) |
+| The programs | WebAssembly builds | the nine native programs of `native/bin` (newer versions: see [Native programs](#native-programs-in-the-local-runner)); the rest the same WebAssembly builds |
+| A program's memory | 2 GiB (32-bit WebAssembly) | the computer's, for a native program; 2 GiB for a WebAssembly build |
+| Threads | featureCounts, Salmon …; the Biowasm programs run on one | minimap2, BWA and fastp natively; one for the HTSlib programs and the WebAssembly builds |
 | Forced stop | can lose the files the programs held (the terminal lists them) | only the program stops; nothing is lost |
-| Writing into the example data | undone after the run, with a message | refused by the system ("Permission denied"), with the same message |
+| Writing into the example data | undone after the run, with a message | a WebAssembly build: refused ("Permission denied"); a native program: undone in its copy after the run, with the browser's message |
 | featureCounts, Salmon, PLINK 2, Cutadapt, MACS3, LoFreq, SomaticSniper, Strelka2, Kraken2, Bracken, Prodigal, HMMER, bustools | yes | not yet: the terminal says so |
 | Pages | any number of tabs | one page per runner |
 
@@ -206,9 +212,9 @@ the terminal until step 6.
 
 | Request | For |
 | --- | --- |
-| `GET /api/v1/hello` | `connect`: `{ protocol, runner, version, node, workspace: { root }, busy, last }` |
+| `GET /api/v1/hello` | `connect`: `{ protocol, runner, version, node, workspace: { root }, busy, last, programs, native }` (`programs`: the native ones, name → `{ tool, version, threads }`) |
 | `GET /api/v1/run` | a run that went on while the page was away: `{ busy, last }` |
-| `POST /api/v1/exec` | `cli.execIO`: `{ spec: [tool, version, program], args, io, cwd }` → when it has ended, `{ code, error, stdinPos, stdinMax, order, memory, secs }` |
+| `POST /api/v1/exec` | `cli.execIO`: `{ spec: [tool, version, program], args, io, cwd }` → when it has ended, `{ code, error, stdinPos, stdinMax, order, memory, secs }`; a native program's also `native`, `refused`, `denied` |
 | `POST /api/v1/kill` | `kill` |
 | `POST /api/v1/fs` | `cli.fs` and `statTree`: `{ op: lstat \| readdir \| mkdir \| unlink \| rmdir \| chmod \| utime \| rename \| copy \| redirect \| tree \| peek \| readSmall, … }` |
 | `GET`/`HEAD /api/v1/file?path=P` | `cli.fs.readFile` (with `Range`, for viewers later) |
@@ -275,6 +281,108 @@ threaded builds of step 3).
 
 The full measurements of this run, with a sample of the memory, disk and traffic every five seconds, are in
 `docs/prototype-sort-2026-10-14.json` (the script writes them to `tests/results/prototype-sort.json`).
+
+## Native programs in the local runner
+
+Phase 1 of the roadmap. The runner runs a program built for the computer itself where `native/bin` has one, and the
+program's WebAssembly build otherwise (`runner/native.mjs`; `runner.mjs --no-native` turns it off).
+
+| Program | Native | The browser's build | Threads natively |
+| --- | --- | --- | --- |
+| SAMtools | 1.24 | 1.17 | no (`-@` is left out, with a note) |
+| BCFtools | 1.24 | 1.10 | no |
+| bgzip, tabix (and gzip, gunzip, zcat, which bgzip carries out) | HTSlib 1.24 | HTSlib 1.17 | no |
+| minimap2 | 2.28 | 2.22 | yes (`-t`) |
+| BWA | 0.7.19 | 0.7.19 | yes (`-t`) |
+| FreeBayes | 1.3.10 | 1.3.6 | – |
+| fastp | 1.3.7 | 0.20.1 | yes (`-w`) |
+| seqtk | 1.4 | 1.4 | – |
+
+**The programs.** They are Native Workbench's Cosmopolitan builds, made again from its recipes by `native/build.py`
+(`native/README.md`): one executable per program, which is a Windows program and, started by a 9 KB loader, a Linux
+and a macOS (x86-64) one. `native/bin/programs.json` lists them with their SHA-256, which the runner checks when it
+starts. The HTSlib programs cannot use threads: HTSlib's thread pool waits on a condition variable with a recursive
+mutex, which Cosmopolitan 3.3.10 refuses (`nsync panic: pthread cond needs normal mutex`, at once). The terminal
+already leaves `-@` out for the browser's builds; it now says why for the native ones.
+
+**How a run goes.** The page asks for a run exactly as before (`POST /api/v1/exec` with the program's WebAssembly
+spec, its arguments, the files of its input, output and messages, its working folder and environment). For a program
+that `native/bin` has, the runner:
+
+- gives it the folder on disk as its working folder, and the paths on disk for the page's absolute paths in its
+  arguments – whole, glued to a one-letter option (`-o/home/user/x.bam`) or after `--option=`. A relative path that
+  would leave the page's folder (`../..`) or reach `.workbench` gets the place the page's programs would reach;
+- binds its standard input, output and error to the files the page named (the input stays open in the runner too: the
+  position the program left it at is how far it read, which `while read` loops and blocks need);
+- gives it the variables the shell exports (paths among them on disk), a temporary folder (`.workbench/tmp`) and the
+  folder as `HOME`;
+- starts it – on Windows the executable itself, with its name as `argv[0]`; elsewhere the loader, `ape - PROGRAM NAME
+  ARGS…`, which sets `argv[0]` too (BWA and minimap2 print it in their `@PG` lines);
+- afterwards gives the paths on disk in its messages the page's names back; puts what fastp's report needs next to it
+  (Plotly's script: the report was changed to load it from there, not from the web); and undoes anything the program
+  did to the example data.
+
+A forced stop ends the program's process group (on Windows, its process tree: `taskkill /T`). What the program wrote so
+far stays; nothing else is lost.
+
+**The AI agent's commands stay confined.** A native program runs with the user's rights; the runner keeps its
+arguments inside the page's folders, but cannot stop a program that makes up a path itself. So a command that the AI
+agent runs (the engine sees its file system, which notes every path) is marked `confined`, and the runner runs the
+WebAssembly build for it, whose files are only the runner's folders – as the roadmap's risks require until native
+programs can be confined too.
+
+**The example data.** A native program writes real files, so the runner gives it a copy of the example data of its
+own (`.workbench/examples`, its files read-only where the system allows) and compares the copy with the site's after
+every run. What a program made there is removed, what it changed or removed is put back, and the run says which
+(`refused`, `denied`): the terminal says what it says in the browser ("… is read-only (the example data): the change
+to it was undone"). The site's own example data is never written.
+
+**What a user sees differ from the browser.** The native programs are newer versions, and that shows:
+
+- minimap2 2.28 writes an `@HD` line at the top of its SAM output (2.22 did not); the records are the same;
+- BCFtools 1.24 annotates its calls as current BCFtools does (Mann-Whitney U-z tests, `AD`, a sanity warning about
+  `MQ` from HTSlib 1.24) and finds 62 variants in the parity suite's example where 1.10 finds 60;
+- a program records the paths it was given, as on any computer: the `@PG` line of a BAM file names the folder on disk
+  (for the example data, the runner's copy of it);
+- compressed files (BAM, `.vcf.gz`, `.gz`) hold the same, but their bytes – and the indexes that point into them – can
+  differ from the browser's: Cosmopolitan's zlib is Chromium's, which compresses differently.
+
+**Tests.** Each checks one claim (`tests/README.md`):
+
+| Test | What it shows | Result (14 October 2026) |
+| --- | --- | --- |
+| `native-programs.mjs` | The runner runs a native program as it runs when started by hand – 37 commands of all nine programs, typed into the terminal and run in bash with the same executables: output, messages, exit status and every file, byte for byte (times masked) | 37 steps, 1,774 comparisons: the same |
+| … the same commands, by hand | The Cosmopolitan builds compute what the Linux builds of the same sources compute (`native/build.py` makes both): every file's content, unpacked | the same; their compressed bytes differ (zlib) |
+| `local-runner.mjs` | The native programs' versions in the page; paths in and messages out; the example data kept; threads where a build has them; fastp's report; the AI agent's commands confined; a forced stop that leaves no process | 33 checks passed (9 of them new) |
+| Parity suite, `--runner` against `--runner --wasm` | The terminal around the programs behaves the same with native programs – pipes, blocks, `< FILE`, redirections, loops reading program output, copies and moves | 51 steps: the same, but where the versions differ – every difference comes from minimap2's `@HD` line and BCFtools 1.24's calls (`compare.mjs --content`) |
+| Parity suite in the browser, before and after | The browser's backend is unchanged | 67 steps, 2,996 comparisons: identical |
+| `prototype/sort-big-bam.mjs` | The 5 GiB sort, with native SAMtools 1.24 | 19 checks passed; below |
+| `native/build.py`, twice | The programs of `native/bin` can be made again | built twice in `/tmp/native-workbench-build`: all nine byte for byte the same |
+
+**The 5 GiB sort, natively.** The prototype again (`tests/prototype/sort-big-bam.mjs`), on the same machine and the
+same input (60,000,000 reads, 5.01 GiB; made again by `make-unsorted-sam.mjs --seed 1`), with the runner's native
+SAMtools 1.24. The full measurements: `docs/prototype-sort-native-2026-10-14.json`.
+
+| | Native SAMtools 1.24, from the page | WebAssembly SAMtools 1.17, from the page (first prototype) | SAMtools 1.24 built for Linux, by hand |
+| --- | --- | --- | --- |
+| `samtools sort -m 256M` | **1,079 s** (18.0 min) | 1,776 s (29.6 min) | 1,247 s |
+| Memory of the program at its peak | 345 MiB | 380 MiB of WebAssembly memory | 364 MiB |
+| The runner at its peak | 83 MiB | 462 MiB (it held the program) | – |
+| `samtools index` | 47 s | 101 s | – |
+| Between page and runner during the sort | 13 requests, 1.1 KiB sent, 37.5 KiB received | 16 requests, 1.3 KiB sent, 49.6 KiB received | – |
+| The page's JavaScript heap | 5.0 MiB before, 5.5 MiB at most | 5.2 MiB before, 5.8 MiB at most | – |
+
+The result is that of the Linux build: the same header but for its `@PG` lines, the same records in the same order
+(`samtools view` of both: 23.46 GiB, the same SHA-256), the same `idxstats` and counts of a region, before and after a
+reload of the page. Only the compressed bytes differ (zlib). The Cosmopolitan build is faster than the Linux build of
+the same source, by 13 %: its zlib is Chromium's. All on one thread: `-@` does not work in these builds, and with it a
+sort spreads its compression over the processor's cores.
+
+**Not yet.** The programs with a worker of their own (featureCounts, Salmon, LoFreq …); the native programs of Native
+Workbench that are Windows programs only (LLVM-MinGW, MSVC and upstream builds: HISAT2, Bowtie 2, Kraken2 …), and
+those that need Java, Python or R. None of this has run on Windows yet: the Cosmopolitan executables are Windows
+programs, and the runner has the Windows code paths (the executable started by itself, `taskkill`, the system's
+variables), but phase 2 is where they are tested, on the reference laptop.
 
 ## Tests
 

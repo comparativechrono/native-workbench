@@ -1,0 +1,2406 @@
+{
+ "date": "2026-10-14T21:14:33.859Z",
+ "machine": {
+  "os": "Linux 6.18.44-fc-v114",
+  "cpu": "Intel(R) Xeon(R) Processor @ 2.80GHz",
+  "cpus": 2,
+  "memory": 8419655680
+ },
+ "versions": {
+  "node": "22.22.0",
+  "browser": "156.0.8078.4",
+  "playwright": "1.64.1",
+  "samtoolsInPage": "samtools 1.24\nUsing htslib 1.24",
+  "native": "samtools 1.24; Using htslib 1.24",
+  "nativeBuild": "the Linux build of native/build.py (native/workbench/build_variant.py --build linux), from the same sources as the page's; gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0"
+ },
+ "build": {
+  "kind": "native",
+  "samtools": "samtools 1.24 with htslib 1.24, a Cosmopolitan executable built by native/build.py (samtools/1.24/samtools.exe)",
+  "toolchain": "cosmocc 3.3.10",
+  "sha256": "69bcc2bf7a58ceec303cf3cfeb74ae9afe191d59a7bcabd275e64eca8290a832",
+  "threads": false
+ },
+ "dataset": {
+  "file": "unsorted.bam (tests/prototype/make-unsorted-sam.mjs --reads 60000000 --seed 1, then samtools view -b)",
+  "bytes": 5376906979,
+  "sortedBytes": 3900095831,
+  "reads": 60000000
+ },
+ "command": "samtools sort -m 256M -o sorted.bam unsorted.bam",
+ "phases": {
+  "sort": {
+   "name": "sort",
+   "line": "cd ~ && samtools sort -m 256M -o sorted.bam unsorted.bam",
+   "code": 0,
+   "stdout": "",
+   "stderr": "[bam_sort_core] merging from 22 files and 1 in-memory blocks...\n",
+   "wall": 1079.1,
+   "start": {
+    "runner": 78290944,
+    "browser": 512167936,
+    "renderer": 164155392,
+    "jsHeap": 5200028
+   },
+   "peak": {
+    "runner": 85835776,
+    "runnerPeak": 87474176,
+    "program": 362090496,
+    "programPeak": 362090496,
+    "browser": 841445376,
+    "renderer": 478068736,
+    "jsHeap": 5816300,
+    "jsHeapTotal": 9244672,
+    "temp": 5859522591,
+    "tempFiles": 36,
+    "output": 3900095831,
+    "extra": 8993787894,
+    "minFree": 13253181440
+   },
+   "traffic": {
+    "requests": 13,
+    "sent": 1164,
+    "received": 38426
+   },
+   "series": [
+    {
+     "t": 0,
+     "runnerRSS": 78290944,
+     "programRSS": 0,
+     "browserRSS": 512167936,
+     "jsHeap": 5200028,
+     "temp": 1195,
+     "output": 0
+    },
+    {
+     "t": 5.2,
+     "runnerRSS": 78344192,
+     "programRSS": 289062912,
+     "browserRSS": 615616512,
+     "jsHeap": 5745944,
+     "temp": 64569679,
+     "output": 0
+    },
+    {
+     "t": 10.3,
+     "runnerRSS": 82333696,
+     "programRSS": 291168256,
+     "browserRSS": 793243648,
+     "jsHeap": 5761752,
+     "temp": 131552446,
+     "output": 0
+    },
+    {
+     "t": 15.3,
+     "runnerRSS": 85835776,
+     "programRSS": 291172352,
+     "browserRSS": 841322496,
+     "jsHeap": 5779156,
+     "temp": 217179304,
+     "output": 0
+    },
+    {
+     "t": 20.3,
+     "runnerRSS": 85835776,
+     "programRSS": 291172352,
+     "browserRSS": 838717440,
+     "jsHeap": 5792736,
+     "temp": 313288151,
+     "output": 0
+    },
+    {
+     "t": 25.4,
+     "runnerRSS": 85835776,
+     "programRSS": 289067008,
+     "browserRSS": 839143424,
+     "jsHeap": 5806316,
+     "temp": 388234309,
+     "output": 0
+    },
+    {
+     "t": 30.4,
+     "runnerRSS": 82440192,
+     "programRSS": 291172352,
+     "browserRSS": 830382080,
+     "jsHeap": 4220436,
+     "temp": 467666354,
+     "output": 0
+    },
+    {
+     "t": 35.5,
+     "runnerRSS": 82440192,
+     "programRSS": 291172352,
+     "browserRSS": 802451456,
+     "jsHeap": 4234276,
+     "temp": 555488237,
+     "output": 0
+    },
+    {
+     "t": 40.6,
+     "runnerRSS": 81469440,
+     "programRSS": 291172352,
+     "browserRSS": 800829440,
+     "jsHeap": 4125340,
+     "temp": 643336942,
+     "output": 0
+    },
+    {
+     "t": 45.7,
+     "runnerRSS": 81469440,
+     "programRSS": 289067008,
+     "browserRSS": 801288192,
+     "jsHeap": 4139180,
+     "temp": 712027820,
+     "output": 0
+    },
+    {
+     "t": 50.8,
+     "runnerRSS": 81469440,
+     "programRSS": 291172352,
+     "browserRSS": 801665024,
+     "jsHeap": 4163052,
+     "temp": 791482535,
+     "output": 0
+    },
+    {
+     "t": 55.9,
+     "runnerRSS": 81469440,
+     "programRSS": 291172352,
+     "browserRSS": 802160640,
+     "jsHeap": 4174852,
+     "temp": 875139471,
+     "output": 0
+    },
+    {
+     "t": 61,
+     "runnerRSS": 81469440,
+     "programRSS": 291172352,
+     "browserRSS": 794419200,
+     "jsHeap": 4186432,
+     "temp": 956663340,
+     "output": 0
+    },
+    {
+     "t": 66.1,
+     "runnerRSS": 81469440,
+     "programRSS": 289067008,
+     "browserRSS": 794103808,
+     "jsHeap": 4198348,
+     "temp": 1035928973,
+     "output": 0
+    },
+    {
+     "t": 71.2,
+     "runnerRSS": 81469440,
+     "programRSS": 291172352,
+     "browserRSS": 793067520,
+     "jsHeap": 4210148,
+     "temp": 1106830745,
+     "output": 0
+    },
+    {
+     "t": 76.3,
+     "runnerRSS": 81469440,
+     "programRSS": 291172352,
+     "browserRSS": 793473024,
+     "jsHeap": 4221728,
+     "temp": 1200859826,
+     "output": 0
+    },
+    {
+     "t": 81.4,
+     "runnerRSS": 81436672,
+     "programRSS": 291172352,
+     "browserRSS": 793821184,
+     "jsHeap": 4233528,
+     "temp": 1294574576,
+     "output": 0
+    },
+    {
+     "t": 86.5,
+     "runnerRSS": 81436672,
+     "programRSS": 290668544,
+     "browserRSS": 794374144,
+     "jsHeap": 4245328,
+     "temp": 1359220937,
+     "output": 0
+    },
+    {
+     "t": 91.6,
+     "runnerRSS": 81059840,
+     "programRSS": 291172352,
+     "browserRSS": 795029504,
+     "jsHeap": 4257808,
+     "temp": 1449112883,
+     "output": 0
+    },
+    {
+     "t": 96.6,
+     "runnerRSS": 81059840,
+     "programRSS": 291172352,
+     "browserRSS": 795533312,
+     "jsHeap": 4269608,
+     "temp": 1530584133,
+     "output": 0
+    },
+    {
+     "t": 101.7,
+     "runnerRSS": 81059840,
+     "programRSS": 289067008,
+     "browserRSS": 795398144,
+     "jsHeap": 4281188,
+     "temp": 1618009965,
+     "output": 0
+    },
+    {
+     "t": 106.7,
+     "runnerRSS": 81059840,
+     "programRSS": 291172352,
+     "browserRSS": 796004352,
+     "jsHeap": 4292768,
+     "temp": 1686908224,
+     "output": 0
+    },
+    {
+     "t": 111.8,
+     "runnerRSS": 81059840,
+     "programRSS": 291172352,
+     "browserRSS": 796577792,
+     "jsHeap": 4304568,
+     "temp": 1780924580,
+     "output": 0
+    },
+    {
+     "t": 116.8,
+     "runnerRSS": 81059840,
+     "programRSS": 291172352,
+     "browserRSS": 796749824,
+     "jsHeap": 4316148,
+     "temp": 1872874103,
+     "output": 0
+    },
+    {
+     "t": 121.9,
+     "runnerRSS": 81190912,
+     "programRSS": 289071104,
+     "browserRSS": 797741056,
+     "jsHeap": 4327728,
+     "temp": 1941402515,
+     "output": 0
+    },
+    {
+     "t": 126.9,
+     "runnerRSS": 81190912,
+     "programRSS": 291172352,
+     "browserRSS": 798318592,
+     "jsHeap": 4339308,
+     "temp": 2020736927,
+     "output": 0
+    },
+    {
+     "t": 132,
+     "runnerRSS": 81190912,
+     "programRSS": 362057728,
+     "browserRSS": 798859264,
+     "jsHeap": 4351108,
+     "temp": 2097998941,
+     "output": 0
+    },
+    {
+     "t": 137.1,
+     "runnerRSS": 81190912,
+     "programRSS": 362057728,
+     "browserRSS": 799416320,
+     "jsHeap": 4362688,
+     "temp": 2196565085,
+     "output": 0
+    },
+    {
+     "t": 142.1,
+     "runnerRSS": 81190912,
+     "programRSS": 362061824,
+     "browserRSS": 800006144,
+     "jsHeap": 4374384,
+     "temp": 2284645469,
+     "output": 0
+    },
+    {
+     "t": 147.2,
+     "runnerRSS": 81190912,
+     "programRSS": 362061824,
+     "browserRSS": 800583680,
+     "jsHeap": 4391260,
+     "temp": 2379017309,
+     "output": 0
+    },
+    {
+     "t": 152.3,
+     "runnerRSS": 81190912,
+     "programRSS": 362057728,
+     "browserRSS": 801226752,
+     "jsHeap": 4403080,
+     "temp": 2469194845,
+     "output": 0
+    },
+    {
+     "t": 157.3,
+     "runnerRSS": 81190912,
+     "programRSS": 362057728,
+     "browserRSS": 801763328,
+     "jsHeap": 4414660,
+     "temp": 2563566685,
+     "output": 0
+    },
+    {
+     "t": 162.4,
+     "runnerRSS": 81190912,
+     "programRSS": 362057728,
+     "browserRSS": 802263040,
+     "jsHeap": 4426240,
+     "temp": 2664229981,
+     "output": 0
+    },
+    {
+     "t": 167.5,
+     "runnerRSS": 81190912,
+     "programRSS": 362057728,
+     "browserRSS": 802787328,
+     "jsHeap": 4437820,
+     "temp": 2764893277,
+     "output": 0
+    },
+    {
+     "t": 172.5,
+     "runnerRSS": 81190912,
+     "programRSS": 362057728,
+     "browserRSS": 803217408,
+     "jsHeap": 4449400,
+     "temp": 2865556573,
+     "output": 0
+    },
+    {
+     "t": 177.6,
+     "runnerRSS": 81190912,
+     "programRSS": 362057728,
+     "browserRSS": 803786752,
+     "jsHeap": 4461200,
+     "temp": 2964122717,
+     "output": 0
+    },
+    {
+     "t": 182.6,
+     "runnerRSS": 81190912,
+     "programRSS": 362061824,
+     "browserRSS": 804380672,
+     "jsHeap": 4472780,
+     "temp": 3062688861,
+     "output": 0
+    },
+    {
+     "t": 187.7,
+     "runnerRSS": 81190912,
+     "programRSS": 362061824,
+     "browserRSS": 804945920,
+     "jsHeap": 4484360,
+     "temp": 3163352157,
+     "output": 0
+    },
+    {
+     "t": 192.7,
+     "runnerRSS": 81190912,
+     "programRSS": 362061824,
+     "browserRSS": 805486592,
+     "jsHeap": 4496160,
+     "temp": 3266112605,
+     "output": 0
+    },
+    {
+     "t": 197.7,
+     "runnerRSS": 81190912,
+     "programRSS": 362061824,
+     "browserRSS": 806043648,
+     "jsHeap": 4507740,
+     "temp": 3368873053,
+     "output": 0
+    },
+    {
+     "t": 202.8,
+     "runnerRSS": 81190912,
+     "programRSS": 362061824,
+     "browserRSS": 806567936,
+     "jsHeap": 4519320,
+     "temp": 3473730653,
+     "output": 0
+    },
+    {
+     "t": 207.8,
+     "runnerRSS": 81190912,
+     "programRSS": 362061824,
+     "browserRSS": 807198720,
+     "jsHeap": 4530900,
+     "temp": 3574393949,
+     "output": 0
+    },
+    {
+     "t": 212.9,
+     "runnerRSS": 81190912,
+     "programRSS": 362061824,
+     "browserRSS": 807694336,
+     "jsHeap": 4542480,
+     "temp": 3668765789,
+     "output": 0
+    },
+    {
+     "t": 218,
+     "runnerRSS": 81190912,
+     "programRSS": 362061824,
+     "browserRSS": 808267776,
+     "jsHeap": 4554280,
+     "temp": 3767331933,
+     "output": 0
+    },
+    {
+     "t": 223,
+     "runnerRSS": 81190912,
+     "programRSS": 362061824,
+     "browserRSS": 808808448,
+     "jsHeap": 4566080,
+     "temp": 3863800925,
+     "output": 0
+    },
+    {
+     "t": 228.1,
+     "runnerRSS": 81190912,
+     "programRSS": 362061824,
+     "browserRSS": 809381888,
+     "jsHeap": 4577776,
+     "temp": 3956075613,
+     "output": 0
+    },
+    {
+     "t": 233.2,
+     "runnerRSS": 81154048,
+     "programRSS": 291225600,
+     "browserRSS": 809869312,
+     "jsHeap": 4589356,
+     "temp": 1931034832,
+     "output": 0
+    },
+    {
+     "t": 238.2,
+     "runnerRSS": 81154048,
+     "programRSS": 291270656,
+     "browserRSS": 810328064,
+     "jsHeap": 4601156,
+     "temp": 2025042115,
+     "output": 0
+    },
+    {
+     "t": 243.3,
+     "runnerRSS": 81154048,
+     "programRSS": 289726464,
+     "browserRSS": 806825984,
+     "jsHeap": 3658872,
+     "temp": 2095688562,
+     "output": 0
+    },
+    {
+     "t": 248.3,
+     "runnerRSS": 81154048,
+     "programRSS": 291270656,
+     "browserRSS": 806313984,
+     "jsHeap": 3670452,
+     "temp": 2189688111,
+     "output": 0
+    },
+    {
+     "t": 253.4,
+     "runnerRSS": 81154048,
+     "programRSS": 291262464,
+     "browserRSS": 806375424,
+     "jsHeap": 3682252,
+     "temp": 2275351108,
+     "output": 0
+    },
+    {
+     "t": 258.4,
+     "runnerRSS": 81154048,
+     "programRSS": 289157120,
+     "browserRSS": 806412288,
+     "jsHeap": 3693832,
+     "temp": 2354384332,
+     "output": 0
+    },
+    {
+     "t": 263.5,
+     "runnerRSS": 80580608,
+     "programRSS": 291262464,
+     "browserRSS": 806400000,
+     "jsHeap": 3705412,
+     "temp": 2433748748,
+     "output": 0
+    },
+    {
+     "t": 268.6,
+     "runnerRSS": 80596992,
+     "programRSS": 291262464,
+     "browserRSS": 806756352,
+     "jsHeap": 3727028,
+     "temp": 2523619677,
+     "output": 0
+    },
+    {
+     "t": 273.6,
+     "runnerRSS": 80596992,
+     "programRSS": 289157120,
+     "browserRSS": 806608896,
+     "jsHeap": 3740024,
+     "temp": 2613085233,
+     "output": 0
+    },
+    {
+     "t": 278.6,
+     "runnerRSS": 80596992,
+     "programRSS": 291262464,
+     "browserRSS": 806686720,
+     "jsHeap": 3751604,
+     "temp": 2684080235,
+     "output": 0
+    },
+    {
+     "t": 283.7,
+     "runnerRSS": 80596992,
+     "programRSS": 291262464,
+     "browserRSS": 806834176,
+     "jsHeap": 3763404,
+     "temp": 2771851486,
+     "output": 0
+    },
+    {
+     "t": 288.8,
+     "runnerRSS": 80596992,
+     "programRSS": 291262464,
+     "browserRSS": 806932480,
+     "jsHeap": 3774984,
+     "temp": 2855404121,
+     "output": 0
+    },
+    {
+     "t": 293.8,
+     "runnerRSS": 80596992,
+     "programRSS": 289157120,
+     "browserRSS": 807088128,
+     "jsHeap": 3786564,
+     "temp": 2936641291,
+     "output": 0
+    },
+    {
+     "t": 298.9,
+     "runnerRSS": 80592896,
+     "programRSS": 291262464,
+     "browserRSS": 807342080,
+     "jsHeap": 3798364,
+     "temp": 3009716025,
+     "output": 0
+    },
+    {
+     "t": 304,
+     "runnerRSS": 80592896,
+     "programRSS": 291262464,
+     "browserRSS": 807489536,
+     "jsHeap": 3809944,
+     "temp": 3099601325,
+     "output": 0
+    },
+    {
+     "t": 309,
+     "runnerRSS": 80592896,
+     "programRSS": 291262464,
+     "browserRSS": 807653376,
+     "jsHeap": 3821524,
+     "temp": 3191598111,
+     "output": 0
+    },
+    {
+     "t": 314.1,
+     "runnerRSS": 80592896,
+     "programRSS": 305872896,
+     "browserRSS": 807657472,
+     "jsHeap": 3833324,
+     "temp": 3260178494,
+     "output": 0
+    },
+    {
+     "t": 319.1,
+     "runnerRSS": 80592896,
+     "programRSS": 291262464,
+     "browserRSS": 807874560,
+     "jsHeap": 3845020,
+     "temp": 3352205339,
+     "output": 0
+    },
+    {
+     "t": 324.2,
+     "runnerRSS": 80592896,
+     "programRSS": 291262464,
+     "browserRSS": 808017920,
+     "jsHeap": 3856600,
+     "temp": 3446278014,
+     "output": 0
+    },
+    {
+     "t": 329.2,
+     "runnerRSS": 80592896,
+     "programRSS": 289157120,
+     "browserRSS": 808116224,
+     "jsHeap": 3868180,
+     "temp": 3519044784,
+     "output": 0
+    },
+    {
+     "t": 334.3,
+     "runnerRSS": 80592896,
+     "programRSS": 291262464,
+     "browserRSS": 808103936,
+     "jsHeap": 3879760,
+     "temp": 3606850553,
+     "output": 0
+    },
+    {
+     "t": 339.4,
+     "runnerRSS": 80592896,
+     "programRSS": 291262464,
+     "browserRSS": 808366080,
+     "jsHeap": 3891340,
+     "temp": 3700889935,
+     "output": 0
+    },
+    {
+     "t": 344.4,
+     "runnerRSS": 80592896,
+     "programRSS": 289157120,
+     "browserRSS": 808456192,
+     "jsHeap": 3903140,
+     "temp": 3777929900,
+     "output": 0
+    },
+    {
+     "t": 349.5,
+     "runnerRSS": 80592896,
+     "programRSS": 291262464,
+     "browserRSS": 808611840,
+     "jsHeap": 3914720,
+     "temp": 3857308019,
+     "output": 0
+    },
+    {
+     "t": 354.5,
+     "runnerRSS": 80592896,
+     "programRSS": 291262464,
+     "browserRSS": 808722432,
+     "jsHeap": 3926336,
+     "temp": 3945075848,
+     "output": 0
+    },
+    {
+     "t": 359.6,
+     "runnerRSS": 80592896,
+     "programRSS": 362086400,
+     "browserRSS": 808980480,
+     "jsHeap": 3938136,
+     "temp": 4020320287,
+     "output": 0
+    },
+    {
+     "t": 364.7,
+     "runnerRSS": 80592896,
+     "programRSS": 362082304,
+     "browserRSS": 809046016,
+     "jsHeap": 3949716,
+     "temp": 4120983583,
+     "output": 0
+    },
+    {
+     "t": 369.7,
+     "runnerRSS": 80592896,
+     "programRSS": 362086400,
+     "browserRSS": 809234432,
+     "jsHeap": 3961516,
+     "temp": 4217452575,
+     "output": 0
+    },
+    {
+     "t": 374.8,
+     "runnerRSS": 80592896,
+     "programRSS": 362086400,
+     "browserRSS": 809373696,
+     "jsHeap": 3973096,
+     "temp": 4313921567,
+     "output": 0
+    },
+    {
+     "t": 379.8,
+     "runnerRSS": 80592896,
+     "programRSS": 362090496,
+     "browserRSS": 809484288,
+     "jsHeap": 3984676,
+     "temp": 4412487711,
+     "output": 0
+    },
+    {
+     "t": 384.9,
+     "runnerRSS": 80592896,
+     "programRSS": 362090496,
+     "browserRSS": 809693184,
+     "jsHeap": 3996256,
+     "temp": 4502665247,
+     "output": 0
+    },
+    {
+     "t": 390,
+     "runnerRSS": 80592896,
+     "programRSS": 362090496,
+     "browserRSS": 809762816,
+     "jsHeap": 4008056,
+     "temp": 4599134239,
+     "output": 0
+    },
+    {
+     "t": 395,
+     "runnerRSS": 80592896,
+     "programRSS": 362086400,
+     "browserRSS": 809926656,
+     "jsHeap": 4019636,
+     "temp": 4689311775,
+     "output": 0
+    },
+    {
+     "t": 400.1,
+     "runnerRSS": 80592896,
+     "programRSS": 362090496,
+     "browserRSS": 810057728,
+     "jsHeap": 4031436,
+     "temp": 4792072223,
+     "output": 0
+    },
+    {
+     "t": 405.1,
+     "runnerRSS": 80592896,
+     "programRSS": 362086400,
+     "browserRSS": 810225664,
+     "jsHeap": 4043132,
+     "temp": 4892735519,
+     "output": 0
+    },
+    {
+     "t": 410.2,
+     "runnerRSS": 80592896,
+     "programRSS": 362086400,
+     "browserRSS": 810233856,
+     "jsHeap": 4054932,
+     "temp": 4989204511,
+     "output": 0
+    },
+    {
+     "t": 415.3,
+     "runnerRSS": 80592896,
+     "programRSS": 362090496,
+     "browserRSS": 810496000,
+     "jsHeap": 4066512,
+     "temp": 5091964959,
+     "output": 0
+    },
+    {
+     "t": 420.3,
+     "runnerRSS": 80592896,
+     "programRSS": 362090496,
+     "browserRSS": 810663936,
+     "jsHeap": 4078092,
+     "temp": 5190531103,
+     "output": 0
+    },
+    {
+     "t": 425.4,
+     "runnerRSS": 80592896,
+     "programRSS": 362090496,
+     "browserRSS": 810799104,
+     "jsHeap": 4089672,
+     "temp": 5293291551,
+     "output": 0
+    },
+    {
+     "t": 430.4,
+     "runnerRSS": 80592896,
+     "programRSS": 362090496,
+     "browserRSS": 810926080,
+     "jsHeap": 4101472,
+     "temp": 5393954847,
+     "output": 0
+    },
+    {
+     "t": 435.5,
+     "runnerRSS": 80592896,
+     "programRSS": 362090496,
+     "browserRSS": 811073536,
+     "jsHeap": 4113052,
+     "temp": 5498812447,
+     "output": 0
+    },
+    {
+     "t": 440.5,
+     "runnerRSS": 80592896,
+     "programRSS": 362090496,
+     "browserRSS": 811229184,
+     "jsHeap": 4124632,
+     "temp": 5597378591,
+     "output": 0
+    },
+    {
+     "t": 445.6,
+     "runnerRSS": 80592896,
+     "programRSS": 362090496,
+     "browserRSS": 811339776,
+     "jsHeap": 4136432,
+     "temp": 5698041887,
+     "output": 0
+    },
+    {
+     "t": 450.6,
+     "runnerRSS": 80592896,
+     "programRSS": 362090496,
+     "browserRSS": 806875136,
+     "jsHeap": 3640436,
+     "temp": 5798705183,
+     "output": 0
+    },
+    {
+     "t": 455.7,
+     "runnerRSS": 80592896,
+     "programRSS": 292614144,
+     "browserRSS": 806903808,
+     "jsHeap": 3652004,
+     "temp": 4187540762,
+     "output": 0
+    },
+    {
+     "t": 460.9,
+     "runnerRSS": 80592896,
+     "programRSS": 289128448,
+     "browserRSS": 807051264,
+     "jsHeap": 3664024,
+     "temp": 3863927057,
+     "output": 0
+    },
+    {
+     "t": 465.9,
+     "runnerRSS": 80592896,
+     "programRSS": 290967552,
+     "browserRSS": 807149568,
+     "jsHeap": 3675604,
+     "temp": 3928684085,
+     "output": 0
+    },
+    {
+     "t": 471,
+     "runnerRSS": 80592896,
+     "programRSS": 291278848,
+     "browserRSS": 807092224,
+     "jsHeap": 3687404,
+     "temp": 4020687680,
+     "output": 0
+    },
+    {
+     "t": 476,
+     "runnerRSS": 80592896,
+     "programRSS": 291270656,
+     "browserRSS": 807202816,
+     "jsHeap": 3698984,
+     "temp": 4110546966,
+     "output": 0
+    },
+    {
+     "t": 481.1,
+     "runnerRSS": 80592896,
+     "programRSS": 289165312,
+     "browserRSS": 807288832,
+     "jsHeap": 3710680,
+     "temp": 4187599770,
+     "output": 0
+    },
+    {
+     "t": 486.1,
+     "runnerRSS": 80592896,
+     "programRSS": 291270656,
+     "browserRSS": 807325696,
+     "jsHeap": 3722260,
+     "temp": 4269087027,
+     "output": 0
+    },
+    {
+     "t": 491.2,
+     "runnerRSS": 80592896,
+     "programRSS": 291270656,
+     "browserRSS": 807526400,
+     "jsHeap": 3734060,
+     "temp": 4363155404,
+     "output": 0
+    },
+    {
+     "t": 496.2,
+     "runnerRSS": 80592896,
+     "programRSS": 289165312,
+     "browserRSS": 807657472,
+     "jsHeap": 3745640,
+     "temp": 4446476956,
+     "output": 0
+    },
+    {
+     "t": 501.3,
+     "runnerRSS": 80592896,
+     "programRSS": 291270656,
+     "browserRSS": 807739392,
+     "jsHeap": 3757220,
+     "temp": 4523751756,
+     "output": 0
+    },
+    {
+     "t": 506.3,
+     "runnerRSS": 80592896,
+     "programRSS": 291270656,
+     "browserRSS": 807849984,
+     "jsHeap": 3768800,
+     "temp": 4615773504,
+     "output": 0
+    },
+    {
+     "t": 511.4,
+     "runnerRSS": 80592896,
+     "programRSS": 291270656,
+     "browserRSS": 808079360,
+     "jsHeap": 3782112,
+     "temp": 4699368251,
+     "output": 0
+    },
+    {
+     "t": 516.4,
+     "runnerRSS": 80592896,
+     "programRSS": 291270656,
+     "browserRSS": 808120320,
+     "jsHeap": 3796700,
+     "temp": 4772185486,
+     "output": 0
+    },
+    {
+     "t": 521.5,
+     "runnerRSS": 80592896,
+     "programRSS": 291270656,
+     "browserRSS": 808214528,
+     "jsHeap": 3808220,
+     "temp": 4857880790,
+     "output": 0
+    },
+    {
+     "t": 526.5,
+     "runnerRSS": 80592896,
+     "programRSS": 291270656,
+     "browserRSS": 808312832,
+     "jsHeap": 3819740,
+     "temp": 4956123966,
+     "output": 0
+    },
+    {
+     "t": 531.6,
+     "runnerRSS": 80592896,
+     "programRSS": 290103296,
+     "browserRSS": 808456192,
+     "jsHeap": 3831480,
+     "temp": 5029009005,
+     "output": 0
+    },
+    {
+     "t": 536.6,
+     "runnerRSS": 80592896,
+     "programRSS": 340164608,
+     "browserRSS": 808574976,
+     "jsHeap": 3843000,
+     "temp": 5093692063,
+     "output": 12582912
+    },
+    {
+     "t": 541.7,
+     "runnerRSS": 80592896,
+     "programRSS": 340168704,
+     "browserRSS": 808693760,
+     "jsHeap": 3854740,
+     "temp": 5093692063,
+     "output": 48234496
+    },
+    {
+     "t": 546.7,
+     "runnerRSS": 80592896,
+     "programRSS": 340168704,
+     "browserRSS": 808792064,
+     "jsHeap": 3866260,
+     "temp": 5093692063,
+     "output": 83886080
+    },
+    {
+     "t": 551.8,
+     "runnerRSS": 80592896,
+     "programRSS": 340168704,
+     "browserRSS": 808919040,
+     "jsHeap": 3877780,
+     "temp": 5093692063,
+     "output": 119537664
+    },
+    {
+     "t": 556.8,
+     "runnerRSS": 80592896,
+     "programRSS": 340168704,
+     "browserRSS": 809070592,
+     "jsHeap": 3889300,
+     "temp": 5093692063,
+     "output": 155189248
+    },
+    {
+     "t": 561.9,
+     "runnerRSS": 80592896,
+     "programRSS": 340168704,
+     "browserRSS": 809209856,
+     "jsHeap": 3901044,
+     "temp": 5093692063,
+     "output": 192937984
+    },
+    {
+     "t": 566.9,
+     "runnerRSS": 80592896,
+     "programRSS": 340168704,
+     "browserRSS": 809308160,
+     "jsHeap": 3912564,
+     "temp": 5093692063,
+     "output": 228589568
+    },
+    {
+     "t": 572,
+     "runnerRSS": 80592896,
+     "programRSS": 340168704,
+     "browserRSS": 809439232,
+     "jsHeap": 3924084,
+     "temp": 5093692063,
+     "output": 264241152
+    },
+    {
+     "t": 577.1,
+     "runnerRSS": 80592896,
+     "programRSS": 340168704,
+     "browserRSS": 809598976,
+     "jsHeap": 3935824,
+     "temp": 5093692063,
+     "output": 299892736
+    },
+    {
+     "t": 582.1,
+     "runnerRSS": 80592896,
+     "programRSS": 340168704,
+     "browserRSS": 809652224,
+     "jsHeap": 3947448,
+     "temp": 5093692063,
+     "output": 335544320
+    },
+    {
+     "t": 587.2,
+     "runnerRSS": 80592896,
+     "programRSS": 340168704,
+     "browserRSS": 809897984,
+     "jsHeap": 3958968,
+     "temp": 5093692063,
+     "output": 373293056
+    },
+    {
+     "t": 592.2,
+     "runnerRSS": 80592896,
+     "programRSS": 340168704,
+     "browserRSS": 810045440,
+     "jsHeap": 3970708,
+     "temp": 5093692063,
+     "output": 408944640
+    },
+    {
+     "t": 597.3,
+     "runnerRSS": 80592896,
+     "programRSS": 340168704,
+     "browserRSS": 810176512,
+     "jsHeap": 3982228,
+     "temp": 5093692063,
+     "output": 444596224
+    },
+    {
+     "t": 602.4,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 810291200,
+     "jsHeap": 3993748,
+     "temp": 5093692063,
+     "output": 480247808
+    },
+    {
+     "t": 607.4,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 810442752,
+     "jsHeap": 4005488,
+     "temp": 5093692063,
+     "output": 515899392
+    },
+    {
+     "t": 612.5,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 810594304,
+     "jsHeap": 4017008,
+     "temp": 5093692063,
+     "output": 549453824
+    },
+    {
+     "t": 617.5,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 810749952,
+     "jsHeap": 4028528,
+     "temp": 5093692063,
+     "output": 583008256
+    },
+    {
+     "t": 622.6,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 810856448,
+     "jsHeap": 4040268,
+     "temp": 5093692063,
+     "output": 618659840
+    },
+    {
+     "t": 627.6,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 811024384,
+     "jsHeap": 4051788,
+     "temp": 5093692063,
+     "output": 652214272
+    },
+    {
+     "t": 632.7,
+     "runnerRSS": 80596992,
+     "programRSS": 340164608,
+     "browserRSS": 811163648,
+     "jsHeap": 4063308,
+     "temp": 5093692063,
+     "output": 687865856
+    },
+    {
+     "t": 637.7,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 811307008,
+     "jsHeap": 4075048,
+     "temp": 5093692063,
+     "output": 723517440
+    },
+    {
+     "t": 642.8,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 811405312,
+     "jsHeap": 4086568,
+     "temp": 5093692063,
+     "output": 761266176
+    },
+    {
+     "t": 647.8,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 811569152,
+     "jsHeap": 4098088,
+     "temp": 5093692063,
+     "output": 796917760
+    },
+    {
+     "t": 652.9,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 811749376,
+     "jsHeap": 4109608,
+     "temp": 5093692063,
+     "output": 832569344
+    },
+    {
+     "t": 657.9,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 807239680,
+     "jsHeap": 3646052,
+     "temp": 5093692063,
+     "output": 866123776
+    },
+    {
+     "t": 663,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 807211008,
+     "jsHeap": 3657792,
+     "temp": 5093692063,
+     "output": 901775360
+    },
+    {
+     "t": 668,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 807305216,
+     "jsHeap": 3669312,
+     "temp": 5093692063,
+     "output": 939524096
+    },
+    {
+     "t": 673.1,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 807309312,
+     "jsHeap": 3680936,
+     "temp": 5093692063,
+     "output": 975175680
+    },
+    {
+     "t": 678.1,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 807243776,
+     "jsHeap": 3692676,
+     "temp": 5093692063,
+     "output": 1010827264
+    },
+    {
+     "t": 683.2,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 807473152,
+     "jsHeap": 3704196,
+     "temp": 5093692063,
+     "output": 1048576000
+    },
+    {
+     "t": 688.3,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 807534592,
+     "jsHeap": 3715936,
+     "temp": 5093692063,
+     "output": 1084227584
+    },
+    {
+     "t": 693.3,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 807657472,
+     "jsHeap": 3727456,
+     "temp": 5093692063,
+     "output": 1117782016
+    },
+    {
+     "t": 698.4,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 807628800,
+     "jsHeap": 3738976,
+     "temp": 5093692063,
+     "output": 1153433600
+    },
+    {
+     "t": 703.4,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 807829504,
+     "jsHeap": 3750716,
+     "temp": 5093692063,
+     "output": 1189085184
+    },
+    {
+     "t": 708.5,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 807976960,
+     "jsHeap": 3762236,
+     "temp": 5093692063,
+     "output": 1224736768
+    },
+    {
+     "t": 713.6,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 808083456,
+     "jsHeap": 3773756,
+     "temp": 5093692063,
+     "output": 1260388352
+    },
+    {
+     "t": 718.6,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 808161280,
+     "jsHeap": 3785496,
+     "temp": 5093692063,
+     "output": 1293942784
+    },
+    {
+     "t": 723.7,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 808304640,
+     "jsHeap": 3797016,
+     "temp": 5093692063,
+     "output": 1329594368
+    },
+    {
+     "t": 728.7,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 808386560,
+     "jsHeap": 3808536,
+     "temp": 5093692063,
+     "output": 1367343104
+    },
+    {
+     "t": 733.7,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 808525824,
+     "jsHeap": 3820056,
+     "temp": 5093692063,
+     "output": 1405091840
+    },
+    {
+     "t": 738.8,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 808607744,
+     "jsHeap": 3831796,
+     "temp": 5093692063,
+     "output": 1440743424
+    },
+    {
+     "t": 743.8,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 808763392,
+     "jsHeap": 3843316,
+     "temp": 5093692063,
+     "output": 1476395008
+    },
+    {
+     "t": 748.9,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 808878080,
+     "jsHeap": 3855056,
+     "temp": 5093692063,
+     "output": 1509949440
+    },
+    {
+     "t": 754,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 808976384,
+     "jsHeap": 3866576,
+     "temp": 5093692063,
+     "output": 1545601024
+    },
+    {
+     "t": 759.1,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 809046016,
+     "jsHeap": 3878316,
+     "temp": 5093692063,
+     "output": 1581252608
+    },
+    {
+     "t": 764.1,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 809218048,
+     "jsHeap": 3889940,
+     "temp": 5093692063,
+     "output": 1616904192
+    },
+    {
+     "t": 769.2,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 809381888,
+     "jsHeap": 3901488,
+     "temp": 5093692063,
+     "output": 1652555776
+    },
+    {
+     "t": 774.2,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 809390080,
+     "jsHeap": 3913228,
+     "temp": 5093692063,
+     "output": 1688207360
+    },
+    {
+     "t": 779.3,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 809656320,
+     "jsHeap": 3924748,
+     "temp": 5093692063,
+     "output": 1721761792
+    },
+    {
+     "t": 784.3,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 809758720,
+     "jsHeap": 3936268,
+     "temp": 5093692063,
+     "output": 1757413376
+    },
+    {
+     "t": 789.4,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 809947136,
+     "jsHeap": 3947788,
+     "temp": 5093692063,
+     "output": 1793064960
+    },
+    {
+     "t": 794.4,
+     "runnerRSS": 80596992,
+     "programRSS": 340164608,
+     "browserRSS": 809975808,
+     "jsHeap": 3959528,
+     "temp": 5093692063,
+     "output": 1828716544
+    },
+    {
+     "t": 799.5,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 810221568,
+     "jsHeap": 3971048,
+     "temp": 5093692063,
+     "output": 1864368128
+    },
+    {
+     "t": 804.5,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 810328064,
+     "jsHeap": 3982568,
+     "temp": 5093692063,
+     "output": 1900019712
+    },
+    {
+     "t": 809.6,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 810491904,
+     "jsHeap": 3994088,
+     "temp": 5093692063,
+     "output": 1935671296
+    },
+    {
+     "t": 814.6,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 810582016,
+     "jsHeap": 4005828,
+     "temp": 5093692063,
+     "output": 1971322880
+    },
+    {
+     "t": 819.7,
+     "runnerRSS": 80596992,
+     "programRSS": 340168704,
+     "browserRSS": 810778624,
+     "jsHeap": 4017348,
+     "temp": 5093692063,
+     "output": 2006974464
+    },
+    {
+     "t": 824.7,
+     "runnerRSS": 80596992,
+     "programRSS": 340172800,
+     "browserRSS": 810889216,
+     "jsHeap": 4028868,
+     "temp": 5093692063,
+     "output": 2042626048
+    },
+    {
+     "t": 829.7,
+     "runnerRSS": 80596992,
+     "programRSS": 340172800,
+     "browserRSS": 811061248,
+     "jsHeap": 4040388,
+     "temp": 5093692063,
+     "output": 2082471936
+    },
+    {
+     "t": 834.8,
+     "runnerRSS": 80596992,
+     "programRSS": 340172800,
+     "browserRSS": 811163648,
+     "jsHeap": 4052128,
+     "temp": 5093692063,
+     "output": 2122317824
+    },
+    {
+     "t": 839.8,
+     "runnerRSS": 80596992,
+     "programRSS": 340172800,
+     "browserRSS": 811339776,
+     "jsHeap": 4063648,
+     "temp": 5093692063,
+     "output": 2160066560
+    },
+    {
+     "t": 844.9,
+     "runnerRSS": 80596992,
+     "programRSS": 340172800,
+     "browserRSS": 811483136,
+     "jsHeap": 4075168,
+     "temp": 5093692063,
+     "output": 2195718144
+    },
+    {
+     "t": 849.9,
+     "runnerRSS": 80596992,
+     "programRSS": 340172800,
+     "browserRSS": 811618304,
+     "jsHeap": 4086688,
+     "temp": 5093692063,
+     "output": 2233466880
+    },
+    {
+     "t": 855,
+     "runnerRSS": 80596992,
+     "programRSS": 340172800,
+     "browserRSS": 811728896,
+     "jsHeap": 4098428,
+     "temp": 5093692063,
+     "output": 2271215616
+    },
+    {
+     "t": 860,
+     "runnerRSS": 80596992,
+     "programRSS": 340172800,
+     "browserRSS": 807362560,
+     "jsHeap": 3642764,
+     "temp": 5093692063,
+     "output": 2306867200
+    },
+    {
+     "t": 865.1,
+     "runnerRSS": 80596992,
+     "programRSS": 340172800,
+     "browserRSS": 807186432,
+     "jsHeap": 3654284,
+     "temp": 5093692063,
+     "output": 2338324480
+    },
+    {
+     "t": 870.1,
+     "runnerRSS": 80596992,
+     "programRSS": 340172800,
+     "browserRSS": 807092224,
+     "jsHeap": 3665908,
+     "temp": 5093692063,
+     "output": 2376073216
+    },
+    {
+     "t": 875.2,
+     "runnerRSS": 80596992,
+     "programRSS": 340172800,
+     "browserRSS": 807305216,
+     "jsHeap": 3677648,
+     "temp": 5093692063,
+     "output": 2413821952
+    },
+    {
+     "t": 880.3,
+     "runnerRSS": 80596992,
+     "programRSS": 340172800,
+     "browserRSS": 807313408,
+     "jsHeap": 3689168,
+     "temp": 5093692063,
+     "output": 2451570688
+    },
+    {
+     "t": 885.3,
+     "runnerRSS": 80596992,
+     "programRSS": 340172800,
+     "browserRSS": 807399424,
+     "jsHeap": 3700908,
+     "temp": 5093692063,
+     "output": 2489319424
+    },
+    {
+     "t": 890.4,
+     "runnerRSS": 80596992,
+     "programRSS": 340172800,
+     "browserRSS": 807350272,
+     "jsHeap": 3712428,
+     "temp": 5093692063,
+     "output": 2529165312
+    },
+    {
+     "t": 895.4,
+     "runnerRSS": 80596992,
+     "programRSS": 340172800,
+     "browserRSS": 807555072,
+     "jsHeap": 3723948,
+     "temp": 5093692063,
+     "output": 2566914048
+    },
+    {
+     "t": 900.5,
+     "runnerRSS": 80601088,
+     "programRSS": 340172800,
+     "browserRSS": 807723008,
+     "jsHeap": 3735468,
+     "temp": 5093692063,
+     "output": 2604662784
+    },
+    {
+     "t": 905.5,
+     "runnerRSS": 80601088,
+     "programRSS": 340172800,
+     "browserRSS": 807821312,
+     "jsHeap": 3747208,
+     "temp": 5093692063,
+     "output": 2644508672
+    },
+    {
+     "t": 910.6,
+     "runnerRSS": 80601088,
+     "programRSS": 340172800,
+     "browserRSS": 807907328,
+     "jsHeap": 3758728,
+     "temp": 5093692063,
+     "output": 2682257408
+    },
+    {
+     "t": 915.6,
+     "runnerRSS": 80601088,
+     "programRSS": 340172800,
+     "browserRSS": 808042496,
+     "jsHeap": 3770248,
+     "temp": 5093692063,
+     "output": 2722103296
+    },
+    {
+     "t": 920.6,
+     "runnerRSS": 80601088,
+     "programRSS": 340172800,
+     "browserRSS": 808161280,
+     "jsHeap": 3781768,
+     "temp": 5093692063,
+     "output": 2759852032
+    },
+    {
+     "t": 925.7,
+     "runnerRSS": 80601088,
+     "programRSS": 340172800,
+     "browserRSS": 808255488,
+     "jsHeap": 3793508,
+     "temp": 5093692063,
+     "output": 2799697920
+    },
+    {
+     "t": 930.7,
+     "runnerRSS": 80601088,
+     "programRSS": 340172800,
+     "browserRSS": 808341504,
+     "jsHeap": 3805028,
+     "temp": 5093692063,
+     "output": 2837446656
+    },
+    {
+     "t": 935.8,
+     "runnerRSS": 80601088,
+     "programRSS": 340172800,
+     "browserRSS": 808448000,
+     "jsHeap": 3816548,
+     "temp": 5093692063,
+     "output": 2875195392
+    },
+    {
+     "t": 940.8,
+     "runnerRSS": 80601088,
+     "programRSS": 340172800,
+     "browserRSS": 808607744,
+     "jsHeap": 3828288,
+     "temp": 5093692063,
+     "output": 2912944128
+    },
+    {
+     "t": 945.9,
+     "runnerRSS": 80601088,
+     "programRSS": 340172800,
+     "browserRSS": 808718336,
+     "jsHeap": 3839808,
+     "temp": 5093692063,
+     "output": 2952790016
+    },
+    {
+     "t": 951,
+     "runnerRSS": 80601088,
+     "programRSS": 340172800,
+     "browserRSS": 808808448,
+     "jsHeap": 3851328,
+     "temp": 5093692063,
+     "output": 2990538752
+    },
+    {
+     "t": 956,
+     "runnerRSS": 80601088,
+     "programRSS": 340172800,
+     "browserRSS": 808951808,
+     "jsHeap": 3863068,
+     "temp": 5093692063,
+     "output": 3028287488
+    },
+    {
+     "t": 961,
+     "runnerRSS": 80601088,
+     "programRSS": 340172800,
+     "browserRSS": 809123840,
+     "jsHeap": 3874588,
+     "temp": 5093692063,
+     "output": 3068133376
+    },
+    {
+     "t": 966.1,
+     "runnerRSS": 80601088,
+     "programRSS": 340172800,
+     "browserRSS": 809259008,
+     "jsHeap": 3886108,
+     "temp": 5093692063,
+     "output": 3107979264
+    },
+    {
+     "t": 971.1,
+     "runnerRSS": 80601088,
+     "programRSS": 340172800,
+     "browserRSS": 809320448,
+     "jsHeap": 3897740,
+     "temp": 5093692063,
+     "output": 3145728000
+    },
+    {
+     "t": 976.2,
+     "runnerRSS": 80601088,
+     "programRSS": 340172800,
+     "browserRSS": 809529344,
+     "jsHeap": 3909480,
+     "temp": 5093692063,
+     "output": 3183476736
+    },
+    {
+     "t": 981.2,
+     "runnerRSS": 80601088,
+     "programRSS": 340172800,
+     "browserRSS": 809644032,
+     "jsHeap": 3921000,
+     "temp": 5093692063,
+     "output": 3223322624
+    },
+    {
+     "t": 986.3,
+     "runnerRSS": 80601088,
+     "programRSS": 340172800,
+     "browserRSS": 809684992,
+     "jsHeap": 3932520,
+     "temp": 5093692063,
+     "output": 3261071360
+    },
+    {
+     "t": 991.3,
+     "runnerRSS": 80601088,
+     "programRSS": 340172800,
+     "browserRSS": 809943040,
+     "jsHeap": 3944040,
+     "temp": 5093692063,
+     "output": 3294625792
+    },
+    {
+     "t": 996.4,
+     "runnerRSS": 80601088,
+     "programRSS": 340172800,
+     "browserRSS": 810061824,
+     "jsHeap": 3955560,
+     "temp": 5093692063,
+     "output": 3330277376
+    },
+    {
+     "t": 1001.4,
+     "runnerRSS": 80601088,
+     "programRSS": 340172800,
+     "browserRSS": 810209280,
+     "jsHeap": 3967300,
+     "temp": 5093692063,
+     "output": 3365928960
+    },
+    {
+     "t": 1006.5,
+     "runnerRSS": 80601088,
+     "programRSS": 340172800,
+     "browserRSS": 810377216,
+     "jsHeap": 3980492,
+     "temp": 5093692063,
+     "output": 3403677696
+    },
+    {
+     "t": 1011.5,
+     "runnerRSS": 80601088,
+     "programRSS": 340172800,
+     "browserRSS": 810487808,
+     "jsHeap": 3992012,
+     "temp": 5093692063,
+     "output": 3443523584
+    },
+    {
+     "t": 1016.6,
+     "runnerRSS": 80601088,
+     "programRSS": 340172800,
+     "browserRSS": 810663936,
+     "jsHeap": 4003752,
+     "temp": 5093692063,
+     "output": 3479175168
+    },
+    {
+     "t": 1021.7,
+     "runnerRSS": 80601088,
+     "programRSS": 340172800,
+     "browserRSS": 810770432,
+     "jsHeap": 4015272,
+     "temp": 5093692063,
+     "output": 3516923904
+    },
+    {
+     "t": 1026.7,
+     "runnerRSS": 80601088,
+     "programRSS": 340172800,
+     "browserRSS": 810917888,
+     "jsHeap": 4026792,
+     "temp": 5093692063,
+     "output": 3554672640
+    },
+    {
+     "t": 1031.8,
+     "runnerRSS": 80601088,
+     "programRSS": 340172800,
+     "browserRSS": 811085824,
+     "jsHeap": 4038532,
+     "temp": 5093692063,
+     "output": 3588227072
+    },
+    {
+     "t": 1036.8,
+     "runnerRSS": 80601088,
+     "programRSS": 340172800,
+     "browserRSS": 811225088,
+     "jsHeap": 4050052,
+     "temp": 5093692063,
+     "output": 3625975808
+    },
+    {
+     "t": 1041.9,
+     "runnerRSS": 80601088,
+     "programRSS": 340172800,
+     "browserRSS": 811356160,
+     "jsHeap": 4061792,
+     "temp": 5093692063,
+     "output": 3661627392
+    },
+    {
+     "t": 1046.9,
+     "runnerRSS": 80601088,
+     "programRSS": 340172800,
+     "browserRSS": 811499520,
+     "jsHeap": 4073312,
+     "temp": 5093692063,
+     "output": 3699376128
+    },
+    {
+     "t": 1052,
+     "runnerRSS": 80601088,
+     "programRSS": 340172800,
+     "browserRSS": 811626496,
+     "jsHeap": 4084832,
+     "temp": 5093692063,
+     "output": 3735027712
+    },
+    {
+     "t": 1057,
+     "runnerRSS": 80601088,
+     "programRSS": 340172800,
+     "browserRSS": 811790336,
+     "jsHeap": 4096352,
+     "temp": 5093692063,
+     "output": 3772776448
+    },
+    {
+     "t": 1062.1,
+     "runnerRSS": 80601088,
+     "programRSS": 340172800,
+     "browserRSS": 811917312,
+     "jsHeap": 4108196,
+     "temp": 5093692063,
+     "output": 3808428032
+    },
+    {
+     "t": 1067.1,
+     "runnerRSS": 80601088,
+     "programRSS": 340172800,
+     "browserRSS": 807325696,
+     "jsHeap": 3646404,
+     "temp": 5093692063,
+     "output": 3844079616
+    },
+    {
+     "t": 1072.2,
+     "runnerRSS": 80601088,
+     "programRSS": 340176896,
+     "browserRSS": 807309312,
+     "jsHeap": 3657924,
+     "temp": 5093692063,
+     "output": 3883925504
+    },
+    {
+     "t": 1077.2,
+     "runnerRSS": 80601088,
+     "programRSS": 291753984,
+     "browserRSS": 807337984,
+     "jsHeap": 3669444,
+     "temp": 1294455211,
+     "output": 3900095831
+    },
+    {
+     "t": 1078.3,
+     "runnerRSS": 80601088,
+     "programRSS": 291753984,
+     "browserRSS": 807313408,
+     "jsHeap": 3671968,
+     "temp": 388353870,
+     "output": 3900095831
+    }
+   ],
+   "run": {
+    "id": 3,
+    "program": "samtools",
+    "args": [
+     "sort",
+     "-m",
+     "256M",
+     "-o",
+     "sorted.bam",
+     "unsorted.bam"
+    ],
+    "code": 0,
+    "error": null,
+    "started": 1792012474965,
+    "secs": 1078.758,
+    "memory": null,
+    "native": "1.24",
+    "cwd": "/shared/vfs/home/user",
+    "maxRSS": 87474176
+   }
+  },
+  "index": {
+   "name": "index",
+   "line": "samtools index sorted.bam",
+   "code": 0,
+   "stdout": "",
+   "stderr": "",
+   "wall": 46.8,
+   "start": {
+    "runner": 82837504,
+    "browser": 807927808,
+    "renderer": 446902272,
+    "jsHeap": 3980816
+   },
+   "peak": {
+    "runner": 83324928,
+    "runnerPeak": 87474176,
+    "program": 22069248,
+    "programPeak": 22069248,
+    "browser": 809213952,
+    "renderer": 448217088,
+    "jsHeap": 4590524,
+    "jsHeapTotal": 6098944,
+    "temp": 64,
+    "tempFiles": 2,
+    "output": 3900095831,
+    "extra": 3900095895,
+    "minFree": 18346930176
+   },
+   "traffic": {
+    "requests": 19,
+    "sent": 1397,
+    "received": 63426
+   },
+   "series": [
+    {
+     "t": 0,
+     "runnerRSS": 82837504,
+     "programRSS": 0,
+     "browserRSS": 807927808,
+     "jsHeap": 3980816,
+     "temp": 64,
+     "output": 3900095831
+    },
+    {
+     "t": 5.2,
+     "runnerRSS": 83324928,
+     "programRSS": 2723840,
+     "browserRSS": 808738816,
+     "jsHeap": 4495388,
+     "temp": 0,
+     "output": 3900095831
+    },
+    {
+     "t": 10.2,
+     "runnerRSS": 83324928,
+     "programRSS": 4149248,
+     "browserRSS": 808636416,
+     "jsHeap": 4506920,
+     "temp": 0,
+     "output": 3900095831
+    },
+    {
+     "t": 15.2,
+     "runnerRSS": 83324928,
+     "programRSS": 5775360,
+     "browserRSS": 808484864,
+     "jsHeap": 4518500,
+     "temp": 0,
+     "output": 3900095831
+    },
+    {
+     "t": 20.3,
+     "runnerRSS": 83324928,
+     "programRSS": 7712768,
+     "browserRSS": 808583168,
+     "jsHeap": 4530080,
+     "temp": 0,
+     "output": 3900095831
+    },
+    {
+     "t": 25.3,
+     "runnerRSS": 83324928,
+     "programRSS": 9318400,
+     "browserRSS": 808714240,
+     "jsHeap": 4541660,
+     "temp": 0,
+     "output": 3900095831
+    },
+    {
+     "t": 30.4,
+     "runnerRSS": 83324928,
+     "programRSS": 12292096,
+     "browserRSS": 808841216,
+     "jsHeap": 4553468,
+     "temp": 0,
+     "output": 3900095831
+    },
+    {
+     "t": 35.4,
+     "runnerRSS": 83324928,
+     "programRSS": 15388672,
+     "browserRSS": 808984576,
+     "jsHeap": 4565048,
+     "temp": 0,
+     "output": 3900095831
+    },
+    {
+     "t": 40.5,
+     "runnerRSS": 83324928,
+     "programRSS": 18370560,
+     "browserRSS": 809091072,
+     "jsHeap": 4576628,
+     "temp": 0,
+     "output": 3900095831
+    },
+    {
+     "t": 45.5,
+     "runnerRSS": 83324928,
+     "programRSS": 21569536,
+     "browserRSS": 809189376,
+     "jsHeap": 4588208,
+     "temp": 0,
+     "output": 3900095831
+    },
+    {
+     "t": 46.5,
+     "runnerRSS": 83324928,
+     "programRSS": 22069248,
+     "browserRSS": 809213952,
+     "jsHeap": 4590524,
+     "temp": 0,
+     "output": 3900095831
+    }
+   ],
+   "run": {
+    "id": 4,
+    "program": "samtools",
+    "args": [
+     "index",
+     "sorted.bam"
+    ],
+    "code": 0,
+    "error": null,
+    "started": 1792013554269,
+    "secs": 46.581,
+    "memory": null,
+    "native": "1.24",
+    "cwd": "/shared/vfs/home/user",
+    "maxRSS": 87474176
+   }
+  },
+  "idxstats": {
+   "name": "idxstats",
+   "line": "samtools idxstats sorted.bam",
+   "code": 0,
+   "stdout": "chr1\t248956422\t6888093\t0\nchr2\t242193529\t6698517\t0\nchr3\t198295559\t5485064\t0\nchr4\t190214555\t5261972\t0\nchr5\t181538259\t5021194\t0\nchr6\t170805979\t4374355\t0\nchr7\t159345973\t2202324\t0\nchr8\t145138636\t2005398\t0\nchr9\t138394717\t1914819\t0\nchr10\t133797422\t1851621\t0\nchr11\t135086622\t1866417\t0\nchr12\t133275309\t1843336\t0\nchr13\t114364328\t1582334\t0\nchr14\t107043718\t1479985\t0\nchr15\t101991189\t1410512\t0\nchr16\t90338345\t1249570\t0\nchr17\t83257441\t1152866\t0\nchr18\t80373285\t1110690\t0\nchr19\t58617616\t811361\t0\nchr20\t64444167\t891101\t0\nchr21\t46709983\t645405\t0\nchr22\t50818468\t702238\t0\nchrX\t156040895\t2158861\t0\nchrY\t57227415\t791702\t0\nchrM\t16569\t227\t0\n*\t0\t0\t600038\n",
+   "stderr": "",
+   "wall": 0.1,
+   "start": {
+    "runner": 83374080,
+    "browser": 810147840,
+    "renderer": 449101824,
+    "jsHeap": 4635364
+   },
+   "peak": {
+    "runner": 83374080,
+    "runnerPeak": 87474176,
+    "program": 0,
+    "programPeak": 0,
+    "browser": 810147840,
+    "renderer": 449101824,
+    "jsHeap": 4635364,
+    "jsHeapTotal": 6098944,
+    "temp": 0,
+    "tempFiles": 2,
+    "output": 3900095831,
+    "extra": 3900095831,
+    "minFree": 18344484864
+   },
+   "traffic": {
+    "requests": 12,
+    "sent": 1108,
+    "received": 39056
+   },
+   "series": [
+    {
+     "t": 0,
+     "runnerRSS": 83374080,
+     "programRSS": 0,
+     "browserRSS": 810147840,
+     "jsHeap": 4635364,
+     "temp": 0,
+     "output": 3900095831
+    }
+   ]
+  },
+  "region": {
+   "name": "region",
+   "line": "samtools view -c sorted.bam chr21:20000000-30000000",
+   "code": 0,
+   "stdout": "138146\n",
+   "stderr": "",
+   "wall": 0.3,
+   "start": {
+    "runner": 84668416,
+    "browser": 811036672,
+    "renderer": 449978368,
+    "jsHeap": 4667860
+   },
+   "peak": {
+    "runner": 84668416,
+    "runnerPeak": 87474176,
+    "program": 0,
+    "programPeak": 0,
+    "browser": 811036672,
+    "renderer": 449978368,
+    "jsHeap": 4667860,
+    "jsHeapTotal": 6885376,
+    "temp": 630,
+    "tempFiles": 2,
+    "output": 3900095831,
+    "extra": 3900096461,
+    "minFree": 18344480768
+   },
+   "traffic": {
+    "requests": 12,
+    "sent": 1135,
+    "received": 38326
+   },
+   "series": [
+    {
+     "t": 0,
+     "runnerRSS": 84668416,
+     "programRSS": 0,
+     "browserRSS": 811036672,
+     "jsHeap": 4667860,
+     "temp": 630,
+     "output": 3900095831
+    }
+   ]
+  },
+  "header": {
+   "name": "header",
+   "line": "samtools view -H sorted.bam | head -1",
+   "code": 0,
+   "stdout": "@HD\tVN:1.6\tSO:coordinate\n",
+   "stderr": "",
+   "wall": 0.3,
+   "start": {
+    "runner": 84738048,
+    "browser": 811528192,
+    "renderer": 450469888,
+    "jsHeap": 4730320
+   },
+   "peak": {
+    "runner": 84738048,
+    "runnerPeak": 87474176,
+    "program": 0,
+    "programPeak": 0,
+    "browser": 811528192,
+    "renderer": 450469888,
+    "jsHeap": 4730320,
+    "jsHeapTotal": 6361088,
+    "temp": 7,
+    "tempFiles": 2,
+    "output": 3900095831,
+    "extra": 3900095838,
+    "minFree": 18344480768
+   },
+   "traffic": {
+    "requests": 23,
+    "sent": 2135,
+    "received": 76339
+   },
+   "series": [
+    {
+     "t": 0,
+     "runnerRSS": 84738048,
+     "programRSS": 0,
+     "browserRSS": 811528192,
+     "jsHeap": 4730320,
+     "temp": 7,
+     "output": 3900095831
+    }
+   ]
+  },
+  "afterReload": {
+   "name": "after reload",
+   "line": "cd ~ && samtools view -c sorted.bam chrM && ls -l sorted.bam",
+   "code": 0,
+   "stdout": "227\n-rw-r--r-- 1 user user 3900095831 Oct 14 22:32 sorted.bam\n",
+   "stderr": "",
+   "wall": 0.2,
+   "start": {
+    "runner": 85704704,
+    "browser": 586108928,
+    "renderer": 215236608,
+    "jsHeap": 4582648
+   },
+   "peak": {
+    "runner": 85704704,
+    "runnerPeak": 95698944,
+    "program": 0,
+    "programPeak": 0,
+    "browser": 586108928,
+    "renderer": 215236608,
+    "jsHeap": 4582648,
+    "jsHeapTotal": 11603968,
+    "temp": 1327,
+    "tempFiles": 3,
+    "output": 3900095831,
+    "extra": 3900097158,
+    "minFree": 18344476672
+   },
+   "traffic": {
+    "requests": 16,
+    "sent": 1282,
+    "received": 51088
+   },
+   "series": [
+    {
+     "t": 0,
+     "runnerRSS": 85704704,
+     "programRSS": 0,
+     "browserRSS": 586108928,
+     "jsHeap": 4582648,
+     "temp": 1327,
+     "output": 3900095831
+    }
+   ]
+  }
+ },
+ "checks": {
+  "passed": 19,
+  "failed": 0
+ },
+ "reload": {
+  "secs": 0.8,
+  "entries": {
+   "unsorted.bam": {
+    "kind": "local",
+    "size": 5376906979
+   },
+   "sorted.bam": {
+    "kind": "local",
+    "size": 3900095831
+   },
+   "sorted.bam.bai": {
+    "kind": "local",
+    "size": 2447528
+   }
+  }
+ },
+ "afterReloadCount": 227,
+ "browserErrors": [],
+ "native": {
+  "sort": {
+   "wall": 1246.5,
+   "maxRSS": 381288448,
+   "code": 0
+  },
+  "records": {
+   "page": {
+    "code": 0,
+    "sha256": "baf69b1fb961e60196c8cf08c867812c848a52a1da0b4880988539b97d22d389",
+    "bytes": 25188813270
+   },
+   "native": {
+    "code": 0,
+    "sha256": "baf69b1fb961e60196c8cf08c867812c848a52a1da0b4880988539b97d22d389",
+    "bytes": 25188813270
+   }
+  },
+  "bytesAfterHeader": {
+   "identical": false,
+   "page": "6bb9571a728ee7b9b7b79c70c8c09229db035837bb4b8a8b002ae6bd546d4fde",
+   "native": "da47efabec6e702ade32c3986e1f0e3932dc9733c9b865a91a6999456b1d8cc7",
+   "sizes": [
+    3900095060,
+    3899605701
+   ]
+  }
+ }
+}

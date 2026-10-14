@@ -3,9 +3,10 @@
    disk – so that neither the size of the input nor the memory of a browser tab limits the analysis. It serves the
    workbench itself, at http://127.0.0.1:PORT, and the page runs its programs here (the local backend:
    assets/js/exec-local.js). The programs are the same WebAssembly builds as in the browser, run under Node.js with
-   a file system that is the folder on disk (diskfs.mjs, tool-host.mjs).
+   a file system that is the folder on disk (diskfs.mjs, tool-host.mjs) – or, for the programs that native/bin has
+   (SAMtools, BCFtools, minimap2, BWA …), the programs built for this computer itself (native.mjs).
 
-     node runner/runner.mjs --workspace ~/my-analysis [--port 8780]
+     node runner/runner.mjs --workspace ~/my-analysis [--port 8780] [--no-native]
 
    then open the address it prints (it carries the key of the session). The folder is the terminal's home folder (~):
    what is in it is there, and what the programs write is written there. The runner keeps its own things in a folder
@@ -23,6 +24,7 @@ import os from 'node:os';
 import { Worker } from 'node:worker_threads';
 import { fileURLToPath } from 'node:url';
 import { pipeline } from 'node:stream/promises';
+import { loadNative, describe, runNative, killNative, syncExamples } from './native.mjs';
 
 const VERSION = '0.1.0';
 const PROTOCOL = 1;
@@ -36,7 +38,7 @@ const opt = (name, dflt) => {
   return i >= 0 && i + 1 < argv.length ? argv[i + 1] : dflt;
 };
 if (argv.includes('--help') || argv.includes('-h')) {
-  console.log('usage: node runner/runner.mjs --workspace FOLDER [--port PORT]\n\nFOLDER becomes the terminal\'s home folder (~); it is made if it is not there.');
+  console.log('usage: node runner/runner.mjs --workspace FOLDER [--port PORT] [--no-native]\n\nFOLDER becomes the terminal\'s home folder (~); it is made if it is not there.\n--no-native: run every program as its WebAssembly build, as in the browser.');
   process.exit(0);
 }
 const WS = path.resolve(opt('workspace', path.join(os.homedir(), 'workbench')).replace(/^~(?=$|\/)/, os.homedir()));
@@ -88,6 +90,14 @@ const writable = (w) => {
   return w.disk;
 };
 
+/* The native programs (native/bin, checked against their SHA-256 now), and the copy of the example data they see:
+   a native program reads and writes real files, so the example data it is given is a copy of its own, made the same
+   as the site's again after every run (native.mjs). */
+const NATIVE = loadNative(SITE, { disabled: argv.includes('--no-native') });
+const EXAMPLES = { at: ROOT + '/data/examples', src: path.join(SITE, 'data', 'examples'), copy: path.join(STATE, 'examples') };
+if (NATIVE.enabled) syncExamples(EXAMPLES.src, EXAMPLES.copy, { first: true });
+const nativeCtx = { where, ROOT, STATE, home: WS, examples: EXAMPLES, mounts: MOUNTS };
+
 // ---------------------------------------------------------------- the programs
 /* the Biowasm builds that the page knows ([tool, version, program] – exec-engine.js SPECS); a program is only run
    from these files */
@@ -116,13 +126,18 @@ function moduleOf(file) {
 const runs = { queue: Promise.resolve(), current: null, last: null, n: 0 };
 const LOG = path.join(STATE, 'runs.jsonl');
 function execute(req) {
-  const job = { id: ++runs.n, program: req.spec[2], args: req.args, cwd: req.cwd, queued: Date.now() };
+  const job = { id: ++runs.n, program: Array.isArray(req.spec) ? req.spec[2] : null, args: req.args, cwd: req.cwd, queued: Date.now() };
   const p = runs.queue.then(() => runOne(job, req));
   runs.queue = p.catch(() => {});
   return p;
 }
 async function runOne(job, req) {
+  // (only the workbench's programs: the page names one of its WebAssembly builds; its native build runs if there is one)
   const files = programFiles(req.spec);
+  // (a command of the AI agent runs confined – io.confined: the WebAssembly build, whose files are only the runner's
+  // folders – until native programs can be confined too)
+  const native = !(req.io && req.io.confined) && NATIVE.programs.get(files.program);
+  if (native) return runOneNative(job, req, native);
   const wasmModule = await moduleOf(files.wasm);
   job.started = Date.now();
   runs.current = job;
@@ -143,11 +158,27 @@ async function runOne(job, req) {
     job.worker = null;
     runs.current = null;
   }
+  return finished(job, result);
+}
+/** a native program: a process of its own (native.mjs) */
+async function runOneNative(job, req, native) {
+  job.started = Date.now();
+  job.native = native.version;
+  runs.current = job;
+  let result;
+  try {
+    result = await runNative(native, req, job, nativeCtx);
+  } finally {
+    runs.current = null;
+  }
+  return finished(job, result);
+}
+function finished(job, result) {
   job.secs = (Date.now() - job.started) / 1000;
   job.code = result.code;
   job.memory = result.memory || null;
   job.maxRSS = process.resourceUsage().maxRSS * 1024;
-  runs.last = { id: job.id, program: job.program, args: job.args, code: job.code, error: result.error || null, started: job.started, secs: job.secs, memory: job.memory };
+  runs.last = { id: job.id, program: job.program, args: job.args, code: job.code, error: result.error || null, started: job.started, secs: job.secs, memory: job.memory, native: job.native || null };
   try {
     fs.appendFileSync(LOG, JSON.stringify({ ...runs.last, cwd: job.cwd, maxRSS: job.maxRSS }) + '\n');
   } catch (e) {
@@ -157,7 +188,14 @@ async function runOne(job, req) {
 }
 function kill() {
   const job = runs.current;
-  if (!job || !job.worker) return false;
+  if (!job) return false;
+  if (job.child) {
+    job.killed = true;
+    return killNative(job);
+  }
+  // (a native program that is about to start: it does not)
+  if (job.native) return (job.killed = true);
+  if (!job.worker) return false;
   job.killed = true;
   job.worker.terminate().catch(() => {});
   return true;
@@ -359,7 +397,7 @@ async function api(req, res, url) {
   if (req.headers.origin && !ORIGINS.has(req.headers.origin)) return json(res, 403, { error: 'not from the runner\'s own page' });
   const route = req.method + ' ' + url.pathname;
   if (route === 'GET /api/v1/hello')
-    return json(res, 200, { protocol: PROTOCOL, runner: 'native-workbench-runner', version: VERSION, node: process.versions.node, workspace: { root: WS }, busy: runs.current ? { program: runs.current.program, args: runs.current.args, started: runs.current.started } : null, last: runs.last });
+    return json(res, 200, { protocol: PROTOCOL, runner: 'native-workbench-runner', version: VERSION, node: process.versions.node, workspace: { root: WS }, busy: runs.current ? { program: runs.current.program, args: runs.current.args, started: runs.current.started } : null, last: runs.last, programs: describe(NATIVE), native: { enabled: NATIVE.enabled, why: NATIVE.why || null, platform: `${process.platform}-${process.arch}` } });
   if (route === 'GET /api/v1/run') return json(res, 200, { busy: runs.current ? { id: runs.current.id, program: runs.current.program, args: runs.current.args, started: runs.current.started } : null, last: runs.last });
   if (route === 'POST /api/v1/fs') {
     const b = JSON.parse((await body(req, 16 * 2 ** 20)).toString('utf8'));
@@ -420,6 +458,8 @@ server.listen(PORT, '127.0.0.1', () => {
   const link = `http://127.0.0.1:${PORT}/?backend=local#runner-token=${TOKEN}`;
   console.log(`The workbench's local runner ${VERSION} (Node ${process.versions.node})`);
   console.log(`  your files (~ in the terminal): ${WS}`);
+  console.log(NATIVE.enabled ? `  native programs: ${Array.from(NATIVE.programs.values()).map((p) => p.name + ' ' + p.version).join(', ')}` : `  native programs: none – ${NATIVE.why}; the WebAssembly builds run`);
+  for (const p of NATIVE.problems) console.log(`  (not used: ${p})`);
   console.log(`  open: ${link}`);
   console.log('  (the link carries the key of this session; stop the runner with Ctrl+C)');
 });

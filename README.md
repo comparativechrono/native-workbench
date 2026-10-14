@@ -164,9 +164,11 @@ of a file limits an analysis:
 node runner/runner.mjs --workspace ~/my-analysis      # then open the address it prints
 ```
 
-The folder is the terminal's home folder; the same programs run there (SAMtools, BCFtools, minimap2, BWA, HISAT2 and
-the rest of the Biowasm builds, and the GNU tools), reading and writing the files on disk; the page holds none of
-their bytes, and finds the files again after a reload. The programs with a worker of their own (featureCounts,
+The folder is the terminal's home folder; the programs run there, reading and writing the files on disk; the page
+holds none of their bytes, and finds the files again after a reload. SAMtools, BCFtools, bgzip, tabix, minimap2, BWA,
+FreeBayes, fastp and seqtk run as native programs, built for the computer itself (`native/bin`: one executable each
+for Windows, Linux and macOS, from Native Workbench's recipes – `native/README.md`), with no limit of memory but the
+computer's; the rest are the browser's WebAssembly builds, run by the runner (`--no-native`: all of them). The programs with a worker of their own (featureCounts,
 Salmon, Kraken2 …) are not in the runner yet. Without a runner, `?backend=local` says so and runs the programs in the
 page. `runner/README.md` explains the runner; `docs/execution-backends.md` the interface, the two backends, the
 runner's protocol and the measurements of the first prototype (SAMtools sorting a 5 GiB BAM file from the page);
@@ -193,8 +195,8 @@ build/                 make_page.py, help/ (the help pages), citations.json (the
                        make_starters.py, vendor_sums.py
 serve.py               a small local web server (optional)
 runner/                the local runner: the programs on this computer, the files in a folder on disk (runner/README.md)
-native/                the native programs' code and build recipes, taken from Native Workbench (native/README.md,
-                       native/TOOLS.md); not used by the page or the runner yet
+native/                the native programs: bin/ (what the local runner runs), build.py (which builds them), and the
+                       code and recipes taken from Native Workbench (native/README.md, native/TOOLS.md)
 docs/                  execution-backends.md: how the programs are run, in the browser and with the local runner
 tests/                 headless checks (Playwright): the parity suite, the execution-backend checks, the local runner,
                        and the SAMtools prototype (tests/prototype/)

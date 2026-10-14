@@ -5,11 +5,16 @@ installed as packs. It is retired. This workbench is to become the one Windows a
 Workbench's work on the programs – the Windows builds, their patches and their checks – without its interface and
 without its packs. This folder holds that code, copied as it was.
 
-**Status:** copied, not yet used. Nothing in the page or the runner refers to it. The next step gives the runner a list
-of native programs, starting with the Cosmopolitan builds.
+**Status:** nine of the programs are in use. The local runner runs SAMtools, BCFtools, bgzip, tabix, minimap2, BWA,
+FreeBayes, fastp and seqtk natively, as Cosmopolitan builds made from these recipes by `build.py` (`runner/native.mjs`,
+`runner/README.md`). The rest of the 37 follow: the Windows-only builds (LLVM-MinGW, MSVC, upstream), then those that
+need Java, Python or R.
 
 | Path | What it is |
 | --- | --- |
+| `bin/` | the native programs the runner uses: `programs.json` (name, version, file, SHA-256, threads), each program in `TOOL/VERSION/` with its licences and a `NOTICE.txt`, the loaders that start them on Linux and macOS, `SHA256SUMS` |
+| `sources/` | the source code of the programs in `bin/` that are under the GNU GPL (BWA, FreeBayes and the parts built into it) |
+| `build.py` | builds the programs of `bin/` from the recipes, and installs them |
 | `workbench/` | Native Workbench's tree. Its build scripts expect it to be the top of the tree |
 | `TOOLS.md` | the 37 programs: version, how each is built, its recipe, its Windows changes and limits, what it needs to run; and the gaps |
 | `COPY-MANIFEST.json` | where every file came from, and what was left out |
@@ -45,7 +50,30 @@ Two of Native Workbench's own files are kept where they will not act:
   `packs/`, `*.zip`).
 - Its GitHub workflows are in `workbench/.github/workflows/`, where GitHub does not run them.
 
-## Building a program
+## Building the programs of `bin/`
+
+```
+python3 native/build.py --install
+```
+
+On Linux x86-64 (gcc, g++, make, Python 3.12 or later, zlib's headers), in about twelve minutes on two cores, it:
+
+1. makes the build tree in `/tmp/native-workbench-build` (`restore_build_tree.py`), or uses the one there;
+2. downloads cosmocc 3.3.10, SAMtools 1.24's release archive and Cosmopolitan's source archive once (into
+   `~/.cache/native-workbench`), each checked against its SHA-256;
+3. runs the recipes: `build_variant.py` (SAMtools, BCFtools), `baselines/build_upstream.py` (minimap2, seqtk),
+   `tools/build_bwa.py`, `tools/build_freebayes.py`, `tools/build_fastp.py`; and builds bgzip and tabix from the HTSlib
+   of the SAMtools recipe. Each recipe makes the Cosmopolitan executable and, from the same sources, a Linux build: the
+   reference that `tests/native-programs.mjs` compares the executable with;
+4. installs the executables, their licences and notices, `programs.json`, `SHA256SUMS` and the GPL sources.
+
+Built again in the same folder, the programs come out byte for byte the same. The folder matters because SAMtools,
+BCFtools and HTSlib keep the compiler's options, paths included, for `--version`: built elsewhere, those bytes differ.
+
+One change was made to a copied recipe: `tools/build_fastp.py` also accepts Cosmopolitan's source archive as
+cosmo.zip publishes it (it reads three licence texts from it).
+
+## Building a program by hand
 
 The build scripts run from the top of the build tree and write into it (`build/`, `variant-build/`, `baselines/bin/`
 …). So build in a tree restored outside the repository:

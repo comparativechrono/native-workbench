@@ -1,0 +1,251 @@
+{
+  "cosmopolitan_source_sha256": "1ecfd628305e844f7d8ded53742e4a7f2b908b4ad2e9fb423c81595986f5b2ff",
+  "files": [
+    {
+      "file": "cosmo-LICENSE",
+      "origin": "baselines/licenses/cosmopolitan-3.3.10/LICENSE",
+      "sha256": "188101f17152d898b65719a4c4fc501aa71c16649cc37ebab534bcb3511c6127"
+    },
+    {
+      "file": "cosmo-libc-tinymath-LICENSE.fdlibm",
+      "origin": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.fdlibm",
+      "sha256": "5238b63cbd39512ff69bf9cb2ce054c7bd416030cdb0d3aea1af2ac0e47b2894"
+    },
+    {
+      "file": "cosmo-libc-tinymath-LICENSE.freebsd",
+      "origin": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.freebsd",
+      "sha256": "4ce916521645614401dd3f625bd534a2281c5e494fe50a631718de1a7c3fb064"
+    },
+    {
+      "file": "cosmo-libc-tinymath-LICENSE.musl",
+      "origin": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.musl",
+      "sha256": "f9bc4423732350eb0b3f7ed7e91d530298476f8fec0c6c427a1c04ade22655af"
+    },
+    {
+      "file": "cosmo-libc-tinymath-LICENSE.openbsd",
+      "origin": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.openbsd",
+      "sha256": "89094132def44cf6f815a6527633d3cd673ccf82be8975fd9b717412517fd884"
+    },
+    {
+      "file": "cosmo-libc-tinymath-LICENSE.optimized-routines",
+      "origin": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.optimized-routines",
+      "sha256": "fb9dee614d78bd7e408174cce841b5d5d50b1f46d2b806124c4923e37859211f"
+    },
+    {
+      "file": "cosmo-notice-source-libc-intrin-armopt.c",
+      "origin": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/intrin/armopt.c",
+      "sha256": "858985a8e6fbe9cfe264479a178989d7535112c734024764927e19eff8d6b22a"
+    },
+    {
+      "file": "cosmo-notice-source-libc-intrin-musl.c",
+      "origin": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/intrin/musl.c",
+      "sha256": "1f74213f9cdc74844b125f841d72c29ecde8ec490e941050bcd5bc28499d551e"
+    },
+    {
+      "file": "cosmo-notice-source-libc-log-err.c",
+      "origin": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/log/err.c",
+      "sha256": "477bcfc04d773fda8b1d0b5b5a33dff62892deea8da759371592ef4a62a1d6dc"
+    },
+    {
+      "file": "cosmo-notice-source-libc-str-smoothsort.c",
+      "origin": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/str/smoothsort.c",
+      "sha256": "15bcb6ed194bb990e0bd50d5ecd0f8e3d7bac33e0cff935ca69f5fe27abe355c"
+    },
+    {
+      "file": "cosmo-notice-source-libc-str-strlcpy.c",
+      "origin": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/str/strlcpy.c",
+      "sha256": "538a04c2ba5fdaf976f9ecc2bc0f88650d65fa5e4fd574d70c04a374dc4068f6"
+    },
+    {
+      "file": "cosmo-notice-source-libc-str-todd.c",
+      "origin": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/str/todd.c",
+      "sha256": "835e7eecbdc9b030b3d3623afcc55d89197bd4fd243378690573f829116ab5f8"
+    },
+    {
+      "file": "cosmo-notice-source-third_party-gdtoa-gdtoa.c",
+      "origin": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/gdtoa.c",
+      "sha256": "258ca8e769fda751b15e7e4ad02302d210745aa2e3524932e66bace1bab349af"
+    },
+    {
+      "file": "cosmo-notice-source-third_party-gdtoa-gdtoa.internal.h",
+      "origin": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/gdtoa.internal.h",
+      "sha256": "bfcc967fdc6992454eeee1b47807b1af06b113353f969f80fe27b276a9b9cc97"
+    },
+    {
+      "file": "cosmo-notice-source-third_party-gdtoa-notice.c",
+      "origin": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/notice.c",
+      "sha256": "3f5cefed7918c2094199e5b51f1d8a260a9cf0a625dd5bb6401bb9d2dd81b989"
+    },
+    {
+      "file": "cosmo-notice-source-third_party-puff-puff.c",
+      "origin": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/puff/puff.c",
+      "sha256": "4435ebd8f4ac8c26c0c1080c985a91e2359ac3495ce22d2bf1be08101d5ee215"
+    },
+    {
+      "file": "cosmo-third_party-nsync-LICENSE.txt",
+      "origin": "baselines/licenses/cosmopolitan-3.3.10/third_party/nsync/LICENSE.txt",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "file": "cosmo-third_party-zlib-LICENSE",
+      "origin": "baselines/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE",
+      "sha256": "49337b3c5dd49bc752db59acfbe6b96f6f710749e6f2e1d1caf7a33712ed9bd7"
+    },
+    {
+      "file": "cosmo-third_party-zlib-LICENSE.chromium",
+      "origin": "baselines/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE.chromium",
+      "sha256": "368cca1106be99d39ecd32a38d8305585d802a475effb66380b91ffc9bcf709b"
+    },
+    {
+      "file": "cosmo-third_party-zlib-LICENSE.zlib",
+      "origin": "baselines/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE.zlib",
+      "sha256": "845efc77857d485d91fb3e0b884aaa929368c717ae8186b66fe1ed2495753243"
+    },
+    {
+      "file": "cosmopolitan-3.3.10-libcxx-LICENSE.txt",
+      "origin": "cosmopolitan-3.3.10/third_party/libcxx/LICENSE.TXT",
+      "sha256": "539dd7aed86e8a4f12cbdd0e6c50c189c7d74847e4fecc64ce2c6ee3a01da38b"
+    },
+    {
+      "file": "cosmopolitan-3.3.10-libcxxabi-LICENSE.txt",
+      "origin": "cosmopolitan-3.3.10/third_party/libcxxabi/LICENSE.TXT",
+      "sha256": "e2b35be49f7284a45b7baca8fc7b3ab7440e7902392b2528a457816b5bb2a15c"
+    },
+    {
+      "file": "cosmopolitan-3.3.10-libunwind-LICENSE.txt",
+      "origin": "cosmopolitan-3.3.10/third_party/libunwind/LICENSE.TXT",
+      "sha256": "b5efebcaca80879234098e52d1725e6d9eb8fb96a19fce625d39184b705f7b6d"
+    },
+    {
+      "file": "freebayes-1.3.10-LICENSE",
+      "origin": "freebayes-1.3.10/LICENSE",
+      "sha256": "a74f8ca21ce149b8474d6b124a3bed1b7050fe2d3eb2660e36abdda524437b84"
+    },
+    {
+      "file": "freebayes-1.3.10-contrib-SeqLib-LICENSE",
+      "origin": "freebayes-1.3.10/contrib/SeqLib/LICENSE",
+      "sha256": "e254754ca1562cf7ad0ed72d887d17202f18186e5cd64b1df4f408364b25b19f"
+    },
+    {
+      "file": "freebayes-1.3.10-contrib-fastahack-LICENSE",
+      "origin": "freebayes-1.3.10/contrib/fastahack/LICENSE",
+      "sha256": "b3da1cd0cdcd8311b464a431b517cb733ddacf94cea29bfcf56b1b0899a6060e"
+    },
+    {
+      "file": "freebayes-1.3.10-contrib-fastahack-libdisorder.LICENSE",
+      "origin": "freebayes-1.3.10/contrib/fastahack/libdisorder.LICENSE",
+      "sha256": "88256ed1c9b3520632968119d0ce13b125315c4d602627763f1aec525deb4932"
+    },
+    {
+      "file": "freebayes-1.3.10-contrib-smithwaterman-LICENSE",
+      "origin": "freebayes-1.3.10/contrib/smithwaterman/LICENSE",
+      "sha256": "b3da1cd0cdcd8311b464a431b517cb733ddacf94cea29bfcf56b1b0899a6060e"
+    },
+    {
+      "file": "freebayes-1.3.10-contrib-smithwaterman-libdisorder.LICENSE",
+      "origin": "freebayes-1.3.10/contrib/smithwaterman/libdisorder.LICENSE",
+      "sha256": "88256ed1c9b3520632968119d0ce13b125315c4d602627763f1aec525deb4932"
+    },
+    {
+      "file": "freebayes-1.3.10-contrib-ttmath-COPYRIGHT",
+      "origin": "freebayes-1.3.10/contrib/ttmath/COPYRIGHT",
+      "sha256": "0d697467a40e930f32d5e22b50e6953331ce6a09bc8a513f5566e5d3984847d1"
+    },
+    {
+      "file": "freebayes-1.3.10-source-header-notices.txt",
+      "origin": "Source-header copyright and license comments",
+      "sha256": "6aef8fe202e79c91534c774ecb0c1225f26b5554c4b3ac3e9d85656ccf84fef3"
+    },
+    {
+      "file": "freebayes-embedded-runtime-notices.txt",
+      "origin": "Extracted __notices and *_notice symbols from baselines/bin/freebayes-cosmo.exe.dbg",
+      "sha256": "30eeba82ddc7c9bf070f4ef3dab41c1c096b80c49687dcf3c5bf81921c23bffd"
+    },
+    {
+      "file": "intervaltree-LICENSE",
+      "origin": "intervaltree-aa5937755000f1cd007402d03b6f7ce4427c5d21/LICENSE",
+      "sha256": "d43d6c476bfd98039cc741bec807e82767df7ae12a95a0dd4b013b4d1b98c86a"
+    },
+    {
+      "file": "intervaltree-source-header-notices.txt",
+      "origin": "Source-header copyright and license comments",
+      "sha256": "483e41f3fed5e766216a5039a903fa1c93f64f0db507ebdd93bcb92515aee31a"
+    },
+    {
+      "file": "musl-1.2.5-COPYRIGHT",
+      "origin": "musl-1.2.5/COPYRIGHT, official source archive",
+      "sha256": "f9bc4423732350eb0b3f7ed7e91d530298476f8fec0c6c427a1c04ade22655af"
+    },
+    {
+      "file": "simde-0.8.2-COPYING",
+      "origin": "simde-0.8.2/COPYING",
+      "sha256": "75ce0a8c5a7bff42fbd6f8f3b469b518132132c4f4948fb8d02b1ccb5d0df9d8"
+    },
+    {
+      "file": "simde-0.8.2-source-header-notices.txt",
+      "origin": "Source-header copyright and license comments",
+      "sha256": "2f115a8befd3110b592d6a329e6fbce6c19627510d69e7aadeea950e5109686a"
+    },
+    {
+      "file": "tabixpp-1.1.2-LICENSE",
+      "origin": "tabixpp-1.1.2/LICENSE",
+      "sha256": "e1c1c31e17c8e2189e53cf960c419423c2b74fe090f7757620ff28d412d45922"
+    },
+    {
+      "file": "tabixpp-1.1.2-source-header-notices.txt",
+      "origin": "Source-header copyright and license comments",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "variant-cosmopolitan-heapsort.c.txt",
+      "origin": "vendor-variant/licenses/cosmopolitan-heapsort.c.txt",
+      "sha256": "6bd63ab8b1ae093a8d88fc2732bccf2907d149b49a5ece7b6a7d5e8d2c07f18d"
+    },
+    {
+      "file": "variant-cosmopolitan-mergesort.c.txt",
+      "origin": "vendor-variant/licenses/cosmopolitan-mergesort.c.txt",
+      "sha256": "ca0a61fdff2ea5b838ef143023ef137e3d4fa3be55f09397a6edc3867e5f5158"
+    },
+    {
+      "file": "variant-cosmopolitan-opensort.c.txt",
+      "origin": "vendor-variant/licenses/cosmopolitan-opensort.c.txt",
+      "sha256": "fcff4746f05f7fa57a50d3c436a4cdda5a543776e03dd7a32ae6771fb81eec36"
+    },
+    {
+      "file": "variant-cosmopolitan-qsort.c.txt",
+      "origin": "vendor-variant/licenses/cosmopolitan-qsort.c.txt",
+      "sha256": "f20d90a0f4c9a5ec08fdc1d0c91d804d2a2067b51b98bd4d4fddfce73eb9d0b2"
+    },
+    {
+      "file": "variant-cosmopolitan-strftime.c.txt",
+      "origin": "vendor-variant/licenses/cosmopolitan-strftime.c.txt",
+      "sha256": "28e72f7e5b6cc82544d230f3945242a89370f2767acf0da5862a637983b580ac"
+    },
+    {
+      "file": "variant-htscodecs-1.6.7.txt",
+      "origin": "vendor-variant/licenses/htscodecs-1.6.7.txt",
+      "sha256": "d17f1bae81abcca5928c2ee0adbc7d4429cc5ad8649d195e011a69f1c3b6b2ad"
+    },
+    {
+      "file": "variant-htslib-1.24.txt",
+      "origin": "vendor-variant/licenses/htslib-1.24.txt",
+      "sha256": "62a9257fa98697f92cf0fee949d59c8afa150b61be210b1f34f5a1bdc6aeb6dd"
+    },
+    {
+      "file": "variant-lz4.txt",
+      "origin": "vendor-variant/licenses/lz4.txt",
+      "sha256": "d15d99c8dc6b0ec22174c0e563a95bc40f9363ca7f9d9d793bb5c5a8e8d0af71"
+    },
+    {
+      "file": "variant-source-header-notices.txt",
+      "origin": "vendor-variant/licenses/source-header-notices.txt",
+      "sha256": "02e6b80ba9c084c34adadd09876311e03231d723ea4bfd1a05c25fae8c2072a2"
+    },
+    {
+      "file": "BUILD-NOTES.txt",
+      "origin": "Native Workbench FreeBayes integration build and validation notes",
+      "sha256": "8ef118a6ba571ef227117776929270073d6318ba4d12e3b39ba647c4ece27e59"
+    }
+  ],
+  "binary_sha256": "76e3072c61d51893615f8fea9f7e4c572b3caf25aa4ca6fa6e2c6138ade575a6"
+}

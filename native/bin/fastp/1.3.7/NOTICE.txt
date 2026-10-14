@@ -1,0 +1,10 @@
+fastp 1.3.7 – native build for the local runner of native-workbench
+
+File: fastp.exe (1636988 bytes), SHA-256 640e1c94b010b09dde93d5f279cf6c4db2a1d37343969ef8e7630ccc316eb7bc
+What it is: a Cosmopolitan "actually portable executable" – a Windows program; on Linux and macOS (x86-64) the loader in native/bin starts it.
+Licence: MIT; ISA-L: BSD 3-clause; libdeflate: MIT; Highway: Apache 2.0 or BSD 3-clause; Plotly.js 1.2.0 (the report's plots): MIT; libc++, libc++abi, libunwind: Apache 2.0 with LLVM exceptions (the licence files in this folder); Cosmopolitan's C library, which it contains: ISC, with the notices of its parts in native/bin/licenses/cosmopolitan-3.3.10.
+Source: https://codeload.github.com/OpenGene/fastp/tar.gz/refs/tags/v1.3.7 (SHA-256 5b7d6880c66e9e10e5923c68ee0c0b5a30f59bd252d836c379c74f8533c26993)
+Recipe: native/workbench/tools/build_fastp.py, native/workbench/vendor-expanded/fastp-offline-report.patch, run by native/build.py with cosmocc 3.3.10 (https://cosmo.zip/pub/cosmocc/cosmocc-3.3.10.zip, SHA-256 00d61c1215667314f66e288c8285bae38cc6137fca083e5bba6c74e3a52439de).
+Changes: The HTML report loads Plotly from a file next to it (plotly-1.2.0.min.js, which the runner puts there) instead of from the web, and its command line and title are escaped; the JSON report escapes the command line. No change to trimming or filtering.
+Threads: yes.
+Built and installed on 2026-10-14.

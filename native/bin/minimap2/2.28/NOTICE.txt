@@ -1,0 +1,10 @@
+minimap2 2.28 – native build for the local runner of native-workbench
+
+File: minimap2.exe (606354 bytes), SHA-256 06bf0815a79552ffcb1291046c7828f2bf8b11d9ad7fe0d9309283e966e973fa
+What it is: a Cosmopolitan "actually portable executable" – a Windows program; on Linux and macOS (x86-64) the loader in native/bin starts it.
+Licence: MIT (the licence files in this folder); Cosmopolitan's C library, which it contains: ISC, with the notices of its parts in native/bin/licenses/cosmopolitan-3.3.10.
+Source: https://codeload.github.com/lh3/minimap2/tar.gz/refs/tags/v2.28 (SHA-256 5ea6683b4184b5c49f6dbaef2bc5b66155e405888a0790d1b21fd3c93e474278)
+Recipe: native/workbench/baselines/build_upstream.py, native/workbench/vendor/provenance.json, run by native/build.py with cosmocc 3.3.10 (https://cosmo.zip/pub/cosmocc/cosmocc-3.3.10.zip, SHA-256 00d61c1215667314f66e288c8285bae38cc6137fca083e5bba6c74e3a52439de).
+Changes: None to the source. Mapping threads (-t) work.
+Threads: yes.
+Built and installed on 2026-10-14.

@@ -3211,8 +3211,18 @@ Try 'ls --help' for more information.`, 2);
     const name = ctx.args.filter((a) => !a.startsWith('-'))[0];
     if (!name) throw userErr('What manual page do you want?\nFor example, try \'man samtools\'.');
     const t = MG.shellTools[name];
-    // (the manual pages say where the programs run: in the browser, or on this computer with the local runner)
-    if (t && t.man) return ctx.out((MG.exec && MG.exec.capabilities.where === 'local' ? t.man.replace(' · compiled program, running in your browser', ' · compiled program, running on this computer (the local runner)') : t.man) + '\n');
+    // (the manual pages say where the programs run: in the browser, or on this computer with the local runner – where a
+    // program may be one built for this computer, with a version of its own)
+    if (t && t.man) {
+      let man = t.man;
+      if (MG.exec && MG.exec.capabilities.where === 'local') {
+        const nat = (MG.exec.capabilities.native || {})[name];
+        man = nat
+          ? man.replace(/^(\S+) \S+ · compiled program, running in your browser/, `$1 ${nat.version} · native program, built for this computer, running in the local runner${nat.threads ? '' : ' (on one thread)'}`)
+          : man.replace(' · compiled program, running in your browser', ' · compiled program, running on this computer (the local runner)');
+      }
+      return ctx.out(man + '\n');
+    }
     if (MG.shellBuiltins[name] && MG.shellHelp && MG.shellHelp(name)) return ctx.out(MG.shellHelp(name));
     if (MG.shellBuiltins[name]) return ctx.out(`${name}: a command of the shell itself (bash has it too). help lists what this terminal has.\n`);
     throw userErr(`No manual entry for ${name}`, 16);

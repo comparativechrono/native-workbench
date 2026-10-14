@@ -11,6 +11,10 @@
    the bytes of a large file never come to the page. The folder is where the work is kept: the page starts with what
    is in it (restore), and what the page changes goes to it soon after (watch).
 
+   Where the runner has a program built for this computer (native/bin: SAMtools, BCFtools, minimap2, BWA …), it runs
+   that one instead (runner/native.mjs); it tells the page which (GET /api/v1/hello: programs), and the page takes
+   their versions and whether they use threads from there (capabilities.native).
+
    The page asks for this backend with ?backend=local (or backend: 'local' in config.js), and asks the runner who it
    is (GET /api/v1/hello) at the page's own address. Every request carries the key of the session (Authorization:
    Bearer KEY): the runner puts it in the address it prints (#runner-token=KEY); the page keeps it for this tab only and
@@ -190,7 +194,20 @@
       this.info = j;
       this.label = `the local runner${j.runner ? ' (' + j.runner + (j.version ? ' ' + j.version : '') + ')' : ''}`;
       const folder = j.workspace && j.workspace.root;
-      MG.exec.notices.push(`The programs run on this computer, in the local runner${folder ? `; your files (~) are the folder ${folder}` : ''}. featureCounts, Salmon, Kraken2 and the other programs that run in a worker of their own in the browser are not in the runner yet (open the workbench without ?backend=local to use them).`);
+      // the programs the runner has built for this computer: their versions, and whether they can use threads
+      const native = j.programs && typeof j.programs === 'object' ? j.programs : {};
+      const names = Object.keys(native).sort();
+      if (names.length) {
+        this.capabilities = Object.assign({}, this.capabilities, { native });
+        const v = Object.assign({}, this.versions);
+        for (const n of names) {
+          v[n] = native[n].version;
+          if (native[n].tool) v[native[n].tool] = native[n].version;
+        }
+        this.versions = v;
+      }
+      const which = names.length ? ` ${names.map((n) => n + ' ' + native[n].version).join(', ')} are native programs, built for this computer; the others are the browser's WebAssembly builds, run by the runner.` : j.native && j.native.why ? ` The runner has no native programs (${j.native.why}): it runs the browser's WebAssembly builds.` : '';
+      MG.exec.notices.push(`The programs run on this computer, in the local runner${folder ? `; your files (~) are the folder ${folder}` : ''}.${which} featureCounts, Salmon, Kraken2 and the other programs that run in a worker of their own in the browser are not in the runner yet (open the workbench without ?backend=local to use them).`);
       if (j.busy) this.whileBusy(j.busy);
       return true;
     },

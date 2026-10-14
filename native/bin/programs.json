@@ -1,0 +1,183 @@
+{
+ "schema": 1,
+ "about": "The native programs of the local runner (runner/native.mjs), written by native/build.py. Each is a Cosmopolitan \"actually portable executable\": a Windows program, and on Linux and macOS (x86-64) one that the loader for that system starts.",
+ "toolchain": {
+  "name": "cosmocc",
+  "version": "3.3.10",
+  "url": "https://cosmo.zip/pub/cosmocc/cosmocc-3.3.10.zip",
+  "sha256": "00d61c1215667314f66e288c8285bae38cc6137fca083e5bba6c74e3a52439de"
+ },
+ "loaders": {
+  "linux-x64": {
+   "file": "ape-x86_64.elf",
+   "sha256": "ad98161cba98163f6aa383595804489cec52a9ff3b902be16b29368e171ba359"
+  },
+  "darwin-x64": {
+   "file": "ape-x86_64.macho",
+   "sha256": "e28c8e7e1f7fb3882f1cb7812c4a9846bef37854d3c6a3256bfd95c332f6c348"
+  }
+ },
+ "programs": [
+  {
+   "name": "bcftools",
+   "tool": "bcftools",
+   "version": "1.24",
+   "kind": "cosmopolitan",
+   "file": "bcftools/1.24/bcftools.exe",
+   "sha256": "f36e55823b61ea750ebc52fb03238637b6e46df2f98c9f2d3648e85e7dd9270d",
+   "bytes": 2685564,
+   "threads": false,
+   "licence": "MIT/Expat (built without GSL, so not the GPL variant); HTSlib: MIT/Expat and modified BSD",
+   "source": "https://github.com/samtools/bcftools/releases/download/1.24/bcftools-1.24.tar.bz2",
+   "sourceSha256": "8caddc22610ee2851666047c859bb91da0c1e32d0c2ec553db6f153ad130e46f",
+   "recipe": [
+    "native/workbench/build_variant.py"
+   ],
+   "assets": []
+  },
+  {
+   "name": "bgzip",
+   "tool": "htslib",
+   "version": "1.24",
+   "kind": "cosmopolitan",
+   "file": "htslib/1.24/bgzip.exe",
+   "sha256": "61b8af480a4624c0f97346d08e5e9bf191934030fcac09f72f2ff86ab89b63ed",
+   "bytes": 1220754,
+   "threads": false,
+   "licence": "MIT/Expat and modified BSD",
+   "source": "https://github.com/samtools/samtools/releases/download/1.24/samtools-1.24.tar.bz2",
+   "sourceSha256": "89b2a440123eeaa400392ce1736e7d60ce9041843027d76819753c5a8246bfdd",
+   "recipe": [
+    "native/build.py",
+    "native/workbench/build_variant.py"
+   ],
+   "assets": []
+  },
+  {
+   "name": "bwa",
+   "tool": "bwa",
+   "version": "0.7.19",
+   "kind": "cosmopolitan",
+   "file": "bwa/0.7.19/bwa.exe",
+   "sha256": "55d08b399c42a671e60a8dc7d0421fb60aca8899aa54201903fcf1e2ac21fa0a",
+   "bytes": 884882,
+   "threads": true,
+   "licence": "GNU GPL 3",
+   "source": "https://codeload.github.com/lh3/bwa/tar.gz/refs/tags/v0.7.19",
+   "sourceSha256": "cdff5db67652c5b805a3df08c4e813a822c65791913eccfb3cf7d528588f37bc",
+   "recipe": [
+    "native/workbench/tools/build_bwa.py"
+   ],
+   "assets": []
+  },
+  {
+   "name": "fastp",
+   "tool": "fastp",
+   "version": "1.3.7",
+   "kind": "cosmopolitan",
+   "file": "fastp/1.3.7/fastp.exe",
+   "sha256": "640e1c94b010b09dde93d5f279cf6c4db2a1d37343969ef8e7630ccc316eb7bc",
+   "bytes": 1636988,
+   "threads": true,
+   "licence": "MIT; ISA-L: BSD 3-clause; libdeflate: MIT; Highway: Apache 2.0 or BSD 3-clause; Plotly.js 1.2.0 (the report's plots): MIT; libc++, libc++abi, libunwind: Apache 2.0 with LLVM exceptions",
+   "source": "https://codeload.github.com/OpenGene/fastp/tar.gz/refs/tags/v1.3.7",
+   "sourceSha256": "5b7d6880c66e9e10e5923c68ee0c0b5a30f59bd252d836c379c74f8533c26993",
+   "recipe": [
+    "native/workbench/tools/build_fastp.py",
+    "native/workbench/vendor-expanded/fastp-offline-report.patch"
+   ],
+   "assets": [
+    "plotly-1.2.0.min.js"
+   ]
+  },
+  {
+   "name": "freebayes",
+   "tool": "freebayes",
+   "version": "1.3.10",
+   "kind": "cosmopolitan",
+   "file": "freebayes/1.3.10/freebayes.exe",
+   "sha256": "778fd427de0a30a0e79ded96969f110f5235765c791fbb67a6174d422afe9eb1",
+   "bytes": 3705468,
+   "threads": false,
+   "licence": "MIT; it contains libdisorder (GNU GPL 2 or later), so the program is distributed under the GPL",
+   "source": "https://github.com/freebayes/freebayes/releases/download/v1.3.10/freebayes-1.3.10-src.tar.gz",
+   "sourceSha256": "f828738176b38987d40cd8180d68d77af90163384f4ed9a16bb05cfa2fdb5a71",
+   "recipe": [
+    "native/workbench/tools/build_freebayes.py",
+    "native/workbench/vendor-expanded/freebayes/compat/"
+   ],
+   "assets": []
+  },
+  {
+   "name": "minimap2",
+   "tool": "minimap2",
+   "version": "2.28",
+   "kind": "cosmopolitan",
+   "file": "minimap2/2.28/minimap2.exe",
+   "sha256": "06bf0815a79552ffcb1291046c7828f2bf8b11d9ad7fe0d9309283e966e973fa",
+   "bytes": 606354,
+   "threads": true,
+   "licence": "MIT",
+   "source": "https://codeload.github.com/lh3/minimap2/tar.gz/refs/tags/v2.28",
+   "sourceSha256": "5ea6683b4184b5c49f6dbaef2bc5b66155e405888a0790d1b21fd3c93e474278",
+   "recipe": [
+    "native/workbench/baselines/build_upstream.py",
+    "native/workbench/vendor/provenance.json"
+   ],
+   "assets": []
+  },
+  {
+   "name": "samtools",
+   "tool": "samtools",
+   "version": "1.24",
+   "kind": "cosmopolitan",
+   "file": "samtools/1.24/samtools.exe",
+   "sha256": "69bcc2bf7a58ceec303cf3cfeb74ae9afe191d59a7bcabd275e64eca8290a832",
+   "bytes": 2039954,
+   "threads": false,
+   "licence": "MIT/Expat (SAMtools); HTSlib: MIT/Expat and modified BSD",
+   "source": "https://github.com/samtools/samtools/releases/download/1.24/samtools-1.24.tar.bz2",
+   "sourceSha256": "89b2a440123eeaa400392ce1736e7d60ce9041843027d76819753c5a8246bfdd",
+   "recipe": [
+    "native/workbench/build_variant.py"
+   ],
+   "assets": []
+  },
+  {
+   "name": "seqtk",
+   "tool": "seqtk",
+   "version": "1.4",
+   "kind": "cosmopolitan",
+   "file": "seqtk/1.4/seqtk.exe",
+   "sha256": "f36ef9279e9ef6347cbd44740a5892d43a0564d0980f151c726478056b16920b",
+   "bytes": 430226,
+   "threads": false,
+   "licence": "MIT",
+   "source": "https://codeload.github.com/lh3/seqtk/tar.gz/refs/tags/v1.4",
+   "sourceSha256": "d124604ec24f29ed14ce127426ab90e0f3a2c0280c80d1a3ff8b1c09feede19c",
+   "recipe": [
+    "native/workbench/baselines/build_upstream.py",
+    "native/workbench/vendor/provenance.json"
+   ],
+   "assets": []
+  },
+  {
+   "name": "tabix",
+   "tool": "htslib",
+   "version": "1.24",
+   "kind": "cosmopolitan",
+   "file": "htslib/1.24/tabix.exe",
+   "sha256": "9cea761be2b7800177cf9bc6b2f16f8477f4b96031da0a599f467b458d351331",
+   "bytes": 1368210,
+   "threads": false,
+   "licence": "MIT/Expat and modified BSD",
+   "source": "https://github.com/samtools/samtools/releases/download/1.24/samtools-1.24.tar.bz2",
+   "sourceSha256": "89b2a440123eeaa400392ce1736e7d60ce9041843027d76819753c5a8246bfdd",
+   "recipe": [
+    "native/build.py",
+    "native/workbench/build_variant.py"
+   ],
+   "assets": []
+  }
+ ]
+}

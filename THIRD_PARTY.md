@@ -105,13 +105,24 @@ The GPL's terms for distributing compiled programs and their Corresponding Sourc
 - The **hosted genomes** of the genome browser are listed by the IGV team (`igv.org`), and their files come from there and from UCSC (`hgdownload.soe.ucsc.edu`, or its copy `genome-browser.s3.us-east-1.amazonaws.com`); **structures** from RCSB PDB and AlphaFold DB; the **Databases** tab, the **Networks** tab and code in notebooks use public web services (EMBL-EBI – IntAct among them –, NCBI, RCSB PDB, UCSC, STRING, Reactome, NDEx, g:Profiler), each under its own terms of use; a network opened from NDEx comes with its own licence, shown in the list.
 - The **AI assistant** sends a student's messages – and the agent its commands and their output – to the AI service the student chose, with the student's own key. No AI model or service is part of the site.
 
-## Native programs: code and build recipes (`native/`)
+## Native programs (run by the local runner) and their build recipes (`native/`)
 
-`native/workbench/` is a copy of the code of Native Workbench (`comparativechrono/workbench`), which built these programs for Windows. See `native/README.md` and `native/TOOLS.md`.
+The local runner runs these programs natively, in place of their WebAssembly builds (`runner/native.mjs`). Each is a Cosmopolitan "actually portable executable", built by `native/build.py` with cosmocc 3.3.10 from the recipes of Native Workbench: a Windows program, and on Linux and macOS (x86-64) one that the loader in `native/bin` (`ape-x86_64.elf`, `ape-x86_64.macho`: ISC) starts. Each folder `native/bin/TOOL/VERSION/` holds the program, its licences and a `NOTICE.txt` (source, recipe, changes); `native/bin/programs.json` and `SHA256SUMS` list them with their SHA-256. Every program contains Cosmopolitan's C library (ISC), with zlib (zlib licence; Chromium's version) and its other parts – their notices are in `native/bin/licenses/cosmopolitan-3.3.10/`.
 
-- Native Workbench's own code is under the MIT licence (`native/workbench/LICENSE`, Copyright 2026 Native Workbench contributors).
-- The upstream sources and patches it holds keep their own licences, and their notices are next to them (`vendor-expanded/`, `tools/`, `baselines/licenses/`, `packs/*/licenses/`).
-- No native executable is bundled yet. Each will be listed here, as the WebAssembly programs are above.
+| Program | Version | Licence | Folder | Upstream source |
+| --- | --- | --- | --- | --- |
+| SAMtools | 1.24 | MIT/Expat; HTSlib: MIT/Expat and modified BSD | [samtools/1.24](native/bin/samtools/1.24/) | [samtools-1.24.tar.bz2](https://github.com/samtools/samtools/releases/tag/1.24) |
+| BCFtools (built without GSL) | 1.24 | MIT/Expat; HTSlib as above | [bcftools/1.24](native/bin/bcftools/1.24/) | [bcftools-1.24.tar.bz2](https://github.com/samtools/bcftools/releases/tag/1.24) |
+| bgzip, tabix (HTSlib) | 1.24 | MIT/Expat and modified BSD | [htslib/1.24](native/bin/htslib/1.24/) | the HTSlib in SAMtools 1.24's release |
+| minimap2 | 2.28 | MIT | [minimap2/2.28](native/bin/minimap2/2.28/) | [lh3/minimap2 v2.28](https://github.com/lh3/minimap2/tree/v2.28) |
+| seqtk | 1.4 | MIT | [seqtk/1.4](native/bin/seqtk/1.4/) | [lh3/seqtk v1.4](https://github.com/lh3/seqtk/tree/v1.4) |
+| **BWA** | 0.7.19 (r1273) | **GNU GPL 3** | [bwa/0.7.19](native/bin/bwa/0.7.19/) | [lh3/bwa v0.7.19](https://github.com/lh3/bwa/tree/v0.7.19), [included](native/sources/) |
+| **FreeBayes** (with HTSlib 1.24, tabixpp, IntervalTree, SIMDe and `llrintl` from musl 1.2.5) | 1.3.10 | MIT; it contains libdisorder (**GNU GPL 2 or later**), so the program is distributed under the GPL; its parts: see its `licenses/` | [freebayes/1.3.10](native/bin/freebayes/1.3.10/) | [freebayes-1.3.10-src.tar.gz](https://github.com/freebayes/freebayes/releases/tag/v1.3.10), [included](native/sources/) |
+| fastp (with ISA-L, libdeflate, Highway, libc++) | 1.3.7 | MIT; ISA-L: BSD 3-clause; libdeflate: MIT; Highway: Apache 2.0 or BSD 3-clause; libc++, libc++abi, libunwind: Apache 2.0 with LLVM exceptions; Plotly.js 1.2.0 (the report's plots, `plotly-1.2.0.min.js` next to it): MIT | [fastp/1.3.7](native/bin/fastp/1.3.7/) | [OpenGene/fastp v1.3.7](https://github.com/OpenGene/fastp/tree/v1.3.7) |
+
+The changes for these builds are in each `NOTICE.txt` and in `native/TOOLS.md`: FreeBayes' portability changes (none to how it calls variants), fastp's report made to work without a network. `native/sources/` holds the source archives of the two GPL programs; the recipes and every change are in this repository (`native/workbench/`).
+
+`native/workbench/` itself is a copy of the code of Native Workbench (`comparativechrono/workbench`), which built these and 28 more programs for Windows (`native/README.md`, `native/TOOLS.md`). Its own code is under the MIT licence (`native/workbench/LICENSE`, Copyright 2026 Native Workbench contributors); the upstream sources and patches it holds keep their own licences, and their notices are next to them (`vendor-expanded/`, `tools/`, `baselines/licenses/`, `packs/*/licenses/`).
 
 ## Re-implementations written for the course
 

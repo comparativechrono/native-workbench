@@ -1,0 +1,10 @@
+bcftools 1.24 – native build for the local runner of native-workbench
+
+File: bcftools.exe (2685564 bytes), SHA-256 f36e55823b61ea750ebc52fb03238637b6e46df2f98c9f2d3648e85e7dd9270d
+What it is: a Cosmopolitan "actually portable executable" – a Windows program; on Linux and macOS (x86-64) the loader in native/bin starts it.
+Licence: MIT/Expat (built without GSL, so not the GPL variant); HTSlib: MIT/Expat and modified BSD (the licence files in this folder); Cosmopolitan's C library, which it contains: ISC, with the notices of its parts in native/bin/licenses/cosmopolitan-3.3.10.
+Source: https://github.com/samtools/bcftools/releases/download/1.24/bcftools-1.24.tar.bz2 (SHA-256 8caddc22610ee2851666047c859bb91da0c1e32d0c2ec553db6f153ad130e46f)
+Recipe: native/workbench/build_variant.py, run by native/build.py with cosmocc 3.3.10 (https://cosmo.zip/pub/cosmocc/cosmocc-3.3.10.zip, SHA-256 00d61c1215667314f66e288c8285bae38cc6137fca083e5bba6c74e3a52439de).
+Changes: None to the source. Built without plugins, GSL, Perl filters, bzip2, lzma and libcurl. No threads (--threads).
+Threads: no – the terminal leaves the option out, with a note.
+Built and installed on 2026-10-14.

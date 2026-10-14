@@ -5,11 +5,16 @@
    forced stop came): there the candidate is compared with digits masked, and a file only by its kind and
    permissions – and so are the files that suite.mjs names as carrying the time of the run (timeStamped), which the
    steps that make them check in another way. Everything else must be identical: exit status, output, messages, and
-   every file in the home folder – its kind, size, permissions and bytes. Exit status 1 when anything differs. */
+   every file in the home folder – its kind, size, permissions and bytes. Exit status 1 when anything differs.
+     --content   a file whose bytes differ, but whose content is the same (c: unpacked, times masked – recorded for the
+                 local runner's files, see harness.mjs), counts as the same, with a note; so does the index of such a
+                 file (.bai, .csi, .tbi, .gzi: it points into other bytes). For two builds of a program that compress
+                 differently: the native programs against the WebAssembly ones. */
 import fs from 'node:fs';
 import { timeStamped } from './suite.mjs';
 
-const [fa, fb, fc] = process.argv.slice(2);
+const CONTENT = process.argv.includes('--content');
+const [fa, fb, fc] = process.argv.slice(2).filter((a) => !a.startsWith('--'));
 if (!fc) {
   console.error('usage: node compare.mjs reference-1.json reference-2.json candidate.json');
   process.exit(2);
@@ -22,7 +27,7 @@ const load = (f) => {
 };
 const A = load(fa), B = load(fb), C = load(fc);
 const mask = (s) => (s == null ? s : String(s).replace(/\d+(\.\d+)?/g, '#'));
-const problems = [];
+const problems = [], notes = [];
 let checked = 0, volatile = 0;
 
 function field(id, name, a, b, c) {
@@ -53,7 +58,15 @@ function files(id, a, b, c) {
     const stamped = timeStamped.find(([re]) => re.test(p));
     const same = !stamped && JSON.stringify(fa) === JSON.stringify(fb);
     if (same) {
-      if (JSON.stringify(fa) !== JSON.stringify(fc)) problems.push({ id, name: 'file ' + p, reference: fa, candidate: fc });
+      if (JSON.stringify(fa) !== JSON.stringify(fc)) {
+        // (--content: the same content, compressed differently – or an index into such bytes)
+        const keys = ['p', 'k', 'mode', 'ro', 'perm', 'prot'];
+        const meta = JSON.stringify(keys.map((k) => fa[k])) === JSON.stringify(keys.map((k) => fc[k]));
+        const base = p.replace(/\.(bai|csi|tbi|gzi)$/, ''), ba = base !== p ? ma.get(base) : null, bc = base !== p ? mc.get(base) : null;
+        if (CONTENT && meta && fa.c && fa.c === fc.c) notes.push(`${id}: ${p} – the same content, compressed differently`);
+        else if (CONTENT && meta && ba && bc && ba.c && ba.c === bc.c && ba.h !== bc.h) notes.push(`${id}: ${p} – an index of differently compressed bytes`);
+        else problems.push({ id, name: 'file ' + p, reference: fa, candidate: fc });
+      }
       continue;
     }
     volatile++;
@@ -86,5 +99,6 @@ for (const p of problems) {
   if ('reference2' in p) console.log('    reference2: ' + short(p.reference2));
   console.log('    candidate: ' + short(p.candidate));
 }
+if (notes.length) console.log(`(${notes.length} files with the same content, compressed differently, or indexes of them – e.g. ${notes.slice(0, 3).join('; ')})`);
 console.log(`${A.size} steps, ${checked} comparisons (${volatile} vary between the reference runs and were masked): ${problems.length ? problems.length + ' DIFFERENCES' : 'identical'}`);
 process.exit(problems.length ? 1 : 0);

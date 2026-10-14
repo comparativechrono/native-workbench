@@ -9,6 +9,7 @@ import path from 'node:path';
 import fs from 'node:fs';
 import os from 'node:os';
 import crypto from 'node:crypto';
+import { look } from './content.mjs';
 
 export async function freePort() {
   return new Promise((resolve, reject) => {
@@ -38,14 +39,15 @@ async function waitForPort(port, ms = 15000) {
 /** Serve `root` (a checkout of the workbench) and open it. → { page, browser, close, url, errors, workspace, server }
     (server: the process that serves it – null when the test brings its own)
     runner: serve it with the local runner (runner/runner.mjs) and run the programs there, in a new, empty workspace
-    (or in `workspace`) – the page is opened with ?backend=local and the key of the session */
-export async function openWorkbench(root, { query = '', port, headless = true, server, runner, workspace } = {}) {
+    (or in `workspace`) – the page is opened with ?backend=local and the key of the session; runnerArgs: more options for
+    the runner (--no-native: the WebAssembly builds only) */
+export async function openWorkbench(root, { query = '', port, headless = true, server, runner, workspace, runnerArgs = [] } = {}) {
   port = port || (await freePort());
   let srv = null, ws = null;
   if (runner) {
     ws = workspace || fs.mkdtempSync(path.join(os.tmpdir(), 'wb-ws-'));
     const key = crypto.randomBytes(12).toString('hex');
-    srv = spawn('node', [path.join(root, 'runner', 'runner.mjs'), '--workspace', ws, '--port', String(port), '--token', key], { stdio: 'ignore' });
+    srv = spawn('node', [path.join(root, 'runner', 'runner.mjs'), '--workspace', ws, '--port', String(port), '--token', key, ...runnerArgs], { stdio: 'ignore' });
     query = `?backend=local${query ? '&' + query.replace(/^\?/, '') : ''}#runner-token=${key}`;
   }
   // (a test may bring its own server – a mock local runner that also serves the page)
@@ -71,9 +73,11 @@ export async function openWorkbench(root, { query = '', port, headless = true, s
   return { page, browser, close, url, errors, workspace: ws, server: srv };
 }
 
-/** every file and folder below the home folder: path, kind, size, permissions and a hash of the bytes */
-export async function snapshot(page) {
-  return page.evaluate(async () => {
+/** every file and folder below the home folder: path, kind, size, permissions and a hash of the bytes – and, for a
+    file that the local runner keeps in its folder (workspace), what it holds (c: unpacked, times masked; see
+    content.mjs), so that two runs whose programs compress differently can be compared by content */
+export async function snapshot(page, workspace) {
+  const list = await page.evaluate(async () => {
     const fs = MG.app.term.fs;
     const cache = window.__hashCache || (window.__hashCache = new WeakMap());
     const out = [];
@@ -102,6 +106,16 @@ export async function snapshot(page) {
     }
     return out.sort((a, b) => (a.p < b.p ? -1 : a.p > b.p ? 1 : 0));
   });
+  if (workspace)
+    for (const rec of list) {
+      if (rec.k !== 'local' || !rec.p.startsWith('/home/user/')) continue;
+      try {
+        rec.c = look(path.join(workspace, ...rec.p.slice('/home/user/'.length).split('/'))).content;
+      } catch (e) {
+        /* (gone) */
+      }
+    }
+  return list;
 }
 
 const withTimeout = (p, ms, what) => Promise.race([p, new Promise((_, rej) => setTimeout(() => rej(new Error(`timeout after ${ms} ms: ${what}`)), ms))]);
@@ -155,6 +169,6 @@ export async function runStep(wb, step, { timeoutMs = 300000 } = {}) {
   }
   res.ms = Date.now() - t0;
   res.errors = wb.errors.slice(errs0);
-  if (!step.noSnapshot) res.files = await snapshot(page);
+  if (!step.noSnapshot) res.files = await snapshot(page, wb.workspace);
   return res;
 }

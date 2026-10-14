@@ -1,0 +1,11 @@
+bwa 0.7.19 – native build for the local runner of native-workbench
+
+File: bwa.exe (884882 bytes), SHA-256 55d08b399c42a671e60a8dc7d0421fb60aca8899aa54201903fcf1e2ac21fa0a
+What it is: a Cosmopolitan "actually portable executable" – a Windows program; on Linux and macOS (x86-64) the loader in native/bin starts it.
+Licence: GNU GPL 3 (the licence files in this folder); Cosmopolitan's C library, which it contains: ISC, with the notices of its parts in native/bin/licenses/cosmopolitan-3.3.10.
+Source: https://codeload.github.com/lh3/bwa/tar.gz/refs/tags/v0.7.19 (SHA-256 cdff5db67652c5b805a3df08c4e813a822c65791913eccfb3cf7d528588f37bc)
+Recipe: native/workbench/tools/build_bwa.py, run by native/build.py with cosmocc 3.3.10 (https://cosmo.zip/pub/cosmocc/cosmocc-3.3.10.zip, SHA-256 00d61c1215667314f66e288c8285bae38cc6137fca083e5bba6c74e3a52439de).
+Changes: None to the source. Mapping threads (-t) work.
+Threads: yes.
+Its source code, as the GNU GPL asks, is in native/sources/ (see the README there); the recipe and any changes are in this repository.
+Built and installed on 2026-10-14.

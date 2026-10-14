@@ -1,16 +1,19 @@
 #!/usr/bin/env node
 /* The SAMtools prototype of the memory review (see docs/execution-backends.md): from the page, with the local runner,
-   sort a BAM file several times larger than the memory a program may have (2 GiB: the WebAssembly builds are 32-bit),
-   with the sort's memory bounded and its temporary files on disk – and measure what it takes.
+   sort a BAM file several times larger than the memory a WebAssembly program may have (2 GiB: those builds are
+   32-bit), with the sort's memory bounded and its temporary files on disk – and measure what it takes. The runner runs
+   its native SAMtools (native/bin) – or, with --wasm, the browser's WebAssembly build, as the first prototype did.
 
-     node prototype/sort-big-bam.mjs --bam unsorted.bam --workspace FOLDER [--mem 256M] [--native PATH/samtools]
-                                     [--out results/prototype-sort.json] [--keep]
+     node prototype/sort-big-bam.mjs --bam unsorted.bam --workspace FOLDER [--mem 256M] [--reference PATH/samtools]
+                                     [--wasm] [--out results/prototype-sort.json] [--keep]
 
    --bam        an unsorted BAM file (make-unsorted-sam.mjs makes one); it is linked into the workspace as unsorted.bam
    --workspace  a new folder on the same disk: the runner's folder (~)
    --mem        samtools sort -m (the memory of the sort)
-   --native     a native samtools of the same version (1.17): it sorts the same file with the same options, and the
-                result is compared with the page's
+   --reference  a samtools of the same version as the page's, built for Linux (1.24: native/build.py leaves one in its
+                build tree, baselines/bin/samtools-linux; 1.17 with --wasm): it sorts the same file with the same
+                options, and the result is compared with the page's (--native: the same, the first prototype's name)
+   --wasm       the runner runs the WebAssembly build of samtools (1.17), not its native one
    --keep       leave the workspace as it is at the end (otherwise what the run made is removed again)
 
    It checks that the sort ends with status 0; that sorted.bam is a valid BAM, sorted by coordinate, whose header (but
@@ -38,10 +41,11 @@ const opt = (name, dflt) => {
 const BAM = opt('bam') && path.resolve(opt('bam'));
 const WS = opt('workspace') && path.resolve(opt('workspace'));
 const MEM = opt('mem', '256M');
-const NATIVE = opt('native');
+const NATIVE = opt('reference', opt('native'));
+const WASM = argv.includes('--wasm');
 const OUT = path.resolve(opt('out', path.join(ROOT, 'tests', 'results', 'prototype-sort.json')));
 if (!BAM || !WS) {
-  console.error('usage: node prototype/sort-big-bam.mjs --bam unsorted.bam --workspace FOLDER [--mem 256M] [--native samtools] [--out FILE] [--keep]');
+  console.error('usage: node prototype/sort-big-bam.mjs --bam unsorted.bam --workspace FOLDER [--mem 256M] [--reference samtools] [--wasm] [--out FILE] [--keep]');
   process.exit(2);
 }
 
@@ -81,6 +85,28 @@ function mem(pid) {
   } catch (e) {
     return null;
   }
+}
+/** the processes below the runner: a native program it runs (and whatever that starts) */
+function programPids(runnerPid) {
+  const kids = new Map();
+  for (const d of fs.readdirSync('/proc')) {
+    if (!/^\d+$/.test(d)) continue;
+    try {
+      const stat = fs.readFileSync(`/proc/${d}/stat`, 'utf8');
+      const ppid = Number(stat.slice(stat.lastIndexOf(')') + 2).split(' ')[1]);
+      if (!kids.has(ppid)) kids.set(ppid, []);
+      kids.get(ppid).push(Number(d));
+    } catch (e) {
+      /* (gone) */
+    }
+  }
+  const out = [], todo = [...(kids.get(runnerPid) || [])];
+  while (todo.length) {
+    const p = todo.pop();
+    out.push(p);
+    todo.push(...(kids.get(p) || []));
+  }
+  return out;
 }
 /** the processes below this one, but for the runner: the browser's */
 function browserPids(runnerPid) {
@@ -139,7 +165,7 @@ function diskUse() {
   return { temp, output, tempFiles: n, free: fs.statfsSync(WS).bavail * fs.statfsSync(WS).bsize };
 }
 
-const wb = await openWorkbench(ROOT, { runner: true, workspace: WS });
+const wb = await openWorkbench(ROOT, { runner: true, workspace: WS, runnerArgs: WASM ? ['--no-native'] : [] });
 const runnerPid = wb.server.pid;
 const cdp = await wb.page.context().newCDPSession(wb.page);
 await cdp.send('Network.enable');
@@ -177,13 +203,21 @@ const heap = async () => {
 /** run a command line in the terminal, as if typed, and measure it */
 async function phase(name, line) {
   const n0 = { ...net }, t0 = Date.now();
-  const peak = { runner: 0, runnerPeak: 0, browser: 0, renderer: 0, jsHeap: 0, jsHeapTotal: 0, temp: 0, tempFiles: 0, output: 0, extra: 0, minFree: Infinity };
+  const peak = { runner: 0, runnerPeak: 0, program: 0, programPeak: 0, browser: 0, renderer: 0, jsHeap: 0, jsHeapTotal: 0, temp: 0, tempFiles: 0, output: 0, extra: 0, minFree: Infinity };
   let start = null; // (the first sample: what the browser and the runner had before the command)
   const series = [];
   let stop = false;
   const sampler = (async () => {
     while (!stop) {
       const r = mem(runnerPid) || { rss: 0, peak: 0 };
+      // (a native program: a process of the runner's own)
+      let pr = 0, pp = 0;
+      for (const pid of programPids(runnerPid)) {
+        const m = mem(pid);
+        if (m) (pr += m.rss), (pp = Math.max(pp, m.peak));
+      }
+      peak.program = Math.max(peak.program, pr);
+      peak.programPeak = Math.max(peak.programPeak, pp);
       let b = 0, rend = 0;
       for (const p of browserPids(runnerPid)) {
         const m = mem(p.pid);
@@ -205,7 +239,7 @@ async function phase(name, line) {
       peak.extra = Math.max(peak.extra, d.temp + d.output);
       peak.minFree = Math.min(peak.minFree, d.free);
       if (!start) start = { runner: r.rss, browser: b, renderer: rend, jsHeap: h.used };
-      series.push({ t: secs(t0), runnerRSS: r.rss, browserRSS: b, jsHeap: h.used, temp: d.temp, output: d.output });
+      series.push({ t: secs(t0), runnerRSS: r.rss, programRSS: pr, browserRSS: b, jsHeap: h.used, temp: d.temp, output: d.output });
       await sleep(1000);
     }
   })();
@@ -301,13 +335,19 @@ const report = {
   date: new Date().toISOString(),
   machine: { os: `${os.type()} ${os.release()}`, cpu: os.cpus()[0].model, cpus: os.cpus().length, memory: os.totalmem() },
   versions: { node: process.versions.node, browser: wb.browser.version(), playwright: JSON.parse(fs.readFileSync(path.join(ROOT, 'tests', 'node_modules', 'playwright', 'package.json'), 'utf8')).version },
-  build: {
-    samtools: 'samtools 1.17 with htslib 1.17, compiled by Biowasm (assets/vendor/biowasm/samtools/1.17)',
-    emscripten: '2.0.25 (Biowasm Dockerfile-dev: emscripten/emsdk:2.0.25)',
-    flags: '-O2 -s USE_ZLIB=1 -s USE_BZIP2=1, liblzma 5.2.5; -s MODULARIZE=1 -s ENVIRONMENT="web,worker" -s ALLOW_MEMORY_GROWTH=1 -s INVOKE_RUN=0 -s FORCE_FILESYSTEM=1 (biowasm-build/bin/shared.sh, tools/samtools/compile.sh)',
-    memory: 'wasm32: INITIAL_MEMORY 16 MiB, growth to 2 GiB at most (the build default of Emscripten 2.0.25)',
-    wasmSha256: crypto.createHash('sha256').update(fs.readFileSync(path.join(ROOT, 'assets', 'vendor', 'biowasm', 'samtools', '1.17', 'samtools.wasm'))).digest('hex')
-  },
+  build: WASM
+    ? {
+        kind: 'wasm',
+        samtools: 'samtools 1.17 with htslib 1.17, compiled by Biowasm (assets/vendor/biowasm/samtools/1.17)',
+        emscripten: '2.0.25 (Biowasm Dockerfile-dev: emscripten/emsdk:2.0.25)',
+        flags: '-O2 -s USE_ZLIB=1 -s USE_BZIP2=1, liblzma 5.2.5; -s MODULARIZE=1 -s ENVIRONMENT="web,worker" -s ALLOW_MEMORY_GROWTH=1 -s INVOKE_RUN=0 -s FORCE_FILESYSTEM=1 (biowasm-build/bin/shared.sh, tools/samtools/compile.sh)',
+        memory: 'wasm32: INITIAL_MEMORY 16 MiB, growth to 2 GiB at most (the build default of Emscripten 2.0.25)',
+        wasmSha256: crypto.createHash('sha256').update(fs.readFileSync(path.join(ROOT, 'assets', 'vendor', 'biowasm', 'samtools', '1.17', 'samtools.wasm'))).digest('hex')
+      }
+    : (() => {
+        const m = JSON.parse(fs.readFileSync(path.join(ROOT, 'native', 'bin', 'programs.json'), 'utf8')), p = m.programs.find((x) => x.name === 'samtools');
+        return { kind: 'native', samtools: `samtools ${p.version} with htslib ${p.version}, a Cosmopolitan executable built by native/build.py (${p.file})`, toolchain: `cosmocc ${m.toolchain.version}`, sha256: p.sha256, threads: p.threads };
+      })(),
   dataset: { file: BAM, bytes: inputSize },
   command: `samtools sort -m ${MEM} -o sorted.bam unsorted.bam`,
   phases: {},
@@ -333,7 +373,8 @@ sort.run = lastRun();
 check('samtools sort ends with status 0', sort.code === 0 && sort.run.code === 0, { code: sort.code, stderr: sort.stderr, run: sort.run });
 const outSize = fs.existsSync(path.join(WS, 'sorted.bam')) ? fs.statSync(path.join(WS, 'sorted.bam')).size : 0;
 report.dataset.sortedBytes = outSize;
-check(`an input larger than the 2 GiB a wasm32 program can have (${human(inputSize)}), sorted in ${human(sort.run.memory)} of WebAssembly memory`, sort.run.memory > 0 && sort.run.memory <= 2 * GiB && inputSize > 2 * GiB, sort.run);
+if (WASM) check(`an input larger than the 2 GiB a wasm32 program can have (${human(inputSize)}), sorted in ${human(sort.run.memory)} of WebAssembly memory`, sort.run.memory > 0 && sort.run.memory <= 2 * GiB && inputSize > 2 * GiB, sort.run);
+else check(`the native samtools sorted ${human(inputSize)} in ${human(sort.peak.programPeak)} of memory (its peak resident memory; -m ${MEM})`, sort.run.native && sort.peak.programPeak > 0 && sort.peak.programPeak < 2 * GiB && inputSize > 2 * GiB, { run: sort.run, peak: sort.peak });
 check('its temporary files were on disk', sort.peak.temp > 0 && sort.peak.tempFiles > 0, sort.peak);
 check('the page received none of the data (less than 1 MiB in all, for a sort of ' + human(inputSize) + ')', sort.traffic.received + sort.traffic.sent < MiB, sort.traffic);
 {
@@ -376,27 +417,27 @@ report.browserErrors = wb.errors.slice();
 check('no errors in the page', wb.errors.length === 0, wb.errors);
 await wb.close();
 
-// ---------------------------------------------------------------- the native samtools of the same version
+// ---------------------------------------------------------------- the reference: samtools of the same version, built for Linux
 if (NATIVE) {
   const v = native(['--version']);
   report.versions.native = v.stdout.split('\n').slice(0, 2).join('; ');
-  report.versions.nativeBuild = 'built from samtools-1.17.tar.bz2 (with htslib 1.17): ./configure --without-curses --disable-libcurl CFLAGS=-O2; ' + spawnSync('gcc', ['--version']).stdout.toString().split('\n')[0];
+  report.versions.nativeBuild = (WASM ? 'built from samtools-1.17.tar.bz2 (with htslib 1.17): ./configure --without-curses --disable-libcurl CFLAGS=-O2; ' : 'the Linux build of native/build.py (native/workbench/build_variant.py --build linux), from the same sources as the page\'s; ') + spawnSync('gcc', ['--version']).stdout.toString().split('\n')[0];
   const sorted = path.join(WS, 'sorted.bam'), ref = path.join(WS, 'native.bam');
   const q = native(['quickcheck', '-v', sorted]);
-  check('native samtools quickcheck: sorted.bam is a complete BAM file', q.code === 0 && q.stdout.trim() === '', q);
-  // the same sort, with the same options, by the native program
-  console.log('  native sort …');
+  check('the reference samtools: quickcheck finds sorted.bam a complete BAM file', q.code === 0 && q.stdout.trim() === '', q);
+  // the same sort, with the same options, by the reference program
+  console.log('  the reference sort …');
   const ns = native(['sort', '-m', MEM, '-o', ref, input]);
   report.native = { sort: { wall: ns.wall, maxRSS: ns.maxRSS, code: ns.code } };
-  console.log(`  native sort: ${ns.wall} s, peak RSS ${human(ns.maxRSS)}`);
-  check('the native sort ends with status 0', ns.code === 0, ns);
+  console.log(`  the reference sort: ${ns.wall} s, peak RSS ${human(ns.maxRSS)}`);
+  check('the reference sort ends with status 0', ns.code === 0, ns);
   const pg = (t) => t.split('\n').filter((l) => !l.startsWith('@PG')).join('\n');
   const h1 = native(['view', '-H', sorted]).stdout, h2 = native(['view', '-H', ref]).stdout;
   check('the headers are the same, but for their @PG lines (which name the command)', pg(h1) === pg(h2) && h1 !== '', { page: h1.split('\n').filter((l) => l.startsWith('@PG')), native: h2.split('\n').filter((l) => l.startsWith('@PG')) });
   console.log('  comparing the records …');
   const [r1, r2] = await Promise.all([nativeHash(['view', sorted]), nativeHash(['view', ref])]);
   report.native.records = { page: r1, native: r2 };
-  check(`the records are the same, in the same order (${human(r1.bytes)} of SAM)`, r1.code === 0 && r2.code === 0 && r1.sha256 === r2.sha256 && r1.bytes > 0, { r1, r2 });
+  check(`the records are the same, in the same order (${human(r1.bytes)} of SAM), as the reference sort's`, r1.code === 0 && r2.code === 0 && r1.sha256 === r2.sha256 && r1.bytes > 0, { r1, r2 });
   // (not a check – the compressed bytes depend on the version of zlib, which the rules of equivalence leave out)
   const o1 = afterHeader(sorted), o2 = afterHeader(ref);
   if (o1 != null && o2 != null) {
@@ -405,8 +446,8 @@ if (NATIVE) {
     console.log(`  the compressed bytes after the header: ${b1 === b2 ? 'identical' : 'different'}`);
   }
   const nIdx = native(['index', ref]), nStats = native(['idxstats', ref]), nRegion = native(['view', '-c', ref, 'chr21:20000000-30000000']), nM = native(['view', '-c', ref, 'chrM']);
-  check('idxstats as the native samtools gives them', nIdx.code === 0 && idx.stdout === nStats.stdout && nStats.stdout.split('\n').length > 20, { page: idx.stdout && idx.stdout.slice(0, 200), native: nStats.stdout.slice(0, 200) });
-  check('the reads of a region, as the native samtools counts them', region.stdout === nRegion.stdout && Number(region.stdout) > 0, { page: region.stdout, native: nRegion.stdout });
+  check('idxstats as the reference samtools gives them', nIdx.code === 0 && idx.stdout === nStats.stdout && nStats.stdout.split('\n').length > 20, { page: idx.stdout && idx.stdout.slice(0, 200), native: nStats.stdout.slice(0, 200) });
+  check('the reads of a region, as the reference samtools counts them', region.stdout === nRegion.stdout && Number(region.stdout) > 0, { page: region.stdout, native: nRegion.stdout });
   check('… and after the reload', report.afterReloadCount === Number(nM.stdout), { page: report.afterReloadCount, native: nM.stdout });
   const total = native(['view', '-c', ref]);
   report.dataset.reads = Number(total.stdout);
@@ -422,8 +463,8 @@ const s = report.phases.sort;
 console.log(`
 SAMtools prototype – ${report.command}
   input ${human(inputSize)}${report.dataset.reads ? ` (${report.dataset.reads.toLocaleString('en')} reads)` : ''}; output ${human(outSize)}
-  wall time ${s.wall} s (runner: ${s.run.secs} s)${report.native ? `; native samtools 1.17, same options: ${report.native.sort.wall} s` : ''}
-  WebAssembly memory of samtools ${human(s.run.memory)} (at most 2 GiB); runner peak RSS ${human(Math.max(s.run.maxRSS || 0, s.peak.runnerPeak))}${report.native ? `; native peak RSS ${human(report.native.sort.maxRSS)}` : ''}
+  wall time ${s.wall} s (runner: ${s.run.secs} s)${report.native ? `; the reference samtools, same options: ${report.native.sort.wall} s` : ''}
+  ${WASM ? `WebAssembly memory of samtools ${human(s.run.memory)} (at most 2 GiB)` : `the native samtools' peak resident memory ${human(s.peak.programPeak)}`}; runner peak RSS ${human(Math.max(s.run.maxRSS || 0, s.peak.runnerPeak))}${report.native ? `; reference peak RSS ${human(report.native.sort.maxRSS)}` : ''}
   browser: JS heap ${human(s.start.jsHeap)} before, ${human(s.peak.jsHeap)} at most; its processes ${human(s.start.browser)} resident before, ${human(s.peak.browser)} at most (renderer ${human(s.start.renderer)} → ${human(s.peak.renderer)})
   temporary files ${human(s.peak.temp)} at most (${s.peak.tempFiles} at once); input + temporary + output on disk ${human(inputSize + s.peak.extra)} at most
   page ↔ runner during the sort: ${s.traffic.requests} requests, ${human(s.traffic.sent)} sent, ${human(s.traffic.received)} received

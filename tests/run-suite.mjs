@@ -18,11 +18,13 @@ const out = opt('out', 'results.json');
 const only = opt('only', '') ? new Set(opt('only').split(',')) : null;
 const init = opt('init', '');
 // --runner: the programs run in the local runner (a new workspace); --subset local: only the steps whose programs the
-// runner has, and not the forced stop of every program (which loses nothing there – see suite.mjs)
+// runner has, and not the forced stop of every program (which loses nothing there – see suite.mjs); --wasm: the runner
+// runs the WebAssembly builds only (not the native programs of native/bin)
 const runner = args.includes('--runner');
+const wasm = args.includes('--wasm');
 const subset = opt('subset', '');
 
-const wb = await openWorkbench(root, { query: opt('query', ''), runner });
+const wb = await openWorkbench(root, { query: opt('query', ''), runner, runnerArgs: wasm ? ['--no-native'] : [] });
 if (runner) {
   const id = await wb.page.evaluate(async () => (await MG.exec.whenChosen(), MG.exec.id));
   if (id !== 'local') throw new Error('the local runner was not used: ' + id);
@@ -41,7 +43,7 @@ for (const step of suite) {
   const tag = r.failure ? 'FAILED ' + r.failure : r.code != null ? 'code ' + r.code : 'ok';
   console.log(`${step.id.padEnd(24)} ${tag.padEnd(10)} ${String(r.ms).padStart(7)} ms${r.errors.length ? '  page errors: ' + r.errors.length : ''}`);
 }
-const meta = { root, query: opt('query', ''), init, runner, subset, workspace: wb.workspace, when: new Date().toISOString(), secs: (Date.now() - t0) / 1000 };
+const meta = { root, query: opt('query', ''), init, runner, wasm, native: runner ? await wb.page.evaluate(() => MG.exec.capabilities.native || null) : null, subset, workspace: wb.workspace, when: new Date().toISOString(), secs: (Date.now() - t0) / 1000 };
 if (init) meta.after = await wb.page.evaluate(() => (window.__testReport ? window.__testReport() : null)).catch(() => null);
 fs.writeFileSync(out, JSON.stringify({ meta, results }, null, 1));
 console.log(`${results.length} steps in ${meta.secs.toFixed(0)} s → ${out}`);

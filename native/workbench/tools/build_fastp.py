@@ -34,6 +34,9 @@ PLOTLY_SHA = '60169d9df25530f1d5e29c663ceb18ea7492862acb308800fc5ab0f0bf31a41e'
 PLOTLY_SOURCE_SHA = '1169b79526878ee915c12fefc375930f9249f4ac9c265b0300da7c9d14569f9d'
 PLOTLY_LICENSE_SHA = '891d94cad73e4fdf9abc46c39468d145545f74e2d4ab43abe74b7ed299f2e484'
 COSMO_SOURCE_SHA = '1ecfd628305e844f7d8ded53742e4a7f2b908b4ad2e9fb423c81595986f5b2ff'
+# native-workbench: the same release as published on cosmo.zip (https://cosmo.zip/pub/cosmo/cosmopolitan-3.3.10.tar.gz),
+# which a build machine can reach where GitHub's source archives are not. Only three licence texts are read from it.
+COSMO_SOURCE_SHAS = {COSMO_SOURCE_SHA, '0d048b3e3928832d877a51781d2442a521c38be46965a1bc0fe2c6e82b45ed85'}
 ISAL_SOURCES = [
     'igzip/igzip.c', 'igzip/hufftables_c.c', 'igzip/igzip_base.c',
     'igzip/igzip_icf_base.c', 'igzip/adler32_base.c', 'igzip/flatten_ll.c',
@@ -167,7 +170,7 @@ def prepare(cosmo_source_archive):
         'plotly-MIT-LICENSE.txt': VENDOR / 'archives/plotly-1.2.0-LICENSE.txt',
     }.items():
         shutil.copy2(src, licenses / name)
-    if sha(cosmo_source_archive) != COSMO_SOURCE_SHA:
+    if sha(cosmo_source_archive) not in COSMO_SOURCE_SHAS:
         raise RuntimeError('Cosmopolitan source archive SHA-256 mismatch')
     with tarfile.open(cosmo_source_archive) as archive:
         for name in ['libcxx', 'libcxxabi', 'libunwind']:

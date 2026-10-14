@@ -1,0 +1,10 @@
+tabix 1.24 – native build for the local runner of native-workbench
+
+File: tabix.exe (1368210 bytes), SHA-256 9cea761be2b7800177cf9bc6b2f16f8477f4b96031da0a599f467b458d351331
+What it is: a Cosmopolitan "actually portable executable" – a Windows program; on Linux and macOS (x86-64) the loader in native/bin starts it.
+Licence: MIT/Expat and modified BSD (the licence files in this folder); Cosmopolitan's C library, which it contains: ISC, with the notices of its parts in native/bin/licenses/cosmopolitan-3.3.10.
+Source: https://github.com/samtools/samtools/releases/download/1.24/samtools-1.24.tar.bz2 (SHA-256 89b2a440123eeaa400392ce1736e7d60ce9041843027d76819753c5a8246bfdd)
+Recipe: native/build.py, native/workbench/build_variant.py, run by native/build.py with cosmocc 3.3.10 (https://cosmo.zip/pub/cosmocc/cosmocc-3.3.10.zip, SHA-256 00d61c1215667314f66e288c8285bae38cc6137fca083e5bba6c74e3a52439de).
+Changes: None to the source (as bgzip).
+Threads: no – the terminal leaves the option out, with a note.
+Built and installed on 2026-10-14.

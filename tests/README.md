@@ -51,32 +51,64 @@ time), so that their content is still compared exactly.
 The same suite, with the programs in the local runner (a new, empty workspace): `--runner`. `--subset local` leaves
 out the steps whose programs are not in the runner yet (those with a worker of their own: `own` in `suite.mjs`) and
 the forced stop of every program, which loses nothing with the runner (`allPrograms`). The kind of a program-written
-entry (`aioli` or `local`) is compared as the same.
+entry (`aioli` or `local`) is compared as the same. `--wasm` has the runner run the browser's WebAssembly builds only
+(`runner.mjs --no-native`); without it, the programs of `native/bin` run natively.
 
 ```
 node run-suite.mjs --root .. --subset local --out results/browser-1.json
 node run-suite.mjs --root .. --subset local --out results/browser-2.json
-node run-suite.mjs --root .. --subset local --runner --out results/local.json
+node run-suite.mjs --root .. --subset local --runner --wasm --out results/local.json
 node compare.mjs results/browser-1.json results/browser-2.json results/local.json
+```
+
+### The native programs against the WebAssembly builds
+
+The native programs are other builds, and newer versions, of the same programs (`native/README.md`): their output can
+differ where the versions do, and they compress differently. `compare.mjs --content` counts a file that holds the same
+(unpacked, times masked – the harness records it for the runner's files) as the same, and so the index of such a file;
+what is left is listed, to be explained by the versions (see `docs/execution-backends.md`).
+
+```
+node run-suite.mjs --root .. --subset local --runner --wasm --out results/wasm-1.json
+node run-suite.mjs --root .. --subset local --runner --wasm --out results/wasm-2.json
+node run-suite.mjs --root .. --subset local --runner --out results/native.json
+node compare.mjs results/wasm-1.json results/wasm-2.json results/native.json --content
+```
+
+### The native programs, command by command
+
+`native-programs.mjs`: 37 commands of SAMtools, BCFtools, bgzip, tabix, minimap2, BWA, FreeBayes, fastp and seqtk,
+each run three ways – typed into the terminal with the runner; in bash with the same executables, started by hand;
+in bash with the Linux builds of the same sources (`native/build.py` leaves them in its build tree). The first two
+must agree byte for byte (output, messages, exit status, every file; times masked): the runner runs a program as it
+runs by hand. The last two must agree in what the files hold: the Cosmopolitan builds compute what the Linux builds
+compute (their zlib compresses differently).
+
+```
+node native-programs.mjs --refs /tmp/native-workbench-build/baselines/bin
 ```
 
 ## The local runner
 
 ```
 node local-runner.mjs           # files already in the folder (and behind a link), what programs and the page write,
-                                # a reload, a run that goes on through a reload, a forced stop, and the runner's safety
+                                # a reload, a run that goes on through a reload, a forced stop, the native programs
+                                # (their versions, the paths they are given, the example data, threads, fastp's
+                                # report, a forced stop), and the runner's safety
 ```
 
 ## The SAMtools prototype
 
 The review's first prototype (`docs/execution-backends.md`): from the page, with the runner, SAMtools sorts a BAM file
-larger than the 2 GiB a program may have; the result is compared with native SAMtools 1.17's, and what it takes is
-measured. It needs about three times the input's size free on the disk (input, temporary files, output; and the
-native sort's), a native `samtools` 1.17 for the comparison (`--native`; without it the comparison is left out), and
-Linux (it reads the memory of the processes in `/proc`).
+larger than the 2 GiB a WebAssembly program may have; the result is compared with that of a Linux build of the same
+version, and what it takes is measured. The runner runs its native SAMtools (1.24); `--wasm` gives the WebAssembly
+build (1.17), as in the first prototype. It needs about three times the input's size free on the disk (input,
+temporary files, output; and the reference sort's), a `samtools` of the same version built for Linux for the
+comparison (`--reference`; without it the comparison is left out), and Linux (it reads the memory of the processes in
+`/proc`).
 
 ```
 node prototype/make-unsorted-sam.mjs --reads 60000000 | samtools view -b -o /data/unsorted.bam -     # 5.0 GiB
-node prototype/sort-big-bam.mjs --bam /data/unsorted.bam --workspace /data/ws --native samtools \
-    --out results/prototype-sort.json
+node prototype/sort-big-bam.mjs --bam /data/unsorted.bam --workspace /data/ws \
+    --reference /tmp/native-workbench-build/baselines/bin/samtools-linux --out results/prototype-sort.json
 ```

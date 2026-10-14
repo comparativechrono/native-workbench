@@ -457,8 +457,11 @@
       const killed=new Promise((_,reject)=>{this._killed=reject;});
       const own=this.ownWorker(program);
       this.running=own?(ctx.name||own.name):program;
+      // (a command of the AI agent – its file system is the one that notes paths, see terminal.js – runs confined: the
+      // local runner then runs the WebAssembly build, whose files are only the folders it is given, not a native program)
+      const confined=ctx.fs!==fs||!!(ctx.term&&ctx.term.agentCmd);
       const job=own?this.execWorker(program,a,{stdin,stdout:stdoutPath,stderr:stderrPath,merge:!!ctx.mergeStderr,fs,before,name:ctx.name,io:ctx.io,flowOpts:opts.flow,devUsed,piped})
-        :cli.execIO(program,a,{stdin,stdout:stdoutPath,stderr:ctx.mergeStderr?stdoutPath:stderrPath,merge:!!ctx.mergeStderr,links:[[this.apath(home),home],[this.apath('/data'),'/data']],lines,fifo,env:envOf(ctx,program,fs),...clock});
+        :cli.execIO(program,a,{stdin,stdout:stdoutPath,stderr:ctx.mergeStderr?stdoutPath:stderrPath,merge:!!ctx.mergeStderr,links:[[this.apath(home),home],[this.apath('/data'),'/data']],lines,fifo,env:envOf(ctx,program,fs),...clock,...(confined?{confined:true}:{})});
       try{result=await Promise.race([job,killed]);}
       catch(e){
         // not a forced stop (then there is nothing left to look at): the page's file system must still learn what was written.
@@ -480,6 +483,10 @@
         }
       }
       const created=await this.importChanges(fs,before);
+      // (a machine that undoes changes to the example data itself – the local runner, whose native programs are given a
+      // copy of it – says what it undid: named as the browser names it)
+      for(const [list,mine] of [[result.refused,this.refused],[result.denied,this.denied]])
+        if(Array.isArray(list))for(const p of list)if(typeof p==='string'&&p.startsWith(ROOT+'/')&&!mine.includes(p.slice(ROOT.length)))mine.push(p.slice(ROOT.length));
       if(ctx.mergeStderr){
         // 2>&1: what the program wrote to stderr is in the output file – tidy it like stderr (see tidy)
         const st=await stat(cli,stdoutPath);

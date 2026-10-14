@@ -231,6 +231,9 @@
   function oneThread(name,args,io){
     const t=THREADS[name];
     if(!t||(t.when&&!t.when(args)))return args;
+    // a native program of the local runner that can use threads: the option stays as it was written
+    const nat=(MG.exec.capabilities.native||{})[name];
+    if(nat&&nat.threads)return args;
     const glued=a=>t.short&&a.length>t.short.length&&a.startsWith(t.short)&&/^\d+$/.test(a.slice(t.short.length))?a.slice(t.short.length):t.long&&a.startsWith(t.long+'=')&&/^\d+$/.test(a.slice(t.long.length+1))?a.slice(t.long.length+1):null;
     const out=[];let dropped='';
     for(let i=0;i<args.length;i++){
@@ -241,7 +244,7 @@
       if(g!=null){if(t.one(g))out.push(a);else{dropped=a;if(t.cap)out.push(t.short,t.cap);}continue;}
       out.push(a);
     }
-    if(dropped&&io&&io.note)io.note(t.cap?`${name}: ${dropped.trim()} is ${t.short} ${t.cap} here – ${t.why}.`:`${name}: ${dropped.trim()} left out – ${t.why||(MG.exec.capabilities.where==='local'?'in the local runner':'in the browser')+' every program runs on one thread'}.`);
+    if(dropped&&io&&io.note)io.note(t.cap?`${name}: ${dropped.trim()} is ${t.short} ${t.cap} here – ${t.why}.`:`${name}: ${dropped.trim()} left out – ${nat?`this native build of ${name} runs on one thread`:t.why||(MG.exec.capabilities.where==='local'?'in the local runner':'in the browser')+' every program runs on one thread'}.`);
     return out;
   }
   /* Run with other arguments on the same context object: the shell reads what a program did
@@ -309,7 +312,8 @@
     plink2:['plink2','2.0.0-b.1-dev',"PLINK 2: the genotypes of many people – quality control, allele frequencies, LD, kinship, association (GWAS) and scores","plink2 --vcf /data/examples/plink2/1kg-phase3-chr21.vcf.gz --make-pgen --out chr21   (PLINK's own files: chr21.pgen, .pvar, .psam)\nplink2 --pfile chr21 --freq --out chr21                    (allele frequencies: chr21.afreq)\nplink2 --pfile chr21 --missing --hardy --het --out qc      (missing calls, Hardy-Weinberg, heterozygosity)\nplink2 --pfile chr21 --maf 0.05 --indep-pairwise 50 5 0.2 --out ld      (LD pruning: ld.prune.in, ld.prune.out)\nplink2 --pfile chr21 --keep /data/examples/plink2/keep48.samples.txt --make-king-table --out king   (kinship)\nplink2 --vcf /data/examples/plink2/synthetic_glm.vcf --pheno /data/examples/plink2/synthetic_phenotypes.tsv \\\n    --pheno-name BINARY --covar /data/examples/plink2/synthetic_covariates.tsv --glm hide-covar --out assoc   (association)\nplink2 --help --glm                                         (what an option does)\n\nEach command writes NAME.log and the files of what it was asked for, named by --out NAME (plink2.* without --out).\n--pfile NAME reads NAME.pgen, NAME.pvar and NAME.psam; --bfile NAME the PLINK 1 files NAME.bed, NAME.bim and NAME.fam.\nPLINK 2 computes here on one thread, in 640 MiB of working memory: the terminal adds  --threads 1 --memory 640 require\nunless you give them (--threads 2 at most; --memory 640 to 1024). It needs a cross-origin isolated page, as featureCounts.\nNot in this build of PLINK 2, which has no LAPACK: --pca and --pheno-svd. Not here: --script and --rerun."],
     freebayes:['freebayes','1.3.6','FreeBayes: haplotype-based variant caller – SNPs, indels and MNPs from aligned reads (BAM)','freebayes -f /data/examples/reads/reference.fa mapped.bam > freebayes.vcf\nfreebayes -f /data/examples/reads/reference.fa -r human_CYP2C19:11000-12500 mapped.bam    (one region: needs mapped.bam.bai – samtools index mapped.bam)\nfreebayes -f /data/examples/reads/reference.fa --min-alternate-count 3 --min-mapping-quality 20 mapped.bam > strict.vcf\n\nThe reads must be sorted by position (samtools sort); the reference needs its .fai index (samtools faidx).']
   };
-  for(const [name,[program,version,summary,man]] of Object.entries(definitions))T[name]={version,summary,man:`${name} ${version} · compiled program, running in your browser\n\n${man}`,run:ctx=>{
+  // (version: the native program's where the local runner has one – the AI assistant, man and help ask for it)
+  for(const [name,[program,version,summary,man]] of Object.entries(definitions))T[name]={get version(){const n=MG.exec&&(MG.exec.capabilities.native||{})[program];return n&&n.version?n.version:version;},summary,man:`${name} ${version} · compiled program, running in your browser\n\n${man}`,run:ctx=>{
     const here=(what,err)=>{if(MG.shellUtil.notHere)MG.shellUtil.notHere(what);return err;};
     // (tview draws on a terminal; with -d T or -d H it prints text or HTML and needs none)
     if(name==='samtools'&&ctx.args[0]==='tview'&&!ctx.args.some((x,i)=>/^-d[TH]$/.test(x)||(x==='-d'&&/^[TH]$/.test(ctx.args[i+1]||''))))throw here('samtools tview without -d',MG.shellUtil.userErr('samtools tview requires a terminal device; use samtools view instead – or samtools tview -d T -p CHR:POS FILE.bam REF.fa, which prints text.'));
