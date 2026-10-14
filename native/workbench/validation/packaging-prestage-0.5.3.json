@@ -1,0 +1,33 @@
+{
+  "release": "0.5.3",
+  "scope": "Packager closed-inventory/cap/hash checks only; no executables launched",
+  "packs": [
+    {
+      "id": "bowtie2",
+      "version": "0.5.3",
+      "manifest_sha256": "cdaa52bde3dec022e6716d4fc6b6e78481982f1d6491b5cd21ff4d64d33cec32",
+      "files": 69,
+      "entries": 88,
+      "bytes": 83209391,
+      "passed": true
+    },
+    {
+      "id": "hisat2",
+      "version": "0.5.3",
+      "manifest_sha256": "06f912deb5926b00a8ca269138b4b3822bb4b3e36d4956e30ca7793655052967",
+      "files": 74,
+      "entries": 93,
+      "bytes": 15656611,
+      "passed": true
+    },
+    {
+      "id": "lofreq",
+      "version": "0.5.3",
+      "manifest_sha256": "4a00d450461cb434e04ddd377b901f73f9027e27a38f947238b6b18e9f5d862e",
+      "files": 57,
+      "entries": 60,
+      "bytes": 59718118,
+      "passed": true
+    }
+  ]
+}

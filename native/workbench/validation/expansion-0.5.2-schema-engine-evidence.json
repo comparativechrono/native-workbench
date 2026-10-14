@@ -1,0 +1,25 @@
+{
+  "release": "0.5.2",
+  "validation_environment": "Linux; typed schema and engine regression tests. Does not imply native Windows UI execution.",
+  "tests": {
+    "engine": 28,
+    "catalog": 13,
+    "pack_schema": 17
+  },
+  "files": {
+    "workspace/catalog.py": "70ed755c367000b8c2c5dcff6ee69ac197eaeeb32781905d0687ce53dcd9ef93",
+    "workspace/engine.py": "756b3f315d4001178a6ff2aa759ee440326483a2a655f7910d26f8d8c2325f10",
+    "workspace/tests/test_pack_schema.py": "452aa99d7b9475921a8739ca08edf08c973c920f26064c7127c7ecaad7ba6b23",
+    "docs/PACK-SCHEMA-0.5.2.txt": "c0932f5b58b9c10597f5d6996e79c8a1c71b17488b0185cba1124ea5dfcad0f2"
+  },
+  "features": [
+    "SHA256 pinned pack-local schema verified on discovery and execution",
+    "Strict JSON, field coverage, grouping and cardinality",
+    "Separate nucleotide/protein FASTA and MSA types",
+    "Complete FASTA alphabet, alignment width, abundance and declared limit validation",
+    "Explicit empty output semantics",
+    "Frozen planned/completed methods with upstream citations",
+    "Reports name producers from the frozen plan and keep exact output references",
+    "Cumulative abundance is bounded before downstream aggregation"
+  ]
+}

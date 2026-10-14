@@ -1,0 +1,9 @@
+{
+  "records": 2,
+  "bases": 9,
+  "gc_bases": 4,
+  "n_bases": 1,
+  "min_length": 4,
+  "max_length": 5,
+  "phred33_sum": 206
+}

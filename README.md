@@ -193,6 +193,8 @@ build/                 make_page.py, help/ (the help pages), citations.json (the
                        make_starters.py, vendor_sums.py
 serve.py               a small local web server (optional)
 runner/                the local runner: the programs on this computer, the files in a folder on disk (runner/README.md)
+native/                the native programs' code and build recipes, taken from Native Workbench (native/README.md,
+                       native/TOOLS.md); not used by the page or the runner yet
 docs/                  execution-backends.md: how the programs are run, in the browser and with the local runner
 tests/                 headless checks (Playwright): the parity suite, the execution-backend checks, the local runner,
                        and the SAMtools prototype (tests/prototype/)

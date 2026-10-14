@@ -1,0 +1,52 @@
+GATK 4.7.0.0 bundled dependency sources and notices
+
+The original official local JAR is retained unchanged. GATK's Apache-2.0 license
+does not replace the licenses of its bundled dependencies. This directory
+contains original source archives, original license texts, exact SHA256 pins,
+and an evidence inventory. Nothing here claims all bundled code is Apache-2.0.
+
+Scope
+* gatk-embedded-components.json records all 310 embedded Maven POM components.
+  License declarations were resolved through exact published parent POMs;
+  gatk-thirdparty-poms.json preserves embedded POM/properties and parent texts.
+  This is a metadata inventory, not proof that every class is attributable to
+  an embedded POM; shaded/native packages can have additional components.
+* Source JARs include all components whose resolved POM lists LGPL, GPL, CDDL,
+  EPL or MPL, including dual-licensed components. Extra API/native sources are
+  retained conservatively. Exact coordinates and URLs are in the inventory.
+* Java GNU getopt1.0.13 is identified by the GenomicsDB POM and package content.
+  Its source JAR and LGPLv2 text are supplied. JniLoader1.1 source/POM are
+  supplied, with the upstream LGPLv3 text and GPLv3 text it incorporates.
+* JGraphT1.1.0 is offered under LGPL2.1/EPL1.0; both original options are
+  preserved. Jersey/JAXB/API components retain their CDDL/EPL/GPL-classpath
+  declarations and exceptions. Jetty, Javassist and other dual-license
+  packages retain their original alternatives. No option is silently removed.
+* Native BWA/Fermi-lite wrapper sources and the exact commits embedded in
+  both Linux/mac libraries are supplied. BWA at this pinned commit declares
+  Apache2.0; the wrapper declares BSD3. MUMmer4.0.0rc1 source and Artistic2
+  terms match the README embedded in the GATK JAR. Netlib1.1 generated native
+  binding source JARs and its full1.1.0 tag source are supplied.
+* GenomicsDB1.5.5 source and exact libuuid1.0.3 source are included. Actual ELF
+  symbols and upstream build scripts show static Linux uuid code; the exact
+  libuuid source declares Modified BSD. The older generic warning in the
+  GenomicsDB LICENSE is preserved, not substituted. Distributable-build CMake
+  disables libcsv; the retained ELF has no csv_* library symbols. macOS UUID
+  uses the operating system. See gatk-native-source-audit.json for evidence.
+* ARPACK-combined0.1 declares BSD in its published POM; Maven publishes no
+  source JAR at that coordinate. Its POM is retained without inventing one.
+  The original official JAR remains intact, including original notice files.
+
+Use and replacement
+Source JARs are ZIP archives. Their exact Maven coordinates and build POMs
+are recorded here, and full native sources retain upstream build scripts.
+For example, JniLoader1.1 can be rebuilt from its source JAR and embedded
+POM with the declared Maven dependencies. Java GNU getopt includes its source
+files and build material. Standard jar tools can replace rebuilt classes
+in a copy of the GATK JAR. Workbench integrity checks detect any changed
+JAR: keep the official pack intact and create a separately named/versioned
+pack with the changed asset SHA256. This distribution imposes no additional
+restriction on modifying, replacing or debugging those library components.
+
+Sources are supplied for reproducibility and to retain upstream conditions;
+this inventory is not a legal opinion or a warranty of exhaustive license
+classification. Upstream component notices and exceptions remain operative.

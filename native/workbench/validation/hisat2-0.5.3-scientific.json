@@ -1,0 +1,96 @@
+{
+  "schema": 1,
+  "pack": "hisat2-0.5.3",
+  "toolVersion": "2.2.3-workbench1",
+  "sourceCommit": "0d244324f98de541bce04d45c75e83bc3522f7f4",
+  "manifestSha256": "06f912deb5926b00a8ca269138b4b3822bb4b3e36d4956e30ca7793655052967",
+  "windowsExecuted": false,
+  "windowsRebuildIdentical": true,
+  "windows": {
+    "hisat2-align-l.exe": {
+      "sha256": "5d5e06dc325a7d00ee7c81953d63cd394230f7e3a6188bb129c8592eb92bca35",
+      "bytes": 2630144,
+      "imports": [
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-locale-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-private-l1-1-0.dll",
+        "KERNEL32.dll",
+        "api-ms-win-crt-multibyte-l1-1-0.dll",
+        "api-ms-win-crt-filesystem-l1-1-0.dll"
+      ]
+    },
+    "hisat2-build-l.exe": {
+      "sha256": "1bd0d55c781c97bf02f9eaf98cd7d9d0efc7ef64764ba8d5308539142be85110",
+      "bytes": 2287616,
+      "imports": [
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-locale-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-private-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll",
+        "api-ms-win-crt-filesystem-l1-1-0.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "KERNEL32.dll",
+        "api-ms-win-crt-multibyte-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll"
+      ]
+    }
+  },
+  "linuxReference": {
+    "hisat2-align-l": {
+      "sha256": "95675bc96e8914f60c41fdee9000211ef2414461e9e21d508f382156ae9d2eae",
+      "bytes": 1129904
+    },
+    "hisat2-build-l": {
+      "sha256": "0d63724b08d0ebea41b8a161406253b12a1b91301088bdfbc751295b8d312200",
+      "bytes": 642808
+    }
+  },
+  "unmodifiedLinuxComparison": {
+    "hisat2-align-l": {
+      "sha256": "f17f6fa1ca9576779c563e4e65f548c632c48b77141509cadb502b1cf99279e3",
+      "bytes": 1129904
+    },
+    "hisat2-build-l": {
+      "sha256": "4c0ec21cab67c1be4ee02b929ad06d3558540988729749ae1b50e2784c33151d",
+      "bytes": 642808
+    }
+  },
+  "scientificTestsPassed": 10,
+  "nativeParserChecksPassed": 176,
+  "realEngineSelfChecksPassed": 4,
+  "sourceArchiveOnlyRestorePassed": true,
+  "sourcePatchReproduced": true,
+  "packFiles": 74,
+  "packBytes": 15656611,
+  "maxRelativePath": 94,
+  "checks": [
+    "Synthetic100bp intron recovered as30M100N30M at chrSynthetic:471; exon reads60M at exact positions.",
+    "Paired RNA/DNA proper flags99/147 and exact RG/sample/ref metadata.",
+    "RNA coordinate-sorted BAM and CSI support genomic-region query.",
+    "F/R/FR/RF choices produce expected transcript-strand XS tags.",
+    "Explicit unstranded mode yields identical alignment rows to unmodified upstream source.",
+    "DNA no-splicing mode emits no N CIGAR for junction reads.",
+    "Invalid intron/insert bounds rejected during review; native intron validation exits before SAM creation.",
+    "Mismatched mates fail before index construction.",
+    "RNA alignments cannot feed existing DNA preparation tools.",
+    "ASCII/comma path policies and uncompressed FASTQ requirement enforced.",
+    "All declared tool/asset hashes, inventory limits and Windows DLL closure verified."
+  ],
+  "limitations": [
+    "Cross-compiled native Windows executables were not executed here.",
+    "Synthetic small-reference validation does not benchmark whole-genome indexing speed, RAM, or biological accuracy.",
+    "No annotation-derived splice database or prebuilt-index input is exposed."
+  ]
+}

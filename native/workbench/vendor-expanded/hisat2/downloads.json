@@ -1,0 +1,14 @@
+[
+  {
+    "name": "hisat2-v2.2.3.tar.gz",
+    "url": "https://codeload.github.com/DaehwanKimLab/hisat2/tar.gz/refs/tags/v2.2.3",
+    "sha256": "b53107422e5b44ebea4b20b1a77bb9e240d6b92d654fcd7e6a6ab5d1aae86c45",
+    "bytes": 7059086
+  },
+  {
+    "name": "commit.json",
+    "url": "https://api.github.com/repos/DaehwanKimLab/hisat2/commits/v2.2.3",
+    "sha256": "3cab2aa28980240b3a3d611100d3c1d3c80cf77f320de5d25bb5b9767f84c783",
+    "bytes": 3792
+  }
+]

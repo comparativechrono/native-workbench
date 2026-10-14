@@ -1,0 +1,58 @@
+Source: https://github.com/iqtree/iqtree3/actions/runs/34444796457/job/102767246150
+Build commit: 63c330d90dd02241dbbbaf1e9f9e9cc6dadbd1de; native Windows build dated 2026-09-10.
+Selected verbatim public build-log lines identifying source dependencies; progress-meter duplicates omitted.
+
+2026-09-10T06:21:40.3040271Z Downloading package from source 'https://community.chocolatey.org/api/v2/'
+2026-09-10T06:21:40.6459804Z Progress: Downloading llvm 14.0.6... 15%
+2026-09-10T06:21:40.6460348Z Progress: Downloading llvm 14.0.6... 43%
+2026-09-10T06:21:40.6460855Z Progress: Downloading llvm 14.0.6... 71%
+2026-09-10T06:21:40.6464103Z Progress: Downloading llvm 14.0.6... 99%
+2026-09-10T06:21:40.6464576Z Progress: Downloading llvm 14.0.6... 100%
+2026-09-10T06:21:44.7215995Z Downloading llvm 64 bit
+2026-09-10T06:22:44.3583183Z ##[group]Run curl -L -o boost.tar.gz https://github.com/MarkusJx/prebuilt-boost/releases/download/1.84.0/boost-1.84.0-windows-2022-mingw-static-x86.tar.gz
+2026-09-10T06:22:44.3585214Z [36;1mcurl -L -o boost.tar.gz https://github.com/MarkusJx/prebuilt-boost/releases/download/1.84.0/boost-1.84.0-windows-2022-mingw-static-x86.tar.gz[0m
+2026-09-10T06:22:44.3586670Z [36;1mtar -xzf boost.tar.gz[0m
+2026-09-10T06:22:44.3587077Z [36;1mmv boost C:/local/boost[0m
+2026-09-10T06:25:31.0504363Z ##[group]Run choco install eigen
+2026-09-10T06:25:31.0504855Z [36;1mchoco install eigen[0m
+2026-09-10T06:25:31.9505345Z eigen
+2026-09-10T06:25:32.9936856Z Downloading package from source 'https://community.chocolatey.org/api/v2/'
+2026-09-10T06:25:38.9774749Z eigen v3.4.0.20240224 [Approved]
+2026-09-10T06:25:38.9961223Z eigen package files install completed. Performing other installation steps.
+2026-09-10T06:25:39.6785885Z Eigen is going to be installed in 'C:\ProgramData\chocolatey\lib'
+2026-09-10T06:25:39.6881548Z HKEY_LOCAL_MACHINE\SOFTWARE\Kitware\CMake\Packages\Eigen3
+2026-09-10T06:25:39.6928874Z @{Eigen3.4.0=C:\ProgramData\chocolatey\lib\eigen\share\eigen3\cmake; PSPath=Microsoft.PowerShell.Core\Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Kitware\CMake\Packages\Eigen3; PSParentPath=Microsoft.PowerShell.Core\Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Kitware\CMake\Packages; PSChildName=Eigen3; PSDrive=HKLM; PSProvider=Microsoft.PowerShell.Core\Registry}
+2026-09-10T06:25:40.1478578Z  The install of eigen was successful.
+2026-09-10T06:25:41.1858796Z info: This is the version for the rustup toolchain manager, not the rustc compiler.
+2026-09-10T06:25:43.5883580Z info: the currently active `rustc` version is `rustc 1.98.0 (88d9e12ae 2026-08-18)`
+2026-09-10T06:25:44.6641831Z info: downloading 7 components
+2026-09-10T06:25:57.8770615Z   stable-x86_64-pc-windows-msvc updated - rustc 1.98.1 (48a229cea 2026-09-01) (from rustc 1.98.0 (88d9e12ae 2026-08-18))
+2026-09-10T06:25:58.8464069Z rustc 1.98.1 (48a229cea 2026-09-01)
+2026-09-10T06:25:59.9044052Z info: This is the version for the rustup toolchain manager, not the rustc compiler.
+2026-09-10T06:25:59.9219471Z info: the currently active `rustc` version is `rustc 1.98.1 (48a229cea 2026-09-01)`
+2026-09-10T06:25:59.9471538Z [36;1m  -DBoost_INCLUDE_DIR="C:/local/boost/include" ^[0m
+2026-09-10T06:25:59.9471863Z [36;1m  -DBoost_LIBRARY_DIRS="C:/local/boost/lib" ^[0m
+2026-09-10T06:25:59.9473202Z [36;1mtype CMakeFiles\iqtree3.dir\linkLibs.rsp[0m
+2026-09-10T06:25:59.9492717Z   BOOST_ROOT: C:/local/boost
+2026-09-10T06:26:03.8593205Z   Environment variable Boost_ROOT is set to:
+2026-09-10T06:26:03.8593708Z     C:/local/boost
+2026-09-10T06:26:03.8638220Z   Policy CMP0167 is not set: The FindBoost module is removed.  Run "cmake
+2026-09-10T06:26:03.8925952Z -- Found Boost: C:/local/boost/lib/cmake/Boost-1.84.0/BoostConfig.cmake (found version "1.84.0")
+2026-09-10T06:26:07.7645143Z C:\PROGRA~1\LLVM\bin\CLANG_~1.EXE --target=x86_64-pc-windows-gnu --sysroot=C:/mingw64 -B C:/mingw64/bin -std=c++17 -Xpreprocessor -fopenmp -pthread  -O3 -ffunction-sections -fdata-sections  -static -lomp -pthread  -Wl,--gc-sections -Wl,--whole-archive CMakeFiles\iqtree3.dir/objects.a -Wl,--no-whole-archive -o iqtree3.exe -Wl,--out-implib,libiqtree3.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\iqtree3.dir\linkLibs.rsp
+2026-09-10T06:26:07.7652490Z   -LD:/a/iqtree3/iqtree3/lib  booster/libbooster.a D:/a/iqtree3/iqtree3/lib/libiomp5md.dll pll/libpll.a ncl/libncl.a nclextra/libnclextra.a utils/libutils.a pda/libpda.a lbfgsb/liblbfgsb.a whtest/libwhtest.a sprng/libsprng.a vectorclass/libvectorclass.a model/libmodel.a gsl/libgsl.a alignment/libalignment.a tree/libtree.a simulator/libsimulator.a terrace/libterrace.a "yaml-cpp/libyaml-cpp.a" "phylo-yaml/libphyloYAML.a" main/libmain.a -lws2_32 terracetphast/libterracetphast.a lsd2/liblsd2.a libkernelsse.a pll/libpllavx.a libkernelavx.a libkernelfma.a "yaml-cpp/libyaml-cpp.a" booster/libbooster.a pda/libpda.a nclextra/libnclextra.a whtest/libwhtest.a vectorclass/libvectorclass.a terrace/libterrace.a tree/libtree.a pll/libpll.a alignment/libalignment.a simulator/libsimulator.a alignment/libalignment.a simulator/libsimulator.a ncl/libncl.a model/libmodel.a utils/libutils.a lbfgsb/liblbfgsb.a sprng/libsprng.a "D:/a/iqtree3/iqtree3/mutsel_rust/target/x86_64-pc-windows-gnu/release/libmutsel_rust.a" -lntdll -luserenv -lbcrypt -lws2_32 "zlib-1.2.7/libzlibstatic.a" gsl/libgsl.a terraphast/libterraphast.a -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 
+2026-09-10T06:26:08.1753880Z [  3%] Building C object whtest/CMakeFiles/whtest.dir/eigen.c.obj
+2026-09-10T06:26:08.9596294Z [  7%] Building C object booster/CMakeFiles/booster.dir/bitset_index.c.obj
+2026-09-10T06:26:09.6674272Z [  7%] Building C object booster/CMakeFiles/booster.dir/hashmap.c.obj
+2026-09-10T06:26:10.1437782Z [  7%] Building C object booster/CMakeFiles/booster.dir/io.c.obj
+2026-09-10T06:26:10.7460203Z [  8%] Building C object booster/CMakeFiles/booster.dir/sort.c.obj
+2026-09-10T06:26:10.7461649Z [  8%] Building C object booster/CMakeFiles/booster.dir/tree.c.obj
+2026-09-10T06:26:11.4220500Z [  8%] Building C object booster/CMakeFiles/booster.dir/booster.c.obj
+2026-09-10T06:26:11.9275231Z [  9%] Building C object booster/CMakeFiles/booster.dir/hashtables_bfields.c.obj
+2026-09-10T06:26:12.2437058Z [  9%] Building C object booster/CMakeFiles/booster.dir/stats.c.obj
+2026-09-10T06:26:13.0172069Z [  9%] Building C object whtest/CMakeFiles/whtest.dir/eigen_sym.c.obj
+2026-09-10T06:26:13.3586775Z [ 11%] Building C object booster/CMakeFiles/booster.dir/tree_utils.c.obj
+2026-09-10T06:26:15.5273868Z [ 12%] Building C object booster/CMakeFiles/booster.dir/prng.c.obj
+2026-09-10T06:26:59.3941809Z [ 44%] Linking C static library libbooster.a
+2026-09-10T06:27:04.8131496Z [ 53%] Built target booster
+2026-09-10T06:32:10.6882628Z [ 63%] Building CXX object utils/CMakeFiles/utils.dir/eigendecomposition.cpp.obj
+2026-09-10T06:35:39.1984792Z [ 17%] Built target booster

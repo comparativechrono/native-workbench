@@ -1,0 +1,18 @@
+test_filtered_source_and_binary_omit_unused_cdf (__main__.LofreqTests.test_filtered_source_and_binary_omit_unused_cdf) ... ok
+test_graph_engine_runs_real_pack_and_keeps_truth (__main__.LofreqTests.test_graph_engine_runs_real_pack_and_keeps_truth) ... ok
+test_impossible_coverage_and_depth_rejected_before_running (__main__.LofreqTests.test_impossible_coverage_and_depth_rejected_before_running) ... ok
+test_indelqual_preserves_reads_and_adds_equal_length_bi_bd (__main__.LofreqTests.test_indelqual_preserves_reads_and_adds_equal_length_bi_bd) ... ok
+test_low_quality_error_rejected_even_when_base_filter_disabled (__main__.LofreqTests.test_low_quality_error_rejected_even_when_base_filter_disabled) ... ok
+test_native_selfchecks_exact_truth_linux_and_ape (__main__.LofreqTests.test_native_selfchecks_exact_truth_linux_and_ape) ... ok
+test_no_input_changes_or_indexes_and_private_temporary_cleanup (__main__.LofreqTests.test_no_input_changes_or_indexes_and_private_temporary_cleanup) ... ok
+test_original_shell_filter_and_direct_dispatch_scientifically_equal (__main__.LofreqTests.test_original_shell_filter_and_direct_dispatch_scientifically_equal) ... ok
+test_pins_inventory_and_three_dynamic_workflows (__main__.LofreqTests.test_pins_inventory_and_three_dynamic_workflows) ... ok
+test_quality_threshold_can_produce_valid_empty_vcf (__main__.LofreqTests.test_quality_threshold_can_produce_valid_empty_vcf) ... ok
+test_reference_dictionary_mismatch_fails_without_outputs (__main__.LofreqTests.test_reference_dictionary_mismatch_fails_without_outputs) ... ok
+test_spliced_cigar_rejected_for_dindel (__main__.LofreqTests.test_spliced_cigar_rejected_for_dindel) ... ok
+test_truncated_bam_fails_before_calling (__main__.LofreqTests.test_truncated_bam_fails_before_calling) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.709s
+
+OK

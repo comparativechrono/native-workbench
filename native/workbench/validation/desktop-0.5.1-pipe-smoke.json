@@ -1,0 +1,36 @@
+{
+  "transport": "stdio",
+  "socketConstructionAndConnectBlocked": true,
+  "windowsGuiExecuted": false,
+  "results": [
+    {
+      "method": "init",
+      "ok": true,
+      "replyBytes": 452458,
+      "nodes": 0,
+      "valid": null
+    },
+    {
+      "method": "example",
+      "ok": true,
+      "replyBytes": 494025,
+      "nodes": 8,
+      "valid": null
+    },
+    {
+      "method": "review",
+      "ok": true,
+      "replyBytes": 4246,
+      "nodes": 0,
+      "valid": true
+    },
+    {
+      "method": "shutdown",
+      "ok": true,
+      "replyBytes": 73,
+      "nodes": 0,
+      "valid": null
+    }
+  ],
+  "exitCode": 0
+}

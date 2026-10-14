@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "id": "starter-1",
+  "description": "Paired minimap2 alignment, SAMtools preparation and BCFtools SNP calling on synthetic reads.",
+  "packs": [
+    {
+      "id": "align",
+      "version": "0.4.0",
+      "manifestSha256": "81c962222c93356a4f7727b23193c71d7dcd515859e62a179574781f411824d3"
+    },
+    {
+      "id": "bam",
+      "version": "0.4.0",
+      "manifestSha256": "45b3f9d5092b0b3014f67b29331003e1214c72919f85695a571fb371030a9888"
+    },
+    {
+      "id": "variants",
+      "version": "0.4.0",
+      "manifestSha256": "ea4b7f0a6c28709e4190b6514c07cbf7bdd58e1a4f2a2d931f2cae3ce6ec3795"
+    }
+  ],
+  "fixtures": {
+    "reads1.fastq": "33053fdfd6ca5abbe34883f869958a2e621e7d513ada06f401e91ad256e9cc21",
+    "reads2.fastq": "18b5ceeefb0115120830005a21808489f2c471c78af4aaaf724cdf99697a80e1",
+    "reference.fa": "3dd9031bc90515d274079fd7135da6fd8129315a9c364558bf9ec030c9e36dee",
+    "truth.json": "dbef1c9f40205f38fb8c51cd2109db009a006e8ae15485235aff31263a85f977"
+  },
+  "expect": {
+    "alignment": {
+      "records": 202,
+      "mapped": 202,
+      "paired": 202,
+      "properPairs": 202,
+      "references": {
+        "starter": 3000
+      },
+      "samples": [
+        "starter"
+      ],
+      "allReadGroups": true
+    },
+    "variants": {
+      "records": 1,
+      "samples": [
+        "starter"
+      ],
+      "variants": [
+        {
+          "chrom": "starter",
+          "pos": 1351,
+          "ref": "G",
+          "alt": "A",
+          "genotypes": {
+            "starter": "1/1"
+          }
+        }
+      ]
+    }
+  }
+}

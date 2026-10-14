@@ -1,0 +1,10 @@
+{
+  "hisat2-align-l": {
+    "sha256": "f17f6fa1ca9576779c563e4e65f548c632c48b77141509cadb502b1cf99279e3",
+    "bytes": 1129904
+  },
+  "hisat2-build-l": {
+    "sha256": "4c0ec21cab67c1be4ee02b929ad06d3558540988729749ae1b50e2784c33151d",
+    "bytes": 642808
+  }
+}

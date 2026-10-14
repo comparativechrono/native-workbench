@@ -1,0 +1,125 @@
+{
+  "schema": 1,
+  "checks": [
+    {
+      "id": "targeted-snv",
+      "workflow": "call",
+      "params": {
+        "sample": "validation"
+      },
+      "inputs": {
+        "alignment": [
+          {
+            "alignment": "fixture-bam"
+          }
+        ],
+        "reference": [
+          {
+            "reference": "fixture-reference"
+          }
+        ],
+        "targets": [
+          {
+            "targets": "fixture-targets"
+          }
+        ]
+      },
+      "expect": [
+        {
+          "output": "variants",
+          "kind": "vcf",
+          "records": 1,
+          "samples": [
+            "validation"
+          ],
+          "variants": [
+            {
+              "chrom": "chr1",
+              "pos": 300,
+              "ref": "A",
+              "alt": "C",
+              "filter": "PASS",
+              "genotypes": {
+                "validation": "1/0"
+              }
+            }
+          ]
+        },
+        {
+          "output": "pass-variants",
+          "kind": "vcf",
+          "records": 1,
+          "samples": [
+            "validation"
+          ],
+          "variants": [
+            {
+              "chrom": "chr1",
+              "pos": 300,
+              "ref": "A",
+              "alt": "C",
+              "filter": "PASS"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "targeted-snv-insertion-deletion",
+      "workflow": "call",
+      "params": {
+        "sample": "validation"
+      },
+      "inputs": {
+        "alignment": [
+          {
+            "alignment": "fixture-indels-bam"
+          }
+        ],
+        "reference": [
+          {
+            "reference": "fixture-reference"
+          }
+        ],
+        "targets": [
+          {
+            "targets": "fixture-targets"
+          }
+        ]
+      },
+      "expect": [
+        {
+          "output": "variants",
+          "kind": "vcf",
+          "records": 3,
+          "samples": [
+            "validation"
+          ],
+          "variants": [
+            {
+              "chrom": "chr1",
+              "pos": 300,
+              "ref": "A",
+              "alt": "C",
+              "filter": "PASS"
+            },
+            {
+              "chrom": "chr1",
+              "pos": 600,
+              "ref": "A",
+              "alt": "AAGC",
+              "filter": "PASS"
+            },
+            {
+              "chrom": "chr1",
+              "pos": 900,
+              "ref": "TCTG",
+              "alt": "T",
+              "filter": "PASS"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

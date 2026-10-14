@@ -1,0 +1,8 @@
+10.00	10	10	U	0	unclassified
+90.00	90	0	R	1	root
+90.00	90	0	D	2	  Bacteria
+70.00	70	20	G	10	    Synthetic genus
+30.00	30	30	S	101	      Synthetic alpha
+20.00	20	20	S	102	      Synthetic beta
+20.00	20	0	G	20	    Second genus
+20.00	20	20	S	201	      Synthetic gamma

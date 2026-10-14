@@ -1,0 +1,75 @@
+{
+  "release": "0.5.2",
+  "interface": "native-win32",
+  "requiresBrowser": false,
+  "nativeWindowsExecutionTested": false,
+  "newPacks": [
+    {
+      "pack": "seqkit",
+      "version": "0.5.2",
+      "operations": 14,
+      "manifestSha256": "07ba276cd0630d3dabac9b12f6ed0efffe8ba1b133a4b6a727a1e7d9097edfb8"
+    },
+    {
+      "pack": "vsearch",
+      "version": "0.5.2",
+      "operations": 7,
+      "manifestSha256": "2971ca612558983b23a259c4e2416ddbc129dbff9fdfeac5d2bbaa17a3a652d8"
+    },
+    {
+      "pack": "muscle",
+      "version": "0.5.2",
+      "operations": 4,
+      "manifestSha256": "085273422c7f26af77d23643efa961f1fb6ecbdee301109af67ba551f41b82c4"
+    }
+  ],
+  "totalPacks": 13,
+  "totalTasks": 69,
+  "existingPackFilesUnchanged": 1012,
+  "nativeInventory": {
+    "packManifests": 13,
+    "executablesVerified": 36,
+    "assetsVerified": 354
+  },
+  "nativeFrontendSha256": "61c6ad6ad5d80fae4fd836decc790512acb69af39c98813cd29c4bc21501e697",
+  "nativeFrontendImports": [
+    "comctl32.dll",
+    "ole32.dll",
+    "shell32.dll",
+    "user32.dll",
+    "gdi32.dll",
+    "gdiplus.dll",
+    "bcrypt.dll",
+    "api-ms-win-crt-stdio-l1-1-0.dll",
+    "api-ms-win-crt-string-l1-1-0.dll",
+    "api-ms-win-crt-runtime-l1-1-0.dll",
+    "api-ms-win-crt-locale-l1-1-0.dll",
+    "api-ms-win-crt-heap-l1-1-0.dll",
+    "api-ms-win-crt-private-l1-1-0.dll",
+    "api-ms-win-crt-math-l1-1-0.dll",
+    "kernel32.dll",
+    "api-ms-win-crt-convert-l1-1-0.dll",
+    "api-ms-win-crt-time-l1-1-0.dll",
+    "api-ms-win-crt-multibyte-l1-1-0.dll",
+    "api-ms-win-crt-environment-l1-1-0.dll",
+    "api-ms-win-crt-filesystem-l1-1-0.dll"
+  ],
+  "tests": {
+    "desktopHostAndModel": 29,
+    "engine": 28,
+    "catalogue": 13,
+    "typedSchema": 17,
+    "releasePins": 4,
+    "updaterTransactions": 25,
+    "seqkitScientific": 16,
+    "vsearchScientific": 9,
+    "muscleScientific": 7,
+    "composedPipelinesAndPackCheckRunner": 18,
+    "newPackSelfChecks": 11
+  },
+  "validationScope": "Scientific executables ran as their matching Linux releases/reference build against actual manifest arguments; Windows PE and DLL dependencies inspected. Native Windows execution must be checked using File > Check installation.",
+  "limitations": [
+    "VSEARCH and MUSCLE use narrow Windows filename APIs: use ASCII paths for initial Windows validation.",
+    "MUSCLE is a local 5.3-workbench1 build with explicit alphabet selection patch and bundled OpenMP; corresponding source and patch included."
+  ]
+}

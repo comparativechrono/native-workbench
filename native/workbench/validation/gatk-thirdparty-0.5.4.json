@@ -1,0 +1,21 @@
+{
+  "component": "GATK4.7.0.0 third-party source and notice acquisition",
+  "inventorySha256": "9b7390d1da5e84da71b826a88c62d324a55e51b5d2172bb5cec91626fc40cd5e",
+  "files": 86,
+  "sourceArchives": 70,
+  "sourceJars": 62,
+  "bytes": 29259948,
+  "embeddedPomComponents": 310,
+  "unresolvedPomLicenses": 0,
+  "offlineAllChecksumsVerified": true,
+  "offlineRestoreFilesIncludingInventory": 87,
+  "tamperedFileRejected": true,
+  "nativeCommitStringsMatchSourcePins": true,
+  "notes": [
+    "Inventory is a metadata and source evidence record, not a claim every shaded class is accounted for by an embedded POM.",
+    "GenomicsDB ELF confirms static UUID functions; exact source-build default is libuuid1.0.3, whose COPYING declares Modified BSD.",
+    "GenomicsDB distributable build excludes libcsv; ELF has no csv_* library symbols.",
+    "Official java-getopt1.0.13 sources JAR includes its original .java and three .class members, preserved unchanged.",
+    "MUMmer Artistic2 license is retained in original GATK JAR and extracted gatk-notice-635dc2bd7e1064a9.txt."
+  ]
+}

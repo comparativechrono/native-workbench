@@ -1,0 +1,2984 @@
+{
+  "schema": "native-workbench-knowledge/release-inventory",
+  "schema_version": 1,
+  "as_of": "2026-10-09",
+  "source_commit": "e855dc4396e0c16ae35f4e840eb9cc734adb4441",
+  "repository": "https://github.com/comparativechrono/workbench",
+  "purpose": "Public release handover inventory. This is documentation, not an install catalogue or a trust file.",
+  "is_install_catalogue": false,
+  "is_trust_file": false,
+  "verification": {
+    "checked_on": "2026-10-04",
+    "method": "Older application and pack entries preserve the initial 2026-10-04 GitHub metadata audit and dated publication evidence. For the October optional packs, public release assets were independently downloaded and rehashed, source/scientific regressions retained, and exact-final archives executed through the released 0.6.0 native Windows bridge in ordinary and space-containing paths. Per-asset download verification and per-pack evidence distinguish these levels. Kraken2 and Bracken final asset verification and exact-final native gates are retained separately, including a real classification-to-estimation chain.",
+    "release_metadata_url": "https://api.github.com/repos/comparativechrono/workbench/releases?per_page=100",
+    "readme_url": "https://github.com/comparativechrono/workbench/blob/main/README.md",
+    "scope": "Published releases only. Drafts and private metadata are excluded. Historical validation candidates are excluded from current_packs.",
+    "interpretation": "A GitHub asset digest checks bytes against recorded metadata; it is not a publisher signature or application-trusted catalogue.",
+    "application_checked_on": "2026-10-09",
+    "application_release_metadata_url": "https://api.github.com/repos/comparativechrono/workbench/releases/tags/app-v0.16.0",
+    "application_method": "Publisher run 37955110070 promoted the exact accepted Starter/source/updater and unchanged additional align 0.4.1 archive without rebuilding. Its completed receipt records anonymous downloads of all 13 canonical public assets with byte-count/SHA-256 checks. Current entries bind those downloads to observed asset IDs/digests and tag 60243d4. This scope does not claim a separate independent 13-asset download audit or new Windows execution during publication."
+  },
+  "status": {
+    "application": "development-prerelease",
+    "latest_pack_count": 32,
+    "published_pack_version_count": 33,
+    "online_catalogue": "published-and-independently-verified-2026-10-07",
+    "catalogue_source_json": "published-and-bundled-unchanged-in-0.16.0",
+    "signing_key": "owner-provisioned-matching-public-fingerprint-successfully-used",
+    "windows_gui_validation": "Exact e855 ordinary/spaced final candidate, release results/scroll and 0.11.0 to 0.16.0 updater/nested curated gates passed; see dated final release evidence. Hosted 96 DPI scope only.",
+    "native_windows_long_path_validation": "Exact e855 four-check positive gate passed with disposable-runner long-path opt-in disabled and restored: additional align 0.4.1 working directory 254 characters, SAM 268 characters, 202 mapped proper-pair records."
+  },
+  "application": {
+    "version": "0.16.0",
+    "tag": "app-v0.16.0",
+    "release_id": 408075619,
+    "release_url": "https://github.com/comparativechrono/workbench/releases/tag/app-v0.16.0",
+    "prerelease": true,
+    "draft": false,
+    "published_at": "2026-10-09T15:54:56Z",
+    "reviewed_on": "2026-10-09",
+    "publication_status": "published-and-publisher-public-downloads-verified",
+    "packaged_source_commit": "e855dc4396e0c16ae35f4e840eb9cc734adb4441",
+    "release_tag_commit": "60243d45a81a6ef7e16e4a0ee719f4aa2e4f74c9",
+    "merged_release_commit": "60243d45a81a6ef7e16e4a0ee719f4aa2e4f74c9",
+    "source_commit_distinction": "The exact e855 Starter/source and 0e92 updater packaging/validation are distinct from merged release/tag/publication commit 60243d45a81a6ef7e16e4a0ee719f4aa2e4f74c9. All accepted archives were promoted unchanged; no rebuild occurred during publication.",
+    "starter_pack_ids": [
+      "align",
+      "bam",
+      "variants"
+    ],
+    "starter_pack_versions": {
+      "align": "0.4.0",
+      "bam": "0.4.0",
+      "variants": "0.4.0"
+    },
+    "updater_baselines": [
+      "0.11.0"
+    ],
+    "assets": [
+      {
+        "name": "BUILD-PROVENANCE.json",
+        "asset_id": 625429069,
+        "bytes": 11402,
+        "github_digest": "sha256:5929a1f261ac571b61ac5886fc135f749e398e861ee81963d7512739feddc927",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.16.0/BUILD-PROVENANCE.json",
+        "publisher_anonymous_download_verified_on": "2026-10-09"
+      },
+      {
+        "name": "BUILD-UPDATE-PROVENANCE.json",
+        "asset_id": 625429073,
+        "bytes": 8838,
+        "github_digest": "sha256:7032c4bdfe1253d72d1377d71905091a6b331e254921ef59aa12e35f1d093ccf",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.16.0/BUILD-UPDATE-PROVENANCE.json",
+        "publisher_anonymous_download_verified_on": "2026-10-09"
+      },
+      {
+        "name": "EVIDENCE-SHA256SUMS.txt",
+        "asset_id": 625429071,
+        "bytes": 708,
+        "github_digest": "sha256:607cf78bb55e5f2ed929ff74955eb663fb09786b38f0e7608f05cd87623197ec",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.16.0/EVIDENCE-SHA256SUMS.txt",
+        "publisher_anonymous_download_verified_on": "2026-10-09"
+      },
+      {
+        "name": "RELEASE-VALIDATION.json",
+        "asset_id": 625429068,
+        "bytes": 28177,
+        "github_digest": "sha256:2ca86c9a5a7e9435131b214a1edc1170f2275270b573ef0759c8b8fe29be4ee0",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.16.0/RELEASE-VALIDATION.json",
+        "publisher_anonymous_download_verified_on": "2026-10-09"
+      },
+      {
+        "name": "SHA256SUMS.txt",
+        "asset_id": 625429070,
+        "bytes": 315,
+        "github_digest": "sha256:7f2e129d8a74b2078cf9f6118274617959193e8a7180f42a5dfefd5fdc212d89",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.16.0/SHA256SUMS.txt",
+        "publisher_anonymous_download_verified_on": "2026-10-09"
+      },
+      {
+        "name": "UPDATE-SHA256SUMS.txt",
+        "asset_id": 625429107,
+        "bytes": 113,
+        "github_digest": "sha256:5dd4c37d323e3663d4e8b2aaa4a32a8e6a537f044de849298718357eae061abd",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.16.0/UPDATE-SHA256SUMS.txt",
+        "publisher_anonymous_download_verified_on": "2026-10-09"
+      },
+      {
+        "name": "WINDOWS-EVIDENCE.zip",
+        "asset_id": 625429112,
+        "bytes": 55121741,
+        "github_digest": "sha256:588f4689090755cde03e6866bb07c83aa74b7b8e41ac5676e08a5093c8b8282b",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.16.0/WINDOWS-EVIDENCE.zip",
+        "publisher_anonymous_download_verified_on": "2026-10-09"
+      },
+      {
+        "name": "align-0.4.1-metadata.json",
+        "asset_id": 625429123,
+        "bytes": 707,
+        "github_digest": "sha256:3a1310431f81e3f424e2eaed6490e5928fcc4dcff0f4512429cdf95fba35a15a",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.16.0/align-0.4.1-metadata.json",
+        "publisher_anonymous_download_verified_on": "2026-10-09"
+      },
+      {
+        "name": "native-workbench-0.16.0-source.zip",
+        "asset_id": 625429127,
+        "bytes": 47848425,
+        "github_digest": "sha256:f746f00a82675c2cf52364a3b4d040721c6d06ac5605488efbdc0376ef5b7e44",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.16.0/native-workbench-0.16.0-source.zip",
+        "publisher_anonymous_download_verified_on": "2026-10-09"
+      },
+      {
+        "name": "native-workbench-0.16.0-starter-windows.zip",
+        "asset_id": 625429131,
+        "bytes": 17846873,
+        "github_digest": "sha256:f96e03e43cac92ba8ca9a0a3807eb671f9924d5e624cadbba94d1a5ca1309073",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.16.0/native-workbench-0.16.0-starter-windows.zip",
+        "publisher_anonymous_download_verified_on": "2026-10-09"
+      },
+      {
+        "name": "native-workbench-0.16.0-update-from-0.11.0.zip",
+        "asset_id": 625429147,
+        "bytes": 13199905,
+        "github_digest": "sha256:d75d5129e9b9feaef70faa62d5ea91049c0162df8c7bdc74c7bc81d1933eec8f",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.16.0/native-workbench-0.16.0-update-from-0.11.0.zip",
+        "publisher_anonymous_download_verified_on": "2026-10-09"
+      },
+      {
+        "name": "native-workbench-pack-align-0.4.1.zip",
+        "asset_id": 625429158,
+        "bytes": 575862,
+        "github_digest": "sha256:3a08cf061f0b62c5502d1420115db3fcae2b04bf695ad3cfd1c3063de0fafa02",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.16.0/native-workbench-pack-align-0.4.1.zip",
+        "publisher_anonymous_download_verified_on": "2026-10-09"
+      },
+      {
+        "name": "source-metadata.json",
+        "asset_id": 625429192,
+        "bytes": 1764,
+        "github_digest": "sha256:7f5a01279149b00fb88730b559fe352bf4bb017bfba77ac483e81bee6943d60b",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.16.0/source-metadata.json",
+        "publisher_anonymous_download_verified_on": "2026-10-09"
+      }
+    ],
+    "validation": "evidence/curated-workflows-0.16.0-release-regression-final-2026-10-09.json",
+    "release_lock": "evidence/curated-workflows-0.16.0-release-lock.json",
+    "archive_audit": "evidence/curated-workflows-0.16.0-release-archive-audit-2026-10-09.json",
+    "visual_review": "evidence/curated-workflows-0.16.0-release-visual-review-2026-10-09.json",
+    "updater_validation": "evidence/update-0.16.0-final-validation-2026-10-09.json",
+    "publication": "evidence/curated-workflows-0.16.0-publication-2026-10-09.json",
+    "public_download_verification": "evidence/curated-workflows-0.16.0-public-downloads-2026-10-09.json",
+    "publication_run_id": 37955110070,
+    "handover": "curated-workflows-0.16.0-release-handover.md",
+    "additional_pack_archives": [
+      {
+        "id": "align",
+        "version": "0.4.1",
+        "file": "native-workbench-pack-align-0.4.1.zip",
+        "asset_id": 625429158,
+        "bytes": 575862,
+        "sha256": "3a08cf061f0b62c5502d1420115db3fcae2b04bf695ad3cfd1c3063de0fafa02",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.16.0/native-workbench-pack-align-0.4.1.zip",
+        "min_app_version": "0.13.0",
+        "files": 43,
+        "included_in_fresh_starter": true,
+        "automatically_installed_by_updater": false,
+        "installation": "Explicit offline ZIP import for an existing/upgraded installation; saved exact pins remain unchanged.",
+        "production_catalogue_changed": false,
+        "publication_status": "published-with-app-v0.16.0",
+        "publisher_anonymous_download_verified_on": "2026-10-09"
+      }
+    ],
+    "known_limit": "Hosted 96 DPI validation does not establish representative-PC, high-DPI, physical-trackpad, clinical or institutional acceptance. The updater gate covers the exact 0.11.0 baseline only."
+  },
+  "current_packs": [
+    {
+      "id": "align",
+      "version": "0.4.0",
+      "tag": "pack-align-v0.4.0",
+      "name": "Read alignment — align 0.4.0",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/pack-align-v0.4.0",
+      "prerelease": true,
+      "published_at": "2026-10-03T18:21:30Z",
+      "minimum_application_for_archive_import": "0.6.0",
+      "included_in_starter": true,
+      "primary_asset": {
+        "name": "native-workbench-pack-align-0.4.0.zip",
+        "bytes": 568924,
+        "github_digest": "sha256:e701dbcf5a8c3fb31c1a82a3c7b7da50eb1cceb64b5b9c88db4795f98ec4f72d",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-align-v0.4.0/native-workbench-pack-align-0.4.0.zip"
+      },
+      "companion_assets": [],
+      "evidence_scope": "Original pack identity/manifest preserved in independent split archive. Packaging verification is not a fresh native Windows execution claim."
+    },
+    {
+      "id": "bam",
+      "version": "0.4.0",
+      "tag": "pack-bam-v0.4.0",
+      "name": "Alignment files — bam 0.4.0",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/pack-bam-v0.4.0",
+      "prerelease": true,
+      "published_at": "2026-10-03T18:21:46Z",
+      "minimum_application_for_archive_import": "0.6.0",
+      "included_in_starter": true,
+      "primary_asset": {
+        "name": "native-workbench-pack-bam-0.4.0.zip",
+        "bytes": 1158320,
+        "github_digest": "sha256:b9edc1535996c2e86fdb533328fb8fad78b9168bcb0d0733b73090387c27b61f",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-bam-v0.4.0/native-workbench-pack-bam-0.4.0.zip"
+      },
+      "companion_assets": [],
+      "evidence_scope": "Original pack identity/manifest preserved in independent split archive. Packaging verification is not a fresh native Windows execution claim."
+    },
+    {
+      "id": "bedtools",
+      "version": "1.0.0",
+      "upstream_tool_version": "2.31.1-workbench1",
+      "tag": "pack-bedtools-v1.0.0",
+      "name": "BEDTools pack 1.0.0",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/pack-bedtools-v1.0.0",
+      "prerelease": true,
+      "published_at": "2026-10-04T13:58:13Z",
+      "minimum_application_for_archive_import": "0.6.0",
+      "included_in_starter": false,
+      "manifest_sha256": "4918fb533a648db4e1c53bd3a71676cef008bd7228a84136e2c4f4724420ead1",
+      "primary_asset": {
+        "name": "native-workbench-pack-bedtools-1.0.0.zip",
+        "bytes": 32015063,
+        "github_digest": "sha256:f195c4c25acd1b109b8bd73656d64e12939bea847aa4d95a776fa25129455382",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-bedtools-v1.0.0/native-workbench-pack-bedtools-1.0.0.zip",
+        "independently_downloaded_and_rehashed_on": "2026-10-04"
+      },
+      "companion_assets": [
+        {
+          "name": "native-workbench-bedtools-1.0.0-source-evidence.zip",
+          "bytes": 40260,
+          "github_digest": "sha256:dede90c1795953c661d767508ed5c21b84746503d8f289b1611f1294967fd4b4",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-bedtools-v1.0.0/native-workbench-bedtools-1.0.0-source-evidence.zip",
+          "independently_downloaded_and_rehashed_on": "2026-10-04"
+        },
+        {
+          "name": "native-workbench-bedtools-1.0.0-windows-validation.json",
+          "bytes": 21449,
+          "github_digest": "sha256:b711502da2a358b6ac0d3e21328240c30e7ecd8d14839fd70e3fd02edc7ad344",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-bedtools-v1.0.0/native-workbench-bedtools-1.0.0-windows-validation.json",
+          "independently_downloaded_and_rehashed_on": "2026-10-04"
+        }
+      ],
+      "source_regression_tests_passed": 7,
+      "evidence_scope": "Independent public asset download/hash checks and exact-final archive native Windows CI; source/Linux checks are separate. See native_windows_evidence."
+    },
+    {
+      "id": "blast",
+      "version": "1.0.0",
+      "upstream_tool_version": "2.17.0",
+      "tag": "pack-blast-v1.0.0",
+      "name": "NCBI BLAST+ pack 1.0.0",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/pack-blast-v1.0.0",
+      "prerelease": true,
+      "published_at": "2026-10-04T14:43:25Z",
+      "minimum_application_for_archive_import": "0.6.0",
+      "included_in_starter": false,
+      "manifest_sha256": "3242e23ba4e5edbec8b288c98d666cb4f0f3c23c9f03fc9d7d4258e4029d90c8",
+      "primary_asset": {
+        "name": "native-workbench-pack-blast-1.0.0.zip",
+        "bytes": 70024863,
+        "github_digest": "sha256:3a907171c210d640a53cff6f2c51813be61b87a859a3a65b987947985f97024c",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-blast-v1.0.0/native-workbench-pack-blast-1.0.0.zip",
+        "independently_downloaded_and_rehashed_on": "2026-10-04"
+      },
+      "companion_assets": [
+        {
+          "name": "native-workbench-blast-1.0.0-source-evidence.zip",
+          "bytes": 31095177,
+          "github_digest": "sha256:64758540a98ca45b3b2f438fb89d36cec2371e3c4d34da309df56307fb0caacd",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-blast-v1.0.0/native-workbench-blast-1.0.0-source-evidence.zip",
+          "independently_downloaded_and_rehashed_on": "2026-10-04"
+        },
+        {
+          "name": "native-workbench-blast-1.0.0-windows-validation.json",
+          "bytes": 21349,
+          "github_digest": "sha256:0d0aa6c0e6b51167737d859ccc350e6e5c435db6e6c4bd815dcd4f4359c3a53d",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-blast-v1.0.0/native-workbench-blast-1.0.0-windows-validation.json",
+          "independently_downloaded_and_rehashed_on": "2026-10-04"
+        }
+      ],
+      "source_regression_tests_passed": 11,
+      "evidence_scope": "Independent public asset download/hash checks and exact-final archive native Windows CI; source/Linux checks are separate. See native_windows_evidence.",
+      "source_regression_scope": {
+        "patched_linux_build": {
+          "passed": 11,
+          "skipped": 0
+        },
+        "unmodified_upstream_linux_reference": {
+          "passed": 10,
+          "skipped": 1,
+          "reason": "Local-only failure regression deliberately requires the patched build; the skip is not a pass."
+        }
+      }
+    },
+    {
+      "id": "bowtie2",
+      "version": "0.5.3",
+      "tag": "pack-bowtie2-v0.5.3",
+      "name": "Bowtie 2 DNA alignment — bowtie2 0.5.3",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/pack-bowtie2-v0.5.3",
+      "prerelease": true,
+      "published_at": "2026-10-03T18:22:26Z",
+      "minimum_application_for_archive_import": "0.6.0",
+      "included_in_starter": false,
+      "primary_asset": {
+        "name": "native-workbench-pack-bowtie2-0.5.3.zip",
+        "bytes": 36396085,
+        "github_digest": "sha256:d9810ddb3ea67bf296efde3c2b4a1d3f5513c5bdb6ba841a67db02f25c3d0a22",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-bowtie2-v0.5.3/native-workbench-pack-bowtie2-0.5.3.zip"
+      },
+      "companion_assets": [],
+      "evidence_scope": "Original pack identity/manifest preserved in independent split archive. Packaging verification is not a fresh native Windows execution claim."
+    },
+    {
+      "id": "bracken",
+      "version": "1.0.0",
+      "upstream_tool_version": "3.1",
+      "tag": "pack-bracken-v1.0.0",
+      "name": "Bracken pack 1.0.0 — native Windows validated",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/pack-bracken-v1.0.0",
+      "prerelease": true,
+      "published_at": "2026-10-04T21:26:06Z",
+      "minimum_application_for_archive_import": "0.6.0",
+      "included_in_starter": false,
+      "manifest_sha256": "f8c171ba9313c768de646c88959f1c16660f27f305a5bd0e7e8f2a007c63b14d",
+      "primary_asset": {
+        "name": "native-workbench-pack-bracken-1.0.0.zip",
+        "bytes": 34837071,
+        "github_digest": "sha256:bfd5ae2ea3ef3e54f3ae5b97530e58bf1aad8562d66ca1c8e190b87472f1d853",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-bracken-v1.0.0/native-workbench-pack-bracken-1.0.0.zip",
+        "independently_downloaded_and_rehashed_on": "2026-10-04"
+      },
+      "companion_assets": [
+        {
+          "name": "native-workbench-bracken-1.0.0-source-evidence.zip",
+          "bytes": 1701847,
+          "github_digest": "sha256:dbe80640cf8b7a9fc81cb6400e8b20ef4b83ce6b7c1e33e440cba2bc75a2450a",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-bracken-v1.0.0/native-workbench-bracken-1.0.0-source-evidence.zip",
+          "independently_downloaded_and_rehashed_on": "2026-10-04"
+        },
+        {
+          "name": "native-workbench-bracken-1.0.0-windows-validation.json",
+          "bytes": 186976,
+          "github_digest": "sha256:12f0387145058c293361b634b4391a2d7a66386188b9c5a5fc9bf5f45e0e7954",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-bracken-v1.0.0/native-workbench-bracken-1.0.0-windows-validation.json",
+          "independently_downloaded_and_rehashed_on": "2026-10-04"
+        },
+        {
+          "name": "SHA256SUMS-archives.txt",
+          "bytes": 223,
+          "github_digest": "sha256:66b6a723aa2f85e22be0e020e71ba730c2422c58c2e097230077dbd480bc22e0",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-bracken-v1.0.0/SHA256SUMS-archives.txt",
+          "independently_downloaded_and_rehashed_on": "2026-10-04"
+        },
+        {
+          "name": "SHA256SUMS.txt",
+          "bytes": 434,
+          "github_digest": "sha256:5138aba4c5c25ed5b673dab14f85a70149da6e75079f25fa8985382785ad208b",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-bracken-v1.0.0/SHA256SUMS.txt",
+          "independently_downloaded_and_rehashed_on": "2026-10-04"
+        }
+      ],
+      "pack_implementation_source_commit": "85ef78b0436417a85d8d70ed685dc2a52c24f7a4",
+      "validation_record": "evidence/bracken-1.0.0-validation-2026-10-04.json",
+      "public_download_verification_record": "evidence/bracken-1.0.0-public-downloads-2026-10-04.json",
+      "evidence_scope": "Exact final native Windows archive: 4 installation/scientific checks, 7 graph/archive contracts and 17 additional scientific/failure regressions per path; zero failures, errors or test skips. Independent Bayesian arithmetic, unchanged upstream estimator, explicit external-report provenance and actual Kraken2-to-Bracken classification/estimation chain."
+    },
+    {
+      "id": "bwa",
+      "version": "0.4.0",
+      "tag": "pack-bwa-v0.4.0",
+      "name": "BWA alignment — bwa 0.4.0",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/pack-bwa-v0.4.0",
+      "prerelease": true,
+      "published_at": "2026-10-03T18:23:16Z",
+      "minimum_application_for_archive_import": "0.6.0",
+      "included_in_starter": false,
+      "primary_asset": {
+        "name": "native-workbench-pack-bwa-0.4.0.zip",
+        "bytes": 1870891,
+        "github_digest": "sha256:c80b8c924861c1b768eb9488821bf5e5582f927d722a30dfb1078b999d9d419c",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-bwa-v0.4.0/native-workbench-pack-bwa-0.4.0.zip"
+      },
+      "companion_assets": [],
+      "evidence_scope": "Original pack identity/manifest preserved in independent split archive. Packaging verification is not a fresh native Windows execution claim."
+    },
+    {
+      "id": "deseq2",
+      "version": "1.0.0",
+      "upstream_tool_version": "DESeq2 1.52.0; tximport 1.40.0; R 4.6.1; Bioconductor 3.23",
+      "tag": "pack-deseq2-v1.0.0",
+      "name": "DESeq2 + tximport pack 1.0.0 — native Windows validated",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/pack-deseq2-v1.0.0",
+      "prerelease": true,
+      "published_at": "2026-10-04T20:07:12Z",
+      "minimum_application_for_archive_import": "0.6.0",
+      "included_in_starter": false,
+      "manifest_sha256": "f5a06708651f14f25e89ca3588ed6bf2f91442e43d635a9fc7ab5af066112ee1",
+      "implementation_source_commit": "24c6899aa7c19208ec88ae816879952ed0d8527e",
+      "primary_asset": {
+        "name": "native-workbench-pack-deseq2-1.0.0.zip",
+        "bytes": 277504383,
+        "github_digest": "sha256:eccffbcaf3adad6ab1da63ea771fe103a807a88722a56f5db82072cf02c1292d",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-deseq2-v1.0.0/native-workbench-pack-deseq2-1.0.0.zip",
+        "independently_downloaded_and_rehashed_on": "2026-10-04"
+      },
+      "companion_assets": [
+        {
+          "name": "native-workbench-deseq2-1.0.0-r-runtime-sources.zip",
+          "bytes": 458255663,
+          "github_digest": "sha256:4dcb85cea0f859ffec0562ca1a3ce4eb814bbbcdf6e994c328a284c3763b844b",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-deseq2-v1.0.0/native-workbench-deseq2-1.0.0-r-runtime-sources.zip",
+          "independently_downloaded_and_rehashed_on": "2026-10-04"
+        },
+        {
+          "name": "native-workbench-deseq2-1.0.0-source-evidence.zip",
+          "bytes": 1814514,
+          "github_digest": "sha256:da6f5b48549e1de2554f6bef903f19b64c08435cce44995eb59716d36f25dbf2",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-deseq2-v1.0.0/native-workbench-deseq2-1.0.0-source-evidence.zip",
+          "independently_downloaded_and_rehashed_on": "2026-10-04"
+        },
+        {
+          "name": "native-workbench-deseq2-1.0.0-windows-validation.json",
+          "bytes": 100136,
+          "github_digest": "sha256:9312bbc5ea3d7bc38035c0583b8a76950375ea0f0e20cf1f6d18eeb87077764e",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-deseq2-v1.0.0/native-workbench-deseq2-1.0.0-windows-validation.json",
+          "independently_downloaded_and_rehashed_on": "2026-10-04"
+        },
+        {
+          "name": "SHA256SUMS.txt",
+          "bytes": 459,
+          "github_digest": "sha256:dd3144a5f69e2ffbbc78b7ca8333c7290eb9034af89469c26cea8f4bce6141fc",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-deseq2-v1.0.0/SHA256SUMS.txt",
+          "independently_downloaded_and_rehashed_on": "2026-10-04"
+        }
+      ],
+      "source_regression_tests_passed": 14,
+      "source_regression_host": "Native Windows source-built private runtime; separate published-archive gate also passed",
+      "validation_report": "evidence/deseq2-1.0.0-validation-2026-10-04.json",
+      "evidence_scope": "Exact final native Windows archive: three installation/scientific checks, six graph/archive contracts and 14 additional scientific regressions per path, zero failures/errors/skips. Matrix and tximport independent upstream comparisons cover all 300 genes and six inferential columns at 1e-10; preserved 24 planted effects and four incidental null discoveries are a regression fixture, not FDR calibration. Independent bulk replicates only, condition or additive batch+condition designs; sample metadata cannot prove biological independence. Private R scratch requires a space-free path or existing short alias.",
+      "validation_report_sha256": "9312bbc5ea3d7bc38035c0583b8a76950375ea0f0e20cf1f6d18eeb87077764e"
+    },
+    {
+      "id": "fastp",
+      "version": "0.4.1",
+      "tag": "pack-fastp-v0.4.1",
+      "name": "fastp quality control — fastp 0.4.1",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/pack-fastp-v0.4.1",
+      "prerelease": true,
+      "published_at": "2026-10-03T18:23:00Z",
+      "minimum_application_for_archive_import": "0.6.0",
+      "included_in_starter": false,
+      "primary_asset": {
+        "name": "native-workbench-pack-fastp-0.4.1.zip",
+        "bytes": 1277199,
+        "github_digest": "sha256:93c32ccd506bb61eed0e901f83f025fed183557587cc5378ad0d40771db4a8cc",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-fastp-v0.4.1/native-workbench-pack-fastp-0.4.1.zip"
+      },
+      "companion_assets": [],
+      "evidence_scope": "Original pack identity/manifest preserved in independent split archive. Packaging verification is not a fresh native Windows execution claim."
+    },
+    {
+      "id": "fastqc",
+      "version": "1.0.0",
+      "upstream_tool_version": "0.13.0",
+      "tag": "pack-fastqc-v1.0.0",
+      "name": "FastQC pack 1.0.0",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/pack-fastqc-v1.0.0",
+      "prerelease": true,
+      "published_at": "2026-10-04T13:51:48Z",
+      "minimum_application_for_archive_import": "0.6.0",
+      "included_in_starter": false,
+      "manifest_sha256": "1f791b7fb3af5aab35a7033f1b933c40f2dd2bbc6930d68c70cbc626f14653bc",
+      "primary_asset": {
+        "name": "native-workbench-pack-fastqc-1.0.0.zip",
+        "bytes": 150996821,
+        "github_digest": "sha256:10249aef6fa482fe2d0c37a76625e5664ca40dde3630814bc35e26aea6cd1bc4",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-fastqc-v1.0.0/native-workbench-pack-fastqc-1.0.0.zip",
+        "independently_downloaded_and_rehashed_on": "2026-10-04"
+      },
+      "companion_assets": [
+        {
+          "name": "native-workbench-fastqc-1.0.0-source-evidence.zip",
+          "bytes": 49773,
+          "github_digest": "sha256:3c840891588efbd3a58282cddf0273bf50489ef6deb26eda709e5bc4b5e4bd5e",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-fastqc-v1.0.0/native-workbench-fastqc-1.0.0-source-evidence.zip",
+          "independently_downloaded_and_rehashed_on": "2026-10-04"
+        },
+        {
+          "name": "native-workbench-fastqc-1.0.0-windows-validation.json",
+          "bytes": 8685,
+          "github_digest": "sha256:20b5d3068a0fa0aff03ae62b3633b33d81c1318dd45a646be9d4420b3477983a",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-fastqc-v1.0.0/native-workbench-fastqc-1.0.0-windows-validation.json",
+          "independently_downloaded_and_rehashed_on": "2026-10-04"
+        }
+      ],
+      "source_regression_tests_passed": 8,
+      "evidence_scope": "Independent public asset download/hash checks and exact-final archive native Windows CI; source/Linux checks are separate. See native_windows_evidence."
+    },
+    {
+      "id": "featurecounts",
+      "version": "1.0.0",
+      "upstream_tool_version": "2.1.1",
+      "tag": "pack-featurecounts-v1.0.0",
+      "name": "featureCounts pack 1.0.0",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/pack-featurecounts-v1.0.0",
+      "prerelease": true,
+      "published_at": "2026-10-04T14:06:44Z",
+      "minimum_application_for_archive_import": "0.6.0",
+      "included_in_starter": false,
+      "manifest_sha256": "f40b334f0eb469a34d92696cf17c5ac2848346add6cdb9d73ca06fab93770716",
+      "primary_asset": {
+        "name": "native-workbench-pack-featurecounts-1.0.0.zip",
+        "bytes": 29829533,
+        "github_digest": "sha256:f3319b6a8b13c30bc31b782008b0283c7688c739da2dd77cf5ab80859ccff4c2",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-featurecounts-v1.0.0/native-workbench-pack-featurecounts-1.0.0.zip",
+        "independently_downloaded_and_rehashed_on": "2026-10-04"
+      },
+      "companion_assets": [
+        {
+          "name": "native-workbench-featurecounts-1.0.0-source-evidence.zip",
+          "bytes": 72879,
+          "github_digest": "sha256:1f222829cec389759b93874c984e5b5adb605ab9cb03d665f3a449f777489719",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-featurecounts-v1.0.0/native-workbench-featurecounts-1.0.0-source-evidence.zip",
+          "independently_downloaded_and_rehashed_on": "2026-10-04"
+        },
+        {
+          "name": "native-workbench-featurecounts-1.0.0-windows-validation.json",
+          "bytes": 11384,
+          "github_digest": "sha256:efc7da84d5ab453c1436fa518a24d7bb281f113c19b68f70820ad804418818ed",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-featurecounts-v1.0.0/native-workbench-featurecounts-1.0.0-windows-validation.json",
+          "independently_downloaded_and_rehashed_on": "2026-10-04"
+        }
+      ],
+      "source_regression_tests_passed": 8,
+      "evidence_scope": "Independent public asset download/hash checks and exact-final archive native Windows CI; source/Linux checks are separate. See native_windows_evidence."
+    },
+    {
+      "id": "freebayes",
+      "version": "0.4.0",
+      "tag": "pack-freebayes-v0.4.0",
+      "name": "FreeBayes variants — freebayes 0.4.0",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/pack-freebayes-v0.4.0",
+      "prerelease": true,
+      "published_at": "2026-10-03T18:23:41Z",
+      "minimum_application_for_archive_import": "0.6.0",
+      "included_in_starter": false,
+      "primary_asset": {
+        "name": "native-workbench-pack-freebayes-0.4.0.zip",
+        "bytes": 4560176,
+        "github_digest": "sha256:f6f12592c22d6d3ee63f24287d054b317a05551dbe0f6019a88dfd623dd059d0",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-freebayes-v0.4.0/native-workbench-pack-freebayes-0.4.0.zip"
+      },
+      "companion_assets": [],
+      "evidence_scope": "Original pack identity/manifest preserved in independent split archive. Packaging verification is not a fresh native Windows execution claim."
+    },
+    {
+      "id": "gatk",
+      "version": "1.0.0",
+      "upstream_tool_version": "4.7.0.0-workbench1",
+      "tag": "pack-gatk-v1.0.0",
+      "name": "GATK germline pack 1.0.0",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/pack-gatk-v1.0.0",
+      "prerelease": true,
+      "published_at": "2026-10-04T17:24:41Z",
+      "minimum_application_for_archive_import": "0.6.0",
+      "included_in_starter": false,
+      "manifest_sha256": "4d876053d922628f8c97896268a32c72a648b6c51b93d3364beecc641293e713",
+      "primary_asset": {
+        "name": "native-workbench-pack-gatk-1.0.0.zip",
+        "bytes": 681725138,
+        "github_digest": "sha256:e9eb3a4966f83d667ebb424612aaedd07236bac98c3462d4efbe02c55166bb24",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-gatk-v1.0.0/native-workbench-pack-gatk-1.0.0.zip",
+        "independently_downloaded_and_rehashed_on": "2026-10-04"
+      },
+      "companion_assets": [
+        {
+          "name": "native-workbench-gatk-1.0.0-source-evidence.zip",
+          "bytes": 1363293,
+          "github_digest": "sha256:73017b89013288e7f7a54dbd15d40f45d14c0d9845871ff7928966f316bbcbba",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-gatk-v1.0.0/native-workbench-gatk-1.0.0-source-evidence.zip",
+          "independently_downloaded_and_rehashed_on": "2026-10-04"
+        },
+        {
+          "name": "native-workbench-gatk-1.0.0-windows-validation.json",
+          "bytes": 30982,
+          "github_digest": "sha256:78f68d98aac94037945807a18e3f44e8371e444b07b3a4f3a206e155249bf603",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-gatk-v1.0.0/native-workbench-gatk-1.0.0-windows-validation.json",
+          "independently_downloaded_and_rehashed_on": "2026-10-04"
+        },
+        {
+          "name": "SHA256SUMS.txt",
+          "bytes": 335,
+          "github_digest": "sha256:e464ddfcc8e20f0763f29916f753a072c8b92403fa55d40924de0105bc55df9f",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-gatk-v1.0.0/SHA256SUMS.txt",
+          "independently_downloaded_and_rehashed_on": "2026-10-04"
+        }
+      ],
+      "source_regression_tests_passed": 14,
+      "evidence_scope": "Exact-final public archive independently downloaded and rehashed; 9/9 native scientific and 7/7 graph/archive checks on Windows in both path modes. Separate Linux scientific/guard suite: 14/14. See evidence/gatk-1.0.0-validation-2026-10-04.json."
+    },
+    {
+      "id": "hisat2",
+      "version": "0.5.3",
+      "tag": "pack-hisat2-v0.5.3",
+      "name": "HISAT2 DNA and RNA alignment — hisat2 0.5.3",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/pack-hisat2-v0.5.3",
+      "prerelease": true,
+      "published_at": "2026-10-03T18:23:56Z",
+      "minimum_application_for_archive_import": "0.6.0",
+      "included_in_starter": false,
+      "primary_asset": {
+        "name": "native-workbench-pack-hisat2-0.5.3.zip",
+        "bytes": 10085384,
+        "github_digest": "sha256:85d02ead1c7205428b22c73b1c7f751786645c4a4d51296cb6fc824623fd6126",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-hisat2-v0.5.3/native-workbench-pack-hisat2-0.5.3.zip"
+      },
+      "companion_assets": [],
+      "evidence_scope": "Original pack identity/manifest preserved in independent split archive. Packaging verification is not a fresh native Windows execution claim."
+    },
+    {
+      "id": "iqtree",
+      "version": "1.0.0",
+      "upstream_tool_version": "3.1.4",
+      "tag": "pack-iqtree-v1.0.0",
+      "name": "IQ-TREE pack 1.0.0 — native Windows validated",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/pack-iqtree-v1.0.0",
+      "prerelease": true,
+      "published_at": "2026-10-04T19:43:42Z",
+      "minimum_application_for_archive_import": "0.6.0",
+      "included_in_starter": false,
+      "manifest_sha256": "d6eb92f6840cfa4073e781f92fecd1163c26dc902e0f4c58efe8cfe234b4dc1d",
+      "implementation_source_commit": "03f1468eb4208091f59450dfe845339af17f36a2",
+      "primary_asset": {
+        "name": "native-workbench-pack-iqtree-1.0.0.zip",
+        "bytes": 248195844,
+        "github_digest": "sha256:d232985959093083cd1f40f6fcb3496a1164f43912a72b8d6c29c900d0069aad",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-iqtree-v1.0.0/native-workbench-pack-iqtree-1.0.0.zip",
+        "independently_downloaded_and_rehashed_on": "2026-10-04"
+      },
+      "companion_assets": [
+        {
+          "name": "native-workbench-iqtree-1.0.0-source-evidence.zip",
+          "bytes": 1647744,
+          "github_digest": "sha256:24e8ccf4ca71055a2fe0aebb9c20214d4835b3477753082f962d1c5301500bb6",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-iqtree-v1.0.0/native-workbench-iqtree-1.0.0-source-evidence.zip",
+          "independently_downloaded_and_rehashed_on": "2026-10-04"
+        },
+        {
+          "name": "native-workbench-iqtree-1.0.0-windows-validation.json",
+          "bytes": 89558,
+          "github_digest": "sha256:fc3c03be28ce1c5d42dc613c91f556316d44bd415c71976eeed5f5cfd976b915",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-iqtree-v1.0.0/native-workbench-iqtree-1.0.0-windows-validation.json",
+          "independently_downloaded_and_rehashed_on": "2026-10-04"
+        },
+        {
+          "name": "SHA256SUMS.txt",
+          "bytes": 341,
+          "github_digest": "sha256:e5a285a7e29e7329661df0133435a554cb647ad6e43f9d1dc25c2a658b1c7cfa",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-iqtree-v1.0.0/SHA256SUMS.txt",
+          "independently_downloaded_and_rehashed_on": "2026-10-04"
+        }
+      ],
+      "source_regression_tests_passed": 13,
+      "source_regression_host": "Linux",
+      "validation_report": "evidence/iqtree-1.0.0-validation-2026-10-04.json",
+      "evidence_scope": "Exact final native Windows archive: 4 installation/scientific checks, 6 graph/archive contracts and 13 additional scientific regressions per path; zero failures, errors or test skips. Synthetic DNA/protein inference and actual MUSCLE chains. ASCII installation/results paths, including spaces; selected input paths may contain Unicode. Large-tree split summaries bounded to 256 taxa; complete Newick retained.",
+      "validation_report_sha256": "fc3c03be28ce1c5d42dc613c91f556316d44bd415c71976eeed5f5cfd976b915"
+    },
+    {
+      "id": "kallisto",
+      "version": "1.0.1",
+      "tag": "pack-kallisto-v1.0.1",
+      "name": "kallisto transcript quantification — pack 1.0.1",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/pack-kallisto-v1.0.1",
+      "prerelease": true,
+      "published_at": "2026-10-03T20:06:42Z",
+      "minimum_application_for_archive_import": "0.6.0",
+      "included_in_starter": false,
+      "primary_asset": {
+        "name": "native-workbench-pack-kallisto-1.0.1.zip",
+        "bytes": 9433934,
+        "github_digest": "sha256:641cd1f2b05e0951b1f8a58f45d6308ca6206bf86bf90fb74d0daa2860f5eecd",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-kallisto-v1.0.1/native-workbench-pack-kallisto-1.0.1.zip"
+      },
+      "companion_assets": [
+        {
+          "name": "native-workbench-kallisto-1.0.1-source-evidence.zip",
+          "bytes": 47630,
+          "github_digest": "sha256:cd07bfc90629a00fe49a60eb6970c92abce89959312fffa61b2b808ed0e37adf",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-kallisto-v1.0.1/native-workbench-kallisto-1.0.1-source-evidence.zip"
+        },
+        {
+          "name": "native-workbench-kallisto-1.0.1-windows-validation.json",
+          "bytes": 4265,
+          "github_digest": "sha256:4bd42b64a8be8a4b61b766b7804d09972fedcab5b25c114f379565bc4787260d",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-kallisto-v1.0.1/native-workbench-kallisto-1.0.1-windows-validation.json"
+        }
+      ],
+      "evidence_scope": "Exact final archive native Windows CI; see native_windows_evidence."
+    },
+    {
+      "id": "kraken2",
+      "version": "1.0.0",
+      "upstream_tool_version": "2.17.2",
+      "tag": "pack-kraken2-v1.0.0",
+      "name": "Kraken2 pack 1.0.0 — native Windows validated",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/pack-kraken2-v1.0.0",
+      "prerelease": true,
+      "published_at": "2026-10-04T21:17:25Z",
+      "minimum_application_for_archive_import": "0.6.0",
+      "included_in_starter": false,
+      "manifest_sha256": "4c0e1dbe86b43f41c72b7dbdc6c93034d6b6eeb210494bdc8252c110182b677f",
+      "primary_asset": {
+        "name": "native-workbench-pack-kraken2-1.0.0.zip",
+        "bytes": 230928151,
+        "github_digest": "sha256:9feb39546f6af9d718629304d7fc6a5d70d8a015839deef7d4a869e7587a0e91",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-kraken2-v1.0.0/native-workbench-pack-kraken2-1.0.0.zip",
+        "independently_downloaded_and_rehashed_on": "2026-10-04"
+      },
+      "companion_assets": [
+        {
+          "name": "native-workbench-kraken2-1.0.0-source-evidence.zip",
+          "bytes": 1710289,
+          "github_digest": "sha256:1a0d1557eb13c6fdee7b32183115b1b2b312b659835a5873c7a8bef1084fe997",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-kraken2-v1.0.0/native-workbench-kraken2-1.0.0-source-evidence.zip",
+          "independently_downloaded_and_rehashed_on": "2026-10-04"
+        },
+        {
+          "name": "native-workbench-kraken2-1.0.0-windows-validation.json",
+          "bytes": 372488,
+          "github_digest": "sha256:1e2962559c0437b3003a643c89310b83874b35291f9581877adbffe27847d4a5",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-kraken2-v1.0.0/native-workbench-kraken2-1.0.0-windows-validation.json",
+          "independently_downloaded_and_rehashed_on": "2026-10-04"
+        },
+        {
+          "name": "SHA256SUMS-archives.txt",
+          "bytes": 223,
+          "github_digest": "sha256:c54d4841c1b089c2218359e11f2e398206cea5a024ebc64a6377be86daec7260",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-kraken2-v1.0.0/SHA256SUMS-archives.txt",
+          "independently_downloaded_and_rehashed_on": "2026-10-04"
+        },
+        {
+          "name": "SHA256SUMS.txt",
+          "bytes": 434,
+          "github_digest": "sha256:2ff1442cb9a7547fdaa07508ac98e95d43acd7dbda49a960868b68aa89bd1a26",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-kraken2-v1.0.0/SHA256SUMS.txt",
+          "independently_downloaded_and_rehashed_on": "2026-10-04"
+        }
+      ],
+      "pack_implementation_source_commit": "85ef78b0436417a85d8d70ed685dc2a52c24f7a4",
+      "validation_record": "evidence/kraken2-1.0.0-validation-2026-10-04.json",
+      "public_download_verification_record": "evidence/kraken2-1.0.0-public-downloads-2026-10-04.json",
+      "evidence_scope": "Exact final native Windows archive: 6 installation/scientific checks, 6 graph/archive contracts and 16 additional scientific/failure regressions per path; zero failures, errors or test skips. Synthetic nucleotide assignments, paired fragment counts, gzip, mapped/loaded indexes and local resource preparation/guards."
+    },
+    {
+      "id": "lofreq",
+      "version": "0.5.3",
+      "tag": "pack-lofreq-v0.5.3",
+      "name": "LoFreq quality-aware variant calling — lofreq 0.5.3",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/pack-lofreq-v0.5.3",
+      "prerelease": true,
+      "published_at": "2026-10-03T18:24:14Z",
+      "minimum_application_for_archive_import": "0.6.0",
+      "included_in_starter": false,
+      "primary_asset": {
+        "name": "native-workbench-pack-lofreq-0.5.3.zip",
+        "bytes": 56071589,
+        "github_digest": "sha256:16f5c06e27dd2d847d84d51fa62f1619c8e104cd00e3bc9a267dcf6873ed36a7",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-lofreq-v0.5.3/native-workbench-pack-lofreq-0.5.3.zip"
+      },
+      "companion_assets": [],
+      "evidence_scope": "Original pack identity/manifest preserved in independent split archive. Packaging verification is not a fresh native Windows execution claim."
+    },
+    {
+      "id": "mosdepth",
+      "version": "1.0.0",
+      "upstream_tool_version": "0.3.14 (0.3.14-workbench1 runtime; HTSlib 1.23.1; private SAMtools 1.24)",
+      "tag": "pack-mosdepth-v1.0.0",
+      "name": "mosdepth pack 1.0.0 — native Windows validated",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/pack-mosdepth-v1.0.0",
+      "prerelease": true,
+      "published_at": "2026-10-04T19:26:51Z",
+      "minimum_application_for_archive_import": "0.6.0",
+      "included_in_starter": false,
+      "manifest_sha256": "7eeb9cabf863568fe651d716d776293aa812e04cc23f032c2fa6c4e807c92b94",
+      "implementation_source_commit": "ef54885e2702422494ec9d3de82e99c84cf3883a",
+      "primary_asset": {
+        "name": "native-workbench-pack-mosdepth-1.0.0.zip",
+        "bytes": 39762901,
+        "github_digest": "sha256:b642d231350ef8eba8975a2a493714329f30880daf2e3a90c4faad293f78adfc",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-mosdepth-v1.0.0/native-workbench-pack-mosdepth-1.0.0.zip",
+        "independently_downloaded_and_rehashed_on": "2026-10-04"
+      },
+      "companion_assets": [
+        {
+          "name": "native-workbench-mosdepth-1.0.0-source-evidence.zip",
+          "bytes": 55793348,
+          "github_digest": "sha256:7aebd360332636b323277bc54781cd6fb5ca2a63c3556a018c2f09cf46d7e43f",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-mosdepth-v1.0.0/native-workbench-mosdepth-1.0.0-source-evidence.zip",
+          "independently_downloaded_and_rehashed_on": "2026-10-04"
+        },
+        {
+          "name": "native-workbench-mosdepth-1.0.0-windows-validation.json",
+          "bytes": 36731,
+          "github_digest": "sha256:aab80bef965a16dd90c0905f49e992ed137ed202191d28d9a00945e972c2140c",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-mosdepth-v1.0.0/native-workbench-mosdepth-1.0.0-windows-validation.json",
+          "independently_downloaded_and_rehashed_on": "2026-10-04"
+        },
+        {
+          "name": "SHA256SUMS.txt",
+          "bytes": 347,
+          "github_digest": "sha256:c1fbe64e4cc4e6e8a1a77ab4c6303bdb93b830bea853b32a4a26284f6a0a26a4",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-mosdepth-v1.0.0/SHA256SUMS.txt",
+          "independently_downloaded_and_rehashed_on": "2026-10-04"
+        }
+      ],
+      "source_regression_tests_passed": 12,
+      "source_regression_host": "Linux",
+      "validation_report": "evidence/mosdepth-1.0.0-validation-2026-10-04.json",
+      "evidence_scope": "Exact final native Windows archive: 4 installation/scientific checks, 6 graph/archive contracts and 11 additional scientific regressions per path; zero failures, errors or test skips. BAM only. No base-quality filter. Synthetic accurate-mode CIGAR/overlap/flags/MAPQ and complete-header/target denominator checks; no assembly FASTA validation.",
+      "validation_report_sha256": "aab80bef965a16dd90c0905f49e992ed137ed202191d28d9a00945e972c2140c"
+    },
+    {
+      "id": "multiqc",
+      "version": "1.0.0",
+      "upstream_tool_version": "1.35",
+      "tag": "pack-multiqc-v1.0.0",
+      "name": "MultiQC pack 1.0.0",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/pack-multiqc-v1.0.0",
+      "prerelease": true,
+      "published_at": "2026-10-04T14:15:50Z",
+      "minimum_application_for_archive_import": "0.6.0",
+      "included_in_starter": false,
+      "manifest_sha256": "5651f9519a4dea176a4f70f09ed8b64d016b3747b6c0dce0482ac6e7872f7f83",
+      "primary_asset": {
+        "name": "native-workbench-pack-multiqc-1.0.0.zip",
+        "bytes": 231356965,
+        "github_digest": "sha256:a171da9ac947c7399057da20a8fcddd74201bdb60cfaf030301a1123b0ff9e3e",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-multiqc-v1.0.0/native-workbench-pack-multiqc-1.0.0.zip",
+        "independently_downloaded_and_rehashed_on": "2026-10-04"
+      },
+      "companion_assets": [
+        {
+          "name": "native-workbench-multiqc-1.0.0-source-evidence.zip",
+          "bytes": 68419,
+          "github_digest": "sha256:f72ea14015d36559acba483c0993cb60d7f6aa12f2eaed169b6286ab5c6a52d1",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-multiqc-v1.0.0/native-workbench-multiqc-1.0.0-source-evidence.zip",
+          "independently_downloaded_and_rehashed_on": "2026-10-04"
+        },
+        {
+          "name": "native-workbench-multiqc-1.0.0-windows-validation.json",
+          "bytes": 6519,
+          "github_digest": "sha256:88b711a53d6df2a376a2b4e9514ddeca9e9496aa0e08d8e7ce5104b26c70a602",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-multiqc-v1.0.0/native-workbench-multiqc-1.0.0-windows-validation.json",
+          "independently_downloaded_and_rehashed_on": "2026-10-04"
+        }
+      ],
+      "source_regression_tests_passed": 10,
+      "evidence_scope": "Independent public asset download/hash checks and exact-final archive native Windows CI; source/Linux checks are separate. See native_windows_evidence."
+    },
+    {
+      "id": "muscle",
+      "version": "0.5.2",
+      "tag": "pack-muscle-v0.5.2",
+      "name": "MUSCLE multiple sequence alignment — muscle 0.5.2",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/pack-muscle-v0.5.2",
+      "prerelease": true,
+      "published_at": "2026-10-03T18:24:49Z",
+      "minimum_application_for_archive_import": "0.6.0",
+      "included_in_starter": false,
+      "primary_asset": {
+        "name": "native-workbench-pack-muscle-0.5.2.zip",
+        "bytes": 30139115,
+        "github_digest": "sha256:c07d3e398f48df683926c0970ef77c3b7d2bdab6426b80c80186f2360ed25258",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-muscle-v0.5.2/native-workbench-pack-muscle-0.5.2.zip"
+      },
+      "companion_assets": [],
+      "evidence_scope": "Original pack identity/manifest preserved in independent split archive. Packaging verification is not a fresh native Windows execution claim."
+    },
+    {
+      "id": "mutect2",
+      "version": "0.5.4",
+      "tag": "pack-mutect2-v0.5.4",
+      "name": "GATK Mutect2 somatic variants — mutect2 0.5.4",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/pack-mutect2-v0.5.4",
+      "prerelease": true,
+      "published_at": "2026-10-03T18:26:23Z",
+      "minimum_application_for_archive_import": "0.6.0",
+      "included_in_starter": false,
+      "primary_asset": {
+        "name": "native-workbench-pack-mutect2-0.5.4.zip",
+        "bytes": 683046695,
+        "github_digest": "sha256:25786d85b3679f172331142f890b1bffe5f5e77497b97eb91af855f2858ce08b",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-mutect2-v0.5.4/native-workbench-pack-mutect2-0.5.4.zip"
+      },
+      "companion_assets": [],
+      "evidence_scope": "Original pack identity/manifest preserved in independent split archive. Packaging verification is not a fresh native Windows execution claim."
+    },
+    {
+      "id": "reads",
+      "version": "0.4.0",
+      "tag": "pack-reads-v0.4.0",
+      "name": "Read quality — reads 0.4.0",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/pack-reads-v0.4.0",
+      "prerelease": true,
+      "published_at": "2026-10-03T18:26:42Z",
+      "minimum_application_for_archive_import": "0.6.0",
+      "included_in_starter": false,
+      "primary_asset": {
+        "name": "native-workbench-pack-reads-0.4.0.zip",
+        "bytes": 486120,
+        "github_digest": "sha256:2dd05fece8deb2b0178d8b1bc2b6830f175b3fbc2f5a4d48f9c9023cbfe6775b",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-reads-v0.4.0/native-workbench-pack-reads-0.4.0.zip"
+      },
+      "companion_assets": [],
+      "evidence_scope": "Original pack identity/manifest preserved in independent split archive. Packaging verification is not a fresh native Windows execution claim."
+    },
+    {
+      "id": "research-variants",
+      "version": "0.4.1",
+      "tag": "pack-research-variants-v0.4.1",
+      "name": "Research variants — research-variants 0.4.1",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/pack-research-variants-v0.4.1",
+      "prerelease": true,
+      "published_at": "2026-10-03T18:26:59Z",
+      "minimum_application_for_archive_import": "0.6.0",
+      "included_in_starter": false,
+      "primary_asset": {
+        "name": "native-workbench-pack-research-variants-0.4.1.zip",
+        "bytes": 19295391,
+        "github_digest": "sha256:a28bfb7df0fbc214e1c6e28005e018974801efaa25ff4d5fe166876432a12c60",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-research-variants-v0.4.1/native-workbench-pack-research-variants-0.4.1.zip"
+      },
+      "companion_assets": [],
+      "evidence_scope": "Original pack identity/manifest preserved in independent split archive. Packaging verification is not a fresh native Windows execution claim."
+    },
+    {
+      "id": "seqkit",
+      "version": "0.5.2",
+      "tag": "pack-seqkit-v0.5.2",
+      "name": "SeqKit sequence utilities — seqkit 0.5.2",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/pack-seqkit-v0.5.2",
+      "prerelease": true,
+      "published_at": "2026-10-03T18:27:13Z",
+      "minimum_application_for_archive_import": "0.6.0",
+      "included_in_starter": false,
+      "primary_asset": {
+        "name": "native-workbench-pack-seqkit-0.5.2.zip",
+        "bytes": 9191149,
+        "github_digest": "sha256:5a977517e1c0871ca7685d4b87688dfe6cbfa6d66dcb01c695281812dee4fd42",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-seqkit-v0.5.2/native-workbench-pack-seqkit-0.5.2.zip"
+      },
+      "companion_assets": [],
+      "evidence_scope": "Original pack identity/manifest preserved in independent split archive. Packaging verification is not a fresh native Windows execution claim."
+    },
+    {
+      "id": "snpeff",
+      "version": "1.0.0",
+      "upstream_tool_version": "SnpEff/SnpSift 5.4c; Temurin 21.0.9+10",
+      "tag": "pack-snpeff-v1.0.0",
+      "name": "SnpEff and SnpSift pack 1.0.0 — native Windows validated",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/pack-snpeff-v1.0.0",
+      "prerelease": true,
+      "published_at": "2026-10-04T19:46:05Z",
+      "minimum_application_for_archive_import": "0.6.0",
+      "included_in_starter": false,
+      "manifest_sha256": "5640770cb9e7aed897ce411834c65e952d5dca2f162606c9fb53d3c775b6483f",
+      "implementation_source_commit": "03f1468eb4208091f59450dfe845339af17f36a2",
+      "primary_asset": {
+        "name": "native-workbench-pack-snpeff-1.0.0.zip",
+        "bytes": 498014278,
+        "github_digest": "sha256:9d15121c7e9615d7d31937c8bdfb8983dd680e39077ca137ce69793c5b31b570",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-snpeff-v1.0.0/native-workbench-pack-snpeff-1.0.0.zip",
+        "independently_downloaded_and_rehashed_on": "2026-10-04"
+      },
+      "companion_assets": [
+        {
+          "name": "native-workbench-snpeff-1.0.0-source-evidence.zip",
+          "bytes": 1576114,
+          "github_digest": "sha256:297152a56243ac12cc73ce6277545f4eae99cda20a6c8d92d0a6335d68b16c16",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-snpeff-v1.0.0/native-workbench-snpeff-1.0.0-source-evidence.zip",
+          "independently_downloaded_and_rehashed_on": "2026-10-04"
+        },
+        {
+          "name": "native-workbench-snpeff-1.0.0-windows-validation.json",
+          "bytes": 43440,
+          "github_digest": "sha256:2e209e76421c1051a905604ecb51316c5f6229510203b71d68832dc3fec2cc29",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-snpeff-v1.0.0/native-workbench-snpeff-1.0.0-windows-validation.json",
+          "independently_downloaded_and_rehashed_on": "2026-10-04"
+        },
+        {
+          "name": "SHA256SUMS.txt",
+          "bytes": 341,
+          "github_digest": "sha256:5d10893a8fa5374487507933245a87f6c3db2a45cc95f46cb553d83f59607adf",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-snpeff-v1.0.0/SHA256SUMS.txt",
+          "independently_downloaded_and_rehashed_on": "2026-10-04"
+        }
+      ],
+      "source_regression_tests_passed": 13,
+      "source_regression_host": "Linux",
+      "validation_report": "evidence/snpeff-1.0.0-validation-2026-10-04.json",
+      "evidence_scope": "Exact final native Windows archive: 4 installation/scientific checks, 6 graph/archive contracts and 13 additional scientific regressions per path; zero failures, errors or test skips. Synthetic CDS and variant consequences, local normalized biallelic annotation and whole-record impact selection. Separate versioned reference databases required; no human database bundled. ASCII paths including spaces.",
+      "validation_report_sha256": "2e209e76421c1051a905604ecb51316c5f6229510203b71d68832dc3fec2cc29"
+    },
+    {
+      "id": "star",
+      "version": "1.0.0",
+      "tag": "pack-star-v1.0.0",
+      "name": "STAR RNA-seq alignment — pack 1.0.0",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/pack-star-v1.0.0",
+      "prerelease": true,
+      "published_at": "2026-10-03T19:58:58Z",
+      "minimum_application_for_archive_import": "0.6.0",
+      "included_in_starter": false,
+      "primary_asset": {
+        "name": "native-workbench-pack-star-1.0.0.zip",
+        "bytes": 16855774,
+        "github_digest": "sha256:edbeefff1c1149b632407f50a8a28847989a34eaa004752b43680fb6e29e4877",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-star-v1.0.0/native-workbench-pack-star-1.0.0.zip"
+      },
+      "companion_assets": [
+        {
+          "name": "native-workbench-star-1.0.0-source-evidence.zip",
+          "bytes": 53120,
+          "github_digest": "sha256:f0405301edf68c12dad79dd0eea228bc920c6ff699414caaee4f2ed175f781ca",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-star-v1.0.0/native-workbench-star-1.0.0-source-evidence.zip"
+        },
+        {
+          "name": "native-workbench-star-1.0.0-windows-validation.json",
+          "bytes": 15867,
+          "github_digest": "sha256:c5b0753f398c84df2722b30e71f5d41ded1b78bf8550158dfca3e61e1bf78d15",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-star-v1.0.0/native-workbench-star-1.0.0-windows-validation.json"
+        }
+      ],
+      "evidence_scope": "Exact final archive native Windows CI; see native_windows_evidence."
+    },
+    {
+      "id": "trimming",
+      "version": "0.4.0",
+      "tag": "pack-trimming-v0.4.0",
+      "name": "Read trimming — trimming 0.4.0",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/pack-trimming-v0.4.0",
+      "prerelease": true,
+      "published_at": "2026-10-03T18:27:29Z",
+      "minimum_application_for_archive_import": "0.6.0",
+      "included_in_starter": false,
+      "primary_asset": {
+        "name": "native-workbench-pack-trimming-0.4.0.zip",
+        "bytes": 12684590,
+        "github_digest": "sha256:516942d33c978560ce5f5ed5497684951d92efa62cdfbddcd3d7c718235b6df7",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-trimming-v0.4.0/native-workbench-pack-trimming-0.4.0.zip"
+      },
+      "companion_assets": [],
+      "evidence_scope": "Original pack identity/manifest preserved in independent split archive. Packaging verification is not a fresh native Windows execution claim."
+    },
+    {
+      "id": "vardict",
+      "version": "0.5.3",
+      "tag": "pack-vardict-v0.5.3",
+      "name": "VarDictJava targeted variants — vardict 0.5.3",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/pack-vardict-v0.5.3",
+      "prerelease": true,
+      "published_at": "2026-10-03T18:28:22Z",
+      "minimum_application_for_archive_import": "0.6.0",
+      "included_in_starter": false,
+      "primary_asset": {
+        "name": "native-workbench-pack-vardict-0.5.3.zip",
+        "bytes": 372591865,
+        "github_digest": "sha256:e1eed3c24d27ddb1b3a6f68acad2e9e8d80230732a9e9c986a686cafeed57a0e",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-vardict-v0.5.3/native-workbench-pack-vardict-0.5.3.zip"
+      },
+      "companion_assets": [],
+      "evidence_scope": "Original pack identity/manifest preserved in independent split archive. Packaging verification is not a fresh native Windows execution claim."
+    },
+    {
+      "id": "variant-pipeline",
+      "version": "0.4.0",
+      "tag": "pack-variant-pipeline-v0.4.0",
+      "name": "Variant pipeline — variant-pipeline 0.4.0",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/pack-variant-pipeline-v0.4.0",
+      "prerelease": true,
+      "published_at": "2026-10-03T18:28:39Z",
+      "minimum_application_for_archive_import": "0.6.0",
+      "included_in_starter": false,
+      "primary_asset": {
+        "name": "native-workbench-pack-variant-pipeline-0.4.0.zip",
+        "bytes": 3208822,
+        "github_digest": "sha256:1ab75723215c95629c71946092eb23a908cd40f3baefc0fb47c78890fa4baf4c",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-variant-pipeline-v0.4.0/native-workbench-pack-variant-pipeline-0.4.0.zip"
+      },
+      "companion_assets": [],
+      "evidence_scope": "Original pack identity/manifest preserved in independent split archive. Packaging verification is not a fresh native Windows execution claim."
+    },
+    {
+      "id": "variants",
+      "version": "0.4.0",
+      "tag": "pack-variants-v0.4.0",
+      "name": "Variant tools — variants 0.4.0",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/pack-variants-v0.4.0",
+      "prerelease": true,
+      "published_at": "2026-10-03T18:28:55Z",
+      "minimum_application_for_archive_import": "0.6.0",
+      "included_in_starter": true,
+      "primary_asset": {
+        "name": "native-workbench-pack-variants-0.4.0.zip",
+        "bytes": 2506443,
+        "github_digest": "sha256:1b15477061d8736c18ddff71a64b3370cfaa7c674af33c404c7d79b311f1e118",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-variants-v0.4.0/native-workbench-pack-variants-0.4.0.zip"
+      },
+      "companion_assets": [],
+      "evidence_scope": "Original pack identity/manifest preserved in independent split archive. Packaging verification is not a fresh native Windows execution claim."
+    },
+    {
+      "id": "vsearch",
+      "version": "0.5.2",
+      "tag": "pack-vsearch-v0.5.2",
+      "name": "VSEARCH amplicon tools — vsearch 0.5.2",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/pack-vsearch-v0.5.2",
+      "prerelease": true,
+      "published_at": "2026-10-03T18:29:12Z",
+      "minimum_application_for_archive_import": "0.6.0",
+      "included_in_starter": false,
+      "primary_asset": {
+        "name": "native-workbench-pack-vsearch-0.5.2.zip",
+        "bytes": 3187058,
+        "github_digest": "sha256:86d223d33a3c6ef5136a0b1e08634d9ebfb5dac3a94953dba57da466eb73af85",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-vsearch-v0.5.2/native-workbench-pack-vsearch-0.5.2.zip"
+      },
+      "companion_assets": [],
+      "evidence_scope": "Original pack identity/manifest preserved in independent split archive. Packaging verification is not a fresh native Windows execution claim."
+    }
+  ],
+  "native_windows_evidence": [
+    {
+      "pack": "bedtools",
+      "version": "1.0.0",
+      "workflow_run_url": "https://github.com/comparativechrono/workbench/actions/runs/37207758617",
+      "workflow_source_commit": "63fc50798cc1c37dde86e73502ad6268e983d005",
+      "workflow_name": "Native Windows pack check",
+      "status": "completed",
+      "conclusion": "success",
+      "runner": "windows-2022",
+      "application": "released 0.6.0 starter with native bridge",
+      "paths": [
+        "ordinary",
+        "contains spaces"
+      ],
+      "scope": "Fifteen scientific checks per path: interval operations, CRLF, valid empty outputs, 64-bit coordinates and forward/reverse-complement extraction; native import and duplicate-version rejection.",
+      "limits": "Synthetic fixtures. Does not validate the GUI, arbitrary long paths, OS-level network blocking, all protocols, human-scale performance or clinical use."
+    },
+    {
+      "pack": "blast",
+      "version": "1.0.0",
+      "workflow_run_url": "https://github.com/comparativechrono/workbench/actions/runs/37210341211",
+      "workflow_source_commit": "e3a1a740e35389bb44b785d6b08279de1ef958ae",
+      "workflow_name": "Native Windows pack check",
+      "status": "completed",
+      "conclusion": "success",
+      "runner": "windows-2022",
+      "application": "released 0.6.0 starter with native bridge",
+      "paths": [
+        "ordinary",
+        "contains spaces"
+      ],
+      "scope": "Five declared scientific checks per path across four search modes and a no-hit result, plus six adapter/local-failure regressions covering known coordinates, spaces, missing databases, malformed FASTA and rejected remote arguments; native import and duplicate-version rejection.",
+      "limits": "Synthetic fixtures. Does not validate the GUI, arbitrary long paths, OS-level network blocking, all protocols, human-scale performance or clinical use."
+    },
+    {
+      "pack": "bracken",
+      "version": "1.0.0",
+      "workflow_run_url": "https://github.com/comparativechrono/workbench/actions/runs/37236121810",
+      "workflow_source_commit": "289c4176561fe6c8bbbfba1e225cd65fbafb126d",
+      "workflow_name": "Native Windows pack check",
+      "status": "completed",
+      "conclusion": "success",
+      "runner": "windows-2022",
+      "application": "released 0.6.0 starter with native bridge",
+      "paths": [
+        "ordinary",
+        "contains spaces"
+      ],
+      "native_installation_scientific_checks_passed_per_path": 4,
+      "graph_archive_contracts_passed_per_path": 7,
+      "additional_scientific_regressions_passed_per_path": 17,
+      "test_failures": 0,
+      "test_errors": 0,
+      "test_skips": 0,
+      "scope": "Exact final native Windows archive: 4 installation/scientific checks, 7 graph/archive contracts and 17 additional scientific/failure regressions per path; zero failures, errors or test skips. Independent Bayesian arithmetic, unchanged upstream estimator, explicit external-report provenance and actual Kraken2-to-Bracken classification/estimation chain.",
+      "validation_record": "evidence/bracken-1.0.0-validation-2026-10-04.json",
+      "limits": "Graph/archive publication uses a Python copy callback; native importer/scientific execution are checked separately. Small synthetic fixtures do not establish interactive GUI, arbitrary paths, large-database throughput, empirical taxonomic accuracy, institutional approval or clinical suitability. Large database/model resources remain separate and externally produced associations are explicitly user-attested."
+    },
+    {
+      "pack": "deseq2",
+      "version": "1.0.0",
+      "workflow_run_url": "https://github.com/comparativechrono/workbench/actions/runs/37230943331",
+      "workflow_source_commit": "24c6899aa7c19208ec88ae816879952ed0d8527e",
+      "workflow_name": "Native Windows pack check",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-04T20:08:12Z",
+      "runner": "windows-2022",
+      "application": "released 0.6.0 starter with native bridge",
+      "paths": [
+        "ordinary",
+        "contains spaces"
+      ],
+      "native_installation_scientific_checks_passed_per_path": 3,
+      "graph_archive_contracts_passed_per_path": 6,
+      "additional_scientific_regressions_passed_per_path": 14,
+      "test_failures": 0,
+      "test_errors": 0,
+      "test_skips": 0,
+      "scope": "Exact final native Windows archive: three installation/scientific checks, six graph/archive contracts and 14 additional scientific regressions per path, zero failures/errors/skips. Matrix and tximport independent upstream comparisons cover all 300 genes and six inferential columns at 1e-10; preserved 24 planted effects and four incidental null discoveries are a regression fixture, not FDR calibration. Independent bulk replicates only, condition or additive batch+condition designs; sample metadata cannot prove biological independence. Private R scratch requires a space-free path or existing short alias.",
+      "limits": "Graph/archive contracts use Python publication; separate native import, duplicate protection and scientific execution passed in the same jobs. The earlier local graph 5/6 temporary-copy failure remains recorded, without altered assertions. No GUI, arbitrary long-path, clinical or large-cohort validation."
+    },
+    {
+      "pack": "fastqc",
+      "version": "1.0.0",
+      "workflow_run_url": "https://github.com/comparativechrono/workbench/actions/runs/37207251061",
+      "workflow_source_commit": "eaf563a45b09527e215d69a61543c96be6c5fc07",
+      "workflow_name": "Native Windows pack check",
+      "status": "completed",
+      "conclusion": "success",
+      "runner": "windows-2022",
+      "application": "released 0.6.0 starter with native bridge",
+      "paths": [
+        "ordinary",
+        "contains spaces"
+      ],
+      "scope": "Two scientific checks per path: plain single and synchronized paired gzip FASTQ, read/base/GC/Q40 truth and reports; native import and duplicate-version rejection.",
+      "limits": "Synthetic fixtures. Does not validate the GUI, arbitrary long paths, OS-level network blocking, all protocols, human-scale performance or clinical use."
+    },
+    {
+      "pack": "featurecounts",
+      "version": "1.0.0",
+      "workflow_run_url": "https://github.com/comparativechrono/workbench/actions/runs/37208535793",
+      "workflow_source_commit": "af051e8ff63cd4631815b783efa9b6d116f2692a",
+      "workflow_name": "Native Windows pack check",
+      "status": "completed",
+      "conclusion": "success",
+      "runner": "windows-2022",
+      "application": "released 0.6.0 starter with native bridge",
+      "paths": [
+        "ordinary",
+        "contains spaces"
+      ],
+      "scope": "Six scientific checks per path: single/paired counting, all three strand modes at two threads, known gene counts and assignment reasons; native import and duplicate-version rejection.",
+      "limits": "Synthetic fixtures. Does not validate the GUI, arbitrary long paths, OS-level network blocking, all protocols, human-scale performance or clinical use."
+    },
+    {
+      "pack": "gatk",
+      "version": "1.0.0",
+      "workflow_run_url": "https://github.com/comparativechrono/workbench/actions/runs/37220420948",
+      "workflow_source_commit": "eb4a255b69a2eabfb539937218a1d0e57c5776a3",
+      "workflow_name": "Native Windows pack check",
+      "status": "completed",
+      "conclusion": "success",
+      "runner": "windows-2022",
+      "application": "released 0.6.0 starter with native bridge",
+      "paths": [
+        "ordinary",
+        "contains spaces"
+      ],
+      "scope": "Nine native scientific checks and native import/duplicate protection per path; seven additional released-app graph/archive contracts per path including branches, gVCF fan-in, saved pins and immutable payloads. Graph import uses a Python publication callback.",
+      "limits": "Synthetic fixtures; no GUI, arbitrary long paths, whole-genome throughput, OS-level network blocking or clinical validation. gVCFs are labelled generic files with adapter content guards."
+    },
+    {
+      "pack": "iqtree",
+      "version": "1.0.0",
+      "workflow_run_url": "https://github.com/comparativechrono/workbench/actions/runs/37229409061",
+      "workflow_source_commit": "24c6899aa7c19208ec88ae816879952ed0d8527e",
+      "workflow_name": "Native Windows pack check",
+      "status": "completed",
+      "conclusion": "success",
+      "runner": "windows-2022",
+      "application": "released 0.6.0 starter with native bridge",
+      "paths": [
+        "ordinary",
+        "contains spaces"
+      ],
+      "native_installation_scientific_checks_passed_per_path": 4,
+      "graph_archive_contracts_passed_per_path": 6,
+      "additional_scientific_regressions_passed_per_path": 13,
+      "test_failures": 0,
+      "test_errors": 0,
+      "test_skips": 0,
+      "scope": "Exact final native Windows archive: 4 installation/scientific checks, 6 graph/archive contracts and 13 additional scientific regressions per path; zero failures, errors or test skips. Synthetic DNA/protein inference and actual MUSCLE chains. ASCII installation/results paths, including spaces; selected input paths may contain Unicode. Large-tree split summaries bounded to 256 taxa; complete Newick retained.",
+      "limits": "Graph/archive contracts use Python publication, with native import and scientific execution tested independently in the same jobs. Synthetic fixtures do not establish GUI, arbitrary long-path, production-scale or clinical validation."
+    },
+    {
+      "pack": "kallisto",
+      "version": "1.0.1",
+      "workflow_run_url": "https://github.com/comparativechrono/workbench/actions/runs/37150386848",
+      "workflow_source_commit": "a3a14f015c375fc318f4b0114b785667c6f26472",
+      "workflow_name": "Native Windows pack check",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-03T20:07:13Z",
+      "runner": "windows-2022",
+      "application": "released 0.6.0 starter with native bridge",
+      "paths": [
+        "ordinary",
+        "contains spaces"
+      ],
+      "scope": "Single-end and paired-end scientific checks, both at two threads and three bootstrap replicates, gzip inputs, native import and duplicate protection.",
+      "limits": "Synthetic fixtures. Does not validate the GUI, arbitrary long paths, all protocols, human-scale performance, or clinical use."
+    },
+    {
+      "pack": "kraken2",
+      "version": "1.0.0",
+      "workflow_run_url": "https://github.com/comparativechrono/workbench/actions/runs/37235526518",
+      "workflow_source_commit": "85ef78b0436417a85d8d70ed685dc2a52c24f7a4",
+      "workflow_name": "Native Windows pack check",
+      "status": "completed",
+      "conclusion": "success",
+      "runner": "windows-2022",
+      "application": "released 0.6.0 starter with native bridge",
+      "paths": [
+        "ordinary",
+        "contains spaces"
+      ],
+      "native_installation_scientific_checks_passed_per_path": 6,
+      "graph_archive_contracts_passed_per_path": 6,
+      "additional_scientific_regressions_passed_per_path": 16,
+      "test_failures": 0,
+      "test_errors": 0,
+      "test_skips": 0,
+      "scope": "Exact final native Windows archive: 6 installation/scientific checks, 6 graph/archive contracts and 16 additional scientific/failure regressions per path; zero failures, errors or test skips. Synthetic nucleotide assignments, paired fragment counts, gzip, mapped/loaded indexes and local resource preparation/guards.",
+      "validation_record": "evidence/kraken2-1.0.0-validation-2026-10-04.json",
+      "limits": "Graph/archive publication uses a Python copy callback; native importer/scientific execution are checked separately. Small synthetic fixtures do not establish interactive GUI, arbitrary paths, large-database throughput, empirical taxonomic accuracy, institutional approval or clinical suitability. Large database/model resources remain separate and externally produced associations are explicitly user-attested."
+    },
+    {
+      "pack": "mosdepth",
+      "version": "1.0.0",
+      "workflow_run_url": "https://github.com/comparativechrono/workbench/actions/runs/37228329920",
+      "workflow_source_commit": "102e85e2ce38c750b521c70e532001dd55451509",
+      "workflow_name": "Native Windows pack check",
+      "status": "completed",
+      "conclusion": "success",
+      "runner": "windows-2022",
+      "application": "released 0.6.0 starter with native bridge",
+      "paths": [
+        "ordinary",
+        "contains spaces"
+      ],
+      "native_installation_scientific_checks_passed_per_path": 4,
+      "graph_archive_contracts_passed_per_path": 6,
+      "additional_scientific_regressions_passed_per_path": 11,
+      "test_failures": 0,
+      "test_errors": 0,
+      "test_skips": 0,
+      "scope": "Exact final native Windows archive: 4 installation/scientific checks, 6 graph/archive contracts and 11 additional scientific regressions per path; zero failures, errors or test skips. BAM only. No base-quality filter. Synthetic accurate-mode CIGAR/overlap/flags/MAPQ and complete-header/target denominator checks; no assembly FASTA validation.",
+      "limits": "Graph/archive contracts use Python publication, with native import and scientific execution tested independently in the same jobs. Synthetic fixtures do not establish GUI, arbitrary long-path, production-scale or clinical validation."
+    },
+    {
+      "pack": "multiqc",
+      "version": "1.0.0",
+      "workflow_run_url": "https://github.com/comparativechrono/workbench/actions/runs/37208730673",
+      "workflow_source_commit": "af051e8ff63cd4631815b783efa9b6d116f2692a",
+      "workflow_name": "Native Windows pack check",
+      "status": "completed",
+      "conclusion": "success",
+      "runner": "windows-2022",
+      "application": "released 0.6.0 starter with native bridge",
+      "paths": [
+        "ordinary",
+        "contains spaces"
+      ],
+      "scope": "One aggregation case per path with six selected reports across FastQC, fastp, STAR, featureCounts and kallisto parsers, retained same-named identities and known metrics; native import and duplicate-version rejection.",
+      "limits": "Synthetic fixtures. Does not validate the GUI, arbitrary long paths, OS-level network blocking, all protocols, human-scale performance or clinical use."
+    },
+    {
+      "pack": "snpeff",
+      "version": "1.0.0",
+      "workflow_run_url": "https://github.com/comparativechrono/workbench/actions/runs/37229552990",
+      "workflow_source_commit": "24c6899aa7c19208ec88ae816879952ed0d8527e",
+      "workflow_name": "Native Windows pack check",
+      "status": "completed",
+      "conclusion": "success",
+      "runner": "windows-2022",
+      "application": "released 0.6.0 starter with native bridge",
+      "paths": [
+        "ordinary",
+        "contains spaces"
+      ],
+      "native_installation_scientific_checks_passed_per_path": 4,
+      "graph_archive_contracts_passed_per_path": 6,
+      "additional_scientific_regressions_passed_per_path": 13,
+      "test_failures": 0,
+      "test_errors": 0,
+      "test_skips": 0,
+      "scope": "Exact final native Windows archive: 4 installation/scientific checks, 6 graph/archive contracts and 13 additional scientific regressions per path; zero failures, errors or test skips. Synthetic CDS and variant consequences, local normalized biallelic annotation and whole-record impact selection. Separate versioned reference databases required; no human database bundled. ASCII paths including spaces.",
+      "limits": "Graph/archive contracts use Python publication, with native import and scientific execution tested independently in the same jobs. Synthetic fixtures do not establish GUI, arbitrary long-path, production-scale or clinical validation."
+    },
+    {
+      "pack": "star",
+      "version": "1.0.0",
+      "workflow_run_url": "https://github.com/comparativechrono/workbench/actions/runs/37149903110",
+      "workflow_source_commit": "1b87d7506898d49e339e547e02aed53ed7a9b167",
+      "workflow_name": "Native Windows pack check",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-03T19:59:39Z",
+      "runner": "windows-2022",
+      "application": "released 0.6.0 starter with native bridge",
+      "paths": [
+        "ordinary",
+        "contains spaces"
+      ],
+      "scope": "Five declared scientific checks, native import and duplicate protection; additional two-thread/two-pass 200-pair buffer recycling regression produced 400 SAM records and expected counts.",
+      "limits": "Synthetic fixtures. Does not validate the GUI, arbitrary long paths, all protocols, human-scale performance, or clinical use."
+    }
+  ],
+  "superseded_pack_versions": [
+    {
+      "id": "kallisto",
+      "version": "1.0.0",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/pack-kallisto-v1.0.0",
+      "superseded_by": "1.0.1",
+      "reason": "The no-HDF5 build skipped plaintext bootstrap dispatch with more than one thread. The adapter failed explicitly because expected files were absent. Its prior passing checks used one thread. Zero-bootstrap or single-thread use was not the defect.",
+      "retention": "Keep published bytes and saved pipeline version pins unchanged.",
+      "primary_asset": {
+        "name": "native-workbench-pack-kallisto-1.0.0.zip",
+        "bytes": 9432668,
+        "github_digest": "sha256:fc5dccfbaa7bcbe2e7face3e9a64d3f054e0e6d3f9080cde7d344ce1011b0916",
+        "download_url": "https://github.com/comparativechrono/workbench/releases/download/pack-kallisto-v1.0.0/native-workbench-pack-kallisto-1.0.0.zip"
+      }
+    }
+  ],
+  "historical_public_diagnostics": [
+    {
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/rna-candidates-20261003",
+      "status": "development-candidates-only",
+      "purpose": "Historical fault and validation evidence, not current analysis packs."
+    },
+    {
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/popular-candidates-20261004",
+      "status": "development-candidates-only",
+      "purpose": "Preserved October pack candidates and final-payload correspondence records; includes diagnosed featureCounts CRLF/stale-candidate, MultiQC precreated-output-directory, and BLAST child-diagnostic inheritance failures. Not current analysis packs."
+    },
+    {
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/gatk-candidates-20261004",
+      "status": "development-candidates-only",
+      "purpose": "GATK 0.0.1 diagnostic candidate and exact-final payload correspondence, validated in run 37220034835. Excluded from current analysis packs."
+    },
+    {
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/expansion-candidates-20261004",
+      "status": "development-candidates-only",
+      "purpose": "Separately versioned mosdepth, SnpEff, IQ-TREE and DESeq2 archive candidates, payload-correspondence records and DESeq2 corresponding runtime sources. Candidates are excluded from current analysis packs; successful candidates do not replace exact-final native validation.",
+      "preserved_failed_candidates": [
+        {
+          "pack": "snpeff",
+          "version": "0.0.1",
+          "reason": "Upstream SnpEff treated a Windows drive-letter data directory as relative; later candidate uses a relative private child data directory."
+        },
+        {
+          "pack": "iqtree",
+          "version": "0.0.1",
+          "reason": "Windows CRLF output caused multiline JSON assertions to fail; later candidate writes explicit LF."
+        }
+      ],
+      "deseq2_development_history": {
+        "workflow_name": "DESeq2 Windows development check",
+        "successful_run": "https://github.com/comparativechrono/workbench/actions/runs/37229593426",
+        "source_commit": "24c6899aa7c19208ec88ae816879952ed0d8527e",
+        "scientific_tests_passed": 14,
+        "scope": "Pinned-source build and statistical regressions; does not by itself validate a published archive.",
+        "prior_runs": [
+          {
+            "run": 37227193111,
+            "reason": "Build diagnostic called curlVersion instead of base R libcurlVersion."
+          },
+          {
+            "run": 37227394554,
+            "reason": "R_TempDir rejected a space-containing private runtime path; adapter now uses an owned OS scratch child with explicit custom-root option."
+          },
+          {
+            "run": 37228195854,
+            "reason": "R summary expression missing a closing parenthesis after completed scientific model and plots."
+          },
+          {
+            "run": 37228745912,
+            "reason": "13 of 14 tests passed. Test oracle wrongly equated raw-count and tximport-normalized base means; tximport geometrically centers normalization factors. Corrected independent upstream comparison, without changing algorithms or widening tolerances."
+          }
+        ]
+      },
+      "successful_candidates": [
+        {
+          "pack": "mosdepth",
+          "version": "0.0.1",
+          "run": 37227722575
+        },
+        {
+          "pack": "iqtree",
+          "version": "0.0.2",
+          "run": 37228916162
+        },
+        {
+          "pack": "snpeff",
+          "version": "0.0.2",
+          "run": 37229017577
+        },
+        {
+          "pack": "deseq2",
+          "version": "0.0.1",
+          "run": 37230398977
+        }
+      ],
+      "final_status": "All four corresponding exact-final 1.0.0 archives subsequently passed native Windows gates; see native_windows_evidence and the separate final reports."
+    },
+    {
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/metagenomics-candidates-20261004",
+      "status": "development-candidates-only",
+      "purpose": "Kraken2 0.0.1 and Bracken 0.0.2 public validation candidates and exact-final payload correspondence. Local Bracken 0.0.1 was never published. Candidates are excluded from current analysis pack/version counts.",
+      "public_assets": [
+        {
+          "name": "bracken-0.0.2-candidate-correspondence.json",
+          "bytes": 15035,
+          "github_digest": "sha256:3d3cb2c06f4be78f7b5aa84d26dbf5aa9626fcf83221f18634d1176e3897780c",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/metagenomics-candidates-20261004/bracken-0.0.2-candidate-correspondence.json",
+          "independently_downloaded_and_rehashed_on": "2026-10-04"
+        },
+        {
+          "name": "kraken2-0.0.1-candidate-correspondence.json",
+          "bytes": 20963,
+          "github_digest": "sha256:6e08584f29c2155d1ca62888b3d17b6b101dce98437d1ac05dd2d6ffc361b3bc",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/metagenomics-candidates-20261004/kraken2-0.0.1-candidate-correspondence.json",
+          "independently_downloaded_and_rehashed_on": "2026-10-04"
+        },
+        {
+          "name": "native-workbench-pack-bracken-0.0.2.zip",
+          "bytes": 34837211,
+          "github_digest": "sha256:354c805219487591b0d4dcdbcda21ea7c168689b85563aca0301012670d6c5eb",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/metagenomics-candidates-20261004/native-workbench-pack-bracken-0.0.2.zip",
+          "independently_downloaded_and_rehashed_on": "2026-10-04"
+        },
+        {
+          "name": "native-workbench-pack-kraken2-0.0.1.zip",
+          "bytes": 230928282,
+          "github_digest": "sha256:45b8483ec825901267f39ed804294d136813e4f683afa62888f72e9f8ca214b2",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/metagenomics-candidates-20261004/native-workbench-pack-kraken2-0.0.1.zip",
+          "independently_downloaded_and_rehashed_on": "2026-10-04"
+        },
+        {
+          "name": "SHA256SUMS.txt",
+          "bytes": 432,
+          "github_digest": "sha256:105c2dfa293932acd1753460c4cce7e3100910d52c6c4eabcfc8cf32fdb63e33",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/metagenomics-candidates-20261004/SHA256SUMS.txt",
+          "independently_downloaded_and_rehashed_on": "2026-10-04"
+        }
+      ],
+      "successful_candidates": [
+        {
+          "pack": "kraken2",
+          "version": "0.0.1",
+          "run": 37235242440,
+          "source_commit": "85ef78b0436417a85d8d70ed685dc2a52c24f7a4"
+        },
+        {
+          "pack": "bracken",
+          "version": "0.0.2",
+          "run": 37235798127,
+          "source_commit": "289c4176561fe6c8bbbfba1e225cd65fbafb126d"
+        }
+      ],
+      "final_status": "Both exact-final 1.0.0 archives subsequently passed native Windows gates and independent public-asset verification."
+    }
+  ],
+  "source_recovery": {
+    "application_source_companion": "https://github.com/comparativechrono/workbench/releases/download/app-v0.16.0/native-workbench-0.16.0-source.zip",
+    "guidance": "GitHub automatic source snapshots do not include the binary dependencies and retained third-party source companions. Preserve the explicit application companion, each pack's licenses/provenance, and matching pack source-evidence companion where supplied.",
+    "rna_source_evidence": "The STAR and kallisto source-evidence ZIPs retain candidate/Linux-stage records. The separate windows-validation.json assets record exact-final native Windows results; a historical pending-final statement in an immutable companion is superseded by that separate report.",
+    "optional_pack_source_evidence": "The October optional-pack source-evidence ZIPs retain immutable creation-time source and Linux/candidate records. Separate windows-validation.json assets bind successful native results to exact-final archive hashes. BEDTools final JSON also supplies complete static verification to correct an empty historical static-validation log in its source companion.",
+    "gatk_source_evidence": "GATK 1.0.0 source/evidence companion retains a full git source and knowledge snapshot at eb4a255, Linux scientific reports and early strict-copy failures; its pending-final note is superseded by the exact-final Windows report. Upstream corresponding sources/licenses are retained in the installable pack. Preserve both archives.",
+    "annotation_expression_coverage_phylogeny_sources": "Each new pack retains upstream corresponding sources and licenses. Explicit source-evidence companions include full Git snapshots and historical failures; separate exact-final Windows JSON reports close creation-time pending validation without replacing immutable archives. DESeq2 additionally requires the separate r-runtime-sources.zip for compiled R dependency source recovery; users do not import that source ZIP.",
+    "metagenomics_sources": "Kraken2 and Bracken source/evidence companions preserve exact Git source snapshots and creation-time scientific/static evidence. Matching upstream sources/licenses are retained with each pack. Separate final Windows reports bind native success to immutable archive hashes. Large user-selected databases and read-length distributions are scientific inputs, not executable pack assets; retain their descriptors, source declarations and hashes separately.",
+    "historical_0_6_0_application_source_companion": "https://github.com/comparativechrono/workbench/releases/download/app-v0.6.0/native-workbench-0.6.0-source.zip",
+    "application_0_7_0_source_scope": "Explicit source archive records packaged commit 57d635370a1cd34dd1549aff95a2feba7faeeb74 and creation-time candidate evidence. The later release tag 6c266a58818886c6f4f5287006f20fafc5aadd68 adds gate/evidence only. Final evidence is separate; preserve immutable source archive bytes.",
+    "historical_0_7_0_application_source_companion": "https://github.com/comparativechrono/workbench/releases/download/app-v0.7.0/native-workbench-0.7.0-source.zip",
+    "application_0_8_0_source_scope": "Explicit accepted b3928ca source companion, SHA-256 c2590379b45d313acbcd5bbc41344b288aa6ad159804bf06dcbdcc9726adb22f. All 457 current source files matched that commit; source recovery pins legacy archives/companions and retains native/runtime licence materials. Original candidate status is preserved; separate final reports carry subsequent publication evidence.",
+    "application_0_16_0_source_scope": "Published e855 source companion: 748 current files, 87 core files and 33 packaged Python modules; immutable creation-time candidate evidence. Validator/updater packaging source 0e92 and separate publication/helper evidence remain distinct from the 60243d4 release/tag commit. The accepted source archive was not rebuilt."
+  },
+  "historical_manifests": {
+    "paths": [
+      "publishing/releases-0.6.0.json",
+      "publishing/publication-layout-0.6.0.json"
+    ],
+    "scope": "Original 18-pack application split. These maps omit later RNA and optional-pack additions and must not be mistaken for a signed live catalogue."
+  },
+  "released_application_contract_evidence": {
+    "report_path": "evidence/popular-pack-graph-contracts-2026-10-04.json",
+    "report_sha256": "5c4d53d4067070b09af5d3e7698b3fbb06fcba92e4a454ff7d70c4fd7ae4f0ad",
+    "application_version": "0.6.0",
+    "host": "Linux; Python 3.12.14",
+    "tests_passed": 8,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "scientific_executables_executed": false,
+    "native_importer_executed": false,
+    "test_source": "../tests/test_popular_pipeline.py",
+    "test_source_sha256": "9c3ca78421cbe84c8dd4e3e8f2cf36983da256572d2dace5d37c402918f71179",
+    "scope": "Exact frozen pack/ZIP payloads, branching/fan-in/type contracts, saved pins and archive import with a Python copy callback. This is separate from native Windows scientific/import gates.",
+    "historical_before_blast_diagnostics": {
+      "report_path": "evidence/popular-pack-graph-contracts-before-blast-diagnostics-2026-10-04.json",
+      "report_sha256": "2045da2a8b1b82a278a5cd8927b18f58405db21c4304dfce8f74e3d4b5038d47",
+      "status": "superseded-by-corrected-guard-final-report"
+    }
+  },
+  "gatk_released_application_contract_evidence": {
+    "report_path": "evidence/gatk-1.0.0-validation-2026-10-04.json",
+    "report_sha256": "f29969163cf2d80b6cdd0e8b5f525c2b24f958d63aec96c1e4c4328b0dddb829",
+    "application_version": "0.6.0",
+    "host": "Windows Server 2022, released private Python 3.13.16",
+    "tests_passed_per_path": 7,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "native_scientific_checks_passed_per_path": 9,
+    "paths": [
+      "ordinary",
+      "contains spaces"
+    ],
+    "workflow_run_url": "https://github.com/comparativechrono/workbench/actions/runs/37220420948",
+    "test_source": "../tests/test_gatk_pipeline.py",
+    "test_source_sha256": "08921b12196822716c287ec95daa13ea26f5562b44b1058bee5d47bebe2c80d6",
+    "scope": "Graph/archive contracts use Python publication; separate exact-final native bridge import and science gates passed in the same jobs. Earlier Linux graph copying failures are preserved, not reported as passes."
+  },
+  "metagenomics_released_application_contract_evidence": {
+    "application": "released Workbench 0.6.0 starter unchanged",
+    "scope": "Graph/archive contracts use the released Python engine and a checked copy callback; no scientific executable or native importer is executed by the graph suite.",
+    "exact_final_windows_results": {
+      "kraken2": {
+        "tests_passed_per_path": 6,
+        "failures": 0,
+        "errors": 0,
+        "skips": 0,
+        "workflow_run_url": "https://github.com/comparativechrono/workbench/actions/runs/37235526518",
+        "record": "evidence/kraken2-1.0.0-validation-2026-10-04.json"
+      },
+      "bracken": {
+        "tests_passed_per_path": 7,
+        "failures": 0,
+        "errors": 0,
+        "skips": 0,
+        "workflow_run_url": "https://github.com/comparativechrono/workbench/actions/runs/37236121810",
+        "record": "evidence/bracken-1.0.0-validation-2026-10-04.json"
+      }
+    },
+    "typing_limits": "Generic file ports cannot prove database/model identity, report structure, read lengths or units; separate adapter/scientific checks are required."
+  },
+  "metagenomics_shared_resource_contract_evidence": {
+    "path": "evidence/metagenomics-resources-2026-10-04.json",
+    "sha256": "eda76e48e64bcd5e69d7a5cc917b1babfcf7e60ac45b66e96c0d73c35b8a6885",
+    "helper_sha256": "dd2c52caec9ac6d067e595230beab94429f4e38a278b5d06d3b22aa69c96e43d",
+    "tests_passed": 17,
+    "test_failures": 0,
+    "test_errors": 0,
+    "test_skips": 0,
+    "scope": "Linux source-level synthetic resource/archive contracts only; no scientific executable, native importer or Windows execution.",
+    "retention": "Stored in Git; not embedded in the earlier immutable pack source/evidence companions."
+  },
+  "reference_release_resume": {
+    "reviewed_on": "2026-10-05",
+    "source_commit": "5338853ba3b69438fc36c1b9dcd3ad89d6bbcde4",
+    "working_branch": "release/reference-0.7.0-completion",
+    "scope": "Reference application release audit only. Existing application and pack snapshot above retains its original audit dates and evidence.",
+    "target_version": "0.7.0",
+    "final_release_lookup": {
+      "url": "https://api.github.com/repos/comparativechrono/workbench/releases/tags/app-v0.7.0",
+      "http_status": 404,
+      "result": "no exact final release found during resume audit"
+    },
+    "candidate": {
+      "tag": "app-v0.7.0-rc1",
+      "source_commit": "8ad25c71ec13d2c06a670b59a2cc13ca84a50ac9",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/app-v0.7.0-rc1",
+      "starter_sha256": "8314887d482184afac1b196f4a19d023d5abf2584dba6cedcb63a2283ce5e705",
+      "update_from_0_6_0_sha256": "49b50acbb8c89a706fb99963f63f1fc87c008dcc162b82c86f44976739116496",
+      "status": "published-diagnostic-candidate-with-failed-gui-gate"
+    },
+    "historical_windows_gate": {
+      "workflow_run_url": "https://github.com/comparativechrono/workbench/actions/runs/37295599791",
+      "source_commit": "9543ae5030ee0ec42e404d251b67b6b1e1af4de6",
+      "conclusion": "failure",
+      "paths": [
+        "ordinary",
+        "contains spaces"
+      ],
+      "completed_checks_per_path": 7,
+      "gui_passed": false,
+      "report": "evidence/reference-candidate-rc1-gui-diagnostic-2026-10-05.json",
+      "recovered_ui_diagnosis": "evidence/reference-resume-ui-diagnosis-2026-10-05.json",
+      "update_scope": "Native updater CLI from exact published 0.6.0 starter to 0.7.0 candidate, with 187 existing files preserved and only the expected user-data/session.lock added; native folder picker not exercised."
+    },
+    "existing_fixes": {
+      "layout_and_automation_commit": "b9d0ee7f16f675d0c42d77d7a093530ca052d09b",
+      "scope_wording_commit": "5338853ba3b69438fc36c1b9dcd3ad89d6bbcde4",
+      "windows_workflow_run_at_resume_audit": false
+    },
+    "fresh_source_checks": {
+      "report": "evidence/reference-resume-source-checks-2026-10-05.json",
+      "tests_passed": 93,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "platform": "Linux; Python 3.12.14",
+      "all_15_prior_runtime_hashes_match": true,
+      "scope": "Deterministic source contracts; no new live download, native Windows GUI or scientific execution claim."
+    },
+    "status": "released-public-downloads-verified-exact-final-native-gate-passed",
+    "handover": "reference-release-handover.md",
+    "initial_audit_scope": "The rc1/404/initial-fix records in this object describe the starting audit. Current release status is application.validation.",
+    "unmerged_parallel_branch": {
+      "branch": "finish-reference-release",
+      "commit": "4eef03ddf2ad6b0426e054171c8aafe9e752e73e",
+      "relationship": "Independent concurrent review diagnosed the same null-state issue but recorded blocked/unrun native validation and no publication. Its patch was not merged or used in this release; branch preserved."
+    }
+  },
+  "application_history": [
+    {
+      "inventory_as_of": "2026-10-04",
+      "inventory_source_commit": "289c4176561fe6c8bbbfba1e225cd65fbafb126d",
+      "version": "0.6.0",
+      "tag": "app-v0.6.0",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/app-v0.6.0",
+      "prerelease": true,
+      "published_at": "2026-10-03T18:19:34Z",
+      "starter_pack_ids": [
+        "align",
+        "bam",
+        "variants"
+      ],
+      "assets": [
+        {
+          "name": "native-workbench-0.6.0-pack-sdk.zip",
+          "bytes": 80188,
+          "github_digest": "sha256:7596a851ea6e091a5f61e38bc3766a6a44f4db4ba67874208c6eb764d888acdd",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.6.0/native-workbench-0.6.0-pack-sdk.zip"
+        },
+        {
+          "name": "native-workbench-0.6.0-source.zip",
+          "bytes": 45128429,
+          "github_digest": "sha256:427a9b42f2528984350479e8b0155e4ef4f0159fa6f240cc1aa84a5ec2e0e60a",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.6.0/native-workbench-0.6.0-source.zip"
+        },
+        {
+          "name": "native-workbench-0.6.0-starter-windows.zip",
+          "bytes": 16871065,
+          "github_digest": "sha256:16fa802304c734b5721d838ff38b7e90ed36ccfc185a22239859cc3762af695a",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.6.0/native-workbench-0.6.0-starter-windows.zip"
+        },
+        {
+          "name": "native-workbench-0.6.0-update-from-0.5.4.zip",
+          "bytes": 12218113,
+          "github_digest": "sha256:3194af4cd08750acaf424ad4af0787a29e9b854c36724320180fe22cd271a3d9",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.6.0/native-workbench-0.6.0-update-from-0.5.4.zip"
+        },
+        {
+          "name": "README-FIRST.txt",
+          "bytes": 2417,
+          "github_digest": "sha256:97480928a7daeb9e9d6aac106d1abdfbf36c1ffc1cd8cf5fe032d9282b17ca65",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.6.0/README-FIRST.txt"
+        },
+        {
+          "name": "release-verification.json",
+          "bytes": 17890,
+          "github_digest": "sha256:af9dc3d2d26f7ceda574adde5e8b556ead46264788b429a34a3701eef50c878b",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.6.0/release-verification.json"
+        },
+        {
+          "name": "SHA256SUMS.txt",
+          "bytes": 2443,
+          "github_digest": "sha256:02472d40e2cd5d58f1c042c6e8a561839a5e508d4a988e66be50afaae5ce1006",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.6.0/SHA256SUMS.txt"
+        }
+      ],
+      "validation": {
+        "reported_source": "app-v0.6.0 release notes and release-verification.json",
+        "automated_tests_passed": 214,
+        "windows_only_tests_skipped": 1,
+        "starter_checks_passed": 8,
+        "scientific_backend": "portable-linux-reference",
+        "updater_migration": "0.5.4 to 0.6.0 exercised on Linux",
+        "limits": [
+          "Not a new validation run during this documentation update.",
+          "Does not validate the Windows GUI or native Windows long-path behavior.",
+          "Does not establish clinical fitness or broad biological accuracy."
+        ]
+      }
+    },
+    {
+      "inventory_as_of": "2026-10-05",
+      "inventory_source_commit": "57d635370a1cd34dd1549aff95a2feba7faeeb74",
+      "version": "0.7.0",
+      "tag": "app-v0.7.0",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/app-v0.7.0",
+      "prerelease": true,
+      "published_at": "2026-10-05T13:54:17Z",
+      "reviewed_on": "2026-10-05",
+      "packaged_source_commit": "57d635370a1cd34dd1549aff95a2feba7faeeb74",
+      "release_tag_commit": "6c266a58818886c6f4f5287006f20fafc5aadd68",
+      "source_commit_distinction": "The release tag adds gate/evidence changes; runtime, desktop and packaging source are unchanged from the packaged source commit. Archives are byte-identical to the validated rc3 candidate.",
+      "starter_pack_ids": [
+        "align",
+        "bam",
+        "variants"
+      ],
+      "assets": [
+        {
+          "name": "BUILD-VALIDATION.json",
+          "bytes": 12737,
+          "github_digest": "sha256:def86d4053e506d5376f69da292acf5bb4a517683f7b14b107cfde02be8a3ad6",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.7.0/BUILD-VALIDATION.json",
+          "independently_downloaded_and_rehashed_on": "2026-10-05"
+        },
+        {
+          "name": "EVIDENCE-SHA256SUMS.txt",
+          "bytes": 666,
+          "github_digest": "sha256:0ba99388f185309f2424d2477a6464f0efc776994c56b52f9b8318caa545430e",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.7.0/EVIDENCE-SHA256SUMS.txt",
+          "independently_downloaded_and_rehashed_on": "2026-10-05"
+        },
+        {
+          "name": "native-workbench-0.7.0-source.zip",
+          "bytes": 46002233,
+          "github_digest": "sha256:4b4993d710430c735fff69f2655781711abcda601833de1e481411913b8c164e",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.7.0/native-workbench-0.7.0-source.zip",
+          "independently_downloaded_and_rehashed_on": "2026-10-05"
+        },
+        {
+          "name": "native-workbench-0.7.0-starter-windows.zip",
+          "bytes": 16916149,
+          "github_digest": "sha256:3d5b79924e5edc69efb7d4934696f6568377b63c312a666cc37e05b8707cf1ba",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.7.0/native-workbench-0.7.0-starter-windows.zip",
+          "independently_downloaded_and_rehashed_on": "2026-10-05"
+        },
+        {
+          "name": "native-workbench-0.7.0-update-from-0.6.0.zip",
+          "bytes": 12830009,
+          "github_digest": "sha256:9c86f8c7cbe7acb8c31cdb7472db815143e7cc63be8fda0113642baee17f1469",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.7.0/native-workbench-0.7.0-update-from-0.6.0.zip",
+          "independently_downloaded_and_rehashed_on": "2026-10-05"
+        },
+        {
+          "name": "RELEASE-VALIDATION.json",
+          "bytes": 21786,
+          "github_digest": "sha256:fcabeacde324e9273a6a158ea32f18efde09898f9b158573b906abe6d2625877",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.7.0/RELEASE-VALIDATION.json",
+          "independently_downloaded_and_rehashed_on": "2026-10-05"
+        },
+        {
+          "name": "SHA256SUMS.txt",
+          "bytes": 408,
+          "github_digest": "sha256:396170bc664bff45e60dede293edbe2cae282460ccafedcbb331195ca103c593",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.7.0/SHA256SUMS.txt",
+          "independently_downloaded_and_rehashed_on": "2026-10-05"
+        },
+        {
+          "name": "WINDOWS-EVIDENCE.zip",
+          "bytes": 473664,
+          "github_digest": "sha256:71c241a357ddb7a83f20a968a4459016e0bd19f787a5f7ce89a3c6f9ebf9f3cb",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.7.0/WINDOWS-EVIDENCE.zip",
+          "independently_downloaded_and_rehashed_on": "2026-10-05"
+        },
+        {
+          "name": "CONCURRENCY-AUDIT.json",
+          "bytes": 11391,
+          "github_digest": "sha256:1f26e85f4c08d613e4eac3a4cc3df326964f2522067d7f6e1a5faa2ccf607c2e",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.7.0/CONCURRENCY-AUDIT.json",
+          "independently_downloaded_and_rehashed_on": "2026-10-05"
+        },
+        {
+          "name": "CONCURRENCY-SHA256SUMS.txt",
+          "bytes": 188,
+          "github_digest": "sha256:506be0fa222d8ab0d1c0754be3d9f977eabe313bbefd5ff779ba0677b817a4e3",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.7.0/CONCURRENCY-SHA256SUMS.txt",
+          "independently_downloaded_and_rehashed_on": "2026-10-05"
+        },
+        {
+          "name": "CONCURRENCY-WINDOWS-EVIDENCE.zip",
+          "bytes": 761929,
+          "github_digest": "sha256:db00d9f8d27157f2feb12b6e24acf3d30da66b93f0dc5f6f90a7d85d8066dbfb",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.7.0/CONCURRENCY-WINDOWS-EVIDENCE.zip",
+          "independently_downloaded_and_rehashed_on": "2026-10-05"
+        }
+      ],
+      "validation": {
+        "status": "released-public-downloads-verified-exact-final-native-gate-passed",
+        "public_download_report": "evidence/reference-0.7.0-public-downloads-2026-10-05.json",
+        "build_report": "evidence/reference-0.7.0-build-2026-10-05.json",
+        "source_contract_report": "evidence/reference-resume-source-checks-2026-10-05.json",
+        "source_contracts_passed": 93,
+        "source_contract_failures": 0,
+        "source_contract_errors": 0,
+        "source_contract_skips": 0,
+        "candidate_native_report": "evidence/reference-rc3-native-input-2026-10-05.json",
+        "candidate_native_run_url": "https://github.com/comparativechrono/workbench/actions/runs/37319693097",
+        "candidate_checks_passed_per_path": 8,
+        "candidate_skips_per_path": 0,
+        "exact_final_native_run_url": "https://github.com/comparativechrono/workbench/actions/runs/37320844819",
+        "exact_final_native_status": "success",
+        "paths": [
+          "ordinary",
+          "contains spaces"
+        ],
+        "scope": "Live Ensembl yeast five-product discovery/download with pinned compressed/expanded hashes; cancellation; socket-denied local reuse and frozen provenance; native SAMtools 17-contig indexing; installed integrity; native updater CLI preservation/idempotence; actual References search/discover/reset, normal/minimum geometry and Use for input assignment.",
+        "limits": [
+          "Original release gate omitted GUI Download/Cancel. Post-release run 37339280407 covers those buttons; folder-picker interactions remain untested.",
+          "Socket-denied private host is distinct from operating-system firewall enforcement.",
+          "96 DPI automated GUI capture/interaction does not establish broad manual usability, high-DPI/multi-monitor, arbitrary Unicode/long paths, institutional proxies, human-genome performance or clinical validity.",
+          "Existing optional-pack audits retain their original dates; the application release does not repeat all pack scientific suites."
+        ],
+        "exact_final_native_report": "evidence/reference-0.7.0-final-windows-2026-10-05.json",
+        "exact_final_native_report_sha256": "b904d3fb8e85b9c8b0dca16de9e9dabdf6247dc8adfae0fd3c2e541450908961",
+        "exact_final_checks_passed_per_path": 8,
+        "exact_final_failures_per_path": 0,
+        "exact_final_skips_per_path": 0,
+        "exact_final_captures_reviewed": 12,
+        "native_platform": "Windows Server 2022; bundled Python 3.13.16; 96 DPI",
+        "core_update": {
+          "base_version": "0.6.0",
+          "target_version": "0.7.0",
+          "target_core_files_verified": 68,
+          "existing_files_preserved": 187,
+          "preservation_changes": {},
+          "only_expected_addition": "user-data/session.lock",
+          "idempotent_repeat": true,
+          "offline_restart": true
+        },
+        "release_validation_report": "evidence/reference-0.7.0-release-validation-2026-10-05.json",
+        "release_validation_report_sha256": "fcabeacde324e9273a6a158ea32f18efde09898f9b158573b906abe6d2625877",
+        "final_asset_count": 8,
+        "final_assets_report": "evidence/reference-0.7.0-final-assets-2026-10-05.json",
+        "final_assets_report_sha256": "13327174bc9acf7ec10374de46c11d9f4d6f15acdb597155d37170b85a20c838",
+        "all_eight_public_assets_verified": true,
+        "evidence_assets_published": true,
+        "post_release_concurrency_audit": {
+          "status": "passed",
+          "reconciliation_report": "evidence/reference-concurrency-reconciliation-2026-10-05.json",
+          "original_assets_audit": "evidence/reference-concurrency-assets-audit-2026-10-05.json",
+          "native_report": "evidence/reference-concurrency-windows-2026-10-05.json",
+          "public_supplement_verification": "evidence/reference-concurrency-public-assets-2026-10-05.json",
+          "native_run_url": "https://github.com/comparativechrono/workbench/actions/runs/37339280407",
+          "gate_commit": "ad5b59c06a03d3885bee5416fb47b4835ae9927f",
+          "checks_passed_per_path": 8,
+          "failures_per_path": 0,
+          "skips_per_path": 0,
+          "captures_reviewed": 20,
+          "original_assets_freshly_downloaded": 8,
+          "new_supplements_verified": 3,
+          "current_asset_count": 11,
+          "application_bytes_changed": false,
+          "scope": "Adds actual five-product checkbox selection, typed destination and verified output location, Download/Cancel button cleanup and binding a newly GUI-downloaded genome. Repeats backend live hashes, cancellation after 1 MiB, offline reuse/provenance, native SAMtools, integrity and 0.6.0-to-0.7.0 preservation."
+        }
+      }
+    },
+    {
+      "inventory_as_of": "2026-10-06",
+      "inventory_source_commit": "b3928ca6a29d22b5f010a303658c2e19c24324da",
+      "version": "0.8.0",
+      "tag": "app-v0.8.0",
+      "release_id": 404720508,
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/app-v0.8.0",
+      "prerelease": true,
+      "published_at": "2026-10-06T13:12:15Z",
+      "reviewed_on": "2026-10-06",
+      "packaged_source_commit": "b3928ca6a29d22b5f010a303658c2e19c24324da",
+      "release_tag_commit": "6fa1886b2027cfe634d9f9234fff773cd6c646d0",
+      "source_commit_distinction": "Published starter, source and 0.6.0 updater are the exact accepted b3928ca candidate bytes. The later release-tag commit contains publication/evidence/documentation changes; no accepted application, gate, build or pack code was rebuilt or changed.",
+      "starter_pack_ids": [
+        "align",
+        "bam",
+        "variants"
+      ],
+      "assets": [
+        {
+          "name": "BUILD-PROVENANCE.json",
+          "asset_id": 615555727,
+          "bytes": 940,
+          "github_digest": "sha256:b6f9285b6160da0c6d9a7c5a5195cc4404f1796c1f9db3ec7df707efb8ce0e15",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.8.0/BUILD-PROVENANCE.json",
+          "independently_downloaded_and_rehashed_on": "2026-10-06"
+        },
+        {
+          "name": "EVIDENCE-SHA256SUMS.txt",
+          "asset_id": 615555720,
+          "bytes": 433,
+          "github_digest": "sha256:bdfddef2b9933713668ec0f68aa91cddd347b96d6a4b2508e6ed7134458db445",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.8.0/EVIDENCE-SHA256SUMS.txt",
+          "independently_downloaded_and_rehashed_on": "2026-10-06"
+        },
+        {
+          "name": "native-workbench-0.8.0-source.zip",
+          "asset_id": 615555739,
+          "bytes": 46243835,
+          "github_digest": "sha256:c2590379b45d313acbcd5bbc41344b288aa6ad159804bf06dcbdcc9726adb22f",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.8.0/native-workbench-0.8.0-source.zip",
+          "independently_downloaded_and_rehashed_on": "2026-10-06"
+        },
+        {
+          "name": "native-workbench-0.8.0-starter-windows.zip",
+          "asset_id": 615555740,
+          "bytes": 16948940,
+          "github_digest": "sha256:df001a80033ff8e834045ec683c79672e0efdbd4880fb89fca8bf8c36d830fdc",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.8.0/native-workbench-0.8.0-starter-windows.zip",
+          "independently_downloaded_and_rehashed_on": "2026-10-06"
+        },
+        {
+          "name": "native-workbench-0.8.0-update-from-0.6.0.zip",
+          "asset_id": 615555744,
+          "bytes": 12897242,
+          "github_digest": "sha256:3dd146267b9a8300ba957c84914bc324ea537c05b09268b48381ae6a4d530e96",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.8.0/native-workbench-0.8.0-update-from-0.6.0.zip",
+          "independently_downloaded_and_rehashed_on": "2026-10-06"
+        },
+        {
+          "name": "RELEASE-VALIDATION.json",
+          "asset_id": 615555723,
+          "bytes": 5163,
+          "github_digest": "sha256:00903db808257cf8cb810c58e4d517c2768cf4198db010f9766335213f4e94bb",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.8.0/RELEASE-VALIDATION.json",
+          "independently_downloaded_and_rehashed_on": "2026-10-06"
+        },
+        {
+          "name": "SHA256SUMS.txt",
+          "asset_id": 615555724,
+          "bytes": 320,
+          "github_digest": "sha256:a9adefa254aff2fab797830a3832b82a9cc69a130800bd5594d9a7ee15c7fb01",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.8.0/SHA256SUMS.txt",
+          "independently_downloaded_and_rehashed_on": "2026-10-06"
+        },
+        {
+          "name": "source-metadata.json",
+          "asset_id": 615555745,
+          "bytes": 1763,
+          "github_digest": "sha256:364c1606a0feff888b2eebf4482c28c767032d1d56170a805b02bdc50297d90c",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.8.0/source-metadata.json",
+          "independently_downloaded_and_rehashed_on": "2026-10-06"
+        },
+        {
+          "name": "WINDOWS-EVIDENCE.zip",
+          "asset_id": 615555719,
+          "bytes": 2446044,
+          "github_digest": "sha256:781dbb3487bcbb9ba5c17509f8ba32ed964f8d7cafa0bc8e93678882f1c94d1c",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.8.0/WINDOWS-EVIDENCE.zip",
+          "independently_downloaded_and_rehashed_on": "2026-10-06"
+        }
+      ],
+      "validation": {
+        "status": "published-public-downloads-verified-exact-candidate-native-evidence-retained-final-read-only-verification-passed",
+        "public_download_report": "evidence/native-ui-0.8.0-public-downloads-2026-10-06.json",
+        "public_download_report_sha256": "de6b25b6ce6de8dc478c79d417f7d71b5d5be26a5f0575861e89f248f289bda2",
+        "final_asset_count": 9,
+        "all_nine_public_assets_verified": true,
+        "zip_crcs_verified": 4,
+        "checksum_files_verified": 2,
+        "original_candidate_companions_byte_identical": 6,
+        "release_validation_report": "evidence/native-ui-0.8.0-release-validation-2026-10-06.json",
+        "release_validation_report_sha256": "00903db808257cf8cb810c58e4d517c2768cf4198db010f9766335213f4e94bb",
+        "candidate_native_run_url": "https://github.com/comparativechrono/workbench/actions/runs/37453380541",
+        "candidate_source_commit": "b3928ca6a29d22b5f010a303658c2e19c24324da",
+        "candidate_native_status": "success",
+        "candidate_evidence_report": "evidence/native-workflow-0.8.0-scroll-2026-10-06.json",
+        "source_contracts_passed": 82,
+        "source_contract_failures": 0,
+        "source_contract_skips": 0,
+        "source_contract_platform": "Linux CI",
+        "workspace_checks_passed_per_path": 32,
+        "workspace_host_checks_per_path": 8,
+        "workspace_scientific_checks_per_path": 2,
+        "workspace_gui_checks_per_path": 22,
+        "reference_checks_passed_per_path": 8,
+        "candidate_failures_per_path": 0,
+        "candidate_skips_per_path": 0,
+        "paths": [
+          "ordinary",
+          "contains spaces"
+        ],
+        "native_platform": "Windows Server 2022; bundled Python 3.13.16; 96 DPI",
+        "tester_acceptance": {
+          "reportedBy": "Project owner",
+          "date": "2026-10-06",
+          "statement": "Testers are happy with the accepted candidate; publication authorized."
+        },
+        "scope": "Accepted native three-pane Tools/Workflow UI, independent in-process edits, installed-pack input choices, explicit reusable inputs and compatible linking, canvas pan/zoom/deletion/Undo, corrected initial Manage tools and scrolling behavior. Exact candidate References gate exercises five-product GUI downloads/cancellation, pinned identities, offline reuse/provenance, native SAMtools indexing and preservation during upgrade.",
+        "core_update": {
+          "base_version": "0.6.0",
+          "target_version": "0.8.0",
+          "target_core_files_verified": 68,
+          "existing_files_preserved": 187,
+          "preservation_changes": {},
+          "only_expected_addition": "user-data/session.lock",
+          "idempotent_repeat": true,
+          "offline_restart": true,
+          "supports_0_7_0_upgrade": false,
+          "scope": "Exact 0.6.0 base manifest required; no 0.7.0-to-0.8.0 updater or migration result is supplied."
+        },
+        "long_path_regression": {
+          "status": "passed-on-accepted-exact-candidate",
+          "scientific_stages_passed": 5,
+          "core_checks_passed": 7,
+          "outputs_independently_rehashed": 20,
+          "output_paths_over_260_characters": 19,
+          "maximum_output_path_characters": 279,
+          "runner_long_path_policy_disabled": true,
+          "runner_original_policy_restored": true,
+          "scope": "Starter tools and recorded deeply nested result paths, not arbitrary optional-tool, installation-root or native-folder-picker paths; application makes no user-machine policy change."
+        },
+        "scroll_regression": {
+          "panels": 3,
+          "desktop_frames_sampled": 960,
+          "unexpected_sampled_static_frames": 0,
+          "endpoint_transitions_requested": 300,
+          "endpoint_transitions_observed": 300,
+          "precision_wheel_cases_passed": 18,
+          "prior_visual_flashing_reproduced_in_ci": false,
+          "scope": "Finite 96-DPI hosted desktop sampling masks edit/button animation; tester acceptance is separately reported and no universal display or hardware guarantee is inferred."
+        },
+        "publication_workflow": {
+          "run_url": "https://github.com/comparativechrono/workbench/actions/runs/37468900068",
+          "conclusion": "failure",
+          "completed_before_failure": "Verified all nine uploaded draft assets, then published the development prerelease.",
+          "failure": "The first anonymous public asset GET returned HTTP 404 after publication; the incomplete verification state was preserved.",
+          "subsequent_resolution": "Independent anonymous downloads of all nine public assets later passed, as recorded in the separate public-download report. No published assets were replaced."
+        },
+        "limits": [
+          "Hosted native display tests used Windows Server 2022, 96 DPI. Physical tester acceptance is user-reported; no tester hardware details were supplied.",
+          "Old and new packages both had zero unexpected frames in finite CI sampling; CI did not reproduce the reported visual flashing. Precision-wheel failure was reproduced and corrected.",
+          "Finite frame samples mask edit/button animation and cannot exclude between-sample flashes; no general high-DPI, multi-monitor or physical-trackpad claim.",
+          "Migration was verified from 0.6.0 only. No 0.7.0-to-0.8.0 updater is included or claimed.",
+          "Long-path validation covers recorded starter outputs, not every optional tool or native folder picker."
+        ],
+        "immutable_creation_time_status": "BUILD-PROVENANCE.json and matching source retain their creation-time candidate statements; separate release validation/public-download records supply later evidence without replacing original companions.",
+        "post_publication_verification_gate": {
+          "status": "passed",
+          "passed": true,
+          "run_url": "https://github.com/comparativechrono/workbench/actions/runs/37469812304",
+          "run_id": 37469812304,
+          "job_id": 112290052315,
+          "workflow_commit": "2159e0f38b42ef2b8433e1311ece22304cbdf33f",
+          "all_steps_passed": true,
+          "guard_tests_passed": 11,
+          "public_assets_verified": 9,
+          "remote_mutations": false,
+          "artifact": {
+            "id": 11416465488,
+            "bytes": 1075,
+            "sha256": "8a99f78c8d2b24209ac82283062c8ca0a79e1665681ab915115298cc08d87d0a"
+          },
+          "receipt": "evidence/native-ui-0.8.0-final-public-verification-receipt-2026-10-06.json",
+          "receipt_sha256": "d422e4f1c6fd6440eba1fe42d6a8797ec277768d2373e51bc604d777f974455c",
+          "scope": "Read-only recovery of the exact promotion artifact and fresh anonymous downloads of all nine canonical public URLs. Candidate native evidence is reused for unchanged application bytes; no new native execution is claimed."
+        }
+      }
+    },
+    {
+      "version": "0.9.0",
+      "tag": "app-v0.9.0",
+      "release_id": 405123004,
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/app-v0.9.0",
+      "prerelease": true,
+      "draft": false,
+      "published_at": "2026-10-06T20:39:35Z",
+      "reviewed_on": "2026-10-06",
+      "packaged_source_commit": "beea34ab29f3e7cb9a7e79dbcfa11c89f40ee59d",
+      "release_tag_commit": "1ee61f1e2334bf0049aa4b9227da6f8663fc0c43",
+      "source_commit_distinction": "Published starter, application source and 0.6.0 updater are the exact accepted beea34a candidate bytes. The release-tag/PR-merge commit includes validator, additional 0.8.0 updater, promotion and documentation changes. Accepted application, pack, updater-engine and launcher bytes were not rebuilt or changed.",
+      "starter_pack_ids": [
+        "align",
+        "bam",
+        "variants"
+      ],
+      "assets": [
+        {
+          "name": "BUILD-PROVENANCE.json",
+          "asset_id": 616601323,
+          "bytes": 940,
+          "github_digest": "sha256:0de10868b19243071cffd7753381516f67bdfe62350b9a57d7f43326919b9a2c",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.9.0/BUILD-PROVENANCE.json",
+          "publisher_anonymous_download_verified_on": "2026-10-06",
+          "independently_downloaded_and_rehashed_on": "2026-10-06"
+        },
+        {
+          "name": "BUILD-UPDATE-PROVENANCE.json",
+          "asset_id": 616601326,
+          "bytes": 2059,
+          "github_digest": "sha256:202c3999ca365a45acb427bcdf8e30d169d84f6f4f308d2a3004515d29a07311",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.9.0/BUILD-UPDATE-PROVENANCE.json",
+          "publisher_anonymous_download_verified_on": "2026-10-06",
+          "independently_downloaded_and_rehashed_on": "2026-10-06"
+        },
+        {
+          "name": "EVIDENCE-SHA256SUMS.txt",
+          "asset_id": 616601325,
+          "bytes": 727,
+          "github_digest": "sha256:e8a7b8a297f50f5d6af7356dda493bb1a6d741562ab909e0e988293c56d29174",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.9.0/EVIDENCE-SHA256SUMS.txt",
+          "publisher_anonymous_download_verified_on": "2026-10-06",
+          "independently_downloaded_and_rehashed_on": "2026-10-06"
+        },
+        {
+          "name": "native-workbench-0.9.0-source.zip",
+          "asset_id": 616601356,
+          "bytes": 46423298,
+          "github_digest": "sha256:7bfc3802cad3b476300ae7075214e2c06ee320d987df66945ff0809cb3218824",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.9.0/native-workbench-0.9.0-source.zip",
+          "publisher_anonymous_download_verified_on": "2026-10-06",
+          "independently_downloaded_and_rehashed_on": "2026-10-06"
+        },
+        {
+          "name": "native-workbench-0.9.0-starter-windows.zip",
+          "asset_id": 616601367,
+          "bytes": 17002821,
+          "github_digest": "sha256:c2661c144e073c4efdd190ffd186bacd9398b6413b81770d7a057c3947eecf02",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.9.0/native-workbench-0.9.0-starter-windows.zip",
+          "publisher_anonymous_download_verified_on": "2026-10-06",
+          "independently_downloaded_and_rehashed_on": "2026-10-06"
+        },
+        {
+          "name": "native-workbench-0.9.0-update-from-0.6.0.zip",
+          "asset_id": 616601364,
+          "bytes": 12951447,
+          "github_digest": "sha256:eed778882bed560e765c1f2c03d6473b2ea07f2b219e4bd81bff7297e67b177d",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.9.0/native-workbench-0.9.0-update-from-0.6.0.zip",
+          "publisher_anonymous_download_verified_on": "2026-10-06",
+          "independently_downloaded_and_rehashed_on": "2026-10-06"
+        },
+        {
+          "name": "native-workbench-0.9.0-update-from-0.8.0.zip",
+          "asset_id": 616601376,
+          "bytes": 12864532,
+          "github_digest": "sha256:caa50ff7807be889fd9f4fbb617a458b1d2b38f397ce365d4fc7fc17a2511d9e",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.9.0/native-workbench-0.9.0-update-from-0.8.0.zip",
+          "publisher_anonymous_download_verified_on": "2026-10-06",
+          "independently_downloaded_and_rehashed_on": "2026-10-06"
+        },
+        {
+          "name": "RELEASE-VALIDATION.json",
+          "asset_id": 616601329,
+          "bytes": 9033,
+          "github_digest": "sha256:85f979460248df7de872f58613843ed09a868714e7bd6c6b3947e37ca70cfacf",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.9.0/RELEASE-VALIDATION.json",
+          "publisher_anonymous_download_verified_on": "2026-10-06",
+          "independently_downloaded_and_rehashed_on": "2026-10-06"
+        },
+        {
+          "name": "SHA256SUMS.txt",
+          "asset_id": 616601328,
+          "bytes": 320,
+          "github_digest": "sha256:c622bb22bc27fc571d5a9e728d80dabff7fe66d4617e9654aaa0259d212480a1",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.9.0/SHA256SUMS.txt",
+          "publisher_anonymous_download_verified_on": "2026-10-06",
+          "independently_downloaded_and_rehashed_on": "2026-10-06"
+        },
+        {
+          "name": "source-metadata.json",
+          "asset_id": 616601399,
+          "bytes": 1763,
+          "github_digest": "sha256:94280fda60803a5ad5598187008ce3e78adf4de751deb450517c24ccb109ddb8",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.9.0/source-metadata.json",
+          "publisher_anonymous_download_verified_on": "2026-10-06",
+          "independently_downloaded_and_rehashed_on": "2026-10-06"
+        },
+        {
+          "name": "UPDATE-SHA256SUMS.txt",
+          "asset_id": 616601351,
+          "bytes": 111,
+          "github_digest": "sha256:12e14bd7ef99d227c8e9a77c583424bb409d096c5fe1a7030cda9e926c0e7e5e",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.9.0/UPDATE-SHA256SUMS.txt",
+          "publisher_anonymous_download_verified_on": "2026-10-06",
+          "independently_downloaded_and_rehashed_on": "2026-10-06"
+        },
+        {
+          "name": "WINDOWS-EVIDENCE.zip",
+          "asset_id": 616601353,
+          "bytes": 16852143,
+          "github_digest": "sha256:1d5b22a19be174007e44e52159a4901bba72c09c2fe6651102f96f51ab4e4e4e",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.9.0/WINDOWS-EVIDENCE.zip",
+          "publisher_anonymous_download_verified_on": "2026-10-06",
+          "independently_downloaded_and_rehashed_on": "2026-10-06"
+        }
+      ],
+      "validation": {
+        "status": "published; exact accepted-candidate native gates and separate 0.8.0 updater gate passed; publication workflow and independent public-download verification passed",
+        "candidate_source_commit": "beea34ab29f3e7cb9a7e79dbcfa11c89f40ee59d",
+        "candidate_evidence_report": "evidence/cwl-dag-icon-0.9.0-validation-2026-10-06.json",
+        "candidate_artifact_audit": "evidence/cwl-dag-icon-0.9.0-artifact-audit-2026-10-06.json",
+        "initial_validation": {
+          "run_id": 37485987457,
+          "overall_conclusion": "failure",
+          "source_passed": 125,
+          "source_failed": 0,
+          "source_skipped": 0,
+          "source_platform": "Ubuntu 22.04.5",
+          "stock_cwltool_version": "3.3.20260925135507",
+          "stock_cwl_fixture_validated_and_executed": true,
+          "per_windows_path": {
+            "workspace_passed": 32,
+            "references_update_passed": 9,
+            "new_feature_passed": 7,
+            "new_feature_failed": 1,
+            "skipped": 0
+          },
+          "windows_platform": "Windows Server 2022 build 20348",
+          "private_python": "3.13.16",
+          "new_feature_failure": "Canvas-width fixture requirement exceeded the hosted viewport; failed before new connection interactions.",
+          "long_path_regression": {
+            "checks_passed": 3,
+            "failures": 0,
+            "skips": 0,
+            "full_starter_stages": 5,
+            "output_hashes_checked": 20,
+            "long_path_opt_in": false,
+            "original_policy_restored": true
+          }
+        },
+        "focused_verification": {
+          "application_source_commit": "beea34ab29f3e7cb9a7e79dbcfa11c89f40ee59d",
+          "application_rebuilt": false,
+          "validator_commit": "bc972125814c1f24dca86391d0c5f240716a52f3",
+          "run_id": 37489208656,
+          "run_url": "https://github.com/comparativechrono/workbench/actions/runs/37489208656",
+          "status": "passed for the exact candidate; user acceptance recorded; unchanged application archives published",
+          "success": true,
+          "per_windows_path": {
+            "passed": 9,
+            "failed": 0,
+            "skipped": 0,
+            "nativeGUIValidated": true
+          },
+          "reports": [
+            "evidence/cwl-dag-icon-0.9.0-final-ordinary-native-results.json",
+            "evidence/cwl-dag-icon-0.9.0-final-spaces-native-results.json"
+          ],
+          "captures_reviewed": 4,
+          "capture_zooms_percent": [
+            100,
+            83
+          ],
+          "zoom_capture": "BM_CLICK only for the focused zoom capture; separate 32-check workspace gates already passed physical zoom-button interaction.",
+          "fixture_geometry": {
+            "zoom_button_center": [
+              582,
+              732
+            ],
+            "work_area_size": [
+              1024,
+              728
+            ],
+            "hit_window_class": "MSTaskListWClass"
+          },
+          "retained_failed_attempts": [
+            {
+              "run_id": 37485987457,
+              "failure": "Initial canvas-width fixture requirement exceeded the hosted viewport; failed before new connection interactions."
+            },
+            {
+              "run_id": 37487450679,
+              "validator_commit": "3352ef7819294ea1677688368af8bc0253140d0e",
+              "failure": "Viewport fixture corrected, then the validator inspected the wrong selected card; retained screenshot showed the intended connection."
+            },
+            {
+              "run_id": 37488239616,
+              "validator_commit": "a8c939a81ee6bdc0f3bb8f3682d4a415d768d9e8",
+              "failure": "Correct connections and native icons were confirmed; zoom-capture interaction timed out because the button center fell behind the taskbar."
+            }
+          ]
+        },
+        "tester_acceptance": {
+          "recorded_on": "2026-10-06",
+          "user_statement": "Go ahead accept and release, the testers are happy with it",
+          "evidence_type": "user-reported tester acceptance and explicit release authorization",
+          "accepted_candidate_source_commit": "beea34ab29f3e7cb9a7e79dbcfa11c89f40ee59d",
+          "accepted_candidate_starter_sha256": "c2661c144e073c4efdd190ffd186bacd9398b6413b81770d7a057c3947eecf02",
+          "publication_authorized": true,
+          "scope": "Supersedes pending tester review for the exact validated candidate. User-reported acceptance is not a new automated run and does not broaden tested display, hardware, scientific or external-CWL environments.",
+          "record": "evidence/cwl-dag-icon-0.9.0-acceptance-2026-10-06.json"
+        },
+        "updater": {
+          "from_version": "0.6.0",
+          "target_version": "0.9.0",
+          "preservation_gate_passed": true,
+          "from_0_8_0_built_or_tested": true,
+          "from_0_8_0_status": "published unchanged after passing native preservation and post-update scientific/CWL checks",
+          "from_0_8_0": {
+            "from_version": "0.8.0",
+            "target_version": "0.9.0",
+            "archive": "native-workbench-0.9.0-update-from-0.8.0.zip",
+            "bytes": 12864532,
+            "sha256": "caa50ff7807be889fd9f4fbb617a458b1d2b38f397ce365d4fc7fc17a2511d9e",
+            "application_source_commit": "beea34ab29f3e7cb9a7e79dbcfa11c89f40ee59d",
+            "packaging_validation_commit": "648676c4388f1c4dc9f9af0476bf31f9cfca8c92",
+            "run_id": 37527359533,
+            "run_url": "https://github.com/comparativechrono/workbench/actions/runs/37527359533",
+            "status": "passed",
+            "application_rebuilt": false,
+            "all_jobs_passed": 3,
+            "per_windows_path": {
+              "passed": 13,
+              "failed": 0,
+              "skipped": 0,
+              "core_files_verified": 70,
+              "existing_files_preserved": 202,
+              "preserved_file_changes": 0,
+              "repeated_update_idempotent": true
+            },
+            "scientific_evidence": {
+              "alignment_records": 202,
+              "variant_truth": "starter:1351 G>A; GT=1/1",
+              "outputs_independently_hashed": 20,
+              "native_commands_compared": 18,
+              "cwl_runner_replays": 5,
+              "baseline_and_post_update_reference_analysis_passed": true,
+              "post_update_reference_cwl_checked": true
+            },
+            "build_record": "evidence/cwl-dag-icon-0.9.0-update-build-2026-10-06.json",
+            "native_reports": [
+              "evidence/cwl-dag-icon-0.9.0-update-final-ordinary-2026-10-06.json",
+              "evidence/cwl-dag-icon-0.9.0-update-final-spaces-2026-10-06.json"
+            ],
+            "scope": "Native updater CLI/private runtime; synthetic local reference. Host Python socket operations denied, native subprocesses not OS-firewalled. No updater picker UI or live reference download. Embedded-runner replay is not execution through a Windows CWL engine.",
+            "retained_failed_attempts": [
+              {
+                "run_id": 37526784016,
+                "failure": "Failed before update: fixture expected provider display name instead of provider ID.",
+                "passed_per_path": 1
+              },
+              {
+                "run_id": 37527241170,
+                "failure": "Failed before update: saved-workflow fixture omitted explicit reference-input binding.",
+                "passed_per_path": 1
+              }
+            ]
+          }
+        },
+        "publication": {
+          "status": "published; publication workflow and separate independent public-download verification passed",
+          "release_id": 405123004,
+          "release_tag": "app-v0.9.0",
+          "release_url": "https://github.com/comparativechrono/workbench/releases/tag/app-v0.9.0",
+          "published_at": "2026-10-06T20:39:35Z",
+          "release_tag_commit": "1ee61f1e2334bf0049aa4b9227da6f8663fc0c43",
+          "prerelease": true,
+          "draft": false,
+          "published": true,
+          "accepted_source_commit": "beea34ab29f3e7cb9a7e79dbcfa11c89f40ee59d",
+          "promotion_policy": "Six accepted candidate members promoted unchanged without rebuilding; separate 0.8.0 updater published unchanged from its successful native gate.",
+          "public_assets_verified": 12,
+          "original_candidate_companions_unchanged": 6,
+          "publication_run_id": 37528064595,
+          "publication_run_url": "https://github.com/comparativechrono/workbench/actions/runs/37528064595",
+          "publication_workflow_conclusion": "success",
+          "promotion_guard_checks_passed": 18,
+          "publication_receipt": "evidence/cwl-dag-icon-0.9.0-publication-receipt-2026-10-06.json",
+          "publication_receipt_sha256": "850642929418095feef3b3a26295b8b190b92e2a7c2eec4dd92a6bca8c80816b",
+          "publication_artifact": {
+            "id": 11443535914,
+            "bytes": 105580300,
+            "sha256": "3140035006f20fcfa71cab0dd11c5073ddb076ed2b15a283349d26c6e361139c",
+            "independently_downloaded_hash_and_crc_verified": true
+          },
+          "public_verification_scope": "Publication workflow and separate independent audit freshly downloaded all 12 canonical asset URLs anonymously and checked size/SHA-256. The independent audit also checked five ZIP CRCs, all three checksum manifests, six unchanged accepted candidate companions and exact validated updater bytes. Native evidence is reused for unchanged application/updater bytes; no new native execution is claimed.",
+          "updater_from_versions": [
+            "0.6.0",
+            "0.8.0"
+          ],
+          "updater_from_0_7_0_supported": false,
+          "handover": "cwl-dag-icon-0.9.0-handover.md",
+          "public_download_record": "evidence/cwl-dag-icon-0.9.0-public-downloads-2026-10-06.json",
+          "release_validation_record": "evidence/cwl-dag-icon-0.9.0-release-validation-2026-10-06.json",
+          "zip_crcs_verified": 5,
+          "checksum_manifests_verified": 3,
+          "independent_public_verification": {
+            "status": "passed",
+            "checked_utc": "2026-10-06T20:43:54.882611+00:00",
+            "assets": 12,
+            "zip_crcs": 5,
+            "checksum_manifests": 3,
+            "original_candidate_members_unchanged": 6,
+            "validated_0_8_0_updater_unchanged": true,
+            "release_metadata_and_tag_unchanged": true,
+            "record": "evidence/cwl-dag-icon-0.9.0-public-downloads-2026-10-06.json",
+            "record_sha256": "4016dafbb342265d62891b8ebb11a41cfc182ce6e958170cebef148612612cb8",
+            "scope": "Fresh anonymous downloads and byte/CRC/checksum verification; reuses exact accepted application and native updater evidence, without claiming new native execution.",
+            "local_recovery": "Truncated local WINDOWS-EVIDENCE.zip recovered by a fresh independently checked download and atomic local replacement; final full audit passed; no remote change."
+          }
+        },
+        "limits": [
+          "125 source checks including stock-CWL fixture execution passed. Final focused verification passed 9 checks per Windows path with no failures or skips; all three earlier failed runs remain diagnostic evidence, not passes.",
+          "Original input hashes are historical provenance; external rebinding is allowed and current bound-file mutation checks do not prove original bytes were present before a rerun.",
+          "Explicit optional executable overrides replace original executable identity; manifest and asset pins still apply and scientific equivalence needs separate evidence.",
+          "CWL typing/runner execution does not reproduce all biological preflight, reference/header checks, Windows process ownership, cancellation or scheduler behavior.",
+          "Windows pack executables are not translated across operating systems; external resources are not embedded, inferred or downloaded.",
+          "Native embedded-runner replay is not execution through a Windows CWL engine.",
+          "Diagram routing avoids card interiors but cannot eliminate all crossings or route every obscured socket in overlapping manual layouts.",
+          "User accepted the exact candidate and authorized publication. Version 0.9.0 is published and all 12 public assets passed publication-workflow and separate independent download checks. Both 0.6.0 and 0.8.0 updater native preservation gates passed; no 0.7.0 updater is supplied."
+        ],
+        "immutable_creation_time_status": "Accepted source/build companions retain their creation-time candidate/pending statements. Later standalone release/public-download records supply final evidence without replacing those archives."
+      },
+      "inventory_as_of": "2026-10-06",
+      "inventory_source_commit": "beea34ab29f3e7cb9a7e79dbcfa11c89f40ee59d"
+    },
+    {
+      "version": "0.10.0",
+      "tag": "app-v0.10.0",
+      "release_id": 405745578,
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/app-v0.10.0",
+      "prerelease": true,
+      "draft": false,
+      "published_at": "2026-10-07T12:35:21Z",
+      "reviewed_on": "2026-10-07",
+      "packaged_source_commit": "5a390acd8440856e3f4e32de237322a18bb82d7e",
+      "release_tag_commit": "2e474345dff195b860df39fdde263c840dd1fba3",
+      "source_commit_distinction": "All three accepted archives and seven original candidate companions are unchanged from candidate source5a390acd/run37618824677. The tag/PR3 merge includes promotion and later validation/documentation only; accepted application, packs and updater were not rebuilt.",
+      "starter_pack_ids": [
+        "align",
+        "bam",
+        "variants"
+      ],
+      "updater_baselines": [
+        "0.9.0"
+      ],
+      "assets": [
+        {
+          "name": "BUILD-PROVENANCE.json",
+          "asset_id": 618646675,
+          "bytes": 1011,
+          "github_digest": "sha256:9479521ee4d0f1e951f2c18575b4d3bc44acd15d4675a9d75b899421f981ae98",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.10.0/BUILD-PROVENANCE.json",
+          "publisher_anonymous_download_verified_on": "2026-10-07",
+          "independently_downloaded_and_rehashed_on": "2026-10-07"
+        },
+        {
+          "name": "BUILD-UPDATE-PROVENANCE.json",
+          "asset_id": 618646668,
+          "bytes": 2151,
+          "github_digest": "sha256:45b1b50b73a82c03aea2586f44c72d230060ec46a451b3ecda10006a5a2586c6",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.10.0/BUILD-UPDATE-PROVENANCE.json",
+          "publisher_anonymous_download_verified_on": "2026-10-07",
+          "independently_downloaded_and_rehashed_on": "2026-10-07"
+        },
+        {
+          "name": "EVIDENCE-SHA256SUMS.txt",
+          "asset_id": 618646672,
+          "bytes": 528,
+          "github_digest": "sha256:d0ec93d7881900c3f9d27ee487ae0aaf72e5f30a9de842d3f6444f877d51f8b1",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.10.0/EVIDENCE-SHA256SUMS.txt",
+          "publisher_anonymous_download_verified_on": "2026-10-07",
+          "independently_downloaded_and_rehashed_on": "2026-10-07"
+        },
+        {
+          "name": "native-workbench-0.10.0-source.zip",
+          "asset_id": 618646699,
+          "bytes": 46740582,
+          "github_digest": "sha256:918adabf39c0f0cbd551b2a30d523f72135be67fe4232a9c8c54ffa6e611133b",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.10.0/native-workbench-0.10.0-source.zip",
+          "publisher_anonymous_download_verified_on": "2026-10-07",
+          "independently_downloaded_and_rehashed_on": "2026-10-07"
+        },
+        {
+          "name": "native-workbench-0.10.0-starter-windows.zip",
+          "asset_id": 618646702,
+          "bytes": 17028340,
+          "github_digest": "sha256:659a08911cec65b8dc1ce0dd9f47fea25350a39b619c7f0aea663bae71a871ae",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.10.0/native-workbench-0.10.0-starter-windows.zip",
+          "publisher_anonymous_download_verified_on": "2026-10-07",
+          "independently_downloaded_and_rehashed_on": "2026-10-07"
+        },
+        {
+          "name": "native-workbench-0.10.0-update-from-0.9.0.zip",
+          "asset_id": 618646703,
+          "bytes": 12880361,
+          "github_digest": "sha256:63d96f514711d0604b6fbfe940a38bfad73900285ec13e75f95397f0d012eacf",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.10.0/native-workbench-0.10.0-update-from-0.9.0.zip",
+          "publisher_anonymous_download_verified_on": "2026-10-07",
+          "independently_downloaded_and_rehashed_on": "2026-10-07"
+        },
+        {
+          "name": "RELEASE-VALIDATION.json",
+          "asset_id": 618646676,
+          "bytes": 8185,
+          "github_digest": "sha256:f9aeca111364de09ad4b3b071fed7c8996b83530ccccfa65d2160e07edb4e27c",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.10.0/RELEASE-VALIDATION.json",
+          "publisher_anonymous_download_verified_on": "2026-10-07",
+          "independently_downloaded_and_rehashed_on": "2026-10-07"
+        },
+        {
+          "name": "SHA256SUMS.txt",
+          "asset_id": 618646670,
+          "bytes": 323,
+          "github_digest": "sha256:2802017a62147ae0975a18490d0379798ddc93c0cca14c672cec9b1b0df953bd",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.10.0/SHA256SUMS.txt",
+          "publisher_anonymous_download_verified_on": "2026-10-07",
+          "independently_downloaded_and_rehashed_on": "2026-10-07"
+        },
+        {
+          "name": "source-metadata.json",
+          "asset_id": 618646710,
+          "bytes": 1764,
+          "github_digest": "sha256:056db0472222514182f5fcf2e27c5e5d1a0ef46b50a7592a9b312a372c05b41b",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.10.0/source-metadata.json",
+          "publisher_anonymous_download_verified_on": "2026-10-07",
+          "independently_downloaded_and_rehashed_on": "2026-10-07"
+        },
+        {
+          "name": "WINDOWS-EVIDENCE.zip",
+          "asset_id": 618646694,
+          "bytes": 16369424,
+          "github_digest": "sha256:3edcf17872c2a328d38c84c976a6d59867511c8ab5dea92cc4f1534c58613d37",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.10.0/WINDOWS-EVIDENCE.zip",
+          "publisher_anonymous_download_verified_on": "2026-10-07",
+          "independently_downloaded_and_rehashed_on": "2026-10-07"
+        }
+      ],
+      "validation": "evidence/tool-setup-0.10.0-validation-2026-10-07.json",
+      "publication": "evidence/tool-setup-0.10.0-publication-2026-10-07.json",
+      "public_downloads": "evidence/tool-setup-0.10.0-public-downloads-2026-10-07.json",
+      "inventory_as_of": "2026-10-07",
+      "inventory_source_commit": "5a390acd8440856e3f4e32de237322a18bb82d7e"
+    },
+    {
+      "version": "0.10.1",
+      "tag": "app-v0.10.1",
+      "release_id": 405862679,
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/app-v0.10.1",
+      "prerelease": true,
+      "draft": false,
+      "published_at": "2026-10-07T14:38:46Z",
+      "reviewed_on": "2026-10-07",
+      "packaged_source_commit": "00b53cdded5db3bb176ee7e5a06546b8a0c66fff",
+      "release_tag_commit": "28b1ff621f7fdafe6162a3d7ce1d7984962a290b",
+      "source_commit_distinction": "Exact starter/source/update bytes from source00b53cdd/run37634723095; tag/PR5 merge adds promotion/evidence/docs only. No rebuild during publication.",
+      "starter_pack_ids": [
+        "align",
+        "bam",
+        "variants"
+      ],
+      "updater_baselines": [
+        "0.10.0"
+      ],
+      "assets": [
+        {
+          "name": "BUILD-PROVENANCE.json",
+          "asset_id": 618962216,
+          "bytes": 1027,
+          "github_digest": "sha256:25c815aa4a67223364673dbf299437c487010b6408d1f83b19231c2c8dce49fb",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.10.1/BUILD-PROVENANCE.json",
+          "publisher_anonymous_download_verified_on": "2026-10-07",
+          "independently_downloaded_and_rehashed_on": "2026-10-07"
+        },
+        {
+          "name": "BUILD-UPDATE-PROVENANCE.json",
+          "asset_id": 618962218,
+          "bytes": 2227,
+          "github_digest": "sha256:9be1bfe0db6b616401bdf2aeac88804f46abfc1365f80ed9c16d23888b1ece19",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.10.1/BUILD-UPDATE-PROVENANCE.json",
+          "publisher_anonymous_download_verified_on": "2026-10-07",
+          "independently_downloaded_and_rehashed_on": "2026-10-07"
+        },
+        {
+          "name": "EVIDENCE-SHA256SUMS.txt",
+          "asset_id": 618962219,
+          "bytes": 528,
+          "github_digest": "sha256:b640d53ae01194258ccbb98562a65c0e4040a152ba8e945e539c1cb44d2017ae",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.10.1/EVIDENCE-SHA256SUMS.txt",
+          "publisher_anonymous_download_verified_on": "2026-10-07",
+          "independently_downloaded_and_rehashed_on": "2026-10-07"
+        },
+        {
+          "name": "native-workbench-0.10.1-source.zip",
+          "asset_id": 618962244,
+          "bytes": 46832829,
+          "github_digest": "sha256:4130c105e0ce0956c234718f93926d1f9b3f6bfd81048b8fc6e8823617c583ab",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.10.1/native-workbench-0.10.1-source.zip",
+          "publisher_anonymous_download_verified_on": "2026-10-07",
+          "independently_downloaded_and_rehashed_on": "2026-10-07"
+        },
+        {
+          "name": "native-workbench-0.10.1-starter-windows.zip",
+          "asset_id": 618962246,
+          "bytes": 17032722,
+          "github_digest": "sha256:a8c4d374104d62fdf46dbd405e9d5bc36f5e2ea191f573faa63cfb29b433ba79",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.10.1/native-workbench-0.10.1-starter-windows.zip",
+          "publisher_anonymous_download_verified_on": "2026-10-07",
+          "independently_downloaded_and_rehashed_on": "2026-10-07"
+        },
+        {
+          "name": "native-workbench-0.10.1-update-from-0.10.0.zip",
+          "asset_id": 618962247,
+          "bytes": 12858983,
+          "github_digest": "sha256:fbf1f20d93c1fe781608cba6d48c948979986c06cdb9a4ce5b825b088d2fc3fb",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.10.1/native-workbench-0.10.1-update-from-0.10.0.zip",
+          "publisher_anonymous_download_verified_on": "2026-10-07",
+          "independently_downloaded_and_rehashed_on": "2026-10-07"
+        },
+        {
+          "name": "RELEASE-VALIDATION.json",
+          "asset_id": 618962214,
+          "bytes": 7688,
+          "github_digest": "sha256:cf7daa91cc8f0468818315c601efc556c386af4bf39630482e865bcf44d3cee3",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.10.1/RELEASE-VALIDATION.json",
+          "publisher_anonymous_download_verified_on": "2026-10-07",
+          "independently_downloaded_and_rehashed_on": "2026-10-07"
+        },
+        {
+          "name": "SHA256SUMS.txt",
+          "asset_id": 618962217,
+          "bytes": 324,
+          "github_digest": "sha256:8c356b75c70e4afd406891a9b917c7762bcb41b71d718cc23ef0e962c22a492f",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.10.1/SHA256SUMS.txt",
+          "publisher_anonymous_download_verified_on": "2026-10-07",
+          "independently_downloaded_and_rehashed_on": "2026-10-07"
+        },
+        {
+          "name": "source-metadata.json",
+          "asset_id": 618962245,
+          "bytes": 1764,
+          "github_digest": "sha256:2f8bccae52f16ac5e5fc4b0dbd6a39059494c79abee77b45975c1c816ec5ea60",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.10.1/source-metadata.json",
+          "publisher_anonymous_download_verified_on": "2026-10-07",
+          "independently_downloaded_and_rehashed_on": "2026-10-07"
+        },
+        {
+          "name": "WINDOWS-EVIDENCE.zip",
+          "asset_id": 618962242,
+          "bytes": 15607954,
+          "github_digest": "sha256:4ede5a08c83e2bb91fef51d83316dae0ff7321dd29f8e884fa53030d9ca35c6d",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.10.1/WINDOWS-EVIDENCE.zip",
+          "publisher_anonymous_download_verified_on": "2026-10-07",
+          "independently_downloaded_and_rehashed_on": "2026-10-07"
+        }
+      ],
+      "validation": "evidence/tool-setup-0.10.1-native-evidence-audit.json",
+      "public_download_verification": "evidence/tool-setup-0.10.1-public-downloads-2026-10-07.json",
+      "publication": "evidence/tool-setup-0.10.1-publication-2026-10-07.json",
+      "known_limit": "The tester-PC download failure was not reproduced or diagnosed; use the new specific error and pack name after updating. Hosted header samples do not cover every display.",
+      "inventory_as_of": "2026-10-07",
+      "inventory_source_commit": "00b53cdded5db3bb176ee7e5a06546b8a0c66fff"
+    },
+    {
+      "version": "0.11.0",
+      "tag": "app-v0.11.0",
+      "release_id": 406281343,
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/app-v0.11.0",
+      "prerelease": true,
+      "draft": false,
+      "published_at": "2026-10-08T00:36:31Z",
+      "reviewed_on": "2026-10-08",
+      "packaged_source_commit": "acfa060c9a400d82509278b657ee37853c7922b0",
+      "release_tag_commit": "a97af2d02a3a6f4623ceec0f06f69fa10d04cbb6",
+      "source_commit_distinction": "Published 0.11.0 packaged application source. The tag/PR6 merge includes separate updater, validation and publication sources; accepted app/source archives were not rebuilt.",
+      "starter_pack_ids": [
+        "align",
+        "bam",
+        "variants"
+      ],
+      "updater_baselines": [
+        "0.10.1"
+      ],
+      "assets": [
+        {
+          "name": "BUILD-PROVENANCE.json",
+          "asset_id": 620233661,
+          "bytes": 1819,
+          "github_digest": "sha256:abd40db717e42956cd91dad94a93139678e5024f5247be329e709d2fbcd14b83",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.11.0/BUILD-PROVENANCE.json",
+          "publisher_anonymous_download_verified_on": "2026-10-08",
+          "independently_downloaded_and_rehashed_on": "2026-10-08"
+        },
+        {
+          "name": "BUILD-UPDATE-PROVENANCE.json",
+          "asset_id": 620233657,
+          "bytes": 2684,
+          "github_digest": "sha256:653ccf3a21b5d135a460073567c23f991e6ea756cc899973df52c0195853b51f",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.11.0/BUILD-UPDATE-PROVENANCE.json",
+          "publisher_anonymous_download_verified_on": "2026-10-08",
+          "independently_downloaded_and_rehashed_on": "2026-10-08"
+        },
+        {
+          "name": "EVIDENCE-SHA256SUMS.txt",
+          "asset_id": 620233659,
+          "bytes": 616,
+          "github_digest": "sha256:d7092dd681366005dcabe5df5f546d765e7c18351a0382143c226abbba71b37c",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.11.0/EVIDENCE-SHA256SUMS.txt",
+          "publisher_anonymous_download_verified_on": "2026-10-08",
+          "independently_downloaded_and_rehashed_on": "2026-10-08"
+        },
+        {
+          "name": "native-workbench-0.11.0-source.zip",
+          "asset_id": 620233682,
+          "bytes": 46875983,
+          "github_digest": "sha256:a45ad640f0767bb56458b59ce50d263537e54ebb401a0e809f31a5453adb2f2b",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.11.0/native-workbench-0.11.0-source.zip",
+          "publisher_anonymous_download_verified_on": "2026-10-08",
+          "independently_downloaded_and_rehashed_on": "2026-10-08"
+        },
+        {
+          "name": "native-workbench-0.11.0-starter-windows.zip",
+          "asset_id": 620233681,
+          "bytes": 17044022,
+          "github_digest": "sha256:e816e2f7cd5efe98af752fbf072fab00344ebaa2b6963795c2fbf4a86b5fa81c",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.11.0/native-workbench-0.11.0-starter-windows.zip",
+          "publisher_anonymous_download_verified_on": "2026-10-08",
+          "independently_downloaded_and_rehashed_on": "2026-10-08"
+        },
+        {
+          "name": "native-workbench-0.11.0-update-from-0.10.1.zip",
+          "asset_id": 620233683,
+          "bytes": 12857609,
+          "github_digest": "sha256:720d79aac5ddfd15dd3d06096950f3e56eff911981643eb6440ecb0f9911ecfe",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.11.0/native-workbench-0.11.0-update-from-0.10.1.zip",
+          "publisher_anonymous_download_verified_on": "2026-10-08",
+          "independently_downloaded_and_rehashed_on": "2026-10-08"
+        },
+        {
+          "name": "RELEASE-VALIDATION.json",
+          "asset_id": 620233660,
+          "bytes": 13987,
+          "github_digest": "sha256:e06849b18b3221e58bf1eff2705fa45eaa99ddf2b09ca0d22a388702ca607b94",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.11.0/RELEASE-VALIDATION.json",
+          "publisher_anonymous_download_verified_on": "2026-10-08",
+          "independently_downloaded_and_rehashed_on": "2026-10-08"
+        },
+        {
+          "name": "SHA256SUMS.txt",
+          "asset_id": 620233658,
+          "bytes": 211,
+          "github_digest": "sha256:c1104ff776ef5de2632ca13a8b2cf9ac69eba8906bc0cc53c33c94b5073b2a6e",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.11.0/SHA256SUMS.txt",
+          "publisher_anonymous_download_verified_on": "2026-10-08",
+          "independently_downloaded_and_rehashed_on": "2026-10-08"
+        },
+        {
+          "name": "source-metadata.json",
+          "asset_id": 620233691,
+          "bytes": 1764,
+          "github_digest": "sha256:2c09a01d1b8db7257e631d8e43f2130f454ca90ddca2c9352c421392606420fb",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.11.0/source-metadata.json",
+          "publisher_anonymous_download_verified_on": "2026-10-08",
+          "independently_downloaded_and_rehashed_on": "2026-10-08"
+        },
+        {
+          "name": "UPDATE-SHA256SUMS.txt",
+          "asset_id": 620233677,
+          "bytes": 113,
+          "github_digest": "sha256:e3db50d122f90a67a76b486d56e68138bb61296a522631cc22986ecce45636df",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.11.0/UPDATE-SHA256SUMS.txt",
+          "publisher_anonymous_download_verified_on": "2026-10-08",
+          "independently_downloaded_and_rehashed_on": "2026-10-08"
+        },
+        {
+          "name": "WINDOWS-EVIDENCE.zip",
+          "asset_id": 620233678,
+          "bytes": 10569000,
+          "github_digest": "sha256:77685c237366cc609d88570aa3419a7b2e7008cdb5d8811c68680f2fda59b250",
+          "download_url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.11.0/WINDOWS-EVIDENCE.zip",
+          "publisher_anonymous_download_verified_on": "2026-10-08",
+          "independently_downloaded_and_rehashed_on": "2026-10-08"
+        }
+      ],
+      "validation": "evidence/tool-library-0.11.0-release-summary.json",
+      "release_lock": "evidence/tool-library-0.11.0-release-lock.json",
+      "publication": "evidence/tool-library-0.11.0-publication-2026-10-08.json",
+      "public_download_verification": "evidence/tool-library-0.11.0-public-downloads-2026-10-08.json",
+      "known_limit": "Finite hosted 96-DPI evidence; physical trackpad/high-DPI/managed-PC approval not established. All32 downloads not repeated for UI-only change. User Heimdal bridge incident remains separate."
+    }
+  ],
+  "pack_inventory_as_of": "2026-10-04",
+  "pack_inventory_source_commit": "289c4176561fe6c8bbbfba1e225cd65fbafb126d",
+  "catalogue_publication": {
+    "published_at": "2026-10-07T11:58:34Z",
+    "run_id": 37617540915,
+    "source_commit": "9f82aa5d1d9a0a372fc0492b7dff448694af8813",
+    "catalogue_commit": "0048c4e3644aae7ed172d804fff0981982510e7b",
+    "source_key_fingerprint": "8d2093f9fafd71de56fea2038faeb2efa0964767d3235430b06428132cdc8505",
+    "catalogue_url": "https://raw.githubusercontent.com/comparativechrono/workbench/catalogue/catalogue.json",
+    "source_url": "https://raw.githubusercontent.com/comparativechrono/workbench/catalogue/source.json",
+    "evidence": "evidence/catalogue-production-2026-10-07.json",
+    "pack_count": 32,
+    "application_release_created": false
+  },
+  "accepted_application_candidate": {
+    "version": "0.16.0",
+    "source_commit": "e855dc4396e0c16ae35f4e840eb9cc734adb4441",
+    "run_id": 37952018931,
+    "candidate_run_conclusion": "success",
+    "final_native_run_id": 37952018931,
+    "updater_run_id": 37952583789,
+    "regression_run_id": 37952595124,
+    "status": "published-exact-accepted-archives-publisher-public-downloads-verified",
+    "released": true,
+    "release_authorized": true,
+    "authorization": {
+      "authorized": true,
+      "message": "Great lets do a new release at this point",
+      "date": "2026-10-09"
+    },
+    "tag": "app-v0.16.0",
+    "release_id": 408075619,
+    "release_url": "https://github.com/comparativechrono/workbench/releases/tag/app-v0.16.0",
+    "prerelease": true,
+    "draft": false,
+    "published_at": "2026-10-09T15:54:56Z",
+    "release_tag_commit": "60243d45a81a6ef7e16e4a0ee719f4aa2e4f74c9",
+    "merged_release_commit": "60243d45a81a6ef7e16e4a0ee719f4aa2e4f74c9",
+    "pull_request": "https://github.com/comparativechrono/workbench/pull/12",
+    "pull_request_state": "merged",
+    "validator_commit": "0e92d969e13fb7fe96b972bdb71b433f834dbbbe",
+    "updater_baseline": "0.11.0",
+    "updater_built": true,
+    "archives": {
+      "native-workbench-0.16.0-starter-windows.zip": {
+        "bytes": 17846873,
+        "sha256": "f96e03e43cac92ba8ca9a0a3807eb671f9924d5e624cadbba94d1a5ca1309073"
+      },
+      "native-workbench-0.16.0-source.zip": {
+        "bytes": 47848425,
+        "sha256": "f746f00a82675c2cf52364a3b4d040721c6d06ac5605488efbdc0376ef5b7e44"
+      },
+      "native-workbench-pack-align-0.4.1.zip": {
+        "bytes": 575862,
+        "sha256": "3a08cf061f0b62c5502d1420115db3fcae2b04bf695ad3cfd1c3063de0fafa02"
+      },
+      "native-workbench-0.16.0-update-from-0.11.0.zip": {
+        "bytes": 13199905,
+        "sha256": "d75d5129e9b9feaef70faa62d5ea91049c0162df8c7bdc74c7bc81d1933eec8f"
+      }
+    },
+    "publication_run_id": 37955110070,
+    "publication_workflow_conclusion": "success",
+    "publication": "evidence/curated-workflows-0.16.0-publication-2026-10-09.json",
+    "public_downloads": "evidence/curated-workflows-0.16.0-public-downloads-2026-10-09.json",
+    "public_assets_verified": 13,
+    "release_lock": "evidence/curated-workflows-0.16.0-release-lock.json",
+    "handover": "curated-workflows-0.16.0-release-handover.md",
+    "public_verification_scope": "Publisher freshly downloaded all 13 public assets anonymously and verified byte counts and SHA-256. This index does not claim a separate independent 13-asset download audit or new native execution during publication.",
+    "release_channel": "development-prerelease"
+  },
+  "accepted_application_candidate_history": [
+    {
+      "version": "0.11.0",
+      "source_commit": "acfa060c9a400d82509278b657ee37853c7922b0",
+      "run_id": 37678010251,
+      "candidate_run_conclusion": "failure; successful build/workspace reused, corrected category and final gates passed separately",
+      "final_native_run_id": 37685190036,
+      "updater_run_id": 37683536378,
+      "status": "published-exact-accepted-archives-public-downloads-verified",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/app-v0.11.0",
+      "release_tag_commit": "a97af2d02a3a6f4623ceec0f06f69fa10d04cbb6",
+      "released": true,
+      "updater_baseline": "0.10.1",
+      "publication": "evidence/tool-library-0.11.0-publication-2026-10-08.json",
+      "public_downloads": "evidence/tool-library-0.11.0-public-downloads-2026-10-08.json"
+    }
+  ],
+  "additional_application_pack_version_scope": "The unchanged 32 production catalogue IDs and 33 historically inventoried standalone pack versions keep their original dates and pins. Align 0.4.1 is recorded separately under the published 0.16.0 application release, with no new pack tag, catalogue repin or trust change."
+}

@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "packId": "vardict",
+  "packVersion": "0.5.3",
+  "manifestSha256": "f43b5dfa5a7ba9a8a476c956499f67576922d171c00eb63ce36cf25e28caf482",
+  "packBytes": 445707693,
+  "packEntries": 304,
+  "nativeWindowsExecuted": false,
+  "workflow": "vardict/call",
+  "scope": "Single-sample targeted SNVs and small indels with nonoverlapping BED4; upstream experimental Java Fisher mode and unchanged official Perl converter. Not somatic-status, arbitrary-ploidy or clinical validation.",
+  "validation": {
+    "testCommand": "python3 tests/test_vardict_pack.py -v",
+    "testsPassed": 8,
+    "testsFailed": 0,
+    "nativeParserChecksPassed": 176,
+    "nativeParserTools": 4,
+    "nativeParserWorkflows": 1,
+    "declaredInstallationChecks": 2,
+    "installationChecksReferencePassed": 2,
+    "installationChecksWindowsExecuted": false,
+    "fisherTables": 40,
+    "rReference": "R 4.3.3 stats::fisher.test",
+    "fisherAgreement": "All p-values and finite conditional odds ratios exactly agree at the official upstream five-decimal rounding; not a proof for all inputs.",
+    "fisherEvidence": "validation/vardict-0.5.3-fisher.json",
+    "pathEvidence": "Actual Linux argv and run folders with spaces pass; semicolon, pipe and non-ASCII paths rejected. Windows long-path and space-path runtime execution remains untested."
+  },
+  "expectedVariants": [
+    {
+      "chrom": "chr1",
+      "pos": 300,
+      "ref": "A",
+      "alt": "C",
+      "filter": "PASS"
+    },
+    {
+      "chrom": "chr1",
+      "pos": 600,
+      "ref": "A",
+      "alt": "AAGC",
+      "filter": "PASS"
+    },
+    {
+      "chrom": "chr1",
+      "pos": 900,
+      "ref": "TCTG",
+      "alt": "T",
+      "filter": "PASS"
+    }
+  ],
+  "privateRuntime": {
+    "java": "Complete unmodified official Temurin8u504-b01 Windows x64 JRE",
+    "perl": "Unmodified StrawberryPerl5.42.3.1 interpreter, five PE files and seven core modules; fixed private-module converter adapter",
+    "RRequiredAtRuntime": false,
+    "javaLibraries": "VarDict1.8.3;CommonsCLI1.2;CommonsMath3.6.1;JRegex1.2_01;HTSJDK2.21.1",
+    "perlConverterVersion": "1.8.2 from official VarDictJava1.8.3 release, unchanged"
+  },
+  "linuxReferenceExecutables": {
+    "java": {
+      "path": "build/vardict/linux-jre/jdk8u504-b01-jre/bin/java",
+      "sha256": "1a081a2c18367e5d966d716a6091d5fe2eec26b19e471980d0d8fd550174e21c"
+    },
+    "perl": {
+      "path": "build/vardict/perl-source/perl-5.42.3/perl",
+      "sha256": "d6de08d1b4c2b77d932f933de839e3a24d8843a816b99bbdc11b4950306ca8d2"
+    }
+  },
+  "independentStaticWindowsAudit": {
+    "PEFilesParsed": 111,
+    "unresolvedNonSystemImports": 0,
+    "officialJavaFilesByteIdentical": 175,
+    "officialPerlFilesByteIdentical": 12,
+    "sourceArchiveChecksumsVerified": true,
+    "limitation": "PE dependency and byte comparisons establish packaging evidence, not native Windows execution."
+  },
+  "notices": "Original runtime notices, source archives, JRegex/HTSJDK source notices and original Microsoft runtime license retained. Microsoft runtime DLLs explicitly identified as separate proprietary components; no GPL attribution or legal redistribution guarantee is asserted.",
+  "reproduction": "scripts/fetch_vardict_vendor.py verifies 14 pinned build assets; validation/vardict-0.5.3-reproduction.md describes assembly and Linux reference tests."
+}

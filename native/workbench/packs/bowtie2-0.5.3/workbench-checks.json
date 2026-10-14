@@ -1,0 +1,255 @@
+{
+  "schema": 1,
+  "checks": [
+    {
+      "id": "single-end",
+      "workflow": "single-end",
+      "params": {
+        "sample": "validation",
+        "read-group": "validation",
+        "library": "fixture",
+        "threads": 1
+      },
+      "inputs": {
+        "reads": [
+          {
+            "reads1": "check-single"
+          }
+        ],
+        "reference": [
+          {
+            "reference": "check-reference"
+          }
+        ]
+      },
+      "expect": [
+        {
+          "output": "sam",
+          "kind": "sam",
+          "records": 3,
+          "mapped": 2,
+          "paired": 0,
+          "properPairs": 0,
+          "spliced": 0,
+          "references": {
+            "chrTest": 900
+          },
+          "samples": [
+            "validation"
+          ],
+          "allReadGroups": true,
+          "alignments": [
+            {
+              "name": "single1",
+              "reference": "chrTest",
+              "position": 301,
+              "cigar": "75M",
+              "flag": 0,
+              "tags": {
+                "RG": "validation"
+              }
+            },
+            {
+              "name": "single2",
+              "reference": "chrTest",
+              "position": 651,
+              "cigar": "75M",
+              "flag": 16,
+              "tags": {
+                "RG": "validation"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "paired-end",
+      "workflow": "paired-end",
+      "params": {
+        "sample": "validation",
+        "read-group": "validation",
+        "library": "fixture",
+        "threads": 1
+      },
+      "inputs": {
+        "reads": [
+          {
+            "reads1": "check-read1",
+            "reads2": "check-read2"
+          }
+        ],
+        "reference": [
+          {
+            "reference": "check-reference"
+          }
+        ]
+      },
+      "expect": [
+        {
+          "output": "sam",
+          "kind": "sam",
+          "records": 4,
+          "mapped": 4,
+          "paired": 4,
+          "properPairs": 4,
+          "spliced": 0,
+          "references": {
+            "chrTest": 900
+          },
+          "samples": [
+            "validation"
+          ],
+          "allReadGroups": true,
+          "alignments": [
+            {
+              "name": "pair1",
+              "reference": "chrTest",
+              "position": 101,
+              "cigar": "75M",
+              "flag": 99,
+              "tags": {
+                "RG": "validation"
+              }
+            },
+            {
+              "name": "pair1",
+              "reference": "chrTest",
+              "position": 226,
+              "cigar": "75M",
+              "flag": 147,
+              "tags": {
+                "RG": "validation"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "single-end-large",
+      "workflow": "single-end-large",
+      "params": {
+        "sample": "validation",
+        "read-group": "validation",
+        "library": "fixture",
+        "threads": 1
+      },
+      "inputs": {
+        "reads": [
+          {
+            "reads1": "check-single"
+          }
+        ],
+        "reference": [
+          {
+            "reference": "check-reference"
+          }
+        ]
+      },
+      "expect": [
+        {
+          "output": "sam",
+          "kind": "sam",
+          "records": 3,
+          "mapped": 2,
+          "paired": 0,
+          "properPairs": 0,
+          "spliced": 0,
+          "references": {
+            "chrTest": 900
+          },
+          "samples": [
+            "validation"
+          ],
+          "allReadGroups": true,
+          "alignments": [
+            {
+              "name": "single1",
+              "reference": "chrTest",
+              "position": 301,
+              "cigar": "75M",
+              "flag": 0,
+              "tags": {
+                "RG": "validation"
+              }
+            },
+            {
+              "name": "single2",
+              "reference": "chrTest",
+              "position": 651,
+              "cigar": "75M",
+              "flag": 16,
+              "tags": {
+                "RG": "validation"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "paired-end-large",
+      "workflow": "paired-end-large",
+      "params": {
+        "sample": "validation",
+        "read-group": "validation",
+        "library": "fixture",
+        "threads": 1
+      },
+      "inputs": {
+        "reads": [
+          {
+            "reads1": "check-read1",
+            "reads2": "check-read2"
+          }
+        ],
+        "reference": [
+          {
+            "reference": "check-reference"
+          }
+        ]
+      },
+      "expect": [
+        {
+          "output": "sam",
+          "kind": "sam",
+          "records": 4,
+          "mapped": 4,
+          "paired": 4,
+          "properPairs": 4,
+          "spliced": 0,
+          "references": {
+            "chrTest": 900
+          },
+          "samples": [
+            "validation"
+          ],
+          "allReadGroups": true,
+          "alignments": [
+            {
+              "name": "pair1",
+              "reference": "chrTest",
+              "position": 101,
+              "cigar": "75M",
+              "flag": 99,
+              "tags": {
+                "RG": "validation"
+              }
+            },
+            {
+              "name": "pair1",
+              "reference": "chrTest",
+              "position": 226,
+              "cigar": "75M",
+              "flag": 147,
+              "tags": {
+                "RG": "validation"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

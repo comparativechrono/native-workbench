@@ -1,0 +1,14 @@
+b651509e69b5c0667cebb8e9f555bf18443e48e9decf84a3467e41fb091d74cb  vsearch-2.32.0-linux-aarch64-static.tar.gz
+43296e39f29aa7fcd5e3aadcc1a3f0dee910840d8d0d84cf07a78c61b4a75a11  vsearch-2.32.0-linux-aarch64.tar.gz
+188a24716a83b00c8158ba40aed6c210197e8200bb63da10cc8994832b04d9b5  vsearch-2.32.0-linux-mips64el-static.tar.gz
+b745f8964b0619a7665005e1f497c5915db6adba70a6c6862ce855abfc1eed41  vsearch-2.32.0-linux-mips64el.tar.gz
+ead37e627e73270db56fb2afae5c68176ba5bd177b0fb3dd169533fc7a983421  vsearch-2.32.0-linux-ppc64le-static.tar.gz
+c2e0be3be59961e404b4f3f7d064baec6d02e5d6c7ef29b8ad032393c38bac4a  vsearch-2.32.0-linux-ppc64le.tar.gz
+bae451108458909764b611a43a866cc45b4d8e26fa051444d07049ab067fd46d  vsearch-2.32.0-linux-riscv64-static.tar.gz
+0594d7bc3b069b42088f959312ec9df9016baf32439841470f70b7a70926be8d  vsearch-2.32.0-linux-riscv64.tar.gz
+68405c1ed7c20ca0dffa7379f36c0af0ca6bad8bdc23f66c5494f4bc2fb690a5  vsearch-2.32.0-linux-x86_64-ubi7.tar.gz
+c9d7ad4e10e942286ad84004a913e0f2f82957f6156c97a7d6d2389750dd6e41  vsearch-2.32.0-linux-x86_64.tar.gz
+5fb81f3921b50078a4a0304c81e6967cf88739f509a383443494b856f4574c8b  vsearch-2.32.0-macos-aarch64.tar.gz
+a55e5c2a9a66e8dbc58543a2afe161631e0424b6a6c323eda2f87269c565aed3  vsearch-2.32.0-macos-universal.tar.gz
+ae20fb603b327b32de73c0379b8cff97c65123232a007e80b0cbe292e22fd18e  vsearch-2.32.0-macos-x86_64.tar.gz
+35617af21c52b4b79cdf961e9185581b5cf50b67065f6273bdca958ddf63236e  vsearch-2.32.0-win-x86_64.zip

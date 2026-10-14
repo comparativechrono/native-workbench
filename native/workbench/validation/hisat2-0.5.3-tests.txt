@@ -1,0 +1,15 @@
+test_dependent_bounds_reject_during_review (test_hisat2_pack.Hisat2PackTests.test_dependent_bounds_reject_during_review) ... ok
+test_four_scientific_alignment_specs (test_hisat2_pack.Hisat2PackTests.test_four_scientific_alignment_specs) ... ok
+test_generic_pack_selfcheck_engine (test_hisat2_pack.Hisat2PackTests.test_generic_pack_selfcheck_engine) ... ok
+test_mismatched_mates_fail_before_indexing (test_hisat2_pack.Hisat2PackTests.test_mismatched_mates_fail_before_indexing) ... ok
+test_no_splice_dna_rejects_junction_and_bad_intron_bounds (test_hisat2_pack.Hisat2PackTests.test_no_splice_dna_rejects_junction_and_bad_intron_bounds) ... ok
+test_paths_compression_hashes_and_inventory (test_hisat2_pack.Hisat2PackTests.test_paths_compression_hashes_and_inventory) ... ok
+test_rna_cannot_feed_dna_preparation (test_hisat2_pack.Hisat2PackTests.test_rna_cannot_feed_dna_preparation) ... ok
+test_rna_coordinate_bam_and_csi (test_hisat2_pack.Hisat2PackTests.test_rna_coordinate_bam_and_csi) ... ok
+test_strandedness_options_assign_transcript_strand (test_hisat2_pack.Hisat2PackTests.test_strandedness_options_assign_transcript_strand) ... ok
+test_unstranded_matches_unmodified_upstream (test_hisat2_pack.Hisat2PackTests.test_unstranded_matches_unmodified_upstream) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 1.500s
+
+OK

@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "checks": [
+    {
+      "id": "merge-overlap",
+      "workflow": "merge-pairs",
+      "params": {},
+      "inputs": {
+        "reads": [
+          {
+            "reads1": "fixture-merge-r1",
+            "reads2": "fixture-merge-r2"
+          }
+        ]
+      },
+      "expect": [
+        {
+          "output": "merged",
+          "kind": "fastq",
+          "records": 1,
+          "sequences": {
+            "amplicon/1": "ACGGAAATTGTCATACCGGGGAGACCCGCATAGGACAGGGCGCACATATACGCGTACTACTAAACGTTCAGGCTGAAGAGTCCGACAACTTCGGAAGCCATCGGTGATGGTATCTCTTGGACACGTCGCTAATTGCGTGAGGCAATTACGCAACCGATAGAAAGAAAATGCCACAGATGGTCACAACACGCGTATTCACG"
+          }
+        },
+        {
+          "output": "unmerged",
+          "field": "unmerged1",
+          "kind": "fastq",
+          "records": 0
+        },
+        {
+          "output": "unmerged",
+          "field": "unmerged2",
+          "kind": "fastq",
+          "records": 0
+        }
+      ]
+    },
+    {
+      "id": "dereplication-counts",
+      "workflow": "dereplicate",
+      "params": {},
+      "inputs": {
+        "sequences": [
+          {
+            "sequences": "fixture-derep-fasta"
+          }
+        ]
+      },
+      "expect": [
+        {
+          "output": "unique",
+          "kind": "fasta",
+          "records": 2,
+          "sequences": {
+            "Uniq1;size=2": "ACGGAAATTGTCATACCGGGGAGACCCGCATAGGACAGGGCGCACATATACGCGTACTACTAAACGTTCAGGCTGAAGAGTCCGACAACTTCGGAAGCCATCGGTGATGGTATCTCTTGGACACGTCGCTAATTGCGTGAGGCAATTACGCAACCGATAGAAAGAAAATGCCACAGATGGTCACAACACGCGTATTCACG",
+            "Uniq2;size=1": "TCACACATACTGGTTCATGGCAAGTACTCTAGGTAATCACTAGCGGCAATTCGATGGCGTGCGGGCCCTTCGTGGTGTGAGCGAACCGAACTCAAACGAAGGAACAAGGGTCACAATCGGGCTTGGCTACTTTCCTGGGTCGTAGGAGATGCAAGTCGCAGAACTCTTCATTATAATAGGCTCGAGTTTATGTTGGATGC"
+          }
+        }
+      ]
+    },
+    {
+      "id": "weighted-cluster-counts",
+      "workflow": "cluster-abundance",
+      "params": {
+        "identity": "1.0"
+      },
+      "inputs": {
+        "sequences": [
+          {
+            "sequences": "fixture-weighted-fasta"
+          }
+        ]
+      },
+      "expect": [
+        {
+          "output": "centroids",
+          "kind": "fasta",
+          "records": 2,
+          "sequences": {
+            "OTU1;size=10": "ACGGAAATTGTCATACCGGGGAGACCCGCATAGGACAGGGCGCACATATACGCGTACTACTAAACGTTCAGGCTGAAGAGTCCGACAACTTCGGAAGCCATCGGTGATGGTATCTCTTGGACACGTCGCTAATTGCGTGAGGCAATTACGCAACCGATAGAAAGAAAATGCCACAGATGGTCACAACACGCGTATTCACG",
+            "OTU2;size=2": "TCACACATACTGGTTCATGGCAAGTACTCTAGGTAATCACTAGCGGCAATTCGATGGCGTGCGGGCCCTTCGTGGTGTGAGCGAACCGAACTCAAACGAAGGAACAAGGGTCACAATCGGGCTTGGCTACTTTCCTGGGTCGTAGGAGATGCAAGTCGCAGAACTCTTCATTATAATAGGCTCGAGTTTATGTTGGATGC"
+          }
+        }
+      ]
+    }
+  ]
+}

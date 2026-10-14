@@ -1,0 +1,1896 @@
+{
+  "schema": 1,
+  "iqtreeVersion": "3.1.4",
+  "iqtreeCommit": "63c330d90dd02241dbbbaf1e9f9e9cc6dadbd1de",
+  "pythonVersion": "3.13.16",
+  "inputs": [
+    {
+      "filename": "windows.zip",
+      "url": "https://github.com/iqtree/iqtree3/releases/download/v3.1.4/iqtree-3.1.4-Windows.zip",
+      "sha256": "bbb59db7157ddb1c0c52af8eef111af2b0396d4bed0268a1735fabfbf902e722",
+      "bytes": 10723251
+    },
+    {
+      "filename": "linux.tar.gz",
+      "url": "https://github.com/iqtree/iqtree3/releases/download/v3.1.4/iqtree-3.1.4-Linux.tar.gz",
+      "sha256": "eb47d5e28c992d9b7abf61f94dcecde7897c6f36f8ddca1282bdc09f0e1d2457",
+      "bytes": 12919344
+    },
+    {
+      "filename": "source.tar.gz",
+      "url": "https://codeload.github.com/iqtree/iqtree3/tar.gz/refs/tags/v3.1.4",
+      "sha256": "8bcba50d25263fb7e5d52d308f7d2a35545dd53f96e04cf44e6a0515be0f823b",
+      "bytes": 28928937
+    },
+    {
+      "filename": "lsd2.tar.gz",
+      "url": "https://codeload.github.com/tothuhien/lsd2/tar.gz/c61110f3a4fa05325b45c97b2134792ff9d55d4c",
+      "sha256": "9bbeaa0f8f35783c1d8dec74df6c93a804dbca808fa04484f9123de4e7258b53",
+      "bytes": 1529381
+    },
+    {
+      "filename": "cmaple.tar.gz",
+      "url": "https://codeload.github.com/trongnhanuit/cmaple/tar.gz/3d45b1ab68e2d68a2825bf17a531e22200578cd6",
+      "sha256": "b8b4d6da2b8571f5a469d1d7154e15135893dc3b5b74876b1131bfdb031a29a9",
+      "bytes": 5689506
+    },
+    {
+      "filename": "python.zip",
+      "url": "https://www.python.org/ftp/python/3.13.16/python-3.13.16-embed-amd64.zip",
+      "sha256": "97dae5274cc54867065e8d5a3226e48c35017ed332a0fdb0e27d5b5821961297",
+      "bytes": 11439094
+    },
+    {
+      "filename": "python-source.tar.xz",
+      "url": "https://www.python.org/ftp/python/3.13.16/Python-3.13.16.tar.xz",
+      "sha256": "f4b1bfb3c79b5bb11b8d228a12504163b4c0dab4d679828d8f5f26b6cb6ab35d",
+      "bytes": 23225704
+    },
+    {
+      "filename": "Intel-OpenMP-LICENSE.txt",
+      "url": "https://raw.githubusercontent.com/llvm-mirror/openmp/release_35/LICENSE.txt",
+      "sha256": "5cc465536e25c34f0970b52b93984d3539b0db5e3e6b6e8f8ef3545f712efac8",
+      "bytes": 6437
+    },
+    {
+      "filename": "muscle-linux-x86.v5.3",
+      "url": "https://github.com/rcedgar/muscle/releases/download/v5.3/muscle-linux-x86.v5.3",
+      "sha256": "318abeb951d786a3e2532714cc81ad3b3d8f79a2b517dc31316eeb5b694db2bc",
+      "bytes": 3587040,
+      "purpose": "Linux scientific integration-test dependency only; not installed in IQ-TREE pack"
+    },
+    {
+      "filename": "boost_1_84_0.tar.bz2",
+      "url": "https://archives.boost.io/release/1.84.0/source/boost_1_84_0.tar.bz2",
+      "bytes": 123110547,
+      "sha256": "cc4b893acf645c9d4b698e9a0f08ca8846aa5d6c68275c14c3e7949c24109454",
+      "retainAs": "licenses/dependencies/boost_1_84_0.tar.bz2"
+    },
+    {
+      "filename": "phylo_grad.tar.gz",
+      "url": "https://codeload.github.com/soedinglab/phylo_grad/tar.gz/939dedb07605411bd6b2dbb4d3d733f842a15ff5",
+      "bytes": 1402390,
+      "sha256": "21554924eb4ea541d1111c9b892399f1ea16531e431e42e31eb65646028a401e",
+      "retainAs": "licenses/dependencies/phylo_grad.tar.gz"
+    },
+    {
+      "filename": "rust-crates/accurate-0.3.1.crate",
+      "url": "https://static.crates.io/crates/accurate/accurate-0.3.1.crate",
+      "bytes": 27353,
+      "sha256": "4f209f0bc218ee6cf50db56ec0d9fe10b3cbfb6f3900d019b36c8fdb6d3bc03e",
+      "retainAs": "licenses/dependencies/rust-crates/accurate-0.3.1.crate"
+    },
+    {
+      "filename": "rust-crates/adler2-2.0.1.crate",
+      "url": "https://static.crates.io/crates/adler2/adler2-2.0.1.crate",
+      "bytes": 13366,
+      "sha256": "320119579fcad9c21884f5c4861d16174d0e06250625266f50fe6898340abefa",
+      "retainAs": "licenses/dependencies/rust-crates/adler2-2.0.1.crate"
+    },
+    {
+      "filename": "rust-crates/aho-corasick-1.1.4.crate",
+      "url": "https://static.crates.io/crates/aho-corasick/aho-corasick-1.1.4.crate",
+      "bytes": 184015,
+      "sha256": "ddd31a130427c27518df266943a5308ed92d4b226cc639f5a8f1002816174301",
+      "retainAs": "licenses/dependencies/rust-crates/aho-corasick-1.1.4.crate"
+    },
+    {
+      "filename": "rust-crates/allocator-api2-0.2.21.crate",
+      "url": "https://static.crates.io/crates/allocator-api2/allocator-api2-0.2.21.crate",
+      "bytes": 63622,
+      "sha256": "683d7910e743518b0e34f1186f92494becacb047c7b6bf616c96772180fef923",
+      "retainAs": "licenses/dependencies/rust-crates/allocator-api2-0.2.21.crate"
+    },
+    {
+      "filename": "rust-crates/ansi_term-0.12.1.crate",
+      "url": "https://static.crates.io/crates/ansi_term/ansi_term-0.12.1.crate",
+      "bytes": 24838,
+      "sha256": "d52a9bb7ec0cf484c551830a7ce27bd20d67eac647e1befb56b0be4ee39a55d2",
+      "retainAs": "licenses/dependencies/rust-crates/ansi_term-0.12.1.crate"
+    },
+    {
+      "filename": "rust-crates/anstream-0.6.21.crate",
+      "url": "https://static.crates.io/crates/anstream/anstream-0.6.21.crate",
+      "bytes": 29516,
+      "sha256": "43d5b281e737544384e969a5ccad3f1cdd24b48086a0fc1b2a5262a26b8f4f4a",
+      "retainAs": "licenses/dependencies/rust-crates/anstream-0.6.21.crate"
+    },
+    {
+      "filename": "rust-crates/anstyle-1.0.13.crate",
+      "url": "https://static.crates.io/crates/anstyle/anstyle-1.0.13.crate",
+      "bytes": 17651,
+      "sha256": "5192cca8006f1fd4f7237516f40fa183bb07f8fbdfedaa0036de5ea9b0b45e78",
+      "retainAs": "licenses/dependencies/rust-crates/anstyle-1.0.13.crate"
+    },
+    {
+      "filename": "rust-crates/anstyle-parse-0.2.7.crate",
+      "url": "https://static.crates.io/crates/anstyle-parse/anstyle-parse-0.2.7.crate",
+      "bytes": 21707,
+      "sha256": "4e7644824f0aa2c7b9384579234ef10eb7efb6a0deb83f9630a49594dd9c15c2",
+      "retainAs": "licenses/dependencies/rust-crates/anstyle-parse-0.2.7.crate"
+    },
+    {
+      "filename": "rust-crates/anstyle-query-1.1.5.crate",
+      "url": "https://static.crates.io/crates/anstyle-query/anstyle-query-1.1.5.crate",
+      "bytes": 10264,
+      "sha256": "40c48f72fd53cd289104fc64099abca73db4166ad86ea0b4341abe65af83dadc",
+      "retainAs": "licenses/dependencies/rust-crates/anstyle-query-1.1.5.crate"
+    },
+    {
+      "filename": "rust-crates/anstyle-wincon-3.0.11.crate",
+      "url": "https://static.crates.io/crates/anstyle-wincon/anstyle-wincon-3.0.11.crate",
+      "bytes": 12638,
+      "sha256": "291e6a250ff86cd4a820112fb8898808a366d8f9f58ce16d1f538353ad55747d",
+      "retainAs": "licenses/dependencies/rust-crates/anstyle-wincon-3.0.11.crate"
+    },
+    {
+      "filename": "rust-crates/anyhow-1.0.102.crate",
+      "url": "https://static.crates.io/crates/anyhow/anyhow-1.0.102.crate",
+      "bytes": 48658,
+      "sha256": "7f202df86484c868dbad7eaa557ef785d5c66295e41b460ef922eca0723b842c",
+      "retainAs": "licenses/dependencies/rust-crates/anyhow-1.0.102.crate"
+    },
+    {
+      "filename": "rust-crates/approx-0.5.1.crate",
+      "url": "https://static.crates.io/crates/approx/approx-0.5.1.crate",
+      "bytes": 15100,
+      "sha256": "cab112f0a86d568ea0e627cc1d6be74a1e9cd55214684db5561995f6dad897c6",
+      "retainAs": "licenses/dependencies/rust-crates/approx-0.5.1.crate"
+    },
+    {
+      "filename": "rust-crates/arrayvec-0.5.2.crate",
+      "url": "https://static.crates.io/crates/arrayvec/arrayvec-0.5.2.crate",
+      "bytes": 27838,
+      "sha256": "23b62fc65de8e4e7f52534fb52b0f3ed04746ae267519eef2a83941e8085068b",
+      "retainAs": "licenses/dependencies/rust-crates/arrayvec-0.5.2.crate"
+    },
+    {
+      "filename": "rust-crates/atty-0.2.14.crate",
+      "url": "https://static.crates.io/crates/atty/atty-0.2.14.crate",
+      "bytes": 5470,
+      "sha256": "d9b39be18770d11421cdb1b9947a45dd3f37e93092cbf377614828a319d5fee8",
+      "retainAs": "licenses/dependencies/rust-crates/atty-0.2.14.crate"
+    },
+    {
+      "filename": "rust-crates/autocfg-1.5.0.crate",
+      "url": "https://static.crates.io/crates/autocfg/autocfg-1.5.0.crate",
+      "bytes": 18729,
+      "sha256": "c08606f8c3cbf4ce6ec8e28fb0014a2c086708fe954eaa885384a6165172e7e8",
+      "retainAs": "licenses/dependencies/rust-crates/autocfg-1.5.0.crate"
+    },
+    {
+      "filename": "rust-crates/bitflags-1.3.2.crate",
+      "url": "https://static.crates.io/crates/bitflags/bitflags-1.3.2.crate",
+      "bytes": 23021,
+      "sha256": "bef38d45163c2f1dde094a7dfd33ccf595c92905c8f8f4fdc18d06fb1037718a",
+      "retainAs": "licenses/dependencies/rust-crates/bitflags-1.3.2.crate"
+    },
+    {
+      "filename": "rust-crates/bitflags-2.11.0.crate",
+      "url": "https://static.crates.io/crates/bitflags/bitflags-2.11.0.crate",
+      "bytes": 48906,
+      "sha256": "843867be96c8daad0d758b57df9392b6d8d271134fce549de6ce169ff98a92af",
+      "retainAs": "licenses/dependencies/rust-crates/bitflags-2.11.0.crate"
+    },
+    {
+      "filename": "rust-crates/buffer-redux-1.0.2.crate",
+      "url": "https://static.crates.io/crates/buffer-redux/buffer-redux-1.0.2.crate",
+      "bytes": 26604,
+      "sha256": "4e8acf87c5b9f5897cd3ebb9a327f420e0cae9dd4e5c1d2e36f2c84c571a58f1",
+      "retainAs": "licenses/dependencies/rust-crates/buffer-redux-1.0.2.crate"
+    },
+    {
+      "filename": "rust-crates/bumpalo-3.20.2.crate",
+      "url": "https://static.crates.io/crates/bumpalo/bumpalo-3.20.2.crate",
+      "bytes": 97696,
+      "sha256": "5d20789868f4b01b2f2caec9f5c4e0213b41e3e5702a50157d699ae31ced2fcb",
+      "retainAs": "licenses/dependencies/rust-crates/bumpalo-3.20.2.crate"
+    },
+    {
+      "filename": "rust-crates/bytecount-0.6.9.crate",
+      "url": "https://static.crates.io/crates/bytecount/bytecount-0.6.9.crate",
+      "bytes": 18695,
+      "sha256": "175812e0be2bccb6abe50bb8d566126198344f707e304f45c648fd8f2cc0365e",
+      "retainAs": "licenses/dependencies/rust-crates/bytecount-0.6.9.crate"
+    },
+    {
+      "filename": "rust-crates/bytemuck-1.25.0.crate",
+      "url": "https://static.crates.io/crates/bytemuck/bytemuck-1.25.0.crate",
+      "bytes": 53466,
+      "sha256": "c8efb64bd706a16a1bdde310ae86b351e4d21550d98d056f22f8a7f7a2183fec",
+      "retainAs": "licenses/dependencies/rust-crates/bytemuck-1.25.0.crate"
+    },
+    {
+      "filename": "rust-crates/bytemuck_derive-1.10.2.crate",
+      "url": "https://static.crates.io/crates/bytemuck_derive/bytemuck_derive-1.10.2.crate",
+      "bytes": 25678,
+      "sha256": "f9abbd1bc6865053c427f7198e6af43bfdedc55ab791faed4fbd361d789575ff",
+      "retainAs": "licenses/dependencies/rust-crates/bytemuck_derive-1.10.2.crate"
+    },
+    {
+      "filename": "rust-crates/byteorder-1.5.0.crate",
+      "url": "https://static.crates.io/crates/byteorder/byteorder-1.5.0.crate",
+      "bytes": 23288,
+      "sha256": "1fd0f2584146f6f2ef48085050886acf353beff7305ebd1ae69500e27c67f64b",
+      "retainAs": "licenses/dependencies/rust-crates/byteorder-1.5.0.crate"
+    },
+    {
+      "filename": "rust-crates/bzip2-0.4.4.crate",
+      "url": "https://static.crates.io/crates/bzip2/bzip2-0.4.4.crate",
+      "bytes": 34197,
+      "sha256": "bdb116a6ef3f6c3698828873ad02c3014b3c85cadb88496095628e3ef1e347f8",
+      "retainAs": "licenses/dependencies/rust-crates/bzip2-0.4.4.crate"
+    },
+    {
+      "filename": "rust-crates/bzip2-sys-0.1.13+1.0.8.crate",
+      "url": "https://static.crates.io/crates/bzip2-sys/bzip2-sys-0.1.13+1.0.8.crate",
+      "bytes": 633818,
+      "sha256": "225bff33b2141874fe80d71e07d6eec4f85c5c216453dd96388240f96e1acc14",
+      "retainAs": "licenses/dependencies/rust-crates/bzip2-sys-0.1.13+1.0.8.crate"
+    },
+    {
+      "filename": "rust-crates/candle-core-0.9.2.crate",
+      "url": "https://static.crates.io/crates/candle-core/candle-core-0.9.2.crate",
+      "bytes": 266516,
+      "sha256": "c15b675b80d994b2eadb20a4bbe434eabeb454eac3ee5e2b4cf6f147ee9be091",
+      "retainAs": "licenses/dependencies/rust-crates/candle-core-0.9.2.crate"
+    },
+    {
+      "filename": "rust-crates/candle-nn-0.9.2.crate",
+      "url": "https://static.crates.io/crates/candle-nn/candle-nn-0.9.2.crate",
+      "bytes": 81670,
+      "sha256": "3045fa9e7aef8567d209a27d56b692f60b96f4d0569f4c3011f8ca6715c65e03",
+      "retainAs": "licenses/dependencies/rust-crates/candle-nn-0.9.2.crate"
+    },
+    {
+      "filename": "rust-crates/cc-1.2.56.crate",
+      "url": "https://static.crates.io/crates/cc/cc-1.2.56.crate",
+      "bytes": 96059,
+      "sha256": "aebf35691d1bfb0ac386a69bac2fde4dd276fb618cf8bf4f5318fe285e821bb2",
+      "retainAs": "licenses/dependencies/rust-crates/cc-1.2.56.crate"
+    },
+    {
+      "filename": "rust-crates/cfg-if-1.0.4.crate",
+      "url": "https://static.crates.io/crates/cfg-if/cfg-if-1.0.4.crate",
+      "bytes": 9360,
+      "sha256": "9330f8b2ff13f34540b44e946ef35111825727b38d33286ef986142615121801",
+      "retainAs": "licenses/dependencies/rust-crates/cfg-if-1.0.4.crate"
+    },
+    {
+      "filename": "rust-crates/clap-4.5.60.crate",
+      "url": "https://static.crates.io/crates/clap/clap-4.5.60.crate",
+      "bytes": 62002,
+      "sha256": "2797f34da339ce31042b27d23607e051786132987f595b02ba4f6a6dffb7030a",
+      "retainAs": "licenses/dependencies/rust-crates/clap-4.5.60.crate"
+    },
+    {
+      "filename": "rust-crates/clap_builder-4.5.60.crate",
+      "url": "https://static.crates.io/crates/clap_builder/clap_builder-4.5.60.crate",
+      "bytes": 171105,
+      "sha256": "24a241312cea5059b13574bb9b3861cabf758b879c15190b37b6d6fd63ab6876",
+      "retainAs": "licenses/dependencies/rust-crates/clap_builder-4.5.60.crate"
+    },
+    {
+      "filename": "rust-crates/clap_complete-4.5.66.crate",
+      "url": "https://static.crates.io/crates/clap_complete/clap_complete-4.5.66.crate",
+      "bytes": 49425,
+      "sha256": "c757a3b7e39161a4e56f9365141ada2a6c915a8622c408ab6bb4b5d047371031",
+      "retainAs": "licenses/dependencies/rust-crates/clap_complete-4.5.66.crate"
+    },
+    {
+      "filename": "rust-crates/clap_derive-4.5.55.crate",
+      "url": "https://static.crates.io/crates/clap_derive/clap_derive-4.5.55.crate",
+      "bytes": 33502,
+      "sha256": "a92793da1a46a5f2a02a6f4c46c6496b28c43638adea8306fcb0caa1634f24e5",
+      "retainAs": "licenses/dependencies/rust-crates/clap_derive-4.5.55.crate"
+    },
+    {
+      "filename": "rust-crates/clap_lex-1.0.0.crate",
+      "url": "https://static.crates.io/crates/clap_lex/clap_lex-1.0.0.crate",
+      "bytes": 13466,
+      "sha256": "3a822ea5bc7590f9d40f1ba12c0dc3c2760f3482c6984db1573ad11031420831",
+      "retainAs": "licenses/dependencies/rust-crates/clap_lex-1.0.0.crate"
+    },
+    {
+      "filename": "rust-crates/colorchoice-1.0.4.crate",
+      "url": "https://static.crates.io/crates/colorchoice/colorchoice-1.0.4.crate",
+      "bytes": 8196,
+      "sha256": "b05b61dc5112cbb17e4b6cd61790d9845d13888356391624cbe7e41efeac1e75",
+      "retainAs": "licenses/dependencies/rust-crates/colorchoice-1.0.4.crate"
+    },
+    {
+      "filename": "rust-crates/config-0.11.0.crate",
+      "url": "https://static.crates.io/crates/config/config-0.11.0.crate",
+      "bytes": 32062,
+      "sha256": "1b1b9d958c2b1368a663f05538fc1b5975adce1e19f435acceae987aceeeb369",
+      "retainAs": "licenses/dependencies/rust-crates/config-0.11.0.crate"
+    },
+    {
+      "filename": "rust-crates/console-0.15.11.crate",
+      "url": "https://static.crates.io/crates/console/console-0.15.11.crate",
+      "bytes": 37822,
+      "sha256": "054ccb5b10f9f2cbf51eb355ca1d05c2d279ce1804688d0db74b4733a5aeafd8",
+      "retainAs": "licenses/dependencies/rust-crates/console-0.15.11.crate"
+    },
+    {
+      "filename": "rust-crates/crc32fast-1.5.0.crate",
+      "url": "https://static.crates.io/crates/crc32fast/crc32fast-1.5.0.crate",
+      "bytes": 40723,
+      "sha256": "9481c1c90cbf2ac953f07c8d4a58aa3945c425b7185c9154d67a65e4230da511",
+      "retainAs": "licenses/dependencies/rust-crates/crc32fast-1.5.0.crate"
+    },
+    {
+      "filename": "rust-crates/crossbeam-deque-0.8.6.crate",
+      "url": "https://static.crates.io/crates/crossbeam-deque/crossbeam-deque-0.8.6.crate",
+      "bytes": 22471,
+      "sha256": "9dd111b7b7f7d55b72c0a6ae361660ee5853c9af73f70c3c2ef6858b950e2e51",
+      "retainAs": "licenses/dependencies/rust-crates/crossbeam-deque-0.8.6.crate"
+    },
+    {
+      "filename": "rust-crates/crossbeam-epoch-0.9.18.crate",
+      "url": "https://static.crates.io/crates/crossbeam-epoch/crossbeam-epoch-0.9.18.crate",
+      "bytes": 46875,
+      "sha256": "5b82ac4a3c2ca9c3460964f020e1402edd5753411d7737aa39c3714ad1b5420e",
+      "retainAs": "licenses/dependencies/rust-crates/crossbeam-epoch-0.9.18.crate"
+    },
+    {
+      "filename": "rust-crates/crossbeam-utils-0.8.21.crate",
+      "url": "https://static.crates.io/crates/crossbeam-utils/crossbeam-utils-0.8.21.crate",
+      "bytes": 42691,
+      "sha256": "d0a5c400df2834b80a4c3327b3aad3a4c4cd4de0629063962b03235697506a28",
+      "retainAs": "licenses/dependencies/rust-crates/crossbeam-utils-0.8.21.crate"
+    },
+    {
+      "filename": "rust-crates/crunchy-0.2.4.crate",
+      "url": "https://static.crates.io/crates/crunchy/crunchy-0.2.4.crate",
+      "bytes": 3887,
+      "sha256": "460fbee9c2c2f33933d720630a6a0bac33ba7053db5344fac858d4b8952d77d5",
+      "retainAs": "licenses/dependencies/rust-crates/crunchy-0.2.4.crate"
+    },
+    {
+      "filename": "rust-crates/directories-4.0.1.crate",
+      "url": "https://static.crates.io/crates/directories/directories-4.0.1.crate",
+      "bytes": 16040,
+      "sha256": "f51c5d4ddabd36886dd3e1438cb358cdcb0d7c499cb99cb4ac2e38e18b5cb210",
+      "retainAs": "licenses/dependencies/rust-crates/directories-4.0.1.crate"
+    },
+    {
+      "filename": "rust-crates/dirs-sys-0.3.7.crate",
+      "url": "https://static.crates.io/crates/dirs-sys/dirs-sys-0.3.7.crate",
+      "bytes": 10597,
+      "sha256": "1b1d1d91c932ef41c0f2663aa8b0ca0342d444d842c06914aa0a7e352d0bada6",
+      "retainAs": "licenses/dependencies/rust-crates/dirs-sys-0.3.7.crate"
+    },
+    {
+      "filename": "rust-crates/dyn-stack-0.13.2.crate",
+      "url": "https://static.crates.io/crates/dyn-stack/dyn-stack-0.13.2.crate",
+      "bytes": 21524,
+      "sha256": "1c4713e43e2886ba72b8271aa66c93d722116acf7a75555cce11dcde84388fe8",
+      "retainAs": "licenses/dependencies/rust-crates/dyn-stack-0.13.2.crate"
+    },
+    {
+      "filename": "rust-crates/dyn-stack-macros-0.1.3.crate",
+      "url": "https://static.crates.io/crates/dyn-stack-macros/dyn-stack-macros-0.1.3.crate",
+      "bytes": 3048,
+      "sha256": "e1d926b4d407d372f141f93bb444696142c29d32962ccbd3531117cf3aa0bfa9",
+      "retainAs": "licenses/dependencies/rust-crates/dyn-stack-macros-0.1.3.crate"
+    },
+    {
+      "filename": "rust-crates/either-1.15.0.crate",
+      "url": "https://static.crates.io/crates/either/either-1.15.0.crate",
+      "bytes": 20114,
+      "sha256": "48c757948c5ede0e46177b7add2e67155f70e33c07fea8284df6576da70b3719",
+      "retainAs": "licenses/dependencies/rust-crates/either-1.15.0.crate"
+    },
+    {
+      "filename": "rust-crates/encode_unicode-1.0.0.crate",
+      "url": "https://static.crates.io/crates/encode_unicode/encode_unicode-1.0.0.crate",
+      "bytes": 56986,
+      "sha256": "34aa73646ffb006b8f5147f3dc182bd4bcb190227ce861fc4a4844bf8e3cb2c0",
+      "retainAs": "licenses/dependencies/rust-crates/encode_unicode-1.0.0.crate"
+    },
+    {
+      "filename": "rust-crates/enum-as-inner-0.6.1.crate",
+      "url": "https://static.crates.io/crates/enum-as-inner/enum-as-inner-0.6.1.crate",
+      "bytes": 12190,
+      "sha256": "a1e6a265c649f3f5979b601d26f1d05ada116434c87741c9493cb56218f76cbc",
+      "retainAs": "licenses/dependencies/rust-crates/enum-as-inner-0.6.1.crate"
+    },
+    {
+      "filename": "rust-crates/equator-0.2.2.crate",
+      "url": "https://static.crates.io/crates/equator/equator-0.2.2.crate",
+      "bytes": 4943,
+      "sha256": "c35da53b5a021d2484a7cc49b2ac7f2d840f8236a286f84202369bd338d761ea",
+      "retainAs": "licenses/dependencies/rust-crates/equator-0.2.2.crate"
+    },
+    {
+      "filename": "rust-crates/equator-0.4.2.crate",
+      "url": "https://static.crates.io/crates/equator/equator-0.4.2.crate",
+      "bytes": 11159,
+      "sha256": "4711b213838dfee0117e3be6ac926007d7f433d7bbe33595975d4190cb07e6fc",
+      "retainAs": "licenses/dependencies/rust-crates/equator-0.4.2.crate"
+    },
+    {
+      "filename": "rust-crates/equator-macro-0.2.1.crate",
+      "url": "https://static.crates.io/crates/equator-macro/equator-macro-0.2.1.crate",
+      "bytes": 4084,
+      "sha256": "3bf679796c0322556351f287a51b49e48f7c4986e727b5dd78c972d30e2e16cc",
+      "retainAs": "licenses/dependencies/rust-crates/equator-macro-0.2.1.crate"
+    },
+    {
+      "filename": "rust-crates/equator-macro-0.4.2.crate",
+      "url": "https://static.crates.io/crates/equator-macro/equator-macro-0.4.2.crate",
+      "bytes": 6407,
+      "sha256": "44f23cf4b44bfce11a86ace86f8a73ffdec849c9fd00a386a53d278bd9e81fb3",
+      "retainAs": "licenses/dependencies/rust-crates/equator-macro-0.4.2.crate"
+    },
+    {
+      "filename": "rust-crates/equivalent-1.0.2.crate",
+      "url": "https://static.crates.io/crates/equivalent/equivalent-1.0.2.crate",
+      "bytes": 7419,
+      "sha256": "877a4ace8713b0bcf2a4e7eec82529c029f1d0619886d18145fea96c3ffe5c0f",
+      "retainAs": "licenses/dependencies/rust-crates/equivalent-1.0.2.crate"
+    },
+    {
+      "filename": "rust-crates/faer-0.23.2.crate",
+      "url": "https://static.crates.io/crates/faer/faer-0.23.2.crate",
+      "bytes": 766141,
+      "sha256": "3cb922206162d9405f9fc059052b3f997bdc92745da7bfd620645f5092df20d1",
+      "retainAs": "licenses/dependencies/rust-crates/faer-0.23.2.crate"
+    },
+    {
+      "filename": "rust-crates/faer-macros-0.22.1.crate",
+      "url": "https://static.crates.io/crates/faer-macros/faer-macros-0.22.1.crate",
+      "bytes": 3860,
+      "sha256": "2cc4b8cd876795d3b19ddfd59b03faa303c0b8adb9af6e188e81fc647c485bb9",
+      "retainAs": "licenses/dependencies/rust-crates/faer-macros-0.22.1.crate"
+    },
+    {
+      "filename": "rust-crates/faer-traits-0.23.2.crate",
+      "url": "https://static.crates.io/crates/faer-traits/faer-traits-0.23.2.crate",
+      "bytes": 14600,
+      "sha256": "24b69235b5f54416286c485fb047f2f499fc935a4eee2caadf4757f3c94c7b62",
+      "retainAs": "licenses/dependencies/rust-crates/faer-traits-0.23.2.crate"
+    },
+    {
+      "filename": "rust-crates/find-msvc-tools-0.1.9.crate",
+      "url": "https://static.crates.io/crates/find-msvc-tools/find-msvc-tools-0.1.9.crate",
+      "bytes": 31493,
+      "sha256": "5baebc0774151f905a1a2cc41989300b1e6fbb29aff0ceffa1064fdd3088d582",
+      "retainAs": "licenses/dependencies/rust-crates/find-msvc-tools-0.1.9.crate"
+    },
+    {
+      "filename": "rust-crates/fixedbitset-0.4.2.crate",
+      "url": "https://static.crates.io/crates/fixedbitset/fixedbitset-0.4.2.crate",
+      "bytes": 15954,
+      "sha256": "0ce7134b9999ecaf8bcd65542e436736ef32ddca1b3e06094cb6ec5755203b80",
+      "retainAs": "licenses/dependencies/rust-crates/fixedbitset-0.4.2.crate"
+    },
+    {
+      "filename": "rust-crates/flate2-1.1.9.crate",
+      "url": "https://static.crates.io/crates/flate2/flate2-1.1.9.crate",
+      "bytes": 82745,
+      "sha256": "843fba2746e448b37e26a819579957415c8cef339bf08564fe8b7ddbd959573c",
+      "retainAs": "licenses/dependencies/rust-crates/flate2-1.1.9.crate"
+    },
+    {
+      "filename": "rust-crates/float8-0.6.1.crate",
+      "url": "https://static.crates.io/crates/float8/float8-0.6.1.crate",
+      "bytes": 23500,
+      "sha256": "719a903cc23e4a89e87962c2a80fdb45cdaad0983a89bd150bb57b4c8571a7d5",
+      "retainAs": "licenses/dependencies/rust-crates/float8-0.6.1.crate"
+    },
+    {
+      "filename": "rust-crates/foldhash-0.2.0.crate",
+      "url": "https://static.crates.io/crates/foldhash/foldhash-0.2.0.crate",
+      "bytes": 23329,
+      "sha256": "77ce24cb58228fbb8aa041425bb1050850ac19177686ea6e0f41a70416f56fdb",
+      "retainAs": "licenses/dependencies/rust-crates/foldhash-0.2.0.crate"
+    },
+    {
+      "filename": "rust-crates/gemm-0.18.2.crate",
+      "url": "https://static.crates.io/crates/gemm/gemm-0.18.2.crate",
+      "bytes": 20056,
+      "sha256": "ab96b703d31950f1aeddded248bc95543c9efc7ac9c4a21fda8703a83ee35451",
+      "retainAs": "licenses/dependencies/rust-crates/gemm-0.18.2.crate"
+    },
+    {
+      "filename": "rust-crates/gemm-0.19.0.crate",
+      "url": "https://static.crates.io/crates/gemm/gemm-0.19.0.crate",
+      "bytes": 20203,
+      "sha256": "aa0673db364b12263d103b68337a68fbecc541d6f6b61ba72fe438654709eacb",
+      "retainAs": "licenses/dependencies/rust-crates/gemm-0.19.0.crate"
+    },
+    {
+      "filename": "rust-crates/gemm-c32-0.18.2.crate",
+      "url": "https://static.crates.io/crates/gemm-c32/gemm-c32-0.18.2.crate",
+      "bytes": 7764,
+      "sha256": "f6db9fd9f40421d00eea9dd0770045a5603b8d684654816637732463f4073847",
+      "retainAs": "licenses/dependencies/rust-crates/gemm-c32-0.18.2.crate"
+    },
+    {
+      "filename": "rust-crates/gemm-c32-0.19.0.crate",
+      "url": "https://static.crates.io/crates/gemm-c32/gemm-c32-0.19.0.crate",
+      "bytes": 7461,
+      "sha256": "086936dbdcb99e37aad81d320f98f670e53c1e55a98bee70573e83f95beb128c",
+      "retainAs": "licenses/dependencies/rust-crates/gemm-c32-0.19.0.crate"
+    },
+    {
+      "filename": "rust-crates/gemm-c64-0.18.2.crate",
+      "url": "https://static.crates.io/crates/gemm-c64/gemm-c64-0.18.2.crate",
+      "bytes": 7653,
+      "sha256": "dfcad8a3d35a43758330b635d02edad980c1e143dc2f21e6fd25f9e4eada8edf",
+      "retainAs": "licenses/dependencies/rust-crates/gemm-c64-0.18.2.crate"
+    },
+    {
+      "filename": "rust-crates/gemm-c64-0.19.0.crate",
+      "url": "https://static.crates.io/crates/gemm-c64/gemm-c64-0.19.0.crate",
+      "bytes": 7358,
+      "sha256": "20c8aeeeec425959bda4d9827664029ba1501a90a0d1e6228e48bef741db3a3f",
+      "retainAs": "licenses/dependencies/rust-crates/gemm-c64-0.19.0.crate"
+    },
+    {
+      "filename": "rust-crates/gemm-common-0.18.2.crate",
+      "url": "https://static.crates.io/crates/gemm-common/gemm-common-0.18.2.crate",
+      "bytes": 31507,
+      "sha256": "a352d4a69cbe938b9e2a9cb7a3a63b7e72f9349174a2752a558a8a563510d0f3",
+      "retainAs": "licenses/dependencies/rust-crates/gemm-common-0.18.2.crate"
+    },
+    {
+      "filename": "rust-crates/gemm-common-0.19.0.crate",
+      "url": "https://static.crates.io/crates/gemm-common/gemm-common-0.19.0.crate",
+      "bytes": 31225,
+      "sha256": "88027625910cc9b1085aaaa1c4bc46bb3a36aad323452b33c25b5e4e7c8e2a3e",
+      "retainAs": "licenses/dependencies/rust-crates/gemm-common-0.19.0.crate"
+    },
+    {
+      "filename": "rust-crates/gemm-f16-0.19.0.crate",
+      "url": "https://static.crates.io/crates/gemm-f16/gemm-f16-0.19.0.crate",
+      "bytes": 11181,
+      "sha256": "e3df7a55202e6cd6739d82ae3399c8e0c7e1402859b30e4cb780e61525d9486e",
+      "retainAs": "licenses/dependencies/rust-crates/gemm-f16-0.19.0.crate"
+    },
+    {
+      "filename": "rust-crates/gemm-f32-0.18.2.crate",
+      "url": "https://static.crates.io/crates/gemm-f32/gemm-f32-0.18.2.crate",
+      "bytes": 7320,
+      "sha256": "bc8d3d4385393304f407392f754cd2dc4b315d05063f62cf09f47b58de276864",
+      "retainAs": "licenses/dependencies/rust-crates/gemm-f32-0.18.2.crate"
+    },
+    {
+      "filename": "rust-crates/gemm-f32-0.19.0.crate",
+      "url": "https://static.crates.io/crates/gemm-f32/gemm-f32-0.19.0.crate",
+      "bytes": 7017,
+      "sha256": "02e0b8c9da1fbec6e3e3ab2ce6bc259ef18eb5f6f0d3e4edf54b75f9fd41a81c",
+      "retainAs": "licenses/dependencies/rust-crates/gemm-f32-0.19.0.crate"
+    },
+    {
+      "filename": "rust-crates/gemm-f64-0.18.2.crate",
+      "url": "https://static.crates.io/crates/gemm-f64/gemm-f64-0.18.2.crate",
+      "bytes": 7199,
+      "sha256": "35b2a4f76ce4b8b16eadc11ccf2e083252d8237c1b589558a49b0183545015bd",
+      "retainAs": "licenses/dependencies/rust-crates/gemm-f64-0.18.2.crate"
+    },
+    {
+      "filename": "rust-crates/gemm-f64-0.19.0.crate",
+      "url": "https://static.crates.io/crates/gemm-f64/gemm-f64-0.19.0.crate",
+      "bytes": 6896,
+      "sha256": "056131e8f2a521bfab322f804ccd652520c79700d81209e9d9275bbdecaadc6a",
+      "retainAs": "licenses/dependencies/rust-crates/gemm-f64-0.19.0.crate"
+    },
+    {
+      "filename": "rust-crates/generativity-1.1.0.crate",
+      "url": "https://static.crates.io/crates/generativity/generativity-1.1.0.crate",
+      "bytes": 12947,
+      "sha256": "5881e4c3c2433fe4905bb19cfd2b5d49d4248274862b68c27c33d9ba4e13f9ec",
+      "retainAs": "licenses/dependencies/rust-crates/generativity-1.1.0.crate"
+    },
+    {
+      "filename": "rust-crates/getrandom-0.2.17.crate",
+      "url": "https://static.crates.io/crates/getrandom/getrandom-0.2.17.crate",
+      "bytes": 40780,
+      "sha256": "ff2abc00be7fca6ebc474524697ae276ad847ad0a6b3faa4bcb027e9a4614ad0",
+      "retainAs": "licenses/dependencies/rust-crates/getrandom-0.2.17.crate"
+    },
+    {
+      "filename": "rust-crates/getrandom-0.3.4.crate",
+      "url": "https://static.crates.io/crates/getrandom/getrandom-0.3.4.crate",
+      "bytes": 50932,
+      "sha256": "899def5c37c4fd7b2664648c28120ecec138e4d395b459e5ca34f9cce2dd77fd",
+      "retainAs": "licenses/dependencies/rust-crates/getrandom-0.3.4.crate"
+    },
+    {
+      "filename": "rust-crates/glam-0.14.0.crate",
+      "url": "https://static.crates.io/crates/glam/glam-0.14.0.crate",
+      "bytes": 124814,
+      "sha256": "333928d5eb103c5d4050533cec0384302db6be8ef7d3cebd30ec6a35350353da",
+      "retainAs": "licenses/dependencies/rust-crates/glam-0.14.0.crate"
+    },
+    {
+      "filename": "rust-crates/glam-0.15.2.crate",
+      "url": "https://static.crates.io/crates/glam/glam-0.15.2.crate",
+      "bytes": 139448,
+      "sha256": "3abb554f8ee44336b72d522e0a7fe86a29e09f839a36022fa869a7dfe941a54b",
+      "retainAs": "licenses/dependencies/rust-crates/glam-0.15.2.crate"
+    },
+    {
+      "filename": "rust-crates/glam-0.16.0.crate",
+      "url": "https://static.crates.io/crates/glam/glam-0.16.0.crate",
+      "bytes": 140941,
+      "sha256": "4126c0479ccf7e8664c36a2d719f5f2c140fbb4f9090008098d2c291fa5b3f16",
+      "retainAs": "licenses/dependencies/rust-crates/glam-0.16.0.crate"
+    },
+    {
+      "filename": "rust-crates/glam-0.17.3.crate",
+      "url": "https://static.crates.io/crates/glam/glam-0.17.3.crate",
+      "bytes": 144048,
+      "sha256": "e01732b97afd8508eee3333a541b9f7610f454bb818669e66e90f5f57c93a776",
+      "retainAs": "licenses/dependencies/rust-crates/glam-0.17.3.crate"
+    },
+    {
+      "filename": "rust-crates/glam-0.18.0.crate",
+      "url": "https://static.crates.io/crates/glam/glam-0.18.0.crate",
+      "bytes": 157697,
+      "sha256": "525a3e490ba77b8e326fb67d4b44b4bd2f920f44d4cc73ccec50adc68e3bee34",
+      "retainAs": "licenses/dependencies/rust-crates/glam-0.18.0.crate"
+    },
+    {
+      "filename": "rust-crates/glam-0.19.0.crate",
+      "url": "https://static.crates.io/crates/glam/glam-0.19.0.crate",
+      "bytes": 166710,
+      "sha256": "2b8509e6791516e81c1a630d0bd7fbac36d2fa8712a9da8662e716b52d5051ca",
+      "retainAs": "licenses/dependencies/rust-crates/glam-0.19.0.crate"
+    },
+    {
+      "filename": "rust-crates/glam-0.20.5.crate",
+      "url": "https://static.crates.io/crates/glam/glam-0.20.5.crate",
+      "bytes": 170136,
+      "sha256": "f43e957e744be03f5801a55472f593d43fabdebf25a4585db250f04d86b1675f",
+      "retainAs": "licenses/dependencies/rust-crates/glam-0.20.5.crate"
+    },
+    {
+      "filename": "rust-crates/glam-0.21.3.crate",
+      "url": "https://static.crates.io/crates/glam/glam-0.21.3.crate",
+      "bytes": 254957,
+      "sha256": "518faa5064866338b013ff9b2350dc318e14cc4fcd6cb8206d7e7c9886c98815",
+      "retainAs": "licenses/dependencies/rust-crates/glam-0.21.3.crate"
+    },
+    {
+      "filename": "rust-crates/glam-0.22.0.crate",
+      "url": "https://static.crates.io/crates/glam/glam-0.22.0.crate",
+      "bytes": 264726,
+      "sha256": "12f597d56c1bd55a811a1be189459e8fad2bbc272616375602443bdfb37fa774",
+      "retainAs": "licenses/dependencies/rust-crates/glam-0.22.0.crate"
+    },
+    {
+      "filename": "rust-crates/glam-0.23.0.crate",
+      "url": "https://static.crates.io/crates/glam/glam-0.23.0.crate",
+      "bytes": 266059,
+      "sha256": "8e4afd9ad95555081e109fe1d21f2a30c691b5f0919c67dfa690a2e1eb6bd51c",
+      "retainAs": "licenses/dependencies/rust-crates/glam-0.23.0.crate"
+    },
+    {
+      "filename": "rust-crates/glam-0.24.2.crate",
+      "url": "https://static.crates.io/crates/glam/glam-0.24.2.crate",
+      "bytes": 318902,
+      "sha256": "b5418c17512bdf42730f9032c74e1ae39afc408745ebb2acf72fbc4691c17945",
+      "retainAs": "licenses/dependencies/rust-crates/glam-0.24.2.crate"
+    },
+    {
+      "filename": "rust-crates/glam-0.25.0.crate",
+      "url": "https://static.crates.io/crates/glam/glam-0.25.0.crate",
+      "bytes": 364932,
+      "sha256": "151665d9be52f9bb40fc7966565d39666f2d1e69233571b71b87791c7e0528b3",
+      "retainAs": "licenses/dependencies/rust-crates/glam-0.25.0.crate"
+    },
+    {
+      "filename": "rust-crates/glam-0.27.0.crate",
+      "url": "https://static.crates.io/crates/glam/glam-0.27.0.crate",
+      "bytes": 401827,
+      "sha256": "9e05e7e6723e3455f4818c7b26e855439f7546cf617ef669d1adedb8669e5cb9",
+      "retainAs": "licenses/dependencies/rust-crates/glam-0.27.0.crate"
+    },
+    {
+      "filename": "rust-crates/glam-0.28.0.crate",
+      "url": "https://static.crates.io/crates/glam/glam-0.28.0.crate",
+      "bytes": 438523,
+      "sha256": "779ae4bf7e8421cf91c0b3b64e7e8b40b862fba4d393f59150042de7c4965a94",
+      "retainAs": "licenses/dependencies/rust-crates/glam-0.28.0.crate"
+    },
+    {
+      "filename": "rust-crates/glam-0.29.3.crate",
+      "url": "https://static.crates.io/crates/glam/glam-0.29.3.crate",
+      "bytes": 544470,
+      "sha256": "8babf46d4c1c9d92deac9f7be466f76dfc4482b6452fc5024b5e8daf6ffeb3ee",
+      "retainAs": "licenses/dependencies/rust-crates/glam-0.29.3.crate"
+    },
+    {
+      "filename": "rust-crates/glam-0.30.10.crate",
+      "url": "https://static.crates.io/crates/glam/glam-0.30.10.crate",
+      "bytes": 773605,
+      "sha256": "19fc433e8437a212d1b6f1e68c7824af3aed907da60afa994e7f542d18d12aa9",
+      "retainAs": "licenses/dependencies/rust-crates/glam-0.30.10.crate"
+    },
+    {
+      "filename": "rust-crates/half-2.7.1.crate",
+      "url": "https://static.crates.io/crates/half/half-2.7.1.crate",
+      "bytes": 61040,
+      "sha256": "6ea2d84b969582b4b1864a92dc5d27cd2b77b622a8d79306834f1be5ba20d84b",
+      "retainAs": "licenses/dependencies/rust-crates/half-2.7.1.crate"
+    },
+    {
+      "filename": "rust-crates/hashbrown-0.16.1.crate",
+      "url": "https://static.crates.io/crates/hashbrown/hashbrown-0.16.1.crate",
+      "bytes": 147785,
+      "sha256": "841d1cc9bed7f9236f321df977030373f4a4163ae1a7dbfe1a51a2c1a51d9100",
+      "retainAs": "licenses/dependencies/rust-crates/hashbrown-0.16.1.crate"
+    },
+    {
+      "filename": "rust-crates/heck-0.5.0.crate",
+      "url": "https://static.crates.io/crates/heck/heck-0.5.0.crate",
+      "bytes": 11517,
+      "sha256": "2304e00983f87ffb38b55b444b5e3b60a884b5d30c0fca7d82fe33449bbe55ea",
+      "retainAs": "licenses/dependencies/rust-crates/heck-0.5.0.crate"
+    },
+    {
+      "filename": "rust-crates/hermit-abi-0.1.19.crate",
+      "url": "https://static.crates.io/crates/hermit-abi/hermit-abi-0.1.19.crate",
+      "bytes": 9979,
+      "sha256": "62b467343b94ba476dcb2500d242dadbb39557df889310ac77c5d99100aaac33",
+      "retainAs": "licenses/dependencies/rust-crates/hermit-abi-0.1.19.crate"
+    },
+    {
+      "filename": "rust-crates/hermit-abi-0.5.2.crate",
+      "url": "https://static.crates.io/crates/hermit-abi/hermit-abi-0.5.2.crate",
+      "bytes": 17435,
+      "sha256": "fc0fef456e4baa96da950455cd02c081ca953b141298e41db3fc7e36b1da849c",
+      "retainAs": "licenses/dependencies/rust-crates/hermit-abi-0.5.2.crate"
+    },
+    {
+      "filename": "rust-crates/ieee754-0.2.6.crate",
+      "url": "https://static.crates.io/crates/ieee754/ieee754-0.2.6.crate",
+      "bytes": 16607,
+      "sha256": "9007da9cacbd3e6343da136e98b0d2df013f553d35bdec8b518f07bea768e19c",
+      "retainAs": "licenses/dependencies/rust-crates/ieee754-0.2.6.crate"
+    },
+    {
+      "filename": "rust-crates/indexmap-2.13.0.crate",
+      "url": "https://static.crates.io/crates/indexmap/indexmap-2.13.0.crate",
+      "bytes": 102206,
+      "sha256": "7714e70437a7dc3ac8eb7e6f8df75fd8eb422675fc7678aff7364301092b1017",
+      "retainAs": "licenses/dependencies/rust-crates/indexmap-2.13.0.crate"
+    },
+    {
+      "filename": "rust-crates/indicatif-0.17.11.crate",
+      "url": "https://static.crates.io/crates/indicatif/indicatif-0.17.11.crate",
+      "bytes": 66577,
+      "sha256": "183b3088984b400f4cfac3620d5e076c84da5364016b4f49473de574b2586235",
+      "retainAs": "licenses/dependencies/rust-crates/indicatif-0.17.11.crate"
+    },
+    {
+      "filename": "rust-crates/is_terminal_polyfill-1.70.2.crate",
+      "url": "https://static.crates.io/crates/is_terminal_polyfill/is_terminal_polyfill-1.70.2.crate",
+      "bytes": 7548,
+      "sha256": "a6cb138bb79a146c1bd460005623e142ef0181e3d0219cb493e02f7d08a35695",
+      "retainAs": "licenses/dependencies/rust-crates/is_terminal_polyfill-1.70.2.crate"
+    },
+    {
+      "filename": "rust-crates/itertools-0.10.5.crate",
+      "url": "https://static.crates.io/crates/itertools/itertools-0.10.5.crate",
+      "bytes": 115354,
+      "sha256": "b0fd2260e829bddf4cb6ea802289de2f86d6a7a690192fbe91b3f46e0f2c8473",
+      "retainAs": "licenses/dependencies/rust-crates/itertools-0.10.5.crate"
+    },
+    {
+      "filename": "rust-crates/itoa-1.0.17.crate",
+      "url": "https://static.crates.io/crates/itoa/itoa-1.0.17.crate",
+      "bytes": 15905,
+      "sha256": "92ecc6618181def0457392ccd0ee51198e065e016d1d527a7ac1b6dc7c1f09d2",
+      "retainAs": "licenses/dependencies/rust-crates/itoa-1.0.17.crate"
+    },
+    {
+      "filename": "rust-crates/js-sys-0.3.91.crate",
+      "url": "https://static.crates.io/crates/js-sys/js-sys-0.3.91.crate",
+      "bytes": 91416,
+      "sha256": "b49715b7073f385ba4bc528e5747d02e66cb39c6146efb66b781f131f0fb399c",
+      "retainAs": "licenses/dependencies/rust-crates/js-sys-0.3.91.crate"
+    },
+    {
+      "filename": "rust-crates/lazy_static-0.2.11.crate",
+      "url": "https://static.crates.io/crates/lazy_static/lazy_static-0.2.11.crate",
+      "bytes": 12361,
+      "sha256": "76f033c7ad61445c5b347c7382dd1237847eb1bce590fe50365dcb33d546be73",
+      "retainAs": "licenses/dependencies/rust-crates/lazy_static-0.2.11.crate"
+    },
+    {
+      "filename": "rust-crates/lazy_static-1.5.0.crate",
+      "url": "https://static.crates.io/crates/lazy_static/lazy_static-1.5.0.crate",
+      "bytes": 14025,
+      "sha256": "bbd2bcb4c963f2ddae06a2efc7e9f3591312473c50c6685e1f298068316e66fe",
+      "retainAs": "licenses/dependencies/rust-crates/lazy_static-1.5.0.crate"
+    },
+    {
+      "filename": "rust-crates/lexical-core-0.7.6.crate",
+      "url": "https://static.crates.io/crates/lexical-core/lexical-core-0.7.6.crate",
+      "bytes": 494385,
+      "sha256": "6607c62aa161d23d17a9072cc5da0be67cdfc89d3afb1e8d9c842bebc2525ffe",
+      "retainAs": "licenses/dependencies/rust-crates/lexical-core-0.7.6.crate"
+    },
+    {
+      "filename": "rust-crates/libc-0.2.182.crate",
+      "url": "https://static.crates.io/crates/libc/libc-0.2.182.crate",
+      "bytes": 814873,
+      "sha256": "6800badb6cb2082ffd7b6a67e6125bb39f18782f793520caee8cb8846be06112",
+      "retainAs": "licenses/dependencies/rust-crates/libc-0.2.182.crate"
+    },
+    {
+      "filename": "rust-crates/libm-0.2.16.crate",
+      "url": "https://static.crates.io/crates/libm/libm-0.2.16.crate",
+      "bytes": 164243,
+      "sha256": "b6d2cec3eae94f9f509c767b45932f1ada8350c4bdb85af2fcab4a3c14807981",
+      "retainAs": "licenses/dependencies/rust-crates/libm-0.2.16.crate"
+    },
+    {
+      "filename": "rust-crates/libredox-0.1.14.crate",
+      "url": "https://static.crates.io/crates/libredox/libredox-0.1.14.crate",
+      "bytes": 9536,
+      "sha256": "1744e39d1d6a9948f4f388969627434e31128196de472883b39f148769bfe30a",
+      "retainAs": "licenses/dependencies/rust-crates/libredox-0.1.14.crate"
+    },
+    {
+      "filename": "rust-crates/linked-hash-map-0.5.6.crate",
+      "url": "https://static.crates.io/crates/linked-hash-map/linked-hash-map-0.5.6.crate",
+      "bytes": 15049,
+      "sha256": "0717cef1bc8b636c6e1c1bbdefc09e6322da8a9321966e8928ef80d20f7f770f",
+      "retainAs": "licenses/dependencies/rust-crates/linked-hash-map-0.5.6.crate"
+    },
+    {
+      "filename": "rust-crates/lzma-sys-0.1.20.crate",
+      "url": "https://static.crates.io/crates/lzma-sys/lzma-sys-0.1.20.crate",
+      "bytes": 760045,
+      "sha256": "5fda04ab3764e6cde78b9974eec4f779acaba7c4e84b36eca3cf77c581b85d27",
+      "retainAs": "licenses/dependencies/rust-crates/lzma-sys-0.1.20.crate"
+    },
+    {
+      "filename": "rust-crates/matrixmultiply-0.3.10.crate",
+      "url": "https://static.crates.io/crates/matrixmultiply/matrixmultiply-0.3.10.crate",
+      "bytes": 58170,
+      "sha256": "a06de3016e9fae57a36fd14dba131fccf49f74b40b7fbdb472f96e361ec71a08",
+      "retainAs": "licenses/dependencies/rust-crates/matrixmultiply-0.3.10.crate"
+    },
+    {
+      "filename": "rust-crates/memchr-2.8.0.crate",
+      "url": "https://static.crates.io/crates/memchr/memchr-2.8.0.crate",
+      "bytes": 97780,
+      "sha256": "f8ca58f447f06ed17d5fc4043ce1b10dd205e060fb3ce5b979b8ed8e59ff3f79",
+      "retainAs": "licenses/dependencies/rust-crates/memchr-2.8.0.crate"
+    },
+    {
+      "filename": "rust-crates/memmap2-0.9.10.crate",
+      "url": "https://static.crates.io/crates/memmap2/memmap2-0.9.10.crate",
+      "bytes": 34846,
+      "sha256": "714098028fe011992e1c3962653c96b2d578c4b4bce9036e15ff220319b1e0e3",
+      "retainAs": "licenses/dependencies/rust-crates/memmap2-0.9.10.crate"
+    },
+    {
+      "filename": "rust-crates/miniz_oxide-0.8.9.crate",
+      "url": "https://static.crates.io/crates/miniz_oxide/miniz_oxide-0.8.9.crate",
+      "bytes": 67132,
+      "sha256": "1fa76a2c86f704bdb222d66965fb3d63269ce38518b83cb0575fca855ebb6316",
+      "retainAs": "licenses/dependencies/rust-crates/miniz_oxide-0.8.9.crate"
+    },
+    {
+      "filename": "rust-crates/nalgebra-0.34.1.crate",
+      "url": "https://static.crates.io/crates/nalgebra/nalgebra-0.34.1.crate",
+      "bytes": 389332,
+      "sha256": "c4d5b3eff5cd580f93da45e64715e8c20a3996342f1e466599cf7a267a0c2f5f",
+      "retainAs": "licenses/dependencies/rust-crates/nalgebra-0.34.1.crate"
+    },
+    {
+      "filename": "rust-crates/nalgebra-macros-0.3.0.crate",
+      "url": "https://static.crates.io/crates/nalgebra-macros/nalgebra-macros-0.3.0.crate",
+      "bytes": 13091,
+      "sha256": "973e7178a678cfd059ccec50887658d482ce16b0aa9da3888ddeab5cd5eb4889",
+      "retainAs": "licenses/dependencies/rust-crates/nalgebra-macros-0.3.0.crate"
+    },
+    {
+      "filename": "rust-crates/nano-gemm-0.1.3.crate",
+      "url": "https://static.crates.io/crates/nano-gemm/nano-gemm-0.1.3.crate",
+      "bytes": 22920,
+      "sha256": "bb5ba2bea1c00e53de11f6ab5bd0761ba87dc0045d63b0c87ee471d2d3061376",
+      "retainAs": "licenses/dependencies/rust-crates/nano-gemm-0.1.3.crate"
+    },
+    {
+      "filename": "rust-crates/nano-gemm-c32-0.1.0.crate",
+      "url": "https://static.crates.io/crates/nano-gemm-c32/nano-gemm-c32-0.1.0.crate",
+      "bytes": 1736,
+      "sha256": "a40449e57a5713464c3a1208c4c3301c8d29ee1344711822cf022bc91373a91b",
+      "retainAs": "licenses/dependencies/rust-crates/nano-gemm-c32-0.1.0.crate"
+    },
+    {
+      "filename": "rust-crates/nano-gemm-c64-0.1.0.crate",
+      "url": "https://static.crates.io/crates/nano-gemm-c64/nano-gemm-c64-0.1.0.crate",
+      "bytes": 1655,
+      "sha256": "743a6e6211358fba85d1009616751e4107da86f4c95b24e684ce85f25c25b3bf",
+      "retainAs": "licenses/dependencies/rust-crates/nano-gemm-c64-0.1.0.crate"
+    },
+    {
+      "filename": "rust-crates/nano-gemm-codegen-0.1.0.crate",
+      "url": "https://static.crates.io/crates/nano-gemm-codegen/nano-gemm-codegen-0.1.0.crate",
+      "bytes": 7279,
+      "sha256": "963bf7c7110d55430169dc74c67096375491ed580cd2ef84842550ac72e781fa",
+      "retainAs": "licenses/dependencies/rust-crates/nano-gemm-codegen-0.1.0.crate"
+    },
+    {
+      "filename": "rust-crates/nano-gemm-core-0.1.0.crate",
+      "url": "https://static.crates.io/crates/nano-gemm-core/nano-gemm-core-0.1.0.crate",
+      "bytes": 1110,
+      "sha256": "fe3fc4f83ae8861bad79dc3c016bd6b0220da5f9de302e07d3112d16efc24aa6",
+      "retainAs": "licenses/dependencies/rust-crates/nano-gemm-core-0.1.0.crate"
+    },
+    {
+      "filename": "rust-crates/nano-gemm-f32-0.1.0.crate",
+      "url": "https://static.crates.io/crates/nano-gemm-f32/nano-gemm-f32-0.1.0.crate",
+      "bytes": 1574,
+      "sha256": "4e3681b7ce35658f79da94b7f62c60a005e29c373c7111ed070e3bf64546a8bb",
+      "retainAs": "licenses/dependencies/rust-crates/nano-gemm-f32-0.1.0.crate"
+    },
+    {
+      "filename": "rust-crates/nano-gemm-f64-0.1.0.crate",
+      "url": "https://static.crates.io/crates/nano-gemm-f64/nano-gemm-f64-0.1.0.crate",
+      "bytes": 1509,
+      "sha256": "bc1e619ed04d801809e1f63e61b669d380c4119e8b0cdd6ed184c6b111f046d8",
+      "retainAs": "licenses/dependencies/rust-crates/nano-gemm-f64-0.1.0.crate"
+    },
+    {
+      "filename": "rust-crates/ndarray-0.16.1.crate",
+      "url": "https://static.crates.io/crates/ndarray/ndarray-0.16.1.crate",
+      "bytes": 291026,
+      "sha256": "882ed72dce9365842bf196bdeedf5055305f11fc8c03dee7bb0194a6cad34841",
+      "retainAs": "licenses/dependencies/rust-crates/ndarray-0.16.1.crate"
+    },
+    {
+      "filename": "rust-crates/needletail-0.5.1.crate",
+      "url": "https://static.crates.io/crates/needletail/needletail-0.5.1.crate",
+      "bytes": 45656,
+      "sha256": "db05a5ab397f64070d8c998fa0fbb84e484b81f95752af317dac183a82d9295d",
+      "retainAs": "licenses/dependencies/rust-crates/needletail-0.5.1.crate"
+    },
+    {
+      "filename": "rust-crates/nom-5.1.3.crate",
+      "url": "https://static.crates.io/crates/nom/nom-5.1.3.crate",
+      "bytes": 135018,
+      "sha256": "08959a387a676302eebf4ddbcbc611da04285579f76f88ee0506c63b1a61dd4b",
+      "retainAs": "licenses/dependencies/rust-crates/nom-5.1.3.crate"
+    },
+    {
+      "filename": "rust-crates/num-bigint-0.4.6.crate",
+      "url": "https://static.crates.io/crates/num-bigint/num-bigint-0.4.6.crate",
+      "bytes": 102801,
+      "sha256": "a5e44f723f1133c9deac646763579fdb3ac745e418f2a7af9cd0c431da1f20b9",
+      "retainAs": "licenses/dependencies/rust-crates/num-bigint-0.4.6.crate"
+    },
+    {
+      "filename": "rust-crates/num-complex-0.4.6.crate",
+      "url": "https://static.crates.io/crates/num-complex/num-complex-0.4.6.crate",
+      "bytes": 30352,
+      "sha256": "73f88a1307638156682bada9d7604135552957b7818057dcef22705b4d509495",
+      "retainAs": "licenses/dependencies/rust-crates/num-complex-0.4.6.crate"
+    },
+    {
+      "filename": "rust-crates/num-integer-0.1.46.crate",
+      "url": "https://static.crates.io/crates/num-integer/num-integer-0.1.46.crate",
+      "bytes": 22331,
+      "sha256": "7969661fd2958a5cb096e56c8e1ad0444ac2bbcd0061bd28660485a44879858f",
+      "retainAs": "licenses/dependencies/rust-crates/num-integer-0.1.46.crate"
+    },
+    {
+      "filename": "rust-crates/num-rational-0.4.2.crate",
+      "url": "https://static.crates.io/crates/num-rational/num-rational-0.4.2.crate",
+      "bytes": 28159,
+      "sha256": "f83d14da390562dca69fc84082e73e548e1ad308d24accdedd2720017cb37824",
+      "retainAs": "licenses/dependencies/rust-crates/num-rational-0.4.2.crate"
+    },
+    {
+      "filename": "rust-crates/num-traits-0.1.43.crate",
+      "url": "https://static.crates.io/crates/num-traits/num-traits-0.1.43.crate",
+      "bytes": 7659,
+      "sha256": "92e5113e9fd4cc14ded8e499429f396a20f98c772a47cc8622a736e1ec843c31",
+      "retainAs": "licenses/dependencies/rust-crates/num-traits-0.1.43.crate"
+    },
+    {
+      "filename": "rust-crates/num-traits-0.2.19.crate",
+      "url": "https://static.crates.io/crates/num-traits/num-traits-0.2.19.crate",
+      "bytes": 51631,
+      "sha256": "071dfc062690e90b734c0b2273ce72ad0ffa95f0c74596bc250dcfd960262841",
+      "retainAs": "licenses/dependencies/rust-crates/num-traits-0.2.19.crate"
+    },
+    {
+      "filename": "rust-crates/num_cpus-1.17.0.crate",
+      "url": "https://static.crates.io/crates/num_cpus/num_cpus-1.17.0.crate",
+      "bytes": 15874,
+      "sha256": "91df4bbde75afed763b708b7eee1e8e7651e02d97f6d5dd763e89367e957b23b",
+      "retainAs": "licenses/dependencies/rust-crates/num_cpus-1.17.0.crate"
+    },
+    {
+      "filename": "rust-crates/number_prefix-0.4.0.crate",
+      "url": "https://static.crates.io/crates/number_prefix/number_prefix-0.4.0.crate",
+      "bytes": 6922,
+      "sha256": "830b246a0e5f20af87141b25c173cd1b609bd7779a4617d6ec582abaf90870f3",
+      "retainAs": "licenses/dependencies/rust-crates/number_prefix-0.4.0.crate"
+    },
+    {
+      "filename": "rust-crates/numeric_literals-0.2.0.crate",
+      "url": "https://static.crates.io/crates/numeric_literals/numeric_literals-0.2.0.crate",
+      "bytes": 9672,
+      "sha256": "095aa67b0b9f2081746998f4f17106bdb51d56dc8c211afca5531b92b83bf98a",
+      "retainAs": "licenses/dependencies/rust-crates/numeric_literals-0.2.0.crate"
+    },
+    {
+      "filename": "rust-crates/once_cell-1.21.3.crate",
+      "url": "https://static.crates.io/crates/once_cell/once_cell-1.21.3.crate",
+      "bytes": 34534,
+      "sha256": "42f5e15c9953c5e4ccceeb2e7382a716482c34515315f7b03532b8b4e8393d2d",
+      "retainAs": "licenses/dependencies/rust-crates/once_cell-1.21.3.crate"
+    },
+    {
+      "filename": "rust-crates/once_cell_polyfill-1.70.2.crate",
+      "url": "https://static.crates.io/crates/once_cell_polyfill/once_cell_polyfill-1.70.2.crate",
+      "bytes": 7448,
+      "sha256": "384b8ab6d37215f3c5301a95a4accb5d64aa607f1fcb26a11b5303878451b4fe",
+      "retainAs": "licenses/dependencies/rust-crates/once_cell_polyfill-1.70.2.crate"
+    },
+    {
+      "filename": "rust-crates/ordered-float-2.10.1.crate",
+      "url": "https://static.crates.io/crates/ordered-float/ordered-float-2.10.1.crate",
+      "bytes": 16029,
+      "sha256": "68f19d67e5a2795c94e73e0bb1cc1a7edeb2e28efd39e2e1c9b7a40c1108b11c",
+      "retainAs": "licenses/dependencies/rust-crates/ordered-float-2.10.1.crate"
+    },
+    {
+      "filename": "rust-crates/paste-1.0.15.crate",
+      "url": "https://static.crates.io/crates/paste/paste-1.0.15.crate",
+      "bytes": 18374,
+      "sha256": "57c0d7b74b563b49d38dae00a0c37d4d6de9b432382b2892f0574ddcae73fd0a",
+      "retainAs": "licenses/dependencies/rust-crates/paste-1.0.15.crate"
+    },
+    {
+      "filename": "rust-crates/petgraph-0.6.5.crate",
+      "url": "https://static.crates.io/crates/petgraph/petgraph-0.6.5.crate",
+      "bytes": 710970,
+      "sha256": "b4c5cc86750666a3ed20bdaf5ca2a0344f9c67674cae0515bec2da16fbaa47db",
+      "retainAs": "licenses/dependencies/rust-crates/petgraph-0.6.5.crate"
+    },
+    {
+      "filename": "rust-crates/phylotree-0.1.3.crate",
+      "url": "https://static.crates.io/crates/phylotree/phylotree-0.1.3.crate",
+      "bytes": 89624,
+      "sha256": "a90725e1c88d0e32161012534ac83013f23e365d38c02c924d2c095c0e553daa",
+      "retainAs": "licenses/dependencies/rust-crates/phylotree-0.1.3.crate"
+    },
+    {
+      "filename": "rust-crates/pkg-config-0.3.32.crate",
+      "url": "https://static.crates.io/crates/pkg-config/pkg-config-0.3.32.crate",
+      "bytes": 21370,
+      "sha256": "7edddbd0b52d732b21ad9a5fab5c704c14cd949e5e9a1ec5929a24fded1b904c",
+      "retainAs": "licenses/dependencies/rust-crates/pkg-config-0.3.32.crate"
+    },
+    {
+      "filename": "rust-crates/portable-atomic-1.13.1.crate",
+      "url": "https://static.crates.io/crates/portable-atomic/portable-atomic-1.13.1.crate",
+      "bytes": 197001,
+      "sha256": "c33a9471896f1c69cecef8d20cbe2f7accd12527ce60845ff44c153bb2a21b49",
+      "retainAs": "licenses/dependencies/rust-crates/portable-atomic-1.13.1.crate"
+    },
+    {
+      "filename": "rust-crates/portable-atomic-util-0.2.5.crate",
+      "url": "https://static.crates.io/crates/portable-atomic-util/portable-atomic-util-0.2.5.crate",
+      "bytes": 51858,
+      "sha256": "7a9db96d7fa8782dd8c15ce32ffe8680bbd1e978a43bf51a34d39483540495f5",
+      "retainAs": "licenses/dependencies/rust-crates/portable-atomic-util-0.2.5.crate"
+    },
+    {
+      "filename": "rust-crates/ppv-lite86-0.2.21.crate",
+      "url": "https://static.crates.io/crates/ppv-lite86/ppv-lite86-0.2.21.crate",
+      "bytes": 22522,
+      "sha256": "85eae3c4ed2f50dcfe72643da4befc30deadb458a9b590d720cde2f2b1e97da9",
+      "retainAs": "licenses/dependencies/rust-crates/ppv-lite86-0.2.21.crate"
+    },
+    {
+      "filename": "rust-crates/proc-macro2-1.0.106.crate",
+      "url": "https://static.crates.io/crates/proc-macro2/proc-macro2-1.0.106.crate",
+      "bytes": 59765,
+      "sha256": "8fd00f0bb2e90d81d1044c2b32617f68fcb9fa3bb7640c23e9c748e53fb30934",
+      "retainAs": "licenses/dependencies/rust-crates/proc-macro2-1.0.106.crate"
+    },
+    {
+      "filename": "rust-crates/ptree-0.4.0.crate",
+      "url": "https://static.crates.io/crates/ptree/ptree-0.4.0.crate",
+      "bytes": 84829,
+      "sha256": "a0de80796b316aec75344095a6d2ef68ec9b8f573b9e7adc821149ba3598e270",
+      "retainAs": "licenses/dependencies/rust-crates/ptree-0.4.0.crate"
+    },
+    {
+      "filename": "rust-crates/pulp-0.21.5.crate",
+      "url": "https://static.crates.io/crates/pulp/pulp-0.21.5.crate",
+      "bytes": 136353,
+      "sha256": "96b86df24f0a7ddd5e4b95c94fc9ed8a98f1ca94d3b01bdce2824097e7835907",
+      "retainAs": "licenses/dependencies/rust-crates/pulp-0.21.5.crate"
+    },
+    {
+      "filename": "rust-crates/pulp-0.22.2.crate",
+      "url": "https://static.crates.io/crates/pulp/pulp-0.22.2.crate",
+      "bytes": 147774,
+      "sha256": "2e205bb30d5b916c55e584c22201771bcf2bad9aabd5d4127f38387140c38632",
+      "retainAs": "licenses/dependencies/rust-crates/pulp-0.22.2.crate"
+    },
+    {
+      "filename": "rust-crates/pulp-wasm-simd-flag-0.1.0.crate",
+      "url": "https://static.crates.io/crates/pulp-wasm-simd-flag/pulp-wasm-simd-flag-0.1.0.crate",
+      "bytes": 2263,
+      "sha256": "40e24eee682d89fb193496edf918a7f407d30175b2e785fe057e4392dfd182e0",
+      "retainAs": "licenses/dependencies/rust-crates/pulp-wasm-simd-flag-0.1.0.crate"
+    },
+    {
+      "filename": "rust-crates/qd-0.7.7.crate",
+      "url": "https://static.crates.io/crates/qd/qd-0.7.7.crate",
+      "bytes": 9813,
+      "sha256": "ff8bb755b6008c3b41bf8a0866c8dd4e1245a2f011ceaa22a13ee55c538493e2",
+      "retainAs": "licenses/dependencies/rust-crates/qd-0.7.7.crate"
+    },
+    {
+      "filename": "rust-crates/quote-1.0.45.crate",
+      "url": "https://static.crates.io/crates/quote/quote-1.0.45.crate",
+      "bytes": 31564,
+      "sha256": "41f2619966050689382d2b44f664f4bc593e129785a36d6ee376ddf37259b924",
+      "retainAs": "licenses/dependencies/rust-crates/quote-1.0.45.crate"
+    },
+    {
+      "filename": "rust-crates/r-efi-5.3.0.crate",
+      "url": "https://static.crates.io/crates/r-efi/r-efi-5.3.0.crate",
+      "bytes": 64532,
+      "sha256": "69cdb34c158ceb288df11e18b4bd39de994f6657d83847bdffdbd7f346754b0f",
+      "retainAs": "licenses/dependencies/rust-crates/r-efi-5.3.0.crate"
+    },
+    {
+      "filename": "rust-crates/rand-0.8.5.crate",
+      "url": "https://static.crates.io/crates/rand/rand-0.8.5.crate",
+      "bytes": 87113,
+      "sha256": "34af8d1a0e25924bc5b7c43c079c942339d8f0a8b57c39049bef581b46327404",
+      "retainAs": "licenses/dependencies/rust-crates/rand-0.8.5.crate"
+    },
+    {
+      "filename": "rust-crates/rand-0.9.2.crate",
+      "url": "https://static.crates.io/crates/rand/rand-0.9.2.crate",
+      "bytes": 99930,
+      "sha256": "6db2770f06117d490610c7488547d543617b21bfa07796d7a12f6f1bd53850d1",
+      "retainAs": "licenses/dependencies/rust-crates/rand-0.9.2.crate"
+    },
+    {
+      "filename": "rust-crates/rand_chacha-0.3.1.crate",
+      "url": "https://static.crates.io/crates/rand_chacha/rand_chacha-0.3.1.crate",
+      "bytes": 15251,
+      "sha256": "e6c10a63a0fa32252be49d21e7709d4d4baf8d231c2dbce1eaa8141b9b127d88",
+      "retainAs": "licenses/dependencies/rust-crates/rand_chacha-0.3.1.crate"
+    },
+    {
+      "filename": "rust-crates/rand_chacha-0.9.0.crate",
+      "url": "https://static.crates.io/crates/rand_chacha/rand_chacha-0.9.0.crate",
+      "bytes": 18258,
+      "sha256": "d3022b5f1df60f26e1ffddd6c66e8aa15de382ae63b3a0c1bfc0e4d3e3f325cb",
+      "retainAs": "licenses/dependencies/rust-crates/rand_chacha-0.9.0.crate"
+    },
+    {
+      "filename": "rust-crates/rand_core-0.6.4.crate",
+      "url": "https://static.crates.io/crates/rand_core/rand_core-0.6.4.crate",
+      "bytes": 22666,
+      "sha256": "ec0be4795e2f6a28069bec0b5ff3e2ac9bafc99e6a9a7dc3547996c5c816922c",
+      "retainAs": "licenses/dependencies/rust-crates/rand_core-0.6.4.crate"
+    },
+    {
+      "filename": "rust-crates/rand_core-0.9.5.crate",
+      "url": "https://static.crates.io/crates/rand_core/rand_core-0.9.5.crate",
+      "bytes": 24129,
+      "sha256": "76afc826de14238e6e8c374ddcc1fa19e374fd8dd986b0d2af0d02377261d83c",
+      "retainAs": "licenses/dependencies/rust-crates/rand_core-0.9.5.crate"
+    },
+    {
+      "filename": "rust-crates/rand_distr-0.4.3.crate",
+      "url": "https://static.crates.io/crates/rand_distr/rand_distr-0.4.3.crate",
+      "bytes": 58255,
+      "sha256": "32cb0b9bc82b0a0876c2dd994a7e7a2683d3e7390ca40e6886785ef0c7e3ee31",
+      "retainAs": "licenses/dependencies/rust-crates/rand_distr-0.4.3.crate"
+    },
+    {
+      "filename": "rust-crates/rand_distr-0.5.1.crate",
+      "url": "https://static.crates.io/crates/rand_distr/rand_distr-0.5.1.crate",
+      "bytes": 75593,
+      "sha256": "6a8615d50dcf34fa31f7ab52692afec947c4dd0ab803cc87cb3b0b4570ff7463",
+      "retainAs": "licenses/dependencies/rust-crates/rand_distr-0.5.1.crate"
+    },
+    {
+      "filename": "rust-crates/raw-cpuid-11.6.0.crate",
+      "url": "https://static.crates.io/crates/raw-cpuid/raw-cpuid-11.6.0.crate",
+      "bytes": 117569,
+      "sha256": "498cd0dc59d73224351ee52a95fee0f1a617a2eae0e7d9d720cc622c73a54186",
+      "retainAs": "licenses/dependencies/rust-crates/raw-cpuid-11.6.0.crate"
+    },
+    {
+      "filename": "rust-crates/rawpointer-0.2.1.crate",
+      "url": "https://static.crates.io/crates/rawpointer/rawpointer-0.2.1.crate",
+      "bytes": 7490,
+      "sha256": "60a357793950651c4ed0f3f52338f53b2f809f32d83a07f72909fa13e4c6c1e3",
+      "retainAs": "licenses/dependencies/rust-crates/rawpointer-0.2.1.crate"
+    },
+    {
+      "filename": "rust-crates/rayon-1.11.0.crate",
+      "url": "https://static.crates.io/crates/rayon/rayon-1.11.0.crate",
+      "bytes": 182470,
+      "sha256": "368f01d005bf8fd9b1206fb6fa653e6c4a81ceb1466406b81792d87c5677a58f",
+      "retainAs": "licenses/dependencies/rust-crates/rayon-1.11.0.crate"
+    },
+    {
+      "filename": "rust-crates/rayon-core-1.13.0.crate",
+      "url": "https://static.crates.io/crates/rayon-core/rayon-core-1.13.0.crate",
+      "bytes": 73151,
+      "sha256": "22e18b0f0062d30d4230b2e85ff77fdfe4326feb054b9783a3460d8435c8ab91",
+      "retainAs": "licenses/dependencies/rust-crates/rayon-core-1.13.0.crate"
+    },
+    {
+      "filename": "rust-crates/reborrow-0.5.5.crate",
+      "url": "https://static.crates.io/crates/reborrow/reborrow-0.5.5.crate",
+      "bytes": 3789,
+      "sha256": "03251193000f4bd3b042892be858ee50e8b3719f2b08e5833ac4353724632430",
+      "retainAs": "licenses/dependencies/rust-crates/reborrow-0.5.5.crate"
+    },
+    {
+      "filename": "rust-crates/redox_users-0.4.6.crate",
+      "url": "https://static.crates.io/crates/redox_users/redox_users-0.4.6.crate",
+      "bytes": 15585,
+      "sha256": "ba009ff324d1fc1b900bd1fdb31564febe58a8ccc8a6fdbb93b543d33b13ca43",
+      "retainAs": "licenses/dependencies/rust-crates/redox_users-0.4.6.crate"
+    },
+    {
+      "filename": "rust-crates/regex-1.12.3.crate",
+      "url": "https://static.crates.io/crates/regex/regex-1.12.3.crate",
+      "bytes": 153392,
+      "sha256": "e10754a14b9137dd7b1e3e5b0493cc9171fdd105e0ab477f51b72e7f3ac0e276",
+      "retainAs": "licenses/dependencies/rust-crates/regex-1.12.3.crate"
+    },
+    {
+      "filename": "rust-crates/regex-automata-0.4.14.crate",
+      "url": "https://static.crates.io/crates/regex-automata/regex-automata-0.4.14.crate",
+      "bytes": 618012,
+      "sha256": "6e1dd4122fc1595e8162618945476892eefca7b88c52820e74af6262213cae8f",
+      "retainAs": "licenses/dependencies/rust-crates/regex-automata-0.4.14.crate"
+    },
+    {
+      "filename": "rust-crates/regex-syntax-0.8.10.crate",
+      "url": "https://static.crates.io/crates/regex-syntax/regex-syntax-0.8.10.crate",
+      "bytes": 358781,
+      "sha256": "dc897dd8d9e8bd1ed8cdad82b5966c3e0ecae09fb1907d58efaa013543185d0a",
+      "retainAs": "licenses/dependencies/rust-crates/regex-syntax-0.8.10.crate"
+    },
+    {
+      "filename": "rust-crates/rust-ini-0.13.0.crate",
+      "url": "https://static.crates.io/crates/rust-ini/rust-ini-0.13.0.crate",
+      "bytes": 10767,
+      "sha256": "3e52c148ef37f8c375d49d5a73aa70713125b7f19095948a923f80afdeb22ec2",
+      "retainAs": "licenses/dependencies/rust-crates/rust-ini-0.13.0.crate"
+    },
+    {
+      "filename": "rust-crates/rustversion-1.0.22.crate",
+      "url": "https://static.crates.io/crates/rustversion/rustversion-1.0.22.crate",
+      "bytes": 21096,
+      "sha256": "b39cdef0fa800fc44525c84ccb54a029961a8215f9619753635a9c0d2538d46d",
+      "retainAs": "licenses/dependencies/rust-crates/rustversion-1.0.22.crate"
+    },
+    {
+      "filename": "rust-crates/ryu-1.0.23.crate",
+      "url": "https://static.crates.io/crates/ryu/ryu-1.0.23.crate",
+      "bytes": 52823,
+      "sha256": "9774ba4a74de5f7b1c1451ed6cd5285a32eddb5cccb8cc655a4e50009e06477f",
+      "retainAs": "licenses/dependencies/rust-crates/ryu-1.0.23.crate"
+    },
+    {
+      "filename": "rust-crates/safe_arch-0.7.4.crate",
+      "url": "https://static.crates.io/crates/safe_arch/safe_arch-0.7.4.crate",
+      "bytes": 74564,
+      "sha256": "96b02de82ddbe1b636e6170c21be622223aea188ef2e139be0a5b219ec215323",
+      "retainAs": "licenses/dependencies/rust-crates/safe_arch-0.7.4.crate"
+    },
+    {
+      "filename": "rust-crates/safetensors-0.7.0.crate",
+      "url": "https://static.crates.io/crates/safetensors/safetensors-0.7.0.crate",
+      "bytes": 31009,
+      "sha256": "675656c1eabb620b921efea4f9199f97fc86e36dd6ffd1fbbe48d0f59a4987f5",
+      "retainAs": "licenses/dependencies/rust-crates/safetensors-0.7.0.crate"
+    },
+    {
+      "filename": "rust-crates/same-file-1.0.6.crate",
+      "url": "https://static.crates.io/crates/same-file/same-file-1.0.6.crate",
+      "bytes": 10183,
+      "sha256": "93fc1dc3aaa9bfed95e02e6eadabb4baf7e3078b0bd1b4d7b6b0b68378900502",
+      "retainAs": "licenses/dependencies/rust-crates/same-file-1.0.6.crate"
+    },
+    {
+      "filename": "rust-crates/scoped_threadpool-0.1.9.crate",
+      "url": "https://static.crates.io/crates/scoped_threadpool/scoped_threadpool-0.1.9.crate",
+      "bytes": 7800,
+      "sha256": "1d51f5df5af43ab3f1360b429fa5e0152ac5ce8c0bd6485cae490332e96846a8",
+      "retainAs": "licenses/dependencies/rust-crates/scoped_threadpool-0.1.9.crate"
+    },
+    {
+      "filename": "rust-crates/seq-macro-0.3.6.crate",
+      "url": "https://static.crates.io/crates/seq-macro/seq-macro-0.3.6.crate",
+      "bytes": 16031,
+      "sha256": "1bc711410fbe7399f390ca1c3b60ad0f53f80e95c5eb935e52268a0e2cd49acc",
+      "retainAs": "licenses/dependencies/rust-crates/seq-macro-0.3.6.crate"
+    },
+    {
+      "filename": "rust-crates/seq_io-0.3.4.crate",
+      "url": "https://static.crates.io/crates/seq_io/seq_io-0.3.4.crate",
+      "bytes": 59871,
+      "sha256": "1303559e530ee83c1d7a8593a033792c2a29217544a5c48563e116e158d76ade",
+      "retainAs": "licenses/dependencies/rust-crates/seq_io-0.3.4.crate"
+    },
+    {
+      "filename": "rust-crates/serde-0.8.23.crate",
+      "url": "https://static.crates.io/crates/serde/serde-0.8.23.crate",
+      "bytes": 25824,
+      "sha256": "9dad3f759919b92c3068c696c15c3d17238234498bbdcc80f2c469606f948ac8",
+      "retainAs": "licenses/dependencies/rust-crates/serde-0.8.23.crate"
+    },
+    {
+      "filename": "rust-crates/serde-1.0.228.crate",
+      "url": "https://static.crates.io/crates/serde/serde-1.0.228.crate",
+      "bytes": 83652,
+      "sha256": "9a8e94ea7f378bd32cbbd37198a4a91436180c5bb472411e48b5ec2e2124ae9e",
+      "retainAs": "licenses/dependencies/rust-crates/serde-1.0.228.crate"
+    },
+    {
+      "filename": "rust-crates/serde-hjson-0.9.1.crate",
+      "url": "https://static.crates.io/crates/serde-hjson/serde-hjson-0.9.1.crate",
+      "bytes": 22811,
+      "sha256": "6a3a4e0ea8a88553209f6cc6cfe8724ecad22e1acf372793c27d995290fe74f8",
+      "retainAs": "licenses/dependencies/rust-crates/serde-hjson-0.9.1.crate"
+    },
+    {
+      "filename": "rust-crates/serde-value-0.7.0.crate",
+      "url": "https://static.crates.io/crates/serde-value/serde-value-0.7.0.crate",
+      "bytes": 10249,
+      "sha256": "f3a1a3341211875ef120e117ea7fd5228530ae7e7036a779fdc9117be6b3282c",
+      "retainAs": "licenses/dependencies/rust-crates/serde-value-0.7.0.crate"
+    },
+    {
+      "filename": "rust-crates/serde_core-1.0.228.crate",
+      "url": "https://static.crates.io/crates/serde_core/serde_core-1.0.228.crate",
+      "bytes": 63111,
+      "sha256": "41d385c7d4ca58e59fc732af25c3983b67ac852c1a25000afe1175de458b67ad",
+      "retainAs": "licenses/dependencies/rust-crates/serde_core-1.0.228.crate"
+    },
+    {
+      "filename": "rust-crates/serde_derive-1.0.228.crate",
+      "url": "https://static.crates.io/crates/serde_derive/serde_derive-1.0.228.crate",
+      "bytes": 59605,
+      "sha256": "d540f220d3187173da220f885ab66608367b6574e925011a9353e4badda91d79",
+      "retainAs": "licenses/dependencies/rust-crates/serde_derive-1.0.228.crate"
+    },
+    {
+      "filename": "rust-crates/serde_json-1.0.149.crate",
+      "url": "https://static.crates.io/crates/serde_json/serde_json-1.0.149.crate",
+      "bytes": 155994,
+      "sha256": "83fc039473c5595ace860d8c4fafa220ff474b3fc6bfdb4293327f1a37e94d86",
+      "retainAs": "licenses/dependencies/rust-crates/serde_json-1.0.149.crate"
+    },
+    {
+      "filename": "rust-crates/shlex-1.3.0.crate",
+      "url": "https://static.crates.io/crates/shlex/shlex-1.3.0.crate",
+      "bytes": 18713,
+      "sha256": "0fda2ff0d084019ba4d7c6f371c95d8fd75ce3524c3cb8fb653a3023f6323e64",
+      "retainAs": "licenses/dependencies/rust-crates/shlex-1.3.0.crate"
+    },
+    {
+      "filename": "rust-crates/simba-0.9.1.crate",
+      "url": "https://static.crates.io/crates/simba/simba-0.9.1.crate",
+      "bytes": 57448,
+      "sha256": "c99284beb21666094ba2b75bbceda012e610f5479dfcc2d6e2426f53197ffd95",
+      "retainAs": "licenses/dependencies/rust-crates/simba-0.9.1.crate"
+    },
+    {
+      "filename": "rust-crates/simd-adler32-0.3.8.crate",
+      "url": "https://static.crates.io/crates/simd-adler32/simd-adler32-0.3.8.crate",
+      "bytes": 17294,
+      "sha256": "e320a6c5ad31d271ad523dcf3ad13e2767ad8b1cb8f047f75a8aeaf8da139da2",
+      "retainAs": "licenses/dependencies/rust-crates/simd-adler32-0.3.8.crate"
+    },
+    {
+      "filename": "rust-crates/spec_math-0.1.6.crate",
+      "url": "https://static.crates.io/crates/spec_math/spec_math-0.1.6.crate",
+      "bytes": 314194,
+      "sha256": "02ef091d4e8b981dbaa4cc17789d00b53d5d2c001ae689f14e6093f30c529036",
+      "retainAs": "licenses/dependencies/rust-crates/spec_math-0.1.6.crate"
+    },
+    {
+      "filename": "rust-crates/stable_deref_trait-1.2.1.crate",
+      "url": "https://static.crates.io/crates/stable_deref_trait/stable_deref_trait-1.2.1.crate",
+      "bytes": 8186,
+      "sha256": "6ce2be8dc25455e1f91df71bfa12ad37d7af1092ae736f3a6cd0e37bc7810596",
+      "retainAs": "licenses/dependencies/rust-crates/stable_deref_trait-1.2.1.crate"
+    },
+    {
+      "filename": "rust-crates/static_assertions-1.1.0.crate",
+      "url": "https://static.crates.io/crates/static_assertions/static_assertions-1.1.0.crate",
+      "bytes": 18480,
+      "sha256": "a2eb9349b6444b326872e140eb1cf5e7c522154d69e7a0ffb0fb81c06b37543f",
+      "retainAs": "licenses/dependencies/rust-crates/static_assertions-1.1.0.crate"
+    },
+    {
+      "filename": "rust-crates/strsim-0.11.1.crate",
+      "url": "https://static.crates.io/crates/strsim/strsim-0.11.1.crate",
+      "bytes": 14266,
+      "sha256": "7da8b5736845d9f2fcb837ea5d9e2628564b3b043a70948a3f0b778838c5fb4f",
+      "retainAs": "licenses/dependencies/rust-crates/strsim-0.11.1.crate"
+    },
+    {
+      "filename": "rust-crates/syn-1.0.109.crate",
+      "url": "https://static.crates.io/crates/syn/syn-1.0.109.crate",
+      "bytes": 237611,
+      "sha256": "72b64191b275b66ffe2469e8af2c1cfe3bafa67b529ead792a6d0160888b4237",
+      "retainAs": "licenses/dependencies/rust-crates/syn-1.0.109.crate"
+    },
+    {
+      "filename": "rust-crates/syn-2.0.117.crate",
+      "url": "https://static.crates.io/crates/syn/syn-2.0.117.crate",
+      "bytes": 306011,
+      "sha256": "e665b8803e7b1d2a727f4023456bbbbe74da67099c585258af0ad9c5013b9b99",
+      "retainAs": "licenses/dependencies/rust-crates/syn-2.0.117.crate"
+    },
+    {
+      "filename": "rust-crates/synstructure-0.13.2.crate",
+      "url": "https://static.crates.io/crates/synstructure/synstructure-0.13.2.crate",
+      "bytes": 18950,
+      "sha256": "728a70f3dbaf5bab7f0c4b1ac8d7ae5ea60a4b5549c8a5914361c99147a709d2",
+      "retainAs": "licenses/dependencies/rust-crates/synstructure-0.13.2.crate"
+    },
+    {
+      "filename": "rust-crates/sysctl-0.6.0.crate",
+      "url": "https://static.crates.io/crates/sysctl/sysctl-0.6.0.crate",
+      "bytes": 18829,
+      "sha256": "01198a2debb237c62b6826ec7081082d951f46dbb64b0e8c7649a452230d1dfc",
+      "retainAs": "licenses/dependencies/rust-crates/sysctl-0.6.0.crate"
+    },
+    {
+      "filename": "rust-crates/thiserror-1.0.69.crate",
+      "url": "https://static.crates.io/crates/thiserror/thiserror-1.0.69.crate",
+      "bytes": 22198,
+      "sha256": "b6aaf5339b578ea85b50e080feb250a3e8ae8cfcdff9a461c9ec2904bc923f52",
+      "retainAs": "licenses/dependencies/rust-crates/thiserror-1.0.69.crate"
+    },
+    {
+      "filename": "rust-crates/thiserror-2.0.18.crate",
+      "url": "https://static.crates.io/crates/thiserror/thiserror-2.0.18.crate",
+      "bytes": 28875,
+      "sha256": "4288b5bcbc7920c07a1149a35cf9590a2aa808e0bc1eafaade0b80947865fbc4",
+      "retainAs": "licenses/dependencies/rust-crates/thiserror-2.0.18.crate"
+    },
+    {
+      "filename": "rust-crates/thiserror-impl-1.0.69.crate",
+      "url": "https://static.crates.io/crates/thiserror-impl/thiserror-impl-1.0.69.crate",
+      "bytes": 18365,
+      "sha256": "4fee6c4efc90059e10f81e6d42c60a18f76588c3d74cb83a0b242a2b6c7504c1",
+      "retainAs": "licenses/dependencies/rust-crates/thiserror-impl-1.0.69.crate"
+    },
+    {
+      "filename": "rust-crates/thiserror-impl-2.0.18.crate",
+      "url": "https://static.crates.io/crates/thiserror-impl/thiserror-impl-2.0.18.crate",
+      "bytes": 21413,
+      "sha256": "ebc4ee7f67670e9b64d05fa4253e753e016c6c95ff35b89b7941d6b856dec1d5",
+      "retainAs": "licenses/dependencies/rust-crates/thiserror-impl-2.0.18.crate"
+    },
+    {
+      "filename": "rust-crates/tint-1.0.1.crate",
+      "url": "https://static.crates.io/crates/tint/tint-1.0.1.crate",
+      "bytes": 20268,
+      "sha256": "7af24570664a3074673dbbf69a65bdae0ae0b72f2949b1adfbacb736ee4d6896",
+      "retainAs": "licenses/dependencies/rust-crates/tint-1.0.1.crate"
+    },
+    {
+      "filename": "rust-crates/tinytemplate-1.2.1.crate",
+      "url": "https://static.crates.io/crates/tinytemplate/tinytemplate-1.2.1.crate",
+      "bytes": 26490,
+      "sha256": "be4d6b5f19ff7664e8c98d03e2139cb510db9b0a60b55f8e8709b689d939b6bc",
+      "retainAs": "licenses/dependencies/rust-crates/tinytemplate-1.2.1.crate"
+    },
+    {
+      "filename": "rust-crates/toml-0.5.11.crate",
+      "url": "https://static.crates.io/crates/toml/toml-0.5.11.crate",
+      "bytes": 54910,
+      "sha256": "f4f7f0dd8d50a853a531c426359045b1998f04219d88799810762cd4ad314234",
+      "retainAs": "licenses/dependencies/rust-crates/toml-0.5.11.crate"
+    },
+    {
+      "filename": "rust-crates/trait-set-0.3.0.crate",
+      "url": "https://static.crates.io/crates/trait-set/trait-set-0.3.0.crate",
+      "bytes": 7329,
+      "sha256": "b79e2e9c9ab44c6d7c20d5976961b47e8f49ac199154daa514b77cd1ab536625",
+      "retainAs": "licenses/dependencies/rust-crates/trait-set-0.3.0.crate"
+    },
+    {
+      "filename": "rust-crates/typed-path-0.12.3.crate",
+      "url": "https://static.crates.io/crates/typed-path/typed-path-0.12.3.crate",
+      "bytes": 112964,
+      "sha256": "8e28f89b80c87b8fb0cf04ab448d5dd0dd0ade2f8891bae878de66a75a28600e",
+      "retainAs": "licenses/dependencies/rust-crates/typed-path-0.12.3.crate"
+    },
+    {
+      "filename": "rust-crates/typenum-1.19.0.crate",
+      "url": "https://static.crates.io/crates/typenum/typenum-1.19.0.crate",
+      "bytes": 76414,
+      "sha256": "562d481066bde0658276a35467c4af00bdc6ee726305698a55b86e61d7ad82bb",
+      "retainAs": "licenses/dependencies/rust-crates/typenum-1.19.0.crate"
+    },
+    {
+      "filename": "rust-crates/unicode-ident-1.0.24.crate",
+      "url": "https://static.crates.io/crates/unicode-ident/unicode-ident-1.0.24.crate",
+      "bytes": 49298,
+      "sha256": "e6e4313cd5fcd3dad5cafa179702e2b244f760991f45397d14d4ebf38247da75",
+      "retainAs": "licenses/dependencies/rust-crates/unicode-ident-1.0.24.crate"
+    },
+    {
+      "filename": "rust-crates/unicode-width-0.2.2.crate",
+      "url": "https://static.crates.io/crates/unicode-width/unicode-width-0.2.2.crate",
+      "bytes": 282768,
+      "sha256": "b4ac048d71ede7ee76d585517add45da530660ef4390e49b098733c6e897f254",
+      "retainAs": "licenses/dependencies/rust-crates/unicode-width-0.2.2.crate"
+    },
+    {
+      "filename": "rust-crates/utf8-read-0.4.0.crate",
+      "url": "https://static.crates.io/crates/utf8-read/utf8-read-0.4.0.crate",
+      "bytes": 13268,
+      "sha256": "fb566ac06e11c3f13872ebcb0e72ea5f97f0f65a16f45048d0adea21edc28018",
+      "retainAs": "licenses/dependencies/rust-crates/utf8-read-0.4.0.crate"
+    },
+    {
+      "filename": "rust-crates/utf8parse-0.2.2.crate",
+      "url": "https://static.crates.io/crates/utf8parse/utf8parse-0.2.2.crate",
+      "bytes": 13499,
+      "sha256": "06abde3611657adf66d383f00b093d7faecc7fa57071cce2578660c9f1010821",
+      "retainAs": "licenses/dependencies/rust-crates/utf8parse-0.2.2.crate"
+    },
+    {
+      "filename": "rust-crates/version_check-0.9.5.crate",
+      "url": "https://static.crates.io/crates/version_check/version_check-0.9.5.crate",
+      "bytes": 15554,
+      "sha256": "0b928f33d975fc6ad9f86c8f283853ad26bdd5b10b7f1542aa2fa15e2289105a",
+      "retainAs": "licenses/dependencies/rust-crates/version_check-0.9.5.crate"
+    },
+    {
+      "filename": "rust-crates/walkdir-2.5.0.crate",
+      "url": "https://static.crates.io/crates/walkdir/walkdir-2.5.0.crate",
+      "bytes": 23951,
+      "sha256": "29790946404f91d9c5d06f9874efddea1dc06c5efe94541a7d6863108e3a5e4b",
+      "retainAs": "licenses/dependencies/rust-crates/walkdir-2.5.0.crate"
+    },
+    {
+      "filename": "rust-crates/wasi-0.11.1+wasi-snapshot-preview1.crate",
+      "url": "https://static.crates.io/crates/wasi/wasi-0.11.1+wasi-snapshot-preview1.crate",
+      "bytes": 28477,
+      "sha256": "ccf3ec651a847eb01de73ccad15eb7d99f80485de043efb2f370cd654f4ea44b",
+      "retainAs": "licenses/dependencies/rust-crates/wasi-0.11.1+wasi-snapshot-preview1.crate"
+    },
+    {
+      "filename": "rust-crates/wasip2-1.0.2+wasi-0.2.9.crate",
+      "url": "https://static.crates.io/crates/wasip2/wasip2-1.0.2+wasi-0.2.9.crate",
+      "bytes": 129778,
+      "sha256": "9517f9239f02c069db75e65f174b3da828fe5f5b945c4dd26bd25d89c03ebcf5",
+      "retainAs": "licenses/dependencies/rust-crates/wasip2-1.0.2+wasi-0.2.9.crate"
+    },
+    {
+      "filename": "rust-crates/wasm-bindgen-0.2.114.crate",
+      "url": "https://static.crates.io/crates/wasm-bindgen/wasm-bindgen-0.2.114.crate",
+      "bytes": 59350,
+      "sha256": "6532f9a5c1ece3798cb1c2cfdba640b9b3ba884f5db45973a6f442510a87d38e",
+      "retainAs": "licenses/dependencies/rust-crates/wasm-bindgen-0.2.114.crate"
+    },
+    {
+      "filename": "rust-crates/wasm-bindgen-macro-0.2.114.crate",
+      "url": "https://static.crates.io/crates/wasm-bindgen-macro/wasm-bindgen-macro-0.2.114.crate",
+      "bytes": 9289,
+      "sha256": "18a2d50fcf105fb33bb15f00e7a77b772945a2ee45dcf454961fd843e74c18e6",
+      "retainAs": "licenses/dependencies/rust-crates/wasm-bindgen-macro-0.2.114.crate"
+    },
+    {
+      "filename": "rust-crates/wasm-bindgen-macro-support-0.2.114.crate",
+      "url": "https://static.crates.io/crates/wasm-bindgen-macro-support/wasm-bindgen-macro-support-0.2.114.crate",
+      "bytes": 63445,
+      "sha256": "03ce4caeaac547cdf713d280eda22a730824dd11e6b8c3ca9e42247b25c631e3",
+      "retainAs": "licenses/dependencies/rust-crates/wasm-bindgen-macro-support-0.2.114.crate"
+    },
+    {
+      "filename": "rust-crates/wasm-bindgen-shared-0.2.114.crate",
+      "url": "https://static.crates.io/crates/wasm-bindgen-shared/wasm-bindgen-shared-0.2.114.crate",
+      "bytes": 10538,
+      "sha256": "75a326b8c223ee17883a4251907455a2431acc2791c98c26279376490c378c16",
+      "retainAs": "licenses/dependencies/rust-crates/wasm-bindgen-shared-0.2.114.crate"
+    },
+    {
+      "filename": "rust-crates/web-time-1.1.0.crate",
+      "url": "https://static.crates.io/crates/web-time/web-time-1.1.0.crate",
+      "bytes": 18026,
+      "sha256": "5a6580f308b1fad9207618087a65c04e7a10bc77e02c8e84e9b00dd4b12fa0bb",
+      "retainAs": "licenses/dependencies/rust-crates/web-time-1.1.0.crate"
+    },
+    {
+      "filename": "rust-crates/wide-0.7.33.crate",
+      "url": "https://static.crates.io/crates/wide/wide-0.7.33.crate",
+      "bytes": 99792,
+      "sha256": "0ce5da8ecb62bcd8ec8b7ea19f69a51275e91299be594ea5cc6ef7819e16cd03",
+      "retainAs": "licenses/dependencies/rust-crates/wide-0.7.33.crate"
+    },
+    {
+      "filename": "rust-crates/winapi-0.3.9.crate",
+      "url": "https://static.crates.io/crates/winapi/winapi-0.3.9.crate",
+      "bytes": 1200382,
+      "sha256": "5c839a674fcd7a98952e593242ea400abe93992746761e38641405d28b00f419",
+      "retainAs": "licenses/dependencies/rust-crates/winapi-0.3.9.crate"
+    },
+    {
+      "filename": "rust-crates/winapi-i686-pc-windows-gnu-0.4.0.crate",
+      "url": "https://static.crates.io/crates/winapi-i686-pc-windows-gnu/winapi-i686-pc-windows-gnu-0.4.0.crate",
+      "bytes": 2918815,
+      "sha256": "ac3b87c63620426dd9b991e5ce0329eff545bccbbb34f3be09ff6fb6ab51b7b6",
+      "retainAs": "licenses/dependencies/rust-crates/winapi-i686-pc-windows-gnu-0.4.0.crate"
+    },
+    {
+      "filename": "rust-crates/winapi-util-0.1.11.crate",
+      "url": "https://static.crates.io/crates/winapi-util/winapi-util-0.1.11.crate",
+      "bytes": 13368,
+      "sha256": "c2a7b1c03c876122aa43f3020e6c3c3ee5c05081c9a00739faf7503aeba10d22",
+      "retainAs": "licenses/dependencies/rust-crates/winapi-util-0.1.11.crate"
+    },
+    {
+      "filename": "rust-crates/winapi-x86_64-pc-windows-gnu-0.4.0.crate",
+      "url": "https://static.crates.io/crates/winapi-x86_64-pc-windows-gnu/winapi-x86_64-pc-windows-gnu-0.4.0.crate",
+      "bytes": 2947998,
+      "sha256": "712e227841d057c1ee1cd2fb22fa7e5a5461ae8e48fa2ca79ec42cfc1931183f",
+      "retainAs": "licenses/dependencies/rust-crates/winapi-x86_64-pc-windows-gnu-0.4.0.crate"
+    },
+    {
+      "filename": "rust-crates/windows-link-0.2.1.crate",
+      "url": "https://static.crates.io/crates/windows-link/windows-link-0.2.1.crate",
+      "bytes": 6133,
+      "sha256": "f0805222e57f7521d6a62e36fa9163bc891acd422f971defe97d64e70d0a4fe5",
+      "retainAs": "licenses/dependencies/rust-crates/windows-link-0.2.1.crate"
+    },
+    {
+      "filename": "rust-crates/windows-sys-0.59.0.crate",
+      "url": "https://static.crates.io/crates/windows-sys/windows-sys-0.59.0.crate",
+      "bytes": 2387323,
+      "sha256": "1e38bc4d79ed67fd075bcc251a1c39b32a1776bbe92e5bef1f0bf1f8c531853b",
+      "retainAs": "licenses/dependencies/rust-crates/windows-sys-0.59.0.crate"
+    },
+    {
+      "filename": "rust-crates/windows-sys-0.61.2.crate",
+      "url": "https://static.crates.io/crates/windows-sys/windows-sys-0.61.2.crate",
+      "bytes": 2517186,
+      "sha256": "ae137229bcbd6cdf0f7b80a31df61766145077ddf49416a728b02cb3921ff3fc",
+      "retainAs": "licenses/dependencies/rust-crates/windows-sys-0.61.2.crate"
+    },
+    {
+      "filename": "rust-crates/windows-targets-0.52.6.crate",
+      "url": "https://static.crates.io/crates/windows-targets/windows-targets-0.52.6.crate",
+      "bytes": 6403,
+      "sha256": "9b724f72796e036ab90c1021d4780d4d3d648aca59e491e6b98e725b84e99973",
+      "retainAs": "licenses/dependencies/rust-crates/windows-targets-0.52.6.crate"
+    },
+    {
+      "filename": "rust-crates/windows_aarch64_gnullvm-0.52.6.crate",
+      "url": "https://static.crates.io/crates/windows_aarch64_gnullvm/windows_aarch64_gnullvm-0.52.6.crate",
+      "bytes": 435718,
+      "sha256": "32a4622180e7a0ec044bb555404c800bc9fd9ec262ec147edd5989ccd0c02cd3",
+      "retainAs": "licenses/dependencies/rust-crates/windows_aarch64_gnullvm-0.52.6.crate"
+    },
+    {
+      "filename": "rust-crates/windows_aarch64_msvc-0.52.6.crate",
+      "url": "https://static.crates.io/crates/windows_aarch64_msvc/windows_aarch64_msvc-0.52.6.crate",
+      "bytes": 832615,
+      "sha256": "09ec2a7bb152e2252b53fa7803150007879548bc709c039df7627cabbd05d469",
+      "retainAs": "licenses/dependencies/rust-crates/windows_aarch64_msvc-0.52.6.crate"
+    },
+    {
+      "filename": "rust-crates/windows_i686_gnu-0.52.6.crate",
+      "url": "https://static.crates.io/crates/windows_i686_gnu/windows_i686_gnu-0.52.6.crate",
+      "bytes": 880402,
+      "sha256": "8e9b5ad5ab802e97eb8e295ac6720e509ee4c243f69d781394014ebfe8bbfa0b",
+      "retainAs": "licenses/dependencies/rust-crates/windows_i686_gnu-0.52.6.crate"
+    },
+    {
+      "filename": "rust-crates/windows_i686_gnullvm-0.52.6.crate",
+      "url": "https://static.crates.io/crates/windows_i686_gnullvm/windows_i686_gnullvm-0.52.6.crate",
+      "bytes": 475940,
+      "sha256": "0eee52d38c090b3caa76c563b86c3a4bd71ef1a819287c19d586d7334ae8ed66",
+      "retainAs": "licenses/dependencies/rust-crates/windows_i686_gnullvm-0.52.6.crate"
+    },
+    {
+      "filename": "rust-crates/windows_i686_msvc-0.52.6.crate",
+      "url": "https://static.crates.io/crates/windows_i686_msvc/windows_i686_msvc-0.52.6.crate",
+      "bytes": 901163,
+      "sha256": "240948bc05c5e7c6dabba28bf89d89ffce3e303022809e73deaefe4f6ec56c66",
+      "retainAs": "licenses/dependencies/rust-crates/windows_i686_msvc-0.52.6.crate"
+    },
+    {
+      "filename": "rust-crates/windows_x86_64_gnu-0.52.6.crate",
+      "url": "https://static.crates.io/crates/windows_x86_64_gnu/windows_x86_64_gnu-0.52.6.crate",
+      "bytes": 836363,
+      "sha256": "147a5c80aabfbf0c7d901cb5895d1de30ef2907eb21fbbab29ca94c5b08b1a78",
+      "retainAs": "licenses/dependencies/rust-crates/windows_x86_64_gnu-0.52.6.crate"
+    },
+    {
+      "filename": "rust-crates/windows_x86_64_gnullvm-0.52.6.crate",
+      "url": "https://static.crates.io/crates/windows_x86_64_gnullvm/windows_x86_64_gnullvm-0.52.6.crate",
+      "bytes": 435707,
+      "sha256": "24d5b23dc417412679681396f2b49f3de8c1473deb516bd34410872eff51ed0d",
+      "retainAs": "licenses/dependencies/rust-crates/windows_x86_64_gnullvm-0.52.6.crate"
+    },
+    {
+      "filename": "rust-crates/windows_x86_64_msvc-0.52.6.crate",
+      "url": "https://static.crates.io/crates/windows_x86_64_msvc/windows_x86_64_msvc-0.52.6.crate",
+      "bytes": 832564,
+      "sha256": "589f6da84c646204747d1270a2a5661ea66ed1cced2631d546fdfb155959f9ec",
+      "retainAs": "licenses/dependencies/rust-crates/windows_x86_64_msvc-0.52.6.crate"
+    },
+    {
+      "filename": "rust-crates/wit-bindgen-0.51.0.crate",
+      "url": "https://static.crates.io/crates/wit-bindgen/wit-bindgen-0.51.0.crate",
+      "bytes": 68035,
+      "sha256": "d7249219f66ced02969388cf2bb044a09756a083d0fab1e566056b04d9fbcaa5",
+      "retainAs": "licenses/dependencies/rust-crates/wit-bindgen-0.51.0.crate"
+    },
+    {
+      "filename": "rust-crates/xz2-0.1.7.crate",
+      "url": "https://static.crates.io/crates/xz2/xz2-0.1.7.crate",
+      "bytes": 23892,
+      "sha256": "388c44dc09d76f1536602ead6d325eb532f5c122f17782bd57fb47baeeb767e2",
+      "retainAs": "licenses/dependencies/rust-crates/xz2-0.1.7.crate"
+    },
+    {
+      "filename": "rust-crates/yaml-rust-0.4.5.crate",
+      "url": "https://static.crates.io/crates/yaml-rust/yaml-rust-0.4.5.crate",
+      "bytes": 47783,
+      "sha256": "56c1936c4cc7a1c9ab21a1ebb602eb942ba868cbd44a99cb7cdc5892335e1c85",
+      "retainAs": "licenses/dependencies/rust-crates/yaml-rust-0.4.5.crate"
+    },
+    {
+      "filename": "rust-crates/yoke-0.8.1.crate",
+      "url": "https://static.crates.io/crates/yoke/yoke-0.8.1.crate",
+      "bytes": 32016,
+      "sha256": "72d6e5c6afb84d73944e5cedb052c4680d5657337201555f9f2a16b7406d4954",
+      "retainAs": "licenses/dependencies/rust-crates/yoke-0.8.1.crate"
+    },
+    {
+      "filename": "rust-crates/yoke-derive-0.8.1.crate",
+      "url": "https://static.crates.io/crates/yoke-derive/yoke-derive-0.8.1.crate",
+      "bytes": 7593,
+      "sha256": "b659052874eb698efe5b9e8cf382204678a0086ebf46982b79d6ca3182927e5d",
+      "retainAs": "licenses/dependencies/rust-crates/yoke-derive-0.8.1.crate"
+    },
+    {
+      "filename": "rust-crates/zerocopy-0.8.48.crate",
+      "url": "https://static.crates.io/crates/zerocopy/zerocopy-0.8.48.crate",
+      "bytes": 287554,
+      "sha256": "eed437bf9d6692032087e337407a86f04cd8d6a16a37199ed57949d415bd68e9",
+      "retainAs": "licenses/dependencies/rust-crates/zerocopy-0.8.48.crate"
+    },
+    {
+      "filename": "rust-crates/zerocopy-derive-0.8.48.crate",
+      "url": "https://static.crates.io/crates/zerocopy-derive/zerocopy-derive-0.8.48.crate",
+      "bytes": 97646,
+      "sha256": "70e3cd084b1788766f53af483dd21f93881ff30d7320490ec3ef7526d203bad4",
+      "retainAs": "licenses/dependencies/rust-crates/zerocopy-derive-0.8.48.crate"
+    },
+    {
+      "filename": "rust-crates/zerofrom-0.1.6.crate",
+      "url": "https://static.crates.io/crates/zerofrom/zerofrom-0.1.6.crate",
+      "bytes": 5669,
+      "sha256": "50cc42e0333e05660c3587f3bf9d0478688e15d870fab3346451ce7f8c9fbea5",
+      "retainAs": "licenses/dependencies/rust-crates/zerofrom-0.1.6.crate"
+    },
+    {
+      "filename": "rust-crates/zerofrom-derive-0.1.6.crate",
+      "url": "https://static.crates.io/crates/zerofrom-derive/zerofrom-derive-0.1.6.crate",
+      "bytes": 8305,
+      "sha256": "d71e5d6e06ab090c67b5e44993ec16b72dcbaabc526db883a360057678b48502",
+      "retainAs": "licenses/dependencies/rust-crates/zerofrom-derive-0.1.6.crate"
+    },
+    {
+      "filename": "rust-crates/zip-7.2.0.crate",
+      "url": "https://static.crates.io/crates/zip/zip-7.2.0.crate",
+      "bytes": 137719,
+      "sha256": "c42e33efc22a0650c311c2ef19115ce232583abbe80850bc8b66509ebef02de0",
+      "retainAs": "licenses/dependencies/rust-crates/zip-7.2.0.crate"
+    },
+    {
+      "filename": "rust-crates/zmij-1.0.21.crate",
+      "url": "https://static.crates.io/crates/zmij/zmij-1.0.21.crate",
+      "bytes": 26665,
+      "sha256": "b8848ee67ecc8aedbaf3e4122217aff892639231befc6a1b58d29fff4c2cabaa",
+      "retainAs": "licenses/dependencies/rust-crates/zmij-1.0.21.crate"
+    },
+    {
+      "filename": "eigen.3.4.0.20240224.nupkg",
+      "url": "https://community.chocolatey.org/api/v2/package/eigen/3.4.0.20240224",
+      "sha256": "54ccbd2937f412d2443a081c5ca88cf2a53d0e20a60af0e5da2c3fcda33e1a3c",
+      "bytes": 1874406,
+      "retainAs": "licenses/dependencies/eigen.3.4.0.20240224.nupkg"
+    },
+    {
+      "filename": "eigen-3.4.0.tar.gz",
+      "url": "https://gitlab.com/libeigen/eigen/-/archive/3.4.0/eigen-3.4.0.tar.gz",
+      "sha256": "8586084f71f9bde545ee7fa6d00288b264a2b7ac3607b974e54d13e7162c1c72",
+      "bytes": 2705005,
+      "retainAs": "licenses/dependencies/eigen-3.4.0.tar.gz"
+    },
+    {
+      "filename": "rust-src-1.98.1.tar.xz",
+      "url": "https://static.rust-lang.org/dist/rust-src-1.98.1.tar.xz",
+      "sha256": "5c846ebcebcc7e2e0777a4cdaa12051691593f16a7e94edbae5e6241cc62d98c",
+      "bytes": 5741168,
+      "retainAs": "licenses/dependencies/rust-src-1.98.1.tar.xz"
+    },
+    {
+      "filename": "GCC-COPYING.RUNTIME",
+      "url": "https://raw.githubusercontent.com/gcc-mirror/gcc/releases/gcc-14.2.0/COPYING.RUNTIME",
+      "sha256": "9d6b43ce4d8de0c878bf16b54d8e7a10d9bd42b75178153e3af6a815bdc90f74",
+      "bytes": 3324,
+      "retainAs": "licenses/dependencies/GCC-COPYING.RUNTIME"
+    },
+    {
+      "filename": "GCC-COPYING3",
+      "url": "https://raw.githubusercontent.com/gcc-mirror/gcc/releases/gcc-14.2.0/COPYING3",
+      "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+      "bytes": 35147,
+      "retainAs": "licenses/dependencies/GCC-COPYING3"
+    },
+    {
+      "filename": "GCC-LIBSTDCXX-NOTICE",
+      "url": "https://raw.githubusercontent.com/gcc-mirror/gcc/releases/gcc-14.2.0/libstdc%2B%2B-v3/README",
+      "sha256": "28ccfda26b0f50642bb79c2e2ea2ec0d8a8a5fd9199ea573b28309a92f673607",
+      "bytes": 233,
+      "retainAs": "licenses/dependencies/GCC-LIBSTDCXX-NOTICE"
+    }
+  ],
+  "windowsDependencyEvidence": {
+    "run": "https://github.com/iqtree/iqtree3/actions/runs/34444796457",
+    "jobId": 102767246150,
+    "boost": "1.84.0",
+    "eigenPackage": "3.4.0.20240224",
+    "eigenHeaders": "3.4.0",
+    "eigenHeaderFilesCompared": 530,
+    "eigenHeaderDifferences": 0,
+    "rust": "1.98.1 (48a229cea 2026-09-01)",
+    "rustCratesFromCargoLock": 252,
+    "rustGitDependency": "phylo_grad@939dedb07605411bd6b2dbb4d3d733f842a15ff5",
+    "gccRuntime": "14.2.0; GPLv3 with GCC Runtime Library Exception3.1"
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "tool": "BWA (classic BWA-MEM)",
+  "version": "0.7.19-r1273",
+  "source_url": "https://codeload.github.com/lh3/bwa/tar.gz/refs/tags/v0.7.19",
+  "source_archive": "archives/bwa-v0.7.19.tar.gz",
+  "source_sha256": "cdff5db67652c5b805a3df08c4e813a822c65791913eccfb3cf7d528588f37bc",
+  "source_changes": "none",
+  "upstream_release": "https://github.com/lh3/bwa/releases/tag/v0.7.19",
+  "license": "GPL-3.0 (full program); bundled components retain their notices",
+  "cosmopolitan": {
+    "version": "3.3.10",
+    "archive_sha256": "00d61c1215667314f66e288c8285bae38cc6137fca083e5bba6c74e3a52439de",
+    "url": "https://cosmo.zip/pub/cosmocc/cosmocc-3.3.10.zip"
+  },
+  "cpu": "x86-64 baseline with SSE2; no -march=native, AVX or AVX2 requirement introduced",
+  "build_changes": [
+    "Compiler/archiver, zlib include and linker flags only",
+    "Force-include sys/select.h and strings.h for POSIX declarations",
+    "Enable _GNU_SOURCE declarations in Cosmopolitan headers",
+    "Cosmopolitan bundled namespaced zlib replaces separate -lz",
+    "Final .exe output selects APE"
+  ],
+  "native_windows_execution_verified": false,
+  "builds": [
+    {
+      "target": "linux",
+      "file": "baselines/bin/bwa-linux",
+      "sha256": "cfdeb7dd79427e7d2f021a979383a95b8cfb8e0298c1d91eda5114965cffa824",
+      "bytes": 1605088,
+      "compiler": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+      "make_command": [
+        "make",
+        "-j2",
+        "bwa",
+        "CC=gcc",
+        "AR=ar",
+        "CFLAGS=-g -Wall -Wno-unused-function -O3 -march=x86-64 -mtune=generic",
+        "INCLUDES=",
+        "LIBS=-lm -lz -lpthread -lrt"
+      ],
+      "ape_link_command": null
+    },
+    {
+      "target": "cosmo",
+      "file": "baselines/bin/bwa-cosmo.exe",
+      "sha256": "55d08b399c42a671e60a8dc7d0421fb60aca8899aa54201903fcf1e2ac21fa0a",
+      "bytes": 884882,
+      "compiler": "x86_64-unknown-cosmo-cc (GCC) 12.3.0",
+      "make_command": [
+        "make",
+        "-j2",
+        "bwa",
+        "CC=/workspace/scratch/0c5293ac0f36/native-workbench-0.3/variant-build/cosmocc-3.3.10/bin/x86_64-unknown-cosmo-cc",
+        "AR=/workspace/scratch/0c5293ac0f36/native-workbench-0.3/variant-build/cosmocc-3.3.10/bin/x86_64-unknown-cosmo-ar",
+        "CFLAGS=-g -Wall -Wno-unused-function -O3 -march=x86-64 -mtune=generic",
+        "INCLUDES=-I/workspace/scratch/0c5293ac0f36/native-workbench-0.3/variant-build/cosmocc-3.3.10/include/third_party/zlib -D_GNU_SOURCE -include sys/select.h -include strings.h",
+        "LIBS=-lm -lpthread"
+      ],
+      "ape_link_command": [
+        "/workspace/scratch/0c5293ac0f36/native-workbench-0.3/variant-build/cosmocc-3.3.10/bin/x86_64-unknown-cosmo-cc",
+        "-g",
+        "-Wall",
+        "-Wno-unused-function",
+        "-O3",
+        "-march=x86-64",
+        "-mtune=generic",
+        "bwashm.o",
+        "bwase.o",
+        "bwaseqio.o",
+        "bwtgap.o",
+        "bwtaln.o",
+        "bamlite.o",
+        "bwape.o",
+        "kopen.o",
+        "pemerge.o",
+        "maxk.o",
+        "bwtsw2_core.o",
+        "bwtsw2_main.o",
+        "bwtsw2_aux.o",
+        "bwt_lite.o",
+        "bwtsw2_chain.o",
+        "fastmap.o",
+        "bwtsw2_pair.o",
+        "main.o",
+        "-o",
+        "/workspace/scratch/0c5293ac0f36/native-workbench-0.4/baselines/bin/bwa-cosmo.exe",
+        "-L.",
+        "-lbwa",
+        "-lm",
+        "-lpthread"
+      ]
+    }
+  ],
+  "validation": {
+    "report": "validation/bwa-verified/validation-summary.json",
+    "report_sha256": "70784df1bf5efac365ba6c87f7e9f367e9279630c69cb2b485502946a198238a",
+    "status": "passed",
+    "cases": [
+      "tiny-truth",
+      "tiny-truth-gzip",
+      "yeast-lane1-gzip"
+    ],
+    "native_windows_execution_verified": false
+  }
+}

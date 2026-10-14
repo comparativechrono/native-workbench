@@ -1,0 +1,2288 @@
+{
+  "schema": 1,
+  "release": "0.6.0",
+  "legacy_source": {
+    "path": "source/native-workbench-source.zip",
+    "bytes": 44163162,
+    "sha256": "5dac9add19436b336cba483a0f915e39aafed383282c2a019a0dbd3cc3c8668e"
+  },
+  "pack_companions": [
+    {
+      "id": "bowtie2",
+      "version": "0.5.3",
+      "manifestSha256": "cdaa52bde3dec022e6716d4fc6b6e78481982f1d6491b5cd21ff4d64d33cec32",
+      "file": "native-workbench-pack-bowtie2-0.5.3.zip"
+    },
+    {
+      "id": "hisat2",
+      "version": "0.5.3",
+      "manifestSha256": "06f912deb5926b00a8ca269138b4b3822bb4b3e36d4956e30ca7793655052967",
+      "file": "native-workbench-pack-hisat2-0.5.3.zip"
+    },
+    {
+      "id": "lofreq",
+      "version": "0.5.3",
+      "manifestSha256": "4a00d450461cb434e04ddd377b901f73f9027e27a38f947238b6b18e9f5d862e",
+      "file": "native-workbench-pack-lofreq-0.5.3.zip"
+    },
+    {
+      "id": "muscle",
+      "version": "0.5.2",
+      "manifestSha256": "085273422c7f26af77d23643efa961f1fb6ecbdee301109af67ba551f41b82c4",
+      "file": "native-workbench-pack-muscle-0.5.2.zip"
+    },
+    {
+      "id": "mutect2",
+      "version": "0.5.4",
+      "manifestSha256": "bef9c8ee3b35b3b4ead54ed359a019d6592933e5ee84a05e449d014891f7ab3e",
+      "file": "native-workbench-pack-mutect2-0.5.4.zip"
+    },
+    {
+      "id": "vardict",
+      "version": "0.5.3",
+      "manifestSha256": "f43b5dfa5a7ba9a8a476c956499f67576922d171c00eb63ce36cf25e28caf482",
+      "file": "native-workbench-pack-vardict-0.5.3.zip"
+    },
+    {
+      "id": "vsearch",
+      "version": "0.5.2",
+      "manifestSha256": "2971ca612558983b23a259c4e2416ddbc129dbff9fdfeac5d2bbaa17a3a652d8",
+      "file": "native-workbench-pack-vsearch-0.5.2.zip"
+    }
+  ],
+  "instructions": "Extract legacy/native-workbench-0.5.4-source.zip into a separate legacy-source folder. Obtain the listed exact pack companions, place each ZIP pack/ tree at packs/<id>-<version>/ in a separate runtime root, and run legacy-source/native-workbench/scripts/restore_source_archives.py with that source root and runtime root. The current/ folder contains the actual 0.6 application/build/test sources, not the old versions.",
+  "source_aliases": [
+    {
+      "source_path": "packs/bowtie2-0.5.3/licenses/bowtie2-2.5.5-source.tar.gz",
+      "runtime_path": "packs/bowtie2-0.5.3/licenses/bowtie2-2.5.5-source.tar.gz",
+      "bytes": 10645909,
+      "sha256": "e38d1833ec235ca27fa57589d32d897c9addf87085b7cb7bc978662954662da2"
+    },
+    {
+      "source_path": "packs/bowtie2-0.5.3/licenses/zlib-1.3.2.tar.gz",
+      "runtime_path": "packs/bowtie2-0.5.3/licenses/zlib-1.3.2.tar.gz",
+      "bytes": 1566911,
+      "sha256": "b99a0b86c0ba9360ec7e78c4f1e43b1cbdf1e6936c8fa0f6835c0cd694a495a1"
+    },
+    {
+      "source_path": "packs/bowtie2-0.5.3/licenses/zstd-1.5.5.tar.gz",
+      "runtime_path": "packs/bowtie2-0.5.3/licenses/zstd-1.5.5.tar.gz",
+      "bytes": 2386533,
+      "sha256": "98e9c3d949d1b924e28e01eccb7deed865eefebf25c2f21c702e5cd5b63b85e1"
+    },
+    {
+      "source_path": "packs/hisat2-0.5.3/licenses/hisat2-v2.2.3.tar.gz",
+      "runtime_path": "packs/hisat2-0.5.3/licenses/hisat2-v2.2.3.tar.gz",
+      "bytes": 7059086,
+      "sha256": "b53107422e5b44ebea4b20b1a77bb9e240d6b92d654fcd7e6a6ab5d1aae86c45"
+    },
+    {
+      "source_path": "packs/lofreq-0.5.3/licenses/cosmopolitan-3.3.10.tar.gz",
+      "runtime_path": "packs/lofreq-0.5.3/licenses/cosmopolitan-3.3.10.tar.gz",
+      "bytes": 44847345,
+      "sha256": "1ecfd628305e844f7d8ded53742e4a7f2b908b4ad2e9fb423c81595986f5b2ff"
+    },
+    {
+      "source_path": "packs/lofreq-0.5.3/licenses/lofreq-2.1.5-source-subset.tar.gz",
+      "runtime_path": "packs/lofreq-0.5.3/licenses/lofreq-2.1.5-source-subset.tar.gz",
+      "bytes": 221889,
+      "sha256": "5578d1ac7afd6d6ed8180b5d893322aef2389d58bd82258fabe3821186b8aa9e"
+    },
+    {
+      "source_path": "packs/lofreq-0.5.3/licenses/samtools-htslib-1.24.tar.bz2",
+      "runtime_path": "packs/lofreq-0.5.3/licenses/samtools-htslib-1.24.tar.bz2",
+      "bytes": 9491012,
+      "sha256": "89b2a440123eeaa400392ce1736e7d60ce9041843027d76819753c5a8246bfdd"
+    },
+    {
+      "source_path": "packs/muscle-0.5.2/licenses/muscle-v5.3.tar.gz",
+      "runtime_path": "packs/muscle-0.5.2/licenses/muscle-v5.3.tar.gz",
+      "bytes": 28692261,
+      "sha256": "74b22a94e630b16015c2bd9ae83aa2be2c2048d3e41f560b2d4a954725c81968"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/GenomicsDB-1.5.5-source.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/GenomicsDB-1.5.5-source.tar.gz",
+      "bytes": 6765965,
+      "sha256": "fe8c1c71c2918b1b38c6d7ecf354eff616ac7ec129eacd51f70d3c9eaf96bca1"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/OpenJDK17U-jdk-sources_17.0.20.1_1.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/OpenJDK17U-jdk-sources_17.0.20.1_1.tar.gz",
+      "bytes": 109272338,
+      "sha256": "21e2a065d244ab048e737f21af5d1fc74daaeb6707de36477ead8db1dca71214"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/biz.aQute.bnd--biz.aQute.bnd.annotation-7.0.0-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/biz.aQute.bnd--biz.aQute.bnd.annotation-7.0.0-sources.jar",
+      "bytes": 47557,
+      "sha256": "cecb830b0da21f0d6733017cd53c548b2a0fd46f776de59328e737d29a45f814"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/bwa-cb950614ce7217788780b9a8d445c64cd4d8f62e-source.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/bwa-cb950614ce7217788780b9a8d445c64cd4d8f62e-source.tar.gz",
+      "bytes": 207625,
+      "sha256": "0aa6b2000f48b5d73e7ed87fe35c092d47709f9be78e98692a191a4676b7a2f1"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/ch.qos.logback--logback-core-1.5.13-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/ch.qos.logback--logback-core-1.5.13-sources.jar",
+      "bytes": 488413,
+      "sha256": "0cafa20eea81fc8442e06dea9b1904b72ea7352861df07f8576644e24c653dcd"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/com.github.fommil--jniloader-1.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil--jniloader-1.1-sources.jar",
+      "bytes": 4441,
+      "sha256": "f31f1d3d257c1c298bff289424283bb881ba372e451745d828c04d02df091cf2"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--core-1.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--core-1.1-sources.jar",
+      "bytes": 679209,
+      "sha256": "bdef30ae70e449dc2389a056e34b10cbce95d7d3ef400099db54e34af88c810c"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--native_ref-java-1.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--native_ref-java-1.1-sources.jar",
+      "bytes": 28183,
+      "sha256": "9f0baec202cfc31bdecc1ae5b3746a4d31fc30d2d7679fef6dfc7f01a57a86e6"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--native_system-java-1.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--native_system-java-1.1-sources.jar",
+      "bytes": 28200,
+      "sha256": "1fcdd2af960ac58f53c959fc224571c6dae2efd51ccf37dbdb2a399af5fc93fc"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--netlib-native_ref-linux-x86_64-1.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--netlib-native_ref-linux-x86_64-1.1-sources.jar",
+      "bytes": 86855,
+      "sha256": "5abc59d71b2b231a127efbdb190e72b9aa666edc8e329feabce0b8859ec3dc07"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--netlib-native_ref-osx-x86_64-1.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--netlib-native_ref-osx-x86_64-1.1-sources.jar",
+      "bytes": 89373,
+      "sha256": "19d18939446877aaf295205526b47f85e6271328ec823322fcbe7d7dbc1a77ba"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--netlib-native_system-linux-x86_64-1.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--netlib-native_system-linux-x86_64-1.1-sources.jar",
+      "bytes": 89748,
+      "sha256": "6b2af363d6f66d139df1e8de041c5507a5769837971ee35dac98f8e508208c37"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--netlib-native_system-osx-x86_64-1.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--netlib-native_system-osx-x86_64-1.1-sources.jar",
+      "bytes": 86986,
+      "sha256": "b83eb9788e6336f8b1d6b0de0432f9620c163963af899b69d13c3d55f84870c1"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/com.github.pjfanning--jersey-json-1.20-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.pjfanning--jersey-json-1.20-sources.jar",
+      "bytes": 134527,
+      "sha256": "bfcbab4bcc22451cbdc0729ecb1b7664ec40a214d423d1e136b753b439e0ee44"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/com.sun.istack--istack-commons-runtime-3.0.8-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.sun.istack--istack-commons-runtime-3.0.8-sources.jar",
+      "bytes": 25886,
+      "sha256": "4874ce5789c8684debd0099c8fa4ec8e00545626af4c9890760f0cb6fdf6d4db"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/com.sun.jersey--jersey-client-1.19-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.sun.jersey--jersey-client-1.19-sources.jar",
+      "bytes": 122357,
+      "sha256": "1c1f6043818271a876e77b8632df67400e5448b28566cb435d9d1f5177839a7a"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/com.sun.jersey--jersey-core-1.19-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.sun.jersey--jersey-core-1.19-sources.jar",
+      "bytes": 380026,
+      "sha256": "d5c40741fb2507955c3c74794e5ebcd6fd3ed88d83528322b84a9120950db348"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/com.sun.jersey--jersey-server-1.19.4-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.sun.jersey--jersey-server-1.19.4-sources.jar",
+      "bytes": 694729,
+      "sha256": "8f45b0a00ffddefed2fe99a73dcca04abab392193b1d590cc217ae0fc8b06cb5"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/com.sun.jersey--jersey-servlet-1.19-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.sun.jersey--jersey-servlet-1.19-sources.jar",
+      "bytes": 104294,
+      "sha256": "afa62ae8b3000003fd244a65301e658b3384b456a7e34fb677faa59285e79f54"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/com.sun.jersey.contribs--jersey-guice-1.19.4-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.sun.jersey.contribs--jersey-guice-1.19.4-sources.jar",
+      "bytes": 12560,
+      "sha256": "d0d4083231c60f738a40a0bd9ce50ac3bb1a0263f131c37adb413cbb6e0d1d8d"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/fermi-lite-562638112b7992f4d7a243ccd9ab2b3bd08c6b08-source.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/fermi-lite-562638112b7992f4d7a243ccd9ab2b3bd08c6b08-source.tar.gz",
+      "bytes": 248166,
+      "sha256": "77b985a94c7d415a702976cc79ec39fe93bedfc28f7bbdb47899ebbff1bccda4"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/gatk-4.7.0.0-source.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/gatk-4.7.0.0-source.tar.gz",
+      "bytes": 109654269,
+      "sha256": "35ffd523a378374aabdb29321bdad90fe48eba31f7c251592cd6305e950016d3"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/gatk-bwamem-jni-1.0.4-source.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/gatk-bwamem-jni-1.0.4-source.tar.gz",
+      "bytes": 75302,
+      "sha256": "6557109ab0056e2875f3293a3a6fa96e239af1bb6943ca1752bd17b2d371da04"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/gatk-fermilite-jni-1.2.0-source.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/gatk-fermilite-jni-1.2.0-source.tar.gz",
+      "bytes": 63573,
+      "sha256": "2955b8258ddeee50e145455ea16b0d164576fbab59a6266b2c88e7781865e894"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/gnu.getopt--java-getopt-1.0.13-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/gnu.getopt--java-getopt-1.0.13-sources.jar",
+      "bytes": 57158,
+      "sha256": "0728c551077cbb0c4e721b95915c732642d70eef24b29ac7de549983e4f1818b"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/jakarta.activation--jakarta.activation-api-1.2.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/jakarta.activation--jakarta.activation-api-1.2.1-sources.jar",
+      "bytes": 43221,
+      "sha256": "e9638b764202c0def1b4d54bd37a984c681b2ed46a548ae94ef3f7e4a4b58a31"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/jakarta.annotation--jakarta.annotation-api-1.3.5-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/jakarta.annotation--jakarta.annotation-api-1.3.5-sources.jar",
+      "bytes": 38267,
+      "sha256": "aa27e9291dce4ddbb0aea52a1cbef41c6330b96b0ae387a995ed412b68a3af7c"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/jakarta.servlet--jakarta.servlet-api-4.0.3-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/jakarta.servlet--jakarta.servlet-api-4.0.3-sources.jar",
+      "bytes": 166894,
+      "sha256": "8643aae750a34a7fa3f543e5e0bcdaeb7d12ae75f5267d535efacaa5bc06f7f7"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/jakarta.validation--jakarta.validation-api-2.0.2-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/jakarta.validation--jakarta.validation-api-2.0.2-sources.jar",
+      "bytes": 97203,
+      "sha256": "19c594e00f04d7f3953a065d798d9ee5edf37d00e01e5894babd61bc7652fa5c"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/jakarta.ws.rs--jakarta.ws.rs-api-2.1.6-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/jakarta.ws.rs--jakarta.ws.rs-api-2.1.6-sources.jar",
+      "bytes": 246372,
+      "sha256": "5fb0591472e00439db7d1511caa40a39cda42e24b0bade6378f880384b7cc073"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/jakarta.xml.bind--jakarta.xml.bind-api-2.3.2-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/jakarta.xml.bind--jakarta.xml.bind-api-2.3.2-sources.jar",
+      "bytes": 194036,
+      "sha256": "61ceb3ed35ecf99f1803eac9c4b8f12103c7531952beae38ba53cc727f405532"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/javax.annotation--javax.annotation-api-1.3.2-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/javax.annotation--javax.annotation-api-1.3.2-sources.jar",
+      "bytes": 42279,
+      "sha256": "128971e52e0d84a66e3b6e049dab8ad7b2c58b7e1ad37fa2debd3d40c2947b95"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/javax.servlet--javax.servlet-api-3.1.0-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/javax.servlet--javax.servlet-api-3.1.0-sources.jar",
+      "bytes": 223386,
+      "sha256": "5c6d640f01e8e7ffdba21b2b75c0f64f0c30fd1fc3372123750c034cb363012a"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/javax.ws.rs--jsr311-api-1.1.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/javax.ws.rs--jsr311-api-1.1.1-sources.jar",
+      "bytes": 70022,
+      "sha256": "99227bada18620d29406be240e7c749da68e646ce1d2a61d6f320863f05a30da"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/javax.xml.bind--jaxb-api-2.2.11-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/javax.xml.bind--jaxb-api-2.2.11-sources.jar",
+      "bytes": 244349,
+      "sha256": "467ba7ce05e329ea8cefe44ff033d5a71ad799b1d774e3fbfa89e71e1c454b51"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/libuuid-1.0.3.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/libuuid-1.0.3.tar.gz",
+      "bytes": 318256,
+      "sha256": "46af3275291091009ad7f1b899de3d0cea0252737550e7919d17237997db5644"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/mummer-4.0.0rc1.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/mummer-4.0.0rc1.tar.gz",
+      "bytes": 967486,
+      "sha256": "85006adb2d6539c2f738c3e3bb14b58bb6f62cd6c6ca5ede884a87ae76e07d1d"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/netlib-java-1.1.0-source.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/netlib-java-1.1.0-source.tar.gz",
+      "bytes": 2358125,
+      "sha256": "94a1b8f0a15edded8dece5d138743e4389ad8d54e505063cfe77b11f4d09b80d"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.broadinstitute--gatk-bwamem-jni-1.0.4-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.broadinstitute--gatk-bwamem-jni-1.0.4-sources.jar",
+      "bytes": 15305,
+      "sha256": "086340a9963a94d832fcb095372962292da8f3c26f0d6ae5a030a074be9c25f7"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.broadinstitute--gatk-fermilite-jni-1.2.0-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.broadinstitute--gatk-fermilite-jni-1.2.0-sources.jar",
+      "bytes": 6165,
+      "sha256": "501959ddc1e5035661c7a8a72d5cf69faa389c9e9171fed0291a73c3642b40b4"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-client-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-client-9.4.52.v20230823-sources.jar",
+      "bytes": 179971,
+      "sha256": "5aa054f7ae140da9d09b5fdaee66427571f7e86606a3b7ce793d12f61cad99c2"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-continuation-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-continuation-9.4.52.v20230823-sources.jar",
+      "bytes": 26338,
+      "sha256": "7968ec3c906715f1da32a2e6dfd85d819f229145fbcabf62550e34e3cc9162f4"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-http-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-http-9.4.52.v20230823-sources.jar",
+      "bytes": 139438,
+      "sha256": "e965cfce9a44f40002fa6ade07d7b9ae21427b8e239f3f1624ed0f880ce0f523"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-plus-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-plus-9.4.52.v20230823-sources.jar",
+      "bytes": 52635,
+      "sha256": "ef2e09a1cf4e564451c2d6b4b79eb622556e8b5c88bc4b2386a96eb56a674b00"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-proxy-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-proxy-9.4.52.v20230823-sources.jar",
+      "bytes": 45558,
+      "sha256": "319dfa07ddf0f44ff6173963c6baf3736b8469054ceedfd11f97e904695d1343"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-security-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-security-9.4.52.v20230823-sources.jar",
+      "bytes": 86036,
+      "sha256": "f3cf76dafe9d4f00da02e1db3e83246729ac5816bcf89a60b0029b637e12a17f"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-server-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-server-9.4.52.v20230823-sources.jar",
+      "bytes": 444485,
+      "sha256": "6c2136bfa16a18ef5e89dc7dc6231be4e65226f2517c8ce84b0dc93f0a18a422"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-servlet-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-servlet-9.4.52.v20230823-sources.jar",
+      "bytes": 81433,
+      "sha256": "e992d81bef3b8d577465cc2f97f2abab56f6adc2f1c2b598778ab53a61e42ca6"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-servlets-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-servlets-9.4.52.v20230823-sources.jar",
+      "bytes": 68415,
+      "sha256": "ae59cea5631502110635415b1369c0777bf841691c40ca95f5176a3a18e3d78a"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-util-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-util-9.4.52.v20230823-sources.jar",
+      "bytes": 386267,
+      "sha256": "735c794fa166915e5c2d8fb2960b2befb3299955cfd8bff2c04c8ec621a2b009"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-util-ajax-9.4.43.v20210629-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-util-ajax-9.4.43.v20210629-sources.jar",
+      "bytes": 36772,
+      "sha256": "169481a3a7e5d785c76a3f51eb92eb6993bbc26f1c8c210a11aec766ab82306b"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-webapp-9.4.43.v20210629-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-webapp-9.4.43.v20210629-sources.jar",
+      "bytes": 94430,
+      "sha256": "5770ed5896e4f6c872579fdbf8d4f6fed76b8a8be6434243ad5c53692a509c91"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-xml-9.4.43.v20210629-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-xml-9.4.43.v20210629-sources.jar",
+      "bytes": 45218,
+      "sha256": "1a7e10ccaa69b076ff8a0e18090cb9bab1cb8a520436b6131b166cb4808c0bcf"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty.websocket--websocket-api-9.4.43.v20210629-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty.websocket--websocket-api-9.4.43.v20210629-sources.jar",
+      "bytes": 62801,
+      "sha256": "19d2a7f4dc2fab3984b9a517bfec7ec4c5e4d78480ca3a8d42f75abd70a162f2"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty.websocket--websocket-client-9.4.43.v20210629-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty.websocket--websocket-client-9.4.43.v20210629-sources.jar",
+      "bytes": 38052,
+      "sha256": "773249f4700fc7c5738aae2efd28adca9146b4da3d94a381162329fc9b65e50a"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty.websocket--websocket-common-9.4.43.v20210629-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty.websocket--websocket-common-9.4.43.v20210629-sources.jar",
+      "bytes": 148531,
+      "sha256": "33a38b9f5b3dcacd0fd932c6ee5262fd33d9b08c43fd04c47743e3a2f73a8951"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2--hk2-api-2.6.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2--hk2-api-2.6.1-sources.jar",
+      "bytes": 220531,
+      "sha256": "636e56f6454a7c680271dd8e2e49d1fd50625bb9e206555a14ccf900188cc18c"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2--hk2-locator-2.6.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2--hk2-locator-2.6.1-sources.jar",
+      "bytes": 124542,
+      "sha256": "d76811aeabe487e35001fb4a0ab3d986a091c331f4d61962c33f6c98f94e5053"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2--hk2-utils-2.6.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2--hk2-utils-2.6.1-sources.jar",
+      "bytes": 94602,
+      "sha256": "36552a965412a1d5a9eb2ee0282fd224151e79ac5dc42ae794f0bac67e523dc5"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2--osgi-resource-locator-1.0.3-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2--osgi-resource-locator-1.0.3-sources.jar",
+      "bytes": 10377,
+      "sha256": "603d0e07134189505c76a8c8d5d4451a91bf1327a05f1f5bcea09bad61bd507e"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2.external--aopalliance-repackaged-2.6.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2.external--aopalliance-repackaged-2.6.1-sources.jar",
+      "bytes": 38893,
+      "sha256": "13392e5ad2540a5718abb1dc7c380ebd754c1b95c7d6140dd38bfeade1e6dd21"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2.external--jakarta.inject-2.6.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2.external--jakarta.inject-2.6.1-sources.jar",
+      "bytes": 27859,
+      "sha256": "fbbadf59b395bf326910de95682eaaa83dcc0f1d65cd4a077c6988deff6a527a"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jaxb--jaxb-runtime-2.3.2-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jaxb--jaxb-runtime-2.3.2-sources.jar",
+      "bytes": 757829,
+      "sha256": "b85c2e314e6565e7dc4fb7e00ec8688c1c0fe9c9f7275125fb8dee43898f3743"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.containers--jersey-container-servlet-2.40-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.containers--jersey-container-servlet-2.40-sources.jar",
+      "bytes": 28608,
+      "sha256": "1c299c59ea2a891fd002b63de3813450d905acc5369ccffa7e4149f6fc5832a8"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.containers--jersey-container-servlet-core-2.40-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.containers--jersey-container-servlet-core-2.40-sources.jar",
+      "bytes": 63233,
+      "sha256": "3ba5d4afe931292534a8c28d611128206d1243942a89e8a5e3b74e433ea70c39"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.core--jersey-client-2.40-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.core--jersey-client-2.40-sources.jar",
+      "bytes": 195284,
+      "sha256": "4a1b52f93d82f6bc0462f749e937ff02c4bf9526d5f02c35f35b15a6051c9a37"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.core--jersey-common-2.40-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.core--jersey-common-2.40-sources.jar",
+      "bytes": 794790,
+      "sha256": "cd00982cc1a0ffaea55ed692f52aab84b842ac7856ea960e1a4eba35ac14affc"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.core--jersey-server-2.40-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.core--jersey-server-2.40-sources.jar",
+      "bytes": 786100,
+      "sha256": "85de1a89cb0323cf97010a17dd52b32e08e9d75e0fc325dfb5171bd7c7265acd"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.inject--jersey-hk2-2.40-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.inject--jersey-hk2-2.40-sources.jar",
+      "bytes": 47885,
+      "sha256": "83c5984aae32bf6fb19f385503459b4144c73fd520c054c8534b123dc816581d"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.javassist--javassist-3.29.2-GA-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.javassist--javassist-3.29.2-GA-sources.jar",
+      "bytes": 550059,
+      "sha256": "dc88b4ac96851f3102588d73dcb2d8b012e42d866938bc5b84be26442bde7b28"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.jgrapht--jgrapht-core-1.1.0-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.jgrapht--jgrapht-core-1.1.0-sources.jar",
+      "bytes": 502174,
+      "sha256": "1c86ceeda071cacf039e663c465ad589ef032411a60a50d15de38729da639f18"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.jgrapht--jgrapht-io-1.1.0-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.jgrapht--jgrapht-io-1.1.0-sources.jar",
+      "bytes": 89387,
+      "sha256": "ab002cd84b4a95f4288f41bc49d369f3d23593d8f267fe07f557bfe25200ccf2"
+    },
+    {
+      "source_path": "packs/vardict-0.5.3/licenses/OpenJDK8U-jdk-sources_8u504b01.tar.gz",
+      "runtime_path": "packs/vardict-0.5.3/licenses/OpenJDK8U-jdk-sources_8u504b01.tar.gz",
+      "bytes": 94314011,
+      "sha256": "86cd14f299616dddca13268cc2fa794eb4d28fc732dedaad8c5b8a3078e5d3c9"
+    },
+    {
+      "source_path": "packs/vardict-0.5.3/licenses/VarDict-009e017-source.tar.gz",
+      "runtime_path": "packs/vardict-0.5.3/licenses/VarDict-009e017-source.tar.gz",
+      "bytes": 931032,
+      "sha256": "1d70dd8eacb59a9e8fa909f6b322fbef6474d11eb27b6b21273761df0dfdd422"
+    },
+    {
+      "source_path": "packs/vardict-0.5.3/licenses/VarDictJava-1.8.3-source.tar.gz",
+      "runtime_path": "packs/vardict-0.5.3/licenses/VarDictJava-1.8.3-source.tar.gz",
+      "bytes": 104964746,
+      "sha256": "b45a3f7301c468d514c3916179f9f3c25f31e12f663ce6c674109caf3d60701e"
+    },
+    {
+      "source_path": "packs/vardict-0.5.3/licenses/build-extlibs-source.tar.gz",
+      "runtime_path": "packs/vardict-0.5.3/licenses/build-extlibs-source.tar.gz",
+      "bytes": 2454408,
+      "sha256": "c204ef125854ad2b33cff775818e7c9c4b7fa81e8f12c09b8de7bc80fa4c63b0"
+    },
+    {
+      "source_path": "packs/vardict-0.5.3/licenses/gcc-13.2.0.tar.xz",
+      "runtime_path": "packs/vardict-0.5.3/licenses/gcc-13.2.0.tar.xz",
+      "bytes": 87858592,
+      "sha256": "e275e76442a6067341a27f04c5c6b83d8613144004c0413528863dc6b5c743da"
+    },
+    {
+      "source_path": "packs/vardict-0.5.3/licenses/mingw-w64-11.0.1-source.tar.gz",
+      "runtime_path": "packs/vardict-0.5.3/licenses/mingw-w64-11.0.1-source.tar.gz",
+      "bytes": 13919536,
+      "sha256": "493cb0bde1e470a281c7a633fcc1158de3b8919f687020c60a936e7b2512398d"
+    },
+    {
+      "source_path": "packs/vardict-0.5.3/licenses/perl-5.42.3.tar.xz",
+      "runtime_path": "packs/vardict-0.5.3/licenses/perl-5.42.3.tar.xz",
+      "bytes": 14495300,
+      "sha256": "c9387e1473a1866935cb047ece7c2e0a80767a3acdecb79d4a375f8a95970ddc"
+    },
+    {
+      "source_path": "packs/vardict-0.5.3/licenses/strawberry-5.42.3.1-source.tar.gz",
+      "runtime_path": "packs/vardict-0.5.3/licenses/strawberry-5.42.3.1-source.tar.gz",
+      "bytes": 2674982,
+      "sha256": "c5d2edf05f4a3471a085a0bc21023cd9e73530b55a2d4043e9d79d480e4d273c"
+    },
+    {
+      "source_path": "packs/vsearch-0.5.2/licenses/vsearch-2.32.0.tar.gz",
+      "runtime_path": "packs/vsearch-0.5.2/licenses/vsearch-2.32.0.tar.gz",
+      "bytes": 1189974,
+      "sha256": "99578a8b960a0fb87c1f19dc65aedecddc01cfa91851b697dac8294dd08a6ceb"
+    },
+    {
+      "source_path": "variant-build/cosmopolitan-3.3.10.tar.gz",
+      "runtime_path": "packs/lofreq-0.5.3/licenses/cosmopolitan-3.3.10.tar.gz",
+      "bytes": 44847345,
+      "sha256": "1ecfd628305e844f7d8ded53742e4a7f2b908b4ad2e9fb423c81595986f5b2ff"
+    },
+    {
+      "source_path": "vendor-expanded/gatk/OpenJDK17U-jdk-sources_17.0.20.1_1.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/OpenJDK17U-jdk-sources_17.0.20.1_1.tar.gz",
+      "bytes": 109272338,
+      "sha256": "21e2a065d244ab048e737f21af5d1fc74daaeb6707de36477ead8db1dca71214"
+    },
+    {
+      "source_path": "vendor-expanded/gatk/gatk-4.7.0.0-source.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/gatk-4.7.0.0-source.tar.gz",
+      "bytes": 109654269,
+      "sha256": "35ffd523a378374aabdb29321bdad90fe48eba31f7c251592cd6305e950016d3"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/GenomicsDB-1.5.5-source.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/GenomicsDB-1.5.5-source.tar.gz",
+      "bytes": 6765965,
+      "sha256": "fe8c1c71c2918b1b38c6d7ecf354eff616ac7ec129eacd51f70d3c9eaf96bca1"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/biz.aQute.bnd--biz.aQute.bnd.annotation-7.0.0-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/biz.aQute.bnd--biz.aQute.bnd.annotation-7.0.0-sources.jar",
+      "bytes": 47557,
+      "sha256": "cecb830b0da21f0d6733017cd53c548b2a0fd46f776de59328e737d29a45f814"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/bwa-cb950614ce7217788780b9a8d445c64cd4d8f62e-source.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/bwa-cb950614ce7217788780b9a8d445c64cd4d8f62e-source.tar.gz",
+      "bytes": 207625,
+      "sha256": "0aa6b2000f48b5d73e7ed87fe35c092d47709f9be78e98692a191a4676b7a2f1"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/ch.qos.logback--logback-core-1.5.13-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/ch.qos.logback--logback-core-1.5.13-sources.jar",
+      "bytes": 488413,
+      "sha256": "0cafa20eea81fc8442e06dea9b1904b72ea7352861df07f8576644e24c653dcd"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/com.github.fommil--jniloader-1.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil--jniloader-1.1-sources.jar",
+      "bytes": 4441,
+      "sha256": "f31f1d3d257c1c298bff289424283bb881ba372e451745d828c04d02df091cf2"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/com.github.fommil.netlib--core-1.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--core-1.1-sources.jar",
+      "bytes": 679209,
+      "sha256": "bdef30ae70e449dc2389a056e34b10cbce95d7d3ef400099db54e34af88c810c"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/com.github.fommil.netlib--native_ref-java-1.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--native_ref-java-1.1-sources.jar",
+      "bytes": 28183,
+      "sha256": "9f0baec202cfc31bdecc1ae5b3746a4d31fc30d2d7679fef6dfc7f01a57a86e6"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/com.github.fommil.netlib--native_system-java-1.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--native_system-java-1.1-sources.jar",
+      "bytes": 28200,
+      "sha256": "1fcdd2af960ac58f53c959fc224571c6dae2efd51ccf37dbdb2a399af5fc93fc"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/com.github.fommil.netlib--netlib-native_ref-linux-x86_64-1.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--netlib-native_ref-linux-x86_64-1.1-sources.jar",
+      "bytes": 86855,
+      "sha256": "5abc59d71b2b231a127efbdb190e72b9aa666edc8e329feabce0b8859ec3dc07"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/com.github.fommil.netlib--netlib-native_ref-osx-x86_64-1.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--netlib-native_ref-osx-x86_64-1.1-sources.jar",
+      "bytes": 89373,
+      "sha256": "19d18939446877aaf295205526b47f85e6271328ec823322fcbe7d7dbc1a77ba"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/com.github.fommil.netlib--netlib-native_system-linux-x86_64-1.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--netlib-native_system-linux-x86_64-1.1-sources.jar",
+      "bytes": 89748,
+      "sha256": "6b2af363d6f66d139df1e8de041c5507a5769837971ee35dac98f8e508208c37"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/com.github.fommil.netlib--netlib-native_system-osx-x86_64-1.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--netlib-native_system-osx-x86_64-1.1-sources.jar",
+      "bytes": 86986,
+      "sha256": "b83eb9788e6336f8b1d6b0de0432f9620c163963af899b69d13c3d55f84870c1"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/com.github.pjfanning--jersey-json-1.20-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.pjfanning--jersey-json-1.20-sources.jar",
+      "bytes": 134527,
+      "sha256": "bfcbab4bcc22451cbdc0729ecb1b7664ec40a214d423d1e136b753b439e0ee44"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/com.sun.istack--istack-commons-runtime-3.0.8-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.sun.istack--istack-commons-runtime-3.0.8-sources.jar",
+      "bytes": 25886,
+      "sha256": "4874ce5789c8684debd0099c8fa4ec8e00545626af4c9890760f0cb6fdf6d4db"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/com.sun.jersey--jersey-client-1.19-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.sun.jersey--jersey-client-1.19-sources.jar",
+      "bytes": 122357,
+      "sha256": "1c1f6043818271a876e77b8632df67400e5448b28566cb435d9d1f5177839a7a"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/com.sun.jersey--jersey-core-1.19-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.sun.jersey--jersey-core-1.19-sources.jar",
+      "bytes": 380026,
+      "sha256": "d5c40741fb2507955c3c74794e5ebcd6fd3ed88d83528322b84a9120950db348"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/com.sun.jersey--jersey-server-1.19.4-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.sun.jersey--jersey-server-1.19.4-sources.jar",
+      "bytes": 694729,
+      "sha256": "8f45b0a00ffddefed2fe99a73dcca04abab392193b1d590cc217ae0fc8b06cb5"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/com.sun.jersey--jersey-servlet-1.19-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.sun.jersey--jersey-servlet-1.19-sources.jar",
+      "bytes": 104294,
+      "sha256": "afa62ae8b3000003fd244a65301e658b3384b456a7e34fb677faa59285e79f54"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/com.sun.jersey.contribs--jersey-guice-1.19.4-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.sun.jersey.contribs--jersey-guice-1.19.4-sources.jar",
+      "bytes": 12560,
+      "sha256": "d0d4083231c60f738a40a0bd9ce50ac3bb1a0263f131c37adb413cbb6e0d1d8d"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/fermi-lite-562638112b7992f4d7a243ccd9ab2b3bd08c6b08-source.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/fermi-lite-562638112b7992f4d7a243ccd9ab2b3bd08c6b08-source.tar.gz",
+      "bytes": 248166,
+      "sha256": "77b985a94c7d415a702976cc79ec39fe93bedfc28f7bbdb47899ebbff1bccda4"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/gatk-bwamem-jni-1.0.4-source.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/gatk-bwamem-jni-1.0.4-source.tar.gz",
+      "bytes": 75302,
+      "sha256": "6557109ab0056e2875f3293a3a6fa96e239af1bb6943ca1752bd17b2d371da04"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/gatk-fermilite-jni-1.2.0-source.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/gatk-fermilite-jni-1.2.0-source.tar.gz",
+      "bytes": 63573,
+      "sha256": "2955b8258ddeee50e145455ea16b0d164576fbab59a6266b2c88e7781865e894"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/gnu.getopt--java-getopt-1.0.13-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/gnu.getopt--java-getopt-1.0.13-sources.jar",
+      "bytes": 57158,
+      "sha256": "0728c551077cbb0c4e721b95915c732642d70eef24b29ac7de549983e4f1818b"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/jakarta.activation--jakarta.activation-api-1.2.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/jakarta.activation--jakarta.activation-api-1.2.1-sources.jar",
+      "bytes": 43221,
+      "sha256": "e9638b764202c0def1b4d54bd37a984c681b2ed46a548ae94ef3f7e4a4b58a31"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/jakarta.annotation--jakarta.annotation-api-1.3.5-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/jakarta.annotation--jakarta.annotation-api-1.3.5-sources.jar",
+      "bytes": 38267,
+      "sha256": "aa27e9291dce4ddbb0aea52a1cbef41c6330b96b0ae387a995ed412b68a3af7c"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/jakarta.servlet--jakarta.servlet-api-4.0.3-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/jakarta.servlet--jakarta.servlet-api-4.0.3-sources.jar",
+      "bytes": 166894,
+      "sha256": "8643aae750a34a7fa3f543e5e0bcdaeb7d12ae75f5267d535efacaa5bc06f7f7"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/jakarta.validation--jakarta.validation-api-2.0.2-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/jakarta.validation--jakarta.validation-api-2.0.2-sources.jar",
+      "bytes": 97203,
+      "sha256": "19c594e00f04d7f3953a065d798d9ee5edf37d00e01e5894babd61bc7652fa5c"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/jakarta.ws.rs--jakarta.ws.rs-api-2.1.6-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/jakarta.ws.rs--jakarta.ws.rs-api-2.1.6-sources.jar",
+      "bytes": 246372,
+      "sha256": "5fb0591472e00439db7d1511caa40a39cda42e24b0bade6378f880384b7cc073"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/jakarta.xml.bind--jakarta.xml.bind-api-2.3.2-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/jakarta.xml.bind--jakarta.xml.bind-api-2.3.2-sources.jar",
+      "bytes": 194036,
+      "sha256": "61ceb3ed35ecf99f1803eac9c4b8f12103c7531952beae38ba53cc727f405532"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/javax.annotation--javax.annotation-api-1.3.2-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/javax.annotation--javax.annotation-api-1.3.2-sources.jar",
+      "bytes": 42279,
+      "sha256": "128971e52e0d84a66e3b6e049dab8ad7b2c58b7e1ad37fa2debd3d40c2947b95"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/javax.servlet--javax.servlet-api-3.1.0-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/javax.servlet--javax.servlet-api-3.1.0-sources.jar",
+      "bytes": 223386,
+      "sha256": "5c6d640f01e8e7ffdba21b2b75c0f64f0c30fd1fc3372123750c034cb363012a"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/javax.ws.rs--jsr311-api-1.1.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/javax.ws.rs--jsr311-api-1.1.1-sources.jar",
+      "bytes": 70022,
+      "sha256": "99227bada18620d29406be240e7c749da68e646ce1d2a61d6f320863f05a30da"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/javax.xml.bind--jaxb-api-2.2.11-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/javax.xml.bind--jaxb-api-2.2.11-sources.jar",
+      "bytes": 244349,
+      "sha256": "467ba7ce05e329ea8cefe44ff033d5a71ad799b1d774e3fbfa89e71e1c454b51"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/libuuid-1.0.3.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/libuuid-1.0.3.tar.gz",
+      "bytes": 318256,
+      "sha256": "46af3275291091009ad7f1b899de3d0cea0252737550e7919d17237997db5644"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/mummer-4.0.0rc1.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/mummer-4.0.0rc1.tar.gz",
+      "bytes": 967486,
+      "sha256": "85006adb2d6539c2f738c3e3bb14b58bb6f62cd6c6ca5ede884a87ae76e07d1d"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/netlib-java-1.1.0-source.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/netlib-java-1.1.0-source.tar.gz",
+      "bytes": 2358125,
+      "sha256": "94a1b8f0a15edded8dece5d138743e4389ad8d54e505063cfe77b11f4d09b80d"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.broadinstitute--gatk-bwamem-jni-1.0.4-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.broadinstitute--gatk-bwamem-jni-1.0.4-sources.jar",
+      "bytes": 15305,
+      "sha256": "086340a9963a94d832fcb095372962292da8f3c26f0d6ae5a030a074be9c25f7"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.broadinstitute--gatk-fermilite-jni-1.2.0-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.broadinstitute--gatk-fermilite-jni-1.2.0-sources.jar",
+      "bytes": 6165,
+      "sha256": "501959ddc1e5035661c7a8a72d5cf69faa389c9e9171fed0291a73c3642b40b4"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.eclipse.jetty--jetty-client-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-client-9.4.52.v20230823-sources.jar",
+      "bytes": 179971,
+      "sha256": "5aa054f7ae140da9d09b5fdaee66427571f7e86606a3b7ce793d12f61cad99c2"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.eclipse.jetty--jetty-continuation-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-continuation-9.4.52.v20230823-sources.jar",
+      "bytes": 26338,
+      "sha256": "7968ec3c906715f1da32a2e6dfd85d819f229145fbcabf62550e34e3cc9162f4"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.eclipse.jetty--jetty-http-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-http-9.4.52.v20230823-sources.jar",
+      "bytes": 139438,
+      "sha256": "e965cfce9a44f40002fa6ade07d7b9ae21427b8e239f3f1624ed0f880ce0f523"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.eclipse.jetty--jetty-plus-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-plus-9.4.52.v20230823-sources.jar",
+      "bytes": 52635,
+      "sha256": "ef2e09a1cf4e564451c2d6b4b79eb622556e8b5c88bc4b2386a96eb56a674b00"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.eclipse.jetty--jetty-proxy-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-proxy-9.4.52.v20230823-sources.jar",
+      "bytes": 45558,
+      "sha256": "319dfa07ddf0f44ff6173963c6baf3736b8469054ceedfd11f97e904695d1343"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.eclipse.jetty--jetty-security-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-security-9.4.52.v20230823-sources.jar",
+      "bytes": 86036,
+      "sha256": "f3cf76dafe9d4f00da02e1db3e83246729ac5816bcf89a60b0029b637e12a17f"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.eclipse.jetty--jetty-server-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-server-9.4.52.v20230823-sources.jar",
+      "bytes": 444485,
+      "sha256": "6c2136bfa16a18ef5e89dc7dc6231be4e65226f2517c8ce84b0dc93f0a18a422"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.eclipse.jetty--jetty-servlet-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-servlet-9.4.52.v20230823-sources.jar",
+      "bytes": 81433,
+      "sha256": "e992d81bef3b8d577465cc2f97f2abab56f6adc2f1c2b598778ab53a61e42ca6"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.eclipse.jetty--jetty-servlets-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-servlets-9.4.52.v20230823-sources.jar",
+      "bytes": 68415,
+      "sha256": "ae59cea5631502110635415b1369c0777bf841691c40ca95f5176a3a18e3d78a"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.eclipse.jetty--jetty-util-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-util-9.4.52.v20230823-sources.jar",
+      "bytes": 386267,
+      "sha256": "735c794fa166915e5c2d8fb2960b2befb3299955cfd8bff2c04c8ec621a2b009"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.eclipse.jetty--jetty-util-ajax-9.4.43.v20210629-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-util-ajax-9.4.43.v20210629-sources.jar",
+      "bytes": 36772,
+      "sha256": "169481a3a7e5d785c76a3f51eb92eb6993bbc26f1c8c210a11aec766ab82306b"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.eclipse.jetty--jetty-webapp-9.4.43.v20210629-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-webapp-9.4.43.v20210629-sources.jar",
+      "bytes": 94430,
+      "sha256": "5770ed5896e4f6c872579fdbf8d4f6fed76b8a8be6434243ad5c53692a509c91"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.eclipse.jetty--jetty-xml-9.4.43.v20210629-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-xml-9.4.43.v20210629-sources.jar",
+      "bytes": 45218,
+      "sha256": "1a7e10ccaa69b076ff8a0e18090cb9bab1cb8a520436b6131b166cb4808c0bcf"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.eclipse.jetty.websocket--websocket-api-9.4.43.v20210629-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty.websocket--websocket-api-9.4.43.v20210629-sources.jar",
+      "bytes": 62801,
+      "sha256": "19d2a7f4dc2fab3984b9a517bfec7ec4c5e4d78480ca3a8d42f75abd70a162f2"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.eclipse.jetty.websocket--websocket-client-9.4.43.v20210629-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty.websocket--websocket-client-9.4.43.v20210629-sources.jar",
+      "bytes": 38052,
+      "sha256": "773249f4700fc7c5738aae2efd28adca9146b4da3d94a381162329fc9b65e50a"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.eclipse.jetty.websocket--websocket-common-9.4.43.v20210629-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty.websocket--websocket-common-9.4.43.v20210629-sources.jar",
+      "bytes": 148531,
+      "sha256": "33a38b9f5b3dcacd0fd932c6ee5262fd33d9b08c43fd04c47743e3a2f73a8951"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.glassfish.hk2--hk2-api-2.6.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2--hk2-api-2.6.1-sources.jar",
+      "bytes": 220531,
+      "sha256": "636e56f6454a7c680271dd8e2e49d1fd50625bb9e206555a14ccf900188cc18c"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.glassfish.hk2--hk2-locator-2.6.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2--hk2-locator-2.6.1-sources.jar",
+      "bytes": 124542,
+      "sha256": "d76811aeabe487e35001fb4a0ab3d986a091c331f4d61962c33f6c98f94e5053"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.glassfish.hk2--hk2-utils-2.6.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2--hk2-utils-2.6.1-sources.jar",
+      "bytes": 94602,
+      "sha256": "36552a965412a1d5a9eb2ee0282fd224151e79ac5dc42ae794f0bac67e523dc5"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.glassfish.hk2--osgi-resource-locator-1.0.3-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2--osgi-resource-locator-1.0.3-sources.jar",
+      "bytes": 10377,
+      "sha256": "603d0e07134189505c76a8c8d5d4451a91bf1327a05f1f5bcea09bad61bd507e"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.glassfish.hk2.external--aopalliance-repackaged-2.6.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2.external--aopalliance-repackaged-2.6.1-sources.jar",
+      "bytes": 38893,
+      "sha256": "13392e5ad2540a5718abb1dc7c380ebd754c1b95c7d6140dd38bfeade1e6dd21"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.glassfish.hk2.external--jakarta.inject-2.6.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2.external--jakarta.inject-2.6.1-sources.jar",
+      "bytes": 27859,
+      "sha256": "fbbadf59b395bf326910de95682eaaa83dcc0f1d65cd4a077c6988deff6a527a"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.glassfish.jaxb--jaxb-runtime-2.3.2-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jaxb--jaxb-runtime-2.3.2-sources.jar",
+      "bytes": 757829,
+      "sha256": "b85c2e314e6565e7dc4fb7e00ec8688c1c0fe9c9f7275125fb8dee43898f3743"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.glassfish.jersey.containers--jersey-container-servlet-2.40-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.containers--jersey-container-servlet-2.40-sources.jar",
+      "bytes": 28608,
+      "sha256": "1c299c59ea2a891fd002b63de3813450d905acc5369ccffa7e4149f6fc5832a8"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.glassfish.jersey.containers--jersey-container-servlet-core-2.40-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.containers--jersey-container-servlet-core-2.40-sources.jar",
+      "bytes": 63233,
+      "sha256": "3ba5d4afe931292534a8c28d611128206d1243942a89e8a5e3b74e433ea70c39"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.glassfish.jersey.core--jersey-client-2.40-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.core--jersey-client-2.40-sources.jar",
+      "bytes": 195284,
+      "sha256": "4a1b52f93d82f6bc0462f749e937ff02c4bf9526d5f02c35f35b15a6051c9a37"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.glassfish.jersey.core--jersey-common-2.40-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.core--jersey-common-2.40-sources.jar",
+      "bytes": 794790,
+      "sha256": "cd00982cc1a0ffaea55ed692f52aab84b842ac7856ea960e1a4eba35ac14affc"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.glassfish.jersey.core--jersey-server-2.40-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.core--jersey-server-2.40-sources.jar",
+      "bytes": 786100,
+      "sha256": "85de1a89cb0323cf97010a17dd52b32e08e9d75e0fc325dfb5171bd7c7265acd"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.glassfish.jersey.inject--jersey-hk2-2.40-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.inject--jersey-hk2-2.40-sources.jar",
+      "bytes": 47885,
+      "sha256": "83c5984aae32bf6fb19f385503459b4144c73fd520c054c8534b123dc816581d"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.javassist--javassist-3.29.2-GA-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.javassist--javassist-3.29.2-GA-sources.jar",
+      "bytes": 550059,
+      "sha256": "dc88b4ac96851f3102588d73dcb2d8b012e42d866938bc5b84be26442bde7b28"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.jgrapht--jgrapht-core-1.1.0-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.jgrapht--jgrapht-core-1.1.0-sources.jar",
+      "bytes": 502174,
+      "sha256": "1c86ceeda071cacf039e663c465ad589ef032411a60a50d15de38729da639f18"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.jgrapht--jgrapht-io-1.1.0-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.jgrapht--jgrapht-io-1.1.0-sources.jar",
+      "bytes": 89387,
+      "sha256": "ab002cd84b4a95f4288f41bc49d369f3d23593d8f267fe07f557bfe25200ccf2"
+    },
+    {
+      "source_path": "vendor-expanded/hisat2/hisat2-v2.2.3.tar.gz",
+      "runtime_path": "packs/hisat2-0.5.3/licenses/hisat2-v2.2.3.tar.gz",
+      "bytes": 7059086,
+      "sha256": "b53107422e5b44ebea4b20b1a77bb9e240d6b92d654fcd7e6a6ab5d1aae86c45"
+    },
+    {
+      "source_path": "vendor-expanded/lofreq/lofreq-2.1.5-source-subset.tar.gz",
+      "runtime_path": "packs/lofreq-0.5.3/licenses/lofreq-2.1.5-source-subset.tar.gz",
+      "bytes": 221889,
+      "sha256": "5578d1ac7afd6d6ed8180b5d893322aef2389d58bd82258fabe3821186b8aa9e"
+    },
+    {
+      "source_path": "vendor-expanded/muscle-5.3/muscle-v5.3.tar.gz",
+      "runtime_path": "packs/muscle-0.5.2/licenses/muscle-v5.3.tar.gz",
+      "bytes": 28692261,
+      "sha256": "74b22a94e630b16015c2bd9ae83aa2be2c2048d3e41f560b2d4a954725c81968"
+    },
+    {
+      "source_path": "vendor-expanded/vardict/OpenJDK8U-jdk-sources_8u504b01.tar.gz",
+      "runtime_path": "packs/vardict-0.5.3/licenses/OpenJDK8U-jdk-sources_8u504b01.tar.gz",
+      "bytes": 94314011,
+      "sha256": "86cd14f299616dddca13268cc2fa794eb4d28fc732dedaad8c5b8a3078e5d3c9"
+    },
+    {
+      "source_path": "vendor-expanded/vardict/VarDict-009e017-source.tar.gz",
+      "runtime_path": "packs/vardict-0.5.3/licenses/VarDict-009e017-source.tar.gz",
+      "bytes": 931032,
+      "sha256": "1d70dd8eacb59a9e8fa909f6b322fbef6474d11eb27b6b21273761df0dfdd422"
+    },
+    {
+      "source_path": "vendor-expanded/vardict/VarDictJava-1.8.3-source.tar.gz",
+      "runtime_path": "packs/vardict-0.5.3/licenses/VarDictJava-1.8.3-source.tar.gz",
+      "bytes": 104964746,
+      "sha256": "b45a3f7301c468d514c3916179f9f3c25f31e12f663ce6c674109caf3d60701e"
+    },
+    {
+      "source_path": "vendor-expanded/vardict/build-extlibs-source.tar.gz",
+      "runtime_path": "packs/vardict-0.5.3/licenses/build-extlibs-source.tar.gz",
+      "bytes": 2454408,
+      "sha256": "c204ef125854ad2b33cff775818e7c9c4b7fa81e8f12c09b8de7bc80fa4c63b0"
+    },
+    {
+      "source_path": "vendor-expanded/vardict/gcc-13.2.0.tar.xz",
+      "runtime_path": "packs/vardict-0.5.3/licenses/gcc-13.2.0.tar.xz",
+      "bytes": 87858592,
+      "sha256": "e275e76442a6067341a27f04c5c6b83d8613144004c0413528863dc6b5c743da"
+    },
+    {
+      "source_path": "vendor-expanded/vardict/mingw-w64-11.0.1-source.tar.gz",
+      "runtime_path": "packs/vardict-0.5.3/licenses/mingw-w64-11.0.1-source.tar.gz",
+      "bytes": 13919536,
+      "sha256": "493cb0bde1e470a281c7a633fcc1158de3b8919f687020c60a936e7b2512398d"
+    },
+    {
+      "source_path": "vendor-expanded/vardict/perl-5.42.3.tar.xz",
+      "runtime_path": "packs/vardict-0.5.3/licenses/perl-5.42.3.tar.xz",
+      "bytes": 14495300,
+      "sha256": "c9387e1473a1866935cb047ece7c2e0a80767a3acdecb79d4a375f8a95970ddc"
+    },
+    {
+      "source_path": "vendor-expanded/vardict/strawberry-5.42.3.1-source.tar.gz",
+      "runtime_path": "packs/vardict-0.5.3/licenses/strawberry-5.42.3.1-source.tar.gz",
+      "bytes": 2674982,
+      "sha256": "c5d2edf05f4a3471a085a0bc21023cd9e73530b55a2d4043e9d79d480e4d273c"
+    },
+    {
+      "source_path": "vendor-expanded/vsearch/vsearch-2.32.0.tar.gz",
+      "runtime_path": "packs/vsearch-0.5.2/licenses/vsearch-2.32.0.tar.gz",
+      "bytes": 1189974,
+      "sha256": "99578a8b960a0fb87c1f19dc65aedecddc01cfa91851b697dac8294dd08a6ceb"
+    },
+    {
+      "source_path": "vendor-variant/archives/samtools-1.24.tar.bz2",
+      "runtime_path": "packs/lofreq-0.5.3/licenses/samtools-htslib-1.24.tar.bz2",
+      "bytes": 9491012,
+      "sha256": "89b2a440123eeaa400392ce1736e7d60ce9041843027d76819753c5a8246bfdd"
+    }
+  ],
+  "current_source_files": [
+    {
+      "path": "current/desktop/bridge.cpp",
+      "bytes": 18359,
+      "sha256": "5e131a595bc901279d33f87f12fa95aff84bba9690ea22bc0924455fbd192a36"
+    },
+    {
+      "path": "current/desktop/build.sh",
+      "bytes": 1290,
+      "sha256": "8feca323b137f96b04ab70206e97a5e88ccc4521ed185c2ca89816ae50310275"
+    },
+    {
+      "path": "current/desktop/build_bridge.sh",
+      "bytes": 1999,
+      "sha256": "a3bffda989b8f3a475bfe87d7e57c3e14333d5ae1d1d0f81aa98a74bd0086a56"
+    },
+    {
+      "path": "current/desktop/build_desktop_workspace.sh",
+      "bytes": 1883,
+      "sha256": "31f7d18ef087149131bf557eb9221e4a32b7ff5f23662a661cd610cdc7385a80"
+    },
+    {
+      "path": "current/desktop/build_workspace_launcher.sh",
+      "bytes": 1823,
+      "sha256": "d6a28c3c7ab3933a8b253d2c3952a3707f3d52a25e41e2fe1784dc90a16382bf"
+    },
+    {
+      "path": "current/desktop/build_workspace_update_launcher.sh",
+      "bytes": 1874,
+      "sha256": "2d5ff4f2b2832eb7f419f641ec56029742aad66a8cdaa769601d3589f3e9f409"
+    },
+    {
+      "path": "current/desktop/child_environment.h",
+      "bytes": 2209,
+      "sha256": "56d401fc31db03dd2bff153e660866f0fd8cf90fc8555c6b394b3b5cd412004b"
+    },
+    {
+      "path": "current/desktop/common.cpp",
+      "bytes": 9715,
+      "sha256": "e28a667d3ed8ce0d403271202d3b4f9fad75add736cc0f040af35c560ac11249"
+    },
+    {
+      "path": "current/desktop/desktop_ipc.cpp",
+      "bytes": 33895,
+      "sha256": "43cf299477c57d5de88da765d8bbc6bbaa9d9e646551ac75ad6b3e1c5433967a"
+    },
+    {
+      "path": "current/desktop/desktop_ipc.h",
+      "bytes": 5254,
+      "sha256": "dbff3d0dea4a2061638541594c857b25cf4d29fd57f5aa8fa6423dc5d6bc4a56"
+    },
+    {
+      "path": "current/desktop/desktop_workspace.cpp",
+      "bytes": 105459,
+      "sha256": "30dc07d282aa71e85b2181df8daed395c1a8d867a3a0605fbd3dbb7fd600f51f"
+    },
+    {
+      "path": "current/desktop/gui.cpp",
+      "bytes": 74839,
+      "sha256": "2bcc4ade3afcffe826f879f5394932540edbad1391c5928eb57ae138bfd52d86"
+    },
+    {
+      "path": "current/desktop/inspect.py",
+      "bytes": 3948,
+      "sha256": "fc12e9ed8500033abd66d2fc2bfe1c4e88fb50c127d303112009289562e874f4"
+    },
+    {
+      "path": "current/desktop/inspect_research.py",
+      "bytes": 22015,
+      "sha256": "7e2c9866069d05c41c2babe2a182e3c1684b6816d70dc1728b269585cd894046"
+    },
+    {
+      "path": "current/desktop/licenses/COPYING",
+      "bytes": 2326,
+      "sha256": "99a69660981156c21336fdb5661f89341b013c94e4bf9e1c7467b4745718397f"
+    },
+    {
+      "path": "current/desktop/licenses/COPYING.MinGW-w64-runtime.txt",
+      "bytes": 12155,
+      "sha256": "1db8da07b436c68833c0673ffee3d9fcb2526047f3820b81661865dfedc79a1f"
+    },
+    {
+      "path": "current/desktop/licenses/COPYING.MinGW-w64.txt",
+      "bytes": 5905,
+      "sha256": "f38e6194bd3bfa1b654f118e5acefe0aead437bbe669eee43957ccc65a7127f1"
+    },
+    {
+      "path": "current/desktop/licenses/COPYING.winpthreads.txt",
+      "bytes": 2883,
+      "sha256": "63263614cdd29f2f93cba85e992f041b31f9fc7b4033692f31269489a8a1b177"
+    },
+    {
+      "path": "current/desktop/licenses/LLVM-Apache-2.0-with-exceptions.txt",
+      "bytes": 15141,
+      "sha256": "8d85c1057d742e597985c7d4e6320b015a9139385cff4cbae06ffc0ebe89afee"
+    },
+    {
+      "path": "current/desktop/modular_validation.cpp",
+      "bytes": 77324,
+      "sha256": "1524c727610e09bf2f616e164df965d5391d7ec2af4d180437100b2758b65454"
+    },
+    {
+      "path": "current/desktop/pack_model.cpp",
+      "bytes": 35378,
+      "sha256": "187e4a8edd95a2f5bfff26d9a3b77ee3d9eb1b1117ee325b3e5c5ceedf2b2214"
+    },
+    {
+      "path": "current/desktop/pack_model.h",
+      "bytes": 2001,
+      "sha256": "b38299956a60686e547060b28f86506bb302f613ba0871039e43438e9129e0d7"
+    },
+    {
+      "path": "current/desktop/packs.cpp",
+      "bytes": 29229,
+      "sha256": "d9ee1612d3f9d46550adf02a38d0d3817067baee8bfbc270ca1d8c375fa873fa"
+    },
+    {
+      "path": "current/desktop/prepare_modular_packs.py",
+      "bytes": 21853,
+      "sha256": "2dbb1d87e523f4409cffa879baa2a17b9e2cede74b25a28bcd1932367d079787"
+    },
+    {
+      "path": "current/desktop/prepare_pack.py",
+      "bytes": 2164,
+      "sha256": "3a887492efdbe9e70e3701defea8395064a1c2a3db345a4dbf45df8f43671cf9"
+    },
+    {
+      "path": "current/desktop/prepare_research_packs.py",
+      "bytes": 24336,
+      "sha256": "b31530a6204828545e164fc1b56fa42fba94f2c3c9ff493681aa0773d48cfb9a"
+    },
+    {
+      "path": "current/desktop/process_pipeline.cpp",
+      "bytes": 17583,
+      "sha256": "c7c7b340b82c22cc7999fbe2cfb78b7a3fe510948688bc5f721547c2464a418b"
+    },
+    {
+      "path": "current/desktop/runner.cpp",
+      "bytes": 27890,
+      "sha256": "e544deb2908571dbef7c62ebef861e6208e62722e0157adea0f8dd4a2a128488"
+    },
+    {
+      "path": "current/desktop/validation.cpp",
+      "bytes": 42045,
+      "sha256": "7c25a6fe62bbddcc51b4f446dae1f52e0943c8d67c223ada6047ebe36f42a287"
+    },
+    {
+      "path": "current/desktop/workbench.h",
+      "bytes": 4030,
+      "sha256": "048202b1139b5ecbfc9bfa85470617a2e40a53bdc36c81db4daaca0ce9140dae"
+    },
+    {
+      "path": "current/desktop/workbench.manifest",
+      "bytes": 1335,
+      "sha256": "1249567908dc91ea9d63a1704bd4f890de9844ef52fa16494781bd368d76c981"
+    },
+    {
+      "path": "current/desktop/workbench.rc",
+      "bytes": 648,
+      "sha256": "0176e077a7110b12d29ca3b478fb72e6a7bac7bc9c058e742f9e9b9c4621d1cf"
+    },
+    {
+      "path": "current/desktop/workflow_runner.cpp",
+      "bytes": 37173,
+      "sha256": "d53d8768e1ea5b2f4bfdcbcee87631b77bc1723b0404bb174e34bbf48a0cd898"
+    },
+    {
+      "path": "current/desktop/workspace_launcher.cpp",
+      "bytes": 7821,
+      "sha256": "f09aa43e6be4680a8ebad5a1c2ea0bbaaa83e438488c40caf077a208bc878c12"
+    },
+    {
+      "path": "current/desktop/workspace_update_launcher.cpp",
+      "bytes": 8720,
+      "sha256": "80379d91538b071c755ff7b86422421171e3f49f1282131d62b84f82701a9e46"
+    },
+    {
+      "path": "current/workspace/PACK-METADATA.md",
+      "bytes": 9007,
+      "sha256": "cd651949cb71d7cb5006f9c2d8c1ecaf52818d886a220665ccda37b1f315b6ba"
+    },
+    {
+      "path": "current/workspace/app_version.py",
+      "bytes": 117,
+      "sha256": "31ec438e0a46aed9a5d72a39cc637c4b03eea4ca4d9fb472bb3333e41d8a9b33"
+    },
+    {
+      "path": "current/workspace/catalog-sources.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "current/workspace/catalog.json",
+      "bytes": 815225,
+      "sha256": "4328e1b8d0fd94a643afcc5cd72489f32c5fc378fe2661c88ae4bf00b881fbe6"
+    },
+    {
+      "path": "current/workspace/catalog.py",
+      "bytes": 54786,
+      "sha256": "267cd2e62fac179b48ea9b1f96bacade7237120a8dfa7500cd5684d202b7a196"
+    },
+    {
+      "path": "current/workspace/core_checks.py",
+      "bytes": 8559,
+      "sha256": "a206e5f22430c38e5320f76a17b8b288db4f7ffcd326299ae16bb149a49150de"
+    },
+    {
+      "path": "current/workspace/desktop_host.py",
+      "bytes": 14450,
+      "sha256": "1bdd6e7ac9e558a4bbe174c328e7f8b318e2945aab94eae033407f5c2bb0ce3f"
+    },
+    {
+      "path": "current/workspace/desktop_model.py",
+      "bytes": 29369,
+      "sha256": "86a3fa02c890c7ecff02b544bfbe7b8032f1cc9d8147dd7f1315463221762ee2"
+    },
+    {
+      "path": "current/workspace/engine.py",
+      "bytes": 88204,
+      "sha256": "7ea1ec62897e8821164c6733b19354b5ffe94617bbbbe078c00ee0c6d59dfa66"
+    },
+    {
+      "path": "current/workspace/example.py",
+      "bytes": 5200,
+      "sha256": "fb558de8dc3f49f68550af3e08d768e8a99c5cd9e8d466ca357dcecc3dd699b3"
+    },
+    {
+      "path": "current/workspace/launch.py",
+      "bytes": 743,
+      "sha256": "ec9f6c2b0cb73e4149631ee37046af0ef6cd46acb6c430b05e02771f8d3d5cc0"
+    },
+    {
+      "path": "current/workspace/pack_checks.py",
+      "bytes": 19740,
+      "sha256": "5d17959b283524ce8115dbe6dbf904a9cc62b8ca6cfa545b25dd0b89c1f9df72"
+    },
+    {
+      "path": "current/workspace/pack_manager.py",
+      "bytes": 32523,
+      "sha256": "6eb3f3a1064b8754ea5e6d1f0fddda2f2a23f64776473689b125f58445435bc9"
+    },
+    {
+      "path": "current/workspace/pack_security.py",
+      "bytes": 4191,
+      "sha256": "2d1fa4a4267f5cecb0d583c7b43fc59dc8645125c59e3db69c4d6fa307ff6cc0"
+    },
+    {
+      "path": "current/workspace/release-aligner-callers/README.txt",
+      "bytes": 2303,
+      "sha256": "7adc64ff1dcd7f30075c277c744477bdd3347c629b5bc8e0fdf8d317ad398216"
+    },
+    {
+      "path": "current/workspace/release-aligner-callers/docs/ALIGNER-CALLERS-0.5.3.txt",
+      "bytes": 4748,
+      "sha256": "ea4c85ac77bbc8a866e21de8b3a6042b4f086ffcf77f02ae937490022baa454b"
+    },
+    {
+      "path": "current/workspace/release-aligner-callers/examples/aligner-callers/README.txt",
+      "bytes": 759,
+      "sha256": "3aa2b70821174cabf679292d21f3b308debad04eb8350b9b89299a796e46278e"
+    },
+    {
+      "path": "current/workspace/release-aligner-callers/examples/aligner-callers/reads-R1.fastq",
+      "bytes": 5160,
+      "sha256": "3be8593acf2e0e9d6081835ffd997e12eccf5a5a5d0020ef6dba91c8d61e8dbb"
+    },
+    {
+      "path": "current/workspace/release-aligner-callers/examples/aligner-callers/reads-R2.fastq",
+      "bytes": 5160,
+      "sha256": "26e0185ba56676b6e3c44d205535716a6bdbcd26c23b5e3ea4361c327c886a7c"
+    },
+    {
+      "path": "current/workspace/release-aligner-callers/examples/aligner-callers/reads-single.fastq",
+      "bytes": 5160,
+      "sha256": "3be8593acf2e0e9d6081835ffd997e12eccf5a5a5d0020ef6dba91c8d61e8dbb"
+    },
+    {
+      "path": "current/workspace/release-aligner-callers/examples/aligner-callers/reference.fasta",
+      "bytes": 4154,
+      "sha256": "dfd22733deee4732a1b505b332fdd54584e7dd312ddec3be686c4d152e2e42fa"
+    },
+    {
+      "path": "current/workspace/release-aligner-callers/examples/aligner-callers/targets.bed",
+      "bytes": 24,
+      "sha256": "2532ab99eba0b2a934ec2aff7e2d1d9cdb96eb6e47619714886abf7fd523db2d"
+    },
+    {
+      "path": "current/workspace/release-desktop/README.txt",
+      "bytes": 4747,
+      "sha256": "a2fea8802e981635a4847a94d1870c460fdeb482d7145336219384f0e04f356b"
+    },
+    {
+      "path": "current/workspace/release-desktop/check-windows.cmd",
+      "bytes": 90,
+      "sha256": "29c22321d2e722ff8886ada3297ba86cd56c65ad21e7a303b648ec420a9e12c5"
+    },
+    {
+      "path": "current/workspace/release-desktop/check-workspace-windows.cmd",
+      "bytes": 217,
+      "sha256": "e7e67f2f9a6b7a568965a1b85b04a133eb3783a69da275e178a4f45875a349b8"
+    },
+    {
+      "path": "current/workspace/release-desktop/docs/DEPLOYMENT-0.5.1.txt",
+      "bytes": 2418,
+      "sha256": "e15f5dd13c5f959ec00decdb48effff11560f0f110ba6852aa1c49410b00f003"
+    },
+    {
+      "path": "current/workspace/release-desktop/start-classic-windows.cmd",
+      "bytes": 92,
+      "sha256": "4f6d24bd69b219837637afa9054c34aec106c93bec97074db45dd4b906de4b43"
+    },
+    {
+      "path": "current/workspace/release-desktop/start-windows.cmd",
+      "bytes": 82,
+      "sha256": "c2aa627ff0408a928a7ca413cdc610e8a7cf8af649065e4b4c33b16f18a92a52"
+    },
+    {
+      "path": "current/workspace/release-expansion/README.txt",
+      "bytes": 3251,
+      "sha256": "55817528e6ba4271d4a18bb19d6aa80a9e17275733ab1ac59fd3665fbbc9c144"
+    },
+    {
+      "path": "current/workspace/release-expansion/docs/PACK-SCHEMA-0.5.2.txt",
+      "bytes": 13991,
+      "sha256": "c0932f5b58b9c10597f5d6996e79c8a1c71b17488b0185cba1124ea5dfcad0f2"
+    },
+    {
+      "path": "current/workspace/release-expansion/docs/TOOL-EXPANSION-0.5.2.txt",
+      "bytes": 3920,
+      "sha256": "5fb61dfcf95e8443e7d7dea2d9050f87c5225bb31afa78dae8d2a704b247fe4b"
+    },
+    {
+      "path": "current/workspace/release-expansion/examples/sequence-expansion/README.txt",
+      "bytes": 1322,
+      "sha256": "4343cc217c18d9c59bc2141e8cda3a4aab201346032bf2e81bd0b8875d99e7e9"
+    },
+    {
+      "path": "current/workspace/release-expansion/examples/sequence-expansion/amplicons.fasta",
+      "bytes": 511,
+      "sha256": "1627386d761420bd6f3ad6059e6ffbb8d2976c572066412dffbf7c8579f346ef"
+    },
+    {
+      "path": "current/workspace/release-expansion/examples/sequence-expansion/ids.txt",
+      "bytes": 20,
+      "sha256": "04ea2afdf54e319dd49406f25cc6585b610fc01ce9f32afa30649467a58c6efd"
+    },
+    {
+      "path": "current/workspace/release-expansion/examples/sequence-expansion/nucleotides.fasta",
+      "bytes": 395,
+      "sha256": "ef5acad771d5ac3cf7878da7055d283440ca1ef0da056bfd20d53781c752eede"
+    },
+    {
+      "path": "current/workspace/release-expansion/examples/sequence-expansion/reads.fastq",
+      "bytes": 1002,
+      "sha256": "b7888395017cb91a24731a90886022da7e1997be0e5f586f78478a5f0ab668ea"
+    },
+    {
+      "path": "current/workspace/release-files/README.txt",
+      "bytes": 4314,
+      "sha256": "488625951d7629de5a60d4d58faebc4b4253c33d04abf05d3abc344a942e7985"
+    },
+    {
+      "path": "current/workspace/release-files/check-windows.cmd",
+      "bytes": 90,
+      "sha256": "29c22321d2e722ff8886ada3297ba86cd56c65ad21e7a303b648ec420a9e12c5"
+    },
+    {
+      "path": "current/workspace/release-files/check-workspace-windows.cmd",
+      "bytes": 217,
+      "sha256": "e7e67f2f9a6b7a568965a1b85b04a133eb3783a69da275e178a4f45875a349b8"
+    },
+    {
+      "path": "current/workspace/release-files/start-classic-windows.cmd",
+      "bytes": 92,
+      "sha256": "4f6d24bd69b219837637afa9054c34aec106c93bec97074db45dd4b906de4b43"
+    },
+    {
+      "path": "current/workspace/release-files/start-windows.cmd",
+      "bytes": 82,
+      "sha256": "c2aa627ff0408a928a7ca413cdc610e8a7cf8af649065e4b4c33b16f18a92a52"
+    },
+    {
+      "path": "current/workspace/release-mutect2/README.txt",
+      "bytes": 1988,
+      "sha256": "91120ac131498b4c2d0cb686ab5c975648787f017e52905a7e677ef05188bce0"
+    },
+    {
+      "path": "current/workspace/release-mutect2/docs/MUTECT2-0.5.4.txt",
+      "bytes": 6708,
+      "sha256": "9cde7bbba25ce44cd40178c549bba483e16ffaf792cba3dff9689e82bc646174"
+    },
+    {
+      "path": "current/workspace/release-split/README.txt",
+      "bytes": 1665,
+      "sha256": "9190acf9fee23e68fcbaafce370078cb3c7545d1243ff317020a4dc8569c17d7"
+    },
+    {
+      "path": "current/workspace/release-split/check-windows.cmd",
+      "bytes": 90,
+      "sha256": "29c22321d2e722ff8886ada3297ba86cd56c65ad21e7a303b648ec420a9e12c5"
+    },
+    {
+      "path": "current/workspace/release-split/check-workspace-windows.cmd",
+      "bytes": 152,
+      "sha256": "9e821a18fe1446c9fbeaa5bae87b9839ea6d61b02e1a2c99533556ca03a784d5"
+    },
+    {
+      "path": "current/workspace/release-split/start-windows.cmd",
+      "bytes": 82,
+      "sha256": "c2aa627ff0408a928a7ca413cdc610e8a7cf8af649065e4b4c33b16f18a92a52"
+    },
+    {
+      "path": "current/workspace/server.py",
+      "bytes": 10580,
+      "sha256": "737c69bfdc33b0290b071163da23a969e081dec9fee1ae667889002f001b825b"
+    },
+    {
+      "path": "current/workspace/service.py",
+      "bytes": 27985,
+      "sha256": "da3219162102faf4c754ba3fa1c4a2f1cd0f17925950b1da59d26f96e99a5535"
+    },
+    {
+      "path": "current/workspace/session.py",
+      "bytes": 2889,
+      "sha256": "4b23f1294839c3e793fd77293041fe57cdd1835ea456c420c9868ef3f20fb9ba"
+    },
+    {
+      "path": "current/workspace/starter-check-profile.json",
+      "bytes": 1558,
+      "sha256": "395cfbd0fead5f36f52022e50827127df003dbbde086d0d9d8940f034c36fcf7"
+    },
+    {
+      "path": "current/workspace/tests/test_catalog.py",
+      "bytes": 7847,
+      "sha256": "73c0d01ad38500ffba030009c652699aca80194f0c649f8ae690d76af4a71cf3"
+    },
+    {
+      "path": "current/workspace/tests/test_desktop_host.py",
+      "bytes": 14616,
+      "sha256": "8c8a8885b4adf94ab24848902061c6970831c8ec3627a9b3e512b035e2751c77"
+    },
+    {
+      "path": "current/workspace/tests/test_desktop_model.py",
+      "bytes": 14854,
+      "sha256": "85342ffb628e9739038c07cba93a920e3d919f5bbea8937c60f885a6c07f1e64"
+    },
+    {
+      "path": "current/workspace/tests/test_pack_schema.py",
+      "bytes": 31173,
+      "sha256": "8df194a79daeaf1aa1e4485f4304ca125c7baa3e0b575f9d1aad493587115e13"
+    },
+    {
+      "path": "current/workspace/tests/test_pack_service.py",
+      "bytes": 5198,
+      "sha256": "f4822c5f37bcf52fe625e521d127be52289ce81b1736b1b0ab2b4871cbed3de2"
+    },
+    {
+      "path": "current/workspace/tests/test_pack_versions.py",
+      "bytes": 13724,
+      "sha256": "9b6f2ce8ffa75158999a1884dd2e0697f52f3741a3bc6e9612dda75601d6cf48"
+    },
+    {
+      "path": "current/workspace/tests/test_release_pins.py",
+      "bytes": 5440,
+      "sha256": "7e96e1e938d77a98c712effe4dbc5f798e94aad0535ea61085ba2692d44a36bd"
+    },
+    {
+      "path": "current/workspace/tests/test_server.py",
+      "bytes": 18209,
+      "sha256": "a6a2167e40165b2e7fb0540808fe74a7dc61958b7937d20a3e1100a97082e0ba"
+    },
+    {
+      "path": "current/workspace/tests/ui_fixture_server.py",
+      "bytes": 1867,
+      "sha256": "1b8439075d8989eae87cc4bfc2cea956ffd27ed6cd4f71c84bf39b108fa95726"
+    },
+    {
+      "path": "current/workspace/verify_installation.py",
+      "bytes": 24500,
+      "sha256": "50befbdd18f7916169812a9392829981923d8c74d44446b8ee424dddd179c98a"
+    },
+    {
+      "path": "current/scripts/apply_core_update.py",
+      "bytes": 12134,
+      "sha256": "38e923197054780548eb626d61c476303d340f4365a423dbbe1e0ebda7fd8592"
+    },
+    {
+      "path": "current/scripts/apply_desktop_update.py",
+      "bytes": 20919,
+      "sha256": "25ad5c874b0f89aa6c13adf0c6350e3c174daff604c2d2312398fb740d5e210b"
+    },
+    {
+      "path": "current/scripts/apply_fastp_fix.py",
+      "bytes": 16215,
+      "sha256": "509ac83035287b8f7fdf04e9d54cbc0ca9ccc4d75e46a4803f368fc4214b237a"
+    },
+    {
+      "path": "current/scripts/benchmark_module.py",
+      "bytes": 2076,
+      "sha256": "6754bcd0a77dda6a1a1653160752e6d86a572d9f52151e2b00d5c67d678dd2a4"
+    },
+    {
+      "path": "current/scripts/build.py",
+      "bytes": 3281,
+      "sha256": "f2cbad6fad758ea7281ebe7f970d5d3c61b7c09c15345b715e6ddc2b27a90be3"
+    },
+    {
+      "path": "current/scripts/build_hisat2_native.py",
+      "bytes": 5952,
+      "sha256": "026d67d9e0829f55b72347d07f558958728a0697aa9cc82e859883f6d4e5338d"
+    },
+    {
+      "path": "current/scripts/build_muscle_windows.py",
+      "bytes": 7642,
+      "sha256": "7be09187fdd08ef6b408c09e69f38b4300a350641f5d65ca092345e0a7518304"
+    },
+    {
+      "path": "current/scripts/build_mutect2_compat.py",
+      "bytes": 8503,
+      "sha256": "cec04cb907d57bfc126b75cc9125eef004b0a500c24be639d13ed27072a15ed8"
+    },
+    {
+      "path": "current/scripts/check_pack_release_windows.py",
+      "bytes": 4351,
+      "sha256": "2536557dfcafdfce9bff806d7b34b31371766b16343a2ee505c53c6376191639"
+    },
+    {
+      "path": "current/scripts/fetch_bowtie2_vendor.py",
+      "bytes": 7628,
+      "sha256": "25cb20144d68fd817a61869b8705d70fa937ddc99f38fc34a02f3ff7be89eb8d"
+    },
+    {
+      "path": "current/scripts/fetch_mutect2_thirdparty_sources.py",
+      "bytes": 4088,
+      "sha256": "7ed809ea260aadabe7afb0cc9fd4412fe350fea41ecc00750a995eabf803b418"
+    },
+    {
+      "path": "current/scripts/fetch_mutect2_vendor.py",
+      "bytes": 2665,
+      "sha256": "8b9994b932cf1d796397dae4b0bb5741bcd5761fc58dfeb1e136f8ac30efbe6c"
+    },
+    {
+      "path": "current/scripts/fetch_seqkit_vendor.py",
+      "bytes": 7443,
+      "sha256": "70901b5a9169616d79afb5a7471327bc11a247c372d390c36c46e6845beb56c0"
+    },
+    {
+      "path": "current/scripts/fetch_vardict_vendor.py",
+      "bytes": 4551,
+      "sha256": "0206882efd4350a598987013549b63be3778265da43bde19849f9918ba9068ee"
+    },
+    {
+      "path": "current/scripts/generate_mutect2_fixtures.py",
+      "bytes": 8954,
+      "sha256": "4c343346df97d749239369600990e811452d6c2e30cd326e8e0b094e43a0bfe9"
+    },
+    {
+      "path": "current/scripts/make_core_update.py",
+      "bytes": 7102,
+      "sha256": "fcfc2dd369a285f1028a058c51314daa97e7ba1a170b8459472173f83884373e"
+    },
+    {
+      "path": "current/scripts/make_desktop_update.py",
+      "bytes": 7575,
+      "sha256": "1f25926d186143c4f88cc75cc9a75969b94de61a0dd1f8529917ad212690845f"
+    },
+    {
+      "path": "current/scripts/make_workspace_update.py",
+      "bytes": 12073,
+      "sha256": "0272d1334c3b378bda8a0276d2585ccfe584bb4f777a3542b16f3c629a715681"
+    },
+    {
+      "path": "current/scripts/package.py",
+      "bytes": 5667,
+      "sha256": "a90a064098278f534a133ca360bc806f46bc8317a605ae3936b81956fe7c1c6c"
+    },
+    {
+      "path": "current/scripts/package_aligner_callers.py",
+      "bytes": 15029,
+      "sha256": "83820f1397d677f264aa6c3a6157067b6bd4a77787111eccf38476b5b93cce1e"
+    },
+    {
+      "path": "current/scripts/package_desktop.py",
+      "bytes": 9511,
+      "sha256": "cc55e8b5a9e115556ea43a20da3654d1cdf06f950726c2fb0f0e7ee915d43ead"
+    },
+    {
+      "path": "current/scripts/package_expansion.py",
+      "bytes": 4942,
+      "sha256": "8d607b737c80c339c3ee428ecebf1dcd1cb4858667d8e6bbf9799c054fdf0a6e"
+    },
+    {
+      "path": "current/scripts/package_fastp_fix.py",
+      "bytes": 11848,
+      "sha256": "5041c30527b803946090063c21ddea5af421fae441222591580d71232885f37e"
+    },
+    {
+      "path": "current/scripts/package_modular.py",
+      "bytes": 7200,
+      "sha256": "90c9b085c1cfd30da5f9a62124a1c0c1e7761d85c1509f224ca7792e3feac30b"
+    },
+    {
+      "path": "current/scripts/package_mutect2.py",
+      "bytes": 18994,
+      "sha256": "860666ec3f8ff5ea062d2b11091ee040824a4d4cdf300295b3ae90f94e5f4640"
+    },
+    {
+      "path": "current/scripts/package_research.py",
+      "bytes": 12069,
+      "sha256": "509f005e016f588c56c4a2a11fff29748c697cf5327b516122342db3a4d1ad30"
+    },
+    {
+      "path": "current/scripts/package_sdk.py",
+      "bytes": 9154,
+      "sha256": "d8fbdcb88f06c221a173b8b178a4f9977d12ddfcf7b1046bc6df3c7d0baea3a9"
+    },
+    {
+      "path": "current/scripts/package_split.py",
+      "bytes": 16433,
+      "sha256": "bf822043b3c212371edb41a125f99750afd605bf171bea23fd9865b9824702ca"
+    },
+    {
+      "path": "current/scripts/package_workspace.py",
+      "bytes": 5356,
+      "sha256": "fbac4255b0ea57fe3740eeda5b29567ee2ddd48964fe883d7dea2ca4f6a4bdc6"
+    },
+    {
+      "path": "current/scripts/prepare_bowtie2_pack.py",
+      "bytes": 17156,
+      "sha256": "2f3aa7a43d64637625de5d388c8aadb63eda615837618d6381f7c6fabc955043"
+    },
+    {
+      "path": "current/scripts/prepare_hisat2_pack.py",
+      "bytes": 22924,
+      "sha256": "451b2807c80dcb84082c155ecfdd82e925cb47be348c7fc519b4a65bc4b7b110"
+    },
+    {
+      "path": "current/scripts/prepare_lofreq_pack.py",
+      "bytes": 19258,
+      "sha256": "8fa28dec05c28ece59e21cbc0003a0eb0377acc6e1d6f5659cc79deb633f29c8"
+    },
+    {
+      "path": "current/scripts/prepare_muscle_pack.py",
+      "bytes": 14578,
+      "sha256": "9d55e23bacff132487a075acb013da5981305abd9cf003dbef580312132b36bf"
+    },
+    {
+      "path": "current/scripts/prepare_mutect2_pack.py",
+      "bytes": 29200,
+      "sha256": "380a9d86e09f9f18ba354e8b3140d85a2795ea2c7b18f108bb1adcec685d2f80"
+    },
+    {
+      "path": "current/scripts/prepare_seqkit_pack.py",
+      "bytes": 16070,
+      "sha256": "804c3bd68962d583a65f0466a8594aacaf1e9aa67bb89b2d90e614d5b2caf160"
+    },
+    {
+      "path": "current/scripts/prepare_vardict_pack.py",
+      "bytes": 29885,
+      "sha256": "e21d5123c50a17aa6b0c8093d105c17760c4c7b004bf5ec3e34861d6fc730108"
+    },
+    {
+      "path": "current/scripts/prepare_vsearch_pack.py",
+      "bytes": 24830,
+      "sha256": "eefef862c593cca5f96e5c7cff27647d460cedf3320487c0da432aa3d1f6748b"
+    },
+    {
+      "path": "current/scripts/publish_pack_catalog.py",
+      "bytes": 10304,
+      "sha256": "3b219355a3275cdf8c674276aa2b431a7f520ed6ca2a032fdb7eb24adecf480e"
+    },
+    {
+      "path": "current/scripts/restore_source_archives.py",
+      "bytes": 3424,
+      "sha256": "24b1f021dba9812bd56b3589797762fcd7729484d551a01f41e79206bbd6d327"
+    },
+    {
+      "path": "current/scripts/reuse_source_zip.py",
+      "bytes": 8344,
+      "sha256": "9feffcd378f0e58b2fb00f1e0f544eff420c03a65d43a7320ffa88e8c587dfb1"
+    },
+    {
+      "path": "current/scripts/run_workflow.py",
+      "bytes": 5277,
+      "sha256": "167c34921aa4073a60f661f3be2db133d0717ce5b98521a9cf86705866890ae3"
+    },
+    {
+      "path": "current/scripts/validate_pack_release.py",
+      "bytes": 9175,
+      "sha256": "8057b1e34330fbffbd0c4bc8a49e7465a23da15f368f5cd36a4fcfb39f6cf68f"
+    },
+    {
+      "path": "current/scripts/validate_windows.ps1",
+      "bytes": 6779,
+      "sha256": "ad62dc2acab9ea5ef35bcfcf9459bfe12ad70ccc995984f84937ca3425e50aa7"
+    },
+    {
+      "path": "current/tests/README.md",
+      "bytes": 3672,
+      "sha256": "a629fe54213c971f07abc4c1352c3ea866d15d96d28e70b0219c0dfdb879a04d"
+    },
+    {
+      "path": "current/tests/WINDOWS-PIPELINES.txt",
+      "bytes": 1916,
+      "sha256": "c72b107b2eb9d8c4adcf7c201b4f38b2bccd35e1c023e241596baa5a92d635c6"
+    },
+    {
+      "path": "current/tests/build_windows_pipeline.sh",
+      "bytes": 951,
+      "sha256": "866dc3682429308be865248abfc75d5ec4a02fdb100e306d6434f4ef0247f5bf"
+    },
+    {
+      "path": "current/tests/check_workflow_failure.py",
+      "bytes": 1606,
+      "sha256": "b25ec471f77843b4250287c9188f57853049ecb10907a678ecbd0f8fbf74490c"
+    },
+    {
+      "path": "current/tests/generate_fixtures.py",
+      "bytes": 8719,
+      "sha256": "7b061cfbc1e898e8d49ab4f313ab2a7b154542149790a8aed34c15def7a2aedb"
+    },
+    {
+      "path": "current/tests/reference_fastq.py",
+      "bytes": 5972,
+      "sha256": "e914f805515688091be43aa51ab78f09ba713ce994d962ff65f482989e58f852"
+    },
+    {
+      "path": "current/tests/run_correctness.py",
+      "bytes": 17249,
+      "sha256": "cd3afd8b8a45160440db9a042d4872b60bbf9f24103ea3c63aaa9cd4909f68b4"
+    },
+    {
+      "path": "current/tests/test_aligner_caller_pipeline.py",
+      "bytes": 19062,
+      "sha256": "085cee5b3242195684bb6bb3427c44ce4a4197133a7519c3f4ca45278c1a97c5"
+    },
+    {
+      "path": "current/tests/test_apply_fastp_fix.py",
+      "bytes": 9927,
+      "sha256": "4cc1d0be8d6488a233640b69f01f5eaf47b7e6d70a1d5355d4138dae7ac051a2"
+    },
+    {
+      "path": "current/tests/test_bowtie2_pack.py",
+      "bytes": 12036,
+      "sha256": "4ea8483f4b87466383f59f2c6123a219fc44ca964144dabf96a413377f3be984"
+    },
+    {
+      "path": "current/tests/test_child_environment.cpp",
+      "bytes": 2150,
+      "sha256": "ed3d5c3eecb888a2720ffbea53010fa4a9da542e2dfdd326bf2fab6b023b3cdb"
+    },
+    {
+      "path": "current/tests/test_core_checks.py",
+      "bytes": 9020,
+      "sha256": "12f4d976f21d9ba04f5a6ddfba4cc80a631202189bb4a9c4ce1601102b8193a3"
+    },
+    {
+      "path": "current/tests/test_core_update.py",
+      "bytes": 10936,
+      "sha256": "c5c9aca1d2226b11b09118552e1350a8e484761281b9e6915278cfdaea5d2a2f"
+    },
+    {
+      "path": "current/tests/test_desktop_json.cpp",
+      "bytes": 5161,
+      "sha256": "425596a0f9272d75b082f7d6d1eaf4567cb3c62093866819929f029c291a8deb"
+    },
+    {
+      "path": "current/tests/test_desktop_update.py",
+      "bytes": 6998,
+      "sha256": "636ee144fc66b8a5123ef47372864404859801c40a5774456475405949fcb740"
+    },
+    {
+      "path": "current/tests/test_desktop_update_native.py",
+      "bytes": 14322,
+      "sha256": "1ed60336e98e8b89fa95af52f2e55c79552a70b8fb7c67a70b771325d8901582"
+    },
+    {
+      "path": "current/tests/test_expansion_pipeline.py",
+      "bytes": 24791,
+      "sha256": "c988978f38f213b2eed9b38efe7dcb6328e5b71cbb1448bea40e5bb0d3cfdc0c"
+    },
+    {
+      "path": "current/tests/test_hisat2_pack.py",
+      "bytes": 15728,
+      "sha256": "df86c848b99ed724e688659351e52967b4869b0629fccb499e2ad0ff495a5758"
+    },
+    {
+      "path": "current/tests/test_lofreq_pack.py",
+      "bytes": 12259,
+      "sha256": "2ebd26e7d85fa9c96075b6f6822221691a942c7d4c839ce8ea575dc4863be362"
+    },
+    {
+      "path": "current/tests/test_muscle_pack.py",
+      "bytes": 7092,
+      "sha256": "7018d54f67330b5772966a9cb2a19d91cbae71f3d9078bffd498e2ef6e0de078"
+    },
+    {
+      "path": "current/tests/test_mutect2_compat.py",
+      "bytes": 5862,
+      "sha256": "a7896049fbd2528a59706439bf3e35bf5f153a9f2d1f78aca3fb03d50b8332aa"
+    },
+    {
+      "path": "current/tests/test_mutect2_pack.py",
+      "bytes": 13905,
+      "sha256": "c834e7681761413ca6eb29e348b49255dacdd8fe95aefa2753ff06f15173a4bd"
+    },
+    {
+      "path": "current/tests/test_mutect2_pipeline.py",
+      "bytes": 7799,
+      "sha256": "c5ddbd3f34d3e8837bc433629e6fb92784228b9a779662e7f1bd010f06bdbe37"
+    },
+    {
+      "path": "current/tests/test_pack_checks.py",
+      "bytes": 13953,
+      "sha256": "940eb07aeb736c40142c3dc7176eac4c4db589c7ea7179b246cdb8aff674e111"
+    },
+    {
+      "path": "current/tests/test_pack_inventory_budget.py",
+      "bytes": 2830,
+      "sha256": "3eed16786228727071e1603d037f15a5d11241514b48e55a781a75a67b99ccfe"
+    },
+    {
+      "path": "current/tests/test_pack_manager.py",
+      "bytes": 26959,
+      "sha256": "e1f609991a9ffd8939f43e1b8f2977c52f478f41949be1d368d680e30ffa5f39"
+    },
+    {
+      "path": "current/tests/test_pack_model.cpp",
+      "bytes": 19652,
+      "sha256": "40030754cae3acd1a2a601514e93a50bc99cde3319079a13ae148f5cbb62df1e"
+    },
+    {
+      "path": "current/tests/test_package_aligner_callers.py",
+      "bytes": 8601,
+      "sha256": "2c7aca137098aaa7f6cc175b9841272f770f1b9ebb1d62b039695350a01dde90"
+    },
+    {
+      "path": "current/tests/test_package_mutect2.py",
+      "bytes": 12444,
+      "sha256": "2cab2e6c2cc67110b684c8702cf5fbe536809896c8d119db7dd1ad8c16de3928"
+    },
+    {
+      "path": "current/tests/test_publish_pack_catalog.py",
+      "bytes": 9225,
+      "sha256": "c4a02ebbb0c03ef7b24a092c90b97b039ca129ed5cc3eb749dad8017cd072d74"
+    },
+    {
+      "path": "current/tests/test_seqkit_pack.py",
+      "bytes": 11938,
+      "sha256": "6e697611ecd0676266fbb3bb44f32f58adaaa0e5242fa15845737886e71b55ef"
+    },
+    {
+      "path": "current/tests/test_split_release.py",
+      "bytes": 8139,
+      "sha256": "d5c55feb966243e0e0b02dfdf5da1c6e63d786017820fee2760c0f0eb944c92c"
+    },
+    {
+      "path": "current/tests/test_vardict_pack.py",
+      "bytes": 11525,
+      "sha256": "cd8784a49cfacf6e2e15fe3a530e21861b4e5cbefa876b6d0cca572df7d46366"
+    },
+    {
+      "path": "current/tests/test_vsearch_pack.py",
+      "bytes": 10271,
+      "sha256": "83a66417fc13b4cb7eb561520e5937aec7b4c3e49cdf5e73fe8d0207b22dee45"
+    },
+    {
+      "path": "current/tests/test_workspace_engine.py",
+      "bytes": 23585,
+      "sha256": "2c8a4878b33e8bac19dccb01a4b74e8ecf73728c2a39d21d04d514869186a33f"
+    },
+    {
+      "path": "current/tests/windows_pipeline.cpp",
+      "bytes": 7691,
+      "sha256": "3a2ab64518aedd54d37b58c6826255e52bc24887c40c0c2112610afcd14ca0de"
+    },
+    {
+      "path": "current/tools/build_bwa.py",
+      "bytes": 5779,
+      "sha256": "f31838839da0fd68dc17cecc0fb12a77c56ab6db8f3d1d7d41dada4dc0f23006"
+    },
+    {
+      "path": "current/tools/build_fastp.py",
+      "bytes": 14870,
+      "sha256": "ab5d268f82fb497384c50328e556b3916d5228f36d1d7170e698f8372f1d6c04"
+    },
+    {
+      "path": "current/tools/build_freebayes.py",
+      "bytes": 7639,
+      "sha256": "dd8730037dd825c6e282d785605faedb2242fcdf34a327631fc5a022e54eec6b"
+    },
+    {
+      "path": "current/tools/build_lofreq.py",
+      "bytes": 9287,
+      "sha256": "3bb984a0b83ea528fe163ba90d2f81027eedd7a6148bb5256125d48033cfedfb"
+    },
+    {
+      "path": "current/tools/build_paircheck.py",
+      "bytes": 9577,
+      "sha256": "97b6305e52358468320e0722f0b3a3a567a520616c0883a52565980dc22bf262"
+    },
+    {
+      "path": "current/tools/paircheck.c",
+      "bytes": 15975,
+      "sha256": "78fffa42e0dbedfccc124d12efa55437afb385b4275cb3ad63c0abdb66903551"
+    },
+    {
+      "path": "current/tools/prepare_cutadapt.py",
+      "bytes": 4834,
+      "sha256": "a3b6114c6bb34e57f475f0f0e54aefb077bb587ba1c38d1c0c17e6eae7f5b235"
+    },
+    {
+      "path": "current/tools/test_fastp.py",
+      "bytes": 12829,
+      "sha256": "eac17f42e4800a9d3025433138ed30ffbad36329bbe5ac213aace20f2934abb8"
+    },
+    {
+      "path": "current/src/fastq_module.c",
+      "bytes": 7474,
+      "sha256": "f22ab3eff04b091963649691361209265c9239c8d015c225afad88d260332837"
+    },
+    {
+      "path": "current/src/host_posix.c",
+      "bytes": 5066,
+      "sha256": "ec00453ee12b4fb245549233105c60b6aaac1357ab5fbe55f1fd4249eee2208c"
+    },
+    {
+      "path": "current/include/bw_api.h",
+      "bytes": 1762,
+      "sha256": "aca207820addcc99e2dca19d1a4db543297d7c756c0c6a023782bd98a363ca7f"
+    },
+    {
+      "path": "current/platform_windows/README.md",
+      "bytes": 3040,
+      "sha256": "2da0b5b01c1041531bd6829bfd9c75a82a75f8718d29cef6f2d12597210a1bd7"
+    },
+    {
+      "path": "current/platform_windows/build.sh",
+      "bytes": 1068,
+      "sha256": "ec9c53d27925bf92433f71b254212d89d6ae20d4369e9de18f771bcc033231d9"
+    },
+    {
+      "path": "current/platform_windows/host.c",
+      "bytes": 18503,
+      "sha256": "cb575a2074ee27c15b340dbd9b7ae1c96ba189b8a5ba81696afcba3bc51bf9c9"
+    },
+    {
+      "path": "current/platform_windows/inspect.py",
+      "bytes": 5382,
+      "sha256": "3d8f1d1fdf5893285440a153f7b2dd34e58010b4b92e906010669e781844fb69"
+    },
+    {
+      "path": "current/pack-examples/align.ini",
+      "bytes": 3580,
+      "sha256": "81c962222c93356a4f7727b23193c71d7dcd515859e62a179574781f411824d3"
+    },
+    {
+      "path": "current/pack-examples/bam.ini",
+      "bytes": 8648,
+      "sha256": "45b3f9d5092b0b3014f67b29331003e1214c72919f85695a571fb371030a9888"
+    },
+    {
+      "path": "current/pack-examples/bwa.ini",
+      "bytes": 5682,
+      "sha256": "7d49d9bac3c4c98776f70120915ffa7f2a85ee297787f9c1e45c8b4655ee4a37"
+    },
+    {
+      "path": "current/pack-examples/fastp.ini",
+      "bytes": 5077,
+      "sha256": "4572f0d3ba27d74f863aac74028b02c4dc08aade06955e5085b5335a10f311c8"
+    },
+    {
+      "path": "current/pack-examples/freebayes.ini",
+      "bytes": 5496,
+      "sha256": "9ba67c19846368c8d35119ec47404381c2aed6c6fbb693534963e7ec05ea7a7c"
+    },
+    {
+      "path": "current/pack-examples/independent-pack/README.md",
+      "bytes": 1727,
+      "sha256": "46a54fa578c00ed16ceecdea8383aa5c1586482d6014022413048834b5848f4a"
+    },
+    {
+      "path": "current/pack-examples/independent-pack/ci/windows-pack.yml",
+      "bytes": 2879,
+      "sha256": "0aaccd40e5931d43ab52ae0e248ced70570354218e1da44d8a061caa67e42170"
+    },
+    {
+      "path": "current/pack-examples/independent-pack/pack/fixtures/sequences.fasta",
+      "bytes": 30,
+      "sha256": "dc8134a01c485f0bcc42818a16a79adcaacb13e0f42a69b932a9d9b9f7a3a3ef"
+    },
+    {
+      "path": "current/pack-examples/independent-pack/pack/workbench-checks.json",
+      "bytes": 325,
+      "sha256": "e0707b6f75498e2f1a527e569480cdd94aee69f7ce4f5c79eac5abd29a7e37f5"
+    },
+    {
+      "path": "current/pack-examples/independent-pack/pack/workbench-schema.json",
+      "bytes": 745,
+      "sha256": "26dda71c8fe760771aa825163cd4e7a6e5f1c93a48d8d3d0ca9d3b5480b4f6dd"
+    },
+    {
+      "path": "current/pack-examples/independent-pack/pack.ini.in",
+      "bytes": 1010,
+      "sha256": "e0b05a5a2d8f315c9183a1b4c748207d7ff2281e2ce4c3c05b8cbf6c9ca9e8e8"
+    },
+    {
+      "path": "current/pack-examples/independent-pack/prepare.py",
+      "bytes": 2545,
+      "sha256": "aca05d15914746c2081a79b8c79b5e88c5edf4ad07a8f74f36852067bcf0f9e6"
+    },
+    {
+      "path": "current/pack-examples/reads.ini",
+      "bytes": 3136,
+      "sha256": "65fc3065fb382ffdd13c4b94fa834b26531e63eb87858d84a4c173e567fb73c0"
+    },
+    {
+      "path": "current/pack-examples/research-variants.ini",
+      "bytes": 218290,
+      "sha256": "0798490960bf8f7136e6c0a41829938af6f819a8e461e3414d061f3d047aed9c"
+    },
+    {
+      "path": "current/pack-examples/trimming.ini",
+      "bytes": 34199,
+      "sha256": "5ebd1c6ae0368cdd6d1fb6a01041bb114c7a099fa8ab0e8836813bb60974d646"
+    },
+    {
+      "path": "current/pack-examples/variant-pipeline.ini",
+      "bytes": 9584,
+      "sha256": "c14b3a1804a0a09bc2929653e9c07c9ac7fcdab92d8ed9ef5b1910e9eb86b367"
+    },
+    {
+      "path": "current/pack-examples/variants.ini",
+      "bytes": 10865,
+      "sha256": "ea4b7f0a6c28709e4190b6514c07cbf7bdd58e1a4f2a2d931f2cae3ce6ec3795"
+    },
+    {
+      "path": "current/LICENSE",
+      "bytes": 1216,
+      "sha256": "8fc4c4b462aafaf8349f53b191ceea7496d39c49463224aaa05d366fbb406682"
+    },
+    {
+      "path": "current/build_variant.py",
+      "bytes": 6466,
+      "sha256": "29c08f12f73f9077576c62df124a5e45243386128f53bac315d76cb9511f9bf9"
+    },
+    {
+      "path": "current/variant-protocol.txt",
+      "bytes": 7136,
+      "sha256": "ef4e926653a3f4455848349e6384ea22a115c74c95c6547347640638a30ec748"
+    },
+    {
+      "path": "current/variant-provenance.json",
+      "bytes": 6851,
+      "sha256": "c5dbc9abd2cdcca00f62ebe2b38966f0e9c5990ae24c4db853c74f1fe918d483"
+    },
+    {
+      "path": "current/README-0.4.1.txt",
+      "bytes": 8221,
+      "sha256": "e841a21258314671d398e8f46ca39105c6be366f6f17c233a0e44e75aaeb466f"
+    },
+    {
+      "path": "current/README-0.4.txt",
+      "bytes": 7622,
+      "sha256": "e78c2adfe28a32441bd7a6b8b5990067352473aaa4a46722968d208427451340"
+    },
+    {
+      "path": "current/README-0.5.1.txt",
+      "bytes": 5280,
+      "sha256": "bd13408025559ac0dc6b53e9b42d0d126899181bb6b70d3099e712c30968c92b"
+    },
+    {
+      "path": "current/README-0.5.2.txt",
+      "bytes": 2809,
+      "sha256": "22a89658d8858efd172e46c86f923ff46835bf337d314e990745ae8380526ac6"
+    },
+    {
+      "path": "current/README-0.5.3.txt",
+      "bytes": 3855,
+      "sha256": "392bc8e0d70a1cca08f8e55e436d24cb5fd99a49de2f6ce8c6e487531f947a9e"
+    },
+    {
+      "path": "current/README-0.5.4.txt",
+      "bytes": 6019,
+      "sha256": "1e0d39bb69db25e237bbf58c3bdaf6c32a89ddaf029a8599cc19eaf6da9ed083"
+    },
+    {
+      "path": "current/README-0.5.txt",
+      "bytes": 5139,
+      "sha256": "1baa21bb40acc19c37fa6198ac76fb2afb1115d99e5d10ea41487d5f241fa183"
+    },
+    {
+      "path": "current/README-0.6.0.txt",
+      "bytes": 2332,
+      "sha256": "f8849d0bb77c447aa746e16cd35b5e31422e1c83cb424cf779e963a974c0b4d5"
+    },
+    {
+      "path": "current/docs/ARCHITECTURE.md",
+      "bytes": 4338,
+      "sha256": "d5046e05fb56c77ca968bf24b9b8b0c74e7a0e22a0749b1066e29247afe01f82"
+    },
+    {
+      "path": "current/docs/BUILD-0.3.txt",
+      "bytes": 3838,
+      "sha256": "215b1e5e55b6e55d31e5d8cf43334175707f92a04f287ca36efdacd10c0bfc9d"
+    },
+    {
+      "path": "current/docs/BUILD-0.4.txt",
+      "bytes": 13320,
+      "sha256": "3bfd3e3666c5a166aaf3e0131c848560f394846a30fdd9e8c032882f41e392e9"
+    },
+    {
+      "path": "current/docs/DESKTOP-0.2.md",
+      "bytes": 5189,
+      "sha256": "2403066e1353afb2b073fb9f8cc37dc79c20bd9105b3da6bd590dba14b22125e"
+    },
+    {
+      "path": "current/docs/PACK-FORMAT.txt",
+      "bytes": 20829,
+      "sha256": "08b5294da2609fd63acf773c32304e1efa6e18fbe9d584b614a2b33bf2f0c363"
+    },
+    {
+      "path": "current/docs/PACK-SCHEMA-0.5.2.txt",
+      "bytes": 13991,
+      "sha256": "c0932f5b58b9c10597f5d6996e79c8a1c71b17488b0185cba1124ea5dfcad0f2"
+    },
+    {
+      "path": "current/docs/PROTOTYPE-0.1.md",
+      "bytes": 6746,
+      "sha256": "9db97d4e6d875390cc2cc4ac6ef5d3aa563e3e0f45ff20a0e323340eb8c56da3"
+    },
+    {
+      "path": "current/docs/RESEARCH-WORKFLOWS.txt",
+      "bytes": 10609,
+      "sha256": "63ba44d074c8e1afc6c2ece65aec8987e48ac8ddbf30738b36bb00155ed374b8"
+    },
+    {
+      "path": "current/docs/RESULTS.md",
+      "bytes": 5050,
+      "sha256": "3c8b801cd64314775d54308491e6b8bfa17beffdea0e9edb1debd9c35a52ba07"
+    },
+    {
+      "path": "current/docs/TOOL-PACKS.md",
+      "bytes": 8497,
+      "sha256": "1986d68c5e2316df5800e12dc3bdd8009dfb5e1a60697202316d37ca95c0c722"
+    },
+    {
+      "path": "current/docs/catalogue-publishing-0.6.md",
+      "bytes": 8335,
+      "sha256": "200f5409a2396bdcc3862bb28dd19480ccfcc09eed9ecc59fac15e12cd2305f7"
+    },
+    {
+      "path": "current/docs/pack-development-0.6.md",
+      "bytes": 9013,
+      "sha256": "dca7b528b669b39e611276bace844e7ec90f3145a7010f96ff13b97e7fa9bf97"
+    },
+    {
+      "path": "current/docs/ui-preview.svg",
+      "bytes": 10397,
+      "sha256": "1af13de02245646877aa0788f395be1bcd26c0043fa5e9582011d2a7dd7339d3"
+    },
+    {
+      "path": "current/examples/starter/reads1.fastq",
+      "bytes": 22011,
+      "sha256": "33053fdfd6ca5abbe34883f869958a2e621e7d513ada06f401e91ad256e9cc21"
+    },
+    {
+      "path": "current/examples/starter/reads2.fastq",
+      "bytes": 22011,
+      "sha256": "18b5ceeefb0115120830005a21808489f2c471c78af4aaaf724cdf99697a80e1"
+    },
+    {
+      "path": "current/examples/starter/reference.fa",
+      "bytes": 3059,
+      "sha256": "3dd9031bc90515d274079fd7135da6fd8129315a9c364558bf9ec030c9e36dee"
+    },
+    {
+      "path": "current/examples/starter/truth.json",
+      "bytes": 261,
+      "sha256": "dbef1c9f40205f38fb8c51cd2109db009a006e8ae15485235aff31263a85f977"
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "sha": "d9725acfd18aee0d78f38d651061dcdb58b9385a",
+  "node_id": "C_kwDOFo-TMNoAKGQ5NzI1YWNmZDE4YWVlMGQ3OGYzOGQ2NTEwNjFkY2RiNThiOTM4NWE",
+  "commit": {
+    "author": {
+      "name": "Robert Edgar",
+      "email": "robert@drive5.com",
+      "date": "2024-11-10T22:48:42Z"
+    },
+    "committer": {
+      "name": "Robert Edgar",
+      "email": "robert@drive5.com",
+      "date": "2024-11-10T22:48:42Z"
+    },
+    "message": "test SUCCESS 5.3.linux64 [1cb261d], compatible with reseek 2.1",
+    "tree": {
+      "sha": "b8e9482bff40d344942647fa894d5b552b143d43",
+      "url": "https://api.github.com/repos/rcedgar/muscle/git/trees/b8e9482bff40d344942647fa894d5b552b143d43"
+    },
+    "url": "https://api.github.com/repos/rcedgar/muscle/git/commits/d9725acfd18aee0d78f38d651061dcdb58b9385a",
+    "comment_count": 0,
+    "verification": {
+      "verified": false,
+      "reason": "unsigned",
+      "signature": null,
+      "payload": null,
+      "verified_at": null
+    }
+  },
+  "url": "https://api.github.com/repos/rcedgar/muscle/commits/d9725acfd18aee0d78f38d651061dcdb58b9385a",
+  "html_url": "https://github.com/rcedgar/muscle/commit/d9725acfd18aee0d78f38d651061dcdb58b9385a",
+  "comments_url": "https://api.github.com/repos/rcedgar/muscle/commits/d9725acfd18aee0d78f38d651061dcdb58b9385a/comments",
+  "author": {
+    "login": "rcedgar",
+    "id": 7947388,
+    "node_id": "MDQ6VXNlcjc5NDczODg=",
+    "avatar_url": "https://avatars.githubusercontent.com/u/7947388?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/rcedgar",
+    "html_url": "https://github.com/rcedgar",
+    "followers_url": "https://api.github.com/users/rcedgar/followers",
+    "following_url": "https://api.github.com/users/rcedgar/following{/other_user}",
+    "gists_url": "https://api.github.com/users/rcedgar/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/rcedgar/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/rcedgar/subscriptions",
+    "organizations_url": "https://api.github.com/users/rcedgar/orgs",
+    "repos_url": "https://api.github.com/users/rcedgar/repos",
+    "events_url": "https://api.github.com/users/rcedgar/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/rcedgar/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "rcedgar",
+    "id": 7947388,
+    "node_id": "MDQ6VXNlcjc5NDczODg=",
+    "avatar_url": "https://avatars.githubusercontent.com/u/7947388?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/rcedgar",
+    "html_url": "https://github.com/rcedgar",
+    "followers_url": "https://api.github.com/users/rcedgar/followers",
+    "following_url": "https://api.github.com/users/rcedgar/following{/other_user}",
+    "gists_url": "https://api.github.com/users/rcedgar/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/rcedgar/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/rcedgar/subscriptions",
+    "organizations_url": "https://api.github.com/users/rcedgar/orgs",
+    "repos_url": "https://api.github.com/users/rcedgar/repos",
+    "events_url": "https://api.github.com/users/rcedgar/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/rcedgar/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "1cb261d36ae469f3d5a23165955b288a312a7b67",
+      "url": "https://api.github.com/repos/rcedgar/muscle/commits/1cb261d36ae469f3d5a23165955b288a312a7b67",
+      "html_url": "https://github.com/rcedgar/muscle/commit/1cb261d36ae469f3d5a23165955b288a312a7b67"
+    }
+  ],
+  "stats": {
+    "total": 1,
+    "additions": 1,
+    "deletions": 0
+  },
+  "files": [
+    {
+      "sha": "45d7a5a2ab4ce000e18499f48368a9f6081b2a82",
+      "filename": "test_results/success_list.txt",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "changes": 1,
+      "blob_url": "https://github.com/rcedgar/muscle/blob/d9725acfd18aee0d78f38d651061dcdb58b9385a/test_results%2Fsuccess_list.txt",
+      "raw_url": "https://github.com/rcedgar/muscle/raw/d9725acfd18aee0d78f38d651061dcdb58b9385a/test_results%2Fsuccess_list.txt",
+      "contents_url": "https://api.github.com/repos/rcedgar/muscle/contents/test_results%2Fsuccess_list.txt?ref=d9725acfd18aee0d78f38d651061dcdb58b9385a",
+      "patch": "@@ -1,2 +1,3 @@\n muscle5.2.linux64[b81d621]\t2024-08-19/10:13:05\n muscle5.2.linux64[824014c]\t2024-11-10/13:04:19\n+muscle5.3.linux64[1cb261d]\t2024-11-10/14:01:08"
+    }
+  ]
+}

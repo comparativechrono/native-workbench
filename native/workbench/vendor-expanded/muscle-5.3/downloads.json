@@ -1,0 +1,46 @@
+[
+  {
+    "file": "muscle-win64.v5.3.exe",
+    "url": "https://github.com/rcedgar/muscle/releases/download/v5.3/muscle-win64.v5.3.exe",
+    "bytes": 1281536,
+    "sha256": "a86637db99deb3efa1cb6762c4e3160ca33644608270eb167e4214f1f9409711"
+  },
+  {
+    "file": "muscle-linux-x86.v5.3",
+    "url": "https://github.com/rcedgar/muscle/releases/download/v5.3/muscle-linux-x86.v5.3",
+    "bytes": 3587040,
+    "sha256": "318abeb951d786a3e2532714cc81ad3b3d8f79a2b517dc31316eeb5b694db2bc"
+  },
+  {
+    "file": "muscle-v5.3.tar.gz",
+    "url": "https://codeload.github.com/rcedgar/muscle/tar.gz/refs/tags/v5.3",
+    "bytes": 28692261,
+    "sha256": "74b22a94e630b16015c2bd9ae83aa2be2c2048d3e41f560b2d4a954725c81968"
+  },
+  {
+    "file": "commit.json",
+    "url": "https://api.github.com/repos/rcedgar/muscle/commits/v5.3",
+    "bytes": 3838,
+    "sha256": "ffc26d1d9e88cf7c7691080048f2e09dade385189817a15762efb60ef2643377"
+  },
+  {
+    "file": "galaxy-muscle.xml",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "file": "galaxy-macros.xml",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "file": "galaxy-wrapper-commits.json",
+    "url": "https://api.github.com/repos/galaxyproject/tools-iuc/commits?path=tools/muscle/muscle.xml&per_page=1",
+    "bytes": 2,
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  {
+    "file": "galaxy-LICENSE",
+    "url": "https://raw.githubusercontent.com/galaxyproject/tools-iuc/main/LICENSE",
+    "bytes": 1077,
+    "sha256": "06276304c423a835d843f55c62288aee7e5d6e474f301fe51a6e78481c39ca5b"
+  }
+]

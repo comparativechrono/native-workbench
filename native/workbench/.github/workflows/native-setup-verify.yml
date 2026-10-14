@@ -1,0 +1,181 @@
+name: Verify frozen Windows tool setup candidate
+
+on:
+  push:
+    branches: [feature/native-tool-setup-verify]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: verify-setup-${{ github.ref }}
+  cancel-in-progress: true
+
+# Gate-only corrections test the original immutable application. This workflow
+# neither compiles nor packages a replacement app, and never changes its trust.
+env:
+  CANDIDATE_COMMIT: 8cee60655fe726e9d424ddf1b2874728235828ca
+  STARTER_SHA256: cab50ae315fa2e281844223fc862d7c45565b9c5557005236a7baf3fd13c0cd7
+  UPDATE_SHA256: fdc4a1a15e83419c78e2dd4b88dfc734a7be448d5760f39305c02735cf7c2e7c
+  SOURCE_SHA256: 23765a77a30ae24a3a869b1bc50585010b041b2612c41a67478109d04d059886
+
+jobs:
+  retrieve:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          artifact-ids: 11446932575
+          run-id: 37537256084
+          github-token: ${{ github.token }}
+          path: candidate-download
+      - name: Verify all original candidate archives and split only their transport
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib,json,os,shutil,zipfile
+          from pathlib import Path
+          candidates=list(Path('candidate-download').rglob('BUILD-PROVENANCE.json'))
+          assert len(candidates)==1, 'Expected exactly one original candidate artifact'
+          root=candidates[0].parent
+          provenance=json.loads(candidates[0].read_text())
+          assert provenance['sourceCommit']==os.environ['CANDIDATE_COMMIT'], 'Candidate source identity mismatch'
+          expected={
+            'native-workbench-0.10.0-starter-windows.zip':os.environ['STARTER_SHA256'],
+            'native-workbench-0.10.0-update-from-0.9.0.zip':os.environ['UPDATE_SHA256'],
+            'native-workbench-0.10.0-source.zip':os.environ['SOURCE_SHA256'],
+          }
+          checks=[]
+          for name,digest in expected.items():
+            path=root/name
+            assert hashlib.sha256(path.read_bytes()).hexdigest()==digest, 'Archive hash mismatch: '+name
+            with zipfile.ZipFile(path) as zipped:
+              assert zipped.testzip() is None, 'Archive CRC mismatch: '+name
+            checks.append({'file':name,'sha256':digest,'bytes':path.stat().st_size,'zipCrc':'passed'})
+          for edition,name in [('starter','native-workbench-0.10.0-starter-windows.zip'),('update','native-workbench-0.10.0-update-from-0.9.0.zip')]:
+            destination=Path('transfer')/edition
+            destination.mkdir(parents=True)
+            shutil.copyfile(root/name,destination/name)
+          parts=[]
+          with (root/'native-workbench-0.10.0-source.zip').open('rb') as source:
+            while block:=source.read(24*1024*1024):
+              number=len(parts)+1
+              folder=Path('transfer')/('source-part-'+str(number))
+              folder.mkdir(parents=True)
+              name='native-workbench-0.10.0-source.zip.part'+str(number)
+              (folder/name).write_bytes(block)
+              parts.append({'file':name,'bytes':len(block),'sha256':hashlib.sha256(block).hexdigest()})
+          assert len(parts)==2, 'Expected two bounded transport parts for this exact source archive'
+          metadata=Path('transfer/metadata');metadata.mkdir()
+          for name in ('BUILD-PROVENANCE.json','BUILD-UPDATE-PROVENANCE.json','source-metadata.json','SHA256SUMS.txt'):
+            shutil.copyfile(root/name,metadata/name)
+          record={'schema':1,'candidateRunId':37537256084,'candidateArtifactId':11446932575,'candidateSourceCommit':os.environ['CANDIDATE_COMMIT'],'validationCommit':os.environ['GITHUB_SHA'],'rebuilt':False,'archives':checks,'sourceTransportParts':parts,'sourceReassembly':'Concatenate part1 then part2 as raw bytes; verify original source SHA-256 before extraction.'}
+          (metadata/'FROZEN-CANDIDATE-VERIFICATION.json').write_text(json.dumps(record,indent=2)+'\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: setup-frozen-starter-${{ github.sha }}
+          path: transfer/starter
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: setup-frozen-update-${{ github.sha }}
+          path: transfer/update
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: setup-frozen-source-part-1-${{ github.sha }}
+          path: transfer/source-part-1
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: setup-frozen-source-part-2-${{ github.sha }}
+          path: transfer/source-part-2
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: setup-frozen-metadata-${{ github.sha }}
+          path: transfer/metadata
+          if-no-files-found: error
+          retention-days: 30
+
+  native:
+    needs: retrieve
+    runs-on: windows-2022
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        folder: [ordinary, 'path with spaces']
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: setup-frozen-starter-${{ github.sha }}
+          path: ${{ runner.temp }}/frozen-starter
+      - name: Verify exact application and record separate gate provenance
+        id: prepare
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $starter = Join-Path $env:RUNNER_TEMP 'frozen-starter/native-workbench-0.10.0-starter-windows.zip'
+          if ((Get-FileHash $starter -Algorithm SHA256).Hash -ne $env:STARTER_SHA256) { throw 'Frozen candidate SHA-256 mismatch.' }
+          $caseRoot = Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER
+          Expand-Archive $starter $caseRoot
+          $evidence = Join-Path $env:RUNNER_TEMP 'setup-recheck-evidence'
+          New-Item -ItemType Directory -Force $evidence | Out-Null
+          $helpers = @{}
+          foreach ($name in @('check_setup_windows.py','check_results_windows.py','check_workspace_ui_windows.py','check_references_windows.py')) {
+            $helpers[$name] = (Get-FileHash (Join-Path 'scripts' $name) -Algorithm SHA256).Hash.ToLower()
+          }
+          @{ schema = 1; candidateRunId = 37537256084; candidateArtifactId = 11446932575; candidateSourceCommit = $env:CANDIDATE_COMMIT; candidateSha256 = $env:STARTER_SHA256; validationCommit = '${{ github.sha }}'; applicationRebuilt = $false; helperSha256 = $helpers; scope = 'Gate-only timing corrections; exact candidate application unchanged. Retains original failed observations.' } | ConvertTo-Json -Depth 6 | Set-Content (Join-Path $evidence 'GATE-PROVENANCE.json')
+      - name: Recheck native setup with observed completion conditions
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I scripts/check_setup_windows.py --app-root $app --report "$env:RUNNER_TEMP/setup-recheck-evidence/native-setup.json" --source-commit $env:CANDIDATE_COMMIT --asset-sha256 $env:STARTER_SHA256
+          if ($LASTEXITCODE -ne 0) { throw 'Frozen candidate native setup recheck failed.' }
+      - name: Recheck native results using observable connection completion
+        if: always() && !cancelled() && steps.prepare.outcome == 'success'
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I scripts/check_results_windows.py --app-root $app --report "$env:RUNNER_TEMP/results-recheck-evidence/native-results.json" --source-commit $env:CANDIDATE_COMMIT --asset-sha256 $env:STARTER_SHA256
+          if ($LASTEXITCODE -ne 0) { throw 'Frozen candidate native results recheck failed.' }
+      - name: Retain new evidence without replacing failed original reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: setup-recheck-${{ matrix.folder }}-${{ github.sha }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/setup-recheck-evidence
+            ${{ runner.temp }}/results-recheck-evidence
+          if-no-files-found: error
+          retention-days: 30

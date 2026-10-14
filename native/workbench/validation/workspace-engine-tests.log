@@ -1,0 +1,30 @@
+test_branch_ranks_and_connection (test_workspace_engine.EngineTests.test_branch_ranks_and_connection) ... ok
+test_cancel_during_preparation_creates_no_run (test_workspace_engine.EngineTests.test_cancel_during_preparation_creates_no_run) ... ok
+test_cancellation_marks_all_pending_steps (test_workspace_engine.EngineTests.test_cancellation_marks_all_pending_steps) ... ok
+test_cycle_unknown_reference_and_wrong_type (test_workspace_engine.EngineTests.test_cycle_unknown_reference_and_wrong_type) ... ok
+test_duplicate_connections_and_version_drift (test_workspace_engine.EngineTests.test_duplicate_connections_and_version_drift) ... ok
+test_duplicate_read_lineage_blocks_lane_merge (test_workspace_engine.EngineTests.test_duplicate_read_lineage_blocks_lane_merge) ... ok
+test_external_alignment_format_inferred_only_when_accepted (test_workspace_engine.EngineTests.test_external_alignment_format_inferred_only_when_accepted) ... ok
+test_external_reports_are_distinct_named_sections (test_workspace_engine.EngineTests.test_external_reports_are_distinct_named_sections) ... ok
+test_failure_blocks_join_but_independent_branch_runs (test_workspace_engine.EngineTests.test_failure_blocks_join_but_independent_branch_runs) ... ok
+test_frozen_tamper_and_input_change (test_workspace_engine.EngineTests.test_frozen_tamper_and_input_change) ... ok
+test_full_portable_variant_graph_matches_truth (test_workspace_engine.EngineTests.test_full_portable_variant_graph_matches_truth) ... ok
+test_malformed_json_reviews_are_errors (test_workspace_engine.EngineTests.test_malformed_json_reviews_are_errors) ... ok
+test_one_tool_is_preset_not_pipeline (test_workspace_engine.EngineTests.test_one_tool_is_preset_not_pipeline) ... ok
+test_pair_roles_are_atomic_and_not_object_order (test_workspace_engine.EngineTests.test_pair_roles_are_atomic_and_not_object_order) ... ok
+test_parameters_constraints_no_arbitrary_commands (test_workspace_engine.EngineTests.test_parameters_constraints_no_arbitrary_commands) ... ok
+test_real_portable_branch_report (test_workspace_engine.EngineTests.test_real_portable_branch_report) ... ok
+test_real_portable_distinct_lanes_merge (test_workspace_engine.EngineTests.test_real_portable_distinct_lanes_merge) ... ok
+test_reference_header_mismatch_is_rejected (test_workspace_engine.EngineTests.test_reference_header_mismatch_is_rejected) ... ok
+test_reference_identity_evidence_is_honest (test_workspace_engine.EngineTests.test_reference_identity_evidence_is_honest) ... ok
+test_reference_slot_mismatch_is_rejected (test_workspace_engine.EngineTests.test_reference_slot_mismatch_is_rejected) ... ok
+test_reuse_plan_is_rejected (test_workspace_engine.EngineTests.test_reuse_plan_is_rejected) ... ok
+test_save_clears_bindings_keeps_ids_names_pins (test_workspace_engine.EngineTests.test_save_clears_bindings_keeps_ids_names_pins) ... ok
+test_saved_template_whitelists_fields (test_workspace_engine.EngineTests.test_saved_template_whitelists_fields) ... ok
+test_stored_plan_tamper_is_rejected (test_workspace_engine.EngineTests.test_stored_plan_tamper_is_rejected) ... ok
+test_success_report_escapes_and_separates (test_workspace_engine.EngineTests.test_success_report_escapes_and_separates) ... ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 0.947s
+
+OK

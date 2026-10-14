@@ -1,0 +1,120 @@
+Embedded runtime notices from samtools-cosmo.exe, extracted from matching ELF debug symbols.
+
+
+__notices
+
+
+
+Cosmopolitan
+Copyright 2024 Justine Alexandra Roberts Tunney
+
+Permission to use, copy, modify, and/or distribute this software for
+any purpose with or without fee is hereby granted, provided that the
+above copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL
+WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE
+AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL
+DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR
+PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
+TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+
+arm_optimized_routines_notice
+
+
+
+Optimized Routines (MIT License)
+Copyright 2022 ARM Limited
+
+chromium_notice
+
+
+
+Chromium (BSD-3 License)
+Copyright 2017 The Chromium Authors
+
+fdlibm_notice
+
+
+
+fdlibm (fdlibm license)
+Copyright (C) 1993 by Sun Microsystems, Inc. All rights reserved.
+
+freebsd_err_notice
+
+
+
+FreeBSD Error Library (BSD-3 License)
+Copyright 1993 The Regents of the University of California
+
+freebsd_libm_notice
+
+
+
+FreeBSD libm (BSD-2 License)
+Copyright (c) 1992-2024 The FreeBSD Project.
+Copyright (c) 2005-2011 Bruce D. Evans, Steven G. Kargl, David Schultz
+Copyright (c) 2009-2013 Steven G. Kargl
+
+gdtoa_notice
+
+
+
+gdtoa (MIT License)
+The author of this software is David M. Gay
+Kudos go to Guy L. Steele, Jr. and Jon L. White
+Copyright (C) 1997, 1998, 2000 by Lucent Technologies
+
+musl_libc_notice
+
+
+
+Musl libc (MIT License)
+Copyright 2005-2014 Rich Felker, et. al.
+
+nsync_notice
+
+
+
+*NSYNC (Apache 2.0)
+Copyright 2016 Google, Inc.
+https://github.com/google/nsync
+
+openbsd_sorting_notice
+
+
+
+OpenBSD Sorting (BSD-3)
+Copyright 1993 The Regents of the University of California
+
+openbsd_strings_notice
+
+
+
+OpenBSD Strings (ISC)
+Copyright (c) 1998, 2015 Todd C. Miller <millert@openbsd.org>
+
+puff_notice
+
+
+
+puff (zlib License)
+Copyright 2002-2013 Mark Adler
+
+smoothsort_notice
+
+
+
+Smoothsort (MIT License)
+Copyright 2011 Valentin Ochs
+Discovered by Edsger Dijkstra
+
+zlib_notice
+
+
+
+zlib 1.2.13 (zlib License)
+Copyright 1995-2022 Jean-loup Gailly and Mark Adler
+Invented 1990 Phillip Walter Katz

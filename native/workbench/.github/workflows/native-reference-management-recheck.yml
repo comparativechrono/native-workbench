@@ -1,0 +1,157 @@
+name: Recheck the frozen 0.15.0 candidate with corrected validators
+
+on:
+  push:
+    branches: [feature/reference-management]
+    paths:
+      - scripts/check_batch_windows.py
+      - workspace/tests/test_reference_provenance.py
+      - .github/workflows/native-reference-management-recheck.yml
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: native-reference-management-recheck-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  native:
+    if: contains(github.event.head_commit.message, '[frozen candidate recheck]')
+    runs-on: windows-2022
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        folder: [ordinary, 'path with spaces']
+    env:
+      FROZEN_COMMIT: 46bbb39dda2cc5bb08c30af494cb340f976acf3b
+      FROZEN_RUN: '37855047291'
+      FROZEN_ARTIFACT: '11583697066'
+      FROZEN_STARTER_SHA256: ce3bcc9c5634dd90f024ecf20f0308a144641c67e0c11c205501518773f6a4c2
+      FROZEN_DESKTOP_SHA256: 3e374c9b12e694cf8d8f9e2ce2e5eaf88abad9adf9d8e81d8ad16c16428dcdcb
+      FROZEN_BRIDGE_SHA256: e1e99d5d0fe88cacd91852bbf302f9bfe414745e911362c73c8dd724fbbf7a9d
+      CASE_FOLDER: ${{ matrix.folder }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Reject changed application or build inputs before reusing the frozen archive
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $changed = @(& git diff --name-only $env:FROZEN_COMMIT HEAD)
+          if ($LASTEXITCODE -ne 0) { throw 'Could not compare validator checkout with frozen source.' }
+          $allowed = @(
+            'scripts/check_batch_windows.py',
+            'workspace/tests/test_reference_provenance.py',
+            '.github/workflows/native-reference-management-recheck.yml',
+            'README.md'
+          )
+          $rejected = @($changed | Where-Object { $_ -notin $allowed -and $_ -notmatch '^knowledge/' })
+          if ($rejected.Count -ne 0) { throw ('Frozen candidate reuse refused: application/build inputs changed: ' + ($rejected -join ', ')) }
+          $evidence = Join-Path $env:RUNNER_TEMP 'reference-recheck-evidence'
+          New-Item -ItemType Directory -Force -Path $evidence | Out-Null
+          @{
+            schema = 1
+            packagedSourceCommit = $env:FROZEN_COMMIT
+            packagedBuildRun = $env:FROZEN_RUN
+            packagedBuildArtifact = $env:FROZEN_ARTIFACT
+            validatorCommit = '${{ github.sha }}'
+            starterSha256 = $env:FROZEN_STARTER_SHA256
+            changedPaths = $changed
+            archiveRebuilt = $false
+            reusedBuildIsNotNewPass = $true
+            scope = 'Corrected exact-package batch interface validator and all 15 isolated Windows source invocations only. Live reference, reference management, recovery, readiness, process accounting, library, workspace, independent pack and instrumented transport observations remain separate records from the original frozen build run.'
+          } | ConvertTo-Json -Depth 8 | Set-Content -Encoding utf8 (Join-Path $evidence 'RECHECK-PROVENANCE.json')
+      - uses: actions/download-artifact@v4
+        with:
+          artifact-ids: 11583697066
+          run-id: 37855047291
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/frozen-reference-candidate
+          merge-multiple: true
+      - name: Verify original provenance and pinned archive, then extract independent copies
+        id: prepare
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $candidate = Join-Path $env:RUNNER_TEMP 'frozen-reference-candidate'
+          $provenance = Get-Content (Join-Path $candidate 'BUILD-PROVENANCE.json') -Raw | ConvertFrom-Json
+          if ($provenance.sourceCommit -ne $env:FROZEN_COMMIT) { throw 'Artifact source commit differs from the frozen candidate.' }
+          $starter = Join-Path $candidate 'native-workbench-0.15.0-starter-windows.zip'
+          if ((Get-FileHash $starter -Algorithm SHA256).Hash -ne $env:FROZEN_STARTER_SHA256) { throw 'Frozen Starter SHA-256 mismatch.' }
+          $record = @($provenance.archives | Where-Object file -eq 'native-workbench-0.15.0-starter-windows.zip')
+          if ($record.Count -ne 1 -or $record[0].sha256 -ne $env:FROZEN_STARTER_SHA256) { throw 'Build provenance does not bind the expected Starter.' }
+          $caseRoot = Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER
+          foreach ($folder in @('batch-recheck', 'source-recheck')) {
+            Expand-Archive $starter (Join-Path $caseRoot $folder)
+            $app = Join-Path $caseRoot "$folder/native-workbench"
+            if ((Get-FileHash (Join-Path $app 'NativeWorkbench.exe') -Algorithm SHA256).Hash -ne $env:FROZEN_DESKTOP_SHA256) { throw 'Frozen desktop executable SHA-256 mismatch.' }
+            if ((Get-FileHash (Join-Path $app 'WorkbenchBridge.exe') -Algorithm SHA256).Hash -ne $env:FROZEN_BRIDGE_SHA256) { throw 'Frozen bridge executable SHA-256 mismatch.' }
+          }
+      - name: Recheck exact-package batch science, queue, reusable indexes and native interfaces
+        if: always() && !cancelled() && steps.prepare.outcome == 'success'
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'batch-recheck/native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I scripts/check_batch_windows.py --app-root $app --report "$env:RUNNER_TEMP/reference-recheck-evidence/batch/native-batch.json" --source-commit $env:FROZEN_COMMIT --asset-sha256 $env:FROZEN_STARTER_SHA256 --asset-name 'native-workbench-0.15.0-starter-windows.zip' --app-version '0.15.0'
+          if ($LASTEXITCODE -ne 0) { throw 'Frozen exact-package batch, queue and reusable-index gate failed.' }
+      - name: Run every Windows source suite and retain all outcomes without stopping at the first failure
+        if: always() && !cancelled() && steps.prepare.outcome == 'success'
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $PSNativeCommandUseErrorActionPreference = $false
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'source-recheck/native-workbench'
+          $env:NW_APP_ROOT = $app
+          $evidence = Join-Path $env:RUNNER_TEMP 'reference-recheck-evidence/source'
+          New-Item -ItemType Directory -Force -Path $evidence | Out-Null
+          $suites = @(
+            'tests/test_core_checks.py',
+            'workspace/tests/test_reference_provider.py',
+            'workspace/tests/test_reference_manager.py',
+            'workspace/tests/test_reference_service.py',
+            'workspace/tests/test_reference_provenance.py',
+            'workspace/tests/test_reference_resume.py',
+            'workspace/tests/test_reference_library.py',
+            'workspace/tests/test_reference_ncbi.py',
+            'workspace/tests/test_reference_management_service.py',
+            'workspace/tests/test_recovery_execution.py',
+            'workspace/tests/test_project_manager.py',
+            'workspace/tests/test_recovery_service.py',
+            'workspace/tests/test_diagnostics.py',
+            'workspace/tests/test_run_queue.py',
+            'workspace/tests/test_reference_indexes.py'
+          )
+          $outcomes = @()
+          foreach ($suite in $suites) {
+            Write-Output "Independent Windows source suite: $suite"
+            $log = Join-Path $evidence (([IO.Path]::GetFileNameWithoutExtension($suite)) + '.log')
+            & (Join-Path $app 'runtime/python/python.exe') -I $suite -v 2>&1 | Tee-Object -FilePath $log
+            $exitCode = $LASTEXITCODE
+            $outcomes += @{ file = $suite; exitCode = $exitCode; log = [IO.Path]::GetFileName($log) }
+          }
+          @{
+            schema = 1
+            packagedSourceCommit = $env:FROZEN_COMMIT
+            validatorCommit = '${{ github.sha }}'
+            appRoot = $app
+            requestedInvocations = $suites.Count
+            completedInvocations = $outcomes.Count
+            suites = $outcomes
+          } | ConvertTo-Json -Depth 8 | Set-Content -Encoding utf8 (Join-Path $evidence 'source-outcomes.json')
+          $failed = @($outcomes | Where-Object exitCode -ne 0 | ForEach-Object file)
+          if ($failed.Count -ne 0) { throw ('Windows source regressions failed: ' + ($failed -join ', ')) }
+      - name: Retain original-archive provenance and every successful or failed observation
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reference-management-recheck-windows-${{ matrix.folder }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/reference-recheck-evidence
+          if-no-files-found: error
+          retention-days: 30

@@ -1,0 +1,1747 @@
+{
+  "schema": 1,
+  "id": "run-20261003-074200-1ab995a4",
+  "planSha256": "4cc38e1c8499c19248841342c877fa2505b7230947da0172829b40996e1337da",
+  "name": "Example reads \u00b7 two variant callers",
+  "folder": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4",
+  "started": "2026-10-03T07:42:00.750Z",
+  "status": "success",
+  "nodes": [
+    {
+      "id": "step-1",
+      "name": "Trim reads with fastp",
+      "tool": "fastp/paired",
+      "pin": {
+        "packId": "fastp",
+        "packVersion": "0.4.1",
+        "manifestSha256": "7d18c64a45ebbd78e1d246b660a82d7d1a98166ccfd2c40e3f621cd9fee2a6a6"
+      },
+      "started": "2026-10-03T07:42:00.750Z",
+      "status": "success",
+      "inputs": {
+        "reads": [
+          "input-1"
+        ]
+      },
+      "outputs": {
+        "step-1::trimmed": {
+          "id": "step-1::trimmed",
+          "label": "Trimmed paired reads",
+          "type": "pair",
+          "state": {
+            "compression": "gzip"
+          },
+          "files": {
+            "trimmed1": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S1/portable-test/reads1.trimmed.fastq.gz",
+            "trimmed2": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S1/portable-test/reads2.trimmed.fastq.gz"
+          },
+          "sha256": {
+            "trimmed1": "532baafafebdc94091bba1d6961f0ce722a97f70d3222dfd89050c5037690bd4",
+            "trimmed2": "f7674bd4303633659168c180ee8b1957b38e28e77a0ff7a63b570e429df0d7ff"
+          },
+          "producer": "step-1",
+          "manifestOutputs": [
+            "trimmed1",
+            "trimmed2"
+          ]
+        },
+        "step-1::unpaired1": {
+          "id": "step-1::unpaired1",
+          "label": "Passing read 1 with rejected mate",
+          "type": "reads",
+          "state": {
+            "compression": "none"
+          },
+          "files": {
+            "unpaired1": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S1/portable-test/reads1.unpaired.fastq"
+          },
+          "sha256": {
+            "unpaired1": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "producer": "step-1",
+          "manifestOutputs": [
+            "unpaired1"
+          ]
+        },
+        "step-1::unpaired2": {
+          "id": "step-1::unpaired2",
+          "label": "Passing read 2 with rejected mate",
+          "type": "reads",
+          "state": {
+            "compression": "none"
+          },
+          "files": {
+            "unpaired2": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S1/portable-test/reads2.unpaired.fastq"
+          },
+          "sha256": {
+            "unpaired2": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "producer": "step-1",
+          "manifestOutputs": [
+            "unpaired2"
+          ]
+        },
+        "step-1::failed-reads": {
+          "id": "step-1::failed-reads",
+          "label": "Reads rejected by fastp",
+          "type": "reads",
+          "state": {
+            "compression": "none"
+          },
+          "files": {
+            "failed-reads": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S1/portable-test/reads.failed.fastq"
+          },
+          "sha256": {
+            "failed-reads": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "producer": "step-1",
+          "manifestOutputs": [
+            "failed-reads"
+          ]
+        },
+        "step-1::pair-check": {
+          "id": "step-1::pair-check",
+          "label": "Input pair validation",
+          "type": "metrics",
+          "state": {},
+          "files": {
+            "pair-check": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S1/portable-test/read-pairs.json"
+          },
+          "sha256": {
+            "pair-check": "c1a9525e96f4d4fc5cd4e65fa611203dd9a505ac67eafd6364ab7aeb575049d3"
+          },
+          "producer": "step-1",
+          "manifestOutputs": [
+            "pair-check"
+          ]
+        },
+        "step-1::trim-json": {
+          "id": "step-1::trim-json",
+          "label": "fastp metrics (JSON)",
+          "type": "metrics",
+          "state": {},
+          "files": {
+            "trim-json": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S1/portable-test/trimming.json"
+          },
+          "sha256": {
+            "trim-json": "8c541986695f1e086515d066b5126c249ed3651c1ec9a4912b11772531bf8277"
+          },
+          "producer": "step-1",
+          "manifestOutputs": [
+            "trim-json"
+          ]
+        },
+        "step-1::trim-html": {
+          "id": "step-1::trim-html",
+          "label": "Offline interactive quality report",
+          "type": "report",
+          "state": {},
+          "files": {
+            "trim-html": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S1/portable-test/trimming.html"
+          },
+          "sha256": {
+            "trim-html": "f6fe399c5d15dd010f0f2e62583ad00f256cd834caeb8e32a099626f1a93295d"
+          },
+          "producer": "step-1",
+          "manifestOutputs": [
+            "trim-html"
+          ]
+        },
+        "step-1::plotly-js": {
+          "id": "step-1::plotly-js",
+          "label": "Offline report graphics",
+          "type": "script",
+          "state": {},
+          "files": {
+            "plotly-js": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S1/portable-test/plotly-1.2.0.min.js"
+          },
+          "sha256": {
+            "plotly-js": "60169d9df25530f1d5e29c663ceb18ea7492862acb308800fc5ab0f0bf31a41e"
+          },
+          "producer": "step-1",
+          "manifestOutputs": [
+            "plotly-js"
+          ]
+        }
+      },
+      "preflight": null,
+      "message": "Portable manifest adapter completed",
+      "folder": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S1/portable-test",
+      "finished": "2026-10-03T07:42:00.861Z"
+    },
+    {
+      "id": "step-2",
+      "name": "Align reads with BWA",
+      "tool": "bwa/paired-end",
+      "pin": {
+        "packId": "bwa",
+        "packVersion": "0.4.0",
+        "manifestSha256": "7d49d9bac3c4c98776f70120915ffa7f2a85ee297787f9c1e45c8b4655ee4a37"
+      },
+      "started": "2026-10-03T07:42:00.861Z",
+      "status": "success",
+      "inputs": {
+        "reads": [
+          "step-1::trimmed"
+        ],
+        "reference": [
+          "input-2"
+        ]
+      },
+      "outputs": {
+        "step-2::aligned": {
+          "id": "step-2::aligned",
+          "label": "Unsorted alignment BAM",
+          "type": "bam",
+          "state": {
+            "sort": "unsorted"
+          },
+          "files": {
+            "aligned": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S2/portable-test/alignment.unsorted.bam"
+          },
+          "sha256": {
+            "aligned": "53f7ab0ad53d5578e7c4edab202675eaa9c80c7e55a0008a025ebfd21398134d"
+          },
+          "producer": "step-2",
+          "manifestOutputs": [
+            "aligned"
+          ]
+        },
+        "step-2::pair-check": {
+          "id": "step-2::pair-check",
+          "label": "Read-pair validation",
+          "type": "metrics",
+          "state": {},
+          "files": {
+            "pair-check": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S2/portable-test/read-pairs.json"
+          },
+          "sha256": {
+            "pair-check": "f5eb4fa531393530f1a94a1a32cc749c0c765c1d08b0c04875d32e609fc1b245"
+          },
+          "producer": "step-2",
+          "manifestOutputs": [
+            "pair-check"
+          ]
+        },
+        "step-2::reference": {
+          "id": "step-2::reference",
+          "label": "Working reference",
+          "type": "reference",
+          "state": {},
+          "files": {
+            "reference": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S2/portable-test/reference.fa"
+          },
+          "sha256": {
+            "reference": "ef2732f236d3b2e890cc1863a4546c3c433b80d0230e8b7d0e7ccaa894733e7d"
+          },
+          "producer": "step-2",
+          "manifestOutputs": [
+            "reference"
+          ]
+        },
+        "step-2::bwa-amb": {
+          "id": "step-2::bwa-amb",
+          "label": "BWA index (amb)",
+          "type": "index",
+          "state": {},
+          "files": {
+            "bwa-amb": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S2/portable-test/bwa-reference.amb"
+          },
+          "sha256": {
+            "bwa-amb": "3081251773c8746724b65c37238b01543073a74aee3115abf3f20dd05ef5dc51"
+          },
+          "producer": "step-2",
+          "manifestOutputs": [
+            "bwa-amb"
+          ]
+        },
+        "step-2::bwa-ann": {
+          "id": "step-2::bwa-ann",
+          "label": "BWA index (ann)",
+          "type": "index",
+          "state": {},
+          "files": {
+            "bwa-ann": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S2/portable-test/bwa-reference.ann"
+          },
+          "sha256": {
+            "bwa-ann": "b8d603e0719905629b7bfd5c81ab51585bb2e6b8569764f49d054506bc5ea677"
+          },
+          "producer": "step-2",
+          "manifestOutputs": [
+            "bwa-ann"
+          ]
+        },
+        "step-2::bwa-bwt": {
+          "id": "step-2::bwa-bwt",
+          "label": "BWA index (bwt)",
+          "type": "index",
+          "state": {},
+          "files": {
+            "bwa-bwt": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S2/portable-test/bwa-reference.bwt"
+          },
+          "sha256": {
+            "bwa-bwt": "75b37480bfe25cee44ba08c4882a37ca81f2362dcf8fc4e28d5715657a7743ad"
+          },
+          "producer": "step-2",
+          "manifestOutputs": [
+            "bwa-bwt"
+          ]
+        },
+        "step-2::bwa-pac": {
+          "id": "step-2::bwa-pac",
+          "label": "BWA index (pac)",
+          "type": "index",
+          "state": {},
+          "files": {
+            "bwa-pac": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S2/portable-test/bwa-reference.pac"
+          },
+          "sha256": {
+            "bwa-pac": "0a6471096fd08213d92483887bb003eacd5bf82532376f9dfd03fc519067f812"
+          },
+          "producer": "step-2",
+          "manifestOutputs": [
+            "bwa-pac"
+          ]
+        },
+        "step-2::bwa-sa": {
+          "id": "step-2::bwa-sa",
+          "label": "BWA index (sa)",
+          "type": "index",
+          "state": {},
+          "files": {
+            "bwa-sa": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S2/portable-test/bwa-reference.sa"
+          },
+          "sha256": {
+            "bwa-sa": "b85b51aa55f06c0b7a1bb872eb27588ff218b17e032cfadd981abdc09d5015ce"
+          },
+          "producer": "step-2",
+          "manifestOutputs": [
+            "bwa-sa"
+          ]
+        }
+      },
+      "preflight": null,
+      "message": "Portable manifest adapter completed",
+      "folder": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S2/portable-test",
+      "finished": "2026-10-03T07:42:00.939Z"
+    },
+    {
+      "id": "step-3",
+      "name": "Prepare aligned reads",
+      "tool": "bam/prepare",
+      "pin": {
+        "packId": "bam",
+        "packVersion": "0.4.0",
+        "manifestSha256": "45b3f9d5092b0b3014f67b29331003e1214c72919f85695a571fb371030a9888"
+      },
+      "started": "2026-10-03T07:42:00.940Z",
+      "status": "success",
+      "inputs": {
+        "alignment": [
+          "step-2::aligned"
+        ]
+      },
+      "outputs": {
+        "step-3::bam": {
+          "id": "step-3::bam",
+          "label": "Sorted, duplicate-marked BAM",
+          "type": "bam",
+          "state": {
+            "sort": "coordinate",
+            "mateFixed": true,
+            "duplicates": "marked"
+          },
+          "files": {
+            "bam": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S3/portable-test/alignment.marked.bam"
+          },
+          "sha256": {
+            "bam": "bb57af0a52f927cec393185b4be914776f564bdc7ba1daef37328089a69a6216"
+          },
+          "producer": "step-3",
+          "manifestOutputs": [
+            "bam"
+          ]
+        },
+        "step-3::duplicate-stats": {
+          "id": "step-3::duplicate-stats",
+          "label": "Duplicate-marking summary",
+          "type": "metrics",
+          "state": {},
+          "files": {
+            "duplicate-stats": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S3/portable-test/duplicates.txt"
+          },
+          "sha256": {
+            "duplicate-stats": "0c8066cfa2142dde092543bcfcb865961135ae72ba80aefd56e4056d985c5865"
+          },
+          "producer": "step-3",
+          "manifestOutputs": [
+            "duplicate-stats"
+          ]
+        },
+        "step-3::flagstat": {
+          "id": "step-3::flagstat",
+          "label": "Alignment flag summary",
+          "type": "metrics",
+          "state": {},
+          "files": {
+            "flagstat": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S3/portable-test/flagstat.txt"
+          },
+          "sha256": {
+            "flagstat": "a9e76688885fab0cf76cad8031d5b424d5f7abbf6ce150803ce5c5b6a39adbbe"
+          },
+          "producer": "step-3",
+          "manifestOutputs": [
+            "flagstat"
+          ]
+        },
+        "step-3::alignment-stats": {
+          "id": "step-3::alignment-stats",
+          "label": "Alignment statistics",
+          "type": "metrics",
+          "state": {},
+          "files": {
+            "alignment-stats": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S3/portable-test/alignment-stats.txt"
+          },
+          "sha256": {
+            "alignment-stats": "d0f4b4a6c1adcbec5b8ddcacd5bd9c7d46720f2ae1a01b6b424e88e9885c5337"
+          },
+          "producer": "step-3",
+          "manifestOutputs": [
+            "alignment-stats"
+          ]
+        },
+        "step-3::bam-index": {
+          "id": "step-3::bam-index",
+          "label": "BAM index (CSI)",
+          "type": "index",
+          "state": {},
+          "files": {
+            "bam-index": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S3/portable-test/alignment.marked.bam.csi"
+          },
+          "sha256": {
+            "bam-index": "4b900f58c073017c4558a87ac9c5bf27c068364656050ef4960522021cc6ecd7"
+          },
+          "producer": "step-3",
+          "manifestOutputs": [
+            "bam-index"
+          ]
+        },
+        "step-3::names": {
+          "id": "step-3::names",
+          "label": "Name-sorted alignments",
+          "type": "bam",
+          "state": {
+            "sort": "queryname"
+          },
+          "files": {
+            "names": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S3/portable-test/alignment.names.bam"
+          },
+          "sha256": {
+            "names": "13c4f871488eb57cae87d27c920656e5c24cfeac89716bd462433cd8b35a739d"
+          },
+          "producer": "step-3",
+          "manifestOutputs": [
+            "names"
+          ]
+        },
+        "step-3::fixed": {
+          "id": "step-3::fixed",
+          "label": "Mate-corrected alignments",
+          "type": "bam",
+          "state": {
+            "sort": "queryname",
+            "mateFixed": true
+          },
+          "files": {
+            "fixed": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S3/portable-test/alignment.fixmate.bam"
+          },
+          "sha256": {
+            "fixed": "4e82a8d08337df4cb7df6c2f0b3162e7c87e6185c29512ac2a61eeee77b18130"
+          },
+          "producer": "step-3",
+          "manifestOutputs": [
+            "fixed"
+          ]
+        },
+        "step-3::coordinates": {
+          "id": "step-3::coordinates",
+          "label": "Coordinate-sorted alignments",
+          "type": "bam",
+          "state": {
+            "sort": "coordinate",
+            "mateFixed": true
+          },
+          "files": {
+            "coordinates": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S3/portable-test/alignment.sorted.bam"
+          },
+          "sha256": {
+            "coordinates": "e9ad492125a70868688a66473300d15991afd40bcde41d2ec89c624948785a86"
+          },
+          "producer": "step-3",
+          "manifestOutputs": [
+            "coordinates"
+          ]
+        }
+      },
+      "preflight": null,
+      "message": "Portable manifest adapter completed",
+      "folder": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S3/portable-test",
+      "finished": "2026-10-03T07:42:01.039Z"
+    },
+    {
+      "id": "step-4",
+      "name": "BCFtools variant calls",
+      "tool": "variants/call",
+      "pin": {
+        "packId": "variants",
+        "packVersion": "0.4.0",
+        "manifestSha256": "ea4b7f0a6c28709e4190b6514c07cbf7bdd58e1a4f2a2d931f2cae3ce6ec3795"
+      },
+      "started": "2026-10-03T07:42:01.040Z",
+      "status": "success",
+      "inputs": {
+        "alignment": [
+          "step-3::bam"
+        ],
+        "reference": [
+          "input-2"
+        ]
+      },
+      "outputs": {
+        "step-4::variants": {
+          "id": "step-4::variants",
+          "label": "All normalized calls with filter labels",
+          "type": "vcf",
+          "state": {
+            "selection": "all-calls-with-filter-labels",
+            "compression": "bgzf"
+          },
+          "files": {
+            "variants": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S4/portable-test/variants.vcf.gz"
+          },
+          "sha256": {
+            "variants": "8e033f74692322fd61bdfe49853195f361d190ffe48501f964533bfb37387261"
+          },
+          "producer": "step-4",
+          "manifestOutputs": [
+            "variants"
+          ]
+        },
+        "step-4::variant-stats": {
+          "id": "step-4::variant-stats",
+          "label": "Variant summary",
+          "type": "metrics",
+          "state": {},
+          "files": {
+            "variant-stats": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S4/portable-test/variant-stats.txt"
+          },
+          "sha256": {
+            "variant-stats": "c078849494478b83e393cb3efc13bacaab9659e3c80997f5b9495548699e61b9"
+          },
+          "producer": "step-4",
+          "manifestOutputs": [
+            "variant-stats"
+          ]
+        },
+        "step-4::variants-index": {
+          "id": "step-4::variants-index",
+          "label": "Variant index (CSI)",
+          "type": "index",
+          "state": {},
+          "files": {
+            "variants-index": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S4/portable-test/variants.vcf.gz.csi"
+          },
+          "sha256": {
+            "variants-index": "0afb310e40bfaeb5f9c69df5a970c393117102bbb4abcbfd69a45fb9e7044b30"
+          },
+          "producer": "step-4",
+          "manifestOutputs": [
+            "variants-index"
+          ]
+        },
+        "step-4::pileup": {
+          "id": "step-4::pileup",
+          "label": "Genotype likelihoods",
+          "type": "bcf-likelihoods",
+          "state": {},
+          "files": {
+            "pileup": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S4/portable-test/pileup.bcf"
+          },
+          "sha256": {
+            "pileup": "d3166f74ae08c12b4e1071438957a2ac9f7fb6f1496a8d23e44e819e0c82c09b"
+          },
+          "producer": "step-4",
+          "manifestOutputs": [
+            "pileup"
+          ]
+        },
+        "step-4::calls": {
+          "id": "step-4::calls",
+          "label": "Raw variant calls",
+          "type": "bcf",
+          "state": {},
+          "files": {
+            "calls": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S4/portable-test/calls.bcf"
+          },
+          "sha256": {
+            "calls": "20ea39d0dfb61081dceecf2dd94d29889f2367a3fa9dad82dfacb872a55c14c3"
+          },
+          "producer": "step-4",
+          "manifestOutputs": [
+            "calls"
+          ]
+        },
+        "step-4::normalized": {
+          "id": "step-4::normalized",
+          "label": "Normalized calls",
+          "type": "bcf",
+          "state": {},
+          "files": {
+            "normalized": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S4/portable-test/normalized.bcf"
+          },
+          "sha256": {
+            "normalized": "f9d554c1f68c28c0e8bc3cff9e944970af5f21858888efb4d56ecb09f8685fff"
+          },
+          "producer": "step-4",
+          "manifestOutputs": [
+            "normalized"
+          ]
+        },
+        "step-4::reference": {
+          "id": "step-4::reference",
+          "label": "Working reference",
+          "type": "reference",
+          "state": {},
+          "files": {
+            "reference": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S4/portable-test/reference.fa"
+          },
+          "sha256": {
+            "reference": "ef2732f236d3b2e890cc1863a4546c3c433b80d0230e8b7d0e7ccaa894733e7d"
+          },
+          "producer": "step-4",
+          "manifestOutputs": [
+            "reference"
+          ]
+        },
+        "step-4::reference-index": {
+          "id": "step-4::reference-index",
+          "label": "Reference index",
+          "type": "index",
+          "state": {},
+          "files": {
+            "reference-index": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S4/portable-test/reference.fa.fai"
+          },
+          "sha256": {
+            "reference-index": "0c9b95c07ec40b670eed55a92de150920e3c5561677acc698eb021749fb76cec"
+          },
+          "producer": "step-4",
+          "manifestOutputs": [
+            "reference-index"
+          ]
+        }
+      },
+      "preflight": {
+        "alignmentHeaders": 1,
+        "referenceChecks": [
+          {
+            "alignment": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S3/portable-test/alignment.marked.bam",
+            "reference": "/workspace/scratch/0c5293ac0f36/integration-0.5/native-workbench/examples/variant-truth/reference.fa",
+            "check": "contig-names-and-lengths",
+            "note": "Headers without M5 hashes cannot prove reference sequence identity."
+          }
+        ]
+      },
+      "message": "Portable manifest adapter completed",
+      "folder": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S4/portable-test",
+      "finished": "2026-10-03T07:42:01.257Z"
+    },
+    {
+      "id": "step-5",
+      "name": "FreeBayes variant calls",
+      "tool": "freebayes/call",
+      "pin": {
+        "packId": "freebayes",
+        "packVersion": "0.4.0",
+        "manifestSha256": "9ba67c19846368c8d35119ec47404381c2aed6c6fbb693534963e7ec05ea7a7c"
+      },
+      "started": "2026-10-03T07:42:01.258Z",
+      "status": "success",
+      "inputs": {
+        "alignment": [
+          "step-3::bam"
+        ],
+        "reference": [
+          "input-2"
+        ]
+      },
+      "outputs": {
+        "step-5::variants": {
+          "id": "step-5::variants",
+          "label": "All normalized calls with filter labels",
+          "type": "vcf",
+          "state": {
+            "selection": "all-calls-with-filter-labels",
+            "compression": "bgzf"
+          },
+          "files": {
+            "variants": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S5/portable-test/variants.vcf.gz"
+          },
+          "sha256": {
+            "variants": "adb591dba6a1b757857c2b68b267950e77b403a257a8819f8313e4349dab992c"
+          },
+          "producer": "step-5",
+          "manifestOutputs": [
+            "variants"
+          ]
+        },
+        "step-5::pass-variants": {
+          "id": "step-5::pass-variants",
+          "label": "PASS calls only",
+          "type": "vcf-pass",
+          "state": {
+            "selection": "PASS-only",
+            "compression": "bgzf"
+          },
+          "files": {
+            "pass-variants": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S5/portable-test/variants.pass.vcf.gz"
+          },
+          "sha256": {
+            "pass-variants": "ceb7136129fd2642756ce93fdb296a1b5f054178a3edeec8ee37d94aaa91bad5"
+          },
+          "producer": "step-5",
+          "manifestOutputs": [
+            "pass-variants"
+          ]
+        },
+        "step-5::variant-stats": {
+          "id": "step-5::variant-stats",
+          "label": "All-call statistics",
+          "type": "metrics",
+          "state": {},
+          "files": {
+            "variant-stats": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S5/portable-test/variant-stats.txt"
+          },
+          "sha256": {
+            "variant-stats": "9bb2c9dd8e543ccdcc6149a18b1973d938df130ea7e1ccc7ea1715d3fa6e0218"
+          },
+          "producer": "step-5",
+          "manifestOutputs": [
+            "variant-stats"
+          ]
+        },
+        "step-5::pass-stats": {
+          "id": "step-5::pass-stats",
+          "label": "PASS-call statistics",
+          "type": "metrics",
+          "state": {},
+          "files": {
+            "pass-stats": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S5/portable-test/variants.pass.stats.txt"
+          },
+          "sha256": {
+            "pass-stats": "98208c799e59f079494ffef5ca5809fcce8e84937885681b13bb5db378d444f1"
+          },
+          "producer": "step-5",
+          "manifestOutputs": [
+            "pass-stats"
+          ]
+        },
+        "step-5::variants-index": {
+          "id": "step-5::variants-index",
+          "label": "All-call VCF index",
+          "type": "index",
+          "state": {},
+          "files": {
+            "variants-index": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S5/portable-test/variants.vcf.gz.csi"
+          },
+          "sha256": {
+            "variants-index": "6ee4107dbd5e53393aebaef38990e43cf31debef3d8dc2596f61d36bd8d8082f"
+          },
+          "producer": "step-5",
+          "manifestOutputs": [
+            "variants-index"
+          ]
+        },
+        "step-5::pass-index": {
+          "id": "step-5::pass-index",
+          "label": "PASS VCF index",
+          "type": "index",
+          "state": {},
+          "files": {
+            "pass-index": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S5/portable-test/variants.pass.vcf.gz.csi"
+          },
+          "sha256": {
+            "pass-index": "ebbda772d407fffb3b4e97d4d108a4973f867122208971d2537b846928c099f8"
+          },
+          "producer": "step-5",
+          "manifestOutputs": [
+            "pass-index"
+          ]
+        },
+        "step-5::calls": {
+          "id": "step-5::calls",
+          "label": "Raw calls",
+          "type": "vcf",
+          "state": {},
+          "files": {
+            "calls": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S5/portable-test/calls.vcf"
+          },
+          "sha256": {
+            "calls": "8775e78d13d96baee0db6fdca26fd569992deebe50ec0e390c6ac1d354d07bf3"
+          },
+          "producer": "step-5",
+          "manifestOutputs": [
+            "calls"
+          ]
+        },
+        "step-5::normalized": {
+          "id": "step-5::normalized",
+          "label": "Normalized unfiltered calls",
+          "type": "bcf",
+          "state": {},
+          "files": {
+            "normalized": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S5/portable-test/normalized.bcf"
+          },
+          "sha256": {
+            "normalized": "62f3e793f7dceed9d21496fe299d1b4b9ea80912c19f11c3ba653271b570e3bc"
+          },
+          "producer": "step-5",
+          "manifestOutputs": [
+            "normalized"
+          ]
+        },
+        "step-5::reference": {
+          "id": "step-5::reference",
+          "label": "Working reference",
+          "type": "reference",
+          "state": {},
+          "files": {
+            "reference": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S5/portable-test/reference.fa"
+          },
+          "sha256": {
+            "reference": "ef2732f236d3b2e890cc1863a4546c3c433b80d0230e8b7d0e7ccaa894733e7d"
+          },
+          "producer": "step-5",
+          "manifestOutputs": [
+            "reference"
+          ]
+        },
+        "step-5::reference-index": {
+          "id": "step-5::reference-index",
+          "label": "Reference index",
+          "type": "index",
+          "state": {},
+          "files": {
+            "reference-index": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S5/portable-test/reference.fa.fai"
+          },
+          "sha256": {
+            "reference-index": "0c9b95c07ec40b670eed55a92de150920e3c5561677acc698eb021749fb76cec"
+          },
+          "producer": "step-5",
+          "manifestOutputs": [
+            "reference-index"
+          ]
+        }
+      },
+      "preflight": {
+        "alignmentHeaders": 1,
+        "referenceChecks": [
+          {
+            "alignment": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S3/portable-test/alignment.marked.bam",
+            "reference": "/workspace/scratch/0c5293ac0f36/integration-0.5/native-workbench/examples/variant-truth/reference.fa",
+            "check": "contig-names-and-lengths",
+            "note": "Headers without M5 hashes cannot prove reference sequence identity."
+          }
+        ]
+      },
+      "message": "Portable manifest adapter completed",
+      "folder": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S5/portable-test",
+      "finished": "2026-10-03T07:42:01.375Z"
+    },
+    {
+      "id": "step-6",
+      "name": "BCFtools call statistics",
+      "tool": "variants/statistics",
+      "pin": {
+        "packId": "variants",
+        "packVersion": "0.4.0",
+        "manifestSha256": "ea4b7f0a6c28709e4190b6514c07cbf7bdd58e1a4f2a2d931f2cae3ce6ec3795"
+      },
+      "started": "2026-10-03T07:42:01.376Z",
+      "status": "success",
+      "inputs": {
+        "variants": [
+          "step-4::variants"
+        ]
+      },
+      "outputs": {
+        "step-6::statistics": {
+          "id": "step-6::statistics",
+          "label": "Variant statistics",
+          "type": "metrics",
+          "state": {},
+          "files": {
+            "statistics": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S6/portable-test/variant-stats.txt"
+          },
+          "sha256": {
+            "statistics": "c078849494478b83e393cb3efc13bacaab9659e3c80997f5b9495548699e61b9"
+          },
+          "producer": "step-6",
+          "manifestOutputs": [
+            "statistics"
+          ]
+        }
+      },
+      "preflight": null,
+      "message": "Portable manifest adapter completed",
+      "folder": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S6/portable-test",
+      "finished": "2026-10-03T07:42:01.385Z"
+    },
+    {
+      "id": "step-7",
+      "name": "FreeBayes call statistics",
+      "tool": "variants/statistics",
+      "pin": {
+        "packId": "variants",
+        "packVersion": "0.4.0",
+        "manifestSha256": "ea4b7f0a6c28709e4190b6514c07cbf7bdd58e1a4f2a2d931f2cae3ce6ec3795"
+      },
+      "started": "2026-10-03T07:42:01.386Z",
+      "status": "success",
+      "inputs": {
+        "variants": [
+          "step-5::variants"
+        ]
+      },
+      "outputs": {
+        "step-7::statistics": {
+          "id": "step-7::statistics",
+          "label": "Variant statistics",
+          "type": "metrics",
+          "state": {},
+          "files": {
+            "statistics": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S7/portable-test/variant-stats.txt"
+          },
+          "sha256": {
+            "statistics": "9bb2c9dd8e543ccdcc6149a18b1973d938df130ea7e1ccc7ea1715d3fa6e0218"
+          },
+          "producer": "step-7",
+          "manifestOutputs": [
+            "statistics"
+          ]
+        }
+      },
+      "preflight": null,
+      "message": "Portable manifest adapter completed",
+      "folder": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S7/portable-test",
+      "finished": "2026-10-03T07:42:01.396Z"
+    },
+    {
+      "id": "step-8",
+      "name": "Quality and caller reports",
+      "tool": "builtin/report",
+      "pin": {
+        "packId": "builtin",
+        "packVersion": "0.5.0",
+        "manifestSha256": "84cf3dc5da9e07bca439af537312846933105215153ce6fa533f8a88e1e3a209"
+      },
+      "started": "2026-10-03T07:42:01.398Z",
+      "status": "success",
+      "inputs": {
+        "metrics": [
+          "step-1::trim-json",
+          "step-3::alignment-stats",
+          "step-6::statistics",
+          "step-7::statistics"
+        ]
+      },
+      "outputs": {
+        "step-8::report": {
+          "id": "step-8::report",
+          "label": "Combined report",
+          "type": "report",
+          "state": {},
+          "files": {
+            "report": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S8/report.html"
+          },
+          "sha256": {
+            "report": "cc7e695af83a37cf2038c150fec7073d87b0a3e5eb0e321d50f0d04ebc22211a"
+          },
+          "producer": "step-8",
+          "manifestOutputs": [
+            "report"
+          ]
+        }
+      },
+      "message": "Separate report sections written.",
+      "folder": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S8",
+      "finished": "2026-10-03T07:42:01.401Z"
+    }
+  ],
+  "outputs": {
+    "step-1::trimmed": {
+      "id": "step-1::trimmed",
+      "label": "Trimmed paired reads",
+      "type": "pair",
+      "state": {
+        "compression": "gzip"
+      },
+      "files": {
+        "trimmed1": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S1/portable-test/reads1.trimmed.fastq.gz",
+        "trimmed2": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S1/portable-test/reads2.trimmed.fastq.gz"
+      },
+      "sha256": {
+        "trimmed1": "532baafafebdc94091bba1d6961f0ce722a97f70d3222dfd89050c5037690bd4",
+        "trimmed2": "f7674bd4303633659168c180ee8b1957b38e28e77a0ff7a63b570e429df0d7ff"
+      },
+      "producer": "step-1",
+      "manifestOutputs": [
+        "trimmed1",
+        "trimmed2"
+      ]
+    },
+    "step-1::unpaired1": {
+      "id": "step-1::unpaired1",
+      "label": "Passing read 1 with rejected mate",
+      "type": "reads",
+      "state": {
+        "compression": "none"
+      },
+      "files": {
+        "unpaired1": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S1/portable-test/reads1.unpaired.fastq"
+      },
+      "sha256": {
+        "unpaired1": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "producer": "step-1",
+      "manifestOutputs": [
+        "unpaired1"
+      ]
+    },
+    "step-1::unpaired2": {
+      "id": "step-1::unpaired2",
+      "label": "Passing read 2 with rejected mate",
+      "type": "reads",
+      "state": {
+        "compression": "none"
+      },
+      "files": {
+        "unpaired2": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S1/portable-test/reads2.unpaired.fastq"
+      },
+      "sha256": {
+        "unpaired2": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "producer": "step-1",
+      "manifestOutputs": [
+        "unpaired2"
+      ]
+    },
+    "step-1::failed-reads": {
+      "id": "step-1::failed-reads",
+      "label": "Reads rejected by fastp",
+      "type": "reads",
+      "state": {
+        "compression": "none"
+      },
+      "files": {
+        "failed-reads": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S1/portable-test/reads.failed.fastq"
+      },
+      "sha256": {
+        "failed-reads": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "producer": "step-1",
+      "manifestOutputs": [
+        "failed-reads"
+      ]
+    },
+    "step-1::pair-check": {
+      "id": "step-1::pair-check",
+      "label": "Input pair validation",
+      "type": "metrics",
+      "state": {},
+      "files": {
+        "pair-check": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S1/portable-test/read-pairs.json"
+      },
+      "sha256": {
+        "pair-check": "c1a9525e96f4d4fc5cd4e65fa611203dd9a505ac67eafd6364ab7aeb575049d3"
+      },
+      "producer": "step-1",
+      "manifestOutputs": [
+        "pair-check"
+      ]
+    },
+    "step-1::trim-json": {
+      "id": "step-1::trim-json",
+      "label": "fastp metrics (JSON)",
+      "type": "metrics",
+      "state": {},
+      "files": {
+        "trim-json": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S1/portable-test/trimming.json"
+      },
+      "sha256": {
+        "trim-json": "8c541986695f1e086515d066b5126c249ed3651c1ec9a4912b11772531bf8277"
+      },
+      "producer": "step-1",
+      "manifestOutputs": [
+        "trim-json"
+      ]
+    },
+    "step-1::trim-html": {
+      "id": "step-1::trim-html",
+      "label": "Offline interactive quality report",
+      "type": "report",
+      "state": {},
+      "files": {
+        "trim-html": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S1/portable-test/trimming.html"
+      },
+      "sha256": {
+        "trim-html": "f6fe399c5d15dd010f0f2e62583ad00f256cd834caeb8e32a099626f1a93295d"
+      },
+      "producer": "step-1",
+      "manifestOutputs": [
+        "trim-html"
+      ]
+    },
+    "step-1::plotly-js": {
+      "id": "step-1::plotly-js",
+      "label": "Offline report graphics",
+      "type": "script",
+      "state": {},
+      "files": {
+        "plotly-js": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S1/portable-test/plotly-1.2.0.min.js"
+      },
+      "sha256": {
+        "plotly-js": "60169d9df25530f1d5e29c663ceb18ea7492862acb308800fc5ab0f0bf31a41e"
+      },
+      "producer": "step-1",
+      "manifestOutputs": [
+        "plotly-js"
+      ]
+    },
+    "step-2::aligned": {
+      "id": "step-2::aligned",
+      "label": "Unsorted alignment BAM",
+      "type": "bam",
+      "state": {
+        "sort": "unsorted"
+      },
+      "files": {
+        "aligned": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S2/portable-test/alignment.unsorted.bam"
+      },
+      "sha256": {
+        "aligned": "53f7ab0ad53d5578e7c4edab202675eaa9c80c7e55a0008a025ebfd21398134d"
+      },
+      "producer": "step-2",
+      "manifestOutputs": [
+        "aligned"
+      ]
+    },
+    "step-2::pair-check": {
+      "id": "step-2::pair-check",
+      "label": "Read-pair validation",
+      "type": "metrics",
+      "state": {},
+      "files": {
+        "pair-check": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S2/portable-test/read-pairs.json"
+      },
+      "sha256": {
+        "pair-check": "f5eb4fa531393530f1a94a1a32cc749c0c765c1d08b0c04875d32e609fc1b245"
+      },
+      "producer": "step-2",
+      "manifestOutputs": [
+        "pair-check"
+      ]
+    },
+    "step-2::reference": {
+      "id": "step-2::reference",
+      "label": "Working reference",
+      "type": "reference",
+      "state": {},
+      "files": {
+        "reference": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S2/portable-test/reference.fa"
+      },
+      "sha256": {
+        "reference": "ef2732f236d3b2e890cc1863a4546c3c433b80d0230e8b7d0e7ccaa894733e7d"
+      },
+      "producer": "step-2",
+      "manifestOutputs": [
+        "reference"
+      ]
+    },
+    "step-2::bwa-amb": {
+      "id": "step-2::bwa-amb",
+      "label": "BWA index (amb)",
+      "type": "index",
+      "state": {},
+      "files": {
+        "bwa-amb": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S2/portable-test/bwa-reference.amb"
+      },
+      "sha256": {
+        "bwa-amb": "3081251773c8746724b65c37238b01543073a74aee3115abf3f20dd05ef5dc51"
+      },
+      "producer": "step-2",
+      "manifestOutputs": [
+        "bwa-amb"
+      ]
+    },
+    "step-2::bwa-ann": {
+      "id": "step-2::bwa-ann",
+      "label": "BWA index (ann)",
+      "type": "index",
+      "state": {},
+      "files": {
+        "bwa-ann": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S2/portable-test/bwa-reference.ann"
+      },
+      "sha256": {
+        "bwa-ann": "b8d603e0719905629b7bfd5c81ab51585bb2e6b8569764f49d054506bc5ea677"
+      },
+      "producer": "step-2",
+      "manifestOutputs": [
+        "bwa-ann"
+      ]
+    },
+    "step-2::bwa-bwt": {
+      "id": "step-2::bwa-bwt",
+      "label": "BWA index (bwt)",
+      "type": "index",
+      "state": {},
+      "files": {
+        "bwa-bwt": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S2/portable-test/bwa-reference.bwt"
+      },
+      "sha256": {
+        "bwa-bwt": "75b37480bfe25cee44ba08c4882a37ca81f2362dcf8fc4e28d5715657a7743ad"
+      },
+      "producer": "step-2",
+      "manifestOutputs": [
+        "bwa-bwt"
+      ]
+    },
+    "step-2::bwa-pac": {
+      "id": "step-2::bwa-pac",
+      "label": "BWA index (pac)",
+      "type": "index",
+      "state": {},
+      "files": {
+        "bwa-pac": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S2/portable-test/bwa-reference.pac"
+      },
+      "sha256": {
+        "bwa-pac": "0a6471096fd08213d92483887bb003eacd5bf82532376f9dfd03fc519067f812"
+      },
+      "producer": "step-2",
+      "manifestOutputs": [
+        "bwa-pac"
+      ]
+    },
+    "step-2::bwa-sa": {
+      "id": "step-2::bwa-sa",
+      "label": "BWA index (sa)",
+      "type": "index",
+      "state": {},
+      "files": {
+        "bwa-sa": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S2/portable-test/bwa-reference.sa"
+      },
+      "sha256": {
+        "bwa-sa": "b85b51aa55f06c0b7a1bb872eb27588ff218b17e032cfadd981abdc09d5015ce"
+      },
+      "producer": "step-2",
+      "manifestOutputs": [
+        "bwa-sa"
+      ]
+    },
+    "step-3::bam": {
+      "id": "step-3::bam",
+      "label": "Sorted, duplicate-marked BAM",
+      "type": "bam",
+      "state": {
+        "sort": "coordinate",
+        "mateFixed": true,
+        "duplicates": "marked"
+      },
+      "files": {
+        "bam": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S3/portable-test/alignment.marked.bam"
+      },
+      "sha256": {
+        "bam": "bb57af0a52f927cec393185b4be914776f564bdc7ba1daef37328089a69a6216"
+      },
+      "producer": "step-3",
+      "manifestOutputs": [
+        "bam"
+      ]
+    },
+    "step-3::duplicate-stats": {
+      "id": "step-3::duplicate-stats",
+      "label": "Duplicate-marking summary",
+      "type": "metrics",
+      "state": {},
+      "files": {
+        "duplicate-stats": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S3/portable-test/duplicates.txt"
+      },
+      "sha256": {
+        "duplicate-stats": "0c8066cfa2142dde092543bcfcb865961135ae72ba80aefd56e4056d985c5865"
+      },
+      "producer": "step-3",
+      "manifestOutputs": [
+        "duplicate-stats"
+      ]
+    },
+    "step-3::flagstat": {
+      "id": "step-3::flagstat",
+      "label": "Alignment flag summary",
+      "type": "metrics",
+      "state": {},
+      "files": {
+        "flagstat": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S3/portable-test/flagstat.txt"
+      },
+      "sha256": {
+        "flagstat": "a9e76688885fab0cf76cad8031d5b424d5f7abbf6ce150803ce5c5b6a39adbbe"
+      },
+      "producer": "step-3",
+      "manifestOutputs": [
+        "flagstat"
+      ]
+    },
+    "step-3::alignment-stats": {
+      "id": "step-3::alignment-stats",
+      "label": "Alignment statistics",
+      "type": "metrics",
+      "state": {},
+      "files": {
+        "alignment-stats": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S3/portable-test/alignment-stats.txt"
+      },
+      "sha256": {
+        "alignment-stats": "d0f4b4a6c1adcbec5b8ddcacd5bd9c7d46720f2ae1a01b6b424e88e9885c5337"
+      },
+      "producer": "step-3",
+      "manifestOutputs": [
+        "alignment-stats"
+      ]
+    },
+    "step-3::bam-index": {
+      "id": "step-3::bam-index",
+      "label": "BAM index (CSI)",
+      "type": "index",
+      "state": {},
+      "files": {
+        "bam-index": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S3/portable-test/alignment.marked.bam.csi"
+      },
+      "sha256": {
+        "bam-index": "4b900f58c073017c4558a87ac9c5bf27c068364656050ef4960522021cc6ecd7"
+      },
+      "producer": "step-3",
+      "manifestOutputs": [
+        "bam-index"
+      ]
+    },
+    "step-3::names": {
+      "id": "step-3::names",
+      "label": "Name-sorted alignments",
+      "type": "bam",
+      "state": {
+        "sort": "queryname"
+      },
+      "files": {
+        "names": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S3/portable-test/alignment.names.bam"
+      },
+      "sha256": {
+        "names": "13c4f871488eb57cae87d27c920656e5c24cfeac89716bd462433cd8b35a739d"
+      },
+      "producer": "step-3",
+      "manifestOutputs": [
+        "names"
+      ]
+    },
+    "step-3::fixed": {
+      "id": "step-3::fixed",
+      "label": "Mate-corrected alignments",
+      "type": "bam",
+      "state": {
+        "sort": "queryname",
+        "mateFixed": true
+      },
+      "files": {
+        "fixed": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S3/portable-test/alignment.fixmate.bam"
+      },
+      "sha256": {
+        "fixed": "4e82a8d08337df4cb7df6c2f0b3162e7c87e6185c29512ac2a61eeee77b18130"
+      },
+      "producer": "step-3",
+      "manifestOutputs": [
+        "fixed"
+      ]
+    },
+    "step-3::coordinates": {
+      "id": "step-3::coordinates",
+      "label": "Coordinate-sorted alignments",
+      "type": "bam",
+      "state": {
+        "sort": "coordinate",
+        "mateFixed": true
+      },
+      "files": {
+        "coordinates": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S3/portable-test/alignment.sorted.bam"
+      },
+      "sha256": {
+        "coordinates": "e9ad492125a70868688a66473300d15991afd40bcde41d2ec89c624948785a86"
+      },
+      "producer": "step-3",
+      "manifestOutputs": [
+        "coordinates"
+      ]
+    },
+    "step-4::variants": {
+      "id": "step-4::variants",
+      "label": "All normalized calls with filter labels",
+      "type": "vcf",
+      "state": {
+        "selection": "all-calls-with-filter-labels",
+        "compression": "bgzf"
+      },
+      "files": {
+        "variants": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S4/portable-test/variants.vcf.gz"
+      },
+      "sha256": {
+        "variants": "8e033f74692322fd61bdfe49853195f361d190ffe48501f964533bfb37387261"
+      },
+      "producer": "step-4",
+      "manifestOutputs": [
+        "variants"
+      ]
+    },
+    "step-4::variant-stats": {
+      "id": "step-4::variant-stats",
+      "label": "Variant summary",
+      "type": "metrics",
+      "state": {},
+      "files": {
+        "variant-stats": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S4/portable-test/variant-stats.txt"
+      },
+      "sha256": {
+        "variant-stats": "c078849494478b83e393cb3efc13bacaab9659e3c80997f5b9495548699e61b9"
+      },
+      "producer": "step-4",
+      "manifestOutputs": [
+        "variant-stats"
+      ]
+    },
+    "step-4::variants-index": {
+      "id": "step-4::variants-index",
+      "label": "Variant index (CSI)",
+      "type": "index",
+      "state": {},
+      "files": {
+        "variants-index": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S4/portable-test/variants.vcf.gz.csi"
+      },
+      "sha256": {
+        "variants-index": "0afb310e40bfaeb5f9c69df5a970c393117102bbb4abcbfd69a45fb9e7044b30"
+      },
+      "producer": "step-4",
+      "manifestOutputs": [
+        "variants-index"
+      ]
+    },
+    "step-4::pileup": {
+      "id": "step-4::pileup",
+      "label": "Genotype likelihoods",
+      "type": "bcf-likelihoods",
+      "state": {},
+      "files": {
+        "pileup": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S4/portable-test/pileup.bcf"
+      },
+      "sha256": {
+        "pileup": "d3166f74ae08c12b4e1071438957a2ac9f7fb6f1496a8d23e44e819e0c82c09b"
+      },
+      "producer": "step-4",
+      "manifestOutputs": [
+        "pileup"
+      ]
+    },
+    "step-4::calls": {
+      "id": "step-4::calls",
+      "label": "Raw variant calls",
+      "type": "bcf",
+      "state": {},
+      "files": {
+        "calls": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S4/portable-test/calls.bcf"
+      },
+      "sha256": {
+        "calls": "20ea39d0dfb61081dceecf2dd94d29889f2367a3fa9dad82dfacb872a55c14c3"
+      },
+      "producer": "step-4",
+      "manifestOutputs": [
+        "calls"
+      ]
+    },
+    "step-4::normalized": {
+      "id": "step-4::normalized",
+      "label": "Normalized calls",
+      "type": "bcf",
+      "state": {},
+      "files": {
+        "normalized": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S4/portable-test/normalized.bcf"
+      },
+      "sha256": {
+        "normalized": "f9d554c1f68c28c0e8bc3cff9e944970af5f21858888efb4d56ecb09f8685fff"
+      },
+      "producer": "step-4",
+      "manifestOutputs": [
+        "normalized"
+      ]
+    },
+    "step-4::reference": {
+      "id": "step-4::reference",
+      "label": "Working reference",
+      "type": "reference",
+      "state": {},
+      "files": {
+        "reference": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S4/portable-test/reference.fa"
+      },
+      "sha256": {
+        "reference": "ef2732f236d3b2e890cc1863a4546c3c433b80d0230e8b7d0e7ccaa894733e7d"
+      },
+      "producer": "step-4",
+      "manifestOutputs": [
+        "reference"
+      ]
+    },
+    "step-4::reference-index": {
+      "id": "step-4::reference-index",
+      "label": "Reference index",
+      "type": "index",
+      "state": {},
+      "files": {
+        "reference-index": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S4/portable-test/reference.fa.fai"
+      },
+      "sha256": {
+        "reference-index": "0c9b95c07ec40b670eed55a92de150920e3c5561677acc698eb021749fb76cec"
+      },
+      "producer": "step-4",
+      "manifestOutputs": [
+        "reference-index"
+      ]
+    },
+    "step-5::variants": {
+      "id": "step-5::variants",
+      "label": "All normalized calls with filter labels",
+      "type": "vcf",
+      "state": {
+        "selection": "all-calls-with-filter-labels",
+        "compression": "bgzf"
+      },
+      "files": {
+        "variants": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S5/portable-test/variants.vcf.gz"
+      },
+      "sha256": {
+        "variants": "adb591dba6a1b757857c2b68b267950e77b403a257a8819f8313e4349dab992c"
+      },
+      "producer": "step-5",
+      "manifestOutputs": [
+        "variants"
+      ]
+    },
+    "step-5::pass-variants": {
+      "id": "step-5::pass-variants",
+      "label": "PASS calls only",
+      "type": "vcf-pass",
+      "state": {
+        "selection": "PASS-only",
+        "compression": "bgzf"
+      },
+      "files": {
+        "pass-variants": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S5/portable-test/variants.pass.vcf.gz"
+      },
+      "sha256": {
+        "pass-variants": "ceb7136129fd2642756ce93fdb296a1b5f054178a3edeec8ee37d94aaa91bad5"
+      },
+      "producer": "step-5",
+      "manifestOutputs": [
+        "pass-variants"
+      ]
+    },
+    "step-5::variant-stats": {
+      "id": "step-5::variant-stats",
+      "label": "All-call statistics",
+      "type": "metrics",
+      "state": {},
+      "files": {
+        "variant-stats": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S5/portable-test/variant-stats.txt"
+      },
+      "sha256": {
+        "variant-stats": "9bb2c9dd8e543ccdcc6149a18b1973d938df130ea7e1ccc7ea1715d3fa6e0218"
+      },
+      "producer": "step-5",
+      "manifestOutputs": [
+        "variant-stats"
+      ]
+    },
+    "step-5::pass-stats": {
+      "id": "step-5::pass-stats",
+      "label": "PASS-call statistics",
+      "type": "metrics",
+      "state": {},
+      "files": {
+        "pass-stats": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S5/portable-test/variants.pass.stats.txt"
+      },
+      "sha256": {
+        "pass-stats": "98208c799e59f079494ffef5ca5809fcce8e84937885681b13bb5db378d444f1"
+      },
+      "producer": "step-5",
+      "manifestOutputs": [
+        "pass-stats"
+      ]
+    },
+    "step-5::variants-index": {
+      "id": "step-5::variants-index",
+      "label": "All-call VCF index",
+      "type": "index",
+      "state": {},
+      "files": {
+        "variants-index": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S5/portable-test/variants.vcf.gz.csi"
+      },
+      "sha256": {
+        "variants-index": "6ee4107dbd5e53393aebaef38990e43cf31debef3d8dc2596f61d36bd8d8082f"
+      },
+      "producer": "step-5",
+      "manifestOutputs": [
+        "variants-index"
+      ]
+    },
+    "step-5::pass-index": {
+      "id": "step-5::pass-index",
+      "label": "PASS VCF index",
+      "type": "index",
+      "state": {},
+      "files": {
+        "pass-index": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S5/portable-test/variants.pass.vcf.gz.csi"
+      },
+      "sha256": {
+        "pass-index": "ebbda772d407fffb3b4e97d4d108a4973f867122208971d2537b846928c099f8"
+      },
+      "producer": "step-5",
+      "manifestOutputs": [
+        "pass-index"
+      ]
+    },
+    "step-5::calls": {
+      "id": "step-5::calls",
+      "label": "Raw calls",
+      "type": "vcf",
+      "state": {},
+      "files": {
+        "calls": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S5/portable-test/calls.vcf"
+      },
+      "sha256": {
+        "calls": "8775e78d13d96baee0db6fdca26fd569992deebe50ec0e390c6ac1d354d07bf3"
+      },
+      "producer": "step-5",
+      "manifestOutputs": [
+        "calls"
+      ]
+    },
+    "step-5::normalized": {
+      "id": "step-5::normalized",
+      "label": "Normalized unfiltered calls",
+      "type": "bcf",
+      "state": {},
+      "files": {
+        "normalized": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S5/portable-test/normalized.bcf"
+      },
+      "sha256": {
+        "normalized": "62f3e793f7dceed9d21496fe299d1b4b9ea80912c19f11c3ba653271b570e3bc"
+      },
+      "producer": "step-5",
+      "manifestOutputs": [
+        "normalized"
+      ]
+    },
+    "step-5::reference": {
+      "id": "step-5::reference",
+      "label": "Working reference",
+      "type": "reference",
+      "state": {},
+      "files": {
+        "reference": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S5/portable-test/reference.fa"
+      },
+      "sha256": {
+        "reference": "ef2732f236d3b2e890cc1863a4546c3c433b80d0230e8b7d0e7ccaa894733e7d"
+      },
+      "producer": "step-5",
+      "manifestOutputs": [
+        "reference"
+      ]
+    },
+    "step-5::reference-index": {
+      "id": "step-5::reference-index",
+      "label": "Reference index",
+      "type": "index",
+      "state": {},
+      "files": {
+        "reference-index": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S5/portable-test/reference.fa.fai"
+      },
+      "sha256": {
+        "reference-index": "0c9b95c07ec40b670eed55a92de150920e3c5561677acc698eb021749fb76cec"
+      },
+      "producer": "step-5",
+      "manifestOutputs": [
+        "reference-index"
+      ]
+    },
+    "step-6::statistics": {
+      "id": "step-6::statistics",
+      "label": "Variant statistics",
+      "type": "metrics",
+      "state": {},
+      "files": {
+        "statistics": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S6/portable-test/variant-stats.txt"
+      },
+      "sha256": {
+        "statistics": "c078849494478b83e393cb3efc13bacaab9659e3c80997f5b9495548699e61b9"
+      },
+      "producer": "step-6",
+      "manifestOutputs": [
+        "statistics"
+      ]
+    },
+    "step-7::statistics": {
+      "id": "step-7::statistics",
+      "label": "Variant statistics",
+      "type": "metrics",
+      "state": {},
+      "files": {
+        "statistics": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S7/portable-test/variant-stats.txt"
+      },
+      "sha256": {
+        "statistics": "9bb2c9dd8e543ccdcc6149a18b1973d938df130ea7e1ccc7ea1715d3fa6e0218"
+      },
+      "producer": "step-7",
+      "manifestOutputs": [
+        "statistics"
+      ]
+    },
+    "step-8::report": {
+      "id": "step-8::report",
+      "label": "Combined report",
+      "type": "report",
+      "state": {},
+      "files": {
+        "report": "/workspace/scratch/0c5293ac0f36/integration-validation/graph-example/run-20261003-074200-1ab995a4/S8/report.html"
+      },
+      "sha256": {
+        "report": "cc7e695af83a37cf2038c150fec7073d87b0a3e5eb0e321d50f0d04ebc22211a"
+      },
+      "producer": "step-8",
+      "manifestOutputs": [
+        "report"
+      ]
+    }
+  },
+  "scheduler": "sequential-independent-branches",
+  "finished": "2026-10-03T07:42:01.403Z",
+  "success": true,
+  "methods": "Executed methods (only successfully completed operations are described):\n\nS1 \u00b7 Trim reads with fastp was performed using fastp 1.3.7-reportfix1; paircheck 1.0.1 (pack fastp 0.4.1). Trim known adapters and paired-read overlaps; sliding-window tail trimming with explicit quality/length/N filters. Poly-G trimming and duplicate estimation are disabled. Orphans and failures are retained. Settings: Trimming / alignment workers=2; Read 1 3' adapter=AGATCGGAAGAGCACACGTCTGAACTCCAGTCA; Read 2 3' adapter=AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT; Tail-window mean quality=20; Tail-window size=4; Minimum retained read length=35; Qualified base Phred score=15; Maximum low-quality bases (%)=40; Maximum N bases per read=5. Inputs: Paired reads: I1 \u00b7 Example paired reads.\n\nS2 \u00b7 Align reads with BWA was performed using bwa 0.7.19-r1273; paircheck 1.0.1; samtools 1.24 (pack bwa 0.4.0). Align paired short reads, with explicit read groups, streaming directly to BAM. Settings: Sample name (SM)=truth; Read group ID=truth-lane-1; Library ID (LB)=truth-library; Platform unit (PU)=truth-unit; Sequencing platform (PL)=ILLUMINA; Trimming / alignment workers=2. Inputs: Paired reads: S1 \u00b7 Trim reads with fastp \u2192 Trimmed paired reads | Reference genome: I2 \u00b7 Example reference.\n\nS3 \u00b7 Prepare aligned reads was performed using samtools 1.24 (pack bam 0.4.0). Name-sort, fix mates, coordinate-sort, mark duplicates, index and summarize. Duplicates are retained. Inputs: Paired alignments: S2 \u00b7 Align reads with BWA \u2192 Unsorted alignment BAM.\n\nS4 \u00b7 BCFtools variant calls was performed using bcftools 1.24; samtools 1.24 (pack variants 0.4.0). Sample identities come from BAM read groups. Selected ploidy applies to all contigs and samples; LowQual is a site-level filter. Settings: Assumed ploidy=2; Minimum mapping quality=20; Minimum base quality=20; Maximum pileup depth per file=1000; Variant quality threshold=20; Sample depth threshold=5. Inputs: Prepared BAM: S3 \u00b7 Prepare aligned reads \u2192 Sorted, duplicate-marked BAM | Reference genome: I2 \u00b7 Example reference.\n\nS5 \u00b7 FreeBayes variant calls was performed using bcftools 1.24; freebayes 1.3.10; samtools 1.24 (pack freebayes 0.4.0). Call SNPs and indels from a prepared BAM, normalize, soft-filter and index. Sample names come from BAM read groups. Settings: Assumed ploidy=2; Minimum mapping quality=20; Minimum base quality=20; Variant quality threshold=20; Sample depth threshold=5; Minimum alternate observations=2; Minimum alternate allele fraction=0.2. Inputs: Prepared coordinate-sorted BAM: S3 \u00b7 Prepare aligned reads \u2192 Sorted, duplicate-marked BAM | Reference genome: I2 \u00b7 Example reference.\n\nS6 \u00b7 BCFtools call statistics was performed using bcftools 1.24 (pack variants 0.4.0). Summarize an existing VCF or BCF. Inputs: Variants: S4 \u00b7 BCFtools variant calls \u2192 All normalized calls with filter labels.\n\nS7 \u00b7 FreeBayes call statistics was performed using bcftools 1.24 (pack variants 0.4.0). Summarize an existing VCF or BCF. Inputs: Variants: S5 \u00b7 FreeBayes variant calls \u2192 All normalized calls with filter labels.\n\nS8 \u00b7 Quality and caller reports was performed using Combine statistics reports (pack builtin 0.5.0). Collect selected statistics into a local HTML report with a separate, attributed section for each input. Counts are not pooled and variant files are not merged. Settings: Report title=Example reads: two callers, separately reported. Inputs: Statistics to include: S1 \u00b7 Trim reads with fastp \u2192 fastp metrics (JSON); S3 \u00b7 Prepare aligned reads \u2192 Alignment statistics; S6 \u00b7 BCFtools call statistics \u2192 Variant statistics; S7 \u00b7 FreeBayes call statistics \u2192 Variant statistics.\n\nOperations run locally in dependency order. Independent branches are scheduled sequentially. The run record records exact packs, parameters, input identities, outputs and completion states.\n",
+  "validation_environment": {
+    "platform": "Linux",
+    "backend": "PortableBackend test adapter; not the Windows WorkbenchBridge backend",
+    "execution": "Installed pack manifests with real SHA256-verified APE executables through bundled ape-loader-linux",
+    "windows_native_validation": false,
+    "truth_comparison": "BCFtools and FreeBayes each exactly matched all four expected variant alleles and genotypes."
+  }
+}

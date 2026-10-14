@@ -1,0 +1,158 @@
+--- a/src/align.cpp
++++ b/src/align.cpp
+@@ -81,11 +81,15 @@
+ 	bool OutputWildcard = OutputPattern.find('@') != string::npos;
+ 	FILE *fOut = 0;
+ 
+-	bool IsNucleo = InputSeqs.GuessIsNucleo();
++	if (opt(nt) && opt(amino))
++		Die("Cannot set both -nt and -amino");
++	bool IsNucleo = opt(nt) ? true : (opt(amino) ? false : InputSeqs.GuessIsNucleo());
+ 	if (IsNucleo)
+ 		SetAlpha(ALPHA_Nucleo);
+ 	else
+ 		SetAlpha(ALPHA_Amino);
++
++	ProgressLog("Workbench alphabet: %s\n", IsNucleo ? "nucleotide" : "amino-acid");
+ 
+ 	MPCFlat M;
+ 	if (optset_consiters)
+--- a/src/gitver.txt
++++ b/src/gitver.txt
+@@ -0,0 +1 @@
++"2cf9d330-workbench1"
+--- a/src/myutils.cpp
++++ b/src/myutils.cpp
+@@ -1,4 +1,4 @@
+-#ifdef _MSC_VER
++#ifdef _WIN32
+ #define _SCL_SECURE_NO_WARNINGS
+ //#define	_HAS_ITERATOR_DEBUGGING	0
+ //#define	_ITERATOR_DEBUG_LEVEL	0
+@@ -20,9 +20,11 @@
+ #include <algorithm>
+ #include <stdlib.h>
+ 
++#ifdef _WIN32
++#define WIN32_LEAN_AND_MEAN
+ #ifdef _MSC_VER
+-#define WIN32_LEAN_AND_MEAN
+ #include <crtdbg.h>
++#endif
+ #include <process.h>
+ #include <windows.h>
+ #include <psapi.h>
+@@ -37,7 +39,7 @@
+ #include <dirent.h>
+ #endif
+ 
+-#ifndef _MSC_VER
++#ifndef _WIN32
+ #include <dirent.h>
+ #include <sys/types.h>
+ #endif
+@@ -104,7 +106,7 @@
+ 	{
+ #if	BITS==32
+ 	asserta(sizeof(void *) == 4);
+-#ifdef _MSC_VER
++#ifdef _WIN32
+ 	return "win32";
+ #elif defined(__APPLE__)
+ 	return "osx32";
+@@ -115,7 +117,7 @@
+ #endif
+ #elif BITS==64
+ 	asserta(sizeof(void *) == 8);
+-#ifdef _MSC_VER
++#ifdef _WIN32
+ 	return "win64";
+ #elif defined(__arm64__)
+ 	return "osxarm64";
+@@ -220,7 +222,7 @@
+ 	Log("fpos       %ld (retval %d)\n", (long) fpos, fgetpos_retval);
+ //	Log("eof        %d\n", _eof(fd));
+ #endif
+-#ifdef _MSC_VER
++#ifdef _WIN32
+ 	__int64 pos64 = _ftelli64(f);
+ 	Log("_ftelli64  %lld\n", pos64);
+ #endif
+@@ -237,7 +239,7 @@
+ 	if (n1 != string::npos)
+ 		n = n1;
+ 
+-#if _MSC_VER
++#if _WIN32
+ 	size_t n2 = FileName.rfind('\\');
+ 	size_t n3 = FileName.rfind(':');
+ 	if (n2 != string::npos && n2 > n)
+@@ -257,7 +259,7 @@
+ 	Name = FileName.substr(n+1, string::npos);
+ 	}
+ 
+-#ifdef _MSC_VER
++#ifdef _WIN32
+ void ReadDir(const string &DirName, vector<string> &FileNames)
+ 	{
+ 	FileNames.clear();
+@@ -948,7 +950,7 @@
+ 		}
+ 	}
+ 
+-#ifdef _MSC_VER
++#ifdef _WIN32
+ void mysleep(unsigned ms)
+ 	{
+ 	Sleep(ms);
+@@ -960,7 +962,7 @@
+ 	}
+ #endif
+ 
+-#ifdef _MSC_VER
++#ifdef _WIN32
+ double GetMemUseBytes()
+ 	{
+ 	HANDLE hProc = GetCurrentProcess();
+@@ -1092,7 +1094,7 @@
+ 	}
+ #endif
+ 
+-#ifdef _MSC_VER
++#ifdef _WIN32
+ void mylistdir(const string &DirName, vector<string> &FileNames)
+ 	{
+ 	FileNames.clear();
+@@ -2297,7 +2299,7 @@
+ 
+ unsigned GetCPUCoreCount()
+ 	{
+-#ifdef _MSC_VER
++#ifdef _WIN32
+ 	SYSTEM_INFO SI;
+ 	GetSystemInfo(&SI);
+ 	unsigned n = SI.dwNumberOfProcessors;
+--- a/src/myutils.h
++++ b/src/myutils.h
+@@ -84,8 +84,9 @@
+ typedef __int64 int64;
+ typedef unsigned __int64 uint64;
+ #elif defined(__GNUC__)
+-typedef long int64;
+-typedef unsigned long uint64;
++typedef int64_t int64;
++typedef uint64_t uint64;
++static_assert(sizeof(int64) == 8 && sizeof(uint64) == 8, "64-bit integer types required");
+ #else	
+ #error	"int64 typedefs"
+ #endif
+--- a/src/super5.cpp
++++ b/src/super5.cpp
+@@ -574,6 +574,7 @@
+ 		Nucleo = InputSeqs.GuessIsNucleo();
+ 
+ 	SetAlpha(Nucleo ? ALPHA_Nucleo : ALPHA_Amino);
++	ProgressLog("Workbench alphabet: %s\n", Nucleo ? "nucleotide" : "amino-acid");
+ 	InitProbcons();
+ 
+ 	if (optset_diversified)

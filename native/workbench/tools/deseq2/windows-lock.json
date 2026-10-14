@@ -1,0 +1,850 @@
+{
+  "schema": 1,
+  "pack": "deseq2",
+  "RVersion": "4.6.1",
+  "bioconductorVersion": "3.23",
+  "DESeq2Version": "1.52.0",
+  "tximportVersion": "1.40.0",
+  "platform": "windows-x86_64",
+  "resolvedOn": "2026-10-04",
+  "R": {
+    "installer": {
+      "filename": "R-4.6.1-win.exe",
+      "url": "https://cran.r-project.org/bin/windows/base/R-4.6.1-win.exe",
+      "bytes": 91749976,
+      "sha256": "c5424c40cd70ef85765a55d2ff96bb602b5f30ed536938ff004f14db5db3c2df"
+    },
+    "source": {
+      "filename": "R-4.6.1.tar.gz",
+      "url": "https://cran.r-project.org/src/base/R-4/R-4.6.1.tar.gz",
+      "bytes": 40926649,
+      "sha256": "4da6e61d2c0aac5f14a2e7e432cb5fcc269efe83da4293050ba7f03dff4e2cf4"
+    }
+  },
+  "python": [
+    {
+      "filename": "python-3.13.16-embed-amd64.zip",
+      "url": "https://www.python.org/ftp/python/3.13.16/python-3.13.16-embed-amd64.zip",
+      "sha256": "97dae5274cc54867065e8d5a3226e48c35017ed332a0fdb0e27d5b5821961297",
+      "bytes": 11439094
+    },
+    {
+      "filename": "Python-3.13.16.tar.xz",
+      "url": "https://www.python.org/ftp/python/3.13.16/Python-3.13.16.tar.xz",
+      "sha256": "f4b1bfb3c79b5bb11b8d228a12504163b4c0dab4d679828d8f5f26b6cb6ab35d",
+      "bytes": 23225704
+    }
+  ],
+  "packages": [
+    {
+      "name": "BH",
+      "version": "1.90.0-1",
+      "repository": "cran",
+      "binary": {
+        "filename": "BH_1.90.0-1.zip",
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.6/BH_1.90.0-1.zip",
+        "bytes": 21717848,
+        "sha256": "3cf2fd28be791a89e6bed19c5750afd758bfd8acb45db50089b18f154a3eebda"
+      },
+      "source": {
+        "filename": "BH_1.90.0-1.tar.gz",
+        "url": "https://cran.r-project.org/src/contrib/BH_1.90.0-1.tar.gz",
+        "bytes": 14307014,
+        "sha256": "2e1fafb05938e81073561ae4892dc543ef15807e375e0ea8fa75e3ab79f0281b"
+      },
+      "runtime": false
+    },
+    {
+      "name": "Biobase",
+      "version": "2.72.0",
+      "repository": "bioc",
+      "binary": {
+        "filename": "Biobase_2.72.0.zip",
+        "url": "https://bioconductor.posit.co/packages/3.23/bioc/bin/windows/contrib/4.6/Biobase_2.72.0.zip",
+        "bytes": 2060367,
+        "sha256": "cc2860d489ce40b1d5542adb7dba7b5245be49a393c8c1c6d6164c3f5945d92d"
+      },
+      "source": {
+        "filename": "Biobase_2.72.0.tar.gz",
+        "url": "https://bioconductor.posit.co/packages/3.23/bioc/src/contrib/Biobase_2.72.0.tar.gz",
+        "bytes": 1977228,
+        "sha256": "d04af4c5850352f96a966285ea771b15777d2f009f7b86fa4b702de13f31bbdd"
+      },
+      "runtime": true
+    },
+    {
+      "name": "BiocGenerics",
+      "version": "0.58.1",
+      "repository": "bioc",
+      "binary": {
+        "filename": "BiocGenerics_0.58.1.zip",
+        "url": "https://bioconductor.posit.co/packages/3.23/bioc/bin/windows/contrib/4.6/BiocGenerics_0.58.1.zip",
+        "bytes": 665577,
+        "sha256": "04d8c570acf0d74b6a64fceb72f31d37b12102d5058d6f18fbb63310b77571ab"
+      },
+      "source": {
+        "filename": "BiocGenerics_0.58.1.tar.gz",
+        "url": "https://bioconductor.posit.co/packages/3.23/bioc/src/contrib/BiocGenerics_0.58.1.tar.gz",
+        "bytes": 57572,
+        "sha256": "6911559f0b2b5a07081cd21b6738aa4c6048509b23425cc3ebafc0b4cb011a98"
+      },
+      "runtime": true
+    },
+    {
+      "name": "BiocParallel",
+      "version": "1.46.0",
+      "repository": "bioc",
+      "binary": {
+        "filename": "BiocParallel_1.46.0.zip",
+        "url": "https://bioconductor.posit.co/packages/3.23/bioc/bin/windows/contrib/4.6/BiocParallel_1.46.0.zip",
+        "bytes": 1198589,
+        "sha256": "038348f37a90ccb4e8927eef2a3e59f6821995a370df5deb6a3e7c6f4668fed2"
+      },
+      "source": {
+        "filename": "BiocParallel_1.46.0.tar.gz",
+        "url": "https://bioconductor.posit.co/packages/3.23/bioc/src/contrib/BiocParallel_1.46.0.tar.gz",
+        "bytes": 1102897,
+        "sha256": "d06642f7b53517299a48ac68b074c28e03dd1de41159562fb8011117419e1038"
+      },
+      "runtime": true
+    },
+    {
+      "name": "DESeq2",
+      "version": "1.52.0",
+      "repository": "bioc",
+      "binary": {
+        "filename": "DESeq2_1.52.0.zip",
+        "url": "https://bioconductor.posit.co/packages/3.23/bioc/bin/windows/contrib/4.6/DESeq2_1.52.0.zip",
+        "bytes": 3649042,
+        "sha256": "95757ed94f5314cc97727adf80dad2bc34fd9d8339ae8e74fda3f47b825994a5"
+      },
+      "source": {
+        "filename": "DESeq2_1.52.0.tar.gz",
+        "url": "https://bioconductor.posit.co/packages/3.23/bioc/src/contrib/DESeq2_1.52.0.tar.gz",
+        "bytes": 2680841,
+        "sha256": "8c91699286336350e66eec132ce6fdf5bb4af78e2a4d015a5a61224f62a95984"
+      },
+      "runtime": true
+    },
+    {
+      "name": "DelayedArray",
+      "version": "0.38.2",
+      "repository": "bioc",
+      "binary": {
+        "filename": "DelayedArray_0.38.2.zip",
+        "url": "https://bioconductor.posit.co/packages/3.23/bioc/bin/windows/contrib/4.6/DelayedArray_0.38.2.zip",
+        "bytes": 2116245,
+        "sha256": "0fdd2819d237ea29fb0c9014430f3c9912d47032fe566feef3a36de05302a42e"
+      },
+      "source": {
+        "filename": "DelayedArray_0.38.2.tar.gz",
+        "url": "https://bioconductor.posit.co/packages/3.23/bioc/src/contrib/DelayedArray_0.38.2.tar.gz",
+        "bytes": 811347,
+        "sha256": "d9d3195f8f8e3ddf4aa9a47ac149413dc226761377e34d9320d09cbe8cefe3fd"
+      },
+      "runtime": true
+    },
+    {
+      "name": "GenomicRanges",
+      "version": "1.64.0",
+      "repository": "bioc",
+      "binary": {
+        "filename": "GenomicRanges_1.64.0.zip",
+        "url": "https://bioconductor.posit.co/packages/3.23/bioc/bin/windows/contrib/4.6/GenomicRanges_1.64.0.zip",
+        "bytes": 1959041,
+        "sha256": "d8291f40d1daa4d8e2f4fcdfec7ebf5c57db7023ecd1d25f0dcce4ca464ad615"
+      },
+      "source": {
+        "filename": "GenomicRanges_1.64.0.tar.gz",
+        "url": "https://bioconductor.posit.co/packages/3.23/bioc/src/contrib/GenomicRanges_1.64.0.tar.gz",
+        "bytes": 1368726,
+        "sha256": "09fee555b60be2f54c8fa35b0a2238fea9a1b96dea24e9a8c52166b61d44f776"
+      },
+      "runtime": true
+    },
+    {
+      "name": "IRanges",
+      "version": "2.46.0",
+      "repository": "bioc",
+      "binary": {
+        "filename": "IRanges_2.46.0.zip",
+        "url": "https://bioconductor.posit.co/packages/3.23/bioc/bin/windows/contrib/4.6/IRanges_2.46.0.zip",
+        "bytes": 2494619,
+        "sha256": "084601d1d37b90e19280104c85d0a5326b35ffb137b1aa6b0f385a489a947dbc"
+      },
+      "source": {
+        "filename": "IRanges_2.46.0.tar.gz",
+        "url": "https://bioconductor.posit.co/packages/3.23/bioc/src/contrib/IRanges_2.46.0.tar.gz",
+        "bytes": 490372,
+        "sha256": "a61e97812b0357411b770c5886b684fc6c0b59c05441f7336e46404e6898b3e9"
+      },
+      "runtime": true
+    },
+    {
+      "name": "MatrixGenerics",
+      "version": "1.24.0",
+      "repository": "bioc",
+      "binary": {
+        "filename": "MatrixGenerics_1.24.0.zip",
+        "url": "https://bioconductor.posit.co/packages/3.23/bioc/bin/windows/contrib/4.6/MatrixGenerics_1.24.0.zip",
+        "bytes": 460378,
+        "sha256": "adfd50c258ac3c6407a23fe26ad37a44812dc3e3dbad392fdd4d98c7f28a8ba3"
+      },
+      "source": {
+        "filename": "MatrixGenerics_1.24.0.tar.gz",
+        "url": "https://bioconductor.posit.co/packages/3.23/bioc/src/contrib/MatrixGenerics_1.24.0.tar.gz",
+        "bytes": 31975,
+        "sha256": "371d32bbd324ad6665465b5c54f66a9619c2958c5cad6f7aa65c6d533379005e"
+      },
+      "runtime": true
+    },
+    {
+      "name": "R6",
+      "version": "2.6.1",
+      "repository": "cran",
+      "binary": {
+        "filename": "R6_2.6.1.zip",
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.6/R6_2.6.1.zip",
+        "bytes": 90052,
+        "sha256": "de893649227a21e6a6d4290f90f41179332b14a88af26f720c794891279e7d22"
+      },
+      "source": {
+        "filename": "R6_2.6.1.tar.gz",
+        "url": "https://cran.r-project.org/src/contrib/R6_2.6.1.tar.gz",
+        "bytes": 64507,
+        "sha256": "59c6eba8b1b912eb7e104f65053235604be853425ee67c152ac4e86a1f2073b4"
+      },
+      "runtime": true
+    },
+    {
+      "name": "RColorBrewer",
+      "version": "1.1-3",
+      "repository": "cran",
+      "binary": {
+        "filename": "RColorBrewer_1.1-3.zip",
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.6/RColorBrewer_1.1-3.zip",
+        "bytes": 54704,
+        "sha256": "b8880e323f75149e90e0300684626a3de0692523a972932b27b7474dfa6beac7"
+      },
+      "source": {
+        "filename": "RColorBrewer_1.1-3.tar.gz",
+        "url": "https://cran.r-project.org/src/contrib/RColorBrewer_1.1-3.tar.gz",
+        "bytes": 11638,
+        "sha256": "4f42f5423c45688b39f492c7892d93f37b4541831c8ffb140364d2bd89031ac0"
+      },
+      "runtime": true
+    },
+    {
+      "name": "Rcpp",
+      "version": "1.1.2",
+      "repository": "cran",
+      "binary": {
+        "filename": "Rcpp_1.1.2.zip",
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.6/Rcpp_1.1.2.zip",
+        "bytes": 2969415,
+        "sha256": "3606fd375dd0d282521f254073b80fc5127e291d8d4b8cb3e0d4e6c114f9c8c9"
+      },
+      "source": {
+        "filename": "Rcpp_1.1.2.tar.gz",
+        "url": "https://cran.r-project.org/src/contrib/Rcpp_1.1.2.tar.gz",
+        "bytes": 1892159,
+        "sha256": "2746cf2fb188e5f0a84dbf5c8f68915b54564ed33e5754572f174e7b32e7f4f3"
+      },
+      "runtime": true
+    },
+    {
+      "name": "RcppArmadillo",
+      "version": "15.6.0-1",
+      "repository": "cran",
+      "binary": {
+        "filename": "RcppArmadillo_15.6.0-1.zip",
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.6/RcppArmadillo_15.6.0-1.zip",
+        "bytes": 2081790,
+        "sha256": "ae765ecf22df5cc879447d02543a5fa19fe2548476a2806059ae93f9c0e9e6ac"
+      },
+      "source": {
+        "filename": "RcppArmadillo_15.6.0-1.tar.gz",
+        "url": "https://cran.r-project.org/src/contrib/RcppArmadillo_15.6.0-1.tar.gz",
+        "bytes": 1096426,
+        "sha256": "6efa1bb020a5a0b791ce87234649d309a7144961221526846230b3ef6c0b12e3"
+      },
+      "runtime": false
+    },
+    {
+      "name": "S4Arrays",
+      "version": "1.12.1",
+      "repository": "bioc",
+      "binary": {
+        "filename": "S4Arrays_1.12.1.zip",
+        "url": "https://bioconductor.posit.co/packages/3.23/bioc/bin/windows/contrib/4.6/S4Arrays_1.12.1.zip",
+        "bytes": 1032427,
+        "sha256": "7ed9608a41f212edeef8b0d78d9b0ee4263b0b4c4436dd5add635ff4d523090a"
+      },
+      "source": {
+        "filename": "S4Arrays_1.12.1.tar.gz",
+        "url": "https://bioconductor.posit.co/packages/3.23/bioc/src/contrib/S4Arrays_1.12.1.tar.gz",
+        "bytes": 295284,
+        "sha256": "7a11bafb0b9f495ae9bf4ed8b10fca2eeddd5e766aa870ad7fdc0ce11604e827"
+      },
+      "runtime": true
+    },
+    {
+      "name": "S4Vectors",
+      "version": "0.50.3",
+      "repository": "bioc",
+      "binary": {
+        "filename": "S4Vectors_0.50.3.zip",
+        "url": "https://bioconductor.posit.co/packages/3.23/bioc/bin/windows/contrib/4.6/S4Vectors_0.50.3.zip",
+        "bytes": 1900644,
+        "sha256": "e67e1ab1463a803ef0b63220ff04a8c5ca188e39f8a4ffae6dcbb0720dbddeb7"
+      },
+      "source": {
+        "filename": "S4Vectors_0.50.3.tar.gz",
+        "url": "https://bioconductor.posit.co/packages/3.23/bioc/src/contrib/S4Vectors_0.50.3.tar.gz",
+        "bytes": 844326,
+        "sha256": "2faca526d6f2c69a6bbd75e6fcff2592b4f6b94e6792ced824a8f1e716590add"
+      },
+      "runtime": true
+    },
+    {
+      "name": "S7",
+      "version": "0.2.2",
+      "repository": "cran",
+      "binary": {
+        "filename": "S7_0.2.2.zip",
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.6/S7_0.2.2.zip",
+        "bytes": 351919,
+        "sha256": "d9d222ba675110d8b74700f1921b92cf732eec98a9649b4ccc1c5808034295fe"
+      },
+      "source": {
+        "filename": "S7_0.2.2.tar.gz",
+        "url": "https://cran.r-project.org/src/contrib/S7_0.2.2.tar.gz",
+        "bytes": 184632,
+        "sha256": "6f33245dde05b74265b1c4d379e034bc3a8923d41e7b52e6e75a75ce97d42af7"
+      },
+      "runtime": true
+    },
+    {
+      "name": "Seqinfo",
+      "version": "1.2.0",
+      "repository": "bioc",
+      "binary": {
+        "filename": "Seqinfo_1.2.0.zip",
+        "url": "https://bioconductor.posit.co/packages/3.23/bioc/bin/windows/contrib/4.6/Seqinfo_1.2.0.zip",
+        "bytes": 434620,
+        "sha256": "5d5a5b8913c899614ee840f2e203639c839b12403b089e749af2bcceb3960aae"
+      },
+      "source": {
+        "filename": "Seqinfo_1.2.0.tar.gz",
+        "url": "https://bioconductor.posit.co/packages/3.23/bioc/src/contrib/Seqinfo_1.2.0.tar.gz",
+        "bytes": 253489,
+        "sha256": "f86693fd96ff24dc4f79c340040d68256be53690fe14f06330af5c356ea3a073"
+      },
+      "runtime": true
+    },
+    {
+      "name": "SparseArray",
+      "version": "1.12.3",
+      "repository": "bioc",
+      "binary": {
+        "filename": "SparseArray_1.12.3.zip",
+        "url": "https://bioconductor.posit.co/packages/3.23/bioc/bin/windows/contrib/4.6/SparseArray_1.12.3.zip",
+        "bytes": 1793221,
+        "sha256": "86158ea0791d45479a6dadf442d47839c7ed6e90f41dfe1a03f3344d25e1e29b"
+      },
+      "source": {
+        "filename": "SparseArray_1.12.3.tar.gz",
+        "url": "https://bioconductor.posit.co/packages/3.23/bioc/src/contrib/SparseArray_1.12.3.tar.gz",
+        "bytes": 475172,
+        "sha256": "dee7681bc9f835bda9a2c8983327dd7f68dd972c23032eeab94de32a6c214787"
+      },
+      "runtime": true
+    },
+    {
+      "name": "SummarizedExperiment",
+      "version": "1.42.0",
+      "repository": "bioc",
+      "binary": {
+        "filename": "SummarizedExperiment_1.42.0.zip",
+        "url": "https://bioconductor.posit.co/packages/3.23/bioc/bin/windows/contrib/4.6/SummarizedExperiment_1.42.0.zip",
+        "bytes": 1507920,
+        "sha256": "1b9aec417df690a8d3db41c1ba761de6f7ba6fe9604310ccfb6c7f60013fe2aa"
+      },
+      "source": {
+        "filename": "SummarizedExperiment_1.42.0.tar.gz",
+        "url": "https://bioconductor.posit.co/packages/3.23/bioc/src/contrib/SummarizedExperiment_1.42.0.tar.gz",
+        "bytes": 688863,
+        "sha256": "40110b8dbb64e41e23adc8ac349a76a79e5cffcfd903eca2d6d9be344a24a71a"
+      },
+      "runtime": true
+    },
+    {
+      "name": "XVector",
+      "version": "0.52.0",
+      "repository": "bioc",
+      "binary": {
+        "filename": "XVector_0.52.0.zip",
+        "url": "https://bioconductor.posit.co/packages/3.23/bioc/bin/windows/contrib/4.6/XVector_0.52.0.zip",
+        "bytes": 695793,
+        "sha256": "a4b5fc301ba6c796de1cdf0f1001538836a370e234f87fa234e23c0d63c58da9"
+      },
+      "source": {
+        "filename": "XVector_0.52.0.tar.gz",
+        "url": "https://bioconductor.posit.co/packages/3.23/bioc/src/contrib/XVector_0.52.0.tar.gz",
+        "bytes": 69047,
+        "sha256": "80b520c984e9da13fe06a2a6bdf712fffa6275705f3d0fb16af60eb5fb28609d"
+      },
+      "runtime": true
+    },
+    {
+      "name": "abind",
+      "version": "1.4-8",
+      "repository": "cran",
+      "binary": {
+        "filename": "abind_1.4-8.zip",
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.6/abind_1.4-8.zip",
+        "bytes": 67558,
+        "sha256": "36386ba050ad3851303801fd7b2c15368ae2dfe80a013a310c7e9fc083f09754"
+      },
+      "source": {
+        "filename": "abind_1.4-8.tar.gz",
+        "url": "https://cran.r-project.org/src/contrib/abind_1.4-8.tar.gz",
+        "bytes": 21974,
+        "sha256": "264a051b523ceae1795a0879e7768949ea55c586ac8db0adf1f5ebeddd2623e1"
+      },
+      "runtime": true
+    },
+    {
+      "name": "cli",
+      "version": "3.6.6",
+      "repository": "cran",
+      "binary": {
+        "filename": "cli_3.6.6.zip",
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.6/cli_3.6.6.zip",
+        "bytes": 1408824,
+        "sha256": "c4233e6a6ff42a0382b37a03546caf606a62a6b2a43493f78a07b80905dadfd8"
+      },
+      "source": {
+        "filename": "cli_3.6.6.tar.gz",
+        "url": "https://cran.r-project.org/src/contrib/cli_3.6.6.tar.gz",
+        "bytes": 644134,
+        "sha256": "b2b58d6dd82f5798b335e39c00591686a01fd3e94399ef898e146173e36f18f9"
+      },
+      "runtime": true
+    },
+    {
+      "name": "cpp11",
+      "version": "0.5.5",
+      "repository": "cran",
+      "binary": {
+        "filename": "cpp11_0.5.5.zip",
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.6/cpp11_0.5.5.zip",
+        "bytes": 326877,
+        "sha256": "b3f8c516057d8ce32d0e1e1481f0ad3272a012af47d5cc5262569dee2d2cc6bc"
+      },
+      "source": {
+        "filename": "cpp11_0.5.5.tar.gz",
+        "url": "https://cran.r-project.org/src/contrib/cpp11_0.5.5.tar.gz",
+        "bytes": 304823,
+        "sha256": "72486beb0605c1229bf3d422cd536224af8dc09bd389a3116f62f4c7705c62f4"
+      },
+      "runtime": false
+    },
+    {
+      "name": "farver",
+      "version": "2.1.2",
+      "repository": "cran",
+      "binary": {
+        "filename": "farver_2.1.2.zip",
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.6/farver_2.1.2.zip",
+        "bytes": 1529206,
+        "sha256": "7d02cb3910445890a3a7e2eb0faa4781e144cfaf51f8bf223927e92e042492fa"
+      },
+      "source": {
+        "filename": "farver_2.1.2.tar.gz",
+        "url": "https://cran.r-project.org/src/contrib/farver_2.1.2.tar.gz",
+        "bytes": 1275981,
+        "sha256": "528823b95daab4566137711f1c842027a952bea1b2ae6ff098e2ca512b17fe25"
+      },
+      "runtime": true
+    },
+    {
+      "name": "formatR",
+      "version": "1.14",
+      "repository": "cran",
+      "binary": {
+        "filename": "formatR_1.14.zip",
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.6/formatR_1.14.zip",
+        "bytes": 156538,
+        "sha256": "250dd41cd18a7dc4cb5a97379257cf369d6a475eff50282c3295b4b0691dc564"
+      },
+      "source": {
+        "filename": "formatR_1.14.tar.gz",
+        "url": "https://cran.r-project.org/src/contrib/formatR_1.14.tar.gz",
+        "bytes": 96077,
+        "sha256": "4ebaab2c3f8527871655246b62abd060bc75dae1cec7f962ca4752b8080f474c"
+      },
+      "runtime": true
+    },
+    {
+      "name": "futile.logger",
+      "version": "1.4.9",
+      "repository": "cran",
+      "binary": {
+        "filename": "futile.logger_1.4.9.zip",
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.6/futile.logger_1.4.9.zip",
+        "bytes": 121880,
+        "sha256": "ddfcac7d8454ebb09b7cd86f64b58753306c8a9c53e5254124c3a66531ae4143"
+      },
+      "source": {
+        "filename": "futile.logger_1.4.9.tar.gz",
+        "url": "https://cran.r-project.org/src/contrib/futile.logger_1.4.9.tar.gz",
+        "bytes": 24311,
+        "sha256": "496bedbe2e52d06db22a4d659b8e7dd9ad0f1d1f95ead459ec02d05d0ac2b3d6"
+      },
+      "runtime": true
+    },
+    {
+      "name": "futile.options",
+      "version": "1.0.1",
+      "repository": "cran",
+      "binary": {
+        "filename": "futile.options_1.0.1.zip",
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.6/futile.options_1.0.1.zip",
+        "bytes": 22531,
+        "sha256": "a8af8bfcaff50a67a13159eaa49db6b5557f2a980ca45e30be0e086c2b890d45"
+      },
+      "source": {
+        "filename": "futile.options_1.0.1.tar.gz",
+        "url": "https://cran.r-project.org/src/contrib/futile.options_1.0.1.tar.gz",
+        "bytes": 3919,
+        "sha256": "7a9cc974e09598077b242a1069f7fbf4fa7f85ffe25067f6c4c32314ef532570"
+      },
+      "runtime": true
+    },
+    {
+      "name": "generics",
+      "version": "0.1.4",
+      "repository": "cran",
+      "binary": {
+        "filename": "generics_0.1.4.zip",
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.6/generics_0.1.4.zip",
+        "bytes": 85893,
+        "sha256": "73d09612e5ae0be5b0c6b351c0dc5c54be5159ce20ee19658348fe92a478fe05"
+      },
+      "source": {
+        "filename": "generics_0.1.4.tar.gz",
+        "url": "https://cran.r-project.org/src/contrib/generics_0.1.4.tar.gz",
+        "bytes": 47224,
+        "sha256": "bbe95a097792d38fc3b7e677738af1b95b66ea5e5017e33b8beac6a6088d0801"
+      },
+      "runtime": true
+    },
+    {
+      "name": "ggplot2",
+      "version": "4.0.3",
+      "repository": "cran",
+      "binary": {
+        "filename": "ggplot2_4.0.3.zip",
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.6/ggplot2_4.0.3.zip",
+        "bytes": 8472248,
+        "sha256": "1305524234def24ace147e7c30c6c380d46a8e938ad0a2f36f2d8d930cf443a3"
+      },
+      "source": {
+        "filename": "ggplot2_4.0.3.tar.gz",
+        "url": "https://cran.r-project.org/src/contrib/ggplot2_4.0.3.tar.gz",
+        "bytes": 6327703,
+        "sha256": "690224bd61642b6222adb109470988e87f786e193cca77a15c0923cf9da73fa5"
+      },
+      "runtime": true
+    },
+    {
+      "name": "glue",
+      "version": "1.8.1",
+      "repository": "cran",
+      "binary": {
+        "filename": "glue_1.8.1.zip",
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.6/glue_1.8.1.zip",
+        "bytes": 192080,
+        "sha256": "51d1c409941193c02b651eecaee0735c7ae64330d56f00d8bc7693c34a04aced"
+      },
+      "source": {
+        "filename": "glue_1.8.1.tar.gz",
+        "url": "https://cran.r-project.org/src/contrib/glue_1.8.1.tar.gz",
+        "bytes": 129786,
+        "sha256": "1c55905d3efc3d5c199ceb0bd12218e97f0d4c64df6038ff41ecef415478a122"
+      },
+      "runtime": true
+    },
+    {
+      "name": "gtable",
+      "version": "0.3.6",
+      "repository": "cran",
+      "binary": {
+        "filename": "gtable_0.3.6.zip",
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.6/gtable_0.3.6.zip",
+        "bytes": 253041,
+        "sha256": "a06613bf451b00bc3b6d2c897777da21bbf13787e16d37a61dd8a2a28d16cd3f"
+      },
+      "source": {
+        "filename": "gtable_0.3.6.tar.gz",
+        "url": "https://cran.r-project.org/src/contrib/gtable_0.3.6.tar.gz",
+        "bytes": 148148,
+        "sha256": "d305a5fa11278b649d2d8edc5288bf28009be888a42be58ff8714018e49de0ef"
+      },
+      "runtime": true
+    },
+    {
+      "name": "isoband",
+      "version": "0.3.0",
+      "repository": "cran",
+      "binary": {
+        "filename": "isoband_0.3.0.zip",
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.6/isoband_0.3.0.zip",
+        "bytes": 1976850,
+        "sha256": "9a3b88ac3ff3cb3fb9ee1fa08466d1c1d862c72e58a0e5f3e85133b0b86717ab"
+      },
+      "source": {
+        "filename": "isoband_0.3.0.tar.gz",
+        "url": "https://cran.r-project.org/src/contrib/isoband_0.3.0.tar.gz",
+        "bytes": 1593511,
+        "sha256": "fe8d3d58ca75bbee32f389152ac0058818f3f76f09c9867949531de7abc424ac"
+      },
+      "runtime": true
+    },
+    {
+      "name": "jsonlite",
+      "version": "2.0.0",
+      "repository": "cran",
+      "binary": {
+        "filename": "jsonlite_2.0.0.zip",
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.6/jsonlite_2.0.0.zip",
+        "bytes": 1110822,
+        "sha256": "911b65c53e47acc2950b21d624d32ee579e043845559127f56624cb0413d442f"
+      },
+      "source": {
+        "filename": "jsonlite_2.0.0.tar.gz",
+        "url": "https://cran.r-project.org/src/contrib/jsonlite_2.0.0.tar.gz",
+        "bytes": 1055849,
+        "sha256": "75eb910c82b350ec33f094779da0f87bff154c232e4ae39c9896a9b89f3ac82d"
+      },
+      "runtime": true
+    },
+    {
+      "name": "labeling",
+      "version": "0.4.3",
+      "repository": "cran",
+      "binary": {
+        "filename": "labeling_0.4.3.zip",
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.6/labeling_0.4.3.zip",
+        "bytes": 64255,
+        "sha256": "a5d4772de28813c6730a37e5a4b9605cf1b941344a319e56af7bacf4680ea82e"
+      },
+      "source": {
+        "filename": "labeling_0.4.3.tar.gz",
+        "url": "https://cran.r-project.org/src/contrib/labeling_0.4.3.tar.gz",
+        "bytes": 10167,
+        "sha256": "c62f4fc2cc74377d7055903c5f1913b7295f7587456fe468592738a483e264f2"
+      },
+      "runtime": true
+    },
+    {
+      "name": "lambda.r",
+      "version": "1.2.4",
+      "repository": "cran",
+      "binary": {
+        "filename": "lambda.r_1.2.4.zip",
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.6/lambda.r_1.2.4.zip",
+        "bytes": 113228,
+        "sha256": "43a1ff5974ebeb36702eb47d2ef72ab630a227c58ac5fa9b18433beae80fb277"
+      },
+      "source": {
+        "filename": "lambda.r_1.2.4.tar.gz",
+        "url": "https://cran.r-project.org/src/contrib/lambda.r_1.2.4.tar.gz",
+        "bytes": 25666,
+        "sha256": "d252fee39065326c6d9f45ad798076522cec05e73b8905c1b30f95a61f7801d6"
+      },
+      "runtime": true
+    },
+    {
+      "name": "lifecycle",
+      "version": "1.0.5",
+      "repository": "cran",
+      "binary": {
+        "filename": "lifecycle_1.0.5.zip",
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.6/lifecycle_1.0.5.zip",
+        "bytes": 150733,
+        "sha256": "52eb18b860f86da224820b4a58215862cab56c5676e6d6ed7129547fc74fa4c2"
+      },
+      "source": {
+        "filename": "lifecycle_1.0.5.tar.gz",
+        "url": "https://cran.r-project.org/src/contrib/lifecycle_1.0.5.tar.gz",
+        "bytes": 107137,
+        "sha256": "61841e3e6edba056a88355a3f1d6698ab8d5d9cb3c05f2af0ec5a44ab516f8ee"
+      },
+      "runtime": true
+    },
+    {
+      "name": "locfit",
+      "version": "1.5-9.12",
+      "repository": "cran",
+      "binary": {
+        "filename": "locfit_1.5-9.12.zip",
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.6/locfit_1.5-9.12.zip",
+        "bytes": 550205,
+        "sha256": "0724f925d652f927c2bd2364418cbe2db54dafcb302d8f0823d616a5cb8cf9c1"
+      },
+      "source": {
+        "filename": "locfit_1.5-9.12.tar.gz",
+        "url": "https://cran.r-project.org/src/contrib/locfit_1.5-9.12.tar.gz",
+        "bytes": 207112,
+        "sha256": "fa31b9d407f3557a6fcb7105cbd7b16a32a6fb868a7c60bc38a3e33cb7a39343"
+      },
+      "runtime": true
+    },
+    {
+      "name": "matrixStats",
+      "version": "1.5.0",
+      "repository": "cran",
+      "binary": {
+        "filename": "matrixStats_1.5.0.zip",
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.6/matrixStats_1.5.0.zip",
+        "bytes": 558955,
+        "sha256": "e2b091a42b7a7db333749e77bb1a327f96f71ab8e5268bbad557aa644105e25f"
+      },
+      "source": {
+        "filename": "matrixStats_1.5.0.tar.gz",
+        "url": "https://cran.r-project.org/src/contrib/matrixStats_1.5.0.tar.gz",
+        "bytes": 212156,
+        "sha256": "12996c5f3e6fc202a43e1087f16a71b7fa93d7e908f512542c7ee89cf95dcc15"
+      },
+      "runtime": true
+    },
+    {
+      "name": "rlang",
+      "version": "1.3.0",
+      "repository": "cran",
+      "binary": {
+        "filename": "rlang_1.3.0.zip",
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.6/rlang_1.3.0.zip",
+        "bytes": 1651593,
+        "sha256": "a75ef95c949e254f6229d787d310e6ab40f0d1a1809dacbb3536cac17e6f51f8"
+      },
+      "source": {
+        "filename": "rlang_1.3.0.tar.gz",
+        "url": "https://cran.r-project.org/src/contrib/rlang_1.3.0.tar.gz",
+        "bytes": 784080,
+        "sha256": "80aa537d49e72265f443a15e8936128af583caa5e572086518b503cbf064279c"
+      },
+      "runtime": true
+    },
+    {
+      "name": "scales",
+      "version": "1.4.0",
+      "repository": "cran",
+      "binary": {
+        "filename": "scales_1.4.0.zip",
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.6/scales_1.4.0.zip",
+        "bytes": 881441,
+        "sha256": "059377cd31876a8d465c4f4665aff5ec4f94f63453dc10df7b490937061d3f57"
+      },
+      "source": {
+        "filename": "scales_1.4.0.tar.gz",
+        "url": "https://cran.r-project.org/src/contrib/scales_1.4.0.tar.gz",
+        "bytes": 328671,
+        "sha256": "d55ef5f08c92652d7a95cfa27584024723ab17873f1b2577dd488cb7c883ceee"
+      },
+      "runtime": true
+    },
+    {
+      "name": "snow",
+      "version": "0.4-4",
+      "repository": "cran",
+      "binary": {
+        "filename": "snow_0.4-4.zip",
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.6/snow_0.4-4.zip",
+        "bytes": 100761,
+        "sha256": "ff58d22ff93732041da4403d335bce7d6992ae585a77815841ca1b7dee3215ba"
+      },
+      "source": {
+        "filename": "snow_0.4-4.tar.gz",
+        "url": "https://cran.r-project.org/src/contrib/snow_0.4-4.tar.gz",
+        "bytes": 20464,
+        "sha256": "84587f46f222a96f3e2fde10ad6ec6ddbd878f4e917cd926d632f61a87db13c9"
+      },
+      "runtime": true
+    },
+    {
+      "name": "tximport",
+      "version": "1.40.0",
+      "repository": "bioc",
+      "binary": {
+        "filename": "tximport_1.40.0.zip",
+        "url": "https://bioconductor.posit.co/packages/3.23/bioc/bin/windows/contrib/4.6/tximport_1.40.0.zip",
+        "bytes": 110320,
+        "sha256": "3e572aab859422a7f01470df40f3d7e8602085aa2129046f180ff6a0f0ac4727"
+      },
+      "source": {
+        "filename": "tximport_1.40.0.tar.gz",
+        "url": "https://bioconductor.posit.co/packages/3.23/bioc/src/contrib/tximport_1.40.0.tar.gz",
+        "bytes": 314911,
+        "sha256": "72841a6b2ac1f64ccb05af2d9fba4eea781596771798cefcb3a9327f9dc929f9"
+      },
+      "runtime": true
+    },
+    {
+      "name": "vctrs",
+      "version": "0.7.3",
+      "repository": "cran",
+      "binary": {
+        "filename": "vctrs_0.7.3.zip",
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.6/vctrs_0.7.3.zip",
+        "bytes": 1921453,
+        "sha256": "2e036bfc3302354ed99debc5372cd81ba6237498c9e275652f1e4adadfb58a0d"
+      },
+      "source": {
+        "filename": "vctrs_0.7.3.tar.gz",
+        "url": "https://cran.r-project.org/src/contrib/vctrs_0.7.3.tar.gz",
+        "bytes": 1083213,
+        "sha256": "b45078413e06ac624dddb7221a3a43908b405c8abec09822cb86638d30b0435b"
+      },
+      "runtime": true
+    },
+    {
+      "name": "viridisLite",
+      "version": "0.4.3",
+      "repository": "cran",
+      "binary": {
+        "filename": "viridisLite_0.4.3.zip",
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.6/viridisLite_0.4.3.zip",
+        "bytes": 1300962,
+        "sha256": "5c2170ccfb04c15991db37b99943fa8ed109106387d8780eda60a94574d0cfe7"
+      },
+      "source": {
+        "filename": "viridisLite_0.4.3.tar.gz",
+        "url": "https://cran.r-project.org/src/contrib/viridisLite_0.4.3.tar.gz",
+        "bytes": 1269031,
+        "sha256": "433be9bde66234dc76301fb4ffbbc9fc74bab5c14f4548d8ef2fc0065e121ef5"
+      },
+      "runtime": true
+    },
+    {
+      "name": "withr",
+      "version": "3.0.3",
+      "repository": "cran",
+      "binary": {
+        "filename": "withr_3.0.3.zip",
+        "url": "https://cran.r-project.org/bin/windows/contrib/4.6/withr_3.0.3.zip",
+        "bytes": 235071,
+        "sha256": "7cb95675936aa6502206f55ba573afb3f22f571aab2a52e07bf03eba5fe829d7"
+      },
+      "source": {
+        "filename": "withr_3.0.3.tar.gz",
+        "url": "https://cran.r-project.org/src/contrib/withr_3.0.3.tar.gz",
+        "bytes": 103968,
+        "sha256": "d86c6454164fc85678bfc85e2a6cce42f7461d45fa9a87de71f376e7956c991e"
+      },
+      "runtime": true
+    }
+  ]
+}

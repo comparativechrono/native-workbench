@@ -1,0 +1,138 @@
+name: Publish official tool catalogue
+
+# Production signing is deliberately manual and restricted to reviewed main.
+# Provision the protected environment first; see publishing/catalogue-signing.md.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: official-tool-catalogue
+  cancel-in-progress: false
+
+jobs:
+  sign:
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && github.repository == 'comparativechrono/workbench'
+    runs-on: ubuntu-22.04
+    timeout-minutes: 45
+    environment: catalogue-production
+    permissions:
+      contents: read
+    outputs:
+      fingerprint: ${{ steps.public.outputs.fingerprint }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Require independently configured public identity
+        env:
+          EXPECTED_FINGERPRINT: ${{ vars.WORKBENCH_CATALOGUE_KEY_FINGERPRINT }}
+        run: |
+          python3 - <<'PY'
+          import os,re
+          if not re.fullmatch(r'[0-9a-f]{64}',os.environ.get('EXPECTED_FINGERPRINT','')):
+              raise SystemExit('Configure the reviewed public-key fingerprint in catalogue-production before signing.')
+          # The deliberately public RSA fixture in tests/test_pack_manager.py
+          # must never be promoted to an official production trust root.
+          if os.environ['EXPECTED_FINGERPRINT']=='afffb67d04aafef870a5fe8bbaaa68bac096562b2d64ec7bbd497673a586b058':
+              raise SystemExit('The public SDK test key cannot be used for production signing.')
+          PY
+      - name: Check publishing contracts without production secrets
+        run: |
+          python3 -m unittest discover -s tests -p 'test_sign_setup_catalogue.py' -v
+          python3 -m unittest discover -s tests -p 'test_deploy_setup_catalogue.py' -v
+          python3 -m unittest discover -s tests -p 'test_publish_pack_catalog.py' -v
+          python3 -m unittest discover -s tests -p 'test_prepare_setup_catalogue.py' -v
+      - name: Acquire and validate exact published pack archives
+        run: |
+          python3 scripts/prepare_setup_catalogue.py \
+            --archives "$RUNNER_TEMP/setup-archives" \
+            --output "$RUNNER_TEMP/setup-preparation" --download --workers 4
+      - name: Sign using the protected external key
+        env:
+          WORKBENCH_CATALOGUE_RSA_PRIVATE_KEY: ${{ secrets.WORKBENCH_CATALOGUE_RSA_PRIVATE_KEY }}
+          WORKBENCH_CATALOGUE_KEY_FINGERPRINT: ${{ vars.WORKBENCH_CATALOGUE_KEY_FINGERPRINT }}
+        run: |
+          set -euo pipefail
+          umask 077
+          mkdir "$RUNNER_TEMP/workbench-catalogue-key"
+          python3 scripts/sign_setup_catalogue.py \
+            --release-map "$RUNNER_TEMP/setup-preparation/release-map.json" \
+            --output "$RUNNER_TEMP/setup-signed-public" \
+            --key-directory "$RUNNER_TEMP/workbench-catalogue-key"
+      - name: Remove temporary signing material
+        if: always()
+        run: rm -rf -- "$RUNNER_TEMP/workbench-catalogue-key"
+      - name: Verify public outputs and retain public provenance only
+        id: public
+        env:
+          EXPECTED_FINGERPRINT: ${{ vars.WORKBENCH_CATALOGUE_KEY_FINGERPRINT }}
+        run: |
+          set -euo pipefail
+          python3 scripts/deploy_setup_catalogue.py \
+            --documents "$RUNNER_TEMP/setup-signed-public" \
+            --expected-fingerprint "$EXPECTED_FINGERPRINT" \
+            --source-commit "$GITHUB_SHA" --verify-only
+          python3 - <<'PY'
+          import json,os,re
+          from pathlib import Path
+          report=json.loads((Path(os.environ['RUNNER_TEMP'])/'setup-signed-public/publication-report.json').read_text())
+          fingerprint=report['sourceKeyFingerprint']
+          assert re.fullmatch('[0-9a-f]{64}',fingerprint) and fingerprint==os.environ['EXPECTED_FINGERPRINT']
+          with open(os.environ['GITHUB_OUTPUT'],'a') as out:
+              out.write('fingerprint='+fingerprint+'\n')
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: signed-tool-catalogue-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/setup-signed-public/catalogue.json
+            ${{ runner.temp }}/setup-signed-public/source.json
+            ${{ runner.temp }}/setup-signed-public/publication-report.json
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: catalogue-preparation-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/setup-preparation/preparation-report.json
+          if-no-files-found: error
+          retention-days: 30
+
+  publish:
+    needs: sign
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && github.repository == 'comparativechrono/workbench'
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+    # No signing environment or private secret is made available to this job.
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: signed-tool-catalogue-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/setup-signed-public
+      - name: Publish verified public documents and verify anonymous downloads
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          EXPECTED_FINGERPRINT: ${{ needs.sign.outputs.fingerprint }}
+        run: |
+          python3 scripts/deploy_setup_catalogue.py \
+            --documents "$RUNNER_TEMP/setup-signed-public" \
+            --expected-fingerprint "$EXPECTED_FINGERPRINT" \
+            --source-commit "$GITHUB_SHA" \
+            --receipt "$RUNNER_TEMP/catalogue-publication-receipt.json"
+      - name: Retain publication receipt
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: catalogue-publication-receipt-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/catalogue-publication-receipt.json
+          if-no-files-found: warn
+          retention-days: 30

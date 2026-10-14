@@ -1,0 +1,342 @@
+{
+  "upstreamVersion": "2.2.0",
+  "referenceExecutableSha256": "55a9d997813aae2208bd4c2081bfa690e0ecdba2d6c491805d8689415c43e38e",
+  "sourceCommit": "a780aa4f6a18791ea76c04afaf37aafe43e51d59",
+  "role": "Recorded official upstream Linux results. Topology has separate independent construction truth; branch lengths compared within tolerance, not used as biological truth.",
+  "fixtureSha256": {
+    "nucleotide": "41f5a3adea038e2e268a8736b9092f8bc3355df22d207673cc2f88206074ffa9",
+    "protein": "26d7cf41f3ce87ac6045bcbfeaa78578328b10e1602aac08320991039b0df711"
+  },
+  "cases": {
+    "nucleotide-JC-cat-none": {
+      "argv": [
+        "<pinned-official-Linux-FastTree>",
+        "-nopr",
+        "-cat",
+        "20",
+        "-seed",
+        "42",
+        "-boot",
+        "0",
+        "-nt",
+        "<fixtures>/nucleotide.afa"
+      ],
+      "tree": "((gamma1:0.019187347,gamma2:0.019181678):0.100244005,(alpha1:0.019187322,alpha2:0.019181675):0.100249991,(beta1:0.019187285,beta2:0.019181655):0.100267793);",
+      "log": "FastTree Version 2.2.0 Double precision\nAlignment: <fixtures>/nucleotide.afa\nNucleotide distances: Jukes-Cantor Joins: balanced Support: none\nSearch: Normal +NNI +SPR (2 rounds range 10) +ML-NNI opt-each=1\nTopHits: 1.00*sqrtN close=default refresh=0.80\nML Model: Jukes-Cantor, CAT approximation with 20 rate categories\nInitial topology in 0.00 seconds\nRefining topology: 10 rounds ME-NNIs, 2 rounds ME-SPRs, 5 rounds ML-NNIs\nTotal branch-length 0.432 after 0.00 sec\nML-NNI round 1: LogLk = -2587.142 NNIs 0 max delta 0.00 Time 0.01\nSwitched to using 20 rate categories (CAT approximation)\nRate categories were divided by 0.710 so that average rate = 1.0\nCAT-based log-likelihoods may not be comparable across runs\nUse -gamma for approximate but comparable Gamma(20) log-likelihoods\nML-NNI round 2: LogLk = -2527.623 NNIs 0 max delta 0.00 Time 0.01\nTurning off heuristics for final round of ML NNIs (converged)\nML-NNI round 3: LogLk = -2527.622 NNIs 0 max delta 0.00 Time 0.01 (final)\nOptimize all lengths: LogLk = -2527.622 Time 0.01\nTotal time: 0.01 seconds Unique: 6/6 Bad splits: 0/3\n"
+    },
+    "nucleotide-JC-cat-sh": {
+      "argv": [
+        "<pinned-official-Linux-FastTree>",
+        "-nopr",
+        "-cat",
+        "20",
+        "-seed",
+        "42",
+        "-boot",
+        "1000",
+        "-nt",
+        "<fixtures>/nucleotide.afa"
+      ],
+      "tree": "((gamma1:0.019187347,gamma2:0.019181678)1.000:0.100244005,(alpha1:0.019187322,alpha2:0.019181675)1.000:0.100249991,(beta1:0.019187285,beta2:0.019181655)1.000:0.100267793);",
+      "log": "FastTree Version 2.2.0 Double precision\nAlignment: <fixtures>/nucleotide.afa\nNucleotide distances: Jukes-Cantor Joins: balanced Support: SH-like 1000\nSearch: Normal +NNI +SPR (2 rounds range 10) +ML-NNI opt-each=1\nTopHits: 1.00*sqrtN close=default refresh=0.80\nML Model: Jukes-Cantor, CAT approximation with 20 rate categories\nInitial topology in 0.00 seconds\nRefining topology: 10 rounds ME-NNIs, 2 rounds ME-SPRs, 5 rounds ML-NNIs\nTotal branch-length 0.432 after 0.00 sec\nML-NNI round 1: LogLk = -2587.142 NNIs 0 max delta 0.00 Time 0.01\nSwitched to using 20 rate categories (CAT approximation)\nRate categories were divided by 0.710 so that average rate = 1.0\nCAT-based log-likelihoods may not be comparable across runs\nUse -gamma for approximate but comparable Gamma(20) log-likelihoods\nML-NNI round 2: LogLk = -2527.623 NNIs 0 max delta 0.00 Time 0.01\nTurning off heuristics for final round of ML NNIs (converged)\nML-NNI round 3: LogLk = -2527.622 NNIs 0 max delta 0.00 Time 0.01 (final)\nOptimize all lengths: LogLk = -2527.622 Time 0.01\nTotal time: 0.02 seconds Unique: 6/6 Bad splits: 0/3\n"
+    },
+    "nucleotide-JC-gamma-none": {
+      "argv": [
+        "<pinned-official-Linux-FastTree>",
+        "-nopr",
+        "-cat",
+        "20",
+        "-seed",
+        "42",
+        "-boot",
+        "0",
+        "-nt",
+        "-gamma",
+        "<fixtures>/nucleotide.afa"
+      ],
+      "tree": "((gamma1:0.019227711,gamma2:0.019222030):0.100454887,(alpha1:0.019227686,alpha2:0.019222027):0.100460886,(beta1:0.019227649,beta2:0.019222007):0.100478726);",
+      "log": "FastTree Version 2.2.0 Double precision\nAlignment: <fixtures>/nucleotide.afa\nNucleotide distances: Jukes-Cantor Joins: balanced Support: none\nSearch: Normal +NNI +SPR (2 rounds range 10) +ML-NNI opt-each=1\nTopHits: 1.00*sqrtN close=default refresh=0.80\nML Model: Jukes-Cantor, CAT approximation with 20 rate categories\nInitial topology in 0.00 seconds\nRefining topology: 10 rounds ME-NNIs, 2 rounds ME-SPRs, 5 rounds ML-NNIs\nTotal branch-length 0.432 after 0.00 sec\nML-NNI round 1: LogLk = -2587.142 NNIs 0 max delta 0.00 Time 0.01\nSwitched to using 20 rate categories (CAT approximation)\nRate categories were divided by 0.710 so that average rate = 1.0\nCAT-based log-likelihoods may not be comparable across runs\nML-NNI round 2: LogLk = -2527.623 NNIs 0 max delta 0.00 Time 0.01\nTurning off heuristics for final round of ML NNIs (converged)\nML-NNI round 3: LogLk = -2527.622 NNIs 0 max delta 0.00 Time 0.01 (final)\nOptimize all lengths: LogLk = -2527.622 Time 0.01\nGamma(20) LogLk = -2591.337 alpha = 9.982 rescaling lengths by 1.002\nTotal time: 0.02 seconds Unique: 6/6 Bad splits: 0/3\n"
+    },
+    "nucleotide-JC-gamma-sh": {
+      "argv": [
+        "<pinned-official-Linux-FastTree>",
+        "-nopr",
+        "-cat",
+        "20",
+        "-seed",
+        "42",
+        "-boot",
+        "1000",
+        "-nt",
+        "-gamma",
+        "<fixtures>/nucleotide.afa"
+      ],
+      "tree": "((gamma1:0.019227711,gamma2:0.019222030)1.000:0.100454887,(alpha1:0.019227686,alpha2:0.019222027)1.000:0.100460886,(beta1:0.019227649,beta2:0.019222007)1.000:0.100478726);",
+      "log": "FastTree Version 2.2.0 Double precision\nAlignment: <fixtures>/nucleotide.afa\nNucleotide distances: Jukes-Cantor Joins: balanced Support: SH-like 1000\nSearch: Normal +NNI +SPR (2 rounds range 10) +ML-NNI opt-each=1\nTopHits: 1.00*sqrtN close=default refresh=0.80\nML Model: Jukes-Cantor, CAT approximation with 20 rate categories\nInitial topology in 0.00 seconds\nRefining topology: 10 rounds ME-NNIs, 2 rounds ME-SPRs, 5 rounds ML-NNIs\nTotal branch-length 0.432 after 0.01 sec\nML-NNI round 1: LogLk = -2587.142 NNIs 0 max delta 0.00 Time 0.02\nSwitched to using 20 rate categories (CAT approximation)\nRate categories were divided by 0.710 so that average rate = 1.0\nCAT-based log-likelihoods may not be comparable across runs\nML-NNI round 2: LogLk = -2527.623 NNIs 0 max delta 0.00 Time 0.02\nTurning off heuristics for final round of ML NNIs (converged)\nML-NNI round 3: LogLk = -2527.622 NNIs 0 max delta 0.00 Time 0.03 (final)\nOptimize all lengths: LogLk = -2527.622 Time 0.03\nGamma(20) LogLk = -2591.337 alpha = 9.982 rescaling lengths by 1.002\nTotal time: 0.05 seconds Unique: 6/6 Bad splits: 0/3\n"
+    },
+    "nucleotide-GTR-cat-none": {
+      "argv": [
+        "<pinned-official-Linux-FastTree>",
+        "-nopr",
+        "-cat",
+        "20",
+        "-seed",
+        "42",
+        "-boot",
+        "0",
+        "-nt",
+        "-gtr",
+        "<fixtures>/nucleotide.afa"
+      ],
+      "tree": "((gamma1:0.019424337,gamma2:0.019340182):0.101123928,(alpha1:0.019455222,alpha2:0.019317784):0.101642369,(beta1:0.019442678,beta2:0.019238611):0.101332248);",
+      "log": "FastTree Version 2.2.0 Double precision\nAlignment: <fixtures>/nucleotide.afa\nNucleotide distances: Jukes-Cantor Joins: balanced Support: none\nSearch: Normal +NNI +SPR (2 rounds range 10) +ML-NNI opt-each=1\nTopHits: 1.00*sqrtN close=default refresh=0.80\nML Model: Generalized Time-Reversible, CAT approximation with 20 rate categories\nInitial topology in 0.00 seconds\nRefining topology: 10 rounds ME-NNIs, 2 rounds ME-SPRs, 5 rounds ML-NNIs\nTotal branch-length 0.432 after 0.00 sec\nML-NNI round 1: LogLk = -2587.142 NNIs 0 max delta 0.00 Time 0.01\nGTR Frequencies: 0.2669 0.2336 0.2741 0.2254\nGTR rates(ac ag at cg ct gt) 0.9512 0.7070 0.9416 0.6440 0.6807 1.0000\nSwitched to using 20 rate categories (CAT approximation)\nRate categories were divided by 0.710 so that average rate = 1.0\nCAT-based log-likelihoods may not be comparable across runs\nUse -gamma for approximate but comparable Gamma(20) log-likelihoods\nML-NNI round 2: LogLk = -2519.609 NNIs 0 max delta 0.00 Time 0.02\nTurning off heuristics for final round of ML NNIs (converged)\nML-NNI round 3: LogLk = -2519.609 NNIs 0 max delta 0.00 Time 0.02 (final)\nOptimize all lengths: LogLk = -2519.609 Time 0.02\nTotal time: 0.03 seconds Unique: 6/6 Bad splits: 0/3\n"
+    },
+    "nucleotide-GTR-cat-sh": {
+      "argv": [
+        "<pinned-official-Linux-FastTree>",
+        "-nopr",
+        "-cat",
+        "20",
+        "-seed",
+        "42",
+        "-boot",
+        "1000",
+        "-nt",
+        "-gtr",
+        "<fixtures>/nucleotide.afa"
+      ],
+      "tree": "((gamma1:0.019424337,gamma2:0.019340182)1.000:0.101123928,(alpha1:0.019455222,alpha2:0.019317784)1.000:0.101642369,(beta1:0.019442678,beta2:0.019238611)1.000:0.101332248);",
+      "log": "FastTree Version 2.2.0 Double precision\nAlignment: <fixtures>/nucleotide.afa\nNucleotide distances: Jukes-Cantor Joins: balanced Support: SH-like 1000\nSearch: Normal +NNI +SPR (2 rounds range 10) +ML-NNI opt-each=1\nTopHits: 1.00*sqrtN close=default refresh=0.80\nML Model: Generalized Time-Reversible, CAT approximation with 20 rate categories\nInitial topology in 0.00 seconds\nRefining topology: 10 rounds ME-NNIs, 2 rounds ME-SPRs, 5 rounds ML-NNIs\nTotal branch-length 0.432 after 0.00 sec\nML-NNI round 1: LogLk = -2587.142 NNIs 0 max delta 0.00 Time 0.01\nGTR Frequencies: 0.2669 0.2336 0.2741 0.2254\nGTR rates(ac ag at cg ct gt) 0.9512 0.7070 0.9416 0.6440 0.6807 1.0000\nSwitched to using 20 rate categories (CAT approximation)\nRate categories were divided by 0.710 so that average rate = 1.0\nCAT-based log-likelihoods may not be comparable across runs\nUse -gamma for approximate but comparable Gamma(20) log-likelihoods\nML-NNI round 2: LogLk = -2519.609 NNIs 0 max delta 0.00 Time 0.02\nTurning off heuristics for final round of ML NNIs (converged)\nML-NNI round 3: LogLk = -2519.609 NNIs 0 max delta 0.00 Time 0.02 (final)\nOptimize all lengths: LogLk = -2519.609 Time 0.02\nTotal time: 0.04 seconds Unique: 6/6 Bad splits: 0/3\n"
+    },
+    "nucleotide-GTR-gamma-none": {
+      "argv": [
+        "<pinned-official-Linux-FastTree>",
+        "-nopr",
+        "-cat",
+        "20",
+        "-seed",
+        "42",
+        "-boot",
+        "0",
+        "-nt",
+        "-gtr",
+        "-gamma",
+        "<fixtures>/nucleotide.afa"
+      ],
+      "tree": "((gamma1:0.019482205,gamma2:0.019397800):0.101425195,(alpha1:0.019513183,alpha2:0.019375336):0.101945181,(beta1:0.019500602,beta2:0.019295926):0.101634136);",
+      "log": "FastTree Version 2.2.0 Double precision\nAlignment: <fixtures>/nucleotide.afa\nNucleotide distances: Jukes-Cantor Joins: balanced Support: none\nSearch: Normal +NNI +SPR (2 rounds range 10) +ML-NNI opt-each=1\nTopHits: 1.00*sqrtN close=default refresh=0.80\nML Model: Generalized Time-Reversible, CAT approximation with 20 rate categories\nInitial topology in 0.00 seconds\nRefining topology: 10 rounds ME-NNIs, 2 rounds ME-SPRs, 5 rounds ML-NNIs\nTotal branch-length 0.432 after 0.00 sec\nML-NNI round 1: LogLk = -2587.142 NNIs 0 max delta 0.00 Time 0.01\nGTR Frequencies: 0.2669 0.2336 0.2741 0.2254\nGTR rates(ac ag at cg ct gt) 0.9512 0.7070 0.9416 0.6440 0.6807 1.0000\nSwitched to using 20 rate categories (CAT approximation)\nRate categories were divided by 0.710 so that average rate = 1.0\nCAT-based log-likelihoods may not be comparable across runs\nML-NNI round 2: LogLk = -2519.609 NNIs 0 max delta 0.00 Time 0.02\nTurning off heuristics for final round of ML NNIs (converged)\nML-NNI round 3: LogLk = -2519.609 NNIs 0 max delta 0.00 Time 0.04 (final)\nOptimize all lengths: LogLk = -2519.609 Time 0.04\nGamma(20) LogLk = -2583.110 alpha = 9.982 rescaling lengths by 1.003\nTotal time: 0.06 seconds Unique: 6/6 Bad splits: 0/3\n"
+    },
+    "nucleotide-GTR-gamma-sh": {
+      "argv": [
+        "<pinned-official-Linux-FastTree>",
+        "-nopr",
+        "-cat",
+        "20",
+        "-seed",
+        "42",
+        "-boot",
+        "1000",
+        "-nt",
+        "-gtr",
+        "-gamma",
+        "<fixtures>/nucleotide.afa"
+      ],
+      "tree": "((gamma1:0.019482205,gamma2:0.019397800)1.000:0.101425195,(alpha1:0.019513183,alpha2:0.019375336)1.000:0.101945181,(beta1:0.019500602,beta2:0.019295926)1.000:0.101634136);",
+      "log": "FastTree Version 2.2.0 Double precision\nAlignment: <fixtures>/nucleotide.afa\nNucleotide distances: Jukes-Cantor Joins: balanced Support: SH-like 1000\nSearch: Normal +NNI +SPR (2 rounds range 10) +ML-NNI opt-each=1\nTopHits: 1.00*sqrtN close=default refresh=0.80\nML Model: Generalized Time-Reversible, CAT approximation with 20 rate categories\nInitial topology in 0.00 seconds\nRefining topology: 10 rounds ME-NNIs, 2 rounds ME-SPRs, 5 rounds ML-NNIs\nTotal branch-length 0.432 after 0.00 sec\nML-NNI round 1: LogLk = -2587.142 NNIs 0 max delta 0.00 Time 0.01\nGTR Frequencies: 0.2669 0.2336 0.2741 0.2254\nGTR rates(ac ag at cg ct gt) 0.9512 0.7070 0.9416 0.6440 0.6807 1.0000\nSwitched to using 20 rate categories (CAT approximation)\nRate categories were divided by 0.710 so that average rate = 1.0\nCAT-based log-likelihoods may not be comparable across runs\nML-NNI round 2: LogLk = -2519.609 NNIs 0 max delta 0.00 Time 0.03\nTurning off heuristics for final round of ML NNIs (converged)\nML-NNI round 3: LogLk = -2519.609 NNIs 0 max delta 0.00 Time 0.03 (final)\nOptimize all lengths: LogLk = -2519.609 Time 0.04\nGamma(20) LogLk = -2583.110 alpha = 9.982 rescaling lengths by 1.003\nTotal time: 0.07 seconds Unique: 6/6 Bad splits: 0/3\n"
+    },
+    "protein-JTT-cat-none": {
+      "argv": [
+        "<pinned-official-Linux-FastTree>",
+        "-nopr",
+        "-cat",
+        "20",
+        "-seed",
+        "42",
+        "-boot",
+        "0",
+        "<fixtures>/protein.afa"
+      ],
+      "tree": "((beta1:0.020765077,beta2:0.020499229):0.112237205,(alpha1:0.020858422,alpha2:0.021056503):0.113277891,(gamma1:0.020616163,gamma2:0.020840031):0.109375175);",
+      "log": "FastTree Version 2.2.0 Double precision\nAlignment: <fixtures>/protein.afa\nAmino acid distances: BLOSUM45 Joins: balanced Support: none\nSearch: Normal +NNI +SPR (2 rounds range 10) +ML-NNI opt-each=1\nTopHits: 1.00*sqrtN close=default refresh=0.80\nML Model: Jones-Taylor-Thorton, CAT approximation with 20 rate categories\nInitial topology in 0.00 seconds\nRefining topology: 10 rounds ME-NNIs, 2 rounds ME-SPRs, 5 rounds ML-NNIs\nTotal branch-length 0.575 after 0.00 sec\nML-NNI round 1: LogLk = -4827.322 NNIs 0 max delta 0.00 Time 0.02\nSwitched to using 20 rate categories (CAT approximation)\nRate categories were divided by 0.711 so that average rate = 1.0\nCAT-based log-likelihoods may not be comparable across runs\nUse -gamma for approximate but comparable Gamma(20) log-likelihoods\nML-NNI round 2: LogLk = -4764.197 NNIs 0 max delta 0.00 Time 0.03\nTurning off heuristics for final round of ML NNIs (converged)\nML-NNI round 3: LogLk = -4764.195 NNIs 0 max delta 0.00 Time 0.05 (final)\nOptimize all lengths: LogLk = -4764.195 Time 0.05\nTotal time: 0.06 seconds Unique: 6/6 Bad splits: 0/3\n"
+    },
+    "protein-JTT-cat-sh": {
+      "argv": [
+        "<pinned-official-Linux-FastTree>",
+        "-nopr",
+        "-cat",
+        "20",
+        "-seed",
+        "42",
+        "-boot",
+        "1000",
+        "<fixtures>/protein.afa"
+      ],
+      "tree": "((beta1:0.020765077,beta2:0.020499229)1.000:0.112237205,(alpha1:0.020858422,alpha2:0.021056503)1.000:0.113277891,(gamma1:0.020616163,gamma2:0.020840031)1.000:0.109375175);",
+      "log": "FastTree Version 2.2.0 Double precision\nAlignment: <fixtures>/protein.afa\nAmino acid distances: BLOSUM45 Joins: balanced Support: SH-like 1000\nSearch: Normal +NNI +SPR (2 rounds range 10) +ML-NNI opt-each=1\nTopHits: 1.00*sqrtN close=default refresh=0.80\nML Model: Jones-Taylor-Thorton, CAT approximation with 20 rate categories\nInitial topology in 0.00 seconds\nRefining topology: 10 rounds ME-NNIs, 2 rounds ME-SPRs, 5 rounds ML-NNIs\nTotal branch-length 0.575 after 0.00 sec\nML-NNI round 1: LogLk = -4827.322 NNIs 0 max delta 0.00 Time 0.02\nSwitched to using 20 rate categories (CAT approximation)\nRate categories were divided by 0.711 so that average rate = 1.0\nCAT-based log-likelihoods may not be comparable across runs\nUse -gamma for approximate but comparable Gamma(20) log-likelihoods\nML-NNI round 2: LogLk = -4764.197 NNIs 0 max delta 0.00 Time 0.03\nTurning off heuristics for final round of ML NNIs (converged)\nML-NNI round 3: LogLk = -4764.195 NNIs 0 max delta 0.00 Time 0.04 (final)\nOptimize all lengths: LogLk = -4764.195 Time 0.05\nTotal time: 0.07 seconds Unique: 6/6 Bad splits: 0/3\n"
+    },
+    "protein-JTT-gamma-none": {
+      "argv": [
+        "<pinned-official-Linux-FastTree>",
+        "-nopr",
+        "-cat",
+        "20",
+        "-seed",
+        "42",
+        "-boot",
+        "0",
+        "-gamma",
+        "<fixtures>/protein.afa"
+      ],
+      "tree": "((beta1:0.020765077,beta2:0.020499229):0.112237205,(alpha1:0.020858422,alpha2:0.021056503):0.113277891,(gamma1:0.020616163,gamma2:0.020840031):0.109375175);",
+      "log": "FastTree Version 2.2.0 Double precision\nAlignment: <fixtures>/protein.afa\nAmino acid distances: BLOSUM45 Joins: balanced Support: none\nSearch: Normal +NNI +SPR (2 rounds range 10) +ML-NNI opt-each=1\nTopHits: 1.00*sqrtN close=default refresh=0.80\nML Model: Jones-Taylor-Thorton, CAT approximation with 20 rate categories\nInitial topology in 0.00 seconds\nRefining topology: 10 rounds ME-NNIs, 2 rounds ME-SPRs, 5 rounds ML-NNIs\nTotal branch-length 0.575 after 0.01 sec\nML-NNI round 1: LogLk = -4827.322 NNIs 0 max delta 0.00 Time 0.03\nSwitched to using 20 rate categories (CAT approximation)\nRate categories were divided by 0.711 so that average rate = 1.0\nCAT-based log-likelihoods may not be comparable across runs\nML-NNI round 2: LogLk = -4764.197 NNIs 0 max delta 0.00 Time 0.04\nTurning off heuristics for final round of ML NNIs (converged)\nML-NNI round 3: LogLk = -4764.195 NNIs 0 max delta 0.00 Time 0.06 (final)\nOptimize all lengths: LogLk = -4764.195 Time 0.07\nGamma(20) LogLk = -4830.031 alpha = 9.984 rescaling lengths by 1.000\nTotal time: 0.11 seconds Unique: 6/6 Bad splits: 0/3\n"
+    },
+    "protein-JTT-gamma-sh": {
+      "argv": [
+        "<pinned-official-Linux-FastTree>",
+        "-nopr",
+        "-cat",
+        "20",
+        "-seed",
+        "42",
+        "-boot",
+        "1000",
+        "-gamma",
+        "<fixtures>/protein.afa"
+      ],
+      "tree": "((beta1:0.020765077,beta2:0.020499229)1.000:0.112237205,(alpha1:0.020858422,alpha2:0.021056503)1.000:0.113277891,(gamma1:0.020616163,gamma2:0.020840031)1.000:0.109375175);",
+      "log": "FastTree Version 2.2.0 Double precision\nAlignment: <fixtures>/protein.afa\nAmino acid distances: BLOSUM45 Joins: balanced Support: SH-like 1000\nSearch: Normal +NNI +SPR (2 rounds range 10) +ML-NNI opt-each=1\nTopHits: 1.00*sqrtN close=default refresh=0.80\nML Model: Jones-Taylor-Thorton, CAT approximation with 20 rate categories\nInitial topology in 0.00 seconds\nRefining topology: 10 rounds ME-NNIs, 2 rounds ME-SPRs, 5 rounds ML-NNIs\nTotal branch-length 0.575 after 0.01 sec\nML-NNI round 1: LogLk = -4827.322 NNIs 0 max delta 0.00 Time 0.02\nSwitched to using 20 rate categories (CAT approximation)\nRate categories were divided by 0.711 so that average rate = 1.0\nCAT-based log-likelihoods may not be comparable across runs\nML-NNI round 2: LogLk = -4764.197 NNIs 0 max delta 0.00 Time 0.03\nTurning off heuristics for final round of ML NNIs (converged)\nML-NNI round 3: LogLk = -4764.195 NNIs 0 max delta 0.00 Time 0.05 (final)\nOptimize all lengths: LogLk = -4764.195 Time 0.06\nGamma(20) LogLk = -4830.031 alpha = 9.984 rescaling lengths by 1.000\nTotal time: 0.12 seconds Unique: 6/6 Bad splits: 0/3\n"
+    },
+    "protein-LG-cat-none": {
+      "argv": [
+        "<pinned-official-Linux-FastTree>",
+        "-nopr",
+        "-cat",
+        "20",
+        "-seed",
+        "42",
+        "-boot",
+        "0",
+        "-lg",
+        "<fixtures>/protein.afa"
+      ],
+      "tree": "((beta1:0.020301973,beta2:0.019783852):0.110004180,(alpha1:0.020669962,alpha2:0.020397143):0.111361232,(gamma1:0.020186492,gamma2:0.020383289):0.108158176);",
+      "log": "FastTree Version 2.2.0 Double precision\nAlignment: <fixtures>/protein.afa\nAmino acid distances: BLOSUM45 Joins: balanced Support: none\nSearch: Normal +NNI +SPR (2 rounds range 10) +ML-NNI opt-each=1\nTopHits: 1.00*sqrtN close=default refresh=0.80\nML Model: Le-Gascuel 2008, CAT approximation with 20 rate categories\nInitial topology in 0.00 seconds\nRefining topology: 10 rounds ME-NNIs, 2 rounds ME-SPRs, 5 rounds ML-NNIs\nTotal branch-length 0.575 after 0.01 sec\nML-NNI round 1: LogLk = -4884.440 NNIs 0 max delta 0.00 Time 0.03\nSwitched to using 20 rate categories (CAT approximation)\nRate categories were divided by 0.715 so that average rate = 1.0\nCAT-based log-likelihoods may not be comparable across runs\nUse -gamma for approximate but comparable Gamma(20) log-likelihoods\nML-NNI round 2: LogLk = -4816.990 NNIs 0 max delta 0.00 Time 0.04\nTurning off heuristics for final round of ML NNIs (converged)\nML-NNI round 3: LogLk = -4816.987 NNIs 0 max delta 0.00 Time 0.06 (final)\nOptimize all lengths: LogLk = -4816.987 Time 0.07\nTotal time: 0.09 seconds Unique: 6/6 Bad splits: 0/3\n"
+    },
+    "protein-LG-cat-sh": {
+      "argv": [
+        "<pinned-official-Linux-FastTree>",
+        "-nopr",
+        "-cat",
+        "20",
+        "-seed",
+        "42",
+        "-boot",
+        "1000",
+        "-lg",
+        "<fixtures>/protein.afa"
+      ],
+      "tree": "((beta1:0.020301973,beta2:0.019783852)1.000:0.110004180,(alpha1:0.020669962,alpha2:0.020397143)1.000:0.111361232,(gamma1:0.020186492,gamma2:0.020383289)1.000:0.108158176);",
+      "log": "FastTree Version 2.2.0 Double precision\nAlignment: <fixtures>/protein.afa\nAmino acid distances: BLOSUM45 Joins: balanced Support: SH-like 1000\nSearch: Normal +NNI +SPR (2 rounds range 10) +ML-NNI opt-each=1\nTopHits: 1.00*sqrtN close=default refresh=0.80\nML Model: Le-Gascuel 2008, CAT approximation with 20 rate categories\nInitial topology in 0.00 seconds\nRefining topology: 10 rounds ME-NNIs, 2 rounds ME-SPRs, 5 rounds ML-NNIs\nTotal branch-length 0.575 after 0.00 sec\nML-NNI round 1: LogLk = -4884.440 NNIs 0 max delta 0.00 Time 0.02\nSwitched to using 20 rate categories (CAT approximation)\nRate categories were divided by 0.715 so that average rate = 1.0\nCAT-based log-likelihoods may not be comparable across runs\nUse -gamma for approximate but comparable Gamma(20) log-likelihoods\nML-NNI round 2: LogLk = -4816.990 NNIs 0 max delta 0.00 Time 0.04\nTurning off heuristics for final round of ML NNIs (converged)\nML-NNI round 3: LogLk = -4816.987 NNIs 0 max delta 0.00 Time 0.06 (final)\nOptimize all lengths: LogLk = -4816.987 Time 0.06\nTotal time: 0.08 seconds Unique: 6/6 Bad splits: 0/3\n"
+    },
+    "protein-LG-gamma-none": {
+      "argv": [
+        "<pinned-official-Linux-FastTree>",
+        "-nopr",
+        "-cat",
+        "20",
+        "-seed",
+        "42",
+        "-boot",
+        "0",
+        "-lg",
+        "-gamma",
+        "<fixtures>/protein.afa"
+      ],
+      "tree": "((beta1:0.020258475,beta2:0.019741463):0.109768487,(alpha1:0.020625675,alpha2:0.020353441):0.111122632,(gamma1:0.020143241,gamma2:0.020339616):0.107926438);",
+      "log": "FastTree Version 2.2.0 Double precision\nAlignment: <fixtures>/protein.afa\nAmino acid distances: BLOSUM45 Joins: balanced Support: none\nSearch: Normal +NNI +SPR (2 rounds range 10) +ML-NNI opt-each=1\nTopHits: 1.00*sqrtN close=default refresh=0.80\nML Model: Le-Gascuel 2008, CAT approximation with 20 rate categories\nInitial topology in 0.00 seconds\nRefining topology: 10 rounds ME-NNIs, 2 rounds ME-SPRs, 5 rounds ML-NNIs\nTotal branch-length 0.575 after 0.01 sec\nML-NNI round 1: LogLk = -4884.440 NNIs 0 max delta 0.00 Time 0.03\nSwitched to using 20 rate categories (CAT approximation)\nRate categories were divided by 0.715 so that average rate = 1.0\nCAT-based log-likelihoods may not be comparable across runs\nML-NNI round 2: LogLk = -4816.990 NNIs 0 max delta 0.00 Time 0.04\nTurning off heuristics for final round of ML NNIs (converged)\nML-NNI round 3: LogLk = -4816.987 NNIs 0 max delta 0.00 Time 0.06 (final)\nOptimize all lengths: LogLk = -4816.987 Time 0.07\nGamma(20) LogLk = -4886.940 alpha = 9.983 rescaling lengths by 0.998\nTotal time: 0.10 seconds Unique: 6/6 Bad splits: 0/3\n"
+    },
+    "protein-LG-gamma-sh": {
+      "argv": [
+        "<pinned-official-Linux-FastTree>",
+        "-nopr",
+        "-cat",
+        "20",
+        "-seed",
+        "42",
+        "-boot",
+        "1000",
+        "-lg",
+        "-gamma",
+        "<fixtures>/protein.afa"
+      ],
+      "tree": "((beta1:0.020258475,beta2:0.019741463)1.000:0.109768487,(alpha1:0.020625675,alpha2:0.020353441)1.000:0.111122632,(gamma1:0.020143241,gamma2:0.020339616)1.000:0.107926438);",
+      "log": "FastTree Version 2.2.0 Double precision\nAlignment: <fixtures>/protein.afa\nAmino acid distances: BLOSUM45 Joins: balanced Support: SH-like 1000\nSearch: Normal +NNI +SPR (2 rounds range 10) +ML-NNI opt-each=1\nTopHits: 1.00*sqrtN close=default refresh=0.80\nML Model: Le-Gascuel 2008, CAT approximation with 20 rate categories\nInitial topology in 0.00 seconds\nRefining topology: 10 rounds ME-NNIs, 2 rounds ME-SPRs, 5 rounds ML-NNIs\nTotal branch-length 0.575 after 0.00 sec\nML-NNI round 1: LogLk = -4884.440 NNIs 0 max delta 0.00 Time 0.02\nSwitched to using 20 rate categories (CAT approximation)\nRate categories were divided by 0.715 so that average rate = 1.0\nCAT-based log-likelihoods may not be comparable across runs\nML-NNI round 2: LogLk = -4816.990 NNIs 0 max delta 0.00 Time 0.03\nTurning off heuristics for final round of ML NNIs (converged)\nML-NNI round 3: LogLk = -4816.987 NNIs 0 max delta 0.00 Time 0.05 (final)\nOptimize all lengths: LogLk = -4816.987 Time 0.05\nGamma(20) LogLk = -4886.940 alpha = 9.983 rescaling lengths by 0.998\nTotal time: 0.10 seconds Unique: 6/6 Bad splits: 0/3\n"
+    },
+    "protein-WAG-cat-none": {
+      "argv": [
+        "<pinned-official-Linux-FastTree>",
+        "-nopr",
+        "-cat",
+        "20",
+        "-seed",
+        "42",
+        "-boot",
+        "0",
+        "-wag",
+        "<fixtures>/protein.afa"
+      ],
+      "tree": "((beta1:0.020044932,beta2:0.019715146):0.106053392,(alpha1:0.020103599,alpha2:0.020308699):0.106868527,(gamma1:0.019961514,gamma2:0.020048320):0.104361510);",
+      "log": "FastTree Version 2.2.0 Double precision\nAlignment: <fixtures>/protein.afa\nAmino acid distances: BLOSUM45 Joins: balanced Support: none\nSearch: Normal +NNI +SPR (2 rounds range 10) +ML-NNI opt-each=1\nTopHits: 1.00*sqrtN close=default refresh=0.80\nML Model: Whelan-And-Goldman, CAT approximation with 20 rate categories\nInitial topology in 0.00 seconds\nRefining topology: 10 rounds ME-NNIs, 2 rounds ME-SPRs, 5 rounds ML-NNIs\nTotal branch-length 0.575 after 0.01 sec\nML-NNI round 1: LogLk = -4795.592 NNIs 0 max delta 0.00 Time 0.03\nSwitched to using 20 rate categories (CAT approximation)\nRate categories were divided by 0.712 so that average rate = 1.0\nCAT-based log-likelihoods may not be comparable across runs\nUse -gamma for approximate but comparable Gamma(20) log-likelihoods\nML-NNI round 2: LogLk = -4732.779 NNIs 0 max delta 0.00 Time 0.04\nTurning off heuristics for final round of ML NNIs (converged)\nML-NNI round 3: LogLk = -4732.778 NNIs 0 max delta 0.00 Time 0.06 (final)\nOptimize all lengths: LogLk = -4732.778 Time 0.07\nTotal time: 0.09 seconds Unique: 6/6 Bad splits: 0/3\n"
+    },
+    "protein-WAG-cat-sh": {
+      "argv": [
+        "<pinned-official-Linux-FastTree>",
+        "-nopr",
+        "-cat",
+        "20",
+        "-seed",
+        "42",
+        "-boot",
+        "1000",
+        "-wag",
+        "<fixtures>/protein.afa"
+      ],
+      "tree": "((beta1:0.020044932,beta2:0.019715146)1.000:0.106053392,(alpha1:0.020103599,alpha2:0.020308699)1.000:0.106868527,(gamma1:0.019961514,gamma2:0.020048320)1.000:0.104361510);",
+      "log": "FastTree Version 2.2.0 Double precision\nAlignment: <fixtures>/protein.afa\nAmino acid distances: BLOSUM45 Joins: balanced Support: SH-like 1000\nSearch: Normal +NNI +SPR (2 rounds range 10) +ML-NNI opt-each=1\nTopHits: 1.00*sqrtN close=default refresh=0.80\nML Model: Whelan-And-Goldman, CAT approximation with 20 rate categories\nInitial topology in 0.00 seconds\nRefining topology: 10 rounds ME-NNIs, 2 rounds ME-SPRs, 5 rounds ML-NNIs\nTotal branch-length 0.575 after 0.00 sec\nML-NNI round 1: LogLk = -4795.592 NNIs 0 max delta 0.00 Time 0.02\nSwitched to using 20 rate categories (CAT approximation)\nRate categories were divided by 0.712 so that average rate = 1.0\nCAT-based log-likelihoods may not be comparable across runs\nUse -gamma for approximate but comparable Gamma(20) log-likelihoods\nML-NNI round 2: LogLk = -4732.779 NNIs 0 max delta 0.00 Time 0.03\nTurning off heuristics for final round of ML NNIs (converged)\nML-NNI round 3: LogLk = -4732.778 NNIs 0 max delta 0.00 Time 0.05 (final)\nOptimize all lengths: LogLk = -4732.778 Time 0.05\nTotal time: 0.07 seconds Unique: 6/6 Bad splits: 0/3\n"
+    },
+    "protein-WAG-gamma-none": {
+      "argv": [
+        "<pinned-official-Linux-FastTree>",
+        "-nopr",
+        "-cat",
+        "20",
+        "-seed",
+        "42",
+        "-boot",
+        "0",
+        "-wag",
+        "-gamma",
+        "<fixtures>/protein.afa"
+      ],
+      "tree": "((beta1:0.020064997,beta2:0.019734881):0.106159551,(alpha1:0.020123722,alpha2:0.020329028):0.106975503,(gamma1:0.019981495,gamma2:0.020068389):0.104465976);",
+      "log": "FastTree Version 2.2.0 Double precision\nAlignment: <fixtures>/protein.afa\nAmino acid distances: BLOSUM45 Joins: balanced Support: none\nSearch: Normal +NNI +SPR (2 rounds range 10) +ML-NNI opt-each=1\nTopHits: 1.00*sqrtN close=default refresh=0.80\nML Model: Whelan-And-Goldman, CAT approximation with 20 rate categories\nInitial topology in 0.00 seconds\nRefining topology: 10 rounds ME-NNIs, 2 rounds ME-SPRs, 5 rounds ML-NNIs\nTotal branch-length 0.575 after 0.01 sec\nML-NNI round 1: LogLk = -4795.592 NNIs 0 max delta 0.00 Time 0.03\nSwitched to using 20 rate categories (CAT approximation)\nRate categories were divided by 0.712 so that average rate = 1.0\nCAT-based log-likelihoods may not be comparable across runs\nML-NNI round 2: LogLk = -4732.779 NNIs 0 max delta 0.00 Time 0.04\nTurning off heuristics for final round of ML NNIs (converged)\nML-NNI round 3: LogLk = -4732.778 NNIs 0 max delta 0.00 Time 0.06 (final)\nOptimize all lengths: LogLk = -4732.778 Time 0.07\nGamma(20) LogLk = -4798.850 alpha = 9.987 rescaling lengths by 1.001\nTotal time: 0.11 seconds Unique: 6/6 Bad splits: 0/3\n"
+    },
+    "protein-WAG-gamma-sh": {
+      "argv": [
+        "<pinned-official-Linux-FastTree>",
+        "-nopr",
+        "-cat",
+        "20",
+        "-seed",
+        "42",
+        "-boot",
+        "1000",
+        "-wag",
+        "-gamma",
+        "<fixtures>/protein.afa"
+      ],
+      "tree": "((beta1:0.020064997,beta2:0.019734881)1.000:0.106159551,(alpha1:0.020123722,alpha2:0.020329028)1.000:0.106975503,(gamma1:0.019981495,gamma2:0.020068389)1.000:0.104465976);",
+      "log": "FastTree Version 2.2.0 Double precision\nAlignment: <fixtures>/protein.afa\nAmino acid distances: BLOSUM45 Joins: balanced Support: SH-like 1000\nSearch: Normal +NNI +SPR (2 rounds range 10) +ML-NNI opt-each=1\nTopHits: 1.00*sqrtN close=default refresh=0.80\nML Model: Whelan-And-Goldman, CAT approximation with 20 rate categories\nInitial topology in 0.00 seconds\nRefining topology: 10 rounds ME-NNIs, 2 rounds ME-SPRs, 5 rounds ML-NNIs\nTotal branch-length 0.575 after 0.00 sec\nML-NNI round 1: LogLk = -4795.592 NNIs 0 max delta 0.00 Time 0.02\nSwitched to using 20 rate categories (CAT approximation)\nRate categories were divided by 0.712 so that average rate = 1.0\nCAT-based log-likelihoods may not be comparable across runs\nML-NNI round 2: LogLk = -4732.779 NNIs 0 max delta 0.00 Time 0.03\nTurning off heuristics for final round of ML NNIs (converged)\nML-NNI round 3: LogLk = -4732.778 NNIs 0 max delta 0.00 Time 0.04 (final)\nOptimize all lengths: LogLk = -4732.778 Time 0.05\nGamma(20) LogLk = -4798.850 alpha = 9.987 rescaling lengths by 1.001\nTotal time: 0.09 seconds Unique: 6/6 Bad splits: 0/3\n"
+    }
+  }
+}

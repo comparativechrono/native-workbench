@@ -1,0 +1,185 @@
+name: Unpublished Kalign pack candidate
+
+on:
+  push:
+    branches: [feature/kalign-pack]
+    paths:
+      - 'tools/kalign/**'
+      - 'scripts/*kalign*'
+      - 'tests/*kalign*'
+      - 'docs/KALIGN-PACK.md'
+      - '.github/workflows/native-kalign-candidate.yml'
+  pull_request:
+    paths:
+      - 'tools/kalign/**'
+      - 'scripts/*kalign*'
+      - 'tests/*kalign*'
+      - '.github/workflows/native-kalign-candidate.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: kalign-${{ github.event.pull_request.head.ref || github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    # Same-repository branch pushes already run the exact head; do not build a
+    # synthetic PR merge commit a second time with different source provenance.
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository
+    runs-on: ubuntu-22.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Recover exact cross compiler
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/compiler" build/candidate-build-evidence
+          curl --fail --location --retry 3 'https://github.com/mstorsjo/llvm-mingw/releases/download/20260922/llvm-mingw-20260922-ucrt-ubuntu-22.04-x86_64.tar.xz' -o "$RUNNER_TEMP/compiler/compiler.tar.xz"
+          echo 'bb7bb7654b33d5aa8712acb837c963b2e0c56352560c76105270a3268c665c21  '"$RUNNER_TEMP/compiler/compiler.tar.xz" | sha256sum --check
+          tar -xf "$RUNNER_TEMP/compiler/compiler.tar.xz" -C "$RUNNER_TEMP/compiler"
+          echo "BW_MINGW_ROOT=$RUNNER_TEMP/compiler/llvm-mingw-20260922-ucrt-ubuntu-22.04-x86_64" >> "$GITHUB_ENV"
+          python3 - <<'PY'
+          import json,os,platform
+          from pathlib import Path
+          record = {'schema':1,'sourceCommit':os.environ['GITHUB_SHA'],'compilerArchiveSha256':'bb7bb7654b33d5aa8712acb837c963b2e0c56352560c76105270a3268c665c21',
+                    'compilerArchiveUrl':'https://github.com/mstorsjo/llvm-mingw/releases/download/20260922/llvm-mingw-20260922-ucrt-ubuntu-22.04-x86_64.tar.xz',
+                    'platform':platform.platform(),'windowsExecuted':False}
+          Path('build/candidate-build-evidence/build-inputs.json').write_text(json.dumps(record,indent=2)+'\n')
+          PY
+      - name: Build pinned upstream reference and adapted native executables
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/build_kalign_native.py --cache build/kalign-cache --build build/kalign-reference-linux --fetch --linux --upstream 2>&1 | tee build/candidate-build-evidence/kalign-pristine-linux-build.log
+          python3 scripts/build_kalign_native.py --cache build/kalign-cache --build build/kalign-linux --linux 2>&1 | tee build/candidate-build-evidence/kalign-linux-build.log
+          python3 scripts/build_kalign_native.py --cache build/kalign-cache --build build/kalign-windows --toolchain "$BW_MINGW_ROOT" 2>&1 | tee build/candidate-build-evidence/kalign-windows-build.log
+          python3 - <<'PYCODE'
+          from pathlib import Path
+          import shutil
+          for name in ('kalign-reference-linux', 'kalign-linux', 'kalign-windows'):
+              out = Path('build/candidate-build-evidence') / name
+              out.mkdir()
+              for item in (Path('build') / name).iterdir():
+                  if item.is_file() and (item.name == 'build.json' or item.suffix in ('.log', '.txt')):
+                      shutil.copyfile(item, out / item.name)
+          PYCODE
+      - name: Check source and Linux scientific reference behavior
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 tests/test_kalign_validation.py 2>&1 | tee build/candidate-build-evidence/kalign-evidence-contract-tests.log
+          python3 tests/test_prodigal_fasttree_validation.py 2>&1 | tee build/candidate-build-evidence/shared-evidence-contract-tests.log
+          python3 tests/test_kalign_pack.py --build build/kalign-linux --reference-binary build/kalign-reference-linux/kalign --report build/candidate-build-evidence/kalign-linux-science.json 2>&1 | tee build/candidate-build-evidence/kalign-linux-science.log
+          python3 tests/test_pack_checks.py 2>&1 | tee build/candidate-build-evidence/pack-check-contracts.log
+          python3 tests/test_pack_manager.py 2>&1 | tee build/candidate-build-evidence/pack-manager-contracts.log
+          python3 -m py_compile scripts/check_kalign_windows.py scripts/check_kalign_gui.py
+      - name: Prepare and freeze the exact pack and corresponding sources
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/prepare_kalign_pack.py --cache build/kalign-cache --build build/kalign-windows --destination build/packs/kalign-1.0.0
+          python3 scripts/check_kalign_windows.py freeze --kalign-pack build/packs/kalign-1.0.0 --source-commit "$GITHUB_SHA" --build-evidence build/candidate-build-evidence --output "$RUNNER_TEMP/kalign-candidate"
+          python3 scripts/audit_kalign_candidate.py --candidate "$RUNNER_TEMP/kalign-candidate" --source-commit "$GITHUB_SHA" --report "$RUNNER_TEMP/kalign-candidate/archive-source-audit.json"
+      - name: Preserve unpublished archives and matching source/evidence
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: kalign-candidate-${{ github.sha }}
+          path: ${{ runner.temp }}/kalign-candidate
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - name: Preserve build failure diagnostics
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: kalign-build-evidence-${{ github.sha }}
+          path: build/candidate-build-evidence
+          if-no-files-found: warn
+          retention-days: 30
+
+  native:
+    needs: build
+    runs-on: windows-2022
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        folder: [ordinary, 'path with spaces']
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: kalign-candidate-${{ github.sha }}
+          path: ${{ runner.temp }}/kalign-candidate
+      - name: Retrieve immutable FastTree integration candidate
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: prodigal-fasttree-candidate-d175076d57f4c84743cb375369c604085a720204
+          run-id: 38387733137
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/fasttree-dependency
+      - name: Download pinned released application and verify integration dependency
+        id: prepare
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path $env:RUNNER_TEMP 'published-starter.zip'
+          Invoke-WebRequest 'https://github.com/comparativechrono/workbench/releases/download/app-v0.16.0/native-workbench-0.16.0-starter-windows.zip' -OutFile $app
+          if ((Get-FileHash $app -Algorithm SHA256).Hash -ne 'f96e03e43cac92ba8ca9a0a3807eb671f9924d5e624cadbba94d1a5ca1309073') { throw 'Published application differs.' }
+          $fasttree = Join-Path $env:RUNNER_TEMP 'fasttree-dependency/native-workbench-pack-fasttree-1.0.0.zip'
+          if ((Get-FileHash $fasttree -Algorithm SHA256).Hash -ne '4525aa8001b7b190eecbee5a164bb9586ce9f78d8672635df25ae4e462165c20') { throw 'Immutable unpublished FastTree dependency differs.' }
+          Expand-Archive $app (Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'released-app')
+      - name: Exact released-app import, science, typed chains, provenance and Starter regression
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'released-app') 'native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I -B scripts/check_kalign_windows.py native --candidate "$env:RUNNER_TEMP/kalign-candidate" --app-root $app --app-archive "$env:RUNNER_TEMP/published-starter.zip" --app-version 0.16.0 --mode science --source-commit $env:GITHUB_SHA --fasttree-archive "$env:RUNNER_TEMP/fasttree-dependency/native-workbench-pack-fasttree-1.0.0.zip" --report "$env:RUNNER_TEMP/kalign-evidence/science/native.json"
+          if ($LASTEXITCODE -ne 0) { throw 'Exact released-app native science gate failed.' }
+      - name: Retrieve unchanged wrapped-library UI candidate
+        if: always() && !cancelled() && steps.prepare.outcome == 'success'
+        id: ui_download
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: wrapped-library-starter-ff13db729a6215e9fe5dfa4a4efdb9c769880287
+          run-id: 38075960020
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/frozen-ui
+      - name: Native library, forms and recorded results screenshots on frozen UI candidate
+        if: always() && !cancelled() && steps.ui_download.outcome == 'success'
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $archive = Join-Path $env:RUNNER_TEMP 'frozen-ui/native-workbench-0.16.1-starter-windows.zip'
+          if ((Get-FileHash $archive -Algorithm SHA256).Hash -ne '28f1362287991621dde030da54eb444846142c0243be6b9d86c4b4f1bf99dd47') { throw 'Frozen UI application differs.' }
+          $parent = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'frozen-ui-app'
+          Expand-Archive $archive $parent
+          $app = Join-Path $parent 'native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I -B scripts/check_kalign_windows.py native --candidate "$env:RUNNER_TEMP/kalign-candidate" --app-root $app --app-archive $archive --app-version 0.16.1 --mode gui --source-commit $env:GITHUB_SHA --report "$env:RUNNER_TEMP/kalign-evidence/gui/native.json"
+          if ($LASTEXITCODE -ne 0) { throw 'Frozen UI native pack review failed.' }
+      - name: Preserve exact-archive Windows evidence and screenshots
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: kalign-native-${{ matrix.folder }}-${{ github.sha }}
+          path: ${{ runner.temp }}/kalign-evidence
+          if-no-files-found: error
+          compression-level: 6
+          retention-days: 30

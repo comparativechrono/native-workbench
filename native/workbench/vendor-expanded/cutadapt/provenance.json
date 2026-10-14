@@ -1,0 +1,158 @@
+{
+  "retrieved": "2026-10-02",
+  "description": "Official unmodified Windows wheels and isolated embeddable Python; Linux wheels for scientific reference.",
+  "files": [
+    {
+      "package": "cutadapt",
+      "version": "5.2",
+      "file": "windows-wheels/cutadapt-5.2-cp313-cp313-win_amd64.whl",
+      "sha256": "96b60b935e2439787544c5cc44def71ea8a8278635edeaa5baff2538a46e7bdb",
+      "url": "https://files.pythonhosted.org/packages/61/77/e800f49b97dad5b27ff8b4c269f023ea6e301540c86b1f003e7ce16093d5/cutadapt-5.2-cp313-cp313-win_amd64.whl",
+      "bytes": 221490
+    },
+    {
+      "package": "cutadapt",
+      "version": "5.2",
+      "file": "linux-wheels/cutadapt-5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "sha256": "b851f4d651dc86f2826c22b8a302505e1e0ef80cd73330c6db69892e0f677dce",
+      "url": "https://files.pythonhosted.org/packages/65/97/a64e447ba9e891e765393ce8606119f0247c9a8dd6fccbabd8adea21bb44/cutadapt-5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "bytes": 281061
+    },
+    {
+      "package": "cutadapt",
+      "version": "5.2",
+      "file": "archives/cutadapt-5.2.tar.gz",
+      "sha256": "2394deead42ecae5fe0fdf369e35f3e2afed770e14059582272779c2e8295d3c",
+      "url": "https://files.pythonhosted.org/packages/25/0a/2b4007e4577dd3e19affdf7aa716ebf9642e224d68a9205b2081d42ed08a/cutadapt-5.2.tar.gz",
+      "bytes": 253642
+    },
+    {
+      "package": "dnaio",
+      "version": "1.2.4",
+      "file": "windows-wheels/dnaio-1.2.4-cp313-cp313-win_amd64.whl",
+      "sha256": "c14c75b890a21559b416e77a82dad078ff73fb4e05e39b4b45ee0f315b455063",
+      "url": "https://files.pythonhosted.org/packages/fb/e9/8508eeadb3573e4c6008d78cec006aa9f9615a16262fd25b7dbaa3775ed6/dnaio-1.2.4-cp313-cp313-win_amd64.whl",
+      "bytes": 80417
+    },
+    {
+      "package": "dnaio",
+      "version": "1.2.4",
+      "file": "linux-wheels/dnaio-1.2.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "sha256": "5deda100d355f5275948d1863a199996a1a22077f147ca99514c24de87588250",
+      "url": "https://files.pythonhosted.org/packages/b3/99/a041618c65bf31c1d8c5fd966aad0e7a9e86c43624743c62bbb4a944d106/dnaio-1.2.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "bytes": 106062
+    },
+    {
+      "package": "dnaio",
+      "version": "1.2.4",
+      "file": "archives/dnaio-1.2.4.tar.gz",
+      "sha256": "a7570311f29e8b3c1ea39a60f57b7baf8dad8f2508595c58d4278c5571463166",
+      "url": "https://files.pythonhosted.org/packages/a9/f2/3b4d7f4ac4fc25742fde4c5b50ed1bc60ab731cf8cabd3089dd11e4ea1c9/dnaio-1.2.4.tar.gz",
+      "bytes": 60430
+    },
+    {
+      "package": "xopen",
+      "version": "2.1.0",
+      "file": "windows-wheels/xopen-2.1.0-py3-none-any.whl",
+      "sha256": "0d01d2183e7496594cbed022b1d89a0a7f4e03900da1b8d59047322a5140a66d",
+      "url": "https://files.pythonhosted.org/packages/c1/d7/f27df80071464ea76f092f77e6801534f36c83ab1c24efed885e36166cc1/xopen-2.1.0-py3-none-any.whl",
+      "bytes": 17120
+    },
+    {
+      "package": "xopen",
+      "version": "2.1.0",
+      "file": "linux-wheels/xopen-2.1.0-py3-none-any.whl",
+      "sha256": "0d01d2183e7496594cbed022b1d89a0a7f4e03900da1b8d59047322a5140a66d",
+      "url": "https://files.pythonhosted.org/packages/c1/d7/f27df80071464ea76f092f77e6801534f36c83ab1c24efed885e36166cc1/xopen-2.1.0-py3-none-any.whl",
+      "bytes": 17120
+    },
+    {
+      "package": "xopen",
+      "version": "2.1.0",
+      "file": "archives/xopen-2.1.0.tar.gz",
+      "sha256": "06584821588f813563863b63d5e02568a4328661b7507ea38c432f24c69ea4b7",
+      "url": "https://files.pythonhosted.org/packages/77/bb/74a5222fc975fccb9f8bfb62613ca42a5a28008362c598df09806ecd12c1/xopen-2.1.0.tar.gz",
+      "bytes": 32424
+    },
+    {
+      "package": "isal",
+      "version": "1.8.0",
+      "file": "windows-wheels/isal-1.8.0-cp313-cp313-win_amd64.whl",
+      "sha256": "e1b2118cdc4b4813f679d6b941ec3f9db8d433c260df02fbc5fc6e2a007457b8",
+      "url": "https://files.pythonhosted.org/packages/2f/56/932cf1d1471e74ea8b21958cbbcc98f49a49251de5f629c292fce02fa51b/isal-1.8.0-cp313-cp313-win_amd64.whl",
+      "bytes": 202996
+    },
+    {
+      "package": "isal",
+      "version": "1.8.0",
+      "file": "linux-wheels/isal-1.8.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "sha256": "d3c28ff61f2f300e498ea0f50cb1528d8c14631fce4cdfce191ed05775952de3",
+      "url": "https://files.pythonhosted.org/packages/29/92/c10343738c170c31a5e25f0a1d024f8160ec107c5a2935a1a07587821100/isal-1.8.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "bytes": 264663
+    },
+    {
+      "package": "isal",
+      "version": "1.8.0",
+      "file": "archives/isal-1.8.0.tar.gz",
+      "sha256": "124233e9a31a62030a07aafd48c26689561926f4e10417ed3ea46c211218f2b4",
+      "url": "https://files.pythonhosted.org/packages/9c/35/40ff3eabd401036f792cf55ba9cd19dcd5e3cb79aa5798332885ab0ff1b9/isal-1.8.0.tar.gz",
+      "bytes": 4133365
+    },
+    {
+      "package": "zlib-ng",
+      "version": "1.0.0",
+      "file": "windows-wheels/zlib_ng-1.0.0-cp313-cp313-win_amd64.whl",
+      "sha256": "6ecf6ab9b7cb31ae192f469d7f1bcc1cae8314c7baf78bb174d43eb9a6e73f0d",
+      "url": "https://files.pythonhosted.org/packages/96/cc/255bf0e3098ff31690fa4ab73606330abd9e2f8f260999938456dd450fed/zlib_ng-1.0.0-cp313-cp313-win_amd64.whl",
+      "bytes": 93525
+    },
+    {
+      "package": "zlib-ng",
+      "version": "1.0.0",
+      "file": "linux-wheels/zlib_ng-1.0.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "sha256": "5332f9452b2fc27e47a1ca78fc150689ed9c51c7f449a5467bf41c4b206c439f",
+      "url": "https://files.pythonhosted.org/packages/6a/ed/5baf549131c47cbf5a00c35c7db7a78d5aa3c405605255a1496160a96a87/zlib_ng-1.0.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "bytes": 132407
+    },
+    {
+      "package": "zlib-ng",
+      "version": "1.0.0",
+      "file": "archives/zlib_ng-1.0.0.tar.gz",
+      "sha256": "c753cea73f9e803c246e9bf01a59eb652897ed8a19334ada0f968394c7f61650",
+      "url": "https://files.pythonhosted.org/packages/46/7d/901c6e333fb031b5bfbd1532099200cf859f12aa83689be494eade6685ec/zlib_ng-1.0.0.tar.gz",
+      "bytes": 5799954
+    },
+    {
+      "package": "backports.zstd",
+      "version": "1.7.0",
+      "file": "windows-wheels/backports_zstd-1.7.0-cp313-cp313-win_amd64.whl",
+      "sha256": "8086b4a7443bb2863f7ef8edb317b715d5f3ccec6c5512619bd23d57661ba1b7",
+      "url": "https://files.pythonhosted.org/packages/13/7d/fb0da7351e8b152d5149127594972922829281c316618df37a7e724f2eb9/backports_zstd-1.7.0-cp313-cp313-win_amd64.whl",
+      "bytes": 329550
+    },
+    {
+      "package": "backports.zstd",
+      "version": "1.7.0",
+      "file": "linux-wheels/backports_zstd-1.7.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "sha256": "470895d0bcddc850766e593d1b26764fb138c2feed149f515a2627ef9587d54c",
+      "url": "https://files.pythonhosted.org/packages/1e/40/121917bd2671bc3f1507c25503c0554f0b52483edcca4e6210e6d22228df/backports_zstd-1.7.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "bytes": 496195
+    },
+    {
+      "package": "backports.zstd",
+      "version": "1.7.0",
+      "file": "archives/backports_zstd-1.7.0.tar.gz",
+      "sha256": "1a967189c1822b6e85a2e550fdfc88a3272c17633ea0a4732dac5911a8034f2b",
+      "url": "https://files.pythonhosted.org/packages/75/f0/9ba1b05811aa5f5434f69768253129460a5744e1814f359efba39a01ce20/backports_zstd-1.7.0.tar.gz",
+      "bytes": 1003722
+    },
+    {
+      "package": "CPython",
+      "version": "3.13.16",
+      "file": "archives/python-3.13.16-embed-amd64.zip",
+      "sha256": "97dae5274cc54867065e8d5a3226e48c35017ed332a0fdb0e27d5b5821961297",
+      "url": "https://www.python.org/ftp/python/3.13.16/python-3.13.16-embed-amd64.zip",
+      "bytes": 11439094
+    }
+  ]
+}

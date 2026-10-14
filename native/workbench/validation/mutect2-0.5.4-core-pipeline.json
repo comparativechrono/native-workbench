@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "validatedAt": "2026-10-03T12:06:30.188358+00:00",
+  "nativeWindowsExecuted": false,
+  "packManifestSha256": "bef9c8ee3b35b3b4ead54ed359a019d6592933e5ee84a05e449d014891f7ab3e",
+  "modules": {
+    "catalog.py": "d3cab615952c3893d9ffd8900a761615179f6a6a9867b0d4eae96965ae408bbf",
+    "engine.py": "a112b218e04a98c6a0b4ee3fb25f9c5f7fa8c519ed836dc4ab148f2a4d469e47",
+    "pack_checks.py": "a26f3921560eb895cfac660ed1372dfe03b1bf2fb9df26ba8eb7d560f9fe333a"
+  },
+  "suiteResults": [
+    {
+      "suite": "workspace/tests/test_pack_schema.py",
+      "tests": 28,
+      "passed": 28,
+      "failed": 0
+    },
+    {
+      "suite": "tests/test_workspace_engine.py",
+      "tests": 28,
+      "passed": 28,
+      "failed": 0,
+      "installedPacks": "0.5.3 preserved baseline"
+    },
+    {
+      "suite": "tests/test_pack_checks.py",
+      "tests": 11,
+      "passed": 11,
+      "failed": 0
+    },
+    {
+      "suite": "tests/test_mutect2_pipeline.py",
+      "tests": 3,
+      "passed": 3,
+      "failed": 0,
+      "installedPacks": "0.5.4 stage"
+    },
+    {
+      "suite": "tests/test_aligner_caller_pipeline.py",
+      "tests": 6,
+      "passed": 6,
+      "failed": 0,
+      "installedPacks": "0.5.4 stage"
+    }
+  ],
+  "newPipeline": {
+    "successfulNodes": 6,
+    "ranks": [
+      [
+        "tumor coordinate sort",
+        "normal coordinate sort"
+      ],
+      [
+        "Mutect2 tumor-normal"
+      ],
+      [
+        "all-filtered VCF statistics",
+        "PASS VCF statistics"
+      ],
+      [
+        "attributed report"
+      ]
+    ],
+    "alignmentReferenceChecks": "Both prepared BAMs matched the selected FASTA names, lengths and M5 sequence hashes.",
+    "outputs": "GATK-filtered VCF and PASS-only VCF feed actual BCFtools statistics and separate attributed HTML sections.",
+    "provenance": "Frozen version pins, planned/completed methods, diagram, named report attribution; pipeline and preset omit specimen bindings.",
+    "pathCheck": "Actual commands executed from a temporary folder containing spaces."
+  },
+  "validation": "Real declared pack argv; SAMtools and BCFtools run their packaged APE binaries through pinned APE loader; only Java is replaced by pinned matching Linux runtime. This is not native Windows execution evidence.",
+  "constraints": [
+    "Distinct tumor and normal names; distinct physical file paths including hardlinks; header SM matches chosen sample.",
+    "VCF INFO AF requires Number=A and Type=Float; this is a header contract, not a guarantee for all record values or population/reference suitability.",
+    "Finite decimal contamination between 0 and 1; exact user string retained; this pack does not estimate contamination."
+  ]
+}

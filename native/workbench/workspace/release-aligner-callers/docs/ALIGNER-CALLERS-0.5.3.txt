@@ -1,0 +1,80 @@
+Native Workbench 0.5.3 - aligner/caller expansion
+
+This release extends the same local native desktop and typed pipeline engine.
+All original thirteen 0.5.2 packs are retained without scientific binary changes.
+New tasks are independently versioned, checksum-pinned packs with their own
+methods, citations, bundled fixtures and output assertions.
+
+BOWTIE2
+The Bowtie2 pack uses official unmodified Bowtie2 2.5.5 Windows executables.
+Its four operations cover single/paired reads with small (32-bit) or large
+(64-bit) reference indexing. Each run copies and indexes the reference in its
+private run folder and produces unsorted SAM. Plain/gzip Phred33 FASTQ input
+and sample/library/read-group/platform metadata are supported. Paired inputs
+are checked for matching mate identities before alignment.
+
+HISAT2
+The HISAT2 pack distinguishes genomic DNA from splice-aware RNA alignment,
+with single/paired workflows. Genomic DNA output is unsorted SAM for the
+existing preparation/calling pipelines. RNA output has a separate connection
+type; coordinate-sorted RNA BAM and its index are prepared with bundled
+SAMtools. RNA alignment is not evidence that a DNA caller is appropriate.
+
+LOFREQ
+LoFreq 2.1.5-workbench-port2 adds three single-threaded operations: SNV calling,
+Illumina Dindel indel-quality preparation, and preparation followed by SNV/indel
+calling. Inputs are coordinate-sorted DNA BAM and the matching uncompressed
+reference. Duplicate-marked alignments are recommended. Spliced RNA alignments
+are not accepted for indel preparation. Dindel qualities are not BQSR or
+realignment and are written only to a new BAM.
+
+Calls are PASS sites in an eight-column VCF without sample genotypes. Allele
+frequency is the observed alternate-read fraction. Target BED restriction is
+not exposed by this initial pack. The unused upstream uniq/CDF component is
+excluded; its filtered corresponding-source archive and exact build/exclusion
+recipe are retained. Call/filter/indelqual calculations are preserved.
+
+VARDICT
+VarDictJava 1.8.3 adds single-sample targeted SNV/small-indel calling from a
+prepared DNA BAM, matching reference and nonoverlapping BED4 intervals.
+Read groups must contain one sample name matching the operation's sample
+field. It creates private indexes; the BAI limit rules out contigs beyond
+that index's coordinate range. Structural-variant calling is disabled.
+
+The upstream Java --fisher mode is experimental. It replaces the R stage;
+40 deterministic statistical tables agreed with the tested R reference, which
+does not establish equivalence for every input or caller accuracy. The official
+unmodified Perl converter and its allele-fraction genotype convention are
+retained. The operation reports normalized calls with original FILTER labels,
+separate PASS calls/statistics, and the original candidate table and logs.
+It does not establish somatic status or infer arbitrary ploidy.
+
+Caller thresholds and evidence models differ. Agreement or disagreement with
+another caller is not a general accuracy result; the bundled fixtures establish
+specific expected behavior for their stated inputs.
+
+PRIVATE RUNTIMES
+VarDict includes its private Java/Perl runtime and official output converter.
+No global installation or PATH change is required. For VarDict testing, use a
+short ASCII installation path without spaces, following the bundled Perl
+runtime guidance. Very long or non-ASCII Windows paths remain unverified. The native bridge removes
+Java/Perl launch override variables only from scientific child environments;
+user and machine settings remain unchanged. Pack integrity covers runtime
+libraries/resources as well as the main executable. Packs are bounded to
+512 MiB total, 256 MiB per executable/runtime asset and 2,000 files/folders. The total limit also
+accounts for the corresponding-source archives shipped with private runtimes.
+
+REPRODUCIBILITY AND CHECKS
+Every new pack retains version/source provenance, licenses, dependency/source
+materials, fixed fixtures and deterministic scientific assertions. File > Check
+installation runs those fixtures on Windows and saves full evidence. Linux
+reference checks and PE import inspection are reported separately from native
+Windows execution. Use the reports to distinguish supported/tested behavior
+from results that still need confirmation on your computer.
+
+SOURCE AND DEPLOYMENT
+See BUILD-0.5.3.txt and SOURCE-CONTENTS-0.5.3.json for complete application
+source, exact corresponding-source archives and local restoration instructions.
+The application retains the normal-user asInvoker manifest and private pipe
+transport. Institution-specific application-control rules apply to the main
+application, private runtimes and tool executables; no policy bypass is built in.

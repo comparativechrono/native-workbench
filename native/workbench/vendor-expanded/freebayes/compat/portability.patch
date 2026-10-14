@@ -1,0 +1,61 @@
+--- a/src/LargeFileSupport.h
++++ b/src/LargeFileSupport.h
+@@ -1,3 +1,4 @@
++#include <sys/types.h>
+ #ifndef FREEBAYES_LARGEFILESUPPORT_H
+ #define FREEBAYES_LARGEFILESUPPORT_H
+ 
+@@ -16,7 +17,8 @@
+ #else
+ #define ftell64(a)     ftello(a)
+ #define fseek64(a,b,c) fseeko(a,b,c)
+-typedef __off64_t off_type;
++typedef off_t off_type;
++static_assert(sizeof(off_type) >= 8, "64-bit file offsets required");
+ #endif
+ 
+ #endif
+--- a/contrib/fastahack/LargeFileSupport.h
++++ b/contrib/fastahack/LargeFileSupport.h
+@@ -1,3 +1,4 @@
++#include <sys/types.h>
+ #pragma once
+ 
+ #define _FILE_OFFSET_BITS 64
+@@ -12,5 +13,6 @@
+ #else
+ #define ftell64(a)     ftello(a)
+ #define fseek64(a,b,c) fseeko(a,b,c)
+-typedef __off64_t off_type;
++typedef off_t off_type;
++static_assert(sizeof(off_type) >= 8, "64-bit file offsets required");
+ #endif
+--- a/src/SegfaultHandler.h
++++ b/src/SegfaultHandler.h
+@@ -2,7 +2,7 @@
+ #define FREEBAYES_SEGFAULTHANDLER_H
+ 
+ #include <stdio.h>
+-#ifndef __CYGWIN__
++#if !defined(__CYGWIN__) && !defined(__COSMOPOLITAN__)
+ #include <execinfo.h>
+ #endif
+ #include <signal.h>
+--- a/src/SegfaultHandler.cpp
++++ b/src/SegfaultHandler.cpp
+@@ -4,7 +4,7 @@
+ // many thanks to tgamblin
+ 
+ void segfaultHandler(int sig) {
+-#ifndef __CYGWIN__
++#if !defined(__CYGWIN__) && !defined(__COSMOPOLITAN__)
+     void *array[10];
+     size_t size;
+ 
+@@ -15,5 +15,6 @@
+     fprintf(stderr, "Error: signal %d:\n", sig);
+     backtrace_symbols_fd(array, size, 2);
+ #endif
++    fprintf(stderr, "FreeBayes terminated after signal %d\n", sig);
+     exit(1);
+ }

@@ -1,0 +1,185 @@
+{
+  "schema": 1,
+  "tool": "SeqKit",
+  "version": "2.14.0",
+  "packVersion": "0.5.2",
+  "testsRun": 16,
+  "failures": 0,
+  "errors": 0,
+  "success": true,
+  "manifestSha256": "07ba276cd0630d3dabac9b12f6ed0efffe8ba1b133a4b6a727a1e7d9097edfb8",
+  "linuxBinarySha256": "88aa8a539b1e9097220a47811367b7ef826eff8637e5284fdd32a372770d6f7d",
+  "windowsBinarySha256": "fe776820ff4f924844753b3b251966a7c8fd0b07d77c69f03caf59828ab077a1",
+  "windowsBinaryBytes": 21009920,
+  "windowsImports": [
+    "kernel32.dll"
+  ],
+  "nativeWindowsExecuted": false,
+  "executedWorkflows": [
+    "fastq-to-fasta",
+    "filter-nucleotide",
+    "filter-protein",
+    "filter-reads",
+    "reverse-complement",
+    "sample-nucleotide",
+    "sample-reads",
+    "statistics-nucleotide",
+    "statistics-protein",
+    "statistics-reads",
+    "subset-nucleotide",
+    "subset-protein",
+    "subset-reads",
+    "translate"
+  ],
+  "commands": [
+    {
+      "workflow": "fastq-to-fasta",
+      "parameters": {},
+      "exitCode": 0
+    },
+    {
+      "workflow": "filter-nucleotide",
+      "parameters": {
+        "min-length": 5,
+        "max-length": 8
+      },
+      "exitCode": 0
+    },
+    {
+      "workflow": "filter-protein",
+      "parameters": {
+        "min-length": 5,
+        "max-length": 8
+      },
+      "exitCode": 0
+    },
+    {
+      "workflow": "filter-reads",
+      "parameters": {
+        "min-length": 5,
+        "max-length": 7
+      },
+      "exitCode": 0
+    },
+    {
+      "workflow": "filter-reads",
+      "parameters": {
+        "min-length": 100
+      },
+      "exitCode": 0
+    },
+    {
+      "workflow": "statistics-reads",
+      "parameters": {},
+      "exitCode": 255
+    },
+    {
+      "workflow": "sample-reads",
+      "parameters": {
+        "count": 1
+      },
+      "exitCode": 255
+    },
+    {
+      "workflow": "reverse-complement",
+      "parameters": {},
+      "exitCode": 0
+    },
+    {
+      "workflow": "reverse-complement",
+      "parameters": {},
+      "exitCode": 255
+    },
+    {
+      "workflow": "sample-nucleotide",
+      "parameters": {
+        "count": 2,
+        "seed": 37
+      },
+      "exitCode": 0
+    },
+    {
+      "workflow": "sample-reads",
+      "parameters": {
+        "count": 2,
+        "seed": 37
+      },
+      "exitCode": 0
+    },
+    {
+      "workflow": "sample-reads",
+      "parameters": {
+        "count": 2,
+        "seed": 37
+      },
+      "exitCode": 0
+    },
+    {
+      "workflow": "sample-reads",
+      "parameters": {
+        "count": 100
+      },
+      "exitCode": 0
+    },
+    {
+      "workflow": "statistics-nucleotide",
+      "parameters": {},
+      "exitCode": 0
+    },
+    {
+      "workflow": "statistics-protein",
+      "parameters": {},
+      "exitCode": 0
+    },
+    {
+      "workflow": "statistics-reads",
+      "parameters": {},
+      "exitCode": 0
+    },
+    {
+      "workflow": "subset-nucleotide",
+      "parameters": {},
+      "exitCode": 0
+    },
+    {
+      "workflow": "subset-protein",
+      "parameters": {},
+      "exitCode": 0
+    },
+    {
+      "workflow": "subset-reads",
+      "parameters": {},
+      "exitCode": 0
+    },
+    {
+      "workflow": "subset-reads",
+      "parameters": {},
+      "exitCode": 0
+    },
+    {
+      "workflow": "translate",
+      "parameters": {},
+      "exitCode": 0
+    },
+    {
+      "workflow": "translate",
+      "parameters": {
+        "code": "2"
+      },
+      "exitCode": 0
+    },
+    {
+      "workflow": "translate",
+      "parameters": {
+        "frame": "-1"
+      },
+      "exitCode": 0
+    }
+  ],
+  "checks": [
+    "All 14 declarative manifest command argument lists executed against the official upstream Linux2.14.0 binary.",
+    "Exact sequence content, quality preservation, input immutability, length boundaries, exact-ID selection, deterministic capped sampling, gzip paths, translation frames/genetic codes and malformed input rejection checked.",
+    "Windows artifact SHA256 and PE imports inspected; four shipped on-demand checks can validate Windows execution on the target computer.",
+    "All53 embedded Go dependency module archives verified against their embedded h1 checksums; module/runtime notice file hashes checked."
+  ]
+}

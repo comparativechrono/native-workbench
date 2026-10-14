@@ -1,0 +1,11 @@
+--- a/c++/src/app/blastdb/makeblastdb.cpp
++++ b/c++/src/app/blastdb/makeblastdb.cpp
+@@ -1297,7 +1297,7 @@
+     if(success) {
+     	string new_db = m_DB->GetOutputDbName();
+     	CSeqDB::ESeqType t = is_protein? CSeqDB::eProtein: CSeqDB::eNucleotide;
+-    	CSeqDB sdb(new_db, t);
++    	CSeqDB sdb("\"" + new_db + "\"", t);
+         string output_prefix = args["metadata_output_prefix"]
+                 ? args["metadata_output_prefix"].AsString()
+                 : kEmptyStr;

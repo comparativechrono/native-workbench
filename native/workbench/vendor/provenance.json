@@ -1,0 +1,82 @@
+{
+  "retrieved_utc_date": "2026-10-01",
+  "source_archives": [
+    {
+      "tool": "seqtk",
+      "version": "v1.4",
+      "runtime_version": "1.4-r122",
+      "url": "https://codeload.github.com/lh3/seqtk/tar.gz/refs/tags/v1.4",
+      "file": "archives/seqtk-v1.4.tar.gz",
+      "sha256": "d124604ec24f29ed14ce127426ab90e0f3a2c0280c80d1a3ff8b1c09feede19c",
+      "license": "MIT",
+      "license_file": "seqtk-1.4/LICENSE",
+      "source_changes": "none"
+    },
+    {
+      "tool": "minimap2",
+      "version": "v2.28",
+      "runtime_version": "2.28-r1209",
+      "url": "https://codeload.github.com/lh3/minimap2/tar.gz/refs/tags/v2.28",
+      "file": "archives/minimap2-v2.28.tar.gz",
+      "sha256": "5ea6683b4184b5c49f6dbaef2bc5b66155e405888a0790d1b21fd3c93e474278",
+      "license": "MIT",
+      "license_file": "minimap2-2.28/LICENSE.txt",
+      "source_changes": "none"
+    }
+  ],
+  "portable_toolchain": {
+    "name": "Cosmopolitan cosmocc",
+    "version": "3.3.10",
+    "url": "https://cosmo.zip/pub/cosmocc/cosmocc-3.3.10.zip",
+    "sha256": "00d61c1215667314f66e288c8285bae38cc6137fca083e5bba6c74e3a52439de",
+    "gcc_version": "12.3.0",
+    "note": "Toolchain not redistributed in the prototype archive; runtime notices embedded by default. Build compilers/binutils GPL; libc/runtime permissive notice licenses as described upstream."
+  },
+  "reference_compiler": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+  "build_changes": [
+    "Portable build adds include/third_party/zlib to header search path.",
+    "Portable build omits -lz: Cosmopolitan libc provides zlib.",
+    "Portable minimap2 final link uses .exe filename to produce APE rather than ELF debug output."
+  ],
+  "validation_scope": "Executed on Linux x86_64 only. No Windows execution performed by this baseline task.",
+  "binaries": [
+    {
+      "file": "baselines/bin/ape-loader-linux",
+      "bytes": 9249,
+      "sha256": "ad98161cba98163f6aa383595804489cec52a9ff3b902be16b29368e171ba359"
+    },
+    {
+      "file": "baselines/bin/minimap2-cosmo.exe",
+      "bytes": 606354,
+      "sha256": "06bf0815a79552ffcb1291046c7828f2bf8b11d9ad7fe0d9309283e966e973fa"
+    },
+    {
+      "file": "baselines/bin/minimap2-cosmo.exe.dbg",
+      "bytes": 3316430,
+      "sha256": "fbda5ef66be72a13be360095cbad8cd90365bf6aef46f30cf9baaa431746c9c4"
+    },
+    {
+      "file": "baselines/bin/minimap2-linux",
+      "bytes": 1007688,
+      "sha256": "650930009f09cebd9d5f2e71b15bb5a67d3780358427fd5d817f96438db317b2"
+    },
+    {
+      "file": "baselines/bin/seqtk-cosmo.exe",
+      "bytes": 430226,
+      "sha256": "c5df3fadda2e622a2e358de78a0d34513b392b68bd50208ee3dccb4877c72c2e"
+    },
+    {
+      "file": "baselines/bin/seqtk-cosmo.exe.dbg",
+      "bytes": 2227774,
+      "sha256": "69a454cb4dcc857cef4d7d0c82598be2afe9e984694ff9e7760d1192793a2f8e"
+    },
+    {
+      "file": "baselines/bin/seqtk-linux",
+      "bytes": 260856,
+      "sha256": "29c65c13b2a29e3e196a991e1fdbbe08d21dac5c20e3556124f80fdb3c5312b9"
+    }
+  ],
+  "licensing": "See ../baselines/licenses/provenance.json for pinned runtime and third-party license texts, source-header notices and extracted embedded notices.",
+  "large_benchmark_report": "../baselines/results-200000/benchmark.json",
+  "small_benchmark_report": "../baselines/results/benchmark.json"
+}

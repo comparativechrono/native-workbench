@@ -1,0 +1,2307 @@
+{
+  "schema": 1,
+  "RVersion": "4.6.1",
+  "rtoolsVersion": "45",
+  "rtoolsSourceRevision": 6768,
+  "correspondingInstallerSha256": "c5424c40cd70ef85765a55d2ff96bb602b5f30ed536938ff004f14db5db3c2df",
+  "correspondingRuntimeSha256": "086fe014ca972b8f1a6e0fb4011af92f0041d565b5639b2b2a8a0ad29a256a77",
+  "files": [
+    {
+      "path": "recipes/build.sh",
+      "bytes": 9477,
+      "sha256": "f4db18f05ae98da7e34546969fd385346c4d07f055ad62d9d687dfeb1f293cf0",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/build.sh"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/build_in_docker.sh",
+      "bytes": 7828,
+      "sha256": "49be9ef002b13f6f050f6615ec67fe87fcc9ff3d301605d043dcc81033080cfb",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/build_in_docker.sh"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/00_README_R_MXE.md",
+      "bytes": 143,
+      "sha256": "a76843c92fa23cf8846112f0a1b89e69a27d88e11c72f5b17ea9275c92f2fafc",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/00_README_R_MXE.md"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/LICENSE.md",
+      "bytes": 2240,
+      "sha256": "8635b0a1680ec574e1965e3b0dd3cc69ef7bfb0ff4a60d9663d0e56d9fece1ff",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/LICENSE.md"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/Makefile",
+      "bytes": 47907,
+      "sha256": "4f1ba2588bd5d0616292b3b1b15e338befc729db63aee24871387eeaaea65f62",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/Makefile"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/README.md",
+      "bytes": 4411,
+      "sha256": "90d3837c9307a2924542916096b0c91d020f6d238fcc134c21546f902f5b0743",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/README.md"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/ext/__gmsl",
+      "bytes": 45657,
+      "sha256": "5ea5164245c9dad2ea9c388f50bfe1ddf84b9f6cd4cbe52f733e1f9785ad1290",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/ext/__gmsl"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/ext/config.guess",
+      "bytes": 50726,
+      "sha256": "641cae3c0c74c49354d3ede009f3febd80febe1501a77c1d9fac8d42cc45b6cb",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/ext/config.guess"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/ext/gmsl",
+      "bytes": 3031,
+      "sha256": "663fd2cfb5d22cacb9c294079a1ba9f8bf671e39c5cc100640a1db1479f3ed34",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/ext/gmsl"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/mxe.github.mk",
+      "bytes": 9430,
+      "sha256": "f0298c638781d8d1b804af96a564df52813c1968034a961d18b5bb6c031c675a",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/mxe.github.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/mxe.patch.mk",
+      "bytes": 4612,
+      "sha256": "175b812417a0e5f54ffc4a3a7ee0d47c65a2eccb1dab7e2c329e49c31e989245",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/mxe.patch.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/mxe.updates.mk",
+      "bytes": 3174,
+      "sha256": "e267762cfd572374fc9694301e047840eb41633b64ffc9d83f8032d740a6e6f4",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/mxe.updates.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/plugins/examples/host-toolchain/README.md",
+      "bytes": 2877,
+      "sha256": "11bbf242bc26a01eaf5cd23cc53e9bff1ad85ebbd7ed2d316a6b62c65f4bebf8",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/plugins/examples/host-toolchain/README.md"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/plugins/examples/host-toolchain/binutils-host.mk",
+      "bytes": 1197,
+      "sha256": "249ad824e67479985a7defe213d8f6e6965010ffca2fc0f90a6f9b2077490860",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/plugins/examples/host-toolchain/binutils-host.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/plugins/examples/host-toolchain/cmake-host.mk",
+      "bytes": 641,
+      "sha256": "c6826e432b479cec62d3ae7521399b4943ccf0730dc10db2aa2e6f51ed269c79",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/plugins/examples/host-toolchain/cmake-host.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/plugins/examples/host-toolchain/gcc-host.mk",
+      "bytes": 3300,
+      "sha256": "d473affc76cda55369644d61f4607ff18fcd2f9031cd7929f614c6ea84042c5f",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/plugins/examples/host-toolchain/gcc-host.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/plugins/examples/host-toolchain/make-host.mk",
+      "bytes": 2019,
+      "sha256": "82d03176b6bcc2f4999add15fd3e760d9a75781edededf9812af562ceb8b4ca5",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/plugins/examples/host-toolchain/make-host.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/plugins/examples/host-toolchain/pkgconf-host.mk",
+      "bytes": 2759,
+      "sha256": "584c84eed5805630cf10b86d706f6ea53e00a403532e6b7a8f6d37551ef8943e",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/plugins/examples/host-toolchain/pkgconf-host.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/plugins/examples/host-toolchain/qt5-host-tools.mk",
+      "bytes": 3050,
+      "sha256": "aa7b8e07ce191c024a18e14173a5eceffed5c2c2f5d57ed456e2e491fa800c6e",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/plugins/examples/host-toolchain/qt5-host-tools.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/plugins/examples/host-toolchain/winpthreads-host.mk",
+      "bytes": 833,
+      "sha256": "f534a8d85e138528acf803d0a3ca91958ef13fa19ab00ad8c43fa78529897382",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/plugins/examples/host-toolchain/winpthreads-host.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/plugins/gcc14/gcc14-1-libgomp-gfortran.patch",
+      "bytes": 876,
+      "sha256": "cfb654b9f1d4fb8454ddf8fffae490b73da4825fb310a7e2470071039e34a985",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/plugins/gcc14/gcc14-1-libgomp-gfortran.patch"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/plugins/gcc14/gcc14-overlay.mk",
+      "bytes": 2552,
+      "sha256": "1e29e603cdf81bee1ff5fc7aa5fa541e6ca3b2fc7d43a4d059f4aaedba6ba908",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/plugins/gcc14/gcc14-overlay.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/plugins/gcc14/gcc14.patch",
+      "bytes": 4573,
+      "sha256": "e33dcbda16e235eb653a38785e4246a38443029ed246394e4715eecd11136c56",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/plugins/gcc14/gcc14.patch"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/settings.mk",
+      "bytes": 2118,
+      "sha256": "cba93b5887f007f56ccd7e57221a3d281f2fdd51523a47b8db270b5c0749d708",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/settings.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/binutils.mk",
+      "bytes": 1389,
+      "sha256": "0fd2820ad84786c7f6c3fda5e13ba2fdcdbfb5aa2d8f153598dabb009e31eb0c",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/binutils.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/brotli.mk",
+      "bytes": 561,
+      "sha256": "d895c61072f8d654f5a12dc117514d1adf0a11dd1c99440fd5c85e137ae4503f",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/brotli.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/bzip2-1-fixes.patch",
+      "bytes": 1293,
+      "sha256": "c72246b123edffc187e2a4b505ab01abec000f40278d18fc600837fe9fcb2adc",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/bzip2-1-fixes.patch"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/bzip2.mk",
+      "bytes": 1372,
+      "sha256": "22d376eca51ae78a4a4e9a3b4e5ba527d57db64e8a8c4155e4e6b726d232433a",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/bzip2.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/cairo-1-fixes.patch",
+      "bytes": 2555,
+      "sha256": "58398aa2163b66819ad2f121473e08c740e73f5d39b54a29a832c53e3aca4c8b",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/cairo-1-fixes.patch"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/cairo-2-printf-clang.patch",
+      "bytes": 394,
+      "sha256": "86c1af2878a20bd3608fc476e4ba1f2451458a5f6f12e457e37b61082c38db82",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/cairo-2-printf-clang.patch"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/cairo.mk",
+      "bytes": 1577,
+      "sha256": "eac5bf2d42a3986ee52b72ac982efdb004fda7ef8e401964412118ffe42794b9",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/cairo.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/cc.mk",
+      "bytes": 374,
+      "sha256": "b0fb13cfdfec0a214375e270d5dbb12b182f78ff0d3b8e7efe38a570818771da",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/cc.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/cmake-1-fixes.patch",
+      "bytes": 3249,
+      "sha256": "1c83150070541f9d4f00ce3bbac2c36534a41ac1cc102971f6c234552e002e61",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/cmake-1-fixes.patch"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/cmake-2-lapack-flang.patch",
+      "bytes": 450,
+      "sha256": "c9a6f53601559f5a38048c716385fd3a5550bf417238b33b2f314ae18a307865",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/cmake-2-lapack-flang.patch"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/cmake-2-lapack-gfortran.patch",
+      "bytes": 432,
+      "sha256": "f5c9d3f8165ce0245c61a19f8df501b8b81f829e38b64a3df9eb38d914853b0b",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/cmake-2-lapack-gfortran.patch"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/cmake-conf.mk",
+      "bytes": 2545,
+      "sha256": "1d789550f6e283563dc8d7a9e2c79ba2da177af01b027b6164b0de29bdf17a8f",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/cmake-conf.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/cmake.mk",
+      "bytes": 1307,
+      "sha256": "bb48fdc65c852bb4bb9daee2f169398595834a8c83e43bc687b0ca23f483525a",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/cmake.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/cmake/conf/mxe-conf.cmake.in",
+      "bytes": 4261,
+      "sha256": "36282aaac2155b6b818e8b5bcf1067c38dd87a1514722a50e193061efdd6ce0b",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/cmake/conf/mxe-conf.cmake.in"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/cmake/conf/target-cmake.in",
+      "bytes": 991,
+      "sha256": "b96f1599d75fd4b5925fdd0eb7b2c0958243dea3489d0ac6351690b28c7a6b8d",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/cmake/conf/target-cmake.in"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/cmake/modules/FindFreetype.cmake",
+      "bytes": 857,
+      "sha256": "0cfd6e52a3339ef4426a1330e2b1535eedbbc719b56cc59681f7b70393207d7d",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/cmake/modules/FindFreetype.cmake"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/cmake/modules/FindFriBiDi.cmake",
+      "bytes": 403,
+      "sha256": "8e59bff454b194f04eaa14ed9f994fa1b80ad38da65ae8080a3e326c18f29193",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/cmake/modules/FindFriBiDi.cmake"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/cmake/modules/FindPackageHandleStandardArgs.cmake",
+      "bytes": 22946,
+      "sha256": "1a26c8fffba98b076a94fb8e8a3262b96a5a77bc8c0440205edf51f75985d628",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/cmake/modules/FindPackageHandleStandardArgs.cmake"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/cmake/modules/FindPackageMessage.cmake",
+      "bytes": 1711,
+      "sha256": "654bbd1cdb7ecf291efa934c7a91cd0d2ade67b8c06605db9eee0c03ab704088",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/cmake/modules/FindPackageMessage.cmake"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/cmake/modules/FindSDL.cmake",
+      "bytes": 371,
+      "sha256": "dc7e1a973186c37bb4687b79a14a706ff34a39c3b2c1dad5a1d8b95f73800834",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/cmake/modules/FindSDL.cmake"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/cmake/modules/FindSDL_image.cmake",
+      "bytes": 451,
+      "sha256": "68fd5d05f848dae5cb48669fcc5d59f9ec7599563f26d2f8fee6c11c536a3c82",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/cmake/modules/FindSDL_image.cmake"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/cmake/modules/FindSDL_mixer.cmake",
+      "bytes": 472,
+      "sha256": "95f8ee8f15df68732f1ce4b64328b322b529d23430f544e61daa4c83dcb82254",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/cmake/modules/FindSDL_mixer.cmake"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/cmake/modules/FindSDL_net.cmake",
+      "bytes": 452,
+      "sha256": "01397a5ac9173165bd32eac9700178910f04be49871f9954487fab811f76ea13",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/cmake/modules/FindSDL_net.cmake"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/cmake/modules/FindSDL_sound.cmake",
+      "bytes": 450,
+      "sha256": "0496e5a761d86b52c0412ccc741e64c6c2777cdd4a7bf30f69924f726fd5c37c",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/cmake/modules/FindSDL_sound.cmake"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/cmake/modules/FindSDL_ttf.cmake",
+      "bytes": 452,
+      "sha256": "c26bd2eda175b0032b6526af93058ebd20e72927ba75bce92f989484cdc9cac9",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/cmake/modules/FindSDL_ttf.cmake"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/cmake/modules/FindTIFF.cmake",
+      "bytes": 919,
+      "sha256": "5fbf056a6b7f9e1290cfac80b558dce8a2ed0407d29e21fb842137fe0210b0c9",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/cmake/modules/FindTIFF.cmake"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/cmake/modules/SelectLibraryConfigurations.cmake",
+      "bytes": 3290,
+      "sha256": "e35c3358794ca1f406bd14983dc9134baaa65dd5a7e6fef2326e5e2e48dbbc39",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/cmake/modules/SelectLibraryConfigurations.cmake"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/cmake/modules/TryRunResults.cmake",
+      "bytes": 5775,
+      "sha256": "e5142d40ab391a3a2865732824e589d364e1e4d3293f86536b6e13f5c2b0745e",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/cmake/modules/TryRunResults.cmake"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/cmake/test/CMakeLists.txt",
+      "bytes": 475,
+      "sha256": "c0c65d12254a2f042612dabc1cdc5f7273fa7f51e7984488bf903ed141813ec0",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/cmake/test/CMakeLists.txt"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/curl-test.c",
+      "bytes": 398,
+      "sha256": "09391709e2076c9b9e867653d0d3372a5a7976d1d9c7132e79c309d29daa60d2",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/curl-test.c"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/curl.mk",
+      "bytes": 1733,
+      "sha256": "988da69b2b715e77c3c7093889372919064f6f5053d51d8014ab68baa58bcf68",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/curl.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/dbus-1-fixes.patch",
+      "bytes": 892,
+      "sha256": "16178004221e256d65caed535b31dec3fbeb9185d6ef0a51f526165ff1225da6",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/dbus-1-fixes.patch"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/dbus.mk",
+      "bytes": 1554,
+      "sha256": "5b6c6d5fe97a89e1deb57ab5839bed03c1f40746a89ea7db4fd52928a2c2ada4",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/dbus.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/dlfcn-win32.mk",
+      "bytes": 1338,
+      "sha256": "48ee36f975740693db730ba13ff62813d80cf6a02547167172bcb175fb60c0c7",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/dlfcn-win32.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/expat.mk",
+      "bytes": 1232,
+      "sha256": "180c13c6b939bd12607f0b089562d65ba3ece1dfd12ef64e2cbee60c134c1041",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/expat.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/fc.mk",
+      "bytes": 631,
+      "sha256": "daaed11de542ea2ae455d9c30db5f1654a727c1d58f3b7d9f5368e5646d0869e",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/fc.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/fontconfig-1-fixes.patch",
+      "bytes": 748,
+      "sha256": "93bed878801d73a5658ee8b6d8318a590a36eb39a5eb3818cf4d6d92fdcae69b",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/fontconfig-1-fixes.patch"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/fontconfig.mk",
+      "bytes": 1294,
+      "sha256": "98c07715a902e84ed47efcc30c282e62f0543c6098c30173c94f73c69a114c73",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/fontconfig.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/freetype-bootstrap.mk",
+      "bytes": 611,
+      "sha256": "5c77eceaf182f6c748feb4449dd4004c0405512d10ce400b887f75136a69d94e",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/freetype-bootstrap.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/freetype.mk",
+      "bytes": 1863,
+      "sha256": "7aeb101b21151cabff76302b9eefe16655c7758059093c2217686f0968ab4390",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/freetype.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/gcc.mk",
+      "bytes": 7092,
+      "sha256": "dc70ad0c91617c520a96f273fcf1138ed9557cd3ef07cee4b152a82cfb96ad03",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/gcc.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/gettext.mk",
+      "bytes": 1913,
+      "sha256": "75cb8d73c88ad9d7fa90de86d2ecd928a28d0398c13c90dcb0ab5f792595a219",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/gettext.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/glib-1-fixes.patch",
+      "bytes": 1809,
+      "sha256": "3e6b73a30930ca51b623c2494ca21cd359231d32ae9d4d4faa7384a067c7b5ff",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/glib-1-fixes.patch"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/glib-networking.mk",
+      "bytes": 969,
+      "sha256": "6c818cd363c6258b5848f5d194026eb35444eb6ed2b6a0a8b8c3535b3b61a527",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/glib-networking.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/glib.mk",
+      "bytes": 2367,
+      "sha256": "8f4aed1c2656e00b947c976b8136b8b7f3d435d2d0ab0897c55ec5c8eb71c9bf",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/glib.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/gmp.mk",
+      "bytes": 1884,
+      "sha256": "62794685cb3292fbc11b8ad5ec65c0af91a64088e345291a9eb99172da48e966",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/gmp.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/gnutls-test.c",
+      "bytes": 249,
+      "sha256": "9d0c89ba3bf6497a93245b548d29ce55965a378606b2b6d8c6d796ba3907655b",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/gnutls-test.c"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/gnutls.mk",
+      "bytes": 1603,
+      "sha256": "cea7a89761ab9766adfb419bfc9f5bade6458e2b92232286784cbe103847c5fd",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/gnutls.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/harfbuzz-1-fixes.patch",
+      "bytes": 1221,
+      "sha256": "0dfc793c67564461328b5a8f2152d063572a34e613d82247567410818abd0c97",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/harfbuzz-1-fixes.patch"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/harfbuzz.mk",
+      "bytes": 942,
+      "sha256": "65f1941e0fd9de09bf5a40052dcdd16baaf7f646c084b743fd725e4ff90deec7",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/harfbuzz.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/icu4c-1-fixes.patch",
+      "bytes": 4005,
+      "sha256": "af2345beafc413463e223e2d87d446d34f55e43415d8ba3b5cb7707a036165b7",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/icu4c-1-fixes.patch"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/icu4c-test.c",
+      "bytes": 3340,
+      "sha256": "7464c422a98aebdc59f5b337c9f35a361ee578f8092cedffad375ac15defb583",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/icu4c-test.c"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/icu4c.mk",
+      "bytes": 1943,
+      "sha256": "de288c53f2ae10d36c1b1479bc6f7be007ef095cb1179ad0dbb92fb9b85bc549",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/icu4c.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/isl.mk",
+      "bytes": 1086,
+      "sha256": "0ff5525f4e342455552c149827a4e622f7e8504ea9c2f9a24060a4ca1e4c6bb2",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/isl.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/jpeg-1-fixes.patch",
+      "bytes": 585,
+      "sha256": "fcf9e8335b7b9284f17bbb7b1dd08d427e7320d8b382bbea0688a28e9ea2edb6",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/jpeg-1-fixes.patch"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/jpeg-2-jmorecfg.patch",
+      "bytes": 1854,
+      "sha256": "0c0c7a9354ac1deb9415e4eb6a68874e0a8cf36c01d4e1b12256b75661630c25",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/jpeg-2-jmorecfg.patch"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/jpeg-test.c",
+      "bytes": 481,
+      "sha256": "7956f339e2a8f68d32d45f41dead7fdaf62ba121f2e44d2ab5a72646704c6faa",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/jpeg-test.c"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/jpeg.mk",
+      "bytes": 953,
+      "sha256": "11ec39b5bd1fbc2a37565118a50cc7b4e790147dec5cf43692e75fd3df5aba1d",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/jpeg.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/lerc.mk",
+      "bytes": 1361,
+      "sha256": "fbfc717d56adf88f9b073a3a11c0a04206889110c82ad8c2002b9ff841b6052f",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/lerc.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/libdeflate.mk",
+      "bytes": 1376,
+      "sha256": "26a36fe3ab36041a11bd0d0c41500eb56c0e59a6afead3dcb446fc992d387535",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/libdeflate.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/libffi-test.c",
+      "bytes": 615,
+      "sha256": "d7c54c1493e46297fd0e4595e3e994776981193f8e792e22021ebfecbf32cd57",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/libffi-test.c"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/libffi.mk",
+      "bytes": 1178,
+      "sha256": "7c8d444e5e64f830e8ba843a365ed0a09007797fe63742aea0ddb76ae281e861",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/libffi.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/libgcrypt-1-fixes.patch",
+      "bytes": 1706,
+      "sha256": "a83e435259f9a77a6484fef822927d7bd146ddc2f262c6ae3d4d995197446baf",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/libgcrypt-1-fixes.patch"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/libgcrypt-test.c",
+      "bytes": 733,
+      "sha256": "140f939c7d920058ecab1a04601212ac26a1256d27a8818f2673c293942bb0d6",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/libgcrypt-test.c"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/libgcrypt.mk",
+      "bytes": 2014,
+      "sha256": "d25b6426bdb2fb28a946ec29251151ca5d26fbc379811156f7af3ff3b7ed4a58",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/libgcrypt.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/libgnurx-1-additional-makefile-rules.patch",
+      "bytes": 975,
+      "sha256": "cc129401fa30cdc00bdc1124bdce2c517d524a650f698ccdbb20d47469166a65",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/libgnurx-1-additional-makefile-rules.patch"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/libgnurx.mk",
+      "bytes": 1033,
+      "sha256": "0f4ddafa993b0b0a9e03d6994f1fdf2ff585b443140442dc20279765799bdfa3",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/libgnurx.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/libgpg_error-1-fixes.patch",
+      "bytes": 888,
+      "sha256": "40a76a269c19e91fdc60b3cb63f830d57558aae1d3e5ae028f1b6d60aa057e09",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/libgpg_error-1-fixes.patch"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/libgpg_error.mk",
+      "bytes": 1701,
+      "sha256": "2a7b9731c509f4c3fc5f7a7aec8027010f1581ea61fc6cd4df7c7ad5a1d7b2ed",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/libgpg_error.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/libiconv.mk",
+      "bytes": 2438,
+      "sha256": "c5b7a71f832125dde04f5d95a952e4ac8d5a72496781dbbcaed97d81646e688b",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/libiconv.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/libidn2-test.c",
+      "bytes": 1036,
+      "sha256": "227ae455bd2230991390e97797ef3cacbd9f7af463456dd2d82473e755ae83d6",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/libidn2-test.c"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/libidn2.mk",
+      "bytes": 1665,
+      "sha256": "24b54951a5d3a866dcabb5e2ee6a57c92cc55f8edb1f5605a396c8579209aedc",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/libidn2.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/libpng-test.c",
+      "bytes": 1848,
+      "sha256": "35f493112b1a6c90ef2c5de15563ef43a2f3b2251d84d5c3dbb0e38e0df6b5f2",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/libpng-test.c"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/libpng.mk",
+      "bytes": 1320,
+      "sha256": "1cbfc5a5fab3bbcbc87668864033641fa9f5a8c7c72ee45aff24b01f9c0f027f",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/libpng.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/libpsl.mk",
+      "bytes": 880,
+      "sha256": "4827f7ff1f8c1c7fdae346d3f7bc047838e44b642a66557cc40d534bf8564ac4",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/libpsl.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/librtmp-1-fixes.patch",
+      "bytes": 801,
+      "sha256": "4c1f8afb88c7e7ca54f8cd2c2dcd7d44824938dca6b3fc90c0dab855b091f548",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/librtmp-1-fixes.patch"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/librtmp.mk",
+      "bytes": 773,
+      "sha256": "fdb3e1f39d0eedf669e91e519d53163cc748272f302b06204e9067eaec0b110d",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/librtmp.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/libssh2-test.c",
+      "bytes": 300,
+      "sha256": "110f7427f88a3fe015045460f901b4a336bc2960f5f1232724fc04eebab590a3",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/libssh2-test.c"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/libssh2.mk",
+      "bytes": 1176,
+      "sha256": "490c9d2e45bdab98048e91f2871c0c04825c88ce6e5187b13dd40a6c13be52fc",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/libssh2.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/libtasn1.mk",
+      "bytes": 795,
+      "sha256": "e36cd40b7212ee4b79111d8ec0820fc7383418f0cffd56754b6ad13320c4c203",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/libtasn1.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/libtool.mk",
+      "bytes": 766,
+      "sha256": "8f718a5732a91607797e90761ef09303b806933b4b928ee84dca9ba3d5a40b3c",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/libtool.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/libunistring.mk",
+      "bytes": 878,
+      "sha256": "6b4e42014d0a27d553f3a7bcf047b4efef75a643a27e9d11c8a7fd2315a55520",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/libunistring.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/libwebp.mk",
+      "bytes": 946,
+      "sha256": "92e1c4ead0476ae09992263a731e15000685b381d6fed950d6d08ba630eaea2d",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/libwebp.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/libxml2-1-fixes.patch",
+      "bytes": 507,
+      "sha256": "a4ff708482b4d968404b0b38db2728dc20a9dbe0f2fb8cc7a201f78df1195a08",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/libxml2-1-fixes.patch"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/libxml2.mk",
+      "bytes": 1296,
+      "sha256": "4af9b3e2cb4570407fb6c83c724b2e064898b3db36e38a55f58fc48a0bd1cd1a",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/libxml2.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/lzo.mk",
+      "bytes": 894,
+      "sha256": "67281e74840ae9fdf3c3bd862427669478c7ad54456b384b566cbf2278d6b3ef",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/lzo.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/meson-wrapper.mk",
+      "bytes": 2542,
+      "sha256": "1f772e1514b9517a6a15197863f43e13b705b873db63457f6ff75ae6ec5ea57e",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/meson-wrapper.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/meson-wrapper/conf/mxe-crossfile-internal.meson.in",
+      "bytes": 259,
+      "sha256": "81fad536f557c1aca8e992509b2a98718dc9950f9702a1643c978da49a58369b",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/meson-wrapper/conf/mxe-crossfile-internal.meson.in"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/meson-wrapper/conf/mxe-crossfile.meson.in",
+      "bytes": 719,
+      "sha256": "b7f3f2f0c81896b45673489dcf2dc0eeb80868615d83912469b8813a07ff096f",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/meson-wrapper/conf/mxe-crossfile.meson.in"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/meson-wrapper/conf/native-meson.in",
+      "bytes": 647,
+      "sha256": "c08f72bb62c706d6b824550304334b92fc591e264e52a81ab0451dd03241b037",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/meson-wrapper/conf/native-meson.in"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/meson-wrapper/conf/target-meson.in",
+      "bytes": 588,
+      "sha256": "3809bf2298ddd3d9944da9e8e83866d0aa45e9aeb1e8b3efd6bd6abf062b9776",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/meson-wrapper/conf/target-meson.in"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/meson.mk",
+      "bytes": 663,
+      "sha256": "d7d60f51e4db83419e85254286b100ac233ed199795467157cce73914e50b258",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/meson.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/mingw-w64.mk",
+      "bytes": 1379,
+      "sha256": "99f7514863d8acb29b7363ba718568777b583b577cfa5664150d541617590e8b",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/mingw-w64.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/mpc.mk",
+      "bytes": 1568,
+      "sha256": "3dfdfe8fd32e329c8c37b6010c4307470f63ff1596d74c0784a8c32947d033cb",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/mpc.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/mpfr.mk",
+      "bytes": 1997,
+      "sha256": "01bb55d7cd0e8e408b14ff307462d019dfe9123ebfb7fae247c909d0a1f642c3",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/mpfr.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/ncurses.mk",
+      "bytes": 2227,
+      "sha256": "5b6ec03a806c2383cab891ed517aab7ad099a0957f67c86e9832b65beac53f7c",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/ncurses.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/nettle-1.patch",
+      "bytes": 955,
+      "sha256": "ceeff1e3c9c3deab17b383e480388a99491f26bb8a5ae3208a812363eb358a18",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/nettle-1.patch"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/nettle.mk",
+      "bytes": 1109,
+      "sha256": "57370eb375247a39396aec612b16c0563a3654e26f52f4e45be89abd5c53a290",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/nettle.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/nghttp2.mk",
+      "bytes": 826,
+      "sha256": "8c29b493dbce6d6583dd1ae7afb0acce85c5ce1a0023788a8c92e2d17d156190",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/nghttp2.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/openssl.mk",
+      "bytes": 2048,
+      "sha256": "a0644fbb0530e79eb55cb3e2768fad65fc949d772717ce4aef3f28761c43bb45",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/openssl.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/pcre2.mk",
+      "bytes": 1447,
+      "sha256": "2f9b9f4f73ae5cdbd5fc7c66627b79d00b464782d87eadd544f0e8869611d093",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/pcre2.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/pixman.mk",
+      "bytes": 1074,
+      "sha256": "40d64b95364589d0e74fa5716b73e02c797012d450f9c7a1562c0e2d29e20f83",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/pixman.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/pkgconf-1-msys2-format-fixes.patch",
+      "bytes": 1208,
+      "sha256": "0bcc0a9f5d358ce1540a1b38c81cb94ef4bd6d8cb20e4ff4acd297f61b044161",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/pkgconf-1-msys2-format-fixes.patch"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/pkgconf-2-merge-private-fragments.patch",
+      "bytes": 462,
+      "sha256": "1bc9e9e9d04aace77db735c0bab788c37dda09fa3c3e882187940f33f5f7f325",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/pkgconf-2-merge-private-fragments.patch"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/pkgconf.mk",
+      "bytes": 2967,
+      "sha256": "e02ad649560966aafac3a62aacda49f684906955aaba29f1069e59127a0103fa",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/pkgconf.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/pthreads-libgomp-test.c",
+      "bytes": 372,
+      "sha256": "19b83c90caad82185685ad34a1868b3b5998da3afb9559abfdd9cbcc1641339a",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/pthreads-libgomp-test.c"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/pthreads-test.c",
+      "bytes": 697,
+      "sha256": "be27dcba3f2818d1d29442c7b48ed79eff8c71208f245e2a8a06e7612fb09854",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/pthreads-test.c"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/pthreads-test.cmake",
+      "bytes": 475,
+      "sha256": "6a4dec47a540fa1709dddcf25281fe77fe1695ee82f9be87701e5cecf21d6065",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/pthreads-test.cmake"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/pthreads.mk",
+      "bytes": 1332,
+      "sha256": "d1f5eab73c2bdc8e25edd3edf65d54bdf7f165d19cd40e4cba91a789ee55cb6d",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/pthreads.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/readline-1-fixes.patch",
+      "bytes": 635,
+      "sha256": "3564d3d997eece0397bfa59e02a398916bbd3bb67f946ac2d72ce6230096fdfb",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/readline-1-fixes.patch"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/readline.mk",
+      "bytes": 1146,
+      "sha256": "498a68306633f90ae1b5cf9121cf1647afae20d5aec150c32229f475adbcc478",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/readline.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/sqlite.mk",
+      "bytes": 1167,
+      "sha256": "5c81ae88a3ca2a79cab2c43d185b61a0a1f5aa44e1e234240b100ad58554c4a8",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/sqlite.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/tcl.mk",
+      "bytes": 1415,
+      "sha256": "507bd3adfc9cb0f9916591062a84a06a01a3d4c6f86301d6e75b9a608b049088",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/tcl.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/termcap-1-fixes.patch",
+      "bytes": 871,
+      "sha256": "7cc66e8818556582fa5251a34a090181c3467eda24400520850bef623eae02a7",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/termcap-1-fixes.patch"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/termcap.mk",
+      "bytes": 1516,
+      "sha256": "a9039bdada1ac790596a98624793c797bf8d5578470802b1db17d8692fb89415",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/termcap.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/tiff-1-fixes.patch",
+      "bytes": 862,
+      "sha256": "773437de714741b7fbf4df982e21093f23ecdb0dd6c57b48564dbb72a4536d54",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/tiff-1-fixes.patch"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/tiff-test.c",
+      "bytes": 333,
+      "sha256": "d50592380734504ad5c63696ed634a4e96b02d2cc053ae0ec32efe9e79981893",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/tiff-test.c"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/tiff.mk",
+      "bytes": 1312,
+      "sha256": "24ad9ca5c3598d011198a71feb35e44c9eb72d18941f2a7b974803748d21fdaa",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/tiff.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/xz.mk",
+      "bytes": 552,
+      "sha256": "dba446d944a1aafab9fbef54affb620665182080742c71acbb98ec5f2a03ac3d",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/xz.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/zlib-1-win32-static.patch",
+      "bytes": 1238,
+      "sha256": "093b1f8b60dc53de3998afd4069e31eeda69747c7fb2437e064c7dc22833763f",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/zlib-1-win32-static.patch"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/zlib.mk",
+      "bytes": 1054,
+      "sha256": "cc08051d2f70790af6d4f49f4ca211a156d2f3c25e38e64c6158ba21877bf921",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/zlib.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/zstd-test.c",
+      "bytes": 878,
+      "sha256": "ee97eac1f501d15c73ed2dd380980831cf3ce941f7e0f93b0956d3c64867a437",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/zstd-test.c"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/src/zstd.mk",
+      "bytes": 1720,
+      "sha256": "9cf1953c257ebf22ee3a635fc66b0787eab5b5577cb05aba4cd7b324ab8939d5",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/src/zstd.mk"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/tools/build-pkg.lua",
+      "bytes": 36052,
+      "sha256": "73d4a551ae6decf815cf8c324311ff3dcc98e49d991665e21bb2e466a43b92ca",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/tools/build-pkg.lua"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/tools/buildtime_calc.lua",
+      "bytes": 2182,
+      "sha256": "a4853fc95dfe78fbf351e2da562d31687364eefed2edcf2cf8efce92610f239b",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/tools/buildtime_calc.lua"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/tools/compat-init.sh",
+      "bytes": 359,
+      "sha256": "66a19e22617cd96913a715b886180b463a4641b525f76fb7a4a8806f1b9527cf",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/tools/compat-init.sh"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/tools/copydlldeps.md",
+      "bytes": 3837,
+      "sha256": "13125154b594925ba086422d86541d8a2b9de0f609eebea6adcdc23a66485c82",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/tools/copydlldeps.md"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/tools/copydlldeps.py",
+      "bytes": 7368,
+      "sha256": "40811afaa3f74adc3ac18f54304be27dc82c2a9562a7b3eb50e3e197fb77656b",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/tools/copydlldeps.py"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/tools/copydlldeps.sh",
+      "bytes": 15956,
+      "sha256": "00d6e797fd04421811258acd4ce02e3eb0a8ae001527e03f7a9f5a3d384d1a96",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/tools/copydlldeps.sh"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/tools/create-screenshot-for-doc",
+      "bytes": 567,
+      "sha256": "39ef826a96ed0c1edc907d5d74a200d8813109d9e03bee3419d887ba70699daa",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/tools/create-screenshot-for-doc"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/tools/fake-editor",
+      "bytes": 254,
+      "sha256": "6026310f5345e595b34deb233bce78f72d66d1eef6e1f97cce3c47af775e29cb",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/tools/fake-editor"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/tools/install-deps",
+      "bytes": 3506,
+      "sha256": "3088514940a5d40a2fce074af99af00c74acc5d88e8bd65813c8bba3ac8ef1c2",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/tools/install-deps"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/tools/make-shared-from-static",
+      "bytes": 5269,
+      "sha256": "c8063d45b00e4405024eec2bbe8cc299b72d6bff53d4386660d598bb29604036",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/tools/make-shared-from-static"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/tools/mxe-activate",
+      "bytes": 2866,
+      "sha256": "946e73c2657fb5ce13ddbfcaf6b67bd55086ee2bb1e7da0dd11582fb458316d3",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/tools/mxe-activate"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/tools/mxe-get",
+      "bytes": 5498,
+      "sha256": "037679641465a970985ee7e3ed28a93e3deffd82504867b63b806277016fb818",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/tools/mxe-get"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/tools/nonetwork.c",
+      "bytes": 1418,
+      "sha256": "3d587eab6b3461dd1a08de4da0c6c57a7d96a6ab0f5082f1160fcf7dabde98fb",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/tools/nonetwork.c"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/tools/patch-tool-mxe",
+      "bytes": 1334,
+      "sha256": "cea83dc284e872746b410bb05f25440309deae26ea372033fc6d5de12087a4d9",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/tools/patch-tool-mxe"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/tools/plugins-with-additional-packages.sh",
+      "bytes": 332,
+      "sha256": "40ae8be78fb11fce7a1d5615240467583371a20db8a9e0cac8047605f4054c27",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/tools/plugins-with-additional-packages.sh"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/tools/s3-fetch-and-sync",
+      "bytes": 1808,
+      "sha256": "6599ec15e6e5555543b5645b0c2494277a45453dbc8b982e0a42e7c7758878dd",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/tools/s3-fetch-and-sync"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/tools/skeleton.py",
+      "bytes": 7587,
+      "sha256": "8b18a5bba3c26358a971413ea6f82f2da19505c52d3f9ec4f72fc209c84628b0",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/tools/skeleton.py"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/tools/update-config-guess",
+      "bytes": 1079,
+      "sha256": "886110e02cac68e5ddf9e8cf0fee2b3928f83e253024b7d714aa8e826ebfc846",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/tools/update-config-guess"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "recipes/mxe/tools/update-gmsl",
+      "bytes": 1232,
+      "sha256": "333f9098bd4611ae18dccf41ab1d6b52c0ed65875b34d14aa1f91caaf66d893d",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/toolchain_libs/mxe/tools/update-gmsl"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "sources/binutils-2.43.1.tar.bz2",
+      "component": "binutils",
+      "version": "2.43.1",
+      "bytes": 39202890,
+      "sha256": "becaac5d295e037587b63a42fad57fe3d9d7b83f478eb24b67f9eec5d0f1872f",
+      "urls": [
+        "https://ftp.gnu.org/gnu/binutils/binutils-2.43.1.tar.bz2",
+        "https://mirror.mxe.cc/pkg/binutils-2.43.1.tar.bz2",
+        "https://mxe-pkg.s3.amazonaws.com/binutils-2.43.1.tar.bz2"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/brotli-1.2.0.tar.gz",
+      "component": "brotli",
+      "version": "1.2.0",
+      "bytes": 646315,
+      "sha256": "816c96e8e8f193b40151dad7e8ff37b1221d019dbcb9c35cd3fadbfe6477dfec",
+      "urls": [
+        "https://github.com/google/brotli/archive/v1.2.0.tar.gz",
+        "https://mirror.mxe.cc/pkg/brotli-1.2.0.tar.gz",
+        "https://mxe-pkg.s3.amazonaws.com/brotli-1.2.0.tar.gz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/bwidget-1.10.1.zip",
+      "bytes": 337337,
+      "sha256": "8512a2c7e6f79342177e64e212b2f81add87d69179881e82128972173cfc3b4a",
+      "urls": [
+        "https://sourceforge.net/projects/tcllib/files/BWidget/1.10.1/bwidget-1.10.1.zip"
+      ],
+      "kind": "source-archive",
+      "component": "Tcl/Tk bundle"
+    },
+    {
+      "path": "sources/bzip2-1.0.8.tar.gz",
+      "component": "bzip2",
+      "version": "1.0.8",
+      "bytes": 810029,
+      "sha256": "ab5a03176ee106d3f0fa90e381da478ddae405918153cca248e682cd0c4a2269",
+      "urls": [
+        "https://sourceware.org/pub/bzip2/bzip2-1.0.8.tar.gz",
+        "https://mirror.mxe.cc/pkg/bzip2-1.0.8.tar.gz",
+        "https://mxe-pkg.s3.amazonaws.com/bzip2-1.0.8.tar.gz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/cairo-1.18.4.tar.xz",
+      "component": "cairo",
+      "version": "1.18.4",
+      "bytes": 32578804,
+      "sha256": "445ed8208a6e4823de1226a74ca319d3600e83f6369f99b14265006599c32ccb",
+      "urls": [
+        "https://cairographics.org/releases/cairo-1.18.4.tar.xz",
+        "https://mirror.mxe.cc/pkg/cairo-1.18.4.tar.xz",
+        "https://mxe-pkg.s3.amazonaws.com/cairo-1.18.4.tar.xz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/cmake-3.31.8.tar.gz",
+      "component": "cmake",
+      "version": "3.31.8",
+      "bytes": 11713806,
+      "sha256": "e3cde3ca83dc2d3212105326b8f1b565116be808394384007e7ef1c253af6caa",
+      "urls": [
+        "https://www.cmake.org/files/v3.31/cmake-3.31.8.tar.gz",
+        "https://mirror.mxe.cc/pkg/cmake-3.31.8.tar.gz",
+        "https://mxe-pkg.s3.amazonaws.com/cmake-3.31.8.tar.gz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/curl-8.18.0.tar.xz",
+      "component": "curl",
+      "version": "8.18.0",
+      "bytes": 2801444,
+      "sha256": "40df79166e74aa20149365e11ee4c798a46ad57c34e4f68fd13100e2c9a91946",
+      "urls": [
+        "https://curl.haxx.se/download/curl-8.18.0.tar.xz",
+        "https://mirror.mxe.cc/pkg/curl-8.18.0.tar.xz",
+        "https://mxe-pkg.s3.amazonaws.com/curl-8.18.0.tar.xz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/dbus-1.15.8.tar.xz",
+      "component": "dbus",
+      "version": "1.15.8",
+      "bytes": 1149088,
+      "sha256": "84fc597e6ec82f05dc18a7d12c17046f95bad7be99fc03c15bc254c4701ed204",
+      "urls": [
+        "https://dbus.freedesktop.org/releases/dbus/dbus-1.15.8.tar.xz",
+        "https://mirror.mxe.cc/pkg/dbus-1.15.8.tar.xz",
+        "https://mxe-pkg.s3.amazonaws.com/dbus-1.15.8.tar.xz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/dlfcn-win32-1.4.2.tar.gz",
+      "component": "dlfcn-win32",
+      "version": "1.4.2",
+      "bytes": 25027,
+      "sha256": "f61a874bc9163ab488accb364fd681d109870c86e8071f4710cbcdcbaf9f2565",
+      "urls": [
+        "https://github.com/dlfcn-win32/dlfcn-win32/archive/v1.4.2.tar.gz",
+        "https://mirror.mxe.cc/pkg/dlfcn-win32-1.4.2.tar.gz",
+        "https://mxe-pkg.s3.amazonaws.com/dlfcn-win32-1.4.2.tar.gz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/expat-2.7.3.tar.bz2",
+      "component": "expat",
+      "version": "2.7.3",
+      "bytes": 646921,
+      "sha256": "59c31441fec9a66205307749eccfee551055f2d792f329f18d97099e919a3b2f",
+      "urls": [
+        "https://github.com/libexpat/libexpat/releases/download/R_2_7_3/expat-2.7.3.tar.bz2",
+        "https://downloads.sourceforge.net/project/expat/expat/2.7.3/expat-2.7.3.tar.bz2",
+        "https://mirror.mxe.cc/pkg/expat-2.7.3.tar.bz2",
+        "https://mxe-pkg.s3.amazonaws.com/expat-2.7.3.tar.bz2"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/fontconfig-2.17.1.tar.xz",
+      "component": "fontconfig",
+      "version": "2.17.1",
+      "bytes": 1326312,
+      "sha256": "9f5cae93f4fffc1fbc05ae99cdfc708cd60dfd6612ffc0512827025c026fa541",
+      "urls": [
+        "https://gitlab.freedesktop.org/api/v4/projects/890/packages/generic/fontconfig/2.17.1/fontconfig-2.17.1.tar.xz",
+        "https://mirror.mxe.cc/pkg/fontconfig-2.17.1.tar.xz",
+        "https://mxe-pkg.s3.amazonaws.com/fontconfig-2.17.1.tar.xz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/freetype-2.14.1.tar.xz",
+      "component": "freetype",
+      "version": "2.14.1",
+      "bytes": 2664948,
+      "sha256": "32427e8c471ac095853212a37aef816c60b42052d4d9e48230bab3bdf2936ccc",
+      "urls": [
+        "https://download.savannah.gnu.org/releases/freetype/freetype-2.14.1.tar.xz",
+        "https://downloads.sourceforge.net/project/freetype/freetype2/2.14.1/freetype-2.14.1.tar.xz",
+        "https://mirror.mxe.cc/pkg/freetype-2.14.1.tar.xz",
+        "https://mxe-pkg.s3.amazonaws.com/freetype-2.14.1.tar.xz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/gcc-14.3.0.tar.xz",
+      "component": "gcc",
+      "version": "14.3.0",
+      "bytes": 95212220,
+      "sha256": "e0dc77297625631ac8e50fa92fffefe899a4eb702592da5c32ef04e2293aca3a",
+      "urls": [
+        "https://ftp.gnu.org/gnu/gcc/gcc-14.3.0/gcc-14.3.0.tar.xz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/gettext-0.26.tar.lz",
+      "component": "gettext",
+      "version": "0.26",
+      "bytes": 9534434,
+      "sha256": "a0151088dad8942374dc038e461b228352581defd7055e79297f156268b8d508",
+      "urls": [
+        "https://ftp.gnu.org/gnu/gettext/gettext-0.26.tar.lz",
+        "https://mirror.mxe.cc/pkg/gettext-0.26.tar.lz",
+        "https://mxe-pkg.s3.amazonaws.com/gettext-0.26.tar.lz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/glib-2.86.3.tar.xz",
+      "component": "glib",
+      "version": "2.86.3",
+      "bytes": 5674820,
+      "sha256": "b3211d8d34b9df5dca05787ef0ad5d7ca75dec998b970e1aab0001d229977c65",
+      "urls": [
+        "https://download.gnome.org/sources/glib/2.86/glib-2.86.3.tar.xz",
+        "https://mirror.mxe.cc/pkg/glib-2.86.3.tar.xz",
+        "https://mxe-pkg.s3.amazonaws.com/glib-2.86.3.tar.xz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/gmp-6.3.0.tar.xz",
+      "component": "gmp",
+      "version": "6.3.0",
+      "bytes": 2094196,
+      "sha256": "a3c2b80201b89e68616f4ad30bc66aee4927c3ce50e33929ca819d5c43538898",
+      "urls": [
+        "https://gmplib.org/download/gmp/gmp-6.3.0.tar.xz",
+        "https://mirror.mxe.cc/pkg/gmp-6.3.0.tar.xz",
+        "https://mxe-pkg.s3.amazonaws.com/gmp-6.3.0.tar.xz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/gnutls-3.8.11.tar.xz",
+      "component": "gnutls",
+      "version": "3.8.11",
+      "bytes": 6939944,
+      "sha256": "91bd23c4a86ebc6152e81303d20cf6ceaeb97bc8f84266d0faec6e29f17baa20",
+      "urls": [
+        "https://gnupg.org/ftp/gcrypt/gnutls/v3.8/gnutls-3.8.11.tar.xz",
+        "https://mirror.mxe.cc/pkg/gnutls-3.8.11.tar.xz",
+        "https://mxe-pkg.s3.amazonaws.com/gnutls-3.8.11.tar.xz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/harfbuzz-12.3.0.tar.xz",
+      "component": "harfbuzz",
+      "version": "12.3.0",
+      "bytes": 18580220,
+      "sha256": "8660ebd3c27d9407fc8433b5d172bafba5f0317cb0bb4339f28e5370c93d42b7",
+      "urls": [
+        "https://github.com/harfbuzz/harfbuzz/releases/download/12.3.0/harfbuzz-12.3.0.tar.xz",
+        "https://mirror.mxe.cc/pkg/harfbuzz-12.3.0.tar.xz",
+        "https://mxe-pkg.s3.amazonaws.com/harfbuzz-12.3.0.tar.xz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/icu4c-77.1.tar.gz",
+      "component": "icu4c",
+      "version": "77.1",
+      "bytes": 68285934,
+      "sha256": "ded3a96f6b7236d160df30af46593165b9c78a4ec72a414aa63cf50614e4c14e",
+      "urls": [
+        "https://github.com/unicode-org/icu/archive/release-77-1.tar.gz",
+        "https://mirror.mxe.cc/pkg/icu4c-77.1.tar.gz",
+        "https://mxe-pkg.s3.amazonaws.com/icu4c-77.1.tar.gz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/isl-0.24.tar.bz2",
+      "component": "isl",
+      "version": "0.24",
+      "bytes": 2261594,
+      "sha256": "fcf78dd9656c10eb8cf9fbd5f59a0b6b01386205fe1934b3b287a0a1898145c0",
+      "urls": [
+        "https://libisl.sourceforge.io/isl-0.24.tar.bz2",
+        "https://mirror.mxe.cc/pkg/isl-0.24.tar.bz2",
+        "https://mxe-pkg.s3.amazonaws.com/isl-0.24.tar.bz2"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/jpegsrc.v9f.tar.gz",
+      "component": "jpeg",
+      "version": "9f",
+      "bytes": 1081470,
+      "sha256": "04705c110cb2469caa79fb71fba3d7bf834914706e9641a4589485c1f832565b",
+      "urls": [
+        "https://www.ijg.org/files/jpegsrc.v9f.tar.gz",
+        "https://mirror.mxe.cc/pkg/jpegsrc.v9f.tar.gz",
+        "https://mxe-pkg.s3.amazonaws.com/jpegsrc.v9f.tar.gz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/lerc-4.0.0.tar.gz",
+      "component": "lerc",
+      "version": "4.0.0",
+      "bytes": 4710408,
+      "sha256": "91431c2b16d0e3de6cbaea188603359f87caed08259a645fd5a3805784ee30a0",
+      "urls": [
+        "https://github.com/esri/lerc/archive/v4.0.0.tar.gz",
+        "https://mirror.mxe.cc/pkg/lerc-4.0.0.tar.gz",
+        "https://mxe-pkg.s3.amazonaws.com/lerc-4.0.0.tar.gz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/libdeflate-1.25.tar.gz",
+      "component": "libdeflate",
+      "version": "1.25",
+      "bytes": 197494,
+      "sha256": "d11473c1ad4c57d874695e8026865e38b47116bbcb872bfc622ec8f37a86017d",
+      "urls": [
+        "https://github.com/ebiggers/libdeflate/archive/v1.25.tar.gz",
+        "https://mirror.mxe.cc/pkg/libdeflate-1.25.tar.gz",
+        "https://mxe-pkg.s3.amazonaws.com/libdeflate-1.25.tar.gz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/libffi-3.5.2.tar.gz",
+      "component": "libffi",
+      "version": "3.5.2",
+      "bytes": 1423124,
+      "sha256": "f3a3082a23b37c293a4fcd1053147b371f2ff91fa7ea1b2a52e335676bac82dc",
+      "urls": [
+        "https://github.com/libffi/libffi/releases/download/v3.5.2/libffi-3.5.2.tar.gz",
+        "https://mirror.mxe.cc/pkg/libffi-3.5.2.tar.gz",
+        "https://mxe-pkg.s3.amazonaws.com/libffi-3.5.2.tar.gz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/libgcrypt-1.11.2.tar.bz2",
+      "component": "libgcrypt",
+      "version": "1.11.2",
+      "bytes": 4237802,
+      "sha256": "6ba59dd192270e8c1d22ddb41a07d95dcdbc1f0fb02d03c4b54b235814330aac",
+      "urls": [
+        "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.11.2.tar.bz2",
+        "https://mirror.mxe.cc/pkg/libgcrypt-1.11.2.tar.bz2",
+        "https://mxe-pkg.s3.amazonaws.com/libgcrypt-1.11.2.tar.bz2"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/libgpg-error-1.58.tar.bz2",
+      "component": "libgpg_error",
+      "version": "1.58",
+      "bytes": 1123899,
+      "sha256": "f943aea9a830a8bd938e5124b579efaece24a3225ff4c3d27611a80ce1260c27",
+      "urls": [
+        "https://gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.58.tar.bz2",
+        "https://mirror.mxe.cc/pkg/libgpg-error-1.58.tar.bz2",
+        "https://mxe-pkg.s3.amazonaws.com/libgpg-error-1.58.tar.bz2"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/libiconv-1.18.tar.gz",
+      "component": "libiconv",
+      "version": "1.18",
+      "bytes": 5822590,
+      "sha256": "3b08f5f4f9b4eb82f151a7040bfd6fe6c6fb922efe4b1659c66ea933276965e8",
+      "urls": [
+        "https://ftp.gnu.org/gnu/libiconv/libiconv-1.18.tar.gz",
+        "https://mirror.mxe.cc/pkg/libiconv-1.18.tar.gz",
+        "https://mxe-pkg.s3.amazonaws.com/libiconv-1.18.tar.gz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/libidn2-2.3.8.tar.gz",
+      "component": "libidn2",
+      "version": "2.3.8",
+      "bytes": 2234804,
+      "sha256": "f557911bf6171621e1f72ff35f5b1825bb35b52ed45325dcdee931e5d3c0787a",
+      "urls": [
+        "https://ftp.gnu.org/gnu/libidn/libidn2-2.3.8.tar.gz",
+        "https://mirror.mxe.cc/pkg/libidn2-2.3.8.tar.gz",
+        "https://mxe-pkg.s3.amazonaws.com/libidn2-2.3.8.tar.gz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/libpng-1.6.54.tar.xz",
+      "component": "libpng",
+      "version": "1.6.54",
+      "bytes": 1064472,
+      "sha256": "01c9d8a303c941ec2c511c14312a3b1d36cedb41e2f5168ccdaa85d53b887805",
+      "urls": [
+        "https://download.sourceforge.net/libpng/libpng-1.6.54.tar.xz",
+        "https://downloads.sourceforge.net/project/libpng/libpng16/1.6.54/libpng-1.6.54.tar.xz",
+        "https://mirror.mxe.cc/pkg/libpng-1.6.54.tar.xz",
+        "https://mxe-pkg.s3.amazonaws.com/libpng-1.6.54.tar.xz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/libpsl-0.21.5.tar.gz",
+      "component": "libpsl",
+      "version": "0.21.5",
+      "bytes": 7624251,
+      "sha256": "1dcc9ceae8b128f3c0b3f654decd0e1e891afc6ff81098f227ef260449dae208",
+      "urls": [
+        "https://github.com/rockdaboot/libpsl/releases/download/0.21.5/libpsl-0.21.5.tar.gz",
+        "https://mirror.mxe.cc/pkg/libpsl-0.21.5.tar.gz",
+        "https://mxe-pkg.s3.amazonaws.com/libpsl-0.21.5.tar.gz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/librtmp-6f6bb13.tar.gz",
+      "component": "librtmp",
+      "version": "6f6bb13",
+      "bytes": 143490,
+      "sha256": "9ea43963306a6d1d0769dea9180345f6ce4438b82b34a56a7086a803d2412721",
+      "urls": [
+        "https://github.com/mirror/rtmpdump/archive/6f6bb13.tar.gz",
+        "https://mirror.mxe.cc/pkg/librtmp-6f6bb13.tar.gz",
+        "https://mxe-pkg.s3.amazonaws.com/librtmp-6f6bb13.tar.gz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/libssh2-1.11.1.tar.gz",
+      "component": "libssh2",
+      "version": "1.11.1",
+      "bytes": 1093012,
+      "sha256": "d9ec76cbe34db98eec3539fe2c899d26b0c837cb3eb466a56b0f109cabf658f7",
+      "urls": [
+        "https://libssh2.org/download/libssh2-1.11.1.tar.gz",
+        "https://mirror.mxe.cc/pkg/libssh2-1.11.1.tar.gz",
+        "https://mxe-pkg.s3.amazonaws.com/libssh2-1.11.1.tar.gz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/libtasn1-4.21.0.tar.gz",
+      "component": "libtasn1",
+      "version": "4.21.0",
+      "bytes": 1816537,
+      "sha256": "1d8a444a223cc5464240777346e125de51d8e6abf0b8bac742ac84609167dc87",
+      "urls": [
+        "https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.21.0.tar.gz",
+        "https://mirror.mxe.cc/pkg/libtasn1-4.21.0.tar.gz",
+        "https://mxe-pkg.s3.amazonaws.com/libtasn1-4.21.0.tar.gz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/libtool-2.5.4.tar.xz",
+      "component": "libtool",
+      "version": "2.5.4",
+      "bytes": 1056924,
+      "sha256": "f81f5860666b0bc7d84baddefa60d1cb9fa6fceb2398cc3baca6afaa60266675",
+      "urls": [
+        "https://ftp.gnu.org/gnu/libtool/libtool-2.5.4.tar.xz",
+        "https://mirror.mxe.cc/pkg/libtool-2.5.4.tar.xz",
+        "https://mxe-pkg.s3.amazonaws.com/libtool-2.5.4.tar.xz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/libunistring-1.4.1.tar.xz",
+      "component": "libunistring",
+      "version": "1.4.1",
+      "bytes": 2769164,
+      "sha256": "67d88430892527861903788868c77802a217b0959990f7449f2976126a307763",
+      "urls": [
+        "https://ftp.gnu.org/gnu/libunistring/libunistring-1.4.1.tar.xz",
+        "https://mirror.mxe.cc/pkg/libunistring-1.4.1.tar.xz",
+        "https://mxe-pkg.s3.amazonaws.com/libunistring-1.4.1.tar.xz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/libwebp-1.6.0.tar.gz",
+      "component": "libwebp",
+      "version": "1.6.0",
+      "bytes": 4296070,
+      "sha256": "e4ab7009bf0629fd11982d4c2aa83964cf244cffba7347ecd39019a9e38c4564",
+      "urls": [
+        "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.6.0.tar.gz",
+        "https://mirror.mxe.cc/pkg/libwebp-1.6.0.tar.gz",
+        "https://mxe-pkg.s3.amazonaws.com/libwebp-1.6.0.tar.gz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/libxml2-2.12.10.tar.xz",
+      "component": "libxml2",
+      "version": "2.12.10",
+      "bytes": 2483708,
+      "sha256": "c3d8c0c34aa39098f66576fe51969db12a5100b956233dc56506f7a8679be995",
+      "urls": [
+        "https://download.gnome.org/sources/libxml2/2.12/libxml2-2.12.10.tar.xz",
+        "https://mirror.mxe.cc/pkg/libxml2-2.12.10.tar.xz",
+        "https://mxe-pkg.s3.amazonaws.com/libxml2-2.12.10.tar.xz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/lzo-2.10.tar.gz",
+      "component": "lzo",
+      "version": "2.10",
+      "bytes": 600622,
+      "sha256": "c0f892943208266f9b6543b3ae308fab6284c5c90e627931446fb49b4221a072",
+      "urls": [
+        "https://www.oberhumer.com/opensource/lzo/download/lzo-2.10.tar.gz",
+        "https://mirror.mxe.cc/pkg/lzo-2.10.tar.gz",
+        "https://mxe-pkg.s3.amazonaws.com/lzo-2.10.tar.gz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/mingw-libgnurx-2.6.1-src.tar.gz",
+      "component": "libgnurx",
+      "version": "2.6.1",
+      "bytes": 136876,
+      "sha256": "ee6edc110c6b63d0469f4f05ef187564b310cc8a88b6566310a4aebd48b612c7",
+      "urls": [
+        "https://github.com/TimothyGu/libgnurx/releases/download/libgnurx-2.6.1/mingw-libgnurx-2.6.1-src.tar.gz",
+        "https://mirror.mxe.cc/pkg/mingw-libgnurx-2.6.1-src.tar.gz",
+        "https://mxe-pkg.s3.amazonaws.com/mingw-libgnurx-2.6.1-src.tar.gz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/mingw-w64-v11.0.1.tar.bz2",
+      "component": "mingw-w64",
+      "version": "11.0.1",
+      "bytes": 10057401,
+      "sha256": "3f66bce069ee8bed7439a1a13da7cb91a5e67ea6170f21317ac7f5794625ee10",
+      "urls": [
+        "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v11.0.1.tar.bz2",
+        "https://mirror.mxe.cc/pkg/mingw-w64-v11.0.1.tar.bz2",
+        "https://mxe-pkg.s3.amazonaws.com/mingw-w64-v11.0.1.tar.bz2"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/mpc-1.3.1.tar.gz",
+      "component": "mpc",
+      "version": "1.3.1",
+      "bytes": 773573,
+      "sha256": "ab642492f5cf882b74aa0cb730cd410a81edcdbec895183ce930e706c1c759b8",
+      "urls": [
+        "https://ftp.gnu.org/gnu/mpc/mpc-1.3.1.tar.gz",
+        "https://mirror.mxe.cc/pkg/mpc-1.3.1.tar.gz",
+        "https://mxe-pkg.s3.amazonaws.com/mpc-1.3.1.tar.gz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/mpfr-4.2.2.tar.xz",
+      "component": "mpfr",
+      "version": "4.2.2",
+      "bytes": 1505596,
+      "sha256": "b67ba0383ef7e8a8563734e2e889ef5ec3c3b898a01d00fa0a6869ad81c6ce01",
+      "urls": [
+        "https://ftp.gnu.org/gnu/mpfr/mpfr-4.2.2.tar.xz",
+        "https://mirror.mxe.cc/pkg/mpfr-4.2.2.tar.xz",
+        "https://mxe-pkg.s3.amazonaws.com/mpfr-4.2.2.tar.xz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/ncurses-6.2.tar.gz",
+      "component": "ncurses",
+      "version": "6.2",
+      "bytes": 3425862,
+      "sha256": "30306e0c76e0f9f1f0de987cf1c82a5c21e1ce6568b9227f7da5b71cbea86c9d",
+      "urls": [
+        "https://ftp.gnu.org/gnu/ncurses/ncurses-6.2.tar.gz",
+        "https://mirror.mxe.cc/pkg/ncurses-6.2.tar.gz",
+        "https://mxe-pkg.s3.amazonaws.com/ncurses-6.2.tar.gz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/nettle-3.10.2.tar.gz",
+      "component": "nettle",
+      "version": "3.10.2",
+      "bytes": 2644644,
+      "sha256": "fe9ff51cb1f2abb5e65a6b8c10a92da0ab5ab6eaf26e7fc2b675c45f1fb519b5",
+      "urls": [
+        "https://www.lysator.liu.se/~nisse/archive/nettle-3.10.2.tar.gz",
+        "https://mirror.mxe.cc/pkg/nettle-3.10.2.tar.gz",
+        "https://mxe-pkg.s3.amazonaws.com/nettle-3.10.2.tar.gz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/nghttp2-1.68.0.tar.gz",
+      "component": "nghttp2",
+      "version": "1.68.0",
+      "bytes": 2638098,
+      "sha256": "2c16ffc588ad3f9e2613c3fad72db48ecb5ce15bc362fcc85b342e48daf51013",
+      "urls": [
+        "https://github.com/nghttp2/nghttp2/releases/download/v1.68.0/nghttp2-1.68.0.tar.gz",
+        "https://mirror.mxe.cc/pkg/nghttp2-1.68.0.tar.gz",
+        "https://mxe-pkg.s3.amazonaws.com/nghttp2-1.68.0.tar.gz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/openssl-3.6.0.tar.gz",
+      "component": "openssl",
+      "version": "3.6.0",
+      "bytes": 54974351,
+      "sha256": "b6a5f44b7eb69e3fa35dbf15524405b44837a481d43d81daddde3ff21fcbb8e9",
+      "urls": [
+        "https://github.com/openssl/openssl/releases/download/openssl-3.6.0/openssl-3.6.0.tar.gz",
+        "https://mirror.mxe.cc/pkg/openssl-3.6.0.tar.gz",
+        "https://mxe-pkg.s3.amazonaws.com/openssl-3.6.0.tar.gz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/pcre2-10.47.tar.bz2",
+      "component": "pcre2",
+      "version": "10.47",
+      "bytes": 2145789,
+      "sha256": "47fe8c99461250d42f89e6e8fdaeba9da057855d06eb7fc08d9ca03fd08d7bc7",
+      "urls": [
+        "https://github.com/PCRE2Project/pcre2/releases/download/pcre2-10.47/pcre2-10.47.tar.bz2",
+        "https://mirror.mxe.cc/pkg/pcre2-10.47.tar.bz2",
+        "https://mxe-pkg.s3.amazonaws.com/pcre2-10.47.tar.bz2"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/pixman-0.46.4.tar.gz",
+      "component": "pixman",
+      "version": "0.46.4",
+      "bytes": 827198,
+      "sha256": "d09c44ebc3bd5bee7021c79f922fe8fb2fb57f7320f55e97ff9914d2346a591c",
+      "urls": [
+        "https://cairographics.org/releases/pixman-0.46.4.tar.gz",
+        "https://mirror.mxe.cc/pkg/pixman-0.46.4.tar.gz",
+        "https://mxe-pkg.s3.amazonaws.com/pixman-0.46.4.tar.gz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/pkgconf-1.8.0.tar.gz",
+      "component": "pkgconf",
+      "version": "1.8.0",
+      "bytes": 105707,
+      "sha256": "d84a2a338a17e0f68e6a8d6c9caf40d6a2c9580c4ae1d475b338b8d956e483aa",
+      "urls": [
+        "https://github.com/pkgconf/pkgconf/archive/pkgconf-1.8.0.tar.gz",
+        "https://mirror.mxe.cc/pkg/pkgconf-1.8.0.tar.gz",
+        "https://mxe-pkg.s3.amazonaws.com/pkgconf-1.8.0.tar.gz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/readline-8.3.tar.gz",
+      "component": "readline",
+      "version": "8.3",
+      "bytes": 3419642,
+      "sha256": "fe5383204467828cd495ee8d1d3c037a7eba1389c22bc6a041f627976f9061cc",
+      "urls": [
+        "https://ftp.gnu.org/gnu/readline/readline-8.3.tar.gz",
+        "https://mirror.mxe.cc/pkg/readline-8.3.tar.gz",
+        "https://mxe-pkg.s3.amazonaws.com/readline-8.3.tar.gz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/sqlite-autoconf-3510200.tar.gz",
+      "component": "sqlite",
+      "version": "3510200",
+      "bytes": 3208444,
+      "sha256": "fbd89f866b1403bb66a143065440089dd76100f2238314d92274a082d4f2b7bb",
+      "urls": [
+        "https://www.sqlite.org/2026/sqlite-autoconf-3510200.tar.gz",
+        "https://mirror.mxe.cc/pkg/sqlite-autoconf-3510200.tar.gz",
+        "https://mxe-pkg.s3.amazonaws.com/sqlite-autoconf-3510200.tar.gz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/tcl8.6.17-src.tar.gz",
+      "bytes": 11724552,
+      "sha256": "a3903371efcce8a405c5c245d029e9f6850258a60fa3761c4d58995610949b31",
+      "urls": [
+        "https://prdownloads.sourceforge.net/tcl/tcl8.6.17-src.tar.gz"
+      ],
+      "kind": "source-archive",
+      "component": "Tcl/Tk bundle"
+    },
+    {
+      "path": "sources/termcap-1.3.1.tar.gz",
+      "component": "termcap",
+      "version": "1.3.1",
+      "bytes": 439416,
+      "sha256": "91a0e22e5387ca4467b5bcb18edf1c51b930262fd466d5fda396dd9d26719100",
+      "urls": [
+        "https://ftp.gnu.org/gnu/termcap/termcap-1.3.1.tar.gz",
+        "https://mirror.mxe.cc/pkg/termcap-1.3.1.tar.gz",
+        "https://mxe-pkg.s3.amazonaws.com/termcap-1.3.1.tar.gz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/tiff-4.7.1.tar.xz",
+      "component": "tiff",
+      "version": "4.7.1",
+      "bytes": 2358600,
+      "sha256": "b92017489bdc1db3a4c97191aa4b75366673cb746de0dce5d7a749d5954681ba",
+      "urls": [
+        "https://download.osgeo.org/libtiff/tiff-4.7.1.tar.xz",
+        "https://mirror.mxe.cc/pkg/tiff-4.7.1.tar.xz",
+        "https://mxe-pkg.s3.amazonaws.com/tiff-4.7.1.tar.xz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/tk8.6.17-src.tar.gz",
+      "bytes": 4593109,
+      "sha256": "e4982df6f969c08bf9dd858a6891059b4a3f50dc6c87c10abadbbe2fc4838946",
+      "urls": [
+        "https://prdownloads.sourceforge.net/tcl/tk8.6.17-src.tar.gz"
+      ],
+      "kind": "source-archive",
+      "component": "Tcl/Tk bundle"
+    },
+    {
+      "path": "sources/tktable.zip",
+      "bytes": 308476,
+      "sha256": "519ba9a3912344a3306c506524971b0e451fd1098ee64944b66d50153136cc65",
+      "urls": [
+        "https://teapot.activestate.com/package/name/Tktable/ver/0.0.0.2010.08.18.09.02.05/arch/source/file.zip",
+        "http://teapot.activestate.com/package/name/Tktable/ver/0.0.0.2010.08.18.09.02.05/arch/source/file.zip"
+      ],
+      "kind": "source-archive",
+      "component": "Tcl/Tk bundle"
+    },
+    {
+      "path": "sources/xz-5.8.2.tar.gz",
+      "component": "xz",
+      "version": "5.8.2",
+      "bytes": 2693526,
+      "sha256": "ce09c50a5962786b83e5da389c90dd2c15ecd0980a258dd01f70f9e7ce58a8f1",
+      "urls": [
+        "https://github.com/tukaani-project/xz/releases/download/v5.8.2/xz-5.8.2.tar.gz",
+        "https://mirror.mxe.cc/pkg/xz-5.8.2.tar.gz",
+        "https://mxe-pkg.s3.amazonaws.com/xz-5.8.2.tar.gz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/zlib-1.3.1.tar.xz",
+      "component": "zlib",
+      "version": "1.3.1",
+      "bytes": 1305740,
+      "sha256": "38ef96b8dfe510d42707d9c781877914792541133e1870841463bfa73f883e32",
+      "urls": [
+        "https://github.com/madler/zlib/releases/download/v1.3.1/zlib-1.3.1.tar.xz",
+        "https://mirror.mxe.cc/pkg/zlib-1.3.1.tar.xz",
+        "https://mxe-pkg.s3.amazonaws.com/zlib-1.3.1.tar.xz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "sources/zstd-1.5.7-kernel.tar.gz",
+      "component": "zstd",
+      "version": "1.5.7-kernel",
+      "bytes": 2453573,
+      "sha256": "be2393171a011d80539e5d243df61c4a63c035923e5b31614a757e77dbcd841a",
+      "urls": [
+        "https://github.com/facebook/zstd/archive/v1.5.7-kernel.tar.gz",
+        "https://mirror.mxe.cc/pkg/zstd-1.5.7-kernel.tar.gz",
+        "https://mxe-pkg.s3.amazonaws.com/zstd-1.5.7-kernel.tar.gz"
+      ],
+      "kind": "source-archive"
+    },
+    {
+      "path": "tcl-recipes/build_in_docker.sh",
+      "bytes": 5075,
+      "sha256": "524091536cf3913974c52b6ba00b007168b66f4746aaae604da09806bd9365c7",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/tcl_bundle/build_in_docker.sh"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "tcl-recipes/build_ucrt.sh",
+      "bytes": 4252,
+      "sha256": "a8e365a31d2cf5fba3ae38e3d31506ccab41dc03d9b38b6b4fb9820dc070075a",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/tcl_bundle/build_ucrt.sh"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "tcl-recipes/tcl.diff",
+      "bytes": 5054,
+      "sha256": "11586e383110509a2169ca194b39528ba5f9ed8142cbbb19ae1c65be88b10fb3",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/tcl_bundle/tcl.diff"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "tcl-recipes/tk.diff",
+      "bytes": 566,
+      "sha256": "e8951b2fdd77bbc5981856e6453b9873c14bc5269a23c7e22527ada48efa78fa",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/tcl_bundle/tk.diff"
+      ],
+      "kind": "build-recipe-or-patch"
+    },
+    {
+      "path": "tcl-recipes/tktable.diff",
+      "bytes": 4285,
+      "sha256": "440fe82d849e0b4d6516e704d7c593d156a50c5726ad107c0274dd48b54a04df",
+      "urls": [
+        "https://svn.r-project.org/R-dev-web/!svn/bc/6768/trunk/WindowsBuilds/winutf8/ucrt3/tcl_bundle/tktable.diff"
+      ],
+      "kind": "build-recipe-or-patch"
+    }
+  ],
+  "scope": "Conservative corresponding-source closure for external R runtime libraries and compiler runtime; package includes R, R-package and Python sources separately. General build tools use documented system prerequisites. Version linkage is supported by observed native versions and binary identifying strings, not a claim of bit-identical recompilation."
+}

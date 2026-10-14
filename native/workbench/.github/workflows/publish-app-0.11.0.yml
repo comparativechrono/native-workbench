@@ -1,0 +1,104 @@
+name: Publish accepted Native Workbench 0.11.0
+
+on:
+  push:
+    branches: [release/app-0.11.0, release/verify-app-0.11.0]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-app-v0.11.0
+  cancel-in-progress: false
+
+jobs:
+  verify-candidate:
+    if: github.repository == 'comparativechrono/workbench' && github.ref == 'refs/heads/release/verify-app-0.11.0'
+    runs-on: ubuntu-22.04
+    timeout-minutes: 25
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Check publication and read-only refusal guards
+        run: python3 tests/test_publish_app_0110.py
+      - name: Verify exact accepted candidate and prepare release without remote writes
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 scripts/publish_app_0110.py --verify-candidate \
+            --input-dir "$RUNNER_TEMP/promotion-inputs" \
+            --output-dir "$RUNNER_TEMP/promotion-assets" \
+            --publish-sha "$GITHUB_SHA" \
+            --receipt "$RUNNER_TEMP/candidate-verification.json"
+      - name: Retain compact preparation evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: app-v0.11.0-preparation-evidence-${{ github.sha }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/candidate-verification.json
+            ${{ runner.temp }}/promotion-assets/RELEASE-VALIDATION.json
+            ${{ runner.temp }}/promotion-assets/EVIDENCE-SHA256SUMS.txt
+          if-no-files-found: error
+          retention-days: 30
+      - name: Retain exact prepared release for review
+        if: success()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: app-v0.11.0-prepared-release-${{ github.sha }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/promotion-assets
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+
+  promote:
+    if: github.repository == 'comparativechrono/workbench' && github.ref == 'refs/heads/release/app-0.11.0'
+    runs-on: ubuntu-22.04
+    timeout-minutes: 25
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Check promotion refusal guards without network writes
+        run: python3 tests/test_publish_app_0110.py
+      - name: Verify and promote the exact accepted archives without rebuilding
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 scripts/publish_app_0110.py \
+            --input-dir "$RUNNER_TEMP/promotion-inputs" \
+            --output-dir "$RUNNER_TEMP/promotion-assets" \
+            --publish-sha "$GITHUB_SHA" \
+            --receipt "$RUNNER_TEMP/public-download-verification.json"
+      - name: Retain compact publication receipt and exact final asset identities
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: app-v0.11.0-publication-receipt-${{ github.sha }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/public-download-verification.json
+            ${{ runner.temp }}/promotion-assets/RELEASE-VALIDATION.json
+            ${{ runner.temp }}/promotion-assets/EVIDENCE-SHA256SUMS.txt
+          if-no-files-found: error
+          retention-days: 30
+      - name: Retain prepared release and final public download evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: app-v0.11.0-publication-${{ github.sha }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/promotion-assets
+            ${{ runner.temp }}/public-download-verification.json
+          if-no-files-found: error
+          retention-days: 30

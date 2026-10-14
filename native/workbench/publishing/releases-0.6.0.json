@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "releases": [
+    {
+      "archive": "../release-assets/packs/native-workbench-pack-align-0.4.0.zip",
+      "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/pack-align-v0.4.0/native-workbench-pack-align-0.4.0.zip"
+    },
+    {
+      "archive": "../release-assets/packs/native-workbench-pack-bam-0.4.0.zip",
+      "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/pack-bam-v0.4.0/native-workbench-pack-bam-0.4.0.zip"
+    },
+    {
+      "archive": "../release-assets/packs/native-workbench-pack-bowtie2-0.5.3.zip",
+      "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/pack-bowtie2-v0.5.3/native-workbench-pack-bowtie2-0.5.3.zip"
+    },
+    {
+      "archive": "../release-assets/packs/native-workbench-pack-bwa-0.4.0.zip",
+      "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/pack-bwa-v0.4.0/native-workbench-pack-bwa-0.4.0.zip"
+    },
+    {
+      "archive": "../release-assets/packs/native-workbench-pack-fastp-0.4.1.zip",
+      "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/pack-fastp-v0.4.1/native-workbench-pack-fastp-0.4.1.zip"
+    },
+    {
+      "archive": "../release-assets/packs/native-workbench-pack-freebayes-0.4.0.zip",
+      "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/pack-freebayes-v0.4.0/native-workbench-pack-freebayes-0.4.0.zip"
+    },
+    {
+      "archive": "../release-assets/packs/native-workbench-pack-hisat2-0.5.3.zip",
+      "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/pack-hisat2-v0.5.3/native-workbench-pack-hisat2-0.5.3.zip"
+    },
+    {
+      "archive": "../release-assets/packs/native-workbench-pack-lofreq-0.5.3.zip",
+      "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/pack-lofreq-v0.5.3/native-workbench-pack-lofreq-0.5.3.zip"
+    },
+    {
+      "archive": "../release-assets/packs/native-workbench-pack-muscle-0.5.2.zip",
+      "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/pack-muscle-v0.5.2/native-workbench-pack-muscle-0.5.2.zip"
+    },
+    {
+      "archive": "../release-assets/packs/native-workbench-pack-mutect2-0.5.4.zip",
+      "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/pack-mutect2-v0.5.4/native-workbench-pack-mutect2-0.5.4.zip"
+    },
+    {
+      "archive": "../release-assets/packs/native-workbench-pack-reads-0.4.0.zip",
+      "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/pack-reads-v0.4.0/native-workbench-pack-reads-0.4.0.zip"
+    },
+    {
+      "archive": "../release-assets/packs/native-workbench-pack-research-variants-0.4.1.zip",
+      "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/pack-research-variants-v0.4.1/native-workbench-pack-research-variants-0.4.1.zip"
+    },
+    {
+      "archive": "../release-assets/packs/native-workbench-pack-seqkit-0.5.2.zip",
+      "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/pack-seqkit-v0.5.2/native-workbench-pack-seqkit-0.5.2.zip"
+    },
+    {
+      "archive": "../release-assets/packs/native-workbench-pack-trimming-0.4.0.zip",
+      "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/pack-trimming-v0.4.0/native-workbench-pack-trimming-0.4.0.zip"
+    },
+    {
+      "archive": "../release-assets/packs/native-workbench-pack-vardict-0.5.3.zip",
+      "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/pack-vardict-v0.5.3/native-workbench-pack-vardict-0.5.3.zip"
+    },
+    {
+      "archive": "../release-assets/packs/native-workbench-pack-variant-pipeline-0.4.0.zip",
+      "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/pack-variant-pipeline-v0.4.0/native-workbench-pack-variant-pipeline-0.4.0.zip"
+    },
+    {
+      "archive": "../release-assets/packs/native-workbench-pack-variants-0.4.0.zip",
+      "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/pack-variants-v0.4.0/native-workbench-pack-variants-0.4.0.zip"
+    },
+    {
+      "archive": "../release-assets/packs/native-workbench-pack-vsearch-0.5.2.zip",
+      "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/pack-vsearch-v0.5.2/native-workbench-pack-vsearch-0.5.2.zip"
+    }
+  ]
+}

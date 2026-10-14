@@ -1,0 +1,143 @@
+{
+  "cosmopolitan_source_archive": {
+    "url": "https://codeload.github.com/jart/cosmopolitan/tar.gz/refs/tags/3.3.10",
+    "sha256": "1ecfd628305e844f7d8ded53742e4a7f2b908b4ad2e9fb423c81595986f5b2ff"
+  },
+  "files": [
+    {
+      "file": "Cosmocc-3.3.10-README.md",
+      "sha256": "d0f502e2022b147c95f074f4c5069fde1d1bfbec861d34de46b8cde8e06e4c9b",
+      "origin": "README.md in https://cosmo.zip/pub/cosmocc/cosmocc-3.3.10.zip"
+    },
+    {
+      "file": "Cosmopolitan-LICENSE-3.3.10",
+      "sha256": "188101f17152d898b65719a4c4fc501aa71c16649cc37ebab534bcb3511c6127",
+      "origin": "https://raw.githubusercontent.com/jart/cosmopolitan/3.3.10/LICENSE"
+    },
+    {
+      "file": "ape-loader-3.3.10-ISC-header.txt",
+      "sha256": "f68ed60f7f93609e20d3a9d61a15e35bce298c90accf39e44d6c7cd2e964c9a6",
+      "origin": "https://raw.githubusercontent.com/jart/cosmopolitan/3.3.10/ape/loader.c (initial license comment only)"
+    },
+    {
+      "file": "cosmopolitan-3.3.10/LICENSE",
+      "sha256": "188101f17152d898b65719a4c4fc501aa71c16649cc37ebab534bcb3511c6127",
+      "origin": "https://raw.githubusercontent.com/jart/cosmopolitan/3.3.10/LICENSE"
+    },
+    {
+      "file": "cosmopolitan-3.3.10/libc/tinymath/LICENSE.fdlibm",
+      "sha256": "5238b63cbd39512ff69bf9cb2ce054c7bd416030cdb0d3aea1af2ac0e47b2894",
+      "origin": "https://raw.githubusercontent.com/jart/cosmopolitan/3.3.10/libc/tinymath/LICENSE.fdlibm"
+    },
+    {
+      "file": "cosmopolitan-3.3.10/libc/tinymath/LICENSE.freebsd",
+      "sha256": "4ce916521645614401dd3f625bd534a2281c5e494fe50a631718de1a7c3fb064",
+      "origin": "https://raw.githubusercontent.com/jart/cosmopolitan/3.3.10/libc/tinymath/LICENSE.freebsd"
+    },
+    {
+      "file": "cosmopolitan-3.3.10/libc/tinymath/LICENSE.musl",
+      "sha256": "f9bc4423732350eb0b3f7ed7e91d530298476f8fec0c6c427a1c04ade22655af",
+      "origin": "https://raw.githubusercontent.com/jart/cosmopolitan/3.3.10/libc/tinymath/LICENSE.musl"
+    },
+    {
+      "file": "cosmopolitan-3.3.10/libc/tinymath/LICENSE.openbsd",
+      "sha256": "89094132def44cf6f815a6527633d3cd673ccf82be8975fd9b717412517fd884",
+      "origin": "https://raw.githubusercontent.com/jart/cosmopolitan/3.3.10/libc/tinymath/LICENSE.openbsd"
+    },
+    {
+      "file": "cosmopolitan-3.3.10/libc/tinymath/LICENSE.optimized-routines",
+      "sha256": "fb9dee614d78bd7e408174cce841b5d5d50b1f46d2b806124c4923e37859211f",
+      "origin": "https://raw.githubusercontent.com/jart/cosmopolitan/3.3.10/libc/tinymath/LICENSE.optimized-routines"
+    },
+    {
+      "file": "cosmopolitan-3.3.10/notice-source/libc/intrin/armopt.c",
+      "sha256": "858985a8e6fbe9cfe264479a178989d7535112c734024764927e19eff8d6b22a",
+      "origin": "https://raw.githubusercontent.com/jart/cosmopolitan/3.3.10/libc/intrin/armopt.c"
+    },
+    {
+      "file": "cosmopolitan-3.3.10/notice-source/libc/intrin/musl.c",
+      "sha256": "1f74213f9cdc74844b125f841d72c29ecde8ec490e941050bcd5bc28499d551e",
+      "origin": "https://raw.githubusercontent.com/jart/cosmopolitan/3.3.10/libc/intrin/musl.c"
+    },
+    {
+      "file": "cosmopolitan-3.3.10/notice-source/libc/log/err.c",
+      "sha256": "477bcfc04d773fda8b1d0b5b5a33dff62892deea8da759371592ef4a62a1d6dc",
+      "origin": "https://raw.githubusercontent.com/jart/cosmopolitan/3.3.10/libc/log/err.c"
+    },
+    {
+      "file": "cosmopolitan-3.3.10/notice-source/libc/str/smoothsort.c",
+      "sha256": "15bcb6ed194bb990e0bd50d5ecd0f8e3d7bac33e0cff935ca69f5fe27abe355c",
+      "origin": "https://raw.githubusercontent.com/jart/cosmopolitan/3.3.10/libc/str/smoothsort.c"
+    },
+    {
+      "file": "cosmopolitan-3.3.10/notice-source/libc/str/strlcpy.c",
+      "sha256": "538a04c2ba5fdaf976f9ecc2bc0f88650d65fa5e4fd574d70c04a374dc4068f6",
+      "origin": "https://raw.githubusercontent.com/jart/cosmopolitan/3.3.10/libc/str/strlcpy.c"
+    },
+    {
+      "file": "cosmopolitan-3.3.10/notice-source/libc/str/todd.c",
+      "sha256": "835e7eecbdc9b030b3d3623afcc55d89197bd4fd243378690573f829116ab5f8",
+      "origin": "https://raw.githubusercontent.com/jart/cosmopolitan/3.3.10/libc/str/todd.c"
+    },
+    {
+      "file": "cosmopolitan-3.3.10/notice-source/third_party/gdtoa/gdtoa.c",
+      "sha256": "258ca8e769fda751b15e7e4ad02302d210745aa2e3524932e66bace1bab349af",
+      "origin": "https://raw.githubusercontent.com/jart/cosmopolitan/3.3.10/third_party/gdtoa/gdtoa.c"
+    },
+    {
+      "file": "cosmopolitan-3.3.10/notice-source/third_party/gdtoa/gdtoa.internal.h",
+      "sha256": "bfcc967fdc6992454eeee1b47807b1af06b113353f969f80fe27b276a9b9cc97",
+      "origin": "https://raw.githubusercontent.com/jart/cosmopolitan/3.3.10/third_party/gdtoa/gdtoa.internal.h"
+    },
+    {
+      "file": "cosmopolitan-3.3.10/notice-source/third_party/gdtoa/notice.c",
+      "sha256": "3f5cefed7918c2094199e5b51f1d8a260a9cf0a625dd5bb6401bb9d2dd81b989",
+      "origin": "https://raw.githubusercontent.com/jart/cosmopolitan/3.3.10/third_party/gdtoa/notice.c"
+    },
+    {
+      "file": "cosmopolitan-3.3.10/notice-source/third_party/puff/puff.c",
+      "sha256": "4435ebd8f4ac8c26c0c1080c985a91e2359ac3495ce22d2bf1be08101d5ee215",
+      "origin": "https://raw.githubusercontent.com/jart/cosmopolitan/3.3.10/third_party/puff/puff.c"
+    },
+    {
+      "file": "cosmopolitan-3.3.10/third_party/nsync/LICENSE.txt",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "origin": "https://raw.githubusercontent.com/jart/cosmopolitan/3.3.10/third_party/nsync/LICENSE.txt"
+    },
+    {
+      "file": "cosmopolitan-3.3.10/third_party/zlib/LICENSE",
+      "sha256": "49337b3c5dd49bc752db59acfbe6b96f6f710749e6f2e1d1caf7a33712ed9bd7",
+      "origin": "https://raw.githubusercontent.com/jart/cosmopolitan/3.3.10/third_party/zlib/LICENSE"
+    },
+    {
+      "file": "cosmopolitan-3.3.10/third_party/zlib/LICENSE.chromium",
+      "sha256": "368cca1106be99d39ecd32a38d8305585d802a475effb66380b91ffc9bcf709b",
+      "origin": "https://raw.githubusercontent.com/jart/cosmopolitan/3.3.10/third_party/zlib/LICENSE.chromium"
+    },
+    {
+      "file": "cosmopolitan-3.3.10/third_party/zlib/LICENSE.zlib",
+      "sha256": "845efc77857d485d91fb3e0b884aaa929368c717ae8186b66fe1ed2495753243",
+      "origin": "https://raw.githubusercontent.com/jart/cosmopolitan/3.3.10/third_party/zlib/LICENSE.zlib"
+    },
+    {
+      "file": "minimap2-MIT-LICENSE",
+      "sha256": "b68a701dea24796190ef9e860ff56e79d578c96183722cf4ec3738793e8e75f4",
+      "origin": "https://raw.githubusercontent.com/lh3/minimap2/v2.28/LICENSE.txt"
+    },
+    {
+      "file": "minimap2-embedded-runtime-notices.txt",
+      "sha256": "9b12488a3fd9041ecbbcd75f199337e3a9d434a877d1e23589ac91ddf17ff063",
+      "origin": "Extracted from corresponding binary and its matching .dbg ELF symbols; all embedded notices retained in original executables."
+    },
+    {
+      "file": "seqtk-MIT-LICENSE",
+      "sha256": "506c5701a91dbd753aaab8f34639ec98e038685dbb40d943f63465e291e739d8",
+      "origin": "https://raw.githubusercontent.com/lh3/seqtk/v1.4/LICENSE"
+    },
+    {
+      "file": "seqtk-embedded-runtime-notices.txt",
+      "sha256": "90c25a6ac2ca4865b23ce5711df435cadcbd4c58831c923696c7f37d20681c03",
+      "origin": "Extracted from corresponding binary and its matching .dbg ELF symbols; all embedded notices retained in original executables."
+    }
+  ]
+}

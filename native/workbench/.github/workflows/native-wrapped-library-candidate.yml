@@ -1,0 +1,346 @@
+name: Native Windows 0.16.1 wrapped tool library candidate
+
+on:
+  push:
+    branches: [fix/native-ui-0.16.1]
+    paths:
+      # Validator-only fixes use the frozen recheck; production changes rebuild.
+      - 'desktop/**'
+      - 'workspace/**'
+      - 'scripts/**'
+      - '!scripts/check_*'
+      - '!scripts/native_tree.py'
+      - 'tests/**'
+      - '!tests/test_ui_patch_gate.py'
+      - '!tests/test_tester_feedback_gate.py'
+      - '!tests/test_wrapped_library_gate.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: native-wrapped-library-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 25
+    outputs:
+      starter_sha256: ${{ steps.package.outputs.starter_sha256 }}
+      starter_name: ${{ steps.package.outputs.starter_name }}
+      update_sha256: ${{ steps.package.outputs.update_sha256 }}
+      update_name: ${{ steps.package.outputs.update_name }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Recover immutable published application, source and compiler
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/patch-inputs"
+          cd "$RUNNER_TEMP/patch-inputs"
+          curl --fail --location --retry 3 'https://github.com/comparativechrono/workbench/releases/download/app-v0.16.0/native-workbench-0.16.0-starter-windows.zip' -o baseline.zip
+          curl --fail --location --retry 3 'https://github.com/comparativechrono/workbench/releases/download/app-v0.16.0/native-workbench-0.16.0-source.zip' -o source.zip
+          curl --fail --location --retry 3 'https://github.com/mstorsjo/llvm-mingw/releases/download/20260922/llvm-mingw-20260922-ucrt-ubuntu-22.04-x86_64.tar.xz' -o compiler.tar.xz
+          sha256sum --check <<'SUMS'
+          f96e03e43cac92ba8ca9a0a3807eb671f9924d5e624cadbba94d1a5ca1309073  baseline.zip
+          f746f00a82675c2cf52364a3b4d040721c6d06ac5605488efbdc0376ef5b7e44  source.zip
+          bb7bb7654b33d5aa8712acb837c963b2e0c56352560c76105270a3268c665c21  compiler.tar.xz
+          SUMS
+          tar -xf compiler.tar.xz
+      - name: Compile all three native patch resources with strict warnings
+        shell: bash
+        run: |
+          set -euo pipefail
+          export BW_MINGW_ROOT="$RUNNER_TEMP/patch-inputs/llvm-mingw-20260922-ucrt-ubuntu-22.04-x86_64"
+          bash desktop/build_desktop_workspace.sh
+          bash desktop/build_bridge.sh
+          bash desktop/build_workspace_update_launcher.sh
+      - name: Check affected source, results and packaging contracts
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build
+          c++ -std=c++17 -O2 -Wall -Wextra -Werror -DDESKTOP_JSON_ONLY -Idesktop tests/test_desktop_json.cpp desktop/desktop_ipc.cpp -o build/test_desktop_json
+          build/test_desktop_json
+          python3 tests/test_workspace_layout.py
+          python3 tests/test_library_text_layout.py
+          python3 tests/test_wrapped_library_gate.py
+          python3 tests/test_ui_patch_packaging.py
+          python3 tests/test_split_release.py
+          python3 tests/test_core_update.py
+          python3 tests/test_deployment_ui_gate.py
+          python3 tests/test_ui_patch_gate.py
+          python3 tests/test_tester_feedback_gate.py
+          python3 workspace/tests/test_curated_workflows.py
+          python3 workspace/tests/test_results_summary.py
+          python3 workspace/tests/test_curated_service.py
+          python3 workspace/tests/test_desktop_host.py
+          python3 workspace/tests/test_desktop_modes.py
+          python3 workspace/tests/test_workflow_inputs.py
+          python3 workspace/tests/test_cwl_results.py
+          python3 workspace/tests/test_sample_table.py
+          python3 workspace/tests/test_sample_table_editor.py
+          python3 workspace/tests/test_readiness.py
+          python3 workspace/tests/test_readiness_service.py
+          python3 -m py_compile scripts/build_ui_patch_candidate.py scripts/check_ui_patch_windows.py scripts/check_tester_feedback_windows.py scripts/check_wrapped_library_windows.py scripts/check_library_class_probe_windows.py
+      - name: Freeze one Starter, matching source and core-only updater
+        id: package
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/build_ui_patch_candidate.py \
+            --baseline "$RUNNER_TEMP/patch-inputs/baseline.zip" \
+            --baseline-source "$RUNNER_TEMP/patch-inputs/source.zip" \
+            --output "$RUNNER_TEMP/patch-candidate" \
+            --work "$RUNNER_TEMP/patch-build-work" \
+            --source-commit "$GITHUB_SHA"
+      - name: Prepare bounded transfers of the same frozen archive bytes
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib,json,os,shutil
+          from pathlib import Path
+          root = Path(os.environ['RUNNER_TEMP']) / 'patch-candidate'
+          transfer = Path(os.environ['RUNNER_TEMP']) / 'patch-transfer'
+          for role, name in [('starter', 'native-workbench-0.16.1-starter-windows.zip'),
+                             ('updater', 'native-workbench-0.16.1-update-from-0.16.0.zip')]:
+              folder = transfer / role; folder.mkdir(parents=True)
+              shutil.copyfile(root / name, folder / name)
+          source = root / 'native-workbench-0.16.1-source.zip'
+          parts = []
+          with source.open('rb') as stream:
+              while block := stream.read(24 * 1024 * 1024):
+                  number = len(parts) + 1
+                  folder = transfer / ('source-part-' + str(number)); folder.mkdir()
+                  name = source.name + '.part' + str(number); (folder / name).write_bytes(block)
+                  parts.append({'file': name, 'bytes': len(block), 'sha256': hashlib.sha256(block).hexdigest()})
+          assert len(parts) == 2, 'Source exceeded the reviewed two-part transfer layout.'
+          metadata = transfer / 'metadata'; metadata.mkdir()
+          for name in ('BUILD-PROVENANCE.json', 'source-metadata.json', 'SHA256SUMS.txt'):
+              shutil.copyfile(root / name, metadata / name)
+          record = {'schema': 1, 'archivesRebuilt': False, 'sourceArchive': {
+              'file': source.name, 'bytes': source.stat().st_size, 'sha256': hashlib.sha256(source.read_bytes()).hexdigest()},
+              'sourceTransportParts': parts,
+              'sourceReassembly': 'Concatenate part1 then part2 as raw bytes; verify the complete source SHA-256 before extraction.'}
+          (metadata / 'TRANSPORT-VERIFICATION.json').write_text(json.dumps(record, indent=2) + '\n')
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: wrapped-library-candidate-${{ github.sha }}
+          path: ${{ runner.temp }}/patch-candidate
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: wrapped-library-starter-${{ github.sha }}
+          path: ${{ runner.temp }}/patch-transfer/starter
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: wrapped-library-updater-${{ github.sha }}
+          path: ${{ runner.temp }}/patch-transfer/updater
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: wrapped-library-source-part-1-${{ github.sha }}
+          path: ${{ runner.temp }}/patch-transfer/source-part-1
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: wrapped-library-source-part-2-${{ github.sha }}
+          path: ${{ runner.temp }}/patch-transfer/source-part-2
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: wrapped-library-metadata-${{ github.sha }}
+          path: ${{ runner.temp }}/patch-transfer/metadata
+          if-no-files-found: error
+          retention-days: 30
+
+  native:
+    needs: build
+    runs-on: windows-2022
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        folder: [ordinary, 'path with spaces']
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: wrapped-library-candidate-${{ github.sha }}
+          path: ${{ runner.temp }}/patch-candidate
+      - name: Verify the frozen artifacts and extract independent test installations
+        id: prepare
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+          STARTER_SHA256: ${{ needs.build.outputs.starter_sha256 }}
+          UPDATE_SHA256: ${{ needs.build.outputs.update_sha256 }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $candidate = Join-Path $env:RUNNER_TEMP 'patch-candidate'
+          $starter = Join-Path $candidate '${{ needs.build.outputs.starter_name }}'
+          $updater = Join-Path $candidate '${{ needs.build.outputs.update_name }}'
+          if ((Get-FileHash $starter -Algorithm SHA256).Hash -ne $env:STARTER_SHA256) { throw 'Frozen Starter identity mismatch.' }
+          if ((Get-FileHash $updater -Algorithm SHA256).Hash -ne $env:UPDATE_SHA256) { throw 'Frozen updater identity mismatch.' }
+          $provenance = Get-Content (Join-Path $candidate 'BUILD-PROVENANCE.json') -Raw | ConvertFrom-Json
+          if ($provenance.sourceCommit -ne $env:GITHUB_SHA -or $provenance.appVersion -ne '0.16.1') { throw 'Candidate provenance mismatch.' }
+          $baseline = Join-Path $env:RUNNER_TEMP 'baseline-0.16.0.zip'
+          Invoke-WebRequest -Uri 'https://github.com/comparativechrono/workbench/releases/download/app-v0.16.0/native-workbench-0.16.0-starter-windows.zip' -OutFile $baseline
+          if ((Get-FileHash $baseline -Algorithm SHA256).Hash -ne 'f96e03e43cac92ba8ca9a0a3807eb671f9924d5e624cadbba94d1a5ca1309073') { throw 'Published baseline identity mismatch.' }
+          $case = Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER
+          foreach ($gate in @('wrapped-library', 'patch', 'feedback', 'batch', 'readiness', 'curated', 'workspace', 'reference-management', 'results', 'scroll')) {
+            Expand-Archive $starter (Join-Path $case $gate)
+          }
+          Expand-Archive $updater (Join-Path $case 'updater')
+      - name: Diagnose native viewport class compatibility (not UI acceptance)
+        if: always() && !cancelled() && steps.prepare.outcome == 'success'
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'wrapped-library/native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I -B scripts/check_library_class_probe_windows.py --source-commit $env:GITHUB_SHA --gate-commit $env:GITHUB_SHA --report "$env:RUNNER_TEMP/patch-evidence/class-probe/native-class-compatibility.json"
+          if ($LASTEXITCODE -ne 0) { throw 'Isolated class compatibility diagnostic did not complete; this is not UI acceptance.' }
+      - name: Full wrapped tool names and descriptions, typography, hover and native navigation
+        if: always() && !cancelled() && steps.prepare.outcome == 'success'
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+          STARTER_SHA256: ${{ needs.build.outputs.starter_sha256 }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'wrapped-library/native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I -B scripts/check_wrapped_library_windows.py --app-root $app --starter-archive (Join-Path $env:RUNNER_TEMP 'patch-candidate/${{ needs.build.outputs.starter_name }}') --starter-sha256 $env:STARTER_SHA256 --source-commit $env:GITHUB_SHA --gate-commit $env:GITHUB_SHA --report "$env:RUNNER_TEMP/patch-evidence/wrapped-library/native-wrapped-library.json" --app-version 0.16.1
+          if ($LASTEXITCODE -ne 0) { throw 'Wrapped tool-library checks failed; retain actual screenshots and failures.' }
+      - name: Native updater picker, preserved state, keyboard focus and visible work-area bounds
+        if: always() && !cancelled() && steps.prepare.outcome == 'success'
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+          STARTER_SHA256: ${{ needs.build.outputs.starter_sha256 }}
+          UPDATE_SHA256: ${{ needs.build.outputs.update_sha256 }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $case = Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER
+          $app = Join-Path $case 'patch/native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I -B scripts/check_ui_patch_windows.py --app-root $app --baseline-archive (Join-Path $env:RUNNER_TEMP 'baseline-0.16.0.zip') --update-root (Join-Path $case 'updater') --starter-archive (Join-Path $env:RUNNER_TEMP 'patch-candidate/${{ needs.build.outputs.starter_name }}') --update-archive (Join-Path $env:RUNNER_TEMP 'patch-candidate/${{ needs.build.outputs.update_name }}') --starter-sha256 $env:STARTER_SHA256 --update-sha256 $env:UPDATE_SHA256 --source-commit $env:GITHUB_SHA --gate-commit $env:GITHUB_SHA --work (Join-Path $case 'patch-gate-work') --report "$env:RUNNER_TEMP/patch-evidence/patch/native-ui-patch.json"
+          if ($LASTEXITCODE -ne 0) { throw 'Native patch acceptance failed; retained observations must not be treated as passes.' }
+      - name: Visible redraw frames, category viewport, separate Methods and editable sample tables
+        if: always() && !cancelled() && steps.prepare.outcome == 'success'
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+          STARTER_SHA256: ${{ needs.build.outputs.starter_sha256 }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'feedback/native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I -B scripts/check_tester_feedback_windows.py --app-root $app --report "$env:RUNNER_TEMP/patch-evidence/feedback/native-tester-feedback.json" --source-commit $env:GITHUB_SHA --gate-commit $env:GITHUB_SHA --asset-sha256 $env:STARTER_SHA256 --asset-name '${{ needs.build.outputs.starter_name }}' --starter-archive (Join-Path $env:RUNNER_TEMP 'patch-candidate/${{ needs.build.outputs.starter_name }}') --app-version 0.16.1
+          if ($LASTEXITCODE -ne 0) { throw 'Tester feedback regression failed; temporal observations and failures are retained.' }
+      - name: Existing sample mappings, frozen queues, batch science and native Samples controls
+        if: always() && !cancelled() && steps.prepare.outcome == 'success'
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+          STARTER_SHA256: ${{ needs.build.outputs.starter_sha256 }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'batch/native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I -B scripts/check_batch_windows.py --app-root $app --report "$env:RUNNER_TEMP/patch-evidence/batch/native-batch.json" --source-commit $env:GITHUB_SHA --asset-sha256 $env:STARTER_SHA256 --asset-name '${{ needs.build.outputs.starter_name }}' --app-version 0.16.1
+          if ($LASTEXITCODE -ne 0) { throw 'Sample mapping, queue and batch regression failed.' }
+      - name: Methods separation, retained Run preparation checks and explicit diagnostics
+        if: always() && !cancelled() && steps.prepare.outcome == 'success'
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+          STARTER_SHA256: ${{ needs.build.outputs.starter_sha256 }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'readiness/native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I -B scripts/check_readiness_windows.py --app-root $app --report "$env:RUNNER_TEMP/patch-evidence/readiness/native-readiness.json" --source-commit $env:GITHUB_SHA --asset-sha256 $env:STARTER_SHA256 --asset-name '${{ needs.build.outputs.starter_name }}' --app-version 0.16.1
+          if ($LASTEXITCODE -ne 0) { throw 'Methods, Run preparation and diagnostics regression failed.' }
+      - name: Curated scientific answers and native searchable result summaries
+        if: always() && !cancelled() && steps.prepare.outcome == 'success'
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+          STARTER_SHA256: ${{ needs.build.outputs.starter_sha256 }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'curated/native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I -B scripts/check_curated_windows.py --app-root $app --report "$env:RUNNER_TEMP/patch-evidence/curated/native-curated.json" --source-commit $env:GITHUB_SHA --asset-sha256 $env:STARTER_SHA256 --asset-name '${{ needs.build.outputs.starter_name }}' --app-version 0.16.1
+          if ($LASTEXITCODE -ne 0) { throw 'Curated science/results regression failed.' }
+      - name: Existing workspace controls, graph interactions and native scientific chain
+        if: always() && !cancelled() && steps.prepare.outcome == 'success'
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+          STARTER_SHA256: ${{ needs.build.outputs.starter_sha256 }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'workspace/native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I -B scripts/check_workspace_ui_windows.py --app-root $app --report "$env:RUNNER_TEMP/patch-evidence/workspace/native-workspace.json" --source-commit $env:GITHUB_SHA --asset-sha256 $env:STARTER_SHA256 --asset-name '${{ needs.build.outputs.starter_name }}'
+          if ($LASTEXITCODE -ne 0) { throw 'Workspace UI/science regression failed.' }
+      - name: Reference transfers, reviewed imports, relocation and native References
+        if: always() && !cancelled() && steps.prepare.outcome == 'success'
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+          STARTER_SHA256: ${{ needs.build.outputs.starter_sha256 }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'reference-management/native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I -B scripts/check_reference_management_windows.py --suite management --app-root $app --report "$env:RUNNER_TEMP/patch-evidence/reference-management/native-reference-management.json" --source-commit $env:GITHUB_SHA --asset-sha256 $env:STARTER_SHA256 --asset-name '${{ needs.build.outputs.starter_name }}' --app-version 0.16.1
+          if ($LASTEXITCODE -ne 0) { throw 'Reference-management regression failed.' }
+      - name: Native results, independent replay, routed DAG and application icon
+        if: always() && !cancelled() && steps.prepare.outcome == 'success'
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+          STARTER_SHA256: ${{ needs.build.outputs.starter_sha256 }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'results/native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I -B scripts/check_results_windows.py --app-root $app --report "$env:RUNNER_TEMP/patch-evidence/results/native-results.json" --source-commit $env:GITHUB_SHA --asset-sha256 $env:STARTER_SHA256
+          if ($LASTEXITCODE -ne 0) { throw 'Native results/replay/DAG/icon regression failed.' }
+      - name: Displayed scrolling frames and precision wheel routing
+        if: always() && !cancelled() && steps.prepare.outcome == 'success'
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+          STARTER_SHA256: ${{ needs.build.outputs.starter_sha256 }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'scroll/native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I -B scripts/check_scroll_frames_0160_windows.py --app-root $app --report "$env:RUNNER_TEMP/patch-evidence/scroll/native-scroll.json" --source-commit $env:GITHUB_SHA --asset-sha256 $env:STARTER_SHA256
+          if ($LASTEXITCODE -ne 0) { throw 'Native scrolling regression failed.' }
+      - name: Retain actual checks, failures and captures
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: wrapped-library-windows-${{ matrix.folder }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/patch-evidence
+          if-no-files-found: error
+          retention-days: 30

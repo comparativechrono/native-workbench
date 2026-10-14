@@ -1,0 +1,39 @@
+{
+  "version": "2.32.0",
+  "source": "https://github.com/torognes/vsearch/releases/tag/v2.32.0",
+  "verification": "All files match official GitHub asset digests. Linux also matches SHA256SUMS; source matches separate .sha256. Windows archive was replaced 2026-09-28 after SHA256SUMS was published 2026-09-18; that file still lists obsolete Windows checksum. Current asset metadata is retained.",
+  "artifacts": [
+    {
+      "name": "SHA256SUMS",
+      "url": "https://github.com/torognes/vsearch/releases/download/v2.32.0/SHA256SUMS",
+      "sha256": "18264d26564932134551dc6d94491cd31ed3bbd92bb7fccf1bf479885bf83acf",
+      "bytes": 1456,
+      "github_asset_id": 572288606,
+      "asset_updated_at": "2026-09-18T09:29:41Z"
+    },
+    {
+      "name": "vsearch-2.32.0-win-x86_64.zip",
+      "url": "https://github.com/torognes/vsearch/releases/download/v2.32.0/vsearch-2.32.0-win-x86_64.zip",
+      "sha256": "50ead8474607a325c9021bae890f10d0fa296489d5c266a4dc621e23b98637cf",
+      "bytes": 1754320,
+      "github_asset_id": 595241789,
+      "asset_updated_at": "2026-09-28T11:25:20Z"
+    },
+    {
+      "name": "vsearch-2.32.0.tar.gz",
+      "url": "https://github.com/torognes/vsearch/releases/download/v2.32.0/vsearch-2.32.0.tar.gz",
+      "sha256": "99578a8b960a0fb87c1f19dc65aedecddc01cfa91851b697dac8294dd08a6ceb",
+      "bytes": 1189974,
+      "github_asset_id": 572285488,
+      "asset_updated_at": "2026-09-18T09:27:52Z"
+    },
+    {
+      "name": "vsearch-2.32.0-linux-x86_64.tar.gz",
+      "url": "https://github.com/torognes/vsearch/releases/download/v2.32.0/vsearch-2.32.0-linux-x86_64.tar.gz",
+      "sha256": "c9d7ad4e10e942286ad84004a913e0f2f82957f6156c97a7d6d2389750dd6e41",
+      "bytes": 749252,
+      "github_asset_id": 572288592,
+      "asset_updated_at": "2026-09-18T09:29:40Z"
+    }
+  ]
+}

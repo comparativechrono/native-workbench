@@ -1,0 +1,21 @@
+{
+  "version": "0.5.0",
+  "platform_validated": "Linux",
+  "native_windows_integration_tested": false,
+  "native_build": "Windows x86-64 crosscompile with warnings as errors; system/UCRT imports and manifests inspected",
+  "unit_and_transport_tests": 37,
+  "engine_regression_tests": 25,
+  "browser_widths": [
+    1048,
+    736,
+    320
+  ],
+  "browser_native_runner": "simulated for UI transport QA only",
+  "real_portable_execution": [
+    "fixed fastp native Linux versus APE truth and report escaping",
+    "two-caller8-step graph:4 expected variants and genotypes matched by both callers",
+    "two distinct FASTQ lanes: BWA, coordinate sort, SAMtools BAM merge",
+    "independent branch failure and blocked report joins"
+  ],
+  "scope_note": "Portable tool runs used the installed manifests/executables through a Linux-only test adapter. They do not prove the new native Windows launcher/bridge."
+}

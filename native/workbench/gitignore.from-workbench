@@ -1,0 +1,26 @@
+# Generated application and pack assets are published as release attachments.
+/build/
+/dist/
+/release-*/
+/runtime/
+/packs/
+/vendor/
+/vendor-expanded/
+/toolchains/
+/user-data/
+/results/
+/updates/
+__pycache__/
+*.py[cod]
+*.exe
+*.dll
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.partial
+# Keep publisher secrets outside the repository.
+*.pem
+*.key
+.env
+.env.*

@@ -1,0 +1,467 @@
+{
+  "schema": 1,
+  "category": "Sequence utilities",
+  "citations": [
+    {
+      "text": "Shen W, Sipos B, Zhao L. SeqKit2: A Swiss Army Knife for Sequence and Alignment Processing. iMeta (2024), e191.",
+      "url": "https://doi.org/10.1002/imt2.191"
+    }
+  ],
+  "workflows": {
+    "statistics-reads": {
+      "ports": [
+        {
+          "id": "sequences",
+          "type": "reads",
+          "accepts": [
+            "reads"
+          ],
+          "manifestInputs": [
+            "sequences"
+          ],
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "statistics",
+          "type": "metrics",
+          "manifestOutputs": [
+            "statistics"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "validated-ids",
+          "type": "id-list",
+          "manifestOutputs": [
+            "validated-ids"
+          ],
+          "state": {}
+        }
+      ],
+      "methods": "FASTQ records were validated with SeqKit seq before analysis. Sequence statistics were calculated with SeqKit stats using all-statistics tabular output; FASTQ quality encoding was Phred+33."
+    },
+    "filter-reads": {
+      "ports": [
+        {
+          "id": "sequences",
+          "type": "reads",
+          "accepts": [
+            "reads"
+          ],
+          "manifestInputs": [
+            "sequences"
+          ],
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "result",
+          "type": "reads",
+          "manifestOutputs": [
+            "result"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        }
+      ],
+      "methods": "Sequences were filtered by inclusive record length using SeqKit seq with alphabet validation."
+    },
+    "subset-reads": {
+      "ports": [
+        {
+          "id": "sequences",
+          "type": "reads",
+          "accepts": [
+            "reads"
+          ],
+          "manifestInputs": [
+            "sequences"
+          ],
+          "min": 1,
+          "max": 1
+        },
+        {
+          "id": "ids",
+          "type": "id-list",
+          "manifestInputs": [
+            "ids"
+          ],
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "result",
+          "type": "reads",
+          "manifestOutputs": [
+            "result"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        }
+      ],
+      "methods": "Sequences were selected by exact, case-sensitive sequence identifier with SeqKit grep, retaining input order."
+    },
+    "statistics-nucleotide": {
+      "ports": [
+        {
+          "id": "sequences",
+          "type": "fasta-nucleotide",
+          "accepts": [
+            "fasta-nucleotide",
+            "reference"
+          ],
+          "manifestInputs": [
+            "sequences"
+          ],
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "statistics",
+          "type": "metrics",
+          "manifestOutputs": [
+            "statistics"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        }
+      ],
+      "methods": "Sequence statistics were calculated with SeqKit stats using all-statistics tabular output; FASTQ quality encoding was Phred+33."
+    },
+    "filter-nucleotide": {
+      "ports": [
+        {
+          "id": "sequences",
+          "type": "fasta-nucleotide",
+          "accepts": [
+            "fasta-nucleotide",
+            "reference"
+          ],
+          "manifestInputs": [
+            "sequences"
+          ],
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "result",
+          "type": "fasta-nucleotide",
+          "manifestOutputs": [
+            "result"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        }
+      ],
+      "methods": "Sequences were filtered by inclusive record length using SeqKit seq with alphabet validation."
+    },
+    "subset-nucleotide": {
+      "ports": [
+        {
+          "id": "sequences",
+          "type": "fasta-nucleotide",
+          "accepts": [
+            "fasta-nucleotide",
+            "reference"
+          ],
+          "manifestInputs": [
+            "sequences"
+          ],
+          "min": 1,
+          "max": 1
+        },
+        {
+          "id": "ids",
+          "type": "id-list",
+          "manifestInputs": [
+            "ids"
+          ],
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "result",
+          "type": "fasta-nucleotide",
+          "manifestOutputs": [
+            "result"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        }
+      ],
+      "methods": "Sequences were selected by exact, case-sensitive sequence identifier with SeqKit grep, retaining input order."
+    },
+    "statistics-protein": {
+      "ports": [
+        {
+          "id": "sequences",
+          "type": "fasta-protein",
+          "accepts": [
+            "fasta-protein"
+          ],
+          "manifestInputs": [
+            "sequences"
+          ],
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "statistics",
+          "type": "metrics",
+          "manifestOutputs": [
+            "statistics"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        }
+      ],
+      "methods": "Sequence statistics were calculated with SeqKit stats using all-statistics tabular output; FASTQ quality encoding was Phred+33."
+    },
+    "filter-protein": {
+      "ports": [
+        {
+          "id": "sequences",
+          "type": "fasta-protein",
+          "accepts": [
+            "fasta-protein"
+          ],
+          "manifestInputs": [
+            "sequences"
+          ],
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "result",
+          "type": "fasta-protein",
+          "manifestOutputs": [
+            "result"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        }
+      ],
+      "methods": "Sequences were filtered by inclusive record length using SeqKit seq with alphabet validation."
+    },
+    "subset-protein": {
+      "ports": [
+        {
+          "id": "sequences",
+          "type": "fasta-protein",
+          "accepts": [
+            "fasta-protein"
+          ],
+          "manifestInputs": [
+            "sequences"
+          ],
+          "min": 1,
+          "max": 1
+        },
+        {
+          "id": "ids",
+          "type": "id-list",
+          "manifestInputs": [
+            "ids"
+          ],
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "result",
+          "type": "fasta-protein",
+          "manifestOutputs": [
+            "result"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        }
+      ],
+      "methods": "Sequences were selected by exact, case-sensitive sequence identifier with SeqKit grep, retaining input order."
+    },
+    "sample-reads": {
+      "ports": [
+        {
+          "id": "sequences",
+          "type": "reads",
+          "accepts": [
+            "reads"
+          ],
+          "manifestInputs": [
+            "sequences"
+          ],
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "result",
+          "type": "reads",
+          "manifestOutputs": [
+            "result"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "validated-ids",
+          "type": "id-list",
+          "manifestOutputs": [
+            "validated-ids"
+          ],
+          "state": {}
+        }
+      ],
+      "methods": "FASTQ records were validated with SeqKit seq before analysis. A deterministic fixed-size subset was selected using SeqKit sample2 with two passes and an explicit random seed; the selected count was capped at the available records."
+    },
+    "sample-nucleotide": {
+      "ports": [
+        {
+          "id": "sequences",
+          "type": "fasta-nucleotide",
+          "accepts": [
+            "fasta-nucleotide",
+            "reference"
+          ],
+          "manifestInputs": [
+            "sequences"
+          ],
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "result",
+          "type": "fasta-nucleotide",
+          "manifestOutputs": [
+            "result"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        }
+      ],
+      "methods": "A deterministic fixed-size subset was selected using SeqKit sample2 with two passes and an explicit random seed; the selected count was capped at the available records."
+    },
+    "fastq-to-fasta": {
+      "ports": [
+        {
+          "id": "sequences",
+          "type": "reads",
+          "accepts": [
+            "reads"
+          ],
+          "manifestInputs": [
+            "sequences"
+          ],
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "result",
+          "type": "fasta-nucleotide",
+          "manifestOutputs": [
+            "result"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        }
+      ],
+      "methods": "FASTQ records were converted to nucleotide FASTA using SeqKit fq2fa, discarding per-base quality scores."
+    },
+    "reverse-complement": {
+      "ports": [
+        {
+          "id": "sequences",
+          "type": "fasta-nucleotide",
+          "accepts": [
+            "fasta-nucleotide",
+            "reference"
+          ],
+          "manifestInputs": [
+            "sequences"
+          ],
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "result",
+          "type": "fasta-nucleotide",
+          "manifestOutputs": [
+            "result"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        }
+      ],
+      "methods": "DNA FASTA sequences were reverse complemented with SeqKit seq using explicit DNA alphabet validation."
+    },
+    "translate": {
+      "ports": [
+        {
+          "id": "sequences",
+          "type": "fasta-nucleotide",
+          "accepts": [
+            "fasta-nucleotide",
+            "reference"
+          ],
+          "manifestInputs": [
+            "sequences"
+          ],
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "result",
+          "type": "fasta-protein",
+          "manifestOutputs": [
+            "result"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        }
+      ],
+      "methods": "Nucleotide FASTA sequences were translated with SeqKit translate using the specified reading frame and genetic code, retaining stop codons and appending frame identifiers."
+    }
+  }
+}

@@ -1,0 +1,525 @@
+{
+  "schema": 1,
+  "version": "0.5.2",
+  "generatedUtc": "2026-10-03T09:49:16.775334+00:00",
+  "success": true,
+  "nativeWindowsExecuted": false,
+  "scope": "Scientific manifest/DAG execution with pinned Linux SeqKit and VSEARCH releases and MUSCLE workbench1 source build; native Windows inventory and declared asset hashes checked before execution. Eight additional unit tests isolate self-check runner behavior with a copy backend.",
+  "testsRun": 18,
+  "failures": 0,
+  "errors": 0,
+  "cases": [
+    {
+      "id": "test_expansion_pipeline.ExpansionPipelineTests.test_every_new_family_declares_and_passes_native_check_contract",
+      "status": "passed"
+    },
+    {
+      "id": "test_expansion_pipeline.ExpansionPipelineTests.test_incompatible_biological_types_cannot_be_connected",
+      "status": "passed"
+    },
+    {
+      "id": "test_expansion_pipeline.ExpansionPipelineTests.test_nucleotide_sequence_output_is_not_a_genomic_reference",
+      "status": "passed"
+    },
+    {
+      "id": "test_expansion_pipeline.ExpansionPipelineTests.test_protein_mislabeled_as_nucleotide_rejected_before_binary_execution",
+      "status": "passed"
+    },
+    {
+      "id": "test_expansion_pipeline.ExpansionPipelineTests.test_raw_and_weighted_external_fasta_cannot_silently_exchange_counts",
+      "status": "passed"
+    },
+    {
+      "id": "test_expansion_pipeline.ExpansionPipelineTests.test_reads_to_dereplication_clustering_and_attributed_report_preserves_counts",
+      "status": "passed"
+    },
+    {
+      "id": "test_expansion_pipeline.ExpansionPipelineTests.test_rna_filter_to_alignment_retains_uracil",
+      "status": "passed"
+    },
+    {
+      "id": "test_expansion_pipeline.ExpansionPipelineTests.test_sequence_filter_branches_to_alignment_statistics_and_report",
+      "status": "passed"
+    },
+    {
+      "id": "test_expansion_pipeline.ExpansionPipelineTests.test_translation_flows_to_protein_alignment_without_losing_stops",
+      "status": "passed"
+    },
+    {
+      "id": "test_expansion_pipeline.ExpansionPipelineTests.test_weighted_dereplication_and_abundance_filter_count_observations",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_checks.PackChecksTests.test_alignment_assertions_detect_residue_loss_and_unequal_width",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_checks.PackChecksTests.test_backend_failure_is_not_a_passing_check",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_checks.PackChecksTests.test_cancellation_before_or_during_run_never_passes",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_checks.PackChecksTests.test_failed_assertion_does_not_prevent_independent_case",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_checks.PackChecksTests.test_fixture_tamper_is_rejected_before_execution",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_checks.PackChecksTests.test_invalid_fixture_reference_and_field_fail_without_running",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_checks.PackChecksTests.test_specification_tamper_and_duplicate_fields_are_rejected",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_checks.PackChecksTests.test_success_uses_pinned_fixture_and_normal_engine_provenance",
+      "status": "passed"
+    }
+  ],
+  "packChecks": [
+    {
+      "id": "muscle/align-nucleotide",
+      "status": "passed"
+    },
+    {
+      "id": "muscle/align-protein",
+      "status": "passed"
+    },
+    {
+      "id": "muscle/super5-nucleotide",
+      "status": "passed"
+    },
+    {
+      "id": "muscle/super5-protein",
+      "status": "passed"
+    },
+    {
+      "id": "seqkit/fastq-statistics",
+      "status": "passed"
+    },
+    {
+      "id": "seqkit/quality-loss-conversion",
+      "status": "passed"
+    },
+    {
+      "id": "seqkit/translation-standard-code",
+      "status": "passed"
+    },
+    {
+      "id": "seqkit/exact-count-sampling",
+      "status": "passed"
+    },
+    {
+      "id": "vsearch/merge-overlap",
+      "status": "passed"
+    },
+    {
+      "id": "vsearch/dereplication-counts",
+      "status": "passed"
+    },
+    {
+      "id": "vsearch/weighted-cluster-counts",
+      "status": "passed"
+    }
+  ],
+  "executedGraphs": [
+    {
+      "name": "Dereplicate and cluster amplicon reads",
+      "plan_sha256": "564cb4b87e057a7a93262a73b532b9f64670184db529c7583b3482048235221f",
+      "nodes": [
+        {
+          "id": "step-1",
+          "tool": "seqkit/fastq-to-fasta",
+          "status": "success",
+          "pin": {
+            "packId": "seqkit",
+            "packVersion": "0.5.2",
+            "manifestSha256": "07ba276cd0630d3dabac9b12f6ed0efffe8ba1b133a4b6a727a1e7d9097edfb8"
+          }
+        },
+        {
+          "id": "step-4",
+          "tool": "seqkit/statistics-reads",
+          "status": "success",
+          "pin": {
+            "packId": "seqkit",
+            "packVersion": "0.5.2",
+            "manifestSha256": "07ba276cd0630d3dabac9b12f6ed0efffe8ba1b133a4b6a727a1e7d9097edfb8"
+          }
+        },
+        {
+          "id": "step-2",
+          "tool": "vsearch/dereplicate",
+          "status": "success",
+          "pin": {
+            "packId": "vsearch",
+            "packVersion": "0.5.2",
+            "manifestSha256": "2971ca612558983b23a259c4e2416ddbc129dbff9fdfeac5d2bbaa17a3a652d8"
+          }
+        },
+        {
+          "id": "step-3",
+          "tool": "vsearch/cluster-abundance",
+          "status": "success",
+          "pin": {
+            "packId": "vsearch",
+            "packVersion": "0.5.2",
+            "manifestSha256": "2971ca612558983b23a259c4e2416ddbc129dbff9fdfeac5d2bbaa17a3a652d8"
+          }
+        },
+        {
+          "id": "step-5",
+          "tool": "builtin/report",
+          "status": "success",
+          "pin": {
+            "packId": "builtin",
+            "packVersion": "0.5.0",
+            "manifestSha256": "84cf3dc5da9e07bca439af537312846933105215153ce6fa533f8a88e1e3a209"
+          }
+        }
+      ],
+      "outputs": {
+        "step-1::result": {
+          "type": "fasta-nucleotide",
+          "sha256": {
+            "result": "0f368c3df67ca28a44aa6800c9a705b7f05f6694783eb11b5cdfc146f83bedd9"
+          }
+        },
+        "step-4::statistics": {
+          "type": "metrics",
+          "sha256": {
+            "statistics": "c3f6e55a3cc0a61e900be4b9b72981f261b9163e01a812995f5791d8ef048b9a"
+          }
+        },
+        "step-4::validated-ids": {
+          "type": "id-list",
+          "sha256": {
+            "validated-ids": "60582ae78551f5f5b27ef1c8c27ffcf2f74c46b3ab3637af3e28d688300d533f"
+          }
+        },
+        "step-2::unique": {
+          "type": "fasta-nucleotide-abundance",
+          "sha256": {
+            "unique": "3eb011af0c6f3ffd8d91a6d86a59a459e2e0c7583fc752ae379954f0fb279745"
+          }
+        },
+        "step-2::membership": {
+          "type": "cluster-membership",
+          "sha256": {
+            "membership": "c035ccbe29000b24cb92e1498677bd61807992fc10131f476a9d4f9d5face636"
+          }
+        },
+        "step-2::log": {
+          "type": "metrics",
+          "sha256": {
+            "log": "cb8272a4aacbc668d1e010c66fd8e475c913a87081de650916c964c6b37063d5"
+          }
+        },
+        "step-3::centroids": {
+          "type": "fasta-nucleotide-abundance",
+          "sha256": {
+            "centroids": "9dbe3fc9d0066e69470f9c906d6360950854fff048b987ae693e0caaddf098de"
+          }
+        },
+        "step-3::membership": {
+          "type": "cluster-membership",
+          "sha256": {
+            "membership": "a351179ef0aefd3afa25023095741b54f8d56ca9ebdccb55feae0293df97d0ca"
+          }
+        },
+        "step-3::log": {
+          "type": "metrics",
+          "sha256": {
+            "log": "2e4a014d909f5b3bdcb7be00c7651db245d8eeabe6a64eae19b89abe600e601c"
+          }
+        },
+        "step-5::report": {
+          "type": "report",
+          "sha256": {
+            "report": "c78a7a3356f2cda425c255ce2529cd48405b5b55c52a3a37d6ebd9b5fff55e3b"
+          }
+        }
+      },
+      "methods": "Executed methods (only successfully completed operations are described):\n\nStep S1 (FASTQ to nucleotide FASTA) was performed using seqkit 2.14.0 (pack seqkit 0.5.2). FASTQ records were converted to nucleotide FASTA using SeqKit fq2fa, discarding per-base quality scores. Settings: Threads=1. Inputs: Fastq reads: I1 \u00b7 Six unpaired amplicon reads.\n\nStep S4 (Original amplicon read statistics) was performed using seqkit 2.14.0 (pack seqkit 0.5.2). FASTQ records were validated with SeqKit seq before analysis. Sequence statistics were calculated with SeqKit stats using all-statistics tabular output; FASTQ quality encoding was Phred+33. Settings: Threads=1. Inputs: Fastq reads: I1 \u00b7 Six unpaired amplicon reads.\n\nStep S2 (Count unique amplicons) was performed using vsearch 2.32.0 (pack vsearch 0.5.2). Full-length nucleotide sequences were dereplicated using VSEARCH fastx_uniques with the configured strand comparison. Each input record contributed one count; prior header abundance values were not used. Unique sequences were sorted by abundance and written with new Uniq identifiers and explicit size annotations (--sizeout); UC membership was retained. Settings: Strand comparison=plus. Inputs: Nucleotide sequences: S1 \u00b7 FASTQ to nucleotide FASTA \u2192 FASTQ to nucleotide FASTA output.\n\nStep S3 (Cluster at 97 percent identity) was performed using vsearch 2.32.0 (pack vsearch 0.5.2). Abundance-annotated sequences were greedily clustered with VSEARCH cluster_size in decreasing abundance order using the configured identity threshold and strand policy. Identity used matching columns divided by alignment length excluding terminal gaps (iddef 2); nucleotide masking was disabled. The heuristic centroid search used maxaccepts 1 and maxrejects 32. Input abundances were summed into OTU centroid size annotations; this produces OTU-style clusters, not ASVs. Settings: Minimum global identity=0.97; Strand comparison=plus; Threads=1. Inputs: Sequences with abundance labels: S2 \u00b7 Count unique amplicons \u2192 Unique sequences with abundances.\n\nStep S5 (Combine statistics reports) was performed using Combine statistics reports (pack builtin 0.5.0). Collect selected statistics into a local HTML report with a separate, attributed section for each input. Counts are not pooled and variant files are not merged. Settings: Report title=Amplicon operation evidence. Inputs: Statistics to include: S2 \u00b7 Count unique amplicons \u2192 VSEARCH run statistics; S3 \u00b7 Cluster at 97 percent identity \u2192 VSEARCH run statistics; S4 \u00b7 Original amplicon read statistics \u2192 Statistics: FASTQ reads output.\n\nTool references:\nShen W, Sipos B, Zhao L. SeqKit2: A Swiss Army Knife for Sequence and Alignment Processing. iMeta (2024), e191. https://doi.org/10.1002/imt2.191\nRognes et al. (2016). VSEARCH: a versatile open source tool for metagenomics. PeerJ 4:e2584. https://doi.org/10.7717/peerj.2584\n\nOperations run locally in dependency order. Independent branches are scheduled sequentially. The run record records exact packs, parameters, input identities, outputs and completion states.\n"
+    },
+    {
+      "name": "Filter and align RNA without changing uracil",
+      "plan_sha256": "eedd767c9b0b11abcf31330976d959ea44b5ec6cf5925c3cc3eee08045641170",
+      "nodes": [
+        {
+          "id": "step-1",
+          "tool": "seqkit/filter-nucleotide",
+          "status": "success",
+          "pin": {
+            "packId": "seqkit",
+            "packVersion": "0.5.2",
+            "manifestSha256": "07ba276cd0630d3dabac9b12f6ed0efffe8ba1b133a4b6a727a1e7d9097edfb8"
+          }
+        },
+        {
+          "id": "step-2",
+          "tool": "muscle/align-nucleotide",
+          "status": "success",
+          "pin": {
+            "packId": "muscle",
+            "packVersion": "0.5.2",
+            "manifestSha256": "085273422c7f26af77d23643efa961f1fb6ecbdee301109af67ba551f41b82c4"
+          }
+        }
+      ],
+      "outputs": {
+        "step-1::result": {
+          "type": "fasta-nucleotide",
+          "sha256": {
+            "result": "c2c0237847340b96b906123a585bd853f0b376843fb8b651e84ad0ea68372e06"
+          }
+        },
+        "step-2::aligned": {
+          "type": "msa-nucleotide",
+          "sha256": {
+            "aligned": "ba9160cf1e992375a9945068f2e76857c0dc6bbe1c0f6bd6fab9f74a4f6d0f6a"
+          }
+        }
+      },
+      "methods": "Executed methods (only successfully completed operations are described):\n\nStep S1 (Length filter: nucleotide FASTA) was performed using seqkit 2.14.0 (pack seqkit 0.5.2). Sequences were filtered by inclusive record length using SeqKit seq with alphabet validation. Settings: Minimum length=1; Maximum length=1000000000; Threads=1. Inputs: Nucleotide fasta: I1 \u00b7 Sequences.\n\nStep S2 (Align nucleotide sequences) was performed using muscle 5.3-workbench1 (pack muscle 0.5.2). Homologous nucleotide sequences were aligned with MUSCLE 5.3-workbench1 using the standard -align algorithm and an explicitly selected nucleotide alphabet. One alignment replicate was produced; the recorded thread count, perturbation seed and guide-tree permutation define its settings. Settings: CPU threads=1; Perturbation seed=0; Guide-tree permutation=none. Inputs: Unaligned nucleotide sequences: S1 \u00b7 Length filter: nucleotide FASTA \u2192 Length filter: nucleotide FASTA output.\n\nTool references:\nShen W, Sipos B, Zhao L. SeqKit2: A Swiss Army Knife for Sequence and Alignment Processing. iMeta (2024), e191. https://doi.org/10.1002/imt2.191\nEdgar RC (2022). High-accuracy alignment ensembles enable unbiased assessments of sequence homology and phylogeny. Nature Communications 13, 6968. https://doi.org/10.1038/s41467-022-34630-w\n\nOperations run locally in dependency order. Independent branches are scheduled sequentially. The run record records exact packs, parameters, input identities, outputs and completion states.\n"
+    },
+    {
+      "name": "Filter and inspect homologues",
+      "plan_sha256": "eb3d9913feae414919b69658e6c2161dd3aaeeb5c3c0feeb674819ab41dbc32e",
+      "nodes": [
+        {
+          "id": "step-1",
+          "tool": "seqkit/filter-nucleotide",
+          "status": "success",
+          "pin": {
+            "packId": "seqkit",
+            "packVersion": "0.5.2",
+            "manifestSha256": "07ba276cd0630d3dabac9b12f6ed0efffe8ba1b133a4b6a727a1e7d9097edfb8"
+          }
+        },
+        {
+          "id": "step-4",
+          "tool": "seqkit/statistics-nucleotide",
+          "status": "success",
+          "pin": {
+            "packId": "seqkit",
+            "packVersion": "0.5.2",
+            "manifestSha256": "07ba276cd0630d3dabac9b12f6ed0efffe8ba1b133a4b6a727a1e7d9097edfb8"
+          }
+        },
+        {
+          "id": "step-2",
+          "tool": "muscle/align-nucleotide",
+          "status": "success",
+          "pin": {
+            "packId": "muscle",
+            "packVersion": "0.5.2",
+            "manifestSha256": "085273422c7f26af77d23643efa961f1fb6ecbdee301109af67ba551f41b82c4"
+          }
+        },
+        {
+          "id": "step-3",
+          "tool": "seqkit/statistics-nucleotide",
+          "status": "success",
+          "pin": {
+            "packId": "seqkit",
+            "packVersion": "0.5.2",
+            "manifestSha256": "07ba276cd0630d3dabac9b12f6ed0efffe8ba1b133a4b6a727a1e7d9097edfb8"
+          }
+        },
+        {
+          "id": "step-5",
+          "tool": "builtin/report",
+          "status": "success",
+          "pin": {
+            "packId": "builtin",
+            "packVersion": "0.5.0",
+            "manifestSha256": "84cf3dc5da9e07bca439af537312846933105215153ce6fa533f8a88e1e3a209"
+          }
+        }
+      ],
+      "outputs": {
+        "step-1::result": {
+          "type": "fasta-nucleotide",
+          "sha256": {
+            "result": "2a26193e2efa7712395e62c1de53ad2898a7b650736c10bc3b55fe96f63dfdc0"
+          }
+        },
+        "step-4::statistics": {
+          "type": "metrics",
+          "sha256": {
+            "statistics": "17e9192389a409d2c756ae9bc8e1b2200ca54ac6559783b22ec1bce693334817"
+          }
+        },
+        "step-2::aligned": {
+          "type": "msa-nucleotide",
+          "sha256": {
+            "aligned": "51b51cb7d1ad7a48652491e350715d37ac21260d34813faeefc09970319774ca"
+          }
+        },
+        "step-3::statistics": {
+          "type": "metrics",
+          "sha256": {
+            "statistics": "280c1605adb1a6f51bf6dbeb5ae04a016787009baf316ccf055dde36838c33c0"
+          }
+        },
+        "step-5::report": {
+          "type": "report",
+          "sha256": {
+            "report": "2556078552cd9c3b586e3468181c896056afda7161b3dfe89ac7a1bdb7af7758"
+          }
+        }
+      },
+      "methods": "Executed methods (only successfully completed operations are described):\n\nStep S1 (Keep long homologues) was performed using seqkit 2.14.0 (pack seqkit 0.5.2). Sequences were filtered by inclusive record length using SeqKit seq with alphabet validation. Settings: Minimum length=80; Maximum length=1000000000; Threads=1. Inputs: Nucleotide fasta: I1 \u00b7 Unaligned homologues.\n\nStep S4 (Original sequence statistics) was performed using seqkit 2.14.0 (pack seqkit 0.5.2). Sequence statistics were calculated with SeqKit stats using all-statistics tabular output; FASTQ quality encoding was Phred+33. Settings: Threads=1. Inputs: Nucleotide fasta: I1 \u00b7 Unaligned homologues.\n\nStep S2 (Align retained homologues) was performed using muscle 5.3-workbench1 (pack muscle 0.5.2). Homologous nucleotide sequences were aligned with MUSCLE 5.3-workbench1 using the standard -align algorithm and an explicitly selected nucleotide alphabet. One alignment replicate was produced; the recorded thread count, perturbation seed and guide-tree permutation define its settings. Settings: CPU threads=1; Perturbation seed=0; Guide-tree permutation=none. Inputs: Unaligned nucleotide sequences: S1 \u00b7 Keep long homologues \u2192 Length filter: nucleotide FASTA output.\n\nStep S3 (Retained sequence statistics) was performed using seqkit 2.14.0 (pack seqkit 0.5.2). Sequence statistics were calculated with SeqKit stats using all-statistics tabular output; FASTQ quality encoding was Phred+33. Settings: Threads=1. Inputs: Nucleotide fasta: S1 \u00b7 Keep long homologues \u2192 Length filter: nucleotide FASTA output.\n\nStep S5 (Combine statistics reports) was performed using Combine statistics reports (pack builtin 0.5.0). Collect selected statistics into a local HTML report with a separate, attributed section for each input. Counts are not pooled and variant files are not merged. Settings: Report title=Before and after length selection. Inputs: Statistics to include: S3 \u00b7 Retained sequence statistics \u2192 Statistics: nucleotide FASTA output; S4 \u00b7 Original sequence statistics \u2192 Statistics: nucleotide FASTA output.\n\nTool references:\nShen W, Sipos B, Zhao L. SeqKit2: A Swiss Army Knife for Sequence and Alignment Processing. iMeta (2024), e191. https://doi.org/10.1002/imt2.191\nEdgar RC (2022). High-accuracy alignment ensembles enable unbiased assessments of sequence homology and phylogeny. Nature Communications 13, 6968. https://doi.org/10.1038/s41467-022-34630-w\n\nOperations run locally in dependency order. Independent branches are scheduled sequentially. The run record records exact packs, parameters, input identities, outputs and completion states.\n"
+    },
+    {
+      "name": "Translate and align protein",
+      "plan_sha256": "9d90cd7a5d59c364e46510b83660da151742e792468adc0729e8760c572d5f29",
+      "nodes": [
+        {
+          "id": "step-1",
+          "tool": "seqkit/translate",
+          "status": "success",
+          "pin": {
+            "packId": "seqkit",
+            "packVersion": "0.5.2",
+            "manifestSha256": "07ba276cd0630d3dabac9b12f6ed0efffe8ba1b133a4b6a727a1e7d9097edfb8"
+          }
+        },
+        {
+          "id": "step-2",
+          "tool": "muscle/align-protein",
+          "status": "success",
+          "pin": {
+            "packId": "muscle",
+            "packVersion": "0.5.2",
+            "manifestSha256": "085273422c7f26af77d23643efa961f1fb6ecbdee301109af67ba551f41b82c4"
+          }
+        }
+      ],
+      "outputs": {
+        "step-1::result": {
+          "type": "fasta-protein",
+          "sha256": {
+            "result": "cfeeb40a77675bc50d0854c7e42571589e4beadafd1228d20e74d8b801e366bb"
+          }
+        },
+        "step-2::aligned": {
+          "type": "msa-protein",
+          "sha256": {
+            "aligned": "a2b5bbad74e24a73089b9f567db768d68fc3b8edaf114978d176d40ee44563ba"
+          }
+        }
+      },
+      "methods": "Executed methods (only successfully completed operations are described):\n\nStep S1 (Translate nucleotide FASTA) was performed using seqkit 2.14.0 (pack seqkit 0.5.2). Nucleotide FASTA sequences were translated with SeqKit translate using the specified reading frame and genetic code, retaining stop codons and appending frame identifiers. Settings: Reading frame=1; Genetic code=1; Threads=1. Inputs: Nucleotide fasta: I1 \u00b7 Sequences.\n\nStep S2 (Align protein sequences) was performed using muscle 5.3-workbench1 (pack muscle 0.5.2). Homologous protein sequences were aligned with MUSCLE 5.3-workbench1 using the standard -align algorithm and an explicitly selected protein alphabet. One alignment replicate was produced; the recorded thread count, perturbation seed and guide-tree permutation define its settings. Settings: CPU threads=1; Perturbation seed=0; Guide-tree permutation=none. Inputs: Unaligned protein sequences: S1 \u00b7 Translate nucleotide FASTA \u2192 Translate nucleotide FASTA output.\n\nTool references:\nShen W, Sipos B, Zhao L. SeqKit2: A Swiss Army Knife for Sequence and Alignment Processing. iMeta (2024), e191. https://doi.org/10.1002/imt2.191\nEdgar RC (2022). High-accuracy alignment ensembles enable unbiased assessments of sequence homology and phylogeny. Nature Communications 13, 6968. https://doi.org/10.1038/s41467-022-34630-w\n\nOperations run locally in dependency order. Independent branches are scheduled sequentially. The run record records exact packs, parameters, input identities, outputs and completion states.\n"
+    },
+    {
+      "name": "Preserve weighted observations",
+      "plan_sha256": "e2902c4f745441519ddfa5aba1d8a6e191e175672143c1757b60e8ec0365807d",
+      "nodes": [
+        {
+          "id": "step-1",
+          "tool": "vsearch/dereplicate-weighted",
+          "status": "success",
+          "pin": {
+            "packId": "vsearch",
+            "packVersion": "0.5.2",
+            "manifestSha256": "2971ca612558983b23a259c4e2416ddbc129dbff9fdfeac5d2bbaa17a3a652d8"
+          }
+        },
+        {
+          "id": "step-2",
+          "tool": "vsearch/filter-abundance",
+          "status": "success",
+          "pin": {
+            "packId": "vsearch",
+            "packVersion": "0.5.2",
+            "manifestSha256": "2971ca612558983b23a259c4e2416ddbc129dbff9fdfeac5d2bbaa17a3a652d8"
+          }
+        }
+      ],
+      "outputs": {
+        "step-1::unique": {
+          "type": "fasta-nucleotide-abundance",
+          "sha256": {
+            "unique": "e46738c221480893f3b757cf22f21e0e2faeb57e5ec3d54a33829317bf0bd3e5"
+          }
+        },
+        "step-1::membership": {
+          "type": "cluster-membership",
+          "sha256": {
+            "membership": "809e1e0062713270130d554ca09a84bd5b7b2e3c712bf74c0e790c9c42b161aa"
+          }
+        },
+        "step-1::log": {
+          "type": "metrics",
+          "sha256": {
+            "log": "301b6091a88195ff0fe8b111c07d45fd08dfbd740a25f071aa404293dc46e37c"
+          }
+        },
+        "step-2::retained": {
+          "type": "fasta-nucleotide-abundance",
+          "sha256": {
+            "retained": "52a4cff47b5bbf9781b079b0ad0093575b11c188fb348a0184017fc9ac0477fa"
+          }
+        },
+        "step-2::log": {
+          "type": "metrics",
+          "sha256": {
+            "log": "16aa795f3dbea0a8f701f48fbff490ac027bfce5c09324a68c88328ef6c8c17d"
+          }
+        }
+      },
+      "methods": "Executed methods (only successfully completed operations are described):\n\nStep S1 (VSEARCH: dereplicate abundance sequences) was performed using vsearch 2.32.0 (pack vsearch 0.5.2). Full-length nucleotide sequences were dereplicated using VSEARCH fastx_uniques with the configured strand comparison. Existing positive size annotations were summed (--sizein). Unique sequences were sorted by abundance and written with new Uniq identifiers and explicit size annotations (--sizeout); UC membership was retained. Settings: Strand comparison=plus. Inputs: Sequences with abundance labels: I1 \u00b7 Sequences.\n\nStep S2 (VSEARCH: filter sequence abundance) was performed using vsearch 2.32.0 (pack vsearch 0.5.2). Sequences were filtered by their positive size annotations using VSEARCH sortbysize and the configured minimum abundance. Retained sequences were sorted by decreasing abundance without changing their counts. This threshold is not an error-model denoising step. Settings: Minimum abundance=3. Inputs: Sequences with abundance labels: S1 \u00b7 VSEARCH: dereplicate abundance sequences \u2192 Unique sequences with abundances.\n\nTool references:\nRognes et al. (2016). VSEARCH: a versatile open source tool for metagenomics. PeerJ 4:e2584. https://doi.org/10.7717/peerj.2584\n\nOperations run locally in dependency order. Independent branches are scheduled sequentially. The run record records exact packs, parameters, input identities, outputs and completion states.\n"
+    }
+  ],
+  "packs": {
+    "muscle": {
+      "version": "0.5.2",
+      "manifestSha256": "085273422c7f26af77d23643efa961f1fb6ecbdee301109af67ba551f41b82c4"
+    },
+    "seqkit": {
+      "version": "0.5.2",
+      "manifestSha256": "07ba276cd0630d3dabac9b12f6ed0efffe8ba1b133a4b6a727a1e7d9097edfb8"
+    },
+    "vsearch": {
+      "version": "0.5.2",
+      "manifestSha256": "2971ca612558983b23a259c4e2416ddbc129dbff9fdfeac5d2bbaa17a3a652d8"
+    }
+  },
+  "linuxExecutables": {
+    "seqkit": {
+      "path": "/workspace/scratch/0c5293ac0f36/expansion-vendor/seqkit/linux/seqkit",
+      "sha256": "88aa8a539b1e9097220a47811367b7ef826eff8637e5284fdd32a372770d6f7d"
+    },
+    "vsearch": {
+      "path": "build/vsearch/linux/vsearch-2.32.0-linux-x86_64/bin/vsearch",
+      "sha256": "bfc7c72c67eab9bc86a5d408278ab596ee9702c428fc832316acfc0317e4cd1a"
+    },
+    "muscle": {
+      "path": "vendor-expanded/muscle-5.3/build-linux/muscle",
+      "sha256": "a40a9b0183986ba93de71b068bf2be2f1cb630ecfa69e1459c6b30a08111a2f0"
+    }
+  },
+  "testSources": {
+    "test_expansion_pipeline.py": "c988978f38f213b2eed9b38efe7dcb6328e5b71cbb1448bea40e5bb0d3cfdc0c",
+    "test_pack_checks.py": "22e66c8864f9b5a8e7878841dff8ead2e4fef155b2b1807f2307587351d226e4"
+  },
+  "runtimeModules": {
+    "catalog.py": "70ed755c367000b8c2c5dcff6ee69ac197eaeeb32781905d0687ce53dcd9ef93",
+    "engine.py": "756b3f315d4001178a6ff2aa759ee440326483a2a655f7910d26f8d8c2325f10",
+    "pack_checks.py": "d80f837a4159ece9cd161dca0e72bcb6a513c98dfeb3b841a8013d1f6640b101"
+  },
+  "command": "python -m unittest discover -s tests -p test_expansion_pipeline.py -v; python -m unittest discover -s tests -p test_pack_checks.py -v",
+  "limitations": [
+    "Windows executable runtime behavior remains to be verified on Windows.",
+    "The small fixtures verify the covered transformations and pipeline contracts; they do not benchmark all biological datasets or establish inferential accuracy.",
+    "Typed operations and alphabet checks do not infer biological identity for ambiguous alphabets."
+  ]
+}

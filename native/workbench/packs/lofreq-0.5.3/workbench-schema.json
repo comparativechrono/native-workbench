@@ -1,0 +1,264 @@
+{
+  "schema": 1,
+  "category": "Variant calling",
+  "citations": [
+    {
+      "text": "Wilm et al. (2012). LoFreq: a sequence-quality aware, ultra-sensitive variant caller for uncovering cell-population heterogeneity from high-throughput sequencing datasets. Nucleic Acids Research 40:11189\u201311201.",
+      "url": "https://doi.org/10.1093/nar/gks918"
+    },
+    {
+      "text": "Albers et al. (2011). Dindel: accurate indel calls from short-read data. Genome Research 21:961\u2013973.",
+      "url": "https://doi.org/10.1101/gr.112326.110"
+    }
+  ],
+  "workflows": {
+    "call-snps": {
+      "ports": [
+        {
+          "id": "alignment",
+          "type": "bam",
+          "accepts": [
+            "bam"
+          ],
+          "manifestInputs": [
+            "alignment"
+          ],
+          "min": 1,
+          "max": 1,
+          "requiredState": {
+            "sort": "coordinate"
+          }
+        },
+        {
+          "id": "reference",
+          "type": "reference",
+          "accepts": [
+            "reference"
+          ],
+          "manifestInputs": [
+            "reference"
+          ],
+          "min": 1,
+          "max": 1,
+          "requiredState": {
+            "compression": "none"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": "variants",
+          "type": "vcf-pass",
+          "manifestOutputs": [
+            "variants"
+          ],
+          "state": {
+            "compression": "none",
+            "selection": "PASS-only"
+          }
+        },
+        {
+          "id": "reference",
+          "type": "reference",
+          "manifestOutputs": [
+            "reference"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "reference-index",
+          "type": "index",
+          "manifestOutputs": [
+            "reference-index"
+          ]
+        }
+      ],
+      "methods": "LoFreq called SNVs only with the configured mapping/base-quality, coverage, depth and significance thresholds, extended BAQ, dynamic Bonferroni correction and default post-call filters (minimum coverage 10 and strand-bias FDR). Only PASS sites were retained. The VCF contains observed read allele frequencies and site error-model significance, not sample genotypes or a ploidy model; low-frequency calls require assay-specific validation.",
+      "parameterConstraints": [
+        {
+          "left": "min-coverage",
+          "operator": "<=",
+          "right": "max-depth"
+        }
+      ]
+    },
+    "indelqual-dindel": {
+      "ports": [
+        {
+          "id": "alignment",
+          "type": "bam",
+          "accepts": [
+            "bam"
+          ],
+          "manifestInputs": [
+            "alignment"
+          ],
+          "min": 1,
+          "max": 1,
+          "requiredState": {
+            "sort": "coordinate"
+          }
+        },
+        {
+          "id": "reference",
+          "type": "reference",
+          "accepts": [
+            "reference"
+          ],
+          "manifestInputs": [
+            "reference"
+          ],
+          "min": 1,
+          "max": 1,
+          "requiredState": {
+            "compression": "none"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": "prepared",
+          "type": "bam",
+          "manifestOutputs": [
+            "prepared"
+          ],
+          "state": {
+            "sort": "coordinate"
+          },
+          "propagateStateFrom": "alignment"
+        },
+        {
+          "id": "reference",
+          "type": "reference",
+          "manifestOutputs": [
+            "reference"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "reference-index",
+          "type": "index",
+          "manifestOutputs": [
+            "reference-index"
+          ]
+        },
+        {
+          "id": "prepared-index",
+          "type": "index",
+          "manifestOutputs": [
+            "prepared-index"
+          ]
+        },
+        {
+          "id": "alignment-statistics",
+          "type": "metrics",
+          "manifestOutputs": [
+            "alignment-statistics"
+          ]
+        }
+      ],
+      "methods": "Indel insertion/deletion qualities were generated with LoFreq indelqual --dindel using the reference homopolymer context and its Illumina-specific error model, replacing existing BI/BD tags in a new BAM; alignments and base qualities were otherwise preserved. This is not base-quality recalibration or local realignment. The new coordinate-sorted BAM was indexed and summarized with SAMtools. Do not realign after adding indel qualities; this preparation is specific to Illumina DNA data."
+    },
+    "call-variants": {
+      "ports": [
+        {
+          "id": "alignment",
+          "type": "bam",
+          "accepts": [
+            "bam"
+          ],
+          "manifestInputs": [
+            "alignment"
+          ],
+          "min": 1,
+          "max": 1,
+          "requiredState": {
+            "sort": "coordinate"
+          }
+        },
+        {
+          "id": "reference",
+          "type": "reference",
+          "accepts": [
+            "reference"
+          ],
+          "manifestInputs": [
+            "reference"
+          ],
+          "min": 1,
+          "max": 1,
+          "requiredState": {
+            "compression": "none"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": "variants",
+          "type": "vcf-pass",
+          "manifestOutputs": [
+            "variants"
+          ],
+          "state": {
+            "compression": "none",
+            "selection": "PASS-only"
+          }
+        },
+        {
+          "id": "reference",
+          "type": "reference",
+          "manifestOutputs": [
+            "reference"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "reference-index",
+          "type": "index",
+          "manifestOutputs": [
+            "reference-index"
+          ]
+        },
+        {
+          "id": "prepared",
+          "type": "bam",
+          "manifestOutputs": [
+            "prepared"
+          ],
+          "state": {
+            "sort": "coordinate"
+          },
+          "propagateStateFrom": "alignment"
+        },
+        {
+          "id": "prepared-index",
+          "type": "index",
+          "manifestOutputs": [
+            "prepared-index"
+          ]
+        },
+        {
+          "id": "alignment-statistics",
+          "type": "metrics",
+          "manifestOutputs": [
+            "alignment-statistics"
+          ]
+        }
+      ],
+      "methods": "Indel insertion/deletion qualities were generated with LoFreq indelqual --dindel using the reference homopolymer context and its Illumina-specific error model, replacing existing BI/BD tags in a new BAM; alignments and base qualities were otherwise preserved. This is not base-quality recalibration or local realignment. LoFreq called SNVs and indels with the configured mapping/base-quality, coverage, depth and significance thresholds, extended BAQ, dynamic Bonferroni correction and default post-call filters (minimum coverage 10 and strand-bias FDR). Only PASS sites were retained. The VCF contains observed read allele frequencies and site error-model significance, not sample genotypes or a ploidy model; low-frequency calls require assay-specific validation.",
+      "parameterConstraints": [
+        {
+          "left": "min-coverage",
+          "operator": "<=",
+          "right": "max-depth"
+        }
+      ]
+    }
+  }
+}

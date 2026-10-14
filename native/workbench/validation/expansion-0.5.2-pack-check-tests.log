@@ -1,0 +1,13 @@
+test_alignment_assertions_detect_residue_loss_and_unequal_width (test_pack_checks.PackChecksTests.test_alignment_assertions_detect_residue_loss_and_unequal_width) ... ok
+test_backend_failure_is_not_a_passing_check (test_pack_checks.PackChecksTests.test_backend_failure_is_not_a_passing_check) ... ok
+test_cancellation_before_or_during_run_never_passes (test_pack_checks.PackChecksTests.test_cancellation_before_or_during_run_never_passes) ... ok
+test_failed_assertion_does_not_prevent_independent_case (test_pack_checks.PackChecksTests.test_failed_assertion_does_not_prevent_independent_case) ... ok
+test_fixture_tamper_is_rejected_before_execution (test_pack_checks.PackChecksTests.test_fixture_tamper_is_rejected_before_execution) ... ok
+test_invalid_fixture_reference_and_field_fail_without_running (test_pack_checks.PackChecksTests.test_invalid_fixture_reference_and_field_fail_without_running) ... ok
+test_specification_tamper_and_duplicate_fields_are_rejected (test_pack_checks.PackChecksTests.test_specification_tamper_and_duplicate_fields_are_rejected) ... ok
+test_success_uses_pinned_fixture_and_normal_engine_provenance (test_pack_checks.PackChecksTests.test_success_uses_pinned_fixture_and_normal_engine_provenance) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.032s
+
+OK

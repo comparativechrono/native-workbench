@@ -1,0 +1,117 @@
+Native Workbench 0.3 — paired-end small-variant teaching workflow
+Protocol revision: 1; 2026-10-02
+
+Scope
+This is an explicit, reproducible teaching workflow for one sample and one pair
+of four-line FASTQ files (plain or gzip compressed). It runs the same published algorithms
+locally through pinned native/portable executables. It is not an implementation
+of an unseen university practical, a truth assessment of the yeast sample, or
+a clinically validated variant-calling protocol. Basic FASTQ statistics are
+provided; these do not replace a complete sequencing-quality investigation.
+The bundled tools are seqtk 1.4-r122, minimap2 2.28-r1209, SAMtools 1.24 and
+BCFtools 1.24 with HTSlib 1.24. Refer to the pack manifest and build provenance
+for exact executable hashes and portability-feature limitations.
+
+User choices
+Select reads 1, reads 2, the matching reference FASTA, a sample identifier,
+ploidy (1 or 2), and an output location. Diploid is an explicit teaching default,
+not an inferred property of this yeast sample. A single selected ploidy applies
+to all contigs throughout that run; this release has no contig-specific ploidy
+model in the pipeline form.
+Mitochondrial copy number and mixed allele fractions need separate biological
+interpretation; uniform diploid nuclear calling does not establish a correct
+mitochondrial model. The supplied Mito:1-85779 interval is not silently applied.
+
+The two supplied lanes may be validated separately with distinct read-group
+IDs. Treat them as lanes of the same sample only after confirming the sample
+and library relationship. Combining lanes requires distinct RG IDs with the
+same confirmed SM and LB, followed by joint coordinate sorting and duplicate
+marking. It is not valid to run mate 1 and mate 2 as independent single-end jobs.
+
+Inputs and storage
+Keep selected inputs unchanged. Copy the FASTA into the new run directory as
+reference.fa before faidx, because faidx creates a neighbouring .fai file.
+Keep all temporary files, logs, intermediates and indexes inside that directory.
+Do not reuse pre-existing output paths. Record input and executable SHA-256,
+pack versions, every argv array, settings, exit status and output hashes.
+Exit success alone does not establish a scientifically correct output.
+
+Commands (schematic; the runner passes argv directly, without a shell)
+1. seqtk fqchk R1 > reads1.qc.txt
+   seqtk fqchk R2 > reads2.qc.txt
+   The validation suite additionally checks equal record counts and matching
+   mate names. The current GUI pack profiles each file but does not provide a
+   complete cross-file mate-name audit; select matching mates in the same order.
+2. minimap2 -a -x sr -t 2 -R "@RG\tID:lane1\tSM:sample\tLB:library1\tPL:ILLUMINA"
+      reference.fa R1 R2 > alignment.sam
+3. samtools sort -n -m 256M -o namesorted.bam alignment.sam
+4. samtools fixmate -m namesorted.bam fixmate.bam
+5. samtools sort -m 256M -o coordinates.bam fixmate.bam
+6. samtools markdup -s -f duplicates.txt coordinates.bam alignment.marked.bam
+7. samtools index -c alignment.marked.bam
+   samtools quickcheck -v alignment.marked.bam
+   samtools flagstat alignment.marked.bam > flagstat.txt
+   samtools stats alignment.marked.bam > alignment.stats.txt
+8. samtools faidx reference.fa
+9. bcftools mpileup -f reference.fa -a FORMAT/DP,FORMAT/AD
+      -q 20 -Q 20 -d 1000 -Ob -o pileup.bcf alignment.marked.bam
+10. bcftools call -m -v --ploidy 2 -Ob -o calls.bcf pileup.bcf
+11. bcftools norm -f reference.fa -m -any -Ob -o normalized.bcf calls.bcf
+12. bcftools filter -s LowQual -e "QUAL<20 || FORMAT/DP<5"
+      -Oz -o variants.vcf.gz normalized.bcf
+13. bcftools index --csi variants.vcf.gz
+    bcftools stats variants.vcf.gz > variant.stats.txt
+
+The RG argument contains literal backslash-t sequences for minimap2 to expand.
+Namesort supplies adjacent mate records for fixmate. Fixmate supplies the MC
+and ms tags required by markdup. Markdup flags duplicates, preserving them in
+the BAM; the pileup default excludes duplicate, unmapped, secondary and
+QC-failed reads. The paired-end overlap handling and BAQ defaults are retained.
+No automatic adapter removal, quality trimming, recalibration or annotation is
+claimed. Adapters supplied with a dataset alone do not specify a trimming plan.
+
+The mapping-quality 20, base-quality 20, maximum depth 1000, QUAL 20 and depth 5
+values are visible teaching settings, not universal accuracy recommendations.
+Maximum pileup depth is per input file and can cap deep loci. LowQual is a soft
+FILTER label: failing records remain in the VCF for inspection. Absence of a
+variant record is not proof of a callable reference genotype. Normalization
+checks REF alleles and left-aligns indels; splitting multiallelic sites changes
+their representation. CSI indexing is used for BAM and compressed VCF.
+The thread setting controls minimap2 mapping workers. SAMtools uses its
+single-thread default in this release. A nonzero SAMtools -@ exposed an HTSlib
+thread-pool compatibility failure with the pinned Cosmopolitan build (a
+recursive-mutex condition-variable panic). Keep those additional compression
+workers disabled until that separate compatibility issue is fixed and tested.
+The minimap2 worker count is not a universal whole-process CPU cap.
+
+Validation contract
+The Python validation program generates a deterministic diploid fixture with
+two SNPs, one insertion, one deletion, a heterozygous site and explicit duplicate
+pairs. It requires exact normalized alleles and genotypes and duplicate flags.
+It independently validates FASTQ counts and mate IDs. It then executes the same
+complete pipeline through native Linux and portable binaries on each supplied
+yeast lane. Both decoded BAMs retain all mandatory fields and every optional
+tag. Ordered comparisons omit only @PG header lines; a separately reported
+canonical multiset digest ignores record/tag ordering but drops no record data.
+VCF comparison retains every data field and schema/sample header, omitting only
+the source-reference path and tool command/version/date metadata. Compression
+bytes and physical index layout are not biological equivalence criteria.
+An indexed BAM-region count must equal its streaming count; an indexed VCF
+query must equal its sequential counterpart. Original input hashes are checked
+again at completion. A failed comparison is preserved and reported.
+
+Success on real data establishes output concordance for these specific builds,
+settings and files. It does not measure sensitivity or specificity on the yeast
+sample without a trusted truth set. Linux execution of portable code does not
+replace a Windows end-to-end check. The tiny fixture is a regression check,
+not a broad caller evaluation or a performance benchmark.
+
+Primary references reviewed 2026-10-02
+https://github.com/lh3/minimap2
+https://www.htslib.org/doc/samtools-sort.html
+https://www.htslib.org/doc/samtools-fixmate.html
+https://www.htslib.org/doc/samtools-markdup.html
+https://www.htslib.org/doc/samtools-faidx.html
+https://www.htslib.org/doc/samtools-index.html
+https://www.htslib.org/doc/bcftools.html
+https://samtools.github.io/bcftools/howtos/variant-calling.html

@@ -1,0 +1,72 @@
+{
+  "version": "0.5.4",
+  "native_windows_executed": false,
+  "pack_inventory_limit_bytes": 1073741824,
+  "declared_file_limit_bytes": 536870912,
+  "components": [
+    {
+      "name": "DesktopWorkbench.exe",
+      "bytes": 1086464,
+      "sha256": "4127a1f915b57fc1de0902c74f7a6915aeabbcb26461e4eee9e3b506e3317df3",
+      "machine": "x86-64",
+      "format": "PE32+",
+      "subsystem": 2,
+      "timestamp": 0,
+      "asInvoker": true,
+      "long_path_aware": true,
+      "version_resource": "0.5.4",
+      "imports": [
+        "comctl32.dll",
+        "ole32.dll",
+        "shell32.dll",
+        "user32.dll",
+        "gdi32.dll",
+        "gdiplus.dll",
+        "bcrypt.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-locale-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-private-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "kernel32.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "api-ms-win-crt-multibyte-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-filesystem-l1-1-0.dll"
+      ]
+    },
+    {
+      "name": "WorkbenchBridge.exe",
+      "bytes": 1542656,
+      "sha256": "fdbaea41bbaa2244303e67af7f92a6f732a582fa90cc86615ff21f0a54b9eb56",
+      "machine": "x86-64",
+      "format": "PE32+",
+      "subsystem": 3,
+      "timestamp": 0,
+      "asInvoker": true,
+      "long_path_aware": true,
+      "version_resource": "0.5.4",
+      "imports": [
+        "ole32.dll",
+        "shell32.dll",
+        "bcrypt.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-locale-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-private-l1-1-0.dll",
+        "kernel32.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "api-ms-win-crt-multibyte-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-filesystem-l1-1-0.dll"
+      ]
+    }
+  ]
+}

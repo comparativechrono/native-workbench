@@ -1,0 +1,95 @@
+{
+  "schema": 1,
+  "retrieved_utc_date": "2026-10-02",
+  "official_downloads": "https://www.htslib.org/download/",
+  "source_archives": [
+    {
+      "tool": "samtools",
+      "version": "1.24",
+      "url": "https://github.com/samtools/samtools/releases/download/1.24/samtools-1.24.tar.bz2",
+      "file": "vendor-variant/archives/samtools-1.24.tar.bz2",
+      "sha256": "89b2a440123eeaa400392ce1736e7d60ce9041843027d76819753c5a8246bfdd",
+      "bundled_htslib": "1.24",
+      "bundled_htscodecs": "1.6.7",
+      "source_changes": "none"
+    },
+    {
+      "tool": "bcftools",
+      "version": "1.24",
+      "url": "https://github.com/samtools/bcftools/releases/download/1.24/bcftools-1.24.tar.bz2",
+      "file": "vendor-variant/archives/bcftools-1.24.tar.bz2",
+      "sha256": "8caddc22610ee2851666047c859bb91da0c1e32d0c2ec553db6f153ad130e46f",
+      "bundled_htslib": "1.24",
+      "bundled_htscodecs": "1.6.7",
+      "source_changes": "none"
+    }
+  ],
+  "portable_toolchain": {
+    "name": "Cosmopolitan cosmocc",
+    "version": "3.3.10",
+    "url": "https://cosmo.zip/pub/cosmocc/cosmocc-3.3.10.zip",
+    "sha256": "00d61c1215667314f66e288c8285bae38cc6137fca083e5bba6c74e3a52439de",
+    "redistributed": false
+  },
+  "reference_compiler": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+  "build_script": "build_variant.py",
+  "build_changes": [
+    "No upstream source or algorithm patches.",
+    "Cosmopolitan includes bundled zlib headers; those map public zlib names to namespaced libc symbols.",
+    "Preseed ac_cv_lib_z_inflate=yes because its bare-symbol configure probe omits zlib.h.",
+    "An empty libz.a satisfies configure and link -lz flags; actual zlib implementation is in Cosmopolitan libc.",
+    "Final portable link uses .exe output name to produce APE with AMD64 PE header.",
+    "BCFtools filter.c is compiled alone to bound peak build memory before the remaining two-job build."
+  ],
+  "disabled_features": [
+    "libcurl HTTP/HTTPS/network transports",
+    "S3",
+    "GCS",
+    "HTSlib dynamic plugins",
+    "BCFtools plugins",
+    "samtools curses tview",
+    "CRAM bzip2 codec",
+    "CRAM lzma codec",
+    "libdeflate acceleration",
+    "BCFtools GSL",
+    "BCFtools Perl filters",
+    "standalone reference-cache proxy"
+  ],
+  "runtime_formats": "BAM, SAM, BCF, VCF, BGZF, FASTA. Limited CRAM codecs compiled but not a validated workflow in this release.",
+  "license_directory": "vendor-variant/licenses",
+  "runtime_licenses": "Redistribute Cosmopolitan runtime notices from existing core-bio licenses in addition to this license directory.",
+  "binaries": [
+    {
+      "file": "baselines/bin/samtools-linux",
+      "bytes": 6951632,
+      "sha256": "fd0ce1646166344ba3475d7be9869ad099e6add2eb0e10ad284e7306eed57c77",
+      "version_output": "samtools 1.24\nUsing htslib 1.24\nCopyright (C) 2026 Genome Research Ltd.\n\nSamtools compilation details:\n    Features:       build=configure curses=no \n    CC:             gcc\n    CPPFLAGS:       \n    CFLAGS:         -Wall -O2 -g\n    LDFLAGS:        \n    HTSDIR:         htslib-1.24\n    LIBS:           \n    CURSES_LIB:     \n\nHTSlib compilation details:\n    Features:       build=configure libcurl=no S3=no GCS=no libdeflate=no lzma=no bzip2=no plugins=no htscodecs=1.6.7\n    CC:             gcc\n    CPPFLAGS:       \n    CFLAGS:         -Wall -O2 -g -fvisibility=hidden\n    LDFLAGS:        -fvisibility=hidden \n\nHTSlib URL scheme handlers present:\n    built-in:\t file, data, preload\n    crypt4gh-needed:\t crypt4gh\n    mem:\t mem\n",
+      "executed_on": "Linux x86_64"
+    },
+    {
+      "file": "baselines/bin/samtools-cosmo.exe",
+      "bytes": 1966226,
+      "sha256": "49c2f16425d464e4ad1c1439d7a9e32a3b1c1bf8e5d54403778de610d2f440b3",
+      "version_output": "samtools 1.24\nUsing htslib 1.24\nCopyright (C) 2026 Genome Research Ltd.\n\nSamtools compilation details:\n    Features:       build=configure curses=no \n    CC:             /workspace/scratch/0c5293ac0f36/native-workbench-0.3/variant-build/cosmocc-3.3.10/bin/x86_64-unknown-cosmo-cc\n    CPPFLAGS:       -I/workspace/scratch/0c5293ac0f36/native-workbench-0.3/variant-build/cosmocc-3.3.10/include/third_party/zlib\n    CFLAGS:         -Wall -O2 -g\n    LDFLAGS:        -L/workspace/scratch/0c5293ac0f36/native-workbench-0.3/variant-build/cosmo-link\n    HTSDIR:         htslib-1.24\n    LIBS:           \n    CURSES_LIB:     \n\nHTSlib compilation details:\n    Features:       build=configure libcurl=no S3=no GCS=no libdeflate=no lzma=no bzip2=no plugins=no htscodecs=1.6.7\n    CC:             /workspace/scratch/0c5293ac0f36/native-workbench-0.3/variant-build/cosmocc-3.3.10/bin/x86_64-unknown-cosmo-cc\n    CPPFLAGS:       -I/workspace/scratch/0c5293ac0f36/native-workbench-0.3/variant-build/cosmocc-3.3.10/include/third_party/zlib\n    CFLAGS:         -Wall -O2 -g -fvisibility=hidden\n    LDFLAGS:        -L/workspace/scratch/0c5293ac0f36/native-workbench-0.3/variant-build/cosmo-link -fvisibility=hidden \n\nHTSlib URL scheme handlers present:\n    built-in:\t file, data, preload\n    crypt4gh-needed:\t crypt4gh\n    mem:\t mem\n",
+      "executed_on": "Linux x86_64; portable executable used pinned APE loader"
+    },
+    {
+      "file": "baselines/bin/bcftools-linux",
+      "bytes": 9551456,
+      "sha256": "90417f5176fb7186ded0711fb5d6335b09c676331344a131369c2bff68ec3ede",
+      "version_output": "bcftools 1.24\nUsing htslib 1.24\nCopyright (C) 2026 Genome Research Ltd.\nLicense Expat: The MIT/Expat license\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.\n",
+      "executed_on": "Linux x86_64"
+    },
+    {
+      "file": "baselines/bin/bcftools-cosmo.exe",
+      "bytes": 2669180,
+      "sha256": "e2f53c05048fa1de94149e87203ba9c4c73be548196097fbe2f1426c3d1d556f",
+      "version_output": "bcftools 1.24\nUsing htslib 1.24\nCopyright (C) 2026 Genome Research Ltd.\nLicense Expat: The MIT/Expat license\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.\n",
+      "executed_on": "Linux x86_64; portable executable used pinned APE loader"
+    }
+  ],
+  "validation_scope": "Built on Linux x86_64. Version commands executed on all four binaries and AMD64 PE signatures checked for portable executables. See variant validation report for scientific pipeline checks. No Windows execution performed by this build task.",
+  "known_limitations": [
+    "HTSlib pthread thread pool uses a recursive mutex; Cosmopolitan 3.3.10 pthread condition variables only accept normal mutexes. SAMtools -@ and BCFtools --threads must not be enabled in these builds. Release workflows use single-thread SAMtools/BCFtools. Minimap2 mapping threads remain supported and validated. No mutex-type substitution or runtime patch is applied."
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "checks": [{
+    "id": "reverse-complement-truth",
+    "workflow": "reverse-complement",
+    "params": {},
+    "inputs": {"sequences": [{"sequences": "fixture-sequences"}]},
+    "expect": [{"output": "reversed", "kind": "fasta", "records": 2, "sequences": {"first": "AACGT", "second": "CCGGTTAA"}}]
+  }]
+}

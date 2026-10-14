@@ -1,0 +1,9 @@
+test_build_is_byte_reproducible (test_mutect2_compat.Mutect2PathCompatibilityTests.test_build_is_byte_reproducible) ... ok
+test_local_paths_nonlocal_uris_and_class_origins (test_mutect2_compat.Mutect2PathCompatibilityTests.test_local_paths_nonlocal_uris_and_class_origins) ... ok
+test_manifest_and_class_scope_preserve_original_launcher (test_mutect2_compat.Mutect2PathCompatibilityTests.test_manifest_and_class_scope_preserve_original_launcher) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 4.734s
+
+OK
+{"jar": "/workspace/scratch/0c5293ac0f36/integration-source/native-workbench/build/mutect2/compat-rebuild-rrmb317c/rebuild/gatk-path-compat.jar", "sha256": "d3a35b8cf2790f12b5d57574b7d46de3598a8836201f3f9b899798521db9e78a", "classCount": 1}

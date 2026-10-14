@@ -1,0 +1,15 @@
+{
+  "fixture_seed": 720619,
+  "adapters": [
+    "AGATCGGAAGAGCACACGTCTGAACTCCAGTCA",
+    "AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT"
+  ],
+  "input_pairs": 120,
+  "expected_pairs": 100,
+  "expected_bases": 13500,
+  "input_bases": 21900,
+  "trim_window": 1,
+  "trim_quality": 20,
+  "minimum_length": 30,
+  "note": "Independent generator expectation: 50 adapter pairs trim to 60 bases, 50 quality-tail pairs to 75; 20 pairs fail filters. Expected files were not made from a tool output."
+}

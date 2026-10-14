@@ -1,0 +1,11 @@
+/workspace/scratch/0c5293ac0f36/native-workbench-0.4/packs/reads-0.4.0/pack.ini: 3 tools, 4 workflows
+/workspace/scratch/0c5293ac0f36/native-workbench-0.4/packs/align-0.4.0/pack.ini: 2 tools, 2 workflows
+/workspace/scratch/0c5293ac0f36/native-workbench-0.4/packs/bam-0.4.0/pack.ini: 1 tools, 10 workflows
+/workspace/scratch/0c5293ac0f36/native-workbench-0.4/packs/variants-0.4.0/pack.ini: 2 tools, 7 workflows
+/workspace/scratch/0c5293ac0f36/native-workbench-0.4/packs/variant-pipeline-0.4.0/pack.ini: 5 tools, 1 workflows
+/workspace/scratch/0c5293ac0f36/native-workbench-0.4/packs/trimming-0.4.0/pack.ini: 2 tools, 3 workflows
+/workspace/scratch/0c5293ac0f36/native-workbench-0.4/packs/bwa-0.4.0/pack.ini: 3 tools, 2 workflows
+/workspace/scratch/0c5293ac0f36/native-workbench-0.4/packs/freebayes-0.4.0/pack.ini: 3 tools, 1 workflows
+/workspace/scratch/0c5293ac0f36/native-workbench-0.4/packs/fastp-0.4.1/pack.ini: 2 tools, 1 workflows
+/workspace/scratch/0c5293ac0f36/native-workbench-0.4/packs/research-variants-0.4.1/pack.ini: 9 tools, 12 workflows
+PASS: 194 pack-model checks

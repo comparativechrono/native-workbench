@@ -1,0 +1,69 @@
+Tool expansion 0.5.2: design and provenance
+
+The Galaxy Tool Shed is a useful guide to biological operations, input/output
+contracts, parameter descriptions, citations and test datasets. Galaxy's IUC
+repository explicitly contains tools published to the Tool Shed:
+https://github.com/galaxyproject/tools-iuc
+
+A Galaxy wrapper is not itself a portable Windows executable. This workbench
+therefore packages a specific upstream executable and its dependencies,
+checksums and licenses, then defines shell-free operations in pack.ini. It does
+not claim binary compatibility with arbitrary Galaxy tools. The chosen upstream
+versions can differ from a historical Galaxy wrapper version; each pack's
+provenance records the exact reference used and any such distinction.
+
+FIRST EXPANSION
+SeqKit 2.14.0 - local sequence preparation. Its upstream standalone Windows
+binary requires no separate Go installation. Operations explicitly distinguish
+FASTQ, nucleotide FASTA and protein FASTA.
+https://bioinf.shenwei.me/seqkit/
+https://github.com/shenwei356/seqkit/releases/tag/v2.14.0
+
+VSEARCH 2.32.0 - nucleotide amplicon processing and similarity clustering.
+Its bundled Windows compression libraries stay within the pack. Abundance
+labels are a distinct data contract for abundance-aware operations.
+https://github.com/torognes/vsearch/releases/tag/v2.32.0
+https://torognes.github.io/vsearch/
+
+MUSCLE 5.3-workbench1 - multiple alignment of homologous nucleotide or protein sequences.
+Aligned FASTA has a separate type from unaligned FASTA. MUSCLE is not a short
+read-to-genome mapper, a codon-aware aligner or a phylogenetic tree estimator.
+This local build uses LLVM-MinGW and a bundled OpenMP runtime. A documented
+patch makes standard alignment honour explicit nucleotide/protein flags, which
+upstream 5.3 ignored in that mode. The exact source and patch are included.
+https://github.com/rcedgar/muscle/releases/tag/v5.3
+https://drive5.com/muscle5/manual/
+
+EXTENSION CONTRACT
+Each new pack supplies an asset:workbench-schema JSON file, with its SHA-256
+recorded in pack.ini. The data describe categories, exact biological ports,
+output groups, methods text and citations. The native manifest remains the
+execution authority. A changed schema is a changed pinned pack, not a silent
+reinterpretation of a saved workflow. The application validates full coverage
+of declared file inputs and outputs.
+
+Packs can also include a hash-pinned asset:workbench-checks JSON file. Fixtures
+are separately declared assets. Check installation executes these small cases
+through the same graph engine and Windows runner as an ordinary analysis and
+asserts their expected data. No test definition can inject shell commands.
+
+A future pack should provide all of: a redistributable local runtime; fixed
+versions and provenance; biological port semantics and format assumptions;
+meaningful safe defaults; methods and citations; small expected-result tests;
+resource and database requirements; and real Windows validation. Existing
+packs without a biological schema retain their conservative existing behavior.
+
+NEXT TOOL FAMILIES
+BLAST+ is a logical next search family, with explicit nucleotide/protein
+queries and local database management. Its Windows runtime and database
+artifacts need their own dependency and provenance handling.
+https://blast.ncbi.nlm.nih.gov/doc/blast-help/downloadblastdata.html
+
+BEDTools would add intervals and annotation intersections. Upstream installation
+documentation targets Unix/Linux/macOS; a Windows port needs its own validation.
+https://bedtools.readthedocs.io/en/latest/content/installation.html
+
+RNA-seq counting, assembly, annotation and phylogeny need additional biological
+contracts and realistic test data. They are future scope, not installed tools
+in this expansion. Reference downloads and any remote database search should
+be explicit user actions in future releases; this expansion operates locally.

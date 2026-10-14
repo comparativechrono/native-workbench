@@ -1,0 +1,214 @@
+{
+  "application_version": "0.4.0",
+  "passed": 33,
+  "failed": 1,
+  "elapsed_ms": 15875,
+  "checks": [
+    {
+      "name": "Discover core and research workflow packs",
+      "passed": true,
+      "elapsed_ms": 78,
+      "error": ""
+    },
+    {
+      "name": "Executable, runtime and manifest integrity: align",
+      "passed": true,
+      "elapsed_ms": 47,
+      "error": ""
+    },
+    {
+      "name": "Executable, runtime and manifest integrity: bam",
+      "passed": true,
+      "elapsed_ms": 31,
+      "error": ""
+    },
+    {
+      "name": "Executable, runtime and manifest integrity: bwa",
+      "passed": true,
+      "elapsed_ms": 47,
+      "error": ""
+    },
+    {
+      "name": "Executable, runtime and manifest integrity: fastp",
+      "passed": true,
+      "elapsed_ms": 63,
+      "error": ""
+    },
+    {
+      "name": "Executable, runtime and manifest integrity: freebayes",
+      "passed": true,
+      "elapsed_ms": 62,
+      "error": ""
+    },
+    {
+      "name": "Executable, runtime and manifest integrity: reads",
+      "passed": true,
+      "elapsed_ms": 16,
+      "error": ""
+    },
+    {
+      "name": "Executable, runtime and manifest integrity: research-variants",
+      "passed": true,
+      "elapsed_ms": 172,
+      "error": ""
+    },
+    {
+      "name": "Executable, runtime and manifest integrity: trimming",
+      "passed": true,
+      "elapsed_ms": 78,
+      "error": ""
+    },
+    {
+      "name": "Executable, runtime and manifest integrity: variant-pipeline",
+      "passed": true,
+      "elapsed_ms": 31,
+      "error": ""
+    },
+    {
+      "name": "Executable, runtime and manifest integrity: variants",
+      "passed": true,
+      "elapsed_ms": 31,
+      "error": ""
+    },
+    {
+      "name": "Pack schema rejects duplicate and unknown keys",
+      "passed": true,
+      "elapsed_ms": 0,
+      "error": ""
+    },
+    {
+      "name": "Pack schema rejects traversal and unknown input references",
+      "passed": true,
+      "elapsed_ms": 0,
+      "error": ""
+    },
+    {
+      "name": "Argument expansion preserves file lists and literal user values",
+      "passed": true,
+      "elapsed_ms": 0,
+      "error": ""
+    },
+    {
+      "name": "Windows argument quoting and extended path normalization",
+      "passed": true,
+      "elapsed_ms": 0,
+      "error": ""
+    },
+    {
+      "name": "Reads workflow and independent reverse-complement bytes",
+      "passed": true,
+      "elapsed_ms": 188,
+      "error": ""
+    },
+    {
+      "name": "Workflow rejects invalid values, missing files and identical mates",
+      "passed": true,
+      "elapsed_ms": 125,
+      "error": ""
+    },
+    {
+      "name": "Mismatched paired-read names stop the pipeline before alignment",
+      "passed": true,
+      "elapsed_ms": 172,
+      "error": ""
+    },
+    {
+      "name": "Import, long paths, discovery and duplicate version protection",
+      "passed": true,
+      "elapsed_ms": 312,
+      "error": ""
+    },
+    {
+      "name": "Modified executable is rejected before workflow execution",
+      "passed": true,
+      "elapsed_ms": 125,
+      "error": ""
+    },
+    {
+      "name": "Paired variant pipeline recovers the synthetic truth set",
+      "passed": true,
+      "elapsed_ms": 2344,
+      "error": ""
+    },
+    {
+      "name": "Successful pipeline report records steps, checksums and completed outputs",
+      "passed": true,
+      "elapsed_ms": 0,
+      "error": ""
+    },
+    {
+      "name": "Cutadapt adapter and quality trimming matches independent paired-read truth",
+      "passed": true,
+      "elapsed_ms": 1656,
+      "error": ""
+    },
+    {
+      "name": "Adapter fields reject file expressions before Python starts",
+      "passed": true,
+      "elapsed_ms": 32,
+      "error": ""
+    },
+    {
+      "name": "Imported Cutadapt retains runtime assets and runs the same oracle",
+      "passed": true,
+      "elapsed_ms": 2609,
+      "error": ""
+    },
+    {
+      "name": "Modified Python module and undeclared runtime file are rejected",
+      "passed": true,
+      "elapsed_ms": 187,
+      "error": ""
+    },
+    {
+      "name": "Standalone BWA streams all paired reads to a valid BAM",
+      "passed": true,
+      "elapsed_ms": 657,
+      "error": ""
+    },
+    {
+      "name": "Cutadapt, streaming BWA and BCFtools recover all four truth variants",
+      "passed": true,
+      "elapsed_ms": 3687,
+      "error": ""
+    },
+    {
+      "name": "Streaming producer failure stops all downstream steps",
+      "passed": true,
+      "elapsed_ms": 156,
+      "error": ""
+    },
+    {
+      "name": "Streaming sink failure stops all downstream steps",
+      "passed": true,
+      "elapsed_ms": 172,
+      "error": ""
+    },
+    {
+      "name": "Standalone FreeBayes recovers the four truth alleles and genotypes",
+      "passed": true,
+      "elapsed_ms": 1360,
+      "error": ""
+    },
+    {
+      "name": "fastp preserves known trimming truth and writes an offline report",
+      "passed": false,
+      "elapsed_ms": 890,
+      "error": "Invalid JSON escape"
+    },
+    {
+      "name": "Native streaming lifecycle: six companion checks",
+      "passed": true,
+      "elapsed_ms": 547,
+      "error": ""
+    },
+    {
+      "name": "Fixture inputs remain byte-for-byte unchanged",
+      "passed": true,
+      "elapsed_ms": 0,
+      "error": ""
+    }
+  ],
+  "source_report_sha256": "e014b9febb5ed16d015206cc63cde7670b47c82b34c6d3d2ba5e5259a47f107b",
+  "scope": "User-supplied Windows 0.4.0 result; not a Windows 0.4.1 result."
+}

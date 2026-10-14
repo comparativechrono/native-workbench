@@ -1,0 +1,52 @@
+name: DESeq2 development scientific check
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  scientific:
+    runs-on: windows-2022
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Recover pinned private R and package inputs
+        shell: pwsh
+        run: |
+          python scripts/build_r_runtime_windows.py --output build/r-development-runtime
+          if ($LASTEXITCODE -ne 0) { throw 'Private runtime build failed.' }
+          & 'build/r-development-runtime/relocated R runtime/bin/x64/Rscript.exe' --vanilla -e 'print(extSoftVersion()); print(grDevices::grSoftVersion()); print(capabilities()); print(La_library()); print(libcurlVersion()); print(R.version)' | Tee-Object -FilePath build/r-runtime-library-versions.txt
+          if ($LASTEXITCODE -ne 0) { throw 'Private runtime version audit failed.' }
+          python scripts/fetch_deseq2_build_inputs.py --cache build/deseq2-inputs
+          if ($LASTEXITCODE -ne 0) { throw 'Pinned input recovery failed.' }
+      - name: Prepare disposable development pack
+        shell: pwsh
+        run: |
+          python scripts/prepare_deseq2_pack.py --cache build/deseq2-inputs --r-runtime-zip build/r-development-runtime/r-runtime.zip --r-runtime-provenance build/r-development-runtime/export/r-runtime-provenance.json --destination 'build/development pack with spaces'
+          if ($LASTEXITCODE -ne 0) { throw 'Development pack preparation failed.' }
+      - name: Run native scientific and failure regressions
+        shell: pwsh
+        run: |
+          & 'build/development pack with spaces/bin/python.exe' -I tests/test_deseq2_pack.py --pack 'build/development pack with spaces' --temp 'build/native scientific outputs' --report build/deseq2-development-science.json
+          if ($LASTEXITCODE -ne 0) { throw 'Native DESeq2 regressions failed.' }
+      - name: Record development evidence
+        if: always()
+        shell: pwsh
+        run: |
+          if (Test-Path build/deseq2-development-science.json) {
+            $report = Get-Content build/deseq2-development-science.json -Raw
+            Write-Output $report
+            Add-Content $env:GITHUB_STEP_SUMMARY ('```json' + "`n" + $report + "`n" + '```')
+          }
+      - name: Preserve reports only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: deseq2-development-evidence
+          path: |
+            build/deseq2-development-science.json
+            build/r-development-runtime/export/r-runtime-provenance.json
+            build/r-runtime-library-versions.txt
+          if-no-files-found: error

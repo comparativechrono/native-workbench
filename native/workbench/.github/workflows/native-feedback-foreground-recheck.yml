@@ -1,0 +1,103 @@
+name: Recheck frozen tester feedback after visible caption activation
+
+on:
+  push:
+    branches: [fix/native-ui-0.16.1]
+    paths:
+      - '.github/workflows/native-feedback-foreground-recheck.yml'
+      - 'scripts/check_tester_feedback_windows.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: native-feedback-foreground-recheck-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  SOURCE_COMMIT: ff13db729a6215e9fe5dfa4a4efdb9c769880287
+  STARTER_SHA256: 28f1362287991621dde030da54eb444846142c0243be6b9d86c4b4f1bf99dd47
+  SOURCE_SHA256: 002fbc8401ab744a8172f3ae11d240c925ed7a8d1241bd5d94e0413675bb1b5d
+  UPDATE_SHA256: d0a20f0b8288c79dba695e9cc82e78a78e95244ebb267e959d99fb9e438e7aee
+
+jobs:
+  validator:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Check caption ownership and unchanged temporal failure oracles
+        run: |
+          python3 tests/test_tester_feedback_gate.py
+          python3 -m py_compile scripts/check_tester_feedback_windows.py
+  native:
+    needs: validator
+    runs-on: windows-2022
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        folder: [ordinary, 'path with spaces']
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Retrieve the exact candidate without rebuilding
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: wrapped-library-candidate-ff13db729a6215e9fe5dfa4a4efdb9c769880287
+          run-id: 38075960020
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/frozen-library-candidate
+      - name: Verify unchanged production sources and all frozen artifact identities
+        id: prepare
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          git diff --exit-code $env:SOURCE_COMMIT -- desktop workspace examples src include platform_windows pack-examples scripts/build_ui_patch_candidate.py scripts/package_split.py scripts/make_core_update.py scripts/apply_core_update.py scripts/apply_desktop_update.py
+          if ($LASTEXITCODE -ne 0) { throw 'Production or packaging source changed; build a new candidate instead of rechecking frozen bytes.' }
+          $candidate = Join-Path $env:RUNNER_TEMP 'frozen-library-candidate'
+          $starter = Join-Path $candidate 'native-workbench-0.16.1-starter-windows.zip'
+          $updater = Join-Path $candidate 'native-workbench-0.16.1-update-from-0.16.0.zip'
+          $source = Join-Path $candidate 'native-workbench-0.16.1-source.zip'
+          if ((Get-FileHash $starter -Algorithm SHA256).Hash -ne $env:STARTER_SHA256) { throw 'Frozen Starter identity mismatch.' }
+          if ((Get-FileHash $updater -Algorithm SHA256).Hash -ne $env:UPDATE_SHA256) { throw 'Frozen updater identity mismatch.' }
+          if ((Get-FileHash $source -Algorithm SHA256).Hash -ne $env:SOURCE_SHA256) { throw 'Frozen source companion identity mismatch.' }
+          $provenance = Get-Content (Join-Path $candidate 'BUILD-PROVENANCE.json') -Raw | ConvertFrom-Json
+          if ($provenance.sourceCommit -ne $env:SOURCE_COMMIT -or $provenance.appVersion -ne '0.16.1') { throw 'Frozen build provenance mismatch.' }
+          $case = Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER
+          Expand-Archive $starter (Join-Path $case 'feedback')
+          $evidence = Join-Path $env:RUNNER_TEMP 'feedback-recheck-evidence'
+          New-Item -ItemType Directory -Path $evidence | Out-Null
+          @{ schema = 1; kind = 'frozen-feedback-recheck-inputs'; sourceCommit = $env:SOURCE_COMMIT;
+             gateCommit = $env:GITHUB_SHA; candidateRun = 38075960020; appVersion = '0.16.1';
+             starterSha256 = $env:STARTER_SHA256; updateSha256 = $env:UPDATE_SHA256;
+             sourceSha256 = $env:SOURCE_SHA256; rebuilt = $false; installationCase = $env:CASE_FOLDER;
+             scope = 'Frozen identities only. The complete tester-feedback gate runs on a fresh extraction; modal-close activation uses only a real exposed caption click.' } |
+            ConvertTo-Json -Depth 4 | Set-Content (Join-Path $evidence 'frozen-inputs.json')
+      - name: Recheck all tester feedback scenarios on unchanged packaged application
+        if: always() && !cancelled() && steps.prepare.outcome == 'success'
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'feedback/native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I -B scripts/check_tester_feedback_windows.py --app-root $app --starter-archive (Join-Path $env:RUNNER_TEMP 'frozen-library-candidate/native-workbench-0.16.1-starter-windows.zip') --starter-sha256 $env:STARTER_SHA256 --source-commit $env:SOURCE_COMMIT --gate-commit $env:GITHUB_SHA --report "$env:RUNNER_TEMP/feedback-recheck-evidence/feedback/native-tester-feedback.json" --app-version 0.16.1
+          if ($LASTEXITCODE -ne 0) { throw 'Tester feedback acceptance failed; retain all observations and failures.' }
+      - name: Retain actual recheck reports, failures and captures
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: feedback-foreground-recheck-${{ matrix.folder }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/feedback-recheck-evidence
+          if-no-files-found: error
+          retention-days: 30

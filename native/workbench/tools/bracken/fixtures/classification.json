@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "kind": "native-workbench-kraken2-classification",
+  "success": true,
+  "databaseFingerprint": "ef54e32ecbed5849b121b51b8ba9ff98568f1982b16ab3651acd1bb59d12b66a",
+  "report": {
+    "path": "expected.report.tsv",
+    "bytes": 264,
+    "sha256": "ad226ff9929a7cd71638d49d9310e78aff3f689b7bfb9c1d2750068eb8afd00b",
+    "format": "kraken2-six-column"
+  },
+  "classifier": {
+    "name": "Kraken2",
+    "version": "2.17.2",
+    "confidence": 0,
+    "minimumHitGroups": 2,
+    "minimumBaseQuality": 0,
+    "quick": false
+  },
+  "reads": {
+    "paired": false,
+    "unit": "reads",
+    "fragments": 32,
+    "reads": 32,
+    "bases": 4800,
+    "classifiedFragments": 29,
+    "unclassifiedFragments": 3,
+    "mate1": {
+      "records": 32,
+      "bases": 4800,
+      "minLength": 150,
+      "maxLength": 150
+    },
+    "mate2": null
+  }
+}

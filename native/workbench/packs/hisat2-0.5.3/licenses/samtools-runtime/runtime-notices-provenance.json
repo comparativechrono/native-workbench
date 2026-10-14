@@ -1,0 +1,43 @@
+{
+  "cosmopolitan_source_archive": {
+    "url": "https://codeload.github.com/jart/cosmopolitan/tar.gz/refs/tags/3.3.10",
+    "sha256": "1ecfd628305e844f7d8ded53742e4a7f2b908b4ad2e9fb423c81595986f5b2ff"
+  },
+  "files": [
+    {
+      "file": "samtools-embedded-runtime-notices.txt",
+      "sha256": "2d40b38dde3bf98bed8e871b9c7f040ba8f20d4bb7af6e70b1fb72dd37a2e501",
+      "origin": "baselines/bin/samtools-cosmo.exe.dbg"
+    },
+    {
+      "file": "bcftools-embedded-runtime-notices.txt",
+      "sha256": "39b0a948f3f2de4e4ffc1cafe7fa6d4f3a37ba65bb381829845dc06555f27275",
+      "origin": "baselines/bin/bcftools-cosmo.exe.dbg"
+    },
+    {
+      "file": "cosmopolitan-heapsort.c.txt",
+      "sha256": "6bd63ab8b1ae093a8d88fc2732bccf2907d149b49a5ece7b6a7d5e8d2c07f18d",
+      "origin": "cosmopolitan-3.3.10/libc/mem/heapsort.c in official pinned source archive"
+    },
+    {
+      "file": "cosmopolitan-mergesort.c.txt",
+      "sha256": "ca0a61fdff2ea5b838ef143023ef137e3d4fa3be55f09397a6edc3867e5f5158",
+      "origin": "cosmopolitan-3.3.10/libc/mem/mergesort.c in official pinned source archive"
+    },
+    {
+      "file": "cosmopolitan-opensort.c.txt",
+      "sha256": "fcff4746f05f7fa57a50d3c436a4cdda5a543776e03dd7a32ae6771fb81eec36",
+      "origin": "cosmopolitan-3.3.10/libc/mem/opensort.c in official pinned source archive"
+    },
+    {
+      "file": "cosmopolitan-qsort.c.txt",
+      "sha256": "f20d90a0f4c9a5ec08fdc1d0c91d804d2a2067b51b98bd4d4fddfce73eb9d0b2",
+      "origin": "cosmopolitan-3.3.10/libc/mem/qsort.c in official pinned source archive"
+    },
+    {
+      "file": "cosmopolitan-strftime.c.txt",
+      "sha256": "28e72f7e5b6cc82544d230f3945242a89370f2767acf0da5862a637983b580ac",
+      "origin": "cosmopolitan-3.3.10/third_party/tz/strftime.c in official pinned source archive"
+    }
+  ]
+}

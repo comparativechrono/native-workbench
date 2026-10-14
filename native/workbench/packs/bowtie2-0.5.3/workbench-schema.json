@@ -1,0 +1,320 @@
+{
+  "schema": 1,
+  "category": "Alignment",
+  "citations": [
+    {
+      "text": "Langmead B, Salzberg SL. Fast gapped-read alignment with Bowtie 2. Nature Methods 9, 357\u2013359 (2012).",
+      "url": "https://doi.org/10.1038/nmeth.1923"
+    }
+  ],
+  "workflows": {
+    "single-end": {
+      "ports": [
+        {
+          "id": "reads",
+          "type": "reads",
+          "manifestInputs": [
+            "reads1"
+          ],
+          "min": 1,
+          "max": 1
+        },
+        {
+          "id": "reference",
+          "type": "reference",
+          "manifestInputs": [
+            "reference"
+          ],
+          "min": 1,
+          "max": 1,
+          "requiredState": {
+            "compression": "none"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": "sam",
+          "type": "sam",
+          "manifestOutputs": [
+            "sam"
+          ],
+          "state": {
+            "sort": "unsorted",
+            "pairing": "single"
+          }
+        },
+        {
+          "id": "reference",
+          "type": "reference",
+          "manifestOutputs": [
+            "reference"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "index",
+          "label": "Bowtie 2 small index (six files)",
+          "type": "index",
+          "manifestOutputs": [
+            "index-1",
+            "index-2",
+            "index-3",
+            "index-4",
+            "index-rev-1",
+            "index-rev-2"
+          ],
+          "state": {}
+        }
+      ],
+      "methods": "A private copy of the reference was indexed with Bowtie 2 using 32-bit small index files. Reads were aligned end to end with Bowtie 2, interpreting quality scores as Phred+33 and using the selected sensitivity preset and deterministic seed. At most one primary alignment was reported per read, with unmapped reads retained. SAM records include the selected sample, read group, library and sequencing-platform tags. Output order follows input order and is not coordinate sorted.",
+      "pathPolicy": {
+        "asciiOnly": true,
+        "forbiddenCharacters": [
+          ","
+        ]
+      }
+    },
+    "paired-end": {
+      "ports": [
+        {
+          "id": "reads",
+          "type": "pair",
+          "manifestInputs": [
+            "reads1",
+            "reads2"
+          ],
+          "min": 1,
+          "max": 1
+        },
+        {
+          "id": "reference",
+          "type": "reference",
+          "manifestInputs": [
+            "reference"
+          ],
+          "min": 1,
+          "max": 1,
+          "requiredState": {
+            "compression": "none"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": "sam",
+          "type": "sam",
+          "manifestOutputs": [
+            "sam"
+          ],
+          "state": {
+            "sort": "unsorted",
+            "pairing": "paired"
+          }
+        },
+        {
+          "id": "reference",
+          "type": "reference",
+          "manifestOutputs": [
+            "reference"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "index",
+          "label": "Bowtie 2 small index (six files)",
+          "type": "index",
+          "manifestOutputs": [
+            "index-1",
+            "index-2",
+            "index-3",
+            "index-4",
+            "index-rev-1",
+            "index-rev-2"
+          ],
+          "state": {}
+        },
+        {
+          "id": "pair-check",
+          "type": "metrics",
+          "manifestOutputs": [
+            "pair-check"
+          ],
+          "state": {}
+        }
+      ],
+      "methods": "A private copy of the reference was indexed with Bowtie 2 using 32-bit small index files. Mate identifiers, counts and FASTQ structure were validated with paircheck. Reads were aligned end to end with Bowtie 2, interpreting quality scores as Phred+33 and using the selected sensitivity preset and deterministic seed. The specified fragment bounds and orientation governed concordant pairing; Bowtie 2 discordant-pair and single-mate fallback were enabled. At most one primary alignment was reported per read, with unmapped reads retained. SAM records include the selected sample, read group, library and sequencing-platform tags. Output order follows input order and is not coordinate sorted.",
+      "pathPolicy": {
+        "asciiOnly": true,
+        "forbiddenCharacters": [
+          ","
+        ]
+      },
+      "parameterConstraints": [
+        {
+          "left": "min-insert",
+          "operator": "<=",
+          "right": "max-insert"
+        }
+      ]
+    },
+    "single-end-large": {
+      "ports": [
+        {
+          "id": "reads",
+          "type": "reads",
+          "manifestInputs": [
+            "reads1"
+          ],
+          "min": 1,
+          "max": 1
+        },
+        {
+          "id": "reference",
+          "type": "reference",
+          "manifestInputs": [
+            "reference"
+          ],
+          "min": 1,
+          "max": 1,
+          "requiredState": {
+            "compression": "none"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": "sam",
+          "type": "sam",
+          "manifestOutputs": [
+            "sam"
+          ],
+          "state": {
+            "sort": "unsorted",
+            "pairing": "single"
+          }
+        },
+        {
+          "id": "reference",
+          "type": "reference",
+          "manifestOutputs": [
+            "reference"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "index",
+          "label": "Bowtie 2 large index (six files)",
+          "type": "index",
+          "manifestOutputs": [
+            "index-1",
+            "index-2",
+            "index-3",
+            "index-4",
+            "index-rev-1",
+            "index-rev-2"
+          ],
+          "state": {}
+        }
+      ],
+      "methods": "A private copy of the reference was indexed with Bowtie 2 using 64-bit large index files. Reads were aligned end to end with Bowtie 2, interpreting quality scores as Phred+33 and using the selected sensitivity preset and deterministic seed. At most one primary alignment was reported per read, with unmapped reads retained. SAM records include the selected sample, read group, library and sequencing-platform tags. Output order follows input order and is not coordinate sorted.",
+      "pathPolicy": {
+        "asciiOnly": true,
+        "forbiddenCharacters": [
+          ","
+        ]
+      }
+    },
+    "paired-end-large": {
+      "ports": [
+        {
+          "id": "reads",
+          "type": "pair",
+          "manifestInputs": [
+            "reads1",
+            "reads2"
+          ],
+          "min": 1,
+          "max": 1
+        },
+        {
+          "id": "reference",
+          "type": "reference",
+          "manifestInputs": [
+            "reference"
+          ],
+          "min": 1,
+          "max": 1,
+          "requiredState": {
+            "compression": "none"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": "sam",
+          "type": "sam",
+          "manifestOutputs": [
+            "sam"
+          ],
+          "state": {
+            "sort": "unsorted",
+            "pairing": "paired"
+          }
+        },
+        {
+          "id": "reference",
+          "type": "reference",
+          "manifestOutputs": [
+            "reference"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "index",
+          "label": "Bowtie 2 large index (six files)",
+          "type": "index",
+          "manifestOutputs": [
+            "index-1",
+            "index-2",
+            "index-3",
+            "index-4",
+            "index-rev-1",
+            "index-rev-2"
+          ],
+          "state": {}
+        },
+        {
+          "id": "pair-check",
+          "type": "metrics",
+          "manifestOutputs": [
+            "pair-check"
+          ],
+          "state": {}
+        }
+      ],
+      "methods": "A private copy of the reference was indexed with Bowtie 2 using 64-bit large index files. Mate identifiers, counts and FASTQ structure were validated with paircheck. Reads were aligned end to end with Bowtie 2, interpreting quality scores as Phred+33 and using the selected sensitivity preset and deterministic seed. The specified fragment bounds and orientation governed concordant pairing; Bowtie 2 discordant-pair and single-mate fallback were enabled. At most one primary alignment was reported per read, with unmapped reads retained. SAM records include the selected sample, read group, library and sequencing-platform tags. Output order follows input order and is not coordinate sorted.",
+      "pathPolicy": {
+        "asciiOnly": true,
+        "forbiddenCharacters": [
+          ","
+        ]
+      },
+      "parameterConstraints": [
+        {
+          "left": "min-insert",
+          "operator": "<=",
+          "right": "max-insert"
+        }
+      ]
+    }
+  }
+}

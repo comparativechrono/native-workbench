@@ -1,0 +1,421 @@
+name: Native Windows reference management candidate
+
+on:
+  push:
+    branches: [feature/reference-management]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: native-reference-management-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    # Evidence-only commits do not rebuild or establish new artifact passes.
+    if: ${{ !contains(github.event.head_commit.message, '[validation evidence]') && !contains(github.event.head_commit.message, '[frozen candidate recheck]') }}
+    runs-on: ubuntu-22.04
+    timeout-minutes: 25
+    outputs:
+      asset_sha256: ${{ steps.package.outputs.asset_sha256 }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Recover immutable runtime, corresponding source and compiler
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build-inputs candidate
+          curl --fail --location --retry 3 'https://github.com/comparativechrono/workbench/releases/download/app-v0.6.0/native-workbench-0.6.0-starter-windows.zip' -o build-inputs/starter.zip
+          curl --fail --location --retry 3 'https://github.com/comparativechrono/workbench/releases/download/app-v0.6.0/native-workbench-0.6.0-source.zip' -o build-inputs/source.zip
+          curl --fail --location --retry 3 'https://github.com/mstorsjo/llvm-mingw/releases/download/20260922/llvm-mingw-20260922-ucrt-ubuntu-22.04-x86_64.tar.xz' -o build-inputs/compiler.tar.xz
+          sha256sum --check <<'SUMS'
+          16fa802304c734b5721d838ff38b7e90ed36ccfc185a22239859cc3762af695a  build-inputs/starter.zip
+          427a9b42f2528984350479e8b0155e4ef4f0159fa6f240cc1aa84a5ec2e0e60a  build-inputs/source.zip
+          bb7bb7654b33d5aa8712acb837c963b2e0c56352560c76105270a3268c665c21  build-inputs/compiler.tar.xz
+          SUMS
+          unzip -q build-inputs/starter.zip -d build-inputs/frozen
+          tar -xf build-inputs/compiler.tar.xz -C build-inputs
+      - name: Compile the native application with strict warnings
+        shell: bash
+        run: |
+          set -euo pipefail
+          export BW_MINGW_ROOT="$GITHUB_WORKSPACE/build-inputs/llvm-mingw-20260922-ucrt-ubuntu-22.04-x86_64"
+          bash desktop/build_desktop_workspace.sh
+          bash desktop/build_bridge.sh
+          bash tests/build_windows_performance.sh
+      - name: Install independent CWL reference runner for tests only
+        shell: bash
+        run: |
+          python3 -m venv "$RUNNER_TEMP/cwl-validation"
+          "$RUNNER_TEMP/cwl-validation/bin/python" -m pip install --disable-pip-version-check 'cwltool==3.3.20260925135507'
+      - name: Verify affected source and packaging contracts
+        env:
+          NW_CWLTOOL: ${{ runner.temp }}/cwl-validation/bin/cwltool
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Only these five frontend-boundary cases are run from core_checks here;
+          # its separate Linux portable-binary scientific adapter is not available.
+          python3 tests/test_core_checks.py \
+            CoreChecksTests.test_only_explicit_download_clients_can_import_network_and_never_listener \
+            CoreChecksTests.test_real_catalogue_citation_parser_passes_frontend_client_boundary \
+            CoreChecksTests.test_all_packaged_runtime_modules_pass_static_frontend_boundary \
+            CoreChecksTests.test_project_path_encoding_does_not_allow_network_clients \
+            CoreChecksTests.test_reference_transfer_can_only_import_http_exception_class
+          python3 workspace/tests/test_reference_provider.py
+          python3 workspace/tests/test_reference_manager.py
+          python3 workspace/tests/test_reference_service.py
+          python3 workspace/tests/test_reference_provenance.py
+          python3 workspace/tests/test_reference_resume.py
+          python3 workspace/tests/test_reference_library.py
+          python3 workspace/tests/test_reference_ncbi.py
+          python3 workspace/tests/test_reference_management_service.py
+          python3 workspace/tests/test_recovery_execution.py
+          python3 workspace/tests/test_project_manager.py
+          python3 workspace/tests/test_recovery_service.py
+          python3 workspace/tests/test_sample_table.py
+          python3 workspace/tests/test_run_queue.py
+          python3 workspace/tests/test_reference_indexes.py
+          python3 workspace/tests/test_desktop_host.py
+          python3 workspace/tests/test_desktop_modes.py
+          python3 workspace/tests/test_workflow_inputs.py
+          python3 workspace/tests/test_pack_service.py
+          python3 workspace/tests/test_setup_manager.py
+          python3 workspace/tests/test_setup_service.py
+          python3 tests/test_split_release.py
+          python3 workspace/tests/test_readiness.py
+          python3 workspace/tests/test_readiness_service.py
+          python3 workspace/tests/test_performance.py
+          python3 workspace/tests/test_diagnostics.py
+          python3 workspace/tests/test_engine_paths.py
+          python3 workspace/tests/test_cwl_results.py
+          python3 workspace/tests/test_cwl_export.py
+          python3 -m py_compile scripts/check_tool_library_windows.py scripts/native_tree.py scripts/check_workspace_ui_windows.py scripts/check_readiness_windows.py scripts/check_batch_windows.py scripts/check_batch_transport_windows.py scripts/check_recovery_windows.py scripts/check_reference_management_windows.py
+      - name: Freeze one standalone candidate and its matching source
+        id: package
+        shell: bash
+        run: |
+          set -euo pipefail
+          # This reference-management candidate must retain the published 32-pack profile and owner trust.
+          sha256sum --check <<'SUMS'
+          4cad899dcc1f6541f6edecc3ace7d0d4dd5d6103b1b16218fece0c0b68d2a4ba  workspace/setup-profile.json
+          240cef994004c040584d3b8806bb361683693b1e7c0e92c9aedeaddc683fbefc  workspace/catalog-sources.json
+          SUMS
+          python3 scripts/package_reusable_index.py --base-pack-root build-inputs/frozen/native-workbench/packs/align-0.4.0 --output-root candidate-packs/align-0.4.1 --output candidate/native-workbench-pack-align-0.4.1.zip --metadata candidate/align-0.4.1-metadata.json
+          python3 scripts/package_split.py sources --base-root build-inputs/frozen/native-workbench --base-source-archive build-inputs/source.zip --output candidate/native-workbench-0.15.0-source.zip --metadata candidate/source-metadata.json
+          python3 scripts/package_split.py stage --base-root build-inputs/frozen/native-workbench --app-root stage/native-workbench --source-metadata candidate/source-metadata.json --extra-pack-dir candidate-packs/align-0.4.1
+          python3 scripts/package_split.py starter --app-root stage/native-workbench --output candidate/native-workbench-0.15.0-starter-windows.zip
+          cp build/performance-checks/WindowsPerformanceChecks.exe candidate/WindowsPerformanceChecks.exe
+          python3 - <<'PY'
+          import hashlib,json,os,platform
+          from pathlib import Path
+          def digest(path):
+              return hashlib.sha256(path.read_bytes()).hexdigest()
+          root=Path('candidate')
+          rows=[{'file':p.name,'bytes':p.stat().st_size,'sha256':digest(p)} for p in sorted(root.glob('*.zip'))]
+          app=Path('stage/native-workbench')
+          manifest=json.loads((app/'manifest.json').read_text())
+          profile=json.loads((app/'workspace/setup-profile.json').read_text())
+          assert manifest['version']=='0.15.0', 'Candidate version does not match archive identity.'
+          assert len(profile['packs'])==32, 'The pinned published setup profile must contain 32 packs.'
+          record={'schema':1,'status':'unpublished development candidate; exact native Windows validation pending',
+                  'sourceCommit':os.environ['GITHUB_SHA'],'platform':platform.platform(),
+                  'compiler':'LLVM-MinGW 20260922 UCRT',
+                  'compilerArchiveSha256':'bb7bb7654b33d5aa8712acb837c963b2e0c56352560c76105270a3268c665c21',
+                  'runtimeBaselineSha256':'16fa802304c734b5721d838ff38b7e90ed36ccfc185a22239859cc3762af695a',
+                  'sourceBaselineSha256':'427a9b42f2528984350479e8b0155e4ef4f0159fa6f240cc1aa84a5ec2e0e60a',
+                  'nativeWindowsExecutedByBuilder':False,'published':False,'updaterBuilt':False,
+                  'preservedSetupProfileSha256':digest(app/'workspace/setup-profile.json'),
+                  'preservedCatalogueSourcesSha256':digest(app/'workspace/catalog-sources.json'),
+                  'starterPacks':manifest['starter_packs'],'additionalPacks':manifest.get('additional_packs', []),'archives':rows,
+                  'nativePerformanceHelper':{'file':'WindowsPerformanceChecks.exe','sha256':digest(root/'WindowsPerformanceChecks.exe')}}
+          (root/'BUILD-PROVENANCE.json').write_text(json.dumps(record,indent=2)+'\n')
+          (root/'SHA256SUMS.txt').write_text(''.join(r['sha256']+'  '+r['file']+'\n' for r in rows))
+          with open(os.environ['GITHUB_OUTPUT'],'a') as out:
+              out.write('asset_sha256='+digest(root/'native-workbench-0.15.0-starter-windows.zip')+'\n')
+          PY
+      - name: Prepare bounded transport without rebuilding the frozen archives
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib,json,shutil
+          from pathlib import Path
+          root=Path('candidate')
+          starter=Path('transfer/starter');starter.mkdir(parents=True)
+          shutil.copyfile(root/'native-workbench-0.15.0-starter-windows.zip',starter/'native-workbench-0.15.0-starter-windows.zip')
+          source=root/'native-workbench-0.15.0-source.zip'
+          parts=[]
+          with source.open('rb') as stream:
+              while block:=stream.read(24*1024*1024):
+                  number=len(parts)+1
+                  folder=Path('transfer')/('source-part-'+str(number));folder.mkdir(parents=True)
+                  name=source.name+'.part'+str(number);(folder/name).write_bytes(block)
+                  parts.append({'file':name,'bytes':len(block),'sha256':hashlib.sha256(block).hexdigest()})
+          assert len(parts)==2, 'Expected two bounded source transport parts; adjust transport before accepting a larger candidate.'
+          metadata=Path('transfer/metadata');metadata.mkdir()
+          for name in ('BUILD-PROVENANCE.json','source-metadata.json','align-0.4.1-metadata.json','SHA256SUMS.txt'):
+              shutil.copyfile(root/name,metadata/name)
+          record={'schema':1,'sourceArchive':{'file':source.name,'bytes':source.stat().st_size,'sha256':hashlib.sha256(source.read_bytes()).hexdigest()},
+                  'sourceTransportParts':parts,'sourceReassembly':'Concatenate part1 then part2 as raw bytes; verify original source SHA-256 before extraction.','archivesRebuilt':False}
+          (metadata/'TRANSPORT-VERIFICATION.json').write_text(json.dumps(record,indent=2)+'\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: reference-management-candidate-${{ github.sha }}
+          path: candidate
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: reference-management-transfer-starter-${{ github.sha }}
+          path: transfer/starter
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: reference-management-transfer-source-part-1-${{ github.sha }}
+          path: transfer/source-part-1
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: reference-management-transfer-source-part-2-${{ github.sha }}
+          path: transfer/source-part-2
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: reference-management-transfer-metadata-${{ github.sha }}
+          path: transfer/metadata
+          if-no-files-found: error
+          retention-days: 30
+
+  native:
+    needs: build
+    runs-on: windows-2022
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        folder: [ordinary, 'path with spaces']
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: reference-management-candidate-${{ github.sha }}
+          path: ${{ runner.temp }}/reference-management-candidate
+      - name: Verify and separately extract the exact candidate for independent gates
+        id: prepare
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+          ASSET_SHA256: ${{ needs.build.outputs.asset_sha256 }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $starter = Join-Path $env:RUNNER_TEMP 'reference-management-candidate/native-workbench-0.15.0-starter-windows.zip'
+          if ((Get-FileHash $starter -Algorithm SHA256).Hash -ne $env:ASSET_SHA256) { throw 'Candidate SHA-256 mismatch.' }
+          $caseRoot = Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER
+          Expand-Archive $starter (Join-Path $caseRoot 'reference-live')
+          Expand-Archive $starter (Join-Path $caseRoot 'reference-management')
+          Expand-Archive $starter (Join-Path $caseRoot 'library')
+          Expand-Archive $starter (Join-Path $caseRoot 'workspace')
+          Expand-Archive $starter (Join-Path $caseRoot 'readiness')
+          Expand-Archive $starter (Join-Path $caseRoot 'batch')
+          Expand-Archive $starter (Join-Path $caseRoot 'recovery')
+          Expand-Archive $starter (Join-Path $caseRoot 'recovery-fault')
+          Expand-Archive $starter (Join-Path $caseRoot 'pack-import')
+          Expand-Archive $starter (Join-Path $caseRoot 'transport')
+      - name: Exact packaged live Ensembl and NCBI references, cancellation, offline reuse and provenance
+        if: always() && !cancelled() && steps.prepare.outcome == 'success'
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+          ASSET_SHA256: ${{ needs.build.outputs.asset_sha256 }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'reference-live/native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I scripts/check_reference_management_windows.py --suite live --app-root $app --report "$env:RUNNER_TEMP/reference-live-evidence/native-references-live.json" --source-commit '${{ github.sha }}' --asset-sha256 $env:ASSET_SHA256 --asset-name 'native-workbench-0.15.0-starter-windows.zip' --app-version '0.15.0'
+          if ($LASTEXITCODE -ne 0) { throw 'Exact-package live reference discovery/download/provenance gate failed.' }
+      - name: Exact packaged resumable transfers, reviewed local imports, safe relocation and native References
+        if: always() && !cancelled() && steps.prepare.outcome == 'success'
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+          ASSET_SHA256: ${{ needs.build.outputs.asset_sha256 }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'reference-management/native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I scripts/check_reference_management_windows.py --suite management --app-root $app --report "$env:RUNNER_TEMP/reference-management-evidence/native-reference-management.json" --source-commit '${{ github.sha }}' --asset-sha256 $env:ASSET_SHA256 --asset-name 'native-workbench-0.15.0-starter-windows.zip' --app-version '0.15.0'
+          if ($LASTEXITCODE -ne 0) { throw 'Exact-package reference management and native interface gate failed.' }
+      - name: Native process accounting, pipeline failure, cancellation, timeout and cleanup
+        if: always() && !cancelled() && steps.prepare.outcome == 'success'
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $candidate = Join-Path $env:RUNNER_TEMP 'reference-management-candidate'
+          $helper = Join-Path $candidate 'WindowsPerformanceChecks.exe'
+          $provenance = Get-Content (Join-Path $candidate 'BUILD-PROVENANCE.json') -Raw | ConvertFrom-Json
+          if ((Get-FileHash $helper -Algorithm SHA256).Hash -ne $provenance.nativePerformanceHelper.sha256) { throw 'Performance helper SHA-256 mismatch.' }
+          $evidence = Join-Path $env:RUNNER_TEMP 'performance-evidence'
+          New-Item -ItemType Directory -Path $evidence -Force | Out-Null
+          $parent = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'performance helper output'
+          New-Item -ItemType Directory -Path $parent -Force | Out-Null
+          & $helper $parent --report (Join-Path $evidence 'native-performance.json')
+          if ($LASTEXITCODE -ne 0) { throw 'Native process accounting and cleanup regression failed.' }
+      - name: Exact packaged readiness, scientific measurements and diagnostic review/save
+        if: always() && !cancelled() && steps.prepare.outcome == 'success'
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+          ASSET_SHA256: ${{ needs.build.outputs.asset_sha256 }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'readiness/native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I scripts/check_readiness_windows.py --app-root $app --report "$env:RUNNER_TEMP/readiness-evidence/native-readiness.json" --source-commit '${{ github.sha }}' --asset-sha256 $env:ASSET_SHA256 --asset-name 'native-workbench-0.15.0-starter-windows.zip' --app-version '0.15.0'
+          if ($LASTEXITCODE -ne 0) { throw 'Exact-package readiness/performance/diagnostic gate failed.' }
+      - name: Import the exact independent align 0.4.1 candidate ZIP and execute its declared scientific check
+        if: always() && !cancelled() && steps.prepare.outcome == 'success'
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'pack-import/native-workbench'
+          # This fresh, disposable extraction already bundles the candidate.
+          # Remove only that additional version to exercise its independent ZIP
+          # importer beside the byte-preserved published align 0.4.0 version.
+          Remove-Item -Recurse -Force (Join-Path $app 'packs/align-0.4.1')
+          $archive = Join-Path $env:RUNNER_TEMP 'reference-management-candidate/native-workbench-pack-align-0.4.1.zip'
+          $provenance = Get-Content (Join-Path $env:RUNNER_TEMP 'reference-management-candidate/BUILD-PROVENANCE.json') -Raw | ConvertFrom-Json
+          $expected = ($provenance.archives | Where-Object file -eq 'native-workbench-pack-align-0.4.1.zip').sha256
+          if ((Get-FileHash $archive -Algorithm SHA256).Hash -ne $expected) { throw 'Independent candidate pack SHA-256 mismatch.' }
+          & (Join-Path $app 'runtime/python/python.exe') -I scripts/check_pack_release_windows.py --app-root $app --archive $archive --report "$env:RUNNER_TEMP/batch-evidence/native-align-pack.json"
+          if ($LASTEXITCODE -ne 0) { throw 'Independent align candidate installation/scientific check failed.' }
+      - name: Frozen batch plans, durable queue, real reusable indexes and native sample/queue interfaces
+        if: always() && !cancelled() && steps.prepare.outcome == 'success'
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+          ASSET_SHA256: ${{ needs.build.outputs.asset_sha256 }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'batch/native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I scripts/check_batch_windows.py --app-root $app --report "$env:RUNNER_TEMP/batch-evidence/native-batch.json" --source-commit '${{ github.sha }}' --asset-sha256 $env:ASSET_SHA256 --asset-name 'native-workbench-0.15.0-starter-windows.zip' --app-version '0.15.0'
+          if ($LASTEXITCODE -ne 0) { throw 'Exact-package batch, queue and reusable-index gate failed.' }
+      - name: Verified completed-step restart, declared resource admission and portable offline projects
+        if: always() && !cancelled() && steps.prepare.outcome == 'success'
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+          ASSET_SHA256: ${{ needs.build.outputs.asset_sha256 }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $caseRoot = Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER
+          $app = Join-Path $caseRoot 'recovery/native-workbench'
+          $fault = Join-Path $caseRoot 'recovery-fault/native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I scripts/check_recovery_windows.py --app-root $app --fault-root $fault --report "$env:RUNNER_TEMP/recovery-evidence/native-recovery.json" --source-commit '${{ github.sha }}' --asset-sha256 $env:ASSET_SHA256 --asset-name 'native-workbench-0.15.0-starter-windows.zip' --app-version '0.15.0'
+          if ($LASTEXITCODE -ne 0) { throw 'Exact-package recovery/resource/project gate failed.' }
+      - name: Separately labelled native delayed-host transport and cancellation fixture
+        if: always() && !cancelled() && steps.prepare.outcome == 'success'
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+          ASSET_SHA256: ${{ needs.build.outputs.asset_sha256 }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'transport/native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I scripts/check_batch_transport_windows.py --app-root $app --report "$env:RUNNER_TEMP/transport-evidence/native-transport.json" --source-commit '${{ github.sha }}' --asset-sha256 $env:ASSET_SHA256 --asset-name 'native-workbench-0.15.0-starter-windows.zip' --app-version '0.15.0'
+          if ($LASTEXITCODE -ne 0) { throw 'Native delayed-host transport fixture failed; this is separate from untouched exact-package scientific checks.' }
+      - name: Windows reference, installation, queue and filesystem source regressions
+        if: always() && !cancelled() && steps.prepare.outcome == 'success'
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'readiness/native-workbench'
+          $env:NW_APP_ROOT = $app
+          & (Join-Path $app 'runtime/python/python.exe') -I tests/test_core_checks.py
+          if ($LASTEXITCODE -ne 0) { throw 'Windows full core-check suite failed; its Linux scientific adapter is explicitly unavailable here.' }
+          & (Join-Path $app 'runtime/python/python.exe') -I workspace/tests/test_reference_provider.py
+          if ($LASTEXITCODE -ne 0) { throw 'Windows reference provider source regression failed.' }
+          & (Join-Path $app 'runtime/python/python.exe') -I workspace/tests/test_reference_manager.py
+          if ($LASTEXITCODE -ne 0) { throw 'Windows reference manager source regression failed.' }
+          & (Join-Path $app 'runtime/python/python.exe') -I workspace/tests/test_reference_service.py
+          if ($LASTEXITCODE -ne 0) { throw 'Windows reference service source regression failed.' }
+          & (Join-Path $app 'runtime/python/python.exe') -I workspace/tests/test_reference_provenance.py
+          if ($LASTEXITCODE -ne 0) { throw 'Windows reference provenance source regression failed.' }
+          & (Join-Path $app 'runtime/python/python.exe') -I workspace/tests/test_reference_resume.py
+          if ($LASTEXITCODE -ne 0) { throw 'Windows reference resume source regression failed.' }
+          & (Join-Path $app 'runtime/python/python.exe') -I workspace/tests/test_reference_library.py
+          if ($LASTEXITCODE -ne 0) { throw 'Windows reference library source regression failed.' }
+          & (Join-Path $app 'runtime/python/python.exe') -I workspace/tests/test_reference_ncbi.py
+          if ($LASTEXITCODE -ne 0) { throw 'Windows reference ncbi source regression failed.' }
+          & (Join-Path $app 'runtime/python/python.exe') -I workspace/tests/test_reference_management_service.py
+          if ($LASTEXITCODE -ne 0) { throw 'Windows reference management service source regression failed.' }
+          & (Join-Path $app 'runtime/python/python.exe') -I workspace/tests/test_recovery_execution.py
+          if ($LASTEXITCODE -ne 0) { throw 'Windows recovery/resource source regression failed.' }
+          & (Join-Path $app 'runtime/python/python.exe') -I workspace/tests/test_project_manager.py
+          if ($LASTEXITCODE -ne 0) { throw 'Windows project source regression failed.' }
+          & (Join-Path $app 'runtime/python/python.exe') -I workspace/tests/test_recovery_service.py
+          if ($LASTEXITCODE -ne 0) { throw 'Windows recovery/project service regression failed.' }
+          & (Join-Path $app 'runtime/python/python.exe') -I workspace/tests/test_diagnostics.py
+          if ($LASTEXITCODE -ne 0) { throw 'Windows diagnostics source regression failed.' }
+          & (Join-Path $app 'runtime/python/python.exe') -I workspace/tests/test_run_queue.py
+          if ($LASTEXITCODE -ne 0) { throw 'Windows queue lease and persistence regression failed.' }
+          & (Join-Path $app 'runtime/python/python.exe') -I workspace/tests/test_reference_indexes.py
+          if ($LASTEXITCODE -ne 0) { throw 'Windows reference-index lease and integrity regression failed.' }
+      - name: Native expandable categories, search, selection, scrolling and installed-pack refresh
+        if: always() && !cancelled() && steps.prepare.outcome == 'success'
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+          ASSET_SHA256: ${{ needs.build.outputs.asset_sha256 }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'library/native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I scripts/check_tool_library_windows.py --app-root $app --report "$env:RUNNER_TEMP/library-evidence/native-tool-library.json" --source-commit '${{ github.sha }}' --asset-sha256 $env:ASSET_SHA256 --asset-name 'native-workbench-0.15.0-starter-windows.zip'
+          if ($LASTEXITCODE -ne 0) { throw 'Native expandable tool library gate failed.' }
+      - name: Recheck native workspace, workflow interactions and starter scientific chain
+        if: always() && !cancelled() && steps.prepare.outcome == 'success'
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+          ASSET_SHA256: ${{ needs.build.outputs.asset_sha256 }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'workspace/native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I scripts/check_workspace_ui_windows.py --app-root $app --report "$env:RUNNER_TEMP/workspace-evidence/native-ui.json" --source-commit '${{ github.sha }}' --asset-sha256 $env:ASSET_SHA256 --asset-name 'native-workbench-0.15.0-starter-windows.zip'
+          if ($LASTEXITCODE -ne 0) { throw 'Native workspace regression failed.' }
+      - name: Retain successful and failed reports and desktop captures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reference-management-windows-${{ matrix.folder }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/reference-live-evidence
+            ${{ runner.temp }}/reference-management-evidence
+            ${{ runner.temp }}/library-evidence
+            ${{ runner.temp }}/workspace-evidence
+            ${{ runner.temp }}/readiness-evidence
+            ${{ runner.temp }}/batch-evidence
+            ${{ runner.temp }}/recovery-evidence
+            ${{ runner.temp }}/transport-evidence
+            ${{ runner.temp }}/performance-evidence
+            ${{ runner.temp }}/${{ matrix.folder }}/performance helper output
+          if-no-files-found: error
+          retention-days: 30

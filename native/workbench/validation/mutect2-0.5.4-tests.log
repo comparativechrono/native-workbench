@@ -1,0 +1,12 @@
+test_actual_declared_scientific_checks_with_pinned_reference_runtime (test_mutect2_pack.Mutect2Tests.test_actual_declared_scientific_checks_with_pinned_reference_runtime) ... ok
+test_all_sources_are_preserved_and_filtered_outputs_are_primary (test_mutect2_pack.Mutect2Tests.test_all_sources_are_preserved_and_filtered_outputs_are_primary) ... ok
+test_gzip_population_and_pon_inputs_are_staged_and_honored (test_mutect2_pack.Mutect2Tests.test_gzip_population_and_pon_inputs_are_staged_and_honored) ... ok
+test_population_resource_without_allele_frequency_declaration_fails (test_mutect2_pack.Mutect2Tests.test_population_resource_without_allele_frequency_declaration_fails) ... ok
+test_uncovered_intervals_are_valid_empty_vcf_not_failure (test_mutect2_pack.Mutect2Tests.test_uncovered_intervals_are_valid_empty_vcf_not_failure) ... ok
+test_wrong_reference_malformed_bam_and_outside_intervals_fail (test_mutect2_pack.Mutect2Tests.test_wrong_reference_malformed_bam_and_outside_intervals_fail) ... ok
+test_wrong_sample_equal_names_and_same_bam_fail_before_execution (test_mutect2_pack.Mutect2Tests.test_wrong_sample_equal_names_and_same_bam_fail_before_execution) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 45.167s
+
+OK

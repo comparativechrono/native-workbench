@@ -1,0 +1,17 @@
+[
+  {
+    "schema": 1,
+    "id": "native-workbench-official",
+    "name": "Native Workbench official tools",
+    "catalogUrl": "https://raw.githubusercontent.com/comparativechrono/workbench/catalogue/catalogue.json",
+    "publicKey": {
+      "n": "c8766fcaf7497ffb0c51842850c4120d220d4a52087a1ed7f593b72a238f01d1b53cab7c3cac0c3b72bae77f5cf486ef8718081261abc7834247f6756c9af38e8cc29411e86a27028fa4d488208f46c2746abe8464e1f5e254ab389e7f3f3aa9633c0b59ee0abfb794acd608f06d17d60b69c33fc21186cb4cb20ba9dc652a4e69f330e5d64a2c2c1f5f9fd62576929902abdd9d68ae6758fff0484cf51b5788725df7c5c459ec05ba4112d8d3c69a97b0c7bf3f5ffb0315e483461b8642b7ef98c7affa0ba8221e0bd19bc35c3abd3132524bae139c49d78ea682ccbbb453c4f078652a881fb1a7cb699d14f1bd911e6590e0eedf258f77cccbbfa450ba520ac9e25c90a5302852c337f8813f3f3e596397e68137a779c198a2d25b0893d9e1031a0105b962594f87c1689a922838a7307e598b01052c7620849940ce63dfce26c876099d654da2fd78191d4a3a0fe725e84e2253169256c189ff0dbc20070b7cfee0994baf2bc1f34c36b0469b8a1e61601e521d85cab82bfa202de656fad1",
+      "e": 65537
+    },
+    "allowedHosts": [
+      "github.com",
+      "raw.githubusercontent.com",
+      "release-assets.githubusercontent.com"
+    ]
+  }
+]

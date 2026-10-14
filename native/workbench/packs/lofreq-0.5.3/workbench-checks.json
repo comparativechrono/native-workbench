@@ -1,0 +1,79 @@
+{
+  "schema": 1,
+  "checks": [
+    {
+      "id": "low-frequency-snv",
+      "workflow": "call-snps",
+      "inputs": {
+        "alignment": [
+          {
+            "alignment": "fixture-snps"
+          }
+        ],
+        "reference": [
+          {
+            "reference": "fixture-reference"
+          }
+        ]
+      },
+      "expect": [
+        {
+          "output": "variants",
+          "kind": "vcf",
+          "records": 1,
+          "samples": [],
+          "variants": [
+            {
+              "chrom": "chrTest",
+              "pos": 150,
+              "ref": "A",
+              "alt": "C",
+              "filter": "PASS",
+              "info": {
+                "DP": "400",
+                "AF": "0.100000"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dindel-insertion",
+      "workflow": "call-variants",
+      "inputs": {
+        "alignment": [
+          {
+            "alignment": "fixture-indels"
+          }
+        ],
+        "reference": [
+          {
+            "reference": "fixture-reference"
+          }
+        ]
+      },
+      "expect": [
+        {
+          "output": "variants",
+          "kind": "vcf",
+          "records": 1,
+          "samples": [],
+          "variants": [
+            {
+              "chrom": "chrTest",
+              "pos": 199,
+              "ref": "A",
+              "alt": "AT",
+              "filter": "PASS",
+              "info": {
+                "DP": "400",
+                "AF": "0.200000"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

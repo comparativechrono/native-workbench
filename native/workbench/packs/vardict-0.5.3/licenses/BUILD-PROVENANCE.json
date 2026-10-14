@@ -1,0 +1,24 @@
+{
+  "packVersion": "0.5.3",
+  "sourcePins": {
+    "VarDict-1.8.3.zip": "c1940c1b0308a431879010b52036c02c39ca0f97af04fd56c2f1b6febe75734b",
+    "OpenJDK8U-jre_x64_windows_hotspot_8u504b01.zip": "82e2cdc6693737c5998445b31f69668fa0da77c7705121053f6508ac84961123",
+    "OpenJDK8U-jdk-sources_8u504b01.tar.gz": "86cd14f299616dddca13268cc2fa794eb4d28fc732dedaad8c5b8a3078e5d3c9",
+    "strawberry-perl-5.42.3.1-64bit-portable.zip": "6a081a811781c30aca51dbc036afd93092af91e3297901f02c17043795a10690",
+    "perl-5.42.3.tar.xz": "c9387e1473a1866935cb047ece7c2e0a80767a3acdecb79d4a375f8a95970ddc",
+    "strawberry-5.42.3.1-source.tar.gz": "c5d2edf05f4a3471a085a0bc21023cd9e73530b55a2d4043e9d79d480e4d273c",
+    "gcc-13.2.0.tar.xz": "e275e76442a6067341a27f04c5c6b83d8613144004c0413528863dc6b5c743da",
+    "VarDictJava-1.8.3-source.tar.gz": "b45a3f7301c468d514c3916179f9f3c25f31e12f663ce6c674109caf3d60701e",
+    "VarDict-009e017-source.tar.gz": "1d70dd8eacb59a9e8fa909f6b322fbef6474d11eb27b6b21273761df0dfdd422",
+    "build-extlibs-source.tar.gz": "c204ef125854ad2b33cff775818e7c9c4b7fa81e8f12c09b8de7bc80fa4c63b0",
+    "mingw-w64-11.0.1-source.tar.gz": "493cb0bde1e470a281c7a633fcc1158de3b8919f687020c60a936e7b2512398d",
+    "jregex-1.2_01-sources.jar": "c69ea8dc84a8c2aad0494c78bfd1e4380cc17baa7ed8e77adbfc7002470c28e2",
+    "htsjdk-source.jar": "6e4ee652e89ab3515a71e5314f6d4874720febc4e4233de28a6df09fc8158298",
+    "Microsoft-VC-Runtime-2015-2022-License.docx": "f1e3d56ceb2ad68aae0711b910375009e651ac5530fa0760f0dea6e81e54fae1"
+  },
+  "mingwSourceSha256": "493cb0bde1e470a281c7a633fcc1158de3b8919f687020c60a936e7b2512398d",
+  "javaRuntime": "Temurin8u504-b01",
+  "perlRuntime": "StrawberryPerl5.42.3.1; only unmodified interpreter, five required PE files and seven core modules for the fixed upstream converter",
+  "javaMode": "Experimental upstream --fisher; no R required at runtime",
+  "nativeWindowsExecutedDuringBuild": false
+}

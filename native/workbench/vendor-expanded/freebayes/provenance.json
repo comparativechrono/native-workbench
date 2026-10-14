@@ -1,0 +1,198 @@
+{
+  "name": "FreeBayes",
+  "upstream_version": "1.3.10",
+  "runtime_version": "version:  v1.3.10",
+  "retrieved_utc_date": "2026-10-02",
+  "official_release": {
+    "url": "https://github.com/freebayes/freebayes/releases/tag/v1.3.10",
+    "published_at": "2025-05-31T07:45:31Z",
+    "metadata_file": "release.json",
+    "metadata_sha256": "3b7fdaa3ba8499bbb26c8c7a046721b1bdb46c089a21a5d41684029c23c65eca",
+    "official_asset_sha256": "f828738176b38987d40cd8180d68d77af90163384f4ed9a16bb05cfa2fdb5a71"
+  },
+  "sources": [
+    {
+      "file": "archives/freebayes-1.3.10-src.tar.gz",
+      "url": "https://github.com/freebayes/freebayes/releases/download/v1.3.10/freebayes-1.3.10-src.tar.gz",
+      "sha256": "f828738176b38987d40cd8180d68d77af90163384f4ed9a16bb05cfa2fdb5a71",
+      "hash_checked_before_build": true
+    },
+    {
+      "file": "archives/tabixpp-v1.1.2.tar.gz",
+      "url": "https://codeload.github.com/ekg/tabixpp/tar.gz/refs/tags/v1.1.2",
+      "sha256": "c850299c3c495221818a85c9205c60185c8ed9468d5ec2ed034470bb852229dc",
+      "hash_checked_before_build": true
+    },
+    {
+      "file": "archives/simde-v0.8.2.tar.gz",
+      "url": "https://codeload.github.com/simd-everywhere/simde/tar.gz/refs/tags/v0.8.2",
+      "sha256": "ed2a3268658f2f2a9b5367628a85ccd4cf9516460ed8604eed369653d49b25fb",
+      "hash_checked_before_build": true
+    },
+    {
+      "file": "archives/intervaltree-aa593775.tar.gz",
+      "url": "https://codeload.github.com/ekg/intervaltree/tar.gz/aa5937755000f1cd007402d03b6f7ce4427c5d21",
+      "sha256": "9e425796787985322e1dbced4aaf12669ebe402914aac3ba1255b02a4511dc89",
+      "hash_checked_before_build": true
+    },
+    {
+      "file": "archives/musl-1.2.5.tar.gz",
+      "url": "https://musl.libc.org/releases/musl-1.2.5.tar.gz",
+      "sha256": "a9a118bbe84d8764da0ea0d28b3ab3fae8477fc7e4085d90102b8596fc7c75e4",
+      "hash_checked_before_build": true
+    }
+  ],
+  "bundled_dependencies": "SeqLib, fastahack, smithwaterman, minimal vcflib and ttmath as shipped in the official FreeBayes1.3.10 source release.",
+  "external_dependencies": {
+    "Tabix++": "1.1.2",
+    "SIMDe": "0.8.2",
+    "IntervalTree": "aa5937755000f1cd007402d03b6f7ce4427c5d21",
+    "HTSlib": "1.24",
+    "htscodecs": "1.6.7",
+    "musl_llrintl": "unchanged src/math/x86_64/llrintl.c from musl1.2.5"
+  },
+  "htslib": {
+    "source_provenance": "../../variant-provenance.json",
+    "static_libraries": [
+      {
+        "target": "linux",
+        "path": "/workspace/scratch/0c5293ac0f36/native-workbench-0.3/variant-build/linux/samtools/samtools-1.24/htslib-1.24/libhts.a",
+        "sha256": "5fe4020f2f272a65522d65b22dcf00c08522e9d6f43b78f57acabdd09a77add9"
+      },
+      {
+        "target": "cosmo",
+        "path": "/workspace/scratch/0c5293ac0f36/native-workbench-0.3/variant-build/cosmo/samtools/samtools-1.24/htslib-1.24/libhts.a",
+        "sha256": "30f0cbe782a97e1e4692f2f10c195ff3d0664689ce634aa848bc7d7348954bd4"
+      }
+    ],
+    "disabled_features": [
+      "libcurl",
+      "S3",
+      "GCS",
+      "plugins",
+      "lzma",
+      "bzip2",
+      "libdeflate"
+    ]
+  },
+  "toolchain": {
+    "name": "Cosmopolitan cosmocc",
+    "version": "3.3.10",
+    "url": "https://cosmo.zip/pub/cosmocc/cosmocc-3.3.10.zip",
+    "sha256": "00d61c1215667314f66e288c8285bae38cc6137fca083e5bba6c74e3a52439de",
+    "gcc_version": "12.3.0",
+    "note": "Toolchain not redistributed in the prototype archive; runtime notices embedded by default. Build compilers/binutils GPL; libc/runtime permissive notice licenses as described upstream."
+  },
+  "reference_compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+  "build_script": {
+    "file": "../../tools/build_freebayes.py",
+    "sha256": "dd8730037dd825c6e282d785605faedb2242fcdf34a327631fc5a022e54eec6b",
+    "command": "python3 tools/build_freebayes.py --target all --jobs 2",
+    "source_list": "Exactly the non-system multiline files(...) blocks named freebayes_common_src, vcflib_src, fastahack_src, smithwaterman_src, seqlib_src in upstream meson.build, plus upstream src/freebayes.cpp and Tabix++ tabix.cpp.",
+    "flags": "-O2 -g -ffunction-sections -fdata-sections; C++17 with exceptions enabled; --gc-sections; no fast-math or host-specific ISA tuning."
+  },
+  "compatibility_changes": [
+    {
+      "file": "compat/portability.patch",
+      "sha256": "cbdfca7cf7314ae1353c742698c7da9859e4a369a28c4b85cea2dde240ce04d7",
+      "scope": "Replace glibc-private __off64_t with POSIX off_t and assert >=64-bit; omit glibc execinfo backtrace on Cosmopolitan while retaining fatal signal diagnostics. No variant-calling algorithm changes."
+    },
+    {
+      "file": "compat/llrintl.c",
+      "sha256": "ab5e428a84aa3a5076faaf8737222113e6eff2abea41ff965bdeb83d8d7cbdd2",
+      "scope": "Supply missing C99 long-double to long-long conversion with byte-for-byte upstream musl1.2.5 x86-64 code, preserving x87 precision and rounding mode. The initial lrintl delegation was rejected because Cosmopolitan3.3.10 lrintl crashes; it is not in the shipped binary."
+    },
+    {
+      "scope": "Use upstream bundled source lists directly; unused Meson system-library probes for WFA2/lzma are not linked. No WFA2 algorithm is called by these bundled sources. Standard zlib symbols come from Cosmopolitan libc in the portable executable."
+    }
+  ],
+  "binaries": [
+    {
+      "file": "../../baselines/bin/freebayes-linux",
+      "bytes": 35349048,
+      "sha256": "80ee0645df0c93fc3a3d2c2b2cb2a7d242edf4705714ce683789747eff553860"
+    },
+    {
+      "file": "../../baselines/bin/freebayes-cosmo.exe",
+      "bytes": 3627644,
+      "sha256": "76e3072c61d51893615f8fea9f7e4c572b3caf25aa4ca6fa6e2c6138ade575a6"
+    },
+    {
+      "file": "../../baselines/bin/freebayes-cosmo.exe.dbg",
+      "bytes": 47464140,
+      "sha256": "3264619239fc3e7efe328398135eea1a4a415b338b436bcec30dd0be36ecf352"
+    }
+  ],
+  "validation": {
+    "report": "validation/release-final/validation.json",
+    "sha256": "99e57e2ecceafdb37746d0092ffdc2ef6e17249c95042a04233db86db1c2b3c3",
+    "script": "validate.py",
+    "script_sha256": "3e294c9d3d5913529fcfd7d209ebafc680ed3f3a839a10fca3bdd54aacf87c05",
+    "status": "passed",
+    "comparisons": {
+      "diploid": {
+        "all_record_fields_equal": true,
+        "scientific_headers_equal": true,
+        "records": 4,
+        "known_truth_match": true,
+        "known_truth_variants": 4,
+        "canonical_record_sha256": "268f478dc7773535324c0960bc260572770891afe70bfc0bf45c75a59f0ca5a4",
+        "normalized": true
+      },
+      "haploid": {
+        "all_record_fields_equal": true,
+        "scientific_headers_equal": true,
+        "records": 4,
+        "canonical_record_sha256": "a1f435fbde68c0efe0e43295e80c66063eeed33ad32068f006dcfc4f543da307",
+        "normalized": true
+      },
+      "gvcf": {
+        "all_record_fields_equal": true,
+        "scientific_headers_equal": true,
+        "records": 9,
+        "canonical_record_sha256": "6b5b94fc34052a179268392d5235e6510e4be9114f675e421c9591f5e521a63b",
+        "normalized": false
+      }
+    },
+    "math_report": "validation/math-validation.json",
+    "math_report_sha256": "a134bab4f1005a52e07dffa5f82679552ba7d0d4cacb8ba64fc15675a1c58224",
+    "input_integrity": true,
+    "bounded_real_data": {
+      "report": "validation/yeast-contig-I/validation.json",
+      "sha256": "ab68d4aedaff31340f0a587c24baac88ebf1ded78f507832ab51c282f3024137",
+      "script": "validate_region.py",
+      "script_sha256": "0e99d2e0486da86fb0a208acdbd5eb5f680529d5f84f9acaa139a8371cc0c697",
+      "status": "passed",
+      "region": "I",
+      "input_integrity": true,
+      "comparison": {
+        "all_record_fields_equal": true,
+        "scientific_headers_equal": true,
+        "records": 1074,
+        "canonical_record_sha256": "195cd8bd6ed49195cd3b0bd1c77d539b3e66421691d8a000eaabb51932a0d30b",
+        "omitted_metadata": [
+          "##commandline=",
+          "##fileDate=",
+          "##bcftools_normCommand="
+        ]
+      }
+    }
+  },
+  "limitations": [
+    "Built for x86-64. Portable APE executed under Linux through the pinned loader; no Windows execution was performed in this environment.",
+    "Only the recorded fixture and modes were validated; equality to a native build is not a general clinical/scientific accuracy certification.",
+    "Use a single FreeBayes process with no HTSlib worker pool. Cosmopolitan3.3.10 HTSlib recursive mutex/condition compatibility has not been solved.",
+    "The native Linux reference uses host shared runtime libraries; only the APE executable is self-contained.",
+    "Parallel shell wrappers, remote inputs and dynamic plugins are not supplied."
+  ],
+  "licenses": {
+    "directory": "licenses",
+    "inventory": "licenses/license-provenance.json",
+    "embedded_notices": "licenses/freebayes-embedded-runtime-notices.txt",
+    "note": "Flat filenames keep Windows import paths short. Includes FreeBayes and bundled components, all externally linked dependency notices, runtime source notices and libc++/libc++abi/libunwind licenses."
+  },
+  "readme": {
+    "file": "README.txt",
+    "sha256": "8ef118a6ba571ef227117776929270073d6318ba4d12e3b39ba647c4ece27e59"
+  }
+}

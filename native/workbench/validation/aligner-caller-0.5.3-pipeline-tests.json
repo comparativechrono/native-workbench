@@ -1,0 +1,1345 @@
+{
+  "schema": 1,
+  "version": "0.5.3",
+  "generatedUtc": "2026-10-03T11:07:18.645067+00:00",
+  "startedUtc": "2026-10-03T11:07:10.689692+00:00",
+  "durationSeconds": 7.955,
+  "success": true,
+  "nativeWindowsExecuted": false,
+  "scope": "Final staged 0.5.3 catalog, native-matching pack inventory and all declared asset hashes; six aligner/caller integration tests containing four composed successful DAGs and all 23 declared scientific installation cases, plus 62 core regressions. Scientific commands executed on Linux only: actual shipped portable SAMtools, BCFtools, paircheck and LoFreq through pinned APE loader; separately pinned Linux Bowtie2/HISAT2/Java/Perl/SeqKit/VSEARCH/MUSCLE references. VarDict Java classpath separators alone translated to Linux syntax. No Windows execution is claimed.",
+  "testsRun": 68,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "id": "test_aligner_caller_pipeline.AlignerCallerPipelineTests.test_both_aligners_form_same_rank_branches_with_distinct_reports",
+      "status": "passed"
+    },
+    {
+      "id": "test_aligner_caller_pipeline.AlignerCallerPipelineTests.test_bowtie2_to_prepared_bam_to_lofreq_calls_known_snp",
+      "status": "passed"
+    },
+    {
+      "id": "test_aligner_caller_pipeline.AlignerCallerPipelineTests.test_hisat2_dna_to_prepared_bam_to_lofreq_calls_known_snp",
+      "status": "passed"
+    },
+    {
+      "id": "test_aligner_caller_pipeline.AlignerCallerPipelineTests.test_new_families_pass_all_declared_native_fixture_assertions",
+      "status": "passed"
+    },
+    {
+      "id": "test_aligner_caller_pipeline.AlignerCallerPipelineTests.test_rna_products_and_inconsistent_reference_slots_cannot_feed_dna_caller",
+      "status": "passed"
+    },
+    {
+      "id": "test_aligner_caller_pipeline.AlignerCallerPipelineTests.test_shared_bam_branches_to_lofreq_and_vardict_without_pooling_calls",
+      "status": "passed"
+    },
+    {
+      "id": "test_workspace_engine.EngineTests.test_backend_shutdown_terminates_registered_child_and_rejects_restart",
+      "status": "passed"
+    },
+    {
+      "id": "test_workspace_engine.EngineTests.test_branch_ranks_and_connection",
+      "status": "passed"
+    },
+    {
+      "id": "test_workspace_engine.EngineTests.test_cancel_during_preparation_creates_no_run",
+      "status": "passed"
+    },
+    {
+      "id": "test_workspace_engine.EngineTests.test_cancellation_marks_all_pending_steps",
+      "status": "passed"
+    },
+    {
+      "id": "test_workspace_engine.EngineTests.test_cycle_unknown_reference_and_wrong_type",
+      "status": "passed"
+    },
+    {
+      "id": "test_workspace_engine.EngineTests.test_duplicate_connections_and_version_drift",
+      "status": "passed"
+    },
+    {
+      "id": "test_workspace_engine.EngineTests.test_duplicate_read_lineage_blocks_lane_merge",
+      "status": "passed"
+    },
+    {
+      "id": "test_workspace_engine.EngineTests.test_external_alignment_format_inferred_only_when_accepted",
+      "status": "passed"
+    },
+    {
+      "id": "test_workspace_engine.EngineTests.test_external_reports_are_distinct_named_sections",
+      "status": "passed"
+    },
+    {
+      "id": "test_workspace_engine.EngineTests.test_failure_blocks_join_but_independent_branch_runs",
+      "status": "passed"
+    },
+    {
+      "id": "test_workspace_engine.EngineTests.test_fasta_preflight_cooperatively_cancels_mid_scan",
+      "status": "passed"
+    },
+    {
+      "id": "test_workspace_engine.EngineTests.test_frozen_tamper_and_input_change",
+      "status": "passed"
+    },
+    {
+      "id": "test_workspace_engine.EngineTests.test_full_portable_variant_graph_matches_truth",
+      "status": "passed"
+    },
+    {
+      "id": "test_workspace_engine.EngineTests.test_malformed_json_reviews_are_errors",
+      "status": "passed"
+    },
+    {
+      "id": "test_workspace_engine.EngineTests.test_one_tool_is_preset_not_pipeline",
+      "status": "passed"
+    },
+    {
+      "id": "test_workspace_engine.EngineTests.test_pair_roles_are_atomic_and_not_object_order",
+      "status": "passed"
+    },
+    {
+      "id": "test_workspace_engine.EngineTests.test_parameters_constraints_no_arbitrary_commands",
+      "status": "passed"
+    },
+    {
+      "id": "test_workspace_engine.EngineTests.test_real_portable_branch_report",
+      "status": "passed"
+    },
+    {
+      "id": "test_workspace_engine.EngineTests.test_real_portable_distinct_lanes_merge",
+      "status": "passed"
+    },
+    {
+      "id": "test_workspace_engine.EngineTests.test_reference_header_mismatch_is_rejected",
+      "status": "passed"
+    },
+    {
+      "id": "test_workspace_engine.EngineTests.test_reference_identity_evidence_is_honest",
+      "status": "passed"
+    },
+    {
+      "id": "test_workspace_engine.EngineTests.test_reference_slot_mismatch_is_rejected",
+      "status": "passed"
+    },
+    {
+      "id": "test_workspace_engine.EngineTests.test_report_attributes_sections_to_frozen_named_producers",
+      "status": "passed"
+    },
+    {
+      "id": "test_workspace_engine.EngineTests.test_reuse_plan_is_rejected",
+      "status": "passed"
+    },
+    {
+      "id": "test_workspace_engine.EngineTests.test_save_clears_bindings_keeps_ids_names_pins",
+      "status": "passed"
+    },
+    {
+      "id": "test_workspace_engine.EngineTests.test_saved_template_whitelists_fields",
+      "status": "passed"
+    },
+    {
+      "id": "test_workspace_engine.EngineTests.test_stored_plan_tamper_is_rejected",
+      "status": "passed"
+    },
+    {
+      "id": "test_workspace_engine.EngineTests.test_success_report_escapes_and_separates",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_checks.PackChecksTests.test_alignment_assertions_detect_residue_loss_and_unequal_width",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_checks.PackChecksTests.test_backend_failure_is_not_a_passing_check",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_checks.PackChecksTests.test_cancellation_before_or_during_run_never_passes",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_checks.PackChecksTests.test_failed_assertion_does_not_prevent_independent_case",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_checks.PackChecksTests.test_fixture_tamper_is_rejected_before_execution",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_checks.PackChecksTests.test_invalid_fixture_reference_and_field_fail_without_running",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_checks.PackChecksTests.test_site_only_vcf_and_bounded_decompression",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_checks.PackChecksTests.test_specification_tamper_and_duplicate_fields_are_rejected",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_checks.PackChecksTests.test_structured_sam_truth_checks_flags_reference_samples_and_splice",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_checks.PackChecksTests.test_structured_vcf_truth_checks_site_sample_genotype_and_absence",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_checks.PackChecksTests.test_success_uses_pinned_fixture_and_normal_engine_provenance",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_schema.PackSchemaTests.test_abundance_headers_required_counted_and_not_duplicated",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_schema.PackSchemaTests.test_actual_producer_alignment_type_is_retained_for_multi_type_consumer",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_schema.PackSchemaTests.test_content_hash_checked_at_discovery_and_again_before_execution",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_schema.PackSchemaTests.test_cumulative_abundance_cannot_overflow_downstream_counts",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_schema.PackSchemaTests.test_discovery_uses_pinned_category_ports_outputs_methods_and_citations",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_schema.PackSchemaTests.test_duplicate_nonfinite_unknown_json_fields_and_versions_rejected",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_schema.PackSchemaTests.test_empty_output_allowed_but_empty_sequence_input_rejected",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_schema.PackSchemaTests.test_fasta_abundance_sort_state_does_not_invoke_samtools",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_schema.PackSchemaTests.test_full_alphabet_validation_reads_beyond_signature_window",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_schema.PackSchemaTests.test_methods_are_future_then_completed_and_only_include_relevant_citations",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_schema.PackSchemaTests.test_msa_columns_and_alphabets_are_separate_from_unaligned_fasta",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_schema.PackSchemaTests.test_muscle_style_explicit_input_limits_unique_ids_and_cancel",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_schema.PackSchemaTests.test_native_path_policy_is_pinned_and_checks_windows_paths_on_linux",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_schema.PackSchemaTests.test_path_policy_rejects_unknown_or_unsafe_schema_shapes",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_schema.PackSchemaTests.test_plain_fasta_extension_does_not_become_genomic_reference",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_schema.PackSchemaTests.test_plain_gzip_cannot_claim_bgzf",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_schema.PackSchemaTests.test_reject_abundance_is_per_workflow_and_abundance_sort_is_verified",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_schema.PackSchemaTests.test_related_integer_bounds_are_checked_before_execution",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_schema.PackSchemaTests.test_rna_alignment_semantic_type_survives_file_signature_normalization",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_schema.PackSchemaTests.test_sequence_compression_and_abundance_declarations_are_consistent",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_schema.PackSchemaTests.test_single_sample_header_requires_matching_parameter",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_schema.PackSchemaTests.test_target_bed_is_zero_based_bounded_named_and_nonoverlapping",
+      "status": "passed"
+    },
+    {
+      "id": "test_pack_schema.PackSchemaTests.test_workflow_file_coverage_cardinality_and_ids_are_strict",
+      "status": "passed"
+    }
+  ],
+  "catalogOperations": 81,
+  "packCount": 17,
+  "packManifestSha256": {
+    "align-0.4.0": "81c962222c93356a4f7727b23193c71d7dcd515859e62a179574781f411824d3",
+    "bam-0.4.0": "45b3f9d5092b0b3014f67b29331003e1214c72919f85695a571fb371030a9888",
+    "bowtie2-0.5.3": "cdaa52bde3dec022e6716d4fc6b6e78481982f1d6491b5cd21ff4d64d33cec32",
+    "bwa-0.4.0": "7d49d9bac3c4c98776f70120915ffa7f2a85ee297787f9c1e45c8b4655ee4a37",
+    "fastp-0.4.1": "7d18c64a45ebbd78e1d246b660a82d7d1a98166ccfd2c40e3f621cd9fee2a6a6",
+    "freebayes-0.4.0": "9ba67c19846368c8d35119ec47404381c2aed6c6fbb693534963e7ec05ea7a7c",
+    "hisat2-0.5.3": "06f912deb5926b00a8ca269138b4b3822bb4b3e36d4956e30ca7793655052967",
+    "lofreq-0.5.3": "4a00d450461cb434e04ddd377b901f73f9027e27a38f947238b6b18e9f5d862e",
+    "muscle-0.5.2": "085273422c7f26af77d23643efa961f1fb6ecbdee301109af67ba551f41b82c4",
+    "reads-0.4.0": "65fc3065fb382ffdd13c4b94fa834b26531e63eb87858d84a4c173e567fb73c0",
+    "research-variants-0.4.1": "c255113ec8391e9f967b28612a7e6052da2d8344327db24fff3eff0f4f3db1f7",
+    "seqkit-0.5.2": "07ba276cd0630d3dabac9b12f6ed0efffe8ba1b133a4b6a727a1e7d9097edfb8",
+    "trimming-0.4.0": "5ebd1c6ae0368cdd6d1fb6a01041bb114c7a099fa8ab0e8836813bb60974d646",
+    "vardict-0.5.3": "f43b5dfa5a7ba9a8a476c956499f67576922d171c00eb63ce36cf25e28caf482",
+    "variant-pipeline-0.4.0": "c14b3a1804a0a09bc2929653e9c07c9ac7fcdab92d8ed9ef5b1910e9eb86b367",
+    "variants-0.4.0": "ea4b7f0a6c28709e4190b6514c07cbf7bdd58e1a4f2a2d931f2cae3ce6ec3795",
+    "vsearch-0.5.2": "2971ca612558983b23a259c4e2416ddbc129dbff9fdfeac5d2bbaa17a3a652d8"
+  },
+  "testedCoreSha256": {
+    "catalog.py": "255bded36bb93f1a5fc8b8716b90b360933108b25626508f1a52a921f81c628c",
+    "engine.py": "0f9da6d17e1c74da1c7cbf0e660c8063b1e2839eef079ba56d78504273868d5c",
+    "pack_checks.py": "a26f3921560eb895cfac660ed1372dfe03b1bf2fb9df26ba8eb7d560f9fe333a",
+    "verify_installation.py": "2002edff1696954d5a31cf6d15524d343149868c2d108438d8060bd280396cc7"
+  },
+  "stagedCoreMatchesSource": true,
+  "testFileSha256": {
+    "tests/test_aligner_caller_pipeline.py": "a4768ea4e3fd4817bab9039d69ca612355942b36de43912208c11709a2eca437",
+    "tests/test_workspace_engine.py": "2c8a4878b33e8bac19dccb01a4b74e8ecf73728c2a39d21d04d514869186a33f",
+    "tests/test_pack_checks.py": "edde98ae367af71e49dbcf5d9a6637257a9eae75711f66f982ad8a08a242b298",
+    "workspace/tests/test_pack_schema.py": "76f22768c1bec5e2239f53b59985c55ea9120b04036dcb6f0783e47852e25079"
+  },
+  "helperTestFileSha256": {
+    "tests/test_expansion_pipeline.py": "c988978f38f213b2eed9b38efe7dcb6328e5b71cbb1448bea40e5bb0d3cfdc0c"
+  },
+  "linuxSubstitutions": [
+    {
+      "pack": "bowtie2",
+      "tool": "align-l",
+      "path": "/workspace/scratch/0c5293ac0f36/expansion-vendor/bowtie2/linux-bin/bowtie2-align-l",
+      "sha256": "39bbceff23a89acddc7ea4c6deab10757c6ac37fc1ac4f0888d562a92a293b7b"
+    },
+    {
+      "pack": "bowtie2",
+      "tool": "align-s",
+      "path": "/workspace/scratch/0c5293ac0f36/expansion-vendor/bowtie2/linux-bin/bowtie2-align-s",
+      "sha256": "e24a717f95d4d1403f69844ebd257f1d3b14c600679a2943fd2a3161f2ec0dab"
+    },
+    {
+      "pack": "bowtie2",
+      "tool": "build-l",
+      "path": "/workspace/scratch/0c5293ac0f36/expansion-vendor/bowtie2/linux-bin/bowtie2-build-l",
+      "sha256": "a7a57dc4bd2232855ed6bff928a968563a3326c5b4c0feddefdc86f1c360e24a"
+    },
+    {
+      "pack": "bowtie2",
+      "tool": "build-s",
+      "path": "/workspace/scratch/0c5293ac0f36/expansion-vendor/bowtie2/linux-bin/bowtie2-build-s",
+      "sha256": "4006e604ca4e2146a6f0c8be40993c7590df68a001ae35b50fb1496ef7e20f2c"
+    },
+    {
+      "pack": "hisat2",
+      "tool": "hisat2-align-l",
+      "path": "/workspace/scratch/0c5293ac0f36/integration-source/native-workbench/vendor-expanded/hisat2/build-linux/hisat2-align-l",
+      "sha256": "95675bc96e8914f60c41fdee9000211ef2414461e9e21d508f382156ae9d2eae"
+    },
+    {
+      "pack": "hisat2",
+      "tool": "hisat2-build-l",
+      "path": "/workspace/scratch/0c5293ac0f36/integration-source/native-workbench/vendor-expanded/hisat2/build-linux/hisat2-build-l",
+      "sha256": "0d63724b08d0ebea41b8a161406253b12a1b91301088bdfbc751295b8d312200"
+    },
+    {
+      "pack": "muscle",
+      "tool": "muscle",
+      "path": "/workspace/scratch/0c5293ac0f36/integration-source/native-workbench/vendor-expanded/muscle-5.3/build-linux/muscle",
+      "sha256": "a40a9b0183986ba93de71b068bf2be2f1cb630ecfa69e1459c6b30a08111a2f0"
+    },
+    {
+      "pack": "seqkit",
+      "tool": "seqkit",
+      "path": "/workspace/scratch/0c5293ac0f36/expansion-vendor/seqkit/linux/seqkit",
+      "sha256": "88aa8a539b1e9097220a47811367b7ef826eff8637e5284fdd32a372770d6f7d"
+    },
+    {
+      "pack": "vardict",
+      "tool": "java",
+      "path": "/workspace/scratch/0c5293ac0f36/integration-source/native-workbench/build/vardict/linux-jre/jdk8u504-b01-jre/bin/java",
+      "sha256": "1a081a2c18367e5d966d716a6091d5fe2eec26b19e471980d0d8fd550174e21c"
+    },
+    {
+      "pack": "vardict",
+      "tool": "perl",
+      "path": "/workspace/scratch/0c5293ac0f36/integration-source/native-workbench/build/vardict/perl-source/perl-5.42.3/perl",
+      "sha256": "d6de08d1b4c2b77d932f933de839e3a24d8843a816b99bbdc11b4950306ca8d2"
+    },
+    {
+      "pack": "vsearch",
+      "tool": "vsearch",
+      "path": "/workspace/scratch/0c5293ac0f36/integration-source/native-workbench/build/vsearch/linux/vsearch-2.32.0-linux-x86_64/bin/vsearch",
+      "sha256": "bfc7c72c67eab9bc86a5d408278ab596ee9702c428fc832316acfc0317e4cd1a"
+    }
+  ],
+  "portableLoader": {
+    "path": "/workspace/scratch/0c5293ac0f36/integration-source/native-workbench/baselines/bin/ape-loader-linux",
+    "sha256": "ad98161cba98163f6aa383595804489cec52a9ff3b902be16b29368e171ba359"
+  },
+  "executedGraphs": [
+    {
+      "name": "Compare aligners with separately attributed SNP reports",
+      "planSha256": "d6dc79ca51501df5ba4f72757d6171c03550b645d67a0c30627420c0325b5a76",
+      "nodes": [
+        {
+          "id": "step-1",
+          "tool": "bowtie2/paired-end",
+          "pin": {
+            "packId": "bowtie2",
+            "packVersion": "0.5.3",
+            "manifestSha256": "cdaa52bde3dec022e6716d4fc6b6e78481982f1d6491b5cd21ff4d64d33cec32"
+          },
+          "status": "success"
+        },
+        {
+          "id": "step-4",
+          "tool": "hisat2/dna-paired",
+          "pin": {
+            "packId": "hisat2",
+            "packVersion": "0.5.3",
+            "manifestSha256": "06f912deb5926b00a8ca269138b4b3822bb4b3e36d4956e30ca7793655052967"
+          },
+          "status": "success"
+        },
+        {
+          "id": "step-2",
+          "tool": "bam/prepare",
+          "pin": {
+            "packId": "bam",
+            "packVersion": "0.4.0",
+            "manifestSha256": "45b3f9d5092b0b3014f67b29331003e1214c72919f85695a571fb371030a9888"
+          },
+          "status": "success"
+        },
+        {
+          "id": "step-5",
+          "tool": "bam/prepare",
+          "pin": {
+            "packId": "bam",
+            "packVersion": "0.4.0",
+            "manifestSha256": "45b3f9d5092b0b3014f67b29331003e1214c72919f85695a571fb371030a9888"
+          },
+          "status": "success"
+        },
+        {
+          "id": "step-3",
+          "tool": "lofreq/call-snps",
+          "pin": {
+            "packId": "lofreq",
+            "packVersion": "0.5.3",
+            "manifestSha256": "4a00d450461cb434e04ddd377b901f73f9027e27a38f947238b6b18e9f5d862e"
+          },
+          "status": "success"
+        },
+        {
+          "id": "step-6",
+          "tool": "lofreq/call-snps",
+          "pin": {
+            "packId": "lofreq",
+            "packVersion": "0.5.3",
+            "manifestSha256": "4a00d450461cb434e04ddd377b901f73f9027e27a38f947238b6b18e9f5d862e"
+          },
+          "status": "success"
+        },
+        {
+          "id": "step-7",
+          "tool": "variants/statistics",
+          "pin": {
+            "packId": "variants",
+            "packVersion": "0.4.0",
+            "manifestSha256": "ea4b7f0a6c28709e4190b6514c07cbf7bdd58e1a4f2a2d931f2cae3ce6ec3795"
+          },
+          "status": "success"
+        },
+        {
+          "id": "step-8",
+          "tool": "variants/statistics",
+          "pin": {
+            "packId": "variants",
+            "packVersion": "0.4.0",
+            "manifestSha256": "ea4b7f0a6c28709e4190b6514c07cbf7bdd58e1a4f2a2d931f2cae3ce6ec3795"
+          },
+          "status": "success"
+        },
+        {
+          "id": "step-9",
+          "tool": "builtin/report",
+          "pin": {
+            "packId": "builtin",
+            "packVersion": "0.5.0",
+            "manifestSha256": "84cf3dc5da9e07bca439af537312846933105215153ce6fa533f8a88e1e3a209"
+          },
+          "status": "success"
+        }
+      ],
+      "outputs": {
+        "step-1::sam": {
+          "type": "sam",
+          "sha256": {
+            "sam": "b681f0188a5f1815634f6172c9e2ab1f32f662bb0e4bba566d01803bf6a6f8c3"
+          }
+        },
+        "step-1::reference": {
+          "type": "reference",
+          "sha256": {
+            "reference": "93231a79c625733ce0a2082d2ac9a1bb3b8f22175c961b334077ec2675b1393b"
+          }
+        },
+        "step-1::index": {
+          "type": "index",
+          "sha256": {
+            "index-1": "67a22a25a9f9e08a827605d8b0c7ae125c53a312272cb54f581191f5749782ac",
+            "index-2": "d2b972d31e447dd6a1a9fc9c8fd69986c9ffd6db8bd7e3b6721d842feeced051",
+            "index-3": "e4797904a6564ee1d11b3f7796c45d59b3d72ccc2c282492fd46e15f4185d5bb",
+            "index-4": "74ac0195d1b44b0b5fbebc562a2d1d83a4744a1dcea44d5258d3bc23472d1fa7",
+            "index-rev-1": "e5a3f5cce1d3211da73ae86e9803aed2d41991a641ab3e1e2834bc6e0cdbf386",
+            "index-rev-2": "07a56ef2c73768b756f4473858d9e5f07ab6887a2c1164088667b755f7575704"
+          }
+        },
+        "step-1::pair-check": {
+          "type": "metrics",
+          "sha256": {
+            "pair-check": "fd20060076d1faa824119d39b767a01d4bbba79b43bb11121eee92fe3712e693"
+          }
+        },
+        "step-4::aligned": {
+          "type": "sam",
+          "sha256": {
+            "aligned": "4e43a0866afedd553310fff1ad2d766dc85ecf4cabb3ee72d51514747eea98af"
+          }
+        },
+        "step-4::summary": {
+          "type": "metrics",
+          "sha256": {
+            "summary": "09557abfe74bacbcdecc00bf9ce51022b2a5f7bfac550ea97964b1759a7cdb2e"
+          }
+        },
+        "step-4::pair-check": {
+          "type": "metrics",
+          "sha256": {
+            "pair-check": "fd20060076d1faa824119d39b767a01d4bbba79b43bb11121eee92fe3712e693"
+          }
+        },
+        "step-4::reference": {
+          "type": "reference",
+          "sha256": {
+            "reference": "93231a79c625733ce0a2082d2ac9a1bb3b8f22175c961b334077ec2675b1393b"
+          }
+        },
+        "step-4::hisat-index": {
+          "type": "index",
+          "sha256": {
+            "index-1": "b76b117538d2252fa0bc3ed2d672c8b5dd1119b1dd7f08a607790fc9b68d8963",
+            "index-2": "5a381327ff545818fcc39f02672fd0fe7510b2cabfed08def8c9c07945760035",
+            "index-3": "f52801610dad76478aee5c19e9600eb86fda547836f9b05c6d02a0cc07665772",
+            "index-4": "74ac0195d1b44b0b5fbebc562a2d1d83a4744a1dcea44d5258d3bc23472d1fa7",
+            "index-5": "404a53f8facda23b72cba6c9f452f273d5af59247a53a6cbc089818a2cefd795",
+            "index-6": "e185e316ec5d07d9a93edcd56024f5924838ad70ee0680ac6e4b69ddbab68e53",
+            "index-7": "21fc3f955c14305ed66b2f6064de082e8447f29048da3ab7c5c01090c1b722ab",
+            "index-8": "ca888f40c3caca805b37a5434c75de5550616e0795e7602fb91156f22dd90851"
+          }
+        },
+        "step-2::bam": {
+          "type": "bam",
+          "sha256": {
+            "bam": "9ec73ae08ae84e72ca8d150cd82c3fa54f152bb52709c582af4b56f0fc9b583d"
+          }
+        },
+        "step-2::duplicate-stats": {
+          "type": "metrics",
+          "sha256": {
+            "duplicate-stats": "2e145a732ac4ba591c2bba36c737700f6b88e8976b2389cfef73d50a46a2fb5b"
+          }
+        },
+        "step-2::flagstat": {
+          "type": "metrics",
+          "sha256": {
+            "flagstat": "287027349498f85aeb094edb246c23847664e9780a050906dc3af533c97b4d63"
+          }
+        },
+        "step-2::alignment-stats": {
+          "type": "metrics",
+          "sha256": {
+            "alignment-stats": "e1e4cd408dcc7980d60d0979f825d07d652fd7519a426429f8167d7bba4ced7e"
+          }
+        },
+        "step-2::bam-index": {
+          "type": "index",
+          "sha256": {
+            "bam-index": "7925c7b5a015031ce72325343290c081d94102ff69d16bc2aa1825ae4c93e3c3"
+          }
+        },
+        "step-2::names": {
+          "type": "bam",
+          "sha256": {
+            "names": "18f3ac319684ce0b81c8daf7f0c0084f2991c56d31035c9ab39950b57a61b850"
+          }
+        },
+        "step-2::fixed": {
+          "type": "bam",
+          "sha256": {
+            "fixed": "800d02775b8f6315ffdda29e46f0716d3912c0044441ad48732ef5486dcb9ed0"
+          }
+        },
+        "step-2::coordinates": {
+          "type": "bam",
+          "sha256": {
+            "coordinates": "0cf3a90dfce132af273eb8c0f36d34e2f4c5fa6be7eed7749d1f353e9485b38f"
+          }
+        },
+        "step-5::bam": {
+          "type": "bam",
+          "sha256": {
+            "bam": "b1856781fc2976f11faff46439f0d03c5da6838253ee95ddd6e9c8e07fcba9f7"
+          }
+        },
+        "step-5::duplicate-stats": {
+          "type": "metrics",
+          "sha256": {
+            "duplicate-stats": "3e44d6f5c483bc7e0ec224b7f5c2e4c3f842320b0dcd6e62124913c95256159f"
+          }
+        },
+        "step-5::flagstat": {
+          "type": "metrics",
+          "sha256": {
+            "flagstat": "287027349498f85aeb094edb246c23847664e9780a050906dc3af533c97b4d63"
+          }
+        },
+        "step-5::alignment-stats": {
+          "type": "metrics",
+          "sha256": {
+            "alignment-stats": "4e7ab6c485a025ddfe50b215e597d21c739783213c55ddcb453b5f19a179a584"
+          }
+        },
+        "step-5::bam-index": {
+          "type": "index",
+          "sha256": {
+            "bam-index": "e12782213c9f92c84e200a92c788062c4df6f341193b838dbcd93602a76130cd"
+          }
+        },
+        "step-5::names": {
+          "type": "bam",
+          "sha256": {
+            "names": "fca4e9f2d3fec5fe04dc00279d8723dcc6490cf9b330a66d509dd606c1ef592b"
+          }
+        },
+        "step-5::fixed": {
+          "type": "bam",
+          "sha256": {
+            "fixed": "6098793e929bc264beed3278b25651a2e96e31f114c0ccfa80cb9436a1329021"
+          }
+        },
+        "step-5::coordinates": {
+          "type": "bam",
+          "sha256": {
+            "coordinates": "01e2b1ff291096ffddcbe960ddae41d3cbc749cbd514a7d9da0c47558708e8c1"
+          }
+        },
+        "step-3::variants": {
+          "type": "vcf-pass",
+          "sha256": {
+            "variants": "7691025118cb01bfe702d083518c3ca93856aab95a7263124f76061fef3a1353"
+          }
+        },
+        "step-3::reference": {
+          "type": "reference",
+          "sha256": {
+            "reference": "93231a79c625733ce0a2082d2ac9a1bb3b8f22175c961b334077ec2675b1393b"
+          }
+        },
+        "step-3::reference-index": {
+          "type": "index",
+          "sha256": {
+            "reference-index": "2781f9937abe9dd863f0443540cfef34e289097d0ebe383864988441f9ea6128"
+          }
+        },
+        "step-6::variants": {
+          "type": "vcf-pass",
+          "sha256": {
+            "variants": "94759cfe41accf516ae1285684566d78f4c362fc0476b665a768164a17043800"
+          }
+        },
+        "step-6::reference": {
+          "type": "reference",
+          "sha256": {
+            "reference": "93231a79c625733ce0a2082d2ac9a1bb3b8f22175c961b334077ec2675b1393b"
+          }
+        },
+        "step-6::reference-index": {
+          "type": "index",
+          "sha256": {
+            "reference-index": "2781f9937abe9dd863f0443540cfef34e289097d0ebe383864988441f9ea6128"
+          }
+        },
+        "step-7::statistics": {
+          "type": "metrics",
+          "sha256": {
+            "statistics": "0abe97abbe113318f2eec05b97e10c9778028a8c12c8074c460202f3fbb2fac0"
+          }
+        },
+        "step-8::statistics": {
+          "type": "metrics",
+          "sha256": {
+            "statistics": "d8c51929d4ef49cfc817a7af6a6400b770034c46a11a39872df1ac30b04b68ab"
+          }
+        },
+        "step-9::report": {
+          "type": "report",
+          "sha256": {
+            "report": "8bd1fbc98f56d791ec36d5ca1bd141b8d20691515690b7061dd875b08abe86d2"
+          }
+        }
+      },
+      "methods": "Executed methods (only successfully completed operations are described):\n\nStep S1 (Map the known read pairs) was performed using align-s 2.5.5; build-s 2.5.5; paircheck 1.0.1 (pack bowtie2 0.5.3). A private copy of the reference was indexed with Bowtie 2 using 32-bit small index files. Mate identifiers, counts and FASTQ structure were validated with paircheck. Reads were aligned end to end with Bowtie 2, interpreting quality scores as Phred+33 and using the selected sensitivity preset and deterministic seed. The specified fragment bounds and orientation governed concordant pairing; Bowtie 2 discordant-pair and single-mate fallback were enabled. At most one primary alignment was reported per read, with unmapped reads retained. SAM records include the selected sample, read group, library and sequencing-platform tags. Output order follows input order and is not coordinate sorted. Settings: Sample name=validation; Read-group ID=lane1; Library ID=library1; Sequencing platform=ILLUMINA; End-to-end search effort=sensitive; Threads=1; Random seed=42; Expected mate orientation=fr; Minimum fragment length=0; Maximum fragment length=500. Inputs: Read 1: I1 \u00b7 Sixty pairs; 20 percent SNP alleles | Reference genome: I2 \u00b7 Known synthetic reference.\n\nStep S4 (HISAT2 DNA branch) was performed using hisat2-align-l 2.2.3-workbench1; hisat2-build-l 2.2.3-workbench1; paircheck 1.0.1 (pack hisat2 0.5.3). Reads were aligned to a privately indexed genomic reference using HISAT2 2.2.3-workbench1 and its 64-bit linear index. Spliced alignment was disabled (--no-spliced-alignment), producing unsorted DNA SAM. Phred+33 input, read-group metadata, CPU count and alignment seed were explicit; duplicates were retained. Settings: Sample ID=validation; Read-group ID=lane1; Library ID=lib1; Platform unit / lane=unit1; Sequencing platform=ILLUMINA; HISAT2 CPU threads=1; Alignment seed=0; Minimum DNA fragment length=0; Maximum DNA fragment length=500. Inputs: Paired FASTQ reads: I1 \u00b7 Sixty pairs; 20 percent SNP alleles | Reference genome: I2 \u00b7 Known synthetic reference.\n\nStep S2 (Prepare DNA alignments) was performed using samtools 1.24 (pack bam 0.4.0). Name-sort, fix mates, coordinate-sort, mark duplicates, index and summarize. Duplicates are retained. Inputs: Paired alignments: S1 \u00b7 Map the known read pairs \u2192 Read alignments (unsorted SAM).\n\nStep S5 (Prepare paired alignments) was performed using samtools 1.24 (pack bam 0.4.0). Name-sort, fix mates, coordinate-sort, mark duplicates, index and summarize. Duplicates are retained. Inputs: Paired alignments: S4 \u00b7 HISAT2 DNA branch \u2192 Unsorted DNA alignments.\n\nStep S3 (Call low-frequency SNPs) was performed using lofreq 2.1.5-workbench-port2; samtools 1.24 (pack lofreq 0.5.3). LoFreq called SNVs only with the configured mapping/base-quality, coverage, depth and significance thresholds, extended BAQ, dynamic Bonferroni correction and default post-call filters (minimum coverage 10 and strand-bias FDR). Only PASS sites were retained. The VCF contains observed read allele frequencies and site error-model significance, not sample genotypes or a ploidy model; low-frequency calls require assay-specific validation. Settings: Minimum mapping quality=20; Minimum reference and alternate base quality=20; Minimum tested coverage=10; Maximum pileup depth=1000000; Significance level=0.01. Inputs: Coordinate-sorted DNA alignments: S2 \u00b7 Prepare DNA alignments \u2192 Sorted, duplicate-marked BAM | Reference genome: I2 \u00b7 Known synthetic reference.\n\nStep S6 (LoFreq: low-frequency SNVs) was performed using lofreq 2.1.5-workbench-port2; samtools 1.24 (pack lofreq 0.5.3). LoFreq called SNVs only with the configured mapping/base-quality, coverage, depth and significance thresholds, extended BAQ, dynamic Bonferroni correction and default post-call filters (minimum coverage 10 and strand-bias FDR). Only PASS sites were retained. The VCF contains observed read allele frequencies and site error-model significance, not sample genotypes or a ploidy model; low-frequency calls require assay-specific validation. Settings: Minimum mapping quality=20; Minimum reference and alternate base quality=20; Minimum tested coverage=10; Maximum pileup depth=1000000; Significance level=0.01. Inputs: Coordinate-sorted DNA alignments: S5 \u00b7 Prepare paired alignments \u2192 Sorted, duplicate-marked BAM | Reference genome: I2 \u00b7 Known synthetic reference.\n\nStep S7 (Bowtie2-based calls) was performed using bcftools 1.24 (pack variants 0.4.0). Summarize an existing VCF or BCF. Inputs: Variants: S3 \u00b7 Call low-frequency SNPs \u2192 PASS site-only variants (no genotypes).\n\nStep S8 (HISAT2-based calls) was performed using bcftools 1.24 (pack variants 0.4.0). Summarize an existing VCF or BCF. Inputs: Variants: S6 \u00b7 LoFreq: low-frequency SNVs \u2192 PASS site-only variants (no genotypes).\n\nStep S9 (Combine statistics reports) was performed using Combine statistics reports (pack builtin 0.5.0). Collect selected statistics into a local HTML report with a separate, attributed section for each input. Counts are not pooled and variant files are not merged. Settings: Report title=Separate aligner results. Inputs: Statistics to include: S7 \u00b7 Bowtie2-based calls \u2192 Variant statistics; S8 \u00b7 HISAT2-based calls \u2192 Variant statistics.\n\nTool references:\nLangmead B, Salzberg SL. Fast gapped-read alignment with Bowtie 2. Nature Methods 9, 357\u2013359 (2012). https://doi.org/10.1038/nmeth.1923\nKim D, Paggi JM, Park C, Bennett C and Salzberg SL (2019). Graph-based genome alignment and genotyping with HISAT2 and HISAT-genotype. Nature Biotechnology 37:907-915. https://doi.org/10.1038/s41587-019-0201-4\nWilm et al. (2012). LoFreq: a sequence-quality aware, ultra-sensitive variant caller for uncovering cell-population heterogeneity from high-throughput sequencing datasets. Nucleic Acids Research 40:11189\u201311201. https://doi.org/10.1093/nar/gks918\nAlbers et al. (2011). Dindel: accurate indel calls from short-read data. Genome Research 21:961\u2013973. https://doi.org/10.1101/gr.112326.110\n\nOperations run locally in dependency order. Independent branches are scheduled sequentially. The run record records exact packs, parameters, input identities, outputs and completion states.\n"
+    },
+    {
+      "name": "Known 20 percent SNP from bowtie2/paired-end",
+      "planSha256": "1f99219e820d58975c283052700e0c9c9871b38ab095c5f53ae44783f1db85c7",
+      "nodes": [
+        {
+          "id": "step-1",
+          "tool": "bowtie2/paired-end",
+          "pin": {
+            "packId": "bowtie2",
+            "packVersion": "0.5.3",
+            "manifestSha256": "cdaa52bde3dec022e6716d4fc6b6e78481982f1d6491b5cd21ff4d64d33cec32"
+          },
+          "status": "success"
+        },
+        {
+          "id": "step-2",
+          "tool": "bam/prepare",
+          "pin": {
+            "packId": "bam",
+            "packVersion": "0.4.0",
+            "manifestSha256": "45b3f9d5092b0b3014f67b29331003e1214c72919f85695a571fb371030a9888"
+          },
+          "status": "success"
+        },
+        {
+          "id": "step-3",
+          "tool": "lofreq/call-snps",
+          "pin": {
+            "packId": "lofreq",
+            "packVersion": "0.5.3",
+            "manifestSha256": "4a00d450461cb434e04ddd377b901f73f9027e27a38f947238b6b18e9f5d862e"
+          },
+          "status": "success"
+        }
+      ],
+      "outputs": {
+        "step-1::sam": {
+          "type": "sam",
+          "sha256": {
+            "sam": "bb18df8138a9c198f2397525b9f2cb764f6904a04487a71f2e6015538a3240ff"
+          }
+        },
+        "step-1::reference": {
+          "type": "reference",
+          "sha256": {
+            "reference": "93231a79c625733ce0a2082d2ac9a1bb3b8f22175c961b334077ec2675b1393b"
+          }
+        },
+        "step-1::index": {
+          "type": "index",
+          "sha256": {
+            "index-1": "67a22a25a9f9e08a827605d8b0c7ae125c53a312272cb54f581191f5749782ac",
+            "index-2": "d2b972d31e447dd6a1a9fc9c8fd69986c9ffd6db8bd7e3b6721d842feeced051",
+            "index-3": "e4797904a6564ee1d11b3f7796c45d59b3d72ccc2c282492fd46e15f4185d5bb",
+            "index-4": "74ac0195d1b44b0b5fbebc562a2d1d83a4744a1dcea44d5258d3bc23472d1fa7",
+            "index-rev-1": "e5a3f5cce1d3211da73ae86e9803aed2d41991a641ab3e1e2834bc6e0cdbf386",
+            "index-rev-2": "07a56ef2c73768b756f4473858d9e5f07ab6887a2c1164088667b755f7575704"
+          }
+        },
+        "step-1::pair-check": {
+          "type": "metrics",
+          "sha256": {
+            "pair-check": "fd20060076d1faa824119d39b767a01d4bbba79b43bb11121eee92fe3712e693"
+          }
+        },
+        "step-2::bam": {
+          "type": "bam",
+          "sha256": {
+            "bam": "292424bd5fe52030e27e9d3d35159a079148620a8f91adaa1b5813ffba4b7c7e"
+          }
+        },
+        "step-2::duplicate-stats": {
+          "type": "metrics",
+          "sha256": {
+            "duplicate-stats": "56240a32086af418916226bf048c1fc62dc7d5763bd0082bd80e14e408f11c24"
+          }
+        },
+        "step-2::flagstat": {
+          "type": "metrics",
+          "sha256": {
+            "flagstat": "287027349498f85aeb094edb246c23847664e9780a050906dc3af533c97b4d63"
+          }
+        },
+        "step-2::alignment-stats": {
+          "type": "metrics",
+          "sha256": {
+            "alignment-stats": "b24ab78f28dd4118c7a78ac9b54704f2ecfc2e32d898ffcf89b312790f756aad"
+          }
+        },
+        "step-2::bam-index": {
+          "type": "index",
+          "sha256": {
+            "bam-index": "bbaf17291d011dd6b7350a054f44ffafae5b9ec82f14c25d988ba50a6604a403"
+          }
+        },
+        "step-2::names": {
+          "type": "bam",
+          "sha256": {
+            "names": "2b4a78c16331750c462bbcb2427b2c42aa282ed708f82b0bec306d4e2c3d1155"
+          }
+        },
+        "step-2::fixed": {
+          "type": "bam",
+          "sha256": {
+            "fixed": "785b9c21350cbe8f6545beb5b8c629f6707046f0b1ff44761f2f13958c940687"
+          }
+        },
+        "step-2::coordinates": {
+          "type": "bam",
+          "sha256": {
+            "coordinates": "ddcbd2f65e0a4ecdc83c34a54814163aade309669d2d4efc0046648ff330be47"
+          }
+        },
+        "step-3::variants": {
+          "type": "vcf-pass",
+          "sha256": {
+            "variants": "a8d28e6a0e03585faac7b6d13cb69d61925b6d016710f954b34c4c16c8fd7650"
+          }
+        },
+        "step-3::reference": {
+          "type": "reference",
+          "sha256": {
+            "reference": "93231a79c625733ce0a2082d2ac9a1bb3b8f22175c961b334077ec2675b1393b"
+          }
+        },
+        "step-3::reference-index": {
+          "type": "index",
+          "sha256": {
+            "reference-index": "2781f9937abe9dd863f0443540cfef34e289097d0ebe383864988441f9ea6128"
+          }
+        }
+      },
+      "methods": "Executed methods (only successfully completed operations are described):\n\nStep S1 (Map the known read pairs) was performed using align-s 2.5.5; build-s 2.5.5; paircheck 1.0.1 (pack bowtie2 0.5.3). A private copy of the reference was indexed with Bowtie 2 using 32-bit small index files. Mate identifiers, counts and FASTQ structure were validated with paircheck. Reads were aligned end to end with Bowtie 2, interpreting quality scores as Phred+33 and using the selected sensitivity preset and deterministic seed. The specified fragment bounds and orientation governed concordant pairing; Bowtie 2 discordant-pair and single-mate fallback were enabled. At most one primary alignment was reported per read, with unmapped reads retained. SAM records include the selected sample, read group, library and sequencing-platform tags. Output order follows input order and is not coordinate sorted. Settings: Sample name=validation; Read-group ID=lane1; Library ID=library1; Sequencing platform=ILLUMINA; End-to-end search effort=sensitive; Threads=1; Random seed=42; Expected mate orientation=fr; Minimum fragment length=0; Maximum fragment length=500. Inputs: Read 1: I1 \u00b7 Sixty pairs; 20 percent SNP alleles | Reference genome: I2 \u00b7 Known synthetic reference.\n\nStep S2 (Prepare DNA alignments) was performed using samtools 1.24 (pack bam 0.4.0). Name-sort, fix mates, coordinate-sort, mark duplicates, index and summarize. Duplicates are retained. Inputs: Paired alignments: S1 \u00b7 Map the known read pairs \u2192 Read alignments (unsorted SAM).\n\nStep S3 (Call low-frequency SNPs) was performed using lofreq 2.1.5-workbench-port2; samtools 1.24 (pack lofreq 0.5.3). LoFreq called SNVs only with the configured mapping/base-quality, coverage, depth and significance thresholds, extended BAQ, dynamic Bonferroni correction and default post-call filters (minimum coverage 10 and strand-bias FDR). Only PASS sites were retained. The VCF contains observed read allele frequencies and site error-model significance, not sample genotypes or a ploidy model; low-frequency calls require assay-specific validation. Settings: Minimum mapping quality=20; Minimum reference and alternate base quality=20; Minimum tested coverage=10; Maximum pileup depth=1000000; Significance level=0.01. Inputs: Coordinate-sorted DNA alignments: S2 \u00b7 Prepare DNA alignments \u2192 Sorted, duplicate-marked BAM | Reference genome: I2 \u00b7 Known synthetic reference.\n\nTool references:\nLangmead B, Salzberg SL. Fast gapped-read alignment with Bowtie 2. Nature Methods 9, 357\u2013359 (2012). https://doi.org/10.1038/nmeth.1923\nWilm et al. (2012). LoFreq: a sequence-quality aware, ultra-sensitive variant caller for uncovering cell-population heterogeneity from high-throughput sequencing datasets. Nucleic Acids Research 40:11189\u201311201. https://doi.org/10.1093/nar/gks918\nAlbers et al. (2011). Dindel: accurate indel calls from short-read data. Genome Research 21:961\u2013973. https://doi.org/10.1101/gr.112326.110\n\nOperations run locally in dependency order. Independent branches are scheduled sequentially. The run record records exact packs, parameters, input identities, outputs and completion states.\n"
+    },
+    {
+      "name": "Known 20 percent SNP from hisat2/dna-paired",
+      "planSha256": "242a8b1c07ee92978ca651f56703fce6806d15e37e9db31ce51e4d3851c433b9",
+      "nodes": [
+        {
+          "id": "step-1",
+          "tool": "hisat2/dna-paired",
+          "pin": {
+            "packId": "hisat2",
+            "packVersion": "0.5.3",
+            "manifestSha256": "06f912deb5926b00a8ca269138b4b3822bb4b3e36d4956e30ca7793655052967"
+          },
+          "status": "success"
+        },
+        {
+          "id": "step-2",
+          "tool": "bam/prepare",
+          "pin": {
+            "packId": "bam",
+            "packVersion": "0.4.0",
+            "manifestSha256": "45b3f9d5092b0b3014f67b29331003e1214c72919f85695a571fb371030a9888"
+          },
+          "status": "success"
+        },
+        {
+          "id": "step-3",
+          "tool": "lofreq/call-snps",
+          "pin": {
+            "packId": "lofreq",
+            "packVersion": "0.5.3",
+            "manifestSha256": "4a00d450461cb434e04ddd377b901f73f9027e27a38f947238b6b18e9f5d862e"
+          },
+          "status": "success"
+        }
+      ],
+      "outputs": {
+        "step-1::aligned": {
+          "type": "sam",
+          "sha256": {
+            "aligned": "f33f2ea6f33f702a654abf09fa6a18593044945acf4c0fc3dadc568f1d02d724"
+          }
+        },
+        "step-1::summary": {
+          "type": "metrics",
+          "sha256": {
+            "summary": "09557abfe74bacbcdecc00bf9ce51022b2a5f7bfac550ea97964b1759a7cdb2e"
+          }
+        },
+        "step-1::pair-check": {
+          "type": "metrics",
+          "sha256": {
+            "pair-check": "fd20060076d1faa824119d39b767a01d4bbba79b43bb11121eee92fe3712e693"
+          }
+        },
+        "step-1::reference": {
+          "type": "reference",
+          "sha256": {
+            "reference": "93231a79c625733ce0a2082d2ac9a1bb3b8f22175c961b334077ec2675b1393b"
+          }
+        },
+        "step-1::hisat-index": {
+          "type": "index",
+          "sha256": {
+            "index-1": "b76b117538d2252fa0bc3ed2d672c8b5dd1119b1dd7f08a607790fc9b68d8963",
+            "index-2": "5a381327ff545818fcc39f02672fd0fe7510b2cabfed08def8c9c07945760035",
+            "index-3": "f52801610dad76478aee5c19e9600eb86fda547836f9b05c6d02a0cc07665772",
+            "index-4": "74ac0195d1b44b0b5fbebc562a2d1d83a4744a1dcea44d5258d3bc23472d1fa7",
+            "index-5": "404a53f8facda23b72cba6c9f452f273d5af59247a53a6cbc089818a2cefd795",
+            "index-6": "e185e316ec5d07d9a93edcd56024f5924838ad70ee0680ac6e4b69ddbab68e53",
+            "index-7": "21fc3f955c14305ed66b2f6064de082e8447f29048da3ab7c5c01090c1b722ab",
+            "index-8": "ca888f40c3caca805b37a5434c75de5550616e0795e7602fb91156f22dd90851"
+          }
+        },
+        "step-2::bam": {
+          "type": "bam",
+          "sha256": {
+            "bam": "09b389a64567508e0035941be57b083c6993db9a144f116c6fccb2d9a8bef2ac"
+          }
+        },
+        "step-2::duplicate-stats": {
+          "type": "metrics",
+          "sha256": {
+            "duplicate-stats": "eaacbac951b44ba7f3643427c1fe0c5228c24d484d7ee398ee0c5fc28d800657"
+          }
+        },
+        "step-2::flagstat": {
+          "type": "metrics",
+          "sha256": {
+            "flagstat": "287027349498f85aeb094edb246c23847664e9780a050906dc3af533c97b4d63"
+          }
+        },
+        "step-2::alignment-stats": {
+          "type": "metrics",
+          "sha256": {
+            "alignment-stats": "0a13b6373737472f2ad39c8c3cf0df6603e2c36395fc41ed137d1af3c4d96917"
+          }
+        },
+        "step-2::bam-index": {
+          "type": "index",
+          "sha256": {
+            "bam-index": "e12782213c9f92c84e200a92c788062c4df6f341193b838dbcd93602a76130cd"
+          }
+        },
+        "step-2::names": {
+          "type": "bam",
+          "sha256": {
+            "names": "82876f315868c4c84b400cced22c6914bc4e47b5395ecdd5b417c5e5862f16ff"
+          }
+        },
+        "step-2::fixed": {
+          "type": "bam",
+          "sha256": {
+            "fixed": "063c3640b2065dfd8a6f6401cc5a9b2a1c91b5665bbc98aa49c2dc9927ccc621"
+          }
+        },
+        "step-2::coordinates": {
+          "type": "bam",
+          "sha256": {
+            "coordinates": "c75d2b433ce189bc5a749a1a14145890874581ad35c379594372d8dc15f1d9fd"
+          }
+        },
+        "step-3::variants": {
+          "type": "vcf-pass",
+          "sha256": {
+            "variants": "414e62d63a8af66b37ac9a2db5f5bfc6f63a99706b031ec9e8a12ebe4b1dcdd0"
+          }
+        },
+        "step-3::reference": {
+          "type": "reference",
+          "sha256": {
+            "reference": "93231a79c625733ce0a2082d2ac9a1bb3b8f22175c961b334077ec2675b1393b"
+          }
+        },
+        "step-3::reference-index": {
+          "type": "index",
+          "sha256": {
+            "reference-index": "2781f9937abe9dd863f0443540cfef34e289097d0ebe383864988441f9ea6128"
+          }
+        }
+      },
+      "methods": "Executed methods (only successfully completed operations are described):\n\nStep S1 (Map the known read pairs) was performed using hisat2-align-l 2.2.3-workbench1; hisat2-build-l 2.2.3-workbench1; paircheck 1.0.1 (pack hisat2 0.5.3). Reads were aligned to a privately indexed genomic reference using HISAT2 2.2.3-workbench1 and its 64-bit linear index. Spliced alignment was disabled (--no-spliced-alignment), producing unsorted DNA SAM. Phred+33 input, read-group metadata, CPU count and alignment seed were explicit; duplicates were retained. Settings: Sample ID=validation; Read-group ID=lane1; Library ID=lib1; Platform unit / lane=unit1; Sequencing platform=ILLUMINA; HISAT2 CPU threads=1; Alignment seed=0; Minimum DNA fragment length=0; Maximum DNA fragment length=500. Inputs: Paired FASTQ reads: I1 \u00b7 Sixty pairs; 20 percent SNP alleles | Reference genome: I2 \u00b7 Known synthetic reference.\n\nStep S2 (Prepare DNA alignments) was performed using samtools 1.24 (pack bam 0.4.0). Name-sort, fix mates, coordinate-sort, mark duplicates, index and summarize. Duplicates are retained. Inputs: Paired alignments: S1 \u00b7 Map the known read pairs \u2192 Unsorted DNA alignments.\n\nStep S3 (Call low-frequency SNPs) was performed using lofreq 2.1.5-workbench-port2; samtools 1.24 (pack lofreq 0.5.3). LoFreq called SNVs only with the configured mapping/base-quality, coverage, depth and significance thresholds, extended BAQ, dynamic Bonferroni correction and default post-call filters (minimum coverage 10 and strand-bias FDR). Only PASS sites were retained. The VCF contains observed read allele frequencies and site error-model significance, not sample genotypes or a ploidy model; low-frequency calls require assay-specific validation. Settings: Minimum mapping quality=20; Minimum reference and alternate base quality=20; Minimum tested coverage=10; Maximum pileup depth=1000000; Significance level=0.01. Inputs: Coordinate-sorted DNA alignments: S2 \u00b7 Prepare DNA alignments \u2192 Sorted, duplicate-marked BAM | Reference genome: I2 \u00b7 Known synthetic reference.\n\nTool references:\nKim D, Paggi JM, Park C, Bennett C and Salzberg SL (2019). Graph-based genome alignment and genotyping with HISAT2 and HISAT-genotype. Nature Biotechnology 37:907-915. https://doi.org/10.1038/s41587-019-0201-4\nWilm et al. (2012). LoFreq: a sequence-quality aware, ultra-sensitive variant caller for uncovering cell-population heterogeneity from high-throughput sequencing datasets. Nucleic Acids Research 40:11189\u201311201. https://doi.org/10.1093/nar/gks918\nAlbers et al. (2011). Dindel: accurate indel calls from short-read data. Genome Research 21:961\u2013973. https://doi.org/10.1101/gr.112326.110\n\nOperations run locally in dependency order. Independent branches are scheduled sequentially. The run record records exact packs, parameters, input identities, outputs and completion states.\n"
+    },
+    {
+      "name": "Independent callers on the same prepared BAM",
+      "planSha256": "df216797580ca155f8c147dd9c3368b88994ec2cc7c03a29656f083aeac8a2f4",
+      "nodes": [
+        {
+          "id": "step-1",
+          "tool": "bowtie2/paired-end",
+          "pin": {
+            "packId": "bowtie2",
+            "packVersion": "0.5.3",
+            "manifestSha256": "cdaa52bde3dec022e6716d4fc6b6e78481982f1d6491b5cd21ff4d64d33cec32"
+          },
+          "status": "success"
+        },
+        {
+          "id": "step-2",
+          "tool": "bam/prepare",
+          "pin": {
+            "packId": "bam",
+            "packVersion": "0.4.0",
+            "manifestSha256": "45b3f9d5092b0b3014f67b29331003e1214c72919f85695a571fb371030a9888"
+          },
+          "status": "success"
+        },
+        {
+          "id": "step-3",
+          "tool": "lofreq/call-snps",
+          "pin": {
+            "packId": "lofreq",
+            "packVersion": "0.5.3",
+            "manifestSha256": "4a00d450461cb434e04ddd377b901f73f9027e27a38f947238b6b18e9f5d862e"
+          },
+          "status": "success"
+        },
+        {
+          "id": "step-4",
+          "tool": "vardict/call",
+          "pin": {
+            "packId": "vardict",
+            "packVersion": "0.5.3",
+            "manifestSha256": "f43b5dfa5a7ba9a8a476c956499f67576922d171c00eb63ce36cf25e28caf482"
+          },
+          "status": "success"
+        },
+        {
+          "id": "step-5",
+          "tool": "variants/statistics",
+          "pin": {
+            "packId": "variants",
+            "packVersion": "0.4.0",
+            "manifestSha256": "ea4b7f0a6c28709e4190b6514c07cbf7bdd58e1a4f2a2d931f2cae3ce6ec3795"
+          },
+          "status": "success"
+        },
+        {
+          "id": "step-6",
+          "tool": "builtin/report",
+          "pin": {
+            "packId": "builtin",
+            "packVersion": "0.5.0",
+            "manifestSha256": "84cf3dc5da9e07bca439af537312846933105215153ce6fa533f8a88e1e3a209"
+          },
+          "status": "success"
+        }
+      ],
+      "outputs": {
+        "step-1::sam": {
+          "type": "sam",
+          "sha256": {
+            "sam": "e95638926134babec54a019a7e5c391c3e0e3728965bfe1ef292a46c241de3b3"
+          }
+        },
+        "step-1::reference": {
+          "type": "reference",
+          "sha256": {
+            "reference": "93231a79c625733ce0a2082d2ac9a1bb3b8f22175c961b334077ec2675b1393b"
+          }
+        },
+        "step-1::index": {
+          "type": "index",
+          "sha256": {
+            "index-1": "67a22a25a9f9e08a827605d8b0c7ae125c53a312272cb54f581191f5749782ac",
+            "index-2": "d2b972d31e447dd6a1a9fc9c8fd69986c9ffd6db8bd7e3b6721d842feeced051",
+            "index-3": "e4797904a6564ee1d11b3f7796c45d59b3d72ccc2c282492fd46e15f4185d5bb",
+            "index-4": "74ac0195d1b44b0b5fbebc562a2d1d83a4744a1dcea44d5258d3bc23472d1fa7",
+            "index-rev-1": "e5a3f5cce1d3211da73ae86e9803aed2d41991a641ab3e1e2834bc6e0cdbf386",
+            "index-rev-2": "07a56ef2c73768b756f4473858d9e5f07ab6887a2c1164088667b755f7575704"
+          }
+        },
+        "step-1::pair-check": {
+          "type": "metrics",
+          "sha256": {
+            "pair-check": "fd20060076d1faa824119d39b767a01d4bbba79b43bb11121eee92fe3712e693"
+          }
+        },
+        "step-2::bam": {
+          "type": "bam",
+          "sha256": {
+            "bam": "004fc74295e55d8768d1b9fbc7faba672bb210fad4c1f242b9bf599d545f2d1d"
+          }
+        },
+        "step-2::duplicate-stats": {
+          "type": "metrics",
+          "sha256": {
+            "duplicate-stats": "0253c7caf262e88cf41c26b51bef9febf64b57632e2aa06de3202f8f18453e9a"
+          }
+        },
+        "step-2::flagstat": {
+          "type": "metrics",
+          "sha256": {
+            "flagstat": "287027349498f85aeb094edb246c23847664e9780a050906dc3af533c97b4d63"
+          }
+        },
+        "step-2::alignment-stats": {
+          "type": "metrics",
+          "sha256": {
+            "alignment-stats": "fc73931629f2dda5a61d053774d9403bba4d1f915a366c53a7c7a2b4bb4b6ce9"
+          }
+        },
+        "step-2::bam-index": {
+          "type": "index",
+          "sha256": {
+            "bam-index": "0255bac8db02c955e761b10428d9a3cd7e513235b388bcd5b78b9acb4c4800eb"
+          }
+        },
+        "step-2::names": {
+          "type": "bam",
+          "sha256": {
+            "names": "a907adf811a15db454a0c313189d2af676fbe69ab1b6b3ecbe49176f2db6c56d"
+          }
+        },
+        "step-2::fixed": {
+          "type": "bam",
+          "sha256": {
+            "fixed": "8e5e076af00736695af1de557fb10ab00816bbd1dff85cf660eb3e31a469c859"
+          }
+        },
+        "step-2::coordinates": {
+          "type": "bam",
+          "sha256": {
+            "coordinates": "48a4834d390b07591c6f7cff82bfec50952f45f0d55218bc7593a37ae97ff7de"
+          }
+        },
+        "step-3::variants": {
+          "type": "vcf-pass",
+          "sha256": {
+            "variants": "9e62e405af5f4071f831ddd2f50ffbe864b4bf29ccc50c63ea7b8853545b796f"
+          }
+        },
+        "step-3::reference": {
+          "type": "reference",
+          "sha256": {
+            "reference": "93231a79c625733ce0a2082d2ac9a1bb3b8f22175c961b334077ec2675b1393b"
+          }
+        },
+        "step-3::reference-index": {
+          "type": "index",
+          "sha256": {
+            "reference-index": "2781f9937abe9dd863f0443540cfef34e289097d0ebe383864988441f9ea6128"
+          }
+        },
+        "step-4::variants": {
+          "type": "vcf",
+          "sha256": {
+            "variants": "994ab795e1d3ca6e93cfe0e3ad6d0e9d70ea1beb83caf83b618a89bfe527fb5e"
+          }
+        },
+        "step-4::pass-variants": {
+          "type": "vcf-pass",
+          "sha256": {
+            "pass-variants": "41e2e9895e30b3d6971efd88fd68b9ecc16d70043a6a05cf33729cba30d5ee8d"
+          }
+        },
+        "step-4::variant-stats": {
+          "type": "metrics",
+          "sha256": {
+            "variant-stats": "a22c7c61e2474c2dfb65b4a9316b800c7a2bf7feeb8ed036cc405f830f0cf709"
+          }
+        },
+        "step-4::pass-stats": {
+          "type": "metrics",
+          "sha256": {
+            "pass-stats": "2e41fea4446e493147fde2c19878ca8bafd50bfd24bd9785cb07c05aa02796dd"
+          }
+        },
+        "step-4::calls-table": {
+          "type": "metrics",
+          "sha256": {
+            "calls-table": "1fbeb7ffb2c1841900f842833c4f943852b5cb2c0062d205febf52ab8622ec9a"
+          }
+        },
+        "step-4::reference": {
+          "type": "reference",
+          "sha256": {
+            "reference": "93231a79c625733ce0a2082d2ac9a1bb3b8f22175c961b334077ec2675b1393b"
+          }
+        },
+        "step-4::reference-index": {
+          "type": "index",
+          "sha256": {
+            "reference-index": "2781f9937abe9dd863f0443540cfef34e289097d0ebe383864988441f9ea6128"
+          }
+        },
+        "step-4::alignment-copy": {
+          "type": "bam",
+          "sha256": {
+            "alignment-copy": "004fc74295e55d8768d1b9fbc7faba672bb210fad4c1f242b9bf599d545f2d1d"
+          }
+        },
+        "step-4::bam-index": {
+          "type": "index",
+          "sha256": {
+            "bam-index": "6eb70e9456353c77937212002c7efb23afadc26e8840cb5b7e20d1f0433ab359"
+          }
+        },
+        "step-4::raw-vcf": {
+          "type": "vcf",
+          "sha256": {
+            "raw-vcf": "aed280f2e57fa60fc972257e9db48f1a0070e5b21c144db901f3d9835bcab260"
+          }
+        },
+        "step-4::header-vcf": {
+          "type": "vcf",
+          "sha256": {
+            "header-vcf": "fe7b706643ff566446140fe6ded241567fa0e942b639d28e517a2ff35bda78a0"
+          }
+        },
+        "step-4::variants-index": {
+          "type": "index",
+          "sha256": {
+            "variants-index": "889dfcd2f8c2004f2666722629b5ba21197bd72fd98e85aa5c145da39d4715a4"
+          }
+        },
+        "step-4::pass-index": {
+          "type": "index",
+          "sha256": {
+            "pass-index": "6985dac06367a273fe95ddfae391f9d50299377841d5a635f8a06d2b54532602"
+          }
+        },
+        "step-5::statistics": {
+          "type": "metrics",
+          "sha256": {
+            "statistics": "3249023647aad4f5cd0b58fcc6cf8eccb2b23a9322fe00ad5c2894a22190e240"
+          }
+        },
+        "step-6::report": {
+          "type": "report",
+          "sha256": {
+            "report": "3bddcfba31f445d15fa7e2f5da89171de7a5e0ca5d8f6394c5708ed0257fabd9"
+          }
+        }
+      },
+      "methods": "Executed methods (only successfully completed operations are described):\n\nStep S1 (Map the known read pairs) was performed using align-s 2.5.5; build-s 2.5.5; paircheck 1.0.1 (pack bowtie2 0.5.3). A private copy of the reference was indexed with Bowtie 2 using 32-bit small index files. Mate identifiers, counts and FASTQ structure were validated with paircheck. Reads were aligned end to end with Bowtie 2, interpreting quality scores as Phred+33 and using the selected sensitivity preset and deterministic seed. The specified fragment bounds and orientation governed concordant pairing; Bowtie 2 discordant-pair and single-mate fallback were enabled. At most one primary alignment was reported per read, with unmapped reads retained. SAM records include the selected sample, read group, library and sequencing-platform tags. Output order follows input order and is not coordinate sorted. Settings: Sample name=validation; Read-group ID=lane1; Library ID=library1; Sequencing platform=ILLUMINA; End-to-end search effort=sensitive; Threads=1; Random seed=42; Expected mate orientation=fr; Minimum fragment length=0; Maximum fragment length=500. Inputs: Read 1: I1 \u00b7 Sixty pairs; 20 percent SNP alleles | Reference genome: I2 \u00b7 Known synthetic reference.\n\nStep S2 (Prepare DNA alignments) was performed using samtools 1.24 (pack bam 0.4.0). Name-sort, fix mates, coordinate-sort, mark duplicates, index and summarize. Duplicates are retained. Inputs: Paired alignments: S1 \u00b7 Map the known read pairs \u2192 Read alignments (unsorted SAM).\n\nStep S3 (Call low-frequency SNPs) was performed using lofreq 2.1.5-workbench-port2; samtools 1.24 (pack lofreq 0.5.3). LoFreq called SNVs only with the configured mapping/base-quality, coverage, depth and significance thresholds, extended BAQ, dynamic Bonferroni correction and default post-call filters (minimum coverage 10 and strand-bias FDR). Only PASS sites were retained. The VCF contains observed read allele frequencies and site error-model significance, not sample genotypes or a ploidy model; low-frequency calls require assay-specific validation. Settings: Minimum mapping quality=20; Minimum reference and alternate base quality=20; Minimum tested coverage=10; Maximum pileup depth=1000000; Significance level=0.01. Inputs: Coordinate-sorted DNA alignments: S2 \u00b7 Prepare DNA alignments \u2192 Sorted, duplicate-marked BAM | Reference genome: I2 \u00b7 Known synthetic reference.\n\nStep S4 (VarDict targeted calls) was performed using bcftools 1.24; java 8u504-b01; perl 5.42.3.1; samtools 1.24 (pack vardict 0.5.3). Single-sample targeted variants were called with VarDictJava 1.8.3 using local realignment and the upstream EXPERIMENTAL --fisher implementation of strand-bias Fisher tests. Structural-variant calling was disabled. Coordinate-sorted DNA BAM and nonoverlapping BED4 targets were used with the recorded quality, depth and allele-fraction settings. The unmodified upstream var2vcf_valid.pl script bundled with release 1.8.3 (script version 1.8.2) converted every candidate allele (-A) to VCF, retaining FILTER labels; its allele-fraction-based diploid genotype convention was retained (homozygous ALT above 80% AF). This does not determine somatic status or support arbitrary ploidy. BCFtools checked REF alleles, left-aligned/split calls, compressed/indexed all calls and separately exported PASS calls. The Java Fisher path was compared with R on finite deterministic fixtures but remains experimental upstream. Settings: Sample name (BAM SM)=validation; Minimum candidate allele fraction=0.02; VCF minimum total depth=8; Minimum alternate-supporting reads=3; Good-base Phred quality=25; Minimum read mapping quality=20; VCF minimum mean read position=8; Threads=1; Maximum Java heap (MiB)=1024. Inputs: Prepared coordinate-sorted single-sample BAM: S2 \u00b7 Prepare DNA alignments \u2192 Sorted, duplicate-marked BAM | Matching reference genome: I2 \u00b7 Known synthetic reference | Target intervals (BED4): I3 \u00b7 Known target interval.\n\nStep S5 (LoFreq call statistics) was performed using bcftools 1.24 (pack variants 0.4.0). Summarize an existing VCF or BCF. Inputs: Variants: S3 \u00b7 Call low-frequency SNPs \u2192 PASS site-only variants (no genotypes).\n\nStep S6 (Combine statistics reports) was performed using Combine statistics reports (pack builtin 0.5.0). Collect selected statistics into a local HTML report with a separate, attributed section for each input. Counts are not pooled and variant files are not merged. Settings: Report title=Independent caller results. Inputs: Statistics to include: S5 \u00b7 LoFreq call statistics \u2192 Variant statistics; S4 \u00b7 VarDict targeted calls \u2192 All-call statistics.\n\nTool references:\nLangmead B, Salzberg SL. Fast gapped-read alignment with Bowtie 2. Nature Methods 9, 357\u2013359 (2012). https://doi.org/10.1038/nmeth.1923\nWilm et al. (2012). LoFreq: a sequence-quality aware, ultra-sensitive variant caller for uncovering cell-population heterogeneity from high-throughput sequencing datasets. Nucleic Acids Research 40:11189\u201311201. https://doi.org/10.1093/nar/gks918\nAlbers et al. (2011). Dindel: accurate indel calls from short-read data. Genome Research 21:961\u2013973. https://doi.org/10.1101/gr.112326.110\nLai et al. (2016). VarDict: a novel and versatile variant caller for next-generation sequencing in cancer research. https://doi.org/10.1093/nar/gkw227\n\nOperations run locally in dependency order. Independent branches are scheduled sequentially. The run record records exact packs, parameters, input identities, outputs and completion states.\n"
+    }
+  ],
+  "scientificInstallationChecks": [
+    {
+      "id": "bowtie2/single-end",
+      "status": "passed"
+    },
+    {
+      "id": "bowtie2/paired-end",
+      "status": "passed"
+    },
+    {
+      "id": "bowtie2/single-end-large",
+      "status": "passed"
+    },
+    {
+      "id": "bowtie2/paired-end-large",
+      "status": "passed"
+    },
+    {
+      "id": "hisat2/rna-single",
+      "status": "passed"
+    },
+    {
+      "id": "hisat2/rna-paired",
+      "status": "passed"
+    },
+    {
+      "id": "hisat2/dna-single",
+      "status": "passed"
+    },
+    {
+      "id": "hisat2/dna-paired",
+      "status": "passed"
+    },
+    {
+      "id": "lofreq/low-frequency-snv",
+      "status": "passed"
+    },
+    {
+      "id": "lofreq/dindel-insertion",
+      "status": "passed"
+    },
+    {
+      "id": "muscle/align-nucleotide",
+      "status": "passed"
+    },
+    {
+      "id": "muscle/align-protein",
+      "status": "passed"
+    },
+    {
+      "id": "muscle/super5-nucleotide",
+      "status": "passed"
+    },
+    {
+      "id": "muscle/super5-protein",
+      "status": "passed"
+    },
+    {
+      "id": "seqkit/fastq-statistics",
+      "status": "passed"
+    },
+    {
+      "id": "seqkit/quality-loss-conversion",
+      "status": "passed"
+    },
+    {
+      "id": "seqkit/translation-standard-code",
+      "status": "passed"
+    },
+    {
+      "id": "seqkit/exact-count-sampling",
+      "status": "passed"
+    },
+    {
+      "id": "vardict/targeted-snv",
+      "status": "passed"
+    },
+    {
+      "id": "vardict/targeted-snv-insertion-deletion",
+      "status": "passed"
+    },
+    {
+      "id": "vsearch/merge-overlap",
+      "status": "passed"
+    },
+    {
+      "id": "vsearch/dereplication-counts",
+      "status": "passed"
+    },
+    {
+      "id": "vsearch/weighted-cluster-counts",
+      "status": "passed"
+    }
+  ],
+  "limitations": [
+    "Linux reference execution does not validate Windows launch/runtime behavior.",
+    "Small deterministic synthetic fixtures exercise the declared transformations and interfaces; they do not establish accuracy on all organisms, samples or clinical settings.",
+    "Single-sample alignment validation checks read-group header metadata, not RG tags on every record.",
+    "Reference dictionaries without M5 hashes do not prove reference base identity.",
+    "VarDict built-in Fisher mode remains explicitly experimental in its recorded methods."
+  ]
+}

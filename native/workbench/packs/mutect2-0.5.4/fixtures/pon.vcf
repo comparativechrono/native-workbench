@@ -1,0 +1,5 @@
+##fileformat=VCFv4.2
+##contig=<ID=chr1,length=5000>
+##INFO=<ID=AF,Number=A,Type=Float,Description="Synthetic population allele frequency">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO
+chr1	1000	.	C	G	.	PASS	.

@@ -1,0 +1,63 @@
+name: Verify frozen native tool library candidate
+
+on:
+  push:
+    branches: [verify/tool-library-0.11.0]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: verify-tool-library-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  native:
+    runs-on: windows-2022
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        folder: [ordinary, 'path with spaces']
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Retrieve the original immutable standalone candidate
+        uses: actions/download-artifact@v4
+        with:
+          name: tool-library-transfer-starter-acfa060c9a400d82509278b657ee37853c7922b0
+          run-id: 37678010251
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/frozen-candidate
+      - name: Verify exact bytes and extract a fresh application
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $starter = Join-Path $env:RUNNER_TEMP 'frozen-candidate/native-workbench-0.11.0-starter-windows.zip'
+          $expected = 'e816e2f7cd5efe98af752fbf072fab00344ebaa2b6963795c2fbf4a86b5fa81c'
+          if ((Get-FileHash $starter -Algorithm SHA256).Hash -ne $expected) { throw 'Frozen candidate SHA-256 mismatch.' }
+          Expand-Archive $starter (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER)
+      - name: Verify category interactions on the unchanged packaged application
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+          VALIDATOR_COMMIT: ${{ github.sha }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I scripts/check_tool_library_windows.py --app-root $app --report "$env:RUNNER_TEMP/library-evidence/native-tool-library.json" --source-commit 'acfa060c9a400d82509278b657ee37853c7922b0' --asset-sha256 'e816e2f7cd5efe98af752fbf072fab00344ebaa2b6963795c2fbf4a86b5fa81c' --asset-name 'native-workbench-0.11.0-starter-windows.zip'
+          if ($LASTEXITCODE -ne 0) { throw 'Frozen candidate category validation failed.' }
+      - name: Retain reports and native screenshots even on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tool-library-verified-${{ matrix.folder }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/library-evidence
+          if-no-files-found: error
+          retention-days: 30

@@ -1,0 +1,105 @@
+{
+  "schema": 1,
+  "tool": "HISAT2",
+  "version": "2.2.3-workbench1",
+  "upstreamTag": "v2.2.3",
+  "sourceCommit": "0d244324f98de541bce04d45c75e83bc3522f7f4",
+  "sourceUrl": "https://codeload.github.com/DaehwanKimLab/hisat2/tar.gz/refs/tags/v2.2.3",
+  "sourceSha256": "b53107422e5b44ebea4b20b1a77bb9e240d6b92d654fcd7e6a6ab5d1aae86c45",
+  "patchSha256": "9870cea803f3f76612b5b759eafc35e1d5ad4375a28ed41adc286ca41be43a45",
+  "windowsExecuted": false,
+  "windowsBuild": {
+    "patchSha256": "9870cea803f3f76612b5b759eafc35e1d5ad4375a28ed41adc286ca41be43a45",
+    "sourceCommit": "0d244324f98de541bce04d45c75e83bc3522f7f4",
+    "sourceSha256": "b53107422e5b44ebea4b20b1a77bb9e240d6b92d654fcd7e6a6ab5d1aae86c45",
+    "flags": [
+      "-std=c++11",
+      "-O2",
+      "-DNDEBUG",
+      "-fno-strict-aliasing",
+      "-msse2",
+      "-DPOPCNT_CAPABILITY",
+      "-DBOWTIE2",
+      "-DBOWTIE_64BIT_INDEX",
+      "-D_LARGEFILE_SOURCE",
+      "-D_FILE_OFFSET_BITS=64",
+      "-D_GNU_SOURCE",
+      "-DHISAT2_VERSION=\"2.2.3-workbench1\"",
+      "-DBUILD_HOST=\"NativeWorkbench\"",
+      "-DBUILD_TIME=\"2026-07-31\"",
+      "-DCOMPILER_VERSION=\"LLVM-MinGW 20260922\"",
+      "-DCOMPILER_OPTIONS=\"O2 SSE2 large-index static\"",
+      "-iquote",
+      "/workspace/scratch/0c5293ac0f36/integration-source/native-workbench/vendor-expanded/hisat2/build-source",
+      "-I",
+      "/workspace/scratch/0c5293ac0f36/integration-source/native-workbench/vendor-expanded/hisat2/build-source/third_party",
+      "-Wno-deprecated-declarations",
+      "-Wno-format",
+      "-Wno-unused-result"
+    ],
+    "compiler": "clang version 23.1.2 (https://github.com/llvm/llvm-project.git 85ac560262434c9ccfc0c183ec22d4138ed647fb)",
+    "files": {
+      "hisat2-align-l.exe": {
+        "sha256": "5d5e06dc325a7d00ee7c81953d63cd394230f7e3a6188bb129c8592eb92bca35",
+        "bytes": 2630144,
+        "imports": [
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-time-l1-1-0.dll",
+          "api-ms-win-crt-convert-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-environment-l1-1-0.dll",
+          "api-ms-win-crt-private-l1-1-0.dll",
+          "KERNEL32.dll",
+          "api-ms-win-crt-multibyte-l1-1-0.dll",
+          "api-ms-win-crt-filesystem-l1-1-0.dll"
+        ]
+      },
+      "hisat2-build-l.exe": {
+        "sha256": "1bd0d55c781c97bf02f9eaf98cd7d9d0efc7ef64764ba8d5308539142be85110",
+        "bytes": 2287616,
+        "imports": [
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-time-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-environment-l1-1-0.dll",
+          "api-ms-win-crt-private-l1-1-0.dll",
+          "api-ms-win-crt-utility-l1-1-0.dll",
+          "api-ms-win-crt-filesystem-l1-1-0.dll",
+          "api-ms-win-crt-convert-l1-1-0.dll",
+          "KERNEL32.dll",
+          "api-ms-win-crt-multibyte-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll"
+        ]
+      }
+    }
+  },
+  "portableHelpers": {
+    "samtools": {
+      "version": "1.24",
+      "sha256": "49c2f16425d464e4ad1c1439d7a9e32a3b1c1bf8e5d54403778de610d2f440b3"
+    },
+    "paircheck": {
+      "version": "1.0.1",
+      "sha256": "4f2dda7e26b5c115a7edee936a8a059eb55ece244931b2799a62cebfcd44ecd4"
+    }
+  },
+  "manual": "https://daehwankimlab.github.io/hisat2/manual/",
+  "citation": {
+    "text": "Kim D, Paggi JM, Park C, Bennett C and Salzberg SL (2019). Graph-based genome alignment and genotyping with HISAT2 and HISAT-genotype. Nature Biotechnology 37:907-915.",
+    "url": "https://doi.org/10.1038/s41587-019-0201-4"
+  },
+  "limitations": [
+    "Only uncompressed Phred+33 FASTQ inputs are exposed; no wrapper decompression or SRA network access.",
+    "ASCII installation/input/results paths; commas rejected because HISAT2 uses comma-separated file arguments.",
+    "Indexes are rebuilt privately for each operation; no annotation-derived splice sites or population-variant graph inputs in this pack.",
+    "RNA BAMs are specifically typed and cannot enter DNA-only calling workflows.",
+    "Indexing large genomes needs substantial memory and disk space; the sorting memory setting does not cap HISAT2 memory."
+  ]
+}

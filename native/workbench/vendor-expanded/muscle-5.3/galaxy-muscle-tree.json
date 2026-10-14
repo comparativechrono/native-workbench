@@ -1,0 +1,37 @@
+{
+  "tree": "147197a0b7e225c92b6cb18f392a8512fda080e0",
+  "truncated": false,
+  "muscle_paths": [
+    {
+      "path": "deprecated/packages/package_muscle_3_8_31",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8fafa457c564ebaa56e2d2244ef53fe005cf2d66",
+      "url": "https://api.github.com/repos/galaxyproject/tools-iuc/git/trees/8fafa457c564ebaa56e2d2244ef53fe005cf2d66"
+    },
+    {
+      "path": "deprecated/packages/package_muscle_3_8_31/.shed.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2887438cdcb9bccbf1be3647cde4d1a613c87cee",
+      "size": 456,
+      "url": "https://api.github.com/repos/galaxyproject/tools-iuc/git/blobs/2887438cdcb9bccbf1be3647cde4d1a613c87cee"
+    },
+    {
+      "path": "deprecated/packages/package_muscle_3_8_31/tool_dependencies.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "52b75801a74d871482e207185c2fbd9ef4959e90",
+      "size": 4384,
+      "url": "https://api.github.com/repos/galaxyproject/tools-iuc/git/blobs/52b75801a74d871482e207185c2fbd9ef4959e90"
+    },
+    {
+      "path": "tools/qiime/qiime_core/test-data/make_phylogeny/muscle.tre",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "de57a844d286b624d96bcf8ca8a8fc03c1fd292c",
+      "size": 1774,
+      "url": "https://api.github.com/repos/galaxyproject/tools-iuc/git/blobs/de57a844d286b624d96bcf8ca8a8fc03c1fd292c"
+    }
+  ]
+}

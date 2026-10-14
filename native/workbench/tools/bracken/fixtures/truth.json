@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "source": "Two independent fixtures: manually specified probability model with hand-calculated Bayesian truth, and actual Kraken2 synthetic-genome classifications with exhaustive length150 model. Neither is a biological performance benchmark.",
+  "manual": {
+    "species": {
+      "101": 37,
+      "102": 32,
+      "201": 20
+    },
+    "genus": {
+      "10": 70,
+      "20": 20
+    },
+    "threshold25": {
+      "101": 50
+    },
+    "calculation": "30/0.8=37.5 and20/0.6=100/3; parent likelihood weights7.5 and40/3 have ratio9:16.20parent observations give7.2 and12.8, unrounded counts37.2,32.8,20. Upstream truncates per-taxon counts37,32,20; fractions use integer total90, excluding10unclassified.",
+    "denominator": 90
+  },
+  "chain": {
+    "species": {
+      "101": 14,
+      "102": 9,
+      "201": 5
+    },
+    "genus": {
+      "10": 24,
+      "20": 5
+    },
+    "calculation": "Equal genome lengths and251/2851shared likelihoods give parent allocation ratio12:8.4shared observations add2.4and1.6; upstream truncates14.4,9.6,5 to14,9,5. Fraction denominator29;3unclassified excluded.",
+    "denominator": 29
+  }
+}

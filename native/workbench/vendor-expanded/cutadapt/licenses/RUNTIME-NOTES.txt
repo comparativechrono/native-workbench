@@ -1,0 +1,6 @@
+Cutadapt 5.2 and its dependencies are unmodified upstream wheels.
+CPython 3.13.16 is the official Windows x64 embeddable distribution.
+The python313._pth configuration adds only the bundled packages directory.
+Workflows invoke -I -B -m cutadapt: isolated imports, no bytecode writes.
+Source archives, wheel hashes, versions and download URLs accompany the release.
+Native Windows execution must be checked with Check installation.

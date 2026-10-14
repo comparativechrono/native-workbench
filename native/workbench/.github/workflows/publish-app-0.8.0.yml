@@ -1,0 +1,48 @@
+name: Publish accepted Native Workbench 0.8.0
+
+on:
+  push:
+    branches: [release/app-0.8.0]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-app-v0.8.0
+  cancel-in-progress: false
+
+jobs:
+  promote:
+    if: github.repository == 'comparativechrono/workbench' && github.ref == 'refs/heads/release/app-0.8.0'
+    runs-on: ubuntu-22.04
+    timeout-minutes: 20
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Check promotion refusal guards without network writes
+        run: python3 tests/test_publish_app_080.py
+      - name: Verify and promote the exact accepted archives without rebuilding
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 scripts/publish_app_080.py \
+            --input-dir "$RUNNER_TEMP/promotion-inputs" \
+            --output-dir "$RUNNER_TEMP/promotion-assets" \
+            --publish-sha "$GITHUB_SHA" \
+            --receipt "$RUNNER_TEMP/public-download-verification.json"
+      - name: Retain prepared release and final public download evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-v0.8.0-publication-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/promotion-assets
+            ${{ runner.temp }}/public-download-verification.json
+          if-no-files-found: error
+          retention-days: 30

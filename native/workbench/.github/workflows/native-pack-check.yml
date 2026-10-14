@@ -1,0 +1,359 @@
+name: Native Windows pack check
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: Release tag in this repository (draft or published)
+        required: true
+        type: string
+      asset_name:
+        description: Exact candidate pack ZIP asset name
+        required: true
+        type: string
+      asset_sha256:
+        description: Expected SHA-256 of the candidate pack ZIP
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  native:
+    runs-on: windows-2022
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        folder: [ordinary, 'path with spaces']
+    steps:
+      - name: Download exact candidate and released application
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          SOURCE_COMMIT: ${{ github.sha }}
+          RELEASE_TAG: ${{ inputs.release_tag }}
+          ASSET_NAME: ${{ inputs.asset_name }}
+          ASSET_SHA256: ${{ inputs.asset_sha256 }}
+          CASE_FOLDER: ${{ matrix.folder }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          if ($env:REPOSITORY -ne 'comparativechrono/workbench') { throw 'This gate pins the comparativechrono/workbench application.' }
+          if ($env:RELEASE_TAG -notmatch '^[a-zA-Z0-9][a-zA-Z0-9._-]{0,100}$' -or $env:ASSET_SHA256 -notmatch '^[a-fA-F0-9]{64}$') { throw 'Invalid release tag or checksum.' }
+          if ($env:ASSET_NAME -notmatch '^native-workbench-pack-[a-z0-9-]+-[0-9]+\.[0-9]+\.[0-9]+\.zip$') { throw 'Expected a pack ZIP asset name.' }
+          $headers = @{ Authorization = "Bearer $env:GH_TOKEN"; Accept = 'application/vnd.github+json'; 'X-GitHub-Api-Version' = '2022-11-28' }
+          # The by-tag endpoint only returns published releases. The list
+          # endpoint also exposes drafts when this read-only token may see them.
+          $releases = Invoke-RestMethod -Uri "https://api.github.com/repos/$env:REPOSITORY/releases?per_page=100" -Headers $headers
+          $matching = @($releases | Where-Object { $_.tag_name -eq $env:RELEASE_TAG })
+          if ($matching.Count -ne 1) { throw 'Release is absent or inaccessible to this read-only workflow.' }
+          $release = $matching[0]
+          $assets = @($release.assets | Where-Object { $_.name -eq $env:ASSET_NAME -and $_.state -eq 'uploaded' })
+          if ($assets.Count -ne 1) { throw 'Expected exactly one uploaded candidate asset.' }
+          $pack = Join-Path $env:RUNNER_TEMP 'candidate.zip'
+          $headers.Accept = 'application/octet-stream'
+          Invoke-WebRequest -Uri "https://api.github.com/repos/$env:REPOSITORY/releases/assets/$($assets[0].id)" -Headers $headers -OutFile $pack
+          if ((Get-FileHash $pack -Algorithm SHA256).Hash -ne $env:ASSET_SHA256) { throw 'Candidate SHA-256 differs.' }
+          $app = Join-Path $env:RUNNER_TEMP 'application.zip'
+          Invoke-WebRequest -Uri 'https://github.com/comparativechrono/workbench/releases/download/app-v0.6.0/native-workbench-0.6.0-starter-windows.zip' -OutFile $app
+          if ((Get-FileHash $app -Algorithm SHA256).Hash -ne '16fa802304c734b5721d838ff38b7e90ed36ccfc185a22239859cc3762af695a') { throw 'Application SHA-256 differs.' }
+          Expand-Archive $app (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER)
+          Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$env:REPOSITORY/$env:SOURCE_COMMIT/scripts/check_pack_release_windows.py" -OutFile (Join-Path $env:RUNNER_TEMP 'check_pack_release_windows.py')
+      - name: Import offline and run scientific checks on Windows
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'native-workbench'
+          $python = Join-Path $app 'runtime/python/python.exe'
+          & $python -I (Join-Path $env:RUNNER_TEMP 'check_pack_release_windows.py') --app-root $app --archive (Join-Path $env:RUNNER_TEMP 'candidate.zip') --report (Join-Path $env:RUNNER_TEMP 'native-pack.json')
+          if ($LASTEXITCODE -ne 0) { throw 'Native Windows scientific checks failed.' }
+      - name: Check kallisto at its default two threads
+        if: inputs.asset_name == 'native-workbench-pack-kallisto-1.0.0.zip'
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+          REPOSITORY: ${{ github.repository }}
+          SOURCE_COMMIT: ${{ github.sha }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'native-workbench'
+          $python = Join-Path $app 'runtime/python/python.exe'
+          $helper = Join-Path $env:RUNNER_TEMP 'check_kallisto_defaults_windows.py'
+          Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$env:REPOSITORY/$env:SOURCE_COMMIT/scripts/check_kallisto_defaults_windows.py" -OutFile $helper
+          & $python -I $helper --app-root $app --report (Join-Path $env:RUNNER_TEMP 'kallisto-defaults.json')
+          if ($LASTEXITCODE -ne 0) { throw 'Native kallisto default-thread scientific check failed.' }
+      - name: Check STAR repeated input and output chunks
+        if: inputs.asset_name == 'native-workbench-pack-star-1.0.0.zip'
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+          REPOSITORY: ${{ github.repository }}
+          SOURCE_COMMIT: ${{ github.sha }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'native-workbench'
+          $python = Join-Path $app 'runtime/python/python.exe'
+          $helper = Join-Path $env:RUNNER_TEMP 'check_star_chunks_windows.py'
+          Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$env:REPOSITORY/$env:SOURCE_COMMIT/scripts/check_star_chunks_windows.py" -OutFile $helper
+          & $python -I $helper --app-root $app --report (Join-Path $env:RUNNER_TEMP 'star-chunks.json')
+          if ($LASTEXITCODE -ne 0) { throw 'Native STAR repeated-chunk scientific check failed.' }
+      - name: Check BLAST local failure paths
+        if: startsWith(inputs.asset_name, 'native-workbench-pack-blast-')
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+          REPOSITORY: ${{ github.repository }}
+          SOURCE_COMMIT: ${{ github.sha }}
+          ASSET_NAME: ${{ inputs.asset_name }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          if ($env:ASSET_NAME -notmatch '^native-workbench-pack-blast-([0-9]+\.[0-9]+\.[0-9]+)\.zip$') { throw 'Invalid BLAST pack identity.' }
+          $packVersion = $Matches[1]
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'native-workbench'
+          $python = Join-Path $app 'runtime/python/python.exe'
+          $helper = Join-Path $env:RUNNER_TEMP 'check_blast_offline.py'
+          Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$env:REPOSITORY/$env:SOURCE_COMMIT/tools/blast/check_offline.py" -OutFile $helper
+          & $python -I $helper --app-root $app --pack-version $packVersion --report (Join-Path $env:RUNNER_TEMP 'blast-local-failures.json')
+          if ($LASTEXITCODE -ne 0) { throw 'Native BLAST local failure-path check failed.' }
+      - name: Check GATK released application graph and archive contracts
+        if: startsWith(inputs.asset_name, 'native-workbench-pack-gatk-')
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+          REPOSITORY: ${{ github.repository }}
+          SOURCE_COMMIT: ${{ github.sha }}
+          ASSET_NAME: ${{ inputs.asset_name }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          if ($env:ASSET_NAME -notmatch '^native-workbench-pack-gatk-([0-9]+\.[0-9]+\.[0-9]+)\.zip$') { throw 'Invalid GATK pack identity.' }
+          $packVersion = $Matches[1]
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'native-workbench'
+          $python = Join-Path $app 'runtime/python/python.exe'
+          $helper = Join-Path $env:RUNNER_TEMP 'test_gatk_pipeline.py'
+          Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$env:REPOSITORY/$env:SOURCE_COMMIT/tests/test_gatk_pipeline.py" -OutFile $helper
+          $env:NW_GATK_VERSION = $packVersion
+          $env:NW_GATK_STARTER_ZIP = Join-Path $env:RUNNER_TEMP 'application.zip'
+          $env:NW_GATK_PACK_DIR = Join-Path $app ('packs/gatk-' + $packVersion)
+          $env:NW_GATK_ARCHIVE = Join-Path $env:RUNNER_TEMP 'candidate.zip'
+          $env:NW_GATK_TEMP_DIR = Join-Path $env:RUNNER_TEMP 'gatk-contracts'
+          & $python -I $helper --report (Join-Path $env:RUNNER_TEMP 'gatk-graph-contracts.json')
+          if ($LASTEXITCODE -ne 0) { throw 'GATK released application graph/archive contracts failed.' }
+      # Independent diagnostic gates continue after a failed installation fixture.
+      # Any failed gate still fails the job; cancelled jobs do not resume work.
+      - name: Check expansion pack released application contracts
+        if: always() && !cancelled() && (startsWith(inputs.asset_name, 'native-workbench-pack-snpeff-') || startsWith(inputs.asset_name, 'native-workbench-pack-deseq2-') || startsWith(inputs.asset_name, 'native-workbench-pack-mosdepth-') || startsWith(inputs.asset_name, 'native-workbench-pack-iqtree-'))
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+          REPOSITORY: ${{ github.repository }}
+          SOURCE_COMMIT: ${{ github.sha }}
+          ASSET_NAME: ${{ inputs.asset_name }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          if ($env:ASSET_NAME -notmatch '^native-workbench-pack-(snpeff|deseq2|mosdepth|iqtree)-([0-9]+\.[0-9]+\.[0-9]+)\.zip$') { throw 'Invalid expansion pack identity.' }
+          $packId = $Matches[1]
+          $packVersion = $Matches[2]
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'native-workbench'
+          $python = Join-Path $app 'runtime/python/python.exe'
+          $helper = Join-Path $env:RUNNER_TEMP 'test_next_pipeline.py'
+          Invoke-WebRequest -Uri "https://raw.githubusercontent.com/$env:REPOSITORY/$env:SOURCE_COMMIT/tests/test_next_pipeline.py" -OutFile $helper
+          $env:NW_EXPANSION_PACK_IDS = $packId
+          $env:NW_EXPANSION_STARTER_ZIP = Join-Path $env:RUNNER_TEMP 'application.zip'
+          $env:NW_EXPANSION_TEMP_DIR = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) ('expansion-contracts-' + $packId)
+          $prefix = 'NW_EXPANSION_' + $packId.ToUpperInvariant()
+          [Environment]::SetEnvironmentVariable($prefix + '_VERSION', $packVersion, 'Process')
+          [Environment]::SetEnvironmentVariable($prefix + '_PACK_DIR', (Join-Path $app ('packs/' + $packId + '-' + $packVersion)), 'Process')
+          [Environment]::SetEnvironmentVariable($prefix + '_ARCHIVE', (Join-Path $env:RUNNER_TEMP 'candidate.zip'), 'Process')
+          $dependencies = @()
+          if ($packId -eq 'iqtree') {
+            $dependencies += @{ Id = 'muscle'; Version = '0.5.2'; Sha256 = 'c07d3e398f48df683926c0970ef77c3b7d2bdab6426b80c80186f2360ed25258' }
+          }
+          if ($packId -eq 'deseq2') {
+            $dependencies += @{ Id = 'featurecounts'; Version = '1.0.0'; Sha256 = 'f3319b6a8b13c30bc31b782008b0283c7688c739da2dd77cf5ab80859ccff4c2' }
+            $dependencies += @{ Id = 'kallisto'; Version = '1.0.1'; Sha256 = '641cd1f2b05e0951b1f8a58f45d6308ca6206bf86bf90fb74d0daa2860f5eecd' }
+          }
+          foreach ($dependency in $dependencies) {
+            $depId = $dependency.Id
+            $depVersion = $dependency.Version
+            $destination = Join-Path $env:RUNNER_TEMP ('dependency-' + $depId + '.zip')
+            $url = "https://github.com/comparativechrono/workbench/releases/download/pack-$depId-v$depVersion/native-workbench-pack-$depId-$depVersion.zip"
+            Invoke-WebRequest -Uri $url -OutFile $destination
+            if ((Get-FileHash $destination -Algorithm SHA256).Hash -ne $dependency.Sha256) { throw ('Dependency hash mismatch: ' + $depId) }
+            [Environment]::SetEnvironmentVariable('NW_EXPANSION_' + $depId.ToUpperInvariant() + '_ARCHIVE', $destination, 'Process')
+          }
+          & $python -I $helper --report (Join-Path $env:RUNNER_TEMP 'expansion-graph-contracts.json')
+          if ($LASTEXITCODE -ne 0) { throw 'Expansion pack released application contracts failed.' }
+      - name: Check out expansion regression sources
+        if: always() && !cancelled() && (startsWith(inputs.asset_name, 'native-workbench-pack-snpeff-') || startsWith(inputs.asset_name, 'native-workbench-pack-deseq2-') || startsWith(inputs.asset_name, 'native-workbench-pack-mosdepth-') || startsWith(inputs.asset_name, 'native-workbench-pack-iqtree-'))
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+      - name: Run expansion scientific and failure regressions
+        if: always() && !cancelled() && (startsWith(inputs.asset_name, 'native-workbench-pack-snpeff-') || startsWith(inputs.asset_name, 'native-workbench-pack-deseq2-') || startsWith(inputs.asset_name, 'native-workbench-pack-mosdepth-') || startsWith(inputs.asset_name, 'native-workbench-pack-iqtree-'))
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+          ASSET_NAME: ${{ inputs.asset_name }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          if ($env:ASSET_NAME -notmatch '^native-workbench-pack-(snpeff|deseq2|mosdepth|iqtree)-([0-9]+\.[0-9]+\.[0-9]+)\.zip$') { throw 'Invalid expansion pack identity.' }
+          $packId = $Matches[1]
+          $packVersion = $Matches[2]
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'native-workbench'
+          $python = Join-Path $app 'runtime/python/python.exe'
+          $pack = Join-Path $app ('packs/' + $packId + '-' + $packVersion)
+          $helper = Join-Path $env:GITHUB_WORKSPACE ('tests/test_' + $packId + '_pack.py')
+          $regressionArgs = @('-I', $helper, '--pack', $pack, '--report', (Join-Path $env:RUNNER_TEMP 'expansion-scientific-regressions.json'))
+          if ($packId -eq 'iqtree') {
+            $regressionArgs += @('--muscle-archive', (Join-Path $env:RUNNER_TEMP 'dependency-muscle.zip'))
+          }
+          & $python @regressionArgs
+          if ($LASTEXITCODE -ne 0) { throw 'Expansion scientific/failure regressions failed.' }
+      - name: Check out metagenomics regression sources
+        if: always() && !cancelled() && (startsWith(inputs.asset_name, 'native-workbench-pack-kraken2-') || startsWith(inputs.asset_name, 'native-workbench-pack-bracken-'))
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+      - name: Check metagenomics released application contracts
+        if: always() && !cancelled() && (startsWith(inputs.asset_name, 'native-workbench-pack-kraken2-') || startsWith(inputs.asset_name, 'native-workbench-pack-bracken-'))
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+          REPOSITORY: ${{ github.repository }}
+          ASSET_NAME: ${{ inputs.asset_name }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          if ($env:ASSET_NAME -notmatch '^native-workbench-pack-(kraken2|bracken)-([0-9]+\.[0-9]+\.[0-9]+)\.zip$') { throw 'Invalid metagenomics pack identity.' }
+          $packId = $Matches[1]
+          $packVersion = $Matches[2]
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'native-workbench'
+          $python = Join-Path $app 'runtime/python/python.exe'
+          $env:NW_METAGENOMICS_PACK_IDS = $packId
+          $env:NW_METAGENOMICS_STARTER_ZIP = Join-Path $env:RUNNER_TEMP 'application.zip'
+          $env:NW_METAGENOMICS_TEMP_DIR = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) ('metagenomics-contracts-' + $packId)
+          $prefix = 'NW_METAGENOMICS_' + $packId.ToUpperInvariant()
+          [Environment]::SetEnvironmentVariable($prefix + '_VERSION', $packVersion, 'Process')
+          [Environment]::SetEnvironmentVariable($prefix + '_PACK_DIR', (Join-Path $app ('packs/' + $packId + '-' + $packVersion)), 'Process')
+          [Environment]::SetEnvironmentVariable($prefix + '_ARCHIVE', (Join-Path $env:RUNNER_TEMP 'candidate.zip'), 'Process')
+          $lock = Get-Content (Join-Path $env:GITHUB_WORKSPACE 'tools/metagenomics/native-dependencies.json') -Raw | ConvertFrom-Json
+          if ($lock.schema -ne 1) { throw 'Unknown metagenomics dependency lock.' }
+          $depIds = if ($packId -eq 'kraken2') { @('fastp') } else { @('kraken2') }
+          foreach ($depId in $depIds) {
+            $dependency = $lock.packs.$depId
+            if (-not $dependency -or $dependency.version -notmatch '^[0-9]+\.[0-9]+\.[0-9]+$' -or $dependency.sha256 -notmatch '^[a-f0-9]{64}$') { throw ('Missing exact published dependency: ' + $depId) }
+            $depVersion = $dependency.version
+            $destination = Join-Path $env:RUNNER_TEMP ('dependency-' + $depId + '.zip')
+            $url = "https://github.com/comparativechrono/workbench/releases/download/pack-$depId-v$depVersion/native-workbench-pack-$depId-$depVersion.zip"
+            Invoke-WebRequest -Uri $url -OutFile $destination
+            if ((Get-FileHash $destination -Algorithm SHA256).Hash -ne $dependency.sha256) { throw ('Dependency hash mismatch: ' + $depId) }
+            $depPrefix = 'NW_METAGENOMICS_' + $depId.ToUpperInvariant()
+            [Environment]::SetEnvironmentVariable($depPrefix + '_VERSION', $depVersion, 'Process')
+            [Environment]::SetEnvironmentVariable($depPrefix + '_ARCHIVE', $destination, 'Process')
+            [Environment]::SetEnvironmentVariable($depPrefix + '_SHA256', $dependency.sha256, 'Process')
+          }
+          & $python -I (Join-Path $env:GITHUB_WORKSPACE 'tests/test_metagenomics_pipeline.py') --report (Join-Path $env:RUNNER_TEMP 'metagenomics-graph-contracts.json')
+          if ($LASTEXITCODE -ne 0) { throw 'Metagenomics released application graph/archive contracts failed.' }
+      - name: Run metagenomics scientific and failure regressions
+        if: always() && !cancelled() && (startsWith(inputs.asset_name, 'native-workbench-pack-kraken2-') || startsWith(inputs.asset_name, 'native-workbench-pack-bracken-'))
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+          ASSET_NAME: ${{ inputs.asset_name }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          if ($env:ASSET_NAME -notmatch '^native-workbench-pack-(kraken2|bracken)-([0-9]+\.[0-9]+\.[0-9]+)\.zip$') { throw 'Invalid metagenomics pack identity.' }
+          $packId = $Matches[1]
+          $packVersion = $Matches[2]
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'native-workbench'
+          $python = Join-Path $app 'runtime/python/python.exe'
+          $pack = Join-Path $app ('packs/' + $packId + '-' + $packVersion)
+          $helper = Join-Path $env:GITHUB_WORKSPACE ('tests/test_' + $packId + '_pack.py')
+          $regressionArgs = @('-I', $helper, '--pack', $pack, '--report', (Join-Path $env:RUNNER_TEMP 'metagenomics-scientific-regressions.json'))
+          if ($packId -eq 'bracken') { $regressionArgs += @('--kraken2-archive', (Join-Path $env:RUNNER_TEMP 'dependency-kraken2.zip')) }
+          & $python @regressionArgs
+          if ($LASTEXITCODE -ne 0) { throw 'Metagenomics scientific/failure regressions failed.' }
+      - name: Diagnose failed STAR process
+        if: failure()
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+        run: |
+          $ErrorActionPreference = 'Continue'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'native-workbench'
+          $exe = Get-ChildItem (Join-Path $app 'packs') -Filter 'STAR.exe' -File -Recurse | Select-Object -First 1
+          if ($exe) {
+            foreach ($option in @('--version', '--help')) {
+              Write-Output ('Direct STAR diagnostic: ' + $option)
+              $lines = & $exe.FullName $option 2>&1
+              Write-Output ('Exit code: ' + $LASTEXITCODE)
+              $lines | Select-Object -First 12
+            }
+            Get-WinEvent -FilterHashtable @{ LogName = 'Application'; Id = 1000 } -MaxEvents 3 -ErrorAction Continue | ForEach-Object { $_.Message }
+          }
+      - name: Record native evidence
+        if: always()
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+        run: |
+          foreach ($name in @('metagenomics-scientific-regressions.json', 'metagenomics-graph-contracts.json')) {
+            $metagenomicsReport = Join-Path $env:RUNNER_TEMP $name
+            if (Test-Path $metagenomicsReport) {
+              $metagenomicsText = Get-Content $metagenomicsReport -Raw
+              Write-Output $metagenomicsText
+              Add-Content $env:GITHUB_STEP_SUMMARY ('```json' + "`n" + $metagenomicsText + "`n" + '```')
+            }
+          }
+          $expansionScience = Join-Path $env:RUNNER_TEMP 'expansion-scientific-regressions.json'
+          if (Test-Path $expansionScience) {
+            $expansionScienceText = Get-Content $expansionScience -Raw
+            Write-Output $expansionScienceText
+            Add-Content $env:GITHUB_STEP_SUMMARY ('```json' + "`n" + $expansionScienceText + "`n" + '```')
+          }
+          $expansionGraph = Join-Path $env:RUNNER_TEMP 'expansion-graph-contracts.json'
+          if (Test-Path $expansionGraph) {
+            $expansionGraphText = Get-Content $expansionGraph -Raw
+            Write-Output $expansionGraphText
+            Add-Content $env:GITHUB_STEP_SUMMARY ('```json' + "`n" + $expansionGraphText + "`n" + '```')
+          }
+          $gatkGraph = Join-Path $env:RUNNER_TEMP 'gatk-graph-contracts.json'
+          if (Test-Path $gatkGraph) {
+            $gatkGraphText = Get-Content $gatkGraph -Raw
+            Write-Output $gatkGraphText
+            Add-Content $env:GITHUB_STEP_SUMMARY ('```json' + "`n" + $gatkGraphText + "`n" + '```')
+          }
+          $blast = Join-Path $env:RUNNER_TEMP 'blast-local-failures.json'
+          if (Test-Path $blast) {
+            $blastText = Get-Content $blast -Raw
+            Write-Output $blastText
+            Add-Content $env:GITHUB_STEP_SUMMARY ('```json' + "`n" + $blastText + "`n" + '```')
+          }
+          $chunks = Join-Path $env:RUNNER_TEMP 'star-chunks.json'
+          if (Test-Path $chunks) {
+            $chunkText = Get-Content $chunks -Raw
+            Write-Output $chunkText
+            Add-Content $env:GITHUB_STEP_SUMMARY ('```json' + "`n" + $chunkText + "`n" + '```')
+          }
+          $defaults = Join-Path $env:RUNNER_TEMP 'kallisto-defaults.json'
+          if (Test-Path $defaults) {
+            $defaultText = Get-Content $defaults -Raw
+            Write-Output $defaultText
+            Add-Content $env:GITHUB_STEP_SUMMARY ('```json' + "`n" + $defaultText + "`n" + '```')
+          }
+          $report = Join-Path $env:RUNNER_TEMP 'native-pack.json'
+          if (Test-Path $report) {
+            $text = Get-Content $report -Raw
+            Write-Output $text
+            Add-Content $env:GITHUB_STEP_SUMMARY ('```json' + "`n" + $text + "`n" + '```')
+            if (-not ($text | ConvertFrom-Json).success) {
+              $results = Join-Path (Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'native-workbench') 'results'
+              Get-ChildItem $results -File -Recurse | Where-Object { $_.Name -like '*.log' -or $_.Name -like '*Log.out' } | Select-Object -First 40 | ForEach-Object {
+                Write-Output ('Diagnostic: ' + $_.FullName)
+                Get-Content $_.FullName -Tail 80
+              }
+            }
+          }

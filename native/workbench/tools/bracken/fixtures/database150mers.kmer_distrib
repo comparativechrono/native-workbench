@@ -1,0 +1,5 @@
+mapped_taxid	genome_taxids:kmers_mapped:total_genome_kmers
+10	101:251:2851 102:251:2851 
+101	101:2600:2851 
+102	102:2600:2851 
+201	201:2851:2851 

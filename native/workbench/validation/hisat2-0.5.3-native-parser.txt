@@ -1,0 +1,2 @@
+packs/hisat2-0.5.3/pack.ini: 4 tools, 4 workflows
+PASS: 176 pack-model checks

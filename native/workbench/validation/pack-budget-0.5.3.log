@@ -1,0 +1,9 @@
+test_corresponding_source_bundle_can_exceed_old_256_mib_limit (test_pack_inventory_budget.PackInventoryBudgetTests.test_corresponding_source_bundle_can_exceed_old_256_mib_limit) ... ok
+test_individual_runtime_asset_keeps_existing_256_mib_limit (test_pack_inventory_budget.PackInventoryBudgetTests.test_individual_runtime_asset_keeps_existing_256_mib_limit) ... ok
+test_more_space_does_not_admit_undeclared_runtime_files (test_pack_inventory_budget.PackInventoryBudgetTests.test_more_space_does_not_admit_undeclared_runtime_files) ... ok
+test_total_budget_includes_licenses_and_has_exact_boundary (test_pack_inventory_budget.PackInventoryBudgetTests.test_total_budget_includes_licenses_and_has_exact_boundary) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.005s
+
+OK

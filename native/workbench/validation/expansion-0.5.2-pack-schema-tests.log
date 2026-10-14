@@ -1,0 +1,22 @@
+test_abundance_headers_required_counted_and_not_duplicated (__main__.PackSchemaTests.test_abundance_headers_required_counted_and_not_duplicated) ... ok
+test_actual_producer_alignment_type_is_retained_for_multi_type_consumer (__main__.PackSchemaTests.test_actual_producer_alignment_type_is_retained_for_multi_type_consumer) ... ok
+test_content_hash_checked_at_discovery_and_again_before_execution (__main__.PackSchemaTests.test_content_hash_checked_at_discovery_and_again_before_execution) ... ok
+test_cumulative_abundance_cannot_overflow_downstream_counts (__main__.PackSchemaTests.test_cumulative_abundance_cannot_overflow_downstream_counts) ... ok
+test_discovery_uses_pinned_category_ports_outputs_methods_and_citations (__main__.PackSchemaTests.test_discovery_uses_pinned_category_ports_outputs_methods_and_citations) ... ok
+test_duplicate_nonfinite_unknown_json_fields_and_versions_rejected (__main__.PackSchemaTests.test_duplicate_nonfinite_unknown_json_fields_and_versions_rejected) ... ok
+test_empty_output_allowed_but_empty_sequence_input_rejected (__main__.PackSchemaTests.test_empty_output_allowed_but_empty_sequence_input_rejected) ... ok
+test_fasta_abundance_sort_state_does_not_invoke_samtools (__main__.PackSchemaTests.test_fasta_abundance_sort_state_does_not_invoke_samtools) ... ok
+test_full_alphabet_validation_reads_beyond_signature_window (__main__.PackSchemaTests.test_full_alphabet_validation_reads_beyond_signature_window) ... ok
+test_methods_are_future_then_completed_and_only_include_relevant_citations (__main__.PackSchemaTests.test_methods_are_future_then_completed_and_only_include_relevant_citations) ... ok
+test_msa_columns_and_alphabets_are_separate_from_unaligned_fasta (__main__.PackSchemaTests.test_msa_columns_and_alphabets_are_separate_from_unaligned_fasta) ... ok
+test_muscle_style_explicit_input_limits_unique_ids_and_cancel (__main__.PackSchemaTests.test_muscle_style_explicit_input_limits_unique_ids_and_cancel) ... ok
+test_plain_fasta_extension_does_not_become_genomic_reference (__main__.PackSchemaTests.test_plain_fasta_extension_does_not_become_genomic_reference) ... ok
+test_plain_gzip_cannot_claim_bgzf (__main__.PackSchemaTests.test_plain_gzip_cannot_claim_bgzf) ... ok
+test_reject_abundance_is_per_workflow_and_abundance_sort_is_verified (__main__.PackSchemaTests.test_reject_abundance_is_per_workflow_and_abundance_sort_is_verified) ... ok
+test_sequence_compression_and_abundance_declarations_are_consistent (__main__.PackSchemaTests.test_sequence_compression_and_abundance_declarations_are_consistent) ... ok
+test_workflow_file_coverage_cardinality_and_ids_are_strict (__main__.PackSchemaTests.test_workflow_file_coverage_cardinality_and_ids_are_strict) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.033s
+
+OK

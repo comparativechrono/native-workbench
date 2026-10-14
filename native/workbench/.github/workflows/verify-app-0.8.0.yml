@@ -1,0 +1,40 @@
+name: Verify published Native Workbench 0.8.0
+
+on:
+  push:
+    branches: [release/verify-app-0.8.0]
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  verify:
+    if: github.repository == 'comparativechrono/workbench' && github.ref == 'refs/heads/release/verify-app-0.8.0'
+    runs-on: ubuntu-22.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Check promotion and read-only verification guards
+        run: python3 tests/test_publish_app_080.py
+      - name: Verify existing public release without changing it
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 scripts/publish_app_080.py --verify-published \
+            --input-dir "$RUNNER_TEMP/verification-inputs" \
+            --output-dir "$RUNNER_TEMP/verification-assets" \
+            --publish-sha 6fa1886b2027cfe634d9f9234fff773cd6c646d0 \
+            --receipt "$RUNNER_TEMP/public-download-verification.json"
+      - name: Retain exact public download verification receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-v0.8.0-public-verification-${{ github.sha }}
+          path: ${{ runner.temp }}/public-download-verification.json
+          if-no-files-found: error
+          retention-days: 30

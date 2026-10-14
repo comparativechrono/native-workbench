@@ -1,0 +1,601 @@
+{
+  "schema": 1,
+  "nativeWindowsExecuted": false,
+  "success": true,
+  "tests": 7,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "elapsedSeconds": 45.167,
+  "packManifestSha256": "bef9c8ee3b35b3b4ead54ed359a019d6592933e5ee84a05e449d014891f7ab3e",
+  "gatk": "4.7.0.0 with isolated local-path compatibility helper",
+  "java": "Temurin17.0.20.1+1 Linux",
+  "execution": "Original final manifest argv, packaged SAMtools and BCFtools via pinned APE loader; pinned matching Linux Java substituted only.",
+  "javaExecutableSha256": "f5aed21d3a0b0f4b05d3a3f9fe71263916d5bc0d47b53aa52a3340b90f0b4805",
+  "javaCorePins": {
+    "lib/libjava.so": "180b9143f1b0889e492f21aecbcc4917c2fe168498d5f2589ad6b9403ef26026",
+    "lib/server/libjvm.so": "11e5d09f442e42bddc4619b6eed829eaf3952158a5f77c797a58d558fae21738",
+    "lib/modules": "7c4331d913282f8b4afef338a8b6313c2bd5c7c56ca4973504f14624e331a572",
+    "release": "a23a26314d44357bfbcee8358e63ffc117c42e6b6580bb0d27ccfef2c5d53983"
+  },
+  "apeLoaderSha256": "ad98161cba98163f6aa383595804489cec52a9ff3b902be16b29368e171ba359",
+  "scientificChecks": [
+    {
+      "id": "tumor-only-somatic-germline-controls",
+      "workflow": "tumor-only",
+      "params": {
+        "tumor-sample": "TUMOR",
+        "memory": 1024
+      },
+      "inputs": {
+        "tumor": [
+          {
+            "tumor": "fixture-tumor"
+          }
+        ],
+        "reference": [
+          {
+            "reference": "fixture-reference"
+          }
+        ],
+        "targets": [
+          {
+            "targets": "fixture-targets"
+          }
+        ]
+      },
+      "expect": [
+        {
+          "output": "variants",
+          "kind": "vcf",
+          "records": 4,
+          "samples": [
+            "TUMOR"
+          ],
+          "variants": [
+            {
+              "chrom": "chr1",
+              "pos": 1000,
+              "ref": "C",
+              "alt": "G",
+              "filter": "PASS",
+              "genotypes": {
+                "TUMOR": "0/1"
+              }
+            },
+            {
+              "chrom": "chr1",
+              "pos": 2000,
+              "ref": "T",
+              "alt": "TAGC",
+              "filter": "PASS",
+              "genotypes": {
+                "TUMOR": "0/1"
+              }
+            },
+            {
+              "chrom": "chr1",
+              "pos": 3001,
+              "ref": "GTTT",
+              "alt": "G",
+              "filter": "PASS",
+              "genotypes": {
+                "TUMOR": "0/1"
+              }
+            },
+            {
+              "chrom": "chr1",
+              "pos": 4000,
+              "ref": "T",
+              "alt": "A",
+              "filter": "PASS",
+              "genotypes": {
+                "TUMOR": "0/1"
+              }
+            }
+          ],
+          "absentVariants": [
+            {
+              "chrom": "chr1",
+              "pos": 4500
+            }
+          ]
+        },
+        {
+          "output": "pass-variants",
+          "kind": "vcf",
+          "records": 4,
+          "samples": [
+            "TUMOR"
+          ],
+          "variants": [
+            {
+              "chrom": "chr1",
+              "pos": 1000,
+              "ref": "C",
+              "alt": "G",
+              "filter": "PASS",
+              "genotypes": {
+                "TUMOR": "0/1"
+              }
+            },
+            {
+              "chrom": "chr1",
+              "pos": 2000,
+              "ref": "T",
+              "alt": "TAGC",
+              "filter": "PASS",
+              "genotypes": {
+                "TUMOR": "0/1"
+              }
+            },
+            {
+              "chrom": "chr1",
+              "pos": 3001,
+              "ref": "GTTT",
+              "alt": "G",
+              "filter": "PASS",
+              "genotypes": {
+                "TUMOR": "0/1"
+              }
+            },
+            {
+              "chrom": "chr1",
+              "pos": 4000,
+              "ref": "T",
+              "alt": "A",
+              "filter": "PASS",
+              "genotypes": {
+                "TUMOR": "0/1"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tumor-normal-somatic-germline-controls",
+      "workflow": "tumor-normal",
+      "params": {
+        "tumor-sample": "TUMOR",
+        "memory": 1024,
+        "normal-sample": "NORMAL"
+      },
+      "inputs": {
+        "tumor": [
+          {
+            "tumor": "fixture-tumor"
+          }
+        ],
+        "reference": [
+          {
+            "reference": "fixture-reference"
+          }
+        ],
+        "targets": [
+          {
+            "targets": "fixture-targets"
+          }
+        ],
+        "normal": [
+          {
+            "normal": "fixture-normal"
+          }
+        ]
+      },
+      "expect": [
+        {
+          "output": "variants",
+          "kind": "vcf",
+          "records": 3,
+          "samples": [
+            "NORMAL",
+            "TUMOR"
+          ],
+          "variants": [
+            {
+              "chrom": "chr1",
+              "pos": 1000,
+              "ref": "C",
+              "alt": "G",
+              "filter": "PASS",
+              "genotypes": {
+                "NORMAL": "0/0",
+                "TUMOR": "0/1"
+              }
+            },
+            {
+              "chrom": "chr1",
+              "pos": 2000,
+              "ref": "T",
+              "alt": "TAGC",
+              "filter": "PASS",
+              "genotypes": {
+                "NORMAL": "0/0",
+                "TUMOR": "0/1"
+              }
+            },
+            {
+              "chrom": "chr1",
+              "pos": 3001,
+              "ref": "GTTT",
+              "alt": "G",
+              "filter": "PASS",
+              "genotypes": {
+                "NORMAL": "0/0",
+                "TUMOR": "0/1"
+              }
+            }
+          ],
+          "absentVariants": [
+            {
+              "chrom": "chr1",
+              "pos": 4500
+            },
+            {
+              "chrom": "chr1",
+              "pos": 4000
+            }
+          ]
+        },
+        {
+          "output": "pass-variants",
+          "kind": "vcf",
+          "records": 3,
+          "samples": [
+            "NORMAL",
+            "TUMOR"
+          ],
+          "variants": [
+            {
+              "chrom": "chr1",
+              "pos": 1000,
+              "ref": "C",
+              "alt": "G",
+              "filter": "PASS",
+              "genotypes": {
+                "NORMAL": "0/0",
+                "TUMOR": "0/1"
+              }
+            },
+            {
+              "chrom": "chr1",
+              "pos": 2000,
+              "ref": "T",
+              "alt": "TAGC",
+              "filter": "PASS",
+              "genotypes": {
+                "NORMAL": "0/0",
+                "TUMOR": "0/1"
+              }
+            },
+            {
+              "chrom": "chr1",
+              "pos": 3001,
+              "ref": "GTTT",
+              "alt": "G",
+              "filter": "PASS",
+              "genotypes": {
+                "NORMAL": "0/0",
+                "TUMOR": "0/1"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tumor-only-resources-somatic-germline-controls",
+      "workflow": "tumor-only-resources",
+      "params": {
+        "tumor-sample": "TUMOR",
+        "memory": 1024
+      },
+      "inputs": {
+        "tumor": [
+          {
+            "tumor": "fixture-tumor"
+          }
+        ],
+        "reference": [
+          {
+            "reference": "fixture-reference"
+          }
+        ],
+        "targets": [
+          {
+            "targets": "fixture-targets"
+          }
+        ],
+        "germline-resource": [
+          {
+            "germline-resource": "fixture-germline"
+          }
+        ],
+        "panel-of-normals": [
+          {
+            "panel-of-normals": "fixture-pon"
+          }
+        ]
+      },
+      "expect": [
+        {
+          "output": "variants",
+          "kind": "vcf",
+          "records": 3,
+          "samples": [
+            "TUMOR"
+          ],
+          "variants": [
+            {
+              "chrom": "chr1",
+              "pos": 2000,
+              "ref": "T",
+              "alt": "TAGC",
+              "filter": "PASS",
+              "genotypes": {
+                "TUMOR": "0/1"
+              }
+            },
+            {
+              "chrom": "chr1",
+              "pos": 3001,
+              "ref": "GTTT",
+              "alt": "G",
+              "filter": "PASS",
+              "genotypes": {
+                "TUMOR": "0/1"
+              }
+            },
+            {
+              "chrom": "chr1",
+              "pos": 4000,
+              "ref": "T",
+              "alt": "A",
+              "filter": "germline",
+              "genotypes": {
+                "TUMOR": "0/1"
+              }
+            }
+          ],
+          "absentVariants": [
+            {
+              "chrom": "chr1",
+              "pos": 4500
+            },
+            {
+              "chrom": "chr1",
+              "pos": 1000
+            }
+          ]
+        },
+        {
+          "output": "pass-variants",
+          "kind": "vcf",
+          "records": 2,
+          "samples": [
+            "TUMOR"
+          ],
+          "variants": [
+            {
+              "chrom": "chr1",
+              "pos": 2000,
+              "ref": "T",
+              "alt": "TAGC",
+              "filter": "PASS",
+              "genotypes": {
+                "TUMOR": "0/1"
+              }
+            },
+            {
+              "chrom": "chr1",
+              "pos": 3001,
+              "ref": "GTTT",
+              "alt": "G",
+              "filter": "PASS",
+              "genotypes": {
+                "TUMOR": "0/1"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tumor-normal-resources-somatic-germline-controls",
+      "workflow": "tumor-normal-resources",
+      "params": {
+        "tumor-sample": "TUMOR",
+        "memory": 1024,
+        "normal-sample": "NORMAL"
+      },
+      "inputs": {
+        "tumor": [
+          {
+            "tumor": "fixture-tumor"
+          }
+        ],
+        "reference": [
+          {
+            "reference": "fixture-reference"
+          }
+        ],
+        "targets": [
+          {
+            "targets": "fixture-targets"
+          }
+        ],
+        "normal": [
+          {
+            "normal": "fixture-normal"
+          }
+        ],
+        "germline-resource": [
+          {
+            "germline-resource": "fixture-germline"
+          }
+        ],
+        "panel-of-normals": [
+          {
+            "panel-of-normals": "fixture-pon"
+          }
+        ]
+      },
+      "expect": [
+        {
+          "output": "variants",
+          "kind": "vcf",
+          "records": 2,
+          "samples": [
+            "NORMAL",
+            "TUMOR"
+          ],
+          "variants": [
+            {
+              "chrom": "chr1",
+              "pos": 2000,
+              "ref": "T",
+              "alt": "TAGC",
+              "filter": "PASS",
+              "genotypes": {
+                "NORMAL": "0/0",
+                "TUMOR": "0/1"
+              }
+            },
+            {
+              "chrom": "chr1",
+              "pos": 3001,
+              "ref": "GTTT",
+              "alt": "G",
+              "filter": "PASS",
+              "genotypes": {
+                "NORMAL": "0/0",
+                "TUMOR": "0/1"
+              }
+            }
+          ],
+          "absentVariants": [
+            {
+              "chrom": "chr1",
+              "pos": 4500
+            },
+            {
+              "chrom": "chr1",
+              "pos": 4000
+            },
+            {
+              "chrom": "chr1",
+              "pos": 1000
+            }
+          ]
+        },
+        {
+          "output": "pass-variants",
+          "kind": "vcf",
+          "records": 2,
+          "samples": [
+            "NORMAL",
+            "TUMOR"
+          ],
+          "variants": [
+            {
+              "chrom": "chr1",
+              "pos": 2000,
+              "ref": "T",
+              "alt": "TAGC",
+              "filter": "PASS",
+              "genotypes": {
+                "NORMAL": "0/0",
+                "TUMOR": "0/1"
+              }
+            },
+            {
+              "chrom": "chr1",
+              "pos": 3001,
+              "ref": "GTTT",
+              "alt": "G",
+              "filter": "PASS",
+              "genotypes": {
+                "NORMAL": "0/0",
+                "TUMOR": "0/1"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "fixtureTruth": {
+    "schema": 1,
+    "seed": 5407,
+    "referenceMd5": "9c89abde02d73a4051a6ed7a383c4c4a",
+    "samples": [
+      "NORMAL",
+      "TUMOR"
+    ],
+    "fragmentsPerLocusPerSample": 120,
+    "readLength": 150,
+    "explanation": "Deterministic synthetic aligned pairs; nominal fractions refer to fragments. Somatic SNV/insertion/deletion, shared germline SNV and Phred-2 alternate noise. Synthetic PoN deliberately lists the truth SNV to test resource-driven suppression.",
+    "variants": [
+      {
+        "chrom": "chr1",
+        "pos": 1000,
+        "ref": "C",
+        "alt": "G",
+        "kind": "snv",
+        "tumorFraction": 0.3,
+        "normalFraction": 0.0
+      },
+      {
+        "chrom": "chr1",
+        "pos": 2000,
+        "ref": "T",
+        "alt": "TAGC",
+        "kind": "insertion",
+        "tumorFraction": 0.3,
+        "normalFraction": 0.0
+      },
+      {
+        "chrom": "chr1",
+        "pos": 3001,
+        "ref": "GTTT",
+        "alt": "G",
+        "kind": "deletion",
+        "tumorFraction": 0.3,
+        "normalFraction": 0.0
+      },
+      {
+        "chrom": "chr1",
+        "pos": 4000,
+        "ref": "T",
+        "alt": "A",
+        "kind": "germline",
+        "tumorFraction": 0.5,
+        "normalFraction": 0.5
+      },
+      {
+        "chrom": "chr1",
+        "pos": 4500,
+        "ref": "A",
+        "alt": "C",
+        "kind": "low-quality-noise",
+        "tumorFraction": 0.02,
+        "normalFraction": 0.0
+      }
+    ]
+  },
+  "additionalCoverage": [
+    "Paths containing spaces and non-ASCII é; VCF output decoded as strict UTF-8",
+    "Gzip population and PoN input resources",
+    "Valid zero-call VCF for uncovered intervals",
+    "Original input checksums preserved",
+    "User-supplied nonzero contamination fraction passed to FilterMutectCalls",
+    "Missing AF declaration, wrong reference MD5, malformed BAM, BED bounds, mismatched sample, equal names and same-file inputs rejected before execution",
+    "Non-ASCII and spaced sample identifiers rejected while Unicode file paths remain supported"
+  ],
+  "limitations": [
+    "Synthetic regression data, not sensitivity/specificity or clinical validation",
+    "No native Windows execution in this environment",
+    "No automatic contamination estimation, duplicate marking or BQSR in this pack"
+  ]
+}

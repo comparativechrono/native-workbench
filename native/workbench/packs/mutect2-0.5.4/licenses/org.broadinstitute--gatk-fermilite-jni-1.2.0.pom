@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.broadinstitute</groupId>
+  <artifactId>gatk-fermilite-jni</artifactId>
+  <version>1.2.0</version>
+  <name>gatk-fermilite-jni</name>
+  <description>java Bindings for the fermi-lite assembler</description>
+  <url>http://github.com/broadinstitute/gatk-fermlite-jni</url>
+  <licenses>
+    <license>
+      <name>BSD 3-Clause</name>
+      <url>https://github.com/broadinstitute/gatk-fermilite-jni/blob/master/LICENSE.TXT</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>gatkdev</id>
+      <name>GATK Development Team</name>
+      <email>gatk-dev-public@broadinstitute.org</email>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git@github.com:broadinstitute/gatk-fermilite-jni.git</connection>
+    <developerConnection>scm:git@github.com:broadinstitute/gatk-fermilite-jni.git</developerConnection>
+    <url>scm:git@github.com:broadinstitute/gatk-fermlite-jni.git</url>
+  </scm>
+  <dependencies>
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>6.9.6</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>

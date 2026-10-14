@@ -1,0 +1,40 @@
+Native Workbench 0.5.1 - institutional deployment notes
+
+Interface and transport
+The application is a Win32 desktop executable. It communicates with its bundled
+Python orchestration process through anonymous stdin/stdout pipes. The desktop
+package does not run a web server, open a listening socket or require a browser.
+Historical browser-interface source is retained only in the source archive.
+
+Installation
+Extract the complete distribution into a folder the user can read and write,
+then launch NativeWorkbench.exe directly. A command prompt or shell is not
+required. The .cmd launch scripts are optional conveniences.
+The workbench does not require elevation, a system Python installation, Docker,
+WSL, a Linux partition or a virtual machine. Keep the directory structure intact.
+Runtime modules, libraries, executables and tool assets are supplied together.
+The release manifest hashes the immutable installation contents; results and
+user-data are intentionally excluded because users create and change them.
+
+Application control
+This is an unsigned development build. Approval requirements depend on local
+policy. Where allowlisting is required, consider NativeWorkbench.exe,
+WorkbenchBridge.exe, NativeWorkbenchClassic.exe, WindowsPipelineChecks.exe,
+runtime/python/python.exe and pythonw.exe, their DLLs/PYD modules, and executables
+and libraries declared by each tool pack. Approving only the desktop executable
+may leave the analysis processes blocked. This package provides no mechanism to
+bypass endpoint policy, elevation prompts or administrative restrictions.
+
+Data handling
+Analyses read local files and write new run folders. The desktop host has no
+network service or automatic reference downloads. HTML reports are written as
+output files and do not form part of the application interface. The patched
+fastp report uses its bundled Plotly asset; keep that asset beside the report.
+
+Validation
+Open NativeWorkbench.exe and choose File > Check installation for the native
+tool suite, then run the bundled example for a complete branched analysis. If
+command scripts are permitted, check-workspace-windows.cmd adds integrity and
+host/graph checks; check-windows.cmd is an optional shortcut to the native suite. Preserve failing results and logs for diagnosis.
+Linux crosscompilation and portable-tool checks do not substitute for native
+Windows validation in the institution's endpoint environment.

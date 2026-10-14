@@ -1,0 +1,2719 @@
+{
+  "schema_version": 1,
+  "document_kind": "project-knowledge-index",
+  "project": "Native Workbench",
+  "repository": "https://github.com/comparativechrono/workbench",
+  "reviewed_on": "2026-10-13",
+  "source_baseline_commit": "e855dc4396e0c16ae35f4e840eb9cc734adb4441",
+  "format": {
+    "prose": "UTF-8 Markdown",
+    "data": "JSON",
+    "note": "Repository-defined open files, not a claim of an external knowledge-format standard. Paths are relative to this file."
+  },
+  "entry_points": {
+    "agents": "../AGENTS.md",
+    "overview": "README.md",
+    "purpose_and_decisions": "purpose-and-decisions.md",
+    "architecture": "architecture.md",
+    "development": "development.md",
+    "pack_development": "pack-development.md",
+    "validation_and_releases": "validation-and-releases.md",
+    "current_state": "current-state.md",
+    "native_ui": "native-ui.md",
+    "native_ui_development_evidence": "evidence/native-ui-0.8.0-development-2026-10-05.json",
+    "native_ui_final_ordinary": "evidence/native-ui-0.8.0-final-ordinary-ui-2026-10-05.json",
+    "native_ui_final_spaces": "evidence/native-ui-0.8.0-final-spaces-ui-2026-10-05.json",
+    "native_ui_final_references_ordinary": "evidence/native-ui-0.8.0-final-ordinary-references-2026-10-05.json",
+    "native_ui_final_references_spaces": "evidence/native-ui-0.8.0-final-spaces-references-2026-10-05.json",
+    "roadmap": "roadmap.md",
+    "release_inventory": "release-inventory.json",
+    "additional_pack_guide": "../docs/popular-packs-2026-10.md",
+    "gatk_pack_guide": "../docs/GATK-PACK.md",
+    "gatk_validation": "evidence/gatk-1.0.0-validation-2026-10-04.json",
+    "annotation_expression_coverage_phylogeny_guide": "../docs/ANNOTATION-EXPRESSION-COVERAGE-PHYLOGENETICS.md",
+    "mosdepth_validation": "evidence/mosdepth-1.0.0-validation-2026-10-04.json",
+    "snpeff_validation": "evidence/snpeff-1.0.0-validation-2026-10-04.json",
+    "iqtree_validation": "evidence/iqtree-1.0.0-validation-2026-10-04.json",
+    "deseq2_validation": "evidence/deseq2-1.0.0-validation-2026-10-04.json",
+    "metagenomics_pipeline_guide": "../docs/KRAKEN2-BRACKEN-PIPELINE.md",
+    "metagenomics_resource_contract": "../docs/METAGENOMICS-RESOURCES.md",
+    "metagenomics_resource_validation": "evidence/metagenomics-resources-2026-10-04.json",
+    "kraken2_pack_guide": "../docs/KRAKEN2-PACK.md",
+    "bracken_pack_guide": "../docs/BRACKEN-PACK.md",
+    "kraken2_validation": "evidence/kraken2-1.0.0-validation-2026-10-04.json",
+    "bracken_validation": "evidence/bracken-1.0.0-validation-2026-10-04.json",
+    "kraken2_public_downloads": "evidence/kraken2-1.0.0-public-downloads-2026-10-04.json",
+    "bracken_public_downloads": "evidence/bracken-1.0.0-public-downloads-2026-10-04.json",
+    "reference_discovery": "../docs/reference-discovery-0.7.md",
+    "reference_release_handover": "reference-release-handover.md",
+    "reference_resume_source_checks": "evidence/reference-resume-source-checks-2026-10-05.json",
+    "reference_resume_ui_diagnosis": "evidence/reference-resume-ui-diagnosis-2026-10-05.json",
+    "reference_build": "evidence/reference-0.7.0-build-2026-10-05.json",
+    "reference_public_downloads": "evidence/reference-0.7.0-public-downloads-2026-10-05.json",
+    "reference_rc2_failure": "evidence/reference-rc2-failure-2026-10-05.json",
+    "reference_rc3_native_input": "evidence/reference-rc3-native-input-2026-10-05.json",
+    "reference_final_windows": "evidence/reference-0.7.0-final-windows-2026-10-05.json",
+    "reference_release_validation": "evidence/reference-0.7.0-release-validation-2026-10-05.json",
+    "reference_final_assets": "evidence/reference-0.7.0-final-assets-2026-10-05.json",
+    "reference_concurrency_reconciliation": "evidence/reference-concurrency-reconciliation-2026-10-05.json",
+    "reference_concurrency_assets": "evidence/reference-concurrency-assets-audit-2026-10-05.json",
+    "reference_concurrency_windows": "evidence/reference-concurrency-windows-2026-10-05.json",
+    "reference_concurrency_public_assets": "evidence/reference-concurrency-public-assets-2026-10-05.json",
+    "starter_tool_semantics": "starter-tool-semantics.md",
+    "native_workflow_feedback_evidence": "evidence/native-workflow-0.8.0-feedback-2026-10-06.json",
+    "native_workflow_final_ordinary_ui": "evidence/native-workflow-0.8.0-final-ordinary-ui-2026-10-06.json",
+    "native_workflow_final_ordinary_references": "evidence/native-workflow-0.8.0-final-ordinary-references-2026-10-06.json",
+    "native_workflow_final_spaces_ui": "evidence/native-workflow-0.8.0-final-spaces-ui-2026-10-06.json",
+    "native_workflow_final_spaces_references": "evidence/native-workflow-0.8.0-final-spaces-references-2026-10-06.json",
+    "native_workflow_long_path_evidence": "evidence/native-workflow-0.8.0-long-path-2026-10-06.json",
+    "native_workflow_scroll_evidence": "evidence/native-workflow-0.8.0-scroll-2026-10-06.json",
+    "native_ui_0_8_0_release_handover": "native-ui-0.8.0-release-handover.md",
+    "native_ui_0_8_0_public_downloads": "evidence/native-ui-0.8.0-public-downloads-2026-10-06.json",
+    "native_ui_0_8_0_release_validation": "evidence/native-ui-0.8.0-release-validation-2026-10-06.json",
+    "native_ui_release_final_verification": "evidence/native-ui-0.8.0-final-public-verification-2026-10-06.json",
+    "cwl_results": "cwl-results.md",
+    "cwl_dag_icon_0_9_0_handover": "cwl-dag-icon-0.9.0-handover.md",
+    "cwl_dag_icon_0_9_0_validation": "evidence/cwl-dag-icon-0.9.0-validation-2026-10-06.json",
+    "cwl_dag_icon_0_9_0_artifact_audit": "evidence/cwl-dag-icon-0.9.0-artifact-audit-2026-10-06.json",
+    "cwl_dag_icon_0_9_0_acceptance": "evidence/cwl-dag-icon-0.9.0-acceptance-2026-10-06.json",
+    "cwl_dag_icon_0_9_0_update_build": "evidence/cwl-dag-icon-0.9.0-update-build-2026-10-06.json",
+    "cwl_dag_icon_0_9_0_publication_receipt": "evidence/cwl-dag-icon-0.9.0-publication-receipt-2026-10-06.json",
+    "cwl_dag_icon_0_9_0_public_downloads": "evidence/cwl-dag-icon-0.9.0-public-downloads-2026-10-06.json",
+    "cwl_dag_icon_0_9_0_release_validation": "evidence/cwl-dag-icon-0.9.0-release-validation-2026-10-06.json",
+    "tool_setup": "tool-setup.md",
+    "tool_setup_0_10_0_handover": "tool-setup-0.10.0-handover.md",
+    "tool_setup_0_10_0_validation": "evidence/tool-setup-0.10.0-validation-2026-10-07.json",
+    "tool_setup_0_10_0_artifact_audit": "evidence/tool-setup-0.10.0-artifact-audit-2026-10-07.json",
+    "tool_setup_0_10_0_full_state": "evidence/tool-setup-0.10.0-full-state-2026-10-06.json",
+    "catalogue_signing": "../publishing/catalogue-signing.md",
+    "catalogue_signing_evidence": "evidence/catalogue-signing-2026-10-07.json",
+    "tool_setup_0_10_0_prior_validation": "evidence/tool-setup-0.10.0-validation-2026-10-06.json",
+    "tool_setup_0_10_0_prior_artifact_audit": "evidence/tool-setup-0.10.0-artifact-audit-2026-10-06.json",
+    "tool_setup_0_10_0_acceptance": "evidence/tool-setup-0.10.0-acceptance-2026-10-07.json",
+    "catalogue_production_evidence": "evidence/catalogue-production-2026-10-07.json",
+    "tool_setup_0_10_0_publication": "evidence/tool-setup-0.10.0-publication-2026-10-07.json",
+    "tool_setup_0_10_0_public_downloads": "evidence/tool-setup-0.10.0-public-downloads-2026-10-07.json",
+    "tool_setup_0_10_0_preparation": "evidence/tool-setup-0.10.0-preparation-2026-10-07.json",
+    "expandable_tool_library": "expandable-tool-library.md",
+    "expandable_tool_library_validation": "evidence/tool-library-0.11.0-validation-2026-10-07.json",
+    "expandable_tool_library_release_notes": "../docs/releases/0.11.0.md",
+    "expandable_tool_library_release_summary": "evidence/tool-library-0.11.0-release-summary.json",
+    "expandable_tool_library_release_lock": "evidence/tool-library-0.11.0-release-lock.json",
+    "expandable_tool_library_publication": "evidence/tool-library-0.11.0-publication-2026-10-08.json",
+    "expandable_tool_library_public_downloads": "evidence/tool-library-0.11.0-public-downloads-2026-10-08.json",
+    "expandable_tool_library_preparation": "evidence/tool-library-0.11.0-preparation-2026-10-08.json",
+    "readiness_performance": "readiness-performance.md",
+    "batch_workflows": "batch-workflows.md",
+    "reference_indexes": "reference-indexes.md",
+    "batch_queue_indexes_handover": "batch-queue-indexes-0.13.0-handover.md",
+    "batch_queue_indexes_source": "evidence/batch-queue-indexes-0.13.0-source-2026-10-08.json",
+    "batch_queue_indexes_initial_windows": "evidence/batch-queue-indexes-0.13.0-initial-windows-2026-10-08.json",
+    "batch_queue_indexes_rechecks": "evidence/batch-queue-indexes-0.13.0-rechecks-2026-10-08.json",
+    "batch_queue_indexes_archive_audit": "evidence/batch-queue-indexes-0.13.0-archive-audit-2026-10-08.json",
+    "batch_queue_indexes_final_source": "evidence/batch-queue-indexes-0.13.0-final-source-2026-10-08.json",
+    "batch_queue_indexes_final_windows": "evidence/batch-queue-indexes-0.13.0-final-windows-2026-10-08.json",
+    "batch_queue_indexes_final_archive_audit": "evidence/batch-queue-indexes-0.13.0-final-archive-audit-2026-10-08.json",
+    "batch_queue_indexes_queue_diagnostic": "evidence/batch-queue-indexes-0.13.0-queue-diagnostic-2026-10-08.json",
+    "recovery_projects": "recovery-projects.md",
+    "recovery_projects_handover": "recovery-projects-0.14.0-handover.md",
+    "recovery_projects_source": "evidence/recovery-projects-0.14.0-source-2026-10-08.json",
+    "recovery_projects_initial_windows": "evidence/recovery-projects-0.14.0-initial-windows-2026-10-08.json",
+    "recovery_projects_archive_audit": "evidence/recovery-projects-0.14.0-archive-audit-2026-10-08.json",
+    "recovery_projects_rechecks": "evidence/recovery-projects-0.14.0-rechecks-2026-10-08.json",
+    "recovery_projects_final_source": "evidence/recovery-projects-0.14.0-final-source-2026-10-08.json",
+    "recovery_projects_final_windows": "evidence/recovery-projects-0.14.0-final-windows-2026-10-08.json",
+    "recovery_projects_final_archive_audit": "evidence/recovery-projects-0.14.0-final-archive-audit-2026-10-08.json",
+    "reference_management": "reference-management.md",
+    "reference_management_handover": "reference-management-0.15.0-handover.md",
+    "reference_management_local_source": "evidence/reference-management-0.15.0-local-source-2026-10-08.json",
+    "reference_management_ncbi_linux": "evidence/reference-management-0.15.0-ncbi-linux-2026-10-08.json",
+    "reference_management_initial_source": "evidence/reference-management-0.15.0-initial-source-2026-10-08.json",
+    "reference_management_initial_windows": "evidence/reference-management-0.15.0-initial-windows-2026-10-08.json",
+    "reference_management_initial_archive_audit": "evidence/reference-management-0.15.0-initial-archive-audit-2026-10-08.json",
+    "reference_management_rechecks": "evidence/reference-management-0.15.0-rechecks-2026-10-08.json",
+    "reference_management_frozen_source": "evidence/reference-management-0.15.0-frozen-source-2026-10-08.json",
+    "reference_management_frozen_archive_audit": "evidence/reference-management-0.15.0-frozen-archive-audit-2026-10-08.json",
+    "reference_management_frozen_windows": "evidence/reference-management-0.15.0-frozen-windows-2026-10-08.json",
+    "reference_management_final_validation": "evidence/reference-management-0.15.0-final-validation-2026-10-08.json",
+    "curated_workflows_results": "curated-workflows-results.md",
+    "curated_workflows_results_handover": "curated-workflows-results-0.16.0-handover.md",
+    "curated_workflows_results_validation": "evidence/curated-workflows-results-0.16.0-final-validation-2026-10-09.json",
+    "curated_workflows_results_archive_audit": "evidence/curated-workflows-results-0.16.0-final-archive-audit-2026-10-09.json",
+    "curated_workflows_results_visual_review": "evidence/curated-workflows-results-0.16.0-final-visual-review-2026-10-09.json",
+    "curated_workflows_release_handover": "curated-workflows-0.16.0-release-handover.md",
+    "curated_workflows_release_archive_audit": "evidence/curated-workflows-0.16.0-release-archive-audit-2026-10-09.json",
+    "curated_workflows_release_visual_review": "evidence/curated-workflows-0.16.0-release-visual-review-2026-10-09.json",
+    "curated_workflows_release_regressions": "evidence/curated-workflows-0.16.0-release-regression-final-2026-10-09.json",
+    "curated_workflows_release_update": "evidence/update-0.16.0-final-validation-2026-10-09.json",
+    "curated_workflows_publication": "evidence/curated-workflows-0.16.0-publication-2026-10-09.json",
+    "curated_workflows_public_downloads": "evidence/curated-workflows-0.16.0-public-downloads-2026-10-09.json",
+    "curated_workflows_release_notes": "../docs/releases/0.16.0.md",
+    "curated_workflows_release_lock": "evidence/curated-workflows-0.16.0-release-lock.json",
+    "deployment_acceptance_handover": "deployment-acceptance-handover.md",
+    "deployment_acceptance_guide": "../docs/deployment-acceptance.md",
+    "institutional_deployment_guide": "../docs/institutional-deployment.md",
+    "deployment_input_lock": "../packaging/deployment-0.16.0-lock.json",
+    "deployment_final_evidence": "evidence/deployment-acceptance-final-2026-10-09.json",
+    "ui_patch_0_16_1_handover": "ui-patch-0.16.1-handover.md",
+    "ui_patch_0_16_1_source_validation": "evidence/ui-patch-0.16.1-source-validation-2026-10-09.json",
+    "ui_patch_0_16_1_archive_audit": "evidence/ui-patch-0.16.1-archive-audit-2026-10-09.json",
+    "ui_patch_0_16_1_native_validation": "evidence/ui-patch-0.16.1-native-validation-2026-10-09.json",
+    "ui_patch_0_16_1_visual_review": "evidence/ui-patch-0.16.1-visual-review-2026-10-09.json",
+    "tester_feedback_0_16_1_handover": "tester-feedback-0.16.1-handover.md",
+    "tester_feedback_0_16_1_source_validation": "evidence/tester-feedback-0.16.1-source-validation-2026-10-09.json",
+    "tester_feedback_0_16_1_archive_audit": "evidence/tester-feedback-0.16.1-archive-audit-2026-10-09.json",
+    "tester_feedback_0_16_1_attempts": "evidence/tester-feedback-0.16.1-attempts-2026-10-09.json",
+    "tester_feedback_0_16_1_artifacts": "evidence/tester-feedback-0.16.1-artifacts-2026-10-09.json",
+    "tester_feedback_0_16_1_transport": "evidence/tester-feedback-0.16.1-transport-2026-10-09.json",
+    "tester_feedback_0_16_1_regression_visual_ordinary": "evidence/tester-feedback-0.16.1-regression-visual-ordinary-2026-10-09.json",
+    "tester_feedback_0_16_1_regression_visual_spaces": "evidence/tester-feedback-0.16.1-regression-visual-spaces-2026-10-09.json",
+    "tester_feedback_0_16_1_patch_visual_ordinary": "evidence/tester-feedback-0.16.1-patch-visual-ordinary-2026-10-09.json",
+    "tester_feedback_0_16_1_patch_visual_spaces": "evidence/tester-feedback-0.16.1-patch-visual-spaces-2026-10-09.json",
+    "tester_feedback_0_16_1_native_validation": "evidence/tester-feedback-0.16.1-native-validation-2026-10-09.json",
+    "tester_feedback_0_16_1_independent_validation": "evidence/tester-feedback-0.16.1-independent-validation-2026-10-09.json",
+    "tester_feedback_0_16_1_original_report_manifest": "evidence/tester-feedback-0.16.1-raw-index-2026-10-09.json",
+    "tester_feedback_0_16_1_feedback_visual_ordinary": "evidence/tester-feedback-0.16.1-feedback-visual-ordinary-2026-10-09.json",
+    "tester_feedback_0_16_1_feedback_visual_spaces": "evidence/tester-feedback-0.16.1-feedback-visual-spaces-2026-10-09.json",
+    "resize_redraw_0_16_1_handover": "resize-redraw-0.16.1-handover.md",
+    "wrapped_tool_library_0_16_1_handover": "wrapped-tool-library-0.16.1-handover.md",
+    "wrapped_tool_library_0_16_1_historical_evidence": "evidence/wrapped-library-0.16.1-historical-evidence-index-2026-10-10.json",
+    "wrapped_tool_library_0_16_1_final_acceptance": "evidence/wrapped-library-0.16.1-final-acceptance-2026-10-10.json",
+    "prodigal_fasttree_handover": "prodigal-fasttree-handover.md",
+    "prodigal_pack_guide": "../docs/PRODIGAL-PACK.md",
+    "fasttree_pack_guide": "../docs/FASTTREE-PACK.md",
+    "prodigal_fasttree_final_review": "evidence/prodigal-fasttree-1.0.0-final-review-2026-10-13.json",
+    "kalign_handover": "kalign-handover.md",
+    "kalign_pack_guide": "../docs/KALIGN-PACK.md",
+    "prodigal_fasttree_merge": "evidence/prodigal-fasttree-merge-2026-10-13.json",
+    "kalign_final_review": "evidence/kalign-1.0.0-final-review-2026-10-13.json",
+    "primer3_plink2_handover": "primer3-plink2-handover.md",
+    "primer3_plink2_final_evidence": "evidence/primer3-plink2-1.0.0-final-review-2026-10-13.json",
+    "stack_integration": "evidence/stack-integration-2026-10-13.json"
+  },
+  "stable_constraints": [
+    "Local analysis with no hidden data uploads",
+    "Native Windows desktop entry point with no required browser, Docker or WSL",
+    "Real pinned upstream tools with documented portability patches",
+    "Independent app and pack versions; Full setup recommended while retaining the small Starter",
+    "Declarative scientifically typed pack inputs, parameters and outputs",
+    "Individual operations and branching pipelines with explicit input provenance",
+    "Reviewable methods, DAG and execution provenance retained with results",
+    "Immutable published packs and explicit saved-pipeline version pins",
+    "Scientific known-answer checks separate from process exit status",
+    "Catalogue signatures, source provenance and third-party licensing preserved",
+    "Large scientific databases remain separate local inputs; hashes and explicit external-model declarations preserve their distinct evidence scopes",
+    "Explicit reference retrieval remains separate from local analysis; release, assembly and byte identities are frozen with run provenance",
+    "Native three-pane Tools and Workflow modes preserve independent in-process edits; canonical tool presets and pinned workflow saves remain separate",
+    "New workflow tools start unconnected; explicit reusable input cards own file bindings, while standalone tools retain direct file fields"
+  ],
+  "maintenance": {
+    "source_of_behavior": "Current checked-out source and reproducible observations",
+    "source_of_requirements": "Project owner decisions recorded in purpose-and-decisions.md",
+    "release_facts_are_dated": true,
+    "is_install_catalogue": false,
+    "contains_trust_material": false,
+    "update_rule": "Update affected topic and evidence after a change; refresh the dated release snapshot after publication."
+  },
+  "reference_release_resume": {
+    "reviewed_on": "2026-10-05",
+    "initial_branch": "main",
+    "initial_commit": "5338853ba3b69438fc36c1b9dcd3ad89d6bbcde4",
+    "working_branch": "release/reference-0.7.0-completion",
+    "target_version": "0.7.0",
+    "status": "released-exact-final-native-gate-passed",
+    "candidate_tag": "app-v0.7.0-rc3",
+    "handover": "reference-release-handover.md",
+    "historical_inventory_scope": "Existing application and pack inventory retains its original audit dates and evidence.",
+    "release_tag": "app-v0.7.0",
+    "release_url": "https://github.com/comparativechrono/workbench/releases/tag/app-v0.7.0",
+    "packaged_source_commit": "57d635370a1cd34dd1549aff95a2feba7faeeb74",
+    "release_tag_commit": "6c266a58818886c6f4f5287006f20fafc5aadd68",
+    "exact_final_native_run_url": "https://github.com/comparativechrono/workbench/actions/runs/37320844819",
+    "post_release_concurrency_audit": {
+      "branch": "audit/reference-concurrency-20261005",
+      "gate_commit": "ad5b59c06a03d3885bee5416fb47b4835ae9927f",
+      "native_run_url": "https://github.com/comparativechrono/workbench/actions/runs/37339280407",
+      "application_bytes_changed": false,
+      "independent_branch_preserved": "finish-reference-release",
+      "independent_branch_commit": "5a5455647381bd93272326d0bd97eadbef92028d"
+    }
+  },
+  "historical_source_baseline_commit": "8f95caa1f267d19ce72ea3cd7f2396ae66a801c1",
+  "release_tag_commit": "60243d45a81a6ef7e16e4a0ee719f4aa2e4f74c9",
+  "source_commit_scope": "Published 0.16.0 packaged application source e855dc4396e0c16ae35f4e840eb9cc734adb4441. Validator/updater packaging source 0e92d969e13fb7fe96b972bdb71b433f834dbbbe and merged release/tag/publication commit 60243d45a81a6ef7e16e4a0ee719f4aa2e4f74c9 are recorded separately; accepted application/source/updater archives were promoted unchanged.",
+  "native_ui_development": {
+    "recorded_on": "2026-10-06",
+    "version": "0.8.0",
+    "branch": "ui/galaxy-native-workspace",
+    "starting_commit": "7c6f2437842788daf9918ac2194ef859b153092c",
+    "pull_request": "https://github.com/comparativechrono/workbench/pull/1",
+    "pull_request_state": "merged",
+    "status": "user-accepted exact candidate published as app-v0.8.0 development prerelease; all nine public assets independently downloaded and verified; accepted application bytes unchanged",
+    "candidate_source_commit": "b3928ca6a29d22b5f010a303658c2e19c24324da",
+    "native_run_url": "https://github.com/comparativechrono/workbench/actions/runs/37453380541",
+    "native_status": "all five jobs passed: 82 source checks, 32 workspace plus 8 References/update checks per Windows path, full five-stage long-path pipeline regression and the three-panel temporal/precision scroll gate",
+    "source_checks": {
+      "passes": 82,
+      "failures": 0,
+      "skips": 0,
+      "platform": "Linux CI",
+      "scope": "Seven new path-boundary regressions use real local files and a synthetic backend under an emulated ordinary-path limit; separate exact-package native evidence follows."
+    },
+    "local_source_checks": {
+      "platform": "Linux x86-64 / Python 3.12.14",
+      "passes": 72,
+      "failures": 0,
+      "skips": 0,
+      "engine_path_regressions": 7,
+      "related_host_reference_workflow_pin_checks": 43,
+      "selected_core_check_contracts": 9,
+      "pack_check_contracts": 13,
+      "scope": "Historical local source checks from the preceding long-path task, retained as prior evidence; not rerun or counted as new local passes for the scroll correction. The current 82-check CI result is separate.",
+      "source_commit": "0d3282046d7aa05dc822315c9a237c8ac534cd7a"
+    },
+    "feedback_changes": [
+      "Explicit reusable typed workflow inputs; no automatic source cards when a workflow tool is added",
+      "Input card owns file fields; tool inspector shows connections and parameters without duplicate file editors",
+      "Shared paired-read roles, old workflow graph IDs and exact pack pins retained across saves",
+      "Empty-canvas pan, visible 25-200 percent zoom/reset, Ctrl+wheel and Windows pan/zoom gesture handling",
+      "Hover delete cross and Delete key; removal disconnects consumers and supports Undo",
+      "Native form child repainting and first-open Manage tools array initialization",
+      "Program-qualified operation labels and clearer existing SAM-to-sorted-BAM / FASTA lookup-index meaning"
+    ],
+    "nested_output_path_fix": {
+      "report": "Application integrity passed 7/7, native first-stage alignment succeeded and its SAM matched the native hash, but Python reported the existing declared output missing.",
+      "result_folder_characters": 255,
+      "sam_path_characters": 269,
+      "sam_bytes": 69441,
+      "sam_records": 202,
+      "system_long_paths_setting": "not recorded in user evidence",
+      "io_policy": "Explicit extended-length paths at engine and check filesystem boundaries; ordinary normalized paths retained for identity, provenance and arguments.",
+      "protections_retained": [
+        "exact manifests and frozen plans",
+        "input and output hashes",
+        "result containment",
+        "symlink/junction guards",
+        "file identity checks"
+      ],
+      "privacy": "No private user paths or raw uploaded data committed.",
+      "native_regression": {
+        "policy": 0,
+        "fresh_packaged_python_processes": true,
+        "original_policy_restored": 1,
+        "prior_source_commit": "0d2a993fca95a5837a69aa05c63aa5e806c553af",
+        "prior_missing_output_failure_reproduced": true,
+        "prior_result_folder_characters": 254,
+        "prior_sam_path_characters": 268,
+        "ordinary_is_file": false,
+        "extended_io_is_file": true,
+        "fixed_core_checks_passed": 7,
+        "fixed_scientific_stages_passed": 5,
+        "output_hashes_independently_verified": 20,
+        "output_paths_above_260": 19,
+        "maximum_output_path_characters": 279,
+        "binary_bam_verified": true,
+        "variant_truth": "starter:1351 G>A, GT 1/1",
+        "negative_control_assertions_passed": 2,
+        "fixed_assertions_passed": 3,
+        "failures": 0,
+        "skips": 0,
+        "scope": "Actual packaged host Check installation action, short installation root and nested pipeline outputs; no long-path GUI interaction claim. Only the disposable CI runner policy was changed."
+      },
+      "user_acceptance": {
+        "recorded_on": "2026-10-06",
+        "outcome": "User confirmed that the pipeline fix worked.",
+        "scope": "User report for the previously failing pipeline; not a fresh automated run or acceptance of every workflow/display behavior."
+      },
+      "first_native_run_url": "https://github.com/comparativechrono/workbench/actions/runs/37449356224",
+      "repeated_in_current_scroll_candidate": "Full five-stage scientific pipeline regression passed in run 37453380541; detailed original metrics remain bound to the first native long-path record."
+    },
+    "limits": [
+      "The reported visual flashing was not reproduced in CI: both prior and current packages had zero unexpected frames in 960 samples. Finite 27.16-31.80 fps current-package observations mask edit/button regions and cannot exclude shorter flashes between frames or establish physical tester-display behavior.",
+      "Native GUI coverage remains Windows Server 2022 at observed 96 DPI. The long-path regression is host/CLI execution, not long-path GUI validation.",
+      "Earlier ordinary/space-containing native paths did not establish legacy-limit behavior for nested result files.",
+      "No universal long-path claim for every optional pack, arbitrary deep installations or reference libraries, or Windows shell dialogs.",
+      "Physical trackpad pinch, high-DPI/multi-monitor movement and native folder pickers remain unvalidated.",
+      "User accepted the latest tested candidate and authorized publication; acceptance is user-reported and does not broaden automated display/device coverage.",
+      "Updater coverage is 0.6.0 to 0.8.0 only; no 0.7.0-to-0.8.0 upgrade validation is claimed.",
+      "Version 0.8.0 is published as a development prerelease; prior pending-publication statements in immutable candidate evidence remain historical."
+    ],
+    "guide": "native-ui.md",
+    "evidence": "evidence/native-workflow-0.8.0-scroll-2026-10-06.json",
+    "feedback_evidence": "evidence/native-workflow-0.8.0-feedback-2026-10-06.json",
+    "starter_tool_audit": "starter-tool-semantics.md",
+    "published_release_unchanged": "0.7.0",
+    "previous_candidate": {
+      "recorded_on": "2026-10-06",
+      "version": "0.8.0",
+      "branch": "ui/galaxy-native-workspace",
+      "starting_commit": "7c6f2437842788daf9918ac2194ef859b153092c",
+      "pull_request": "https://github.com/comparativechrono/workbench/pull/1",
+      "pull_request_state": "draft",
+      "status": "nested Windows output-path defect reproduced and fixed; exact packaged candidate passed Windows gates; unreleased; awaiting tester reacceptance",
+      "candidate_source_commit": "0d3282046d7aa05dc822315c9a237c8ac534cd7a",
+      "native_run_url": "https://github.com/comparativechrono/workbench/actions/runs/37449356224",
+      "native_status": "passed in ordinary and space-containing installation paths; prior-package missing-output failure reproduced and fixed-package full starter scientific pipeline passed with long-path policy disabled",
+      "source_checks": {
+        "passes": 82,
+        "failures": 0,
+        "skips": 0,
+        "platform": "Linux CI",
+        "scope": "Seven new path-boundary regressions use real local files and a synthetic backend under an emulated ordinary-path limit; separate exact-package native evidence follows."
+      },
+      "local_source_checks": {
+        "platform": "Linux x86-64 / Python 3.12.14",
+        "passes": 72,
+        "failures": 0,
+        "skips": 0,
+        "engine_path_regressions": 7,
+        "related_host_reference_workflow_pin_checks": 43,
+        "selected_core_check_contracts": 9,
+        "pack_check_contracts": 13,
+        "scope": "72 distinct local source checks; 50 overlap the CI gate and 22 selected core/pack-check contracts are additional. The seven path regressions emulate ordinary-path failure with real files and a synthetic backend; no Windows execution claim."
+      },
+      "feedback_changes": [
+        "Explicit reusable typed workflow inputs; no automatic source cards when a workflow tool is added",
+        "Input card owns file fields; tool inspector shows connections and parameters without duplicate file editors",
+        "Shared paired-read roles, old workflow graph IDs and exact pack pins retained across saves",
+        "Empty-canvas pan, visible 25-200 percent zoom/reset, Ctrl+wheel and Windows pan/zoom gesture handling",
+        "Hover delete cross and Delete key; removal disconnects consumers and supports Undo",
+        "Native form child repainting and first-open Manage tools array initialization",
+        "Program-qualified operation labels and clearer existing SAM-to-sorted-BAM / FASTA lookup-index meaning"
+      ],
+      "nested_output_path_fix": {
+        "report": "Application integrity passed 7/7, native first-stage alignment succeeded and its SAM matched the native hash, but Python reported the existing declared output missing.",
+        "result_folder_characters": 255,
+        "sam_path_characters": 269,
+        "sam_bytes": 69441,
+        "sam_records": 202,
+        "system_long_paths_setting": "not recorded in user evidence",
+        "io_policy": "Explicit extended-length paths at engine and check filesystem boundaries; ordinary normalized paths retained for identity, provenance and arguments.",
+        "protections_retained": [
+          "exact manifests and frozen plans",
+          "input and output hashes",
+          "result containment",
+          "symlink/junction guards",
+          "file identity checks"
+        ],
+        "privacy": "No private user paths or raw uploaded data committed.",
+        "native_regression": {
+          "policy": 0,
+          "fresh_packaged_python_processes": true,
+          "original_policy_restored": 1,
+          "prior_source_commit": "0d2a993fca95a5837a69aa05c63aa5e806c553af",
+          "prior_missing_output_failure_reproduced": true,
+          "prior_result_folder_characters": 254,
+          "prior_sam_path_characters": 268,
+          "ordinary_is_file": false,
+          "extended_io_is_file": true,
+          "fixed_core_checks_passed": 7,
+          "fixed_scientific_stages_passed": 5,
+          "output_hashes_independently_verified": 20,
+          "output_paths_above_260": 19,
+          "maximum_output_path_characters": 279,
+          "binary_bam_verified": true,
+          "variant_truth": "starter:1351 G>A, GT 1/1",
+          "negative_control_assertions_passed": 2,
+          "fixed_assertions_passed": 3,
+          "failures": 0,
+          "skips": 0,
+          "scope": "Actual packaged host Check installation action, short installation root and nested pipeline outputs; no long-path GUI interaction claim. Only the disposable CI runner policy was changed."
+        },
+        "user_acceptance": {
+          "recorded_on": "2026-10-06",
+          "outcome": "User confirmed that the pipeline fix worked.",
+          "scope": "User report for the previously failing pipeline; not a fresh automated run or acceptance of every workflow/display behavior."
+        }
+      },
+      "limits": [
+        "Native GUI coverage remains Windows Server 2022 at observed 96 DPI. The long-path regression is host/CLI execution, not long-path GUI validation.",
+        "Earlier ordinary/space-containing native paths did not establish legacy-limit behavior for nested result files.",
+        "No universal long-path claim for every optional pack, arbitrary deep installations or reference libraries, or Windows shell dialogs.",
+        "Physical trackpad pinch, high-DPI/multi-monitor movement and native folder pickers remain unvalidated.",
+        "Manual tester reacceptance remains outstanding.",
+        "Updater coverage is 0.6.0 to 0.8.0 only; no 0.7.0-to-0.8.0 upgrade validation is claimed.",
+        "No 0.8.0 release tag or published release was created."
+      ],
+      "guide": "native-ui.md",
+      "evidence": "evidence/native-workflow-0.8.0-long-path-2026-10-06.json",
+      "feedback_evidence": "evidence/native-workflow-0.8.0-feedback-2026-10-06.json",
+      "starter_tool_audit": "starter-tool-semantics.md",
+      "published_release_unchanged": "0.7.0",
+      "previous_candidate": {
+        "recorded_on": "2026-10-06",
+        "version": "0.8.0",
+        "branch": "ui/galaxy-native-workspace",
+        "starting_commit": "7c6f2437842788daf9918ac2194ef859b153092c",
+        "pull_request": "https://github.com/comparativechrono/workbench/pull/1",
+        "pull_request_state": "draft",
+        "status": "tester layout accepted; feedback candidate passed exact packaged Windows gates; unreleased; awaiting tester reacceptance",
+        "source_checks": {
+          "passes": 75,
+          "failures": 0,
+          "skips": 0,
+          "platform": "Linux x86-64 / Python 3.12.14",
+          "scope": "Local run used Python 3.12.14; final Linux CI independently passed the same 75 suites."
+        },
+        "source_checked_commit": "0d2a993fca95a5837a69aa05c63aa5e806c553af",
+        "native_run_url": "https://github.com/comparativechrono/workbench/actions/runs/37441781509",
+        "native_status": "passed in ordinary and space-containing installation paths; previous failed attempt retained in evidence",
+        "feedback_changes": [
+          "Explicit reusable typed workflow inputs; no automatic source cards when a workflow tool is added",
+          "Input card owns file fields; tool inspector shows connections and parameters without duplicate file editors",
+          "Shared paired-read roles, old workflow graph IDs and exact pack pins retained across saves",
+          "Empty-canvas pan, visible 25-200 percent zoom/reset, Ctrl+wheel and Windows pan/zoom gesture handling",
+          "Hover delete cross and Delete key; removal disconnects consumers and supports Undo",
+          "Native form child repainting and first-open Manage tools array initialization",
+          "Program-qualified operation labels and clearer existing SAM-to-sorted-BAM / FASTA lookup-index meaning"
+        ],
+        "limits": [
+          "Layout acceptance does not establish acceptance of revised workflow behavior; manual tester reacceptance remains outstanding.",
+          "Native coverage is Windows Server 2022 at observed 96 DPI.",
+          "Physical trackpad pinch, high-DPI/multi-monitor movement and native folder pickers remain unvalidated.",
+          "The tiny-delta Ctrl+wheel regression injects native messages and does not establish physical trackpad behavior.",
+          "Updater checked only from 0.6.0 to 0.8.0; no 0.7.0-to-0.8.0 upgrade validation is claimed.",
+          "No 0.8.0 release tag or published release was created."
+        ],
+        "guide": "native-ui.md",
+        "evidence": "evidence/native-workflow-0.8.0-feedback-2026-10-06.json",
+        "starter_tool_audit": "starter-tool-semantics.md",
+        "published_release_unchanged": "0.7.0",
+        "previous_candidate": {
+          "recorded_on": "2026-10-05",
+          "version": "0.8.0",
+          "branch": "ui/galaxy-native-workspace",
+          "starting_commit": "7c6f2437842788daf9918ac2194ef859b153092c",
+          "pull_request": "https://github.com/comparativechrono/workbench/pull/1",
+          "pull_request_state": "draft",
+          "status": "validated development candidate; unreleased; awaiting manual tester acceptance",
+          "source_checks": {
+            "passes": 57,
+            "failures": 0,
+            "skips": 0
+          },
+          "tested_source_commit": "c82c559d02a0b70e79afe67da93ace9e344f1ef3",
+          "native_run_url": "https://github.com/comparativechrono/workbench/actions/runs/37376078599",
+          "native_checks_per_path": {
+            "paths": [
+              "ordinary",
+              "spaces"
+            ],
+            "workspace_host": 6,
+            "workspace_gui": 12,
+            "references_and_update": 8,
+            "failures": 0,
+            "skips": 0
+          },
+          "candidate_download": {
+            "url": "https://github.com/comparativechrono/workbench/actions/runs/37376078599/artifacts/11371647135",
+            "sha256": "61bd2deca854b43596b82be95cebb4d72179df6cd34c2abe097361df8777de7e",
+            "bytes": 75395876,
+            "expires_at": "2026-11-04T21:29:20Z",
+            "starter_sha256": "5e59dee9efd38f2ee10516292294e4bd711b2c0a61e35b2bbbb49965f27383e4",
+            "review_installation": "Extract starter into a separate folder."
+          },
+          "limits": [
+            "Manual tester acceptance remains outstanding.",
+            "Native coverage is Windows Server 2022 at observed 96 DPI; high-DPI/multi-monitor movement and native folder pickers are unvalidated.",
+            "Updater checked only from 0.6.0 to 0.8.0; no 0.7.0-to-0.8.0 updater or upgrade validation is claimed.",
+            "No 0.8.0 release tag or published release was created."
+          ],
+          "guide": "native-ui.md",
+          "evidence": "evidence/native-ui-0.8.0-development-2026-10-05.json",
+          "published_release_unchanged": "0.7.0"
+        },
+        "candidate_source_commit": "0d2a993fca95a5837a69aa05c63aa5e806c553af",
+        "native_checks_per_path": {
+          "paths": [
+            "ordinary",
+            "spaces"
+          ],
+          "workspace_host": 8,
+          "workspace_scientific": 2,
+          "workspace_gui": 22,
+          "references_and_update": 8,
+          "failures": 0,
+          "skips": 0,
+          "platform": "Windows Server 2022",
+          "python": "bundled 3.13.16",
+          "observed_dpi": 96,
+          "sam_to_bam_records": 202,
+          "scroll_static_pixels_compared": 197198,
+          "scroll_pixel_differences": 0
+        },
+        "candidate_download": {
+          "url": "https://github.com/comparativechrono/workbench/actions/runs/37441781509/artifacts/11401422780",
+          "expires_at": "2026-11-05T09:16:55Z",
+          "starter_sha256": "de099e5feef437c788352c31c0e743c7e8f22aa08bfe2364e59b715ec3501806",
+          "starter_bytes": 16948268,
+          "verified_core_entries": 68,
+          "verified_unchanged_pack_entries": 143,
+          "verified_workspace_source_copies": 15,
+          "review_installation": "Extract starter into a separate folder.",
+          "sha256": "90933af445f8696baa0f787ece51a5e795cd654dfd6783dc2d3309c352d22419",
+          "bytes": 75484976
+        },
+        "tested_source_commit": "0d2a993fca95a5837a69aa05c63aa5e806c553af"
+      },
+      "source_checked_commit": "0d3282046d7aa05dc822315c9a237c8ac534cd7a",
+      "tested_source_commit": "0d3282046d7aa05dc822315c9a237c8ac534cd7a",
+      "native_checks_per_path": {
+        "paths": [
+          "ordinary",
+          "spaces"
+        ],
+        "workspace_host": 8,
+        "workspace_scientific": 2,
+        "workspace_gui": 22,
+        "references_and_update": 8,
+        "failures": 0,
+        "skips": 0,
+        "platform": "Windows Server 2022",
+        "python": "bundled 3.13.16",
+        "observed_dpi": 96,
+        "capture_hashes_verified_total": 56,
+        "sam_to_bam_records": 202,
+        "scroll_static_pixels_compared": 197198,
+        "scroll_pixel_differences": 0,
+        "scroll_scope": "Settled images only; does not establish absence of transient flashing during scroll activity."
+      },
+      "candidate_download": {
+        "url": "https://github.com/comparativechrono/workbench/actions/runs/37449356224/artifacts/11404414503",
+        "expires_at": "2026-11-05T10:23:19Z",
+        "sha256": "6d6679f8df73cd20b050605a295400705d40242ecf42d62c31000e2b55c5f0cc",
+        "bytes": 75551632,
+        "starter_sha256": "71a84d2c6f7f293bf7f57c1fa3221fc942fce57bca61c8ed3344d593c31c262c",
+        "starter_bytes": 16948757,
+        "verified_core_entries": 68,
+        "verified_unchanged_pack_entries": 143,
+        "verified_workspace_source_copies": 15,
+        "review_installation": "Extract starter into a separate folder."
+      }
+    },
+    "source_checked_commit": "b3928ca6a29d22b5f010a303658c2e19c24324da",
+    "tested_source_commit": "b3928ca6a29d22b5f010a303658c2e19c24324da",
+    "native_checks_per_path": {
+      "paths": [
+        "ordinary",
+        "spaces"
+      ],
+      "workspace_host": 8,
+      "workspace_scientific": 2,
+      "workspace_gui": 22,
+      "references_and_update": 8,
+      "failures": 0,
+      "skips": 0,
+      "platform": "Windows Server 2022",
+      "python": "bundled 3.13.16",
+      "observed_dpi": 96,
+      "sam_to_bam_records": 202,
+      "scroll_static_pixels_compared": 197198,
+      "scroll_pixel_differences": 0,
+      "scroll_scope": "Settled-image regression retained; additional desktop-frame sampling and precision-wheel outcomes are recorded separately below."
+    },
+    "candidate_download": {
+      "url": "https://github.com/comparativechrono/workbench/actions/runs/37453380541/artifacts/11408021439",
+      "expires_at": "2026-11-05T10:59:55Z",
+      "sha256": "234688eabc01315aceba6fd588094bc7bf2263670766d0bdc9d088f8f0c735c1",
+      "bytes": 75599305,
+      "starter_sha256": "df001a80033ff8e834045ec683c79672e0efdbd4880fb89fca8bf8c36d830fdc",
+      "starter_bytes": 16948940,
+      "native_executable_sha256": "e32fc3e5acb42766641a822f01835430b3312b84c3174bd282fe2a50ef6f9d71",
+      "verified_core_entries": 68,
+      "verified_unchanged_pack_entries": 143,
+      "verified_workspace_source_copies": 15,
+      "verified_zip_crcs": 3,
+      "build_provenance_verified": true,
+      "review_installation": "Extract starter into a separate folder.",
+      "verified_relevant_source_files": 14
+    },
+    "scroll_flashing_follow_up": {
+      "recorded_on": "2026-10-06",
+      "status": "exact package passed native observation and precision-wheel gate; user subsequently accepted it and it was published unchanged; CI did not reproduce visual flashing",
+      "report": "Text still flashes while scrolling after the user-confirmed pipeline fix.",
+      "previous_candidate_source_commit": "0d3282046d7aa05dc822315c9a237c8ac534cd7a",
+      "prior_scroll_evidence": {
+        "pixels_compared_per_path": 197198,
+        "differences_per_path": 0,
+        "scope": "Settled static-text/background captures at the same scroll offset before and after clean redraw; no observation of intermediate scrolling frames."
+      },
+      "implementation": [
+        "Composited form and General settings panel descendant painting",
+        "Queued repainting instead of forced immediate descendant paints for each scroll event",
+        "No layout/redraw when a boundary scroll or focus change leaves the position unchanged",
+        "Accumulate precision wheel deltas separately for each panel and ignore zero movement"
+      ],
+      "candidate_source_commit": "b3928ca6a29d22b5f010a303658c2e19c24324da",
+      "native_run_url": "https://github.com/comparativechrono/workbench/actions/runs/37453380541",
+      "evidence": "evidence/native-workflow-0.8.0-scroll-2026-10-06.json",
+      "native_observation": {
+        "platform": "Windows Server 2022",
+        "private_python": "3.13.16",
+        "dpi": 96,
+        "panels": [
+          "standalone-options",
+          "general-settings",
+          "workflow-options"
+        ],
+        "frames_per_panel": 320,
+        "frames_total": 960,
+        "unexpected_static_text_background_frames": 0,
+        "requested_endpoint_transitions": 300,
+        "observed_endpoint_transitions": 300,
+        "precision_cases_passed": 18,
+        "failures": 0,
+        "skips": 0,
+        "observed_frames_per_second_range": [
+          27.16,
+          31.8
+        ],
+        "method": "Paced displayed-desktop BitBlt samples with DwmFlush timing aid; no app paint request during sampling; edit/button regions masked.",
+        "scope": "Finite static-text/background observation cannot exclude shorter flashes between samples or establish behavior on the tester physical display."
+      },
+      "prior_package_comparison": {
+        "source_commit": "0d3282046d7aa05dc822315c9a237c8ac534cd7a",
+        "frames_total": 960,
+        "unexpected_static_text_background_frames": 0,
+        "visual_flashing_reproduced": false,
+        "precision_cases_failed": 6,
+        "precision_failure": "Six negative-one-unit cases through panel and child-edit routes produced offset 0 instead of expected 48 pixels.",
+        "scope": "Precision-wheel movement failure was reproduced; it is not reproduction of visual flashing."
+      }
+    },
+    "user_acceptance": {
+      "recorded_on": "2026-10-06",
+      "accepted_candidate_source_commit": "b3928ca6a29d22b5f010a303658c2e19c24324da",
+      "accepted_candidate_starter_sha256": "df001a80033ff8e834045ec683c79672e0efdbd4880fb89fca8bf8c36d830fdc",
+      "outcome": "User explicitly accepted the latest tested candidate and authorized publication.",
+      "evidence_type": "user-reported acceptance",
+      "scope": "Supersedes pending tester confirmation; not a fresh automated run or evidence of additional display/device configurations."
+    },
+    "publication": {
+      "status": "published; independent final public-download verification passed",
+      "release_id": 404720508,
+      "release_tag": "app-v0.8.0",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/app-v0.8.0",
+      "published_at": "2026-10-06T13:12:15Z",
+      "release_tag_commit": "6fa1886b2027cfe634d9f9234fff773cd6c646d0",
+      "prerelease": true,
+      "draft": false,
+      "published": true,
+      "accepted_source_commit": "b3928ca6a29d22b5f010a303658c2e19c24324da",
+      "promotion_policy": "Accepted candidate archives promoted unchanged without rebuilding.",
+      "public_assets_verified": 9,
+      "zip_crcs_verified": 4,
+      "checksum_manifests_verified": 2,
+      "original_candidate_companions_unchanged": 6,
+      "public_download_record": "evidence/native-ui-0.8.0-public-downloads-2026-10-06.json",
+      "release_validation_record": "evidence/native-ui-0.8.0-release-validation-2026-10-06.json",
+      "public_verification_scope": "Fresh anonymous downloads and byte/checksum verification; reuses exact accepted candidate Windows evidence, without claiming a new native run.",
+      "publication_diagnostics": [
+        "First attempt: HTTP 415 while downloading the build artifact, before release mutation.",
+        "Second attempt: all nine draft assets verified and release published; first public GET returned HTTP 404 and failed that workflow verification step. Independent public downloads subsequently passed without changing assets."
+      ],
+      "read_only_verification_workflow_status": "passed; all nine public assets verified without remote mutations",
+      "updater_from_version": "0.6.0",
+      "updater_from_0_7_0_supported": false,
+      "handover": "native-ui-0.8.0-release-handover.md",
+      "read_only_verification_workflow": {
+        "status": "passed",
+        "passed": true,
+        "run_url": "https://github.com/comparativechrono/workbench/actions/runs/37469812304",
+        "run_id": 37469812304,
+        "job_id": 112290052315,
+        "workflow_commit": "2159e0f38b42ef2b8433e1311ece22304cbdf33f",
+        "all_steps_passed": true,
+        "guard_tests_passed": 11,
+        "public_assets_verified": 9,
+        "remote_mutations": false,
+        "artifact": {
+          "id": 11416465488,
+          "bytes": 1075,
+          "sha256": "8a99f78c8d2b24209ac82283062c8ca0a79e1665681ab915115298cc08d87d0a"
+        },
+        "receipt": "evidence/native-ui-0.8.0-final-public-verification-receipt-2026-10-06.json",
+        "receipt_sha256": "d422e4f1c6fd6440eba1fe42d6a8797ec277768d2373e51bc604d777f974455c",
+        "scope": "Read-only recovery of the exact promotion artifact and fresh anonymous downloads of all nine canonical public URLs. Candidate native evidence is reused for unchanged application bytes; no new native execution is claimed."
+      }
+    },
+    "merge_commit": "2086175a18ae018f9f14a295dd6c4e207d1d41e7",
+    "published_downloads": [
+      {
+        "name": "native-workbench-0.8.0-source.zip",
+        "url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.8.0/native-workbench-0.8.0-source.zip",
+        "bytes": 46243835,
+        "sha256": "c2590379b45d313acbcd5bbc41344b288aa6ad159804bf06dcbdcc9726adb22f"
+      },
+      {
+        "name": "native-workbench-0.8.0-starter-windows.zip",
+        "url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.8.0/native-workbench-0.8.0-starter-windows.zip",
+        "bytes": 16948940,
+        "sha256": "df001a80033ff8e834045ec683c79672e0efdbd4880fb89fca8bf8c36d830fdc"
+      },
+      {
+        "name": "native-workbench-0.8.0-update-from-0.6.0.zip",
+        "url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.8.0/native-workbench-0.8.0-update-from-0.6.0.zip",
+        "bytes": 12897242,
+        "sha256": "3dd146267b9a8300ba957c84914bc324ea537c05b09268b48381ae6a4d530e96"
+      }
+    ]
+  },
+  "results_development": {
+    "recorded_on": "2026-10-06",
+    "version": "0.9.0",
+    "branch": "feature/cwl-dag-icon",
+    "status": "user-accepted exact candidate published as app-v0.9.0 development prerelease; all 12 public assets independently downloaded and verified; accepted application bytes unchanged",
+    "guide": "cwl-results.md",
+    "candidate_source_commit": "beea34ab29f3e7cb9a7e79dbcfa11c89f40ee59d",
+    "candidate_download": {
+      "id": 11424165351,
+      "bytes": 75880943,
+      "sha256": "26f1f2070de5ffae4cdb219bd22579f22a3af943eab6e93048fa6e38ad041071",
+      "url": "https://github.com/comparativechrono/workbench/actions/runs/37485987457/artifacts/11424165351",
+      "independentlyDownloadedAndHashVerified": true,
+      "archiveCRCsVerified": true
+    },
+    "native_run_url": "https://github.com/comparativechrono/workbench/actions/runs/37489208656",
+    "evidence": "evidence/cwl-dag-icon-0.9.0-validation-2026-10-06.json",
+    "features": [
+      "workflow.cwl packed CWL v1.2 JSON for the actual frozen analysis, with parameters, pack pins, hashes, reference provenance and original execution outcome",
+      "Independent embedded Python 3.10+ standard-library runner preserving argument arrays, copy operations and binary pipes without Workbench imports",
+      "Orthogonal dependency routes around native and saved SVG diagram cards",
+      "Repository SVG artwork compiled into a native ICO with nine resolutions"
+    ],
+    "external_execution_requirements": [
+      "CWL v1.2 engine",
+      "Python 3.10+",
+      "matching tool-pack directories and their private runtime/assets",
+      "input data and any descriptor-referenced external resources"
+    ],
+    "application_dependencies_changed": false,
+    "limits": [
+      "125 source checks including stock-CWL fixture execution passed. Final focused verification passed 9 checks per Windows path with no failures or skips; all three earlier failed runs remain diagnostic evidence, not passes.",
+      "Original input hashes are historical provenance; external rebinding is allowed and current bound-file mutation checks do not prove original bytes were present before a rerun.",
+      "Explicit optional executable overrides replace original executable identity; manifest and asset pins still apply and scientific equivalence needs separate evidence.",
+      "CWL typing/runner execution does not reproduce all biological preflight, reference/header checks, Windows process ownership, cancellation or scheduler behavior.",
+      "Windows pack executables are not translated across operating systems; external resources are not embedded, inferred or downloaded.",
+      "Native embedded-runner replay is not execution through a Windows CWL engine.",
+      "Diagram routing avoids card interiors but cannot eliminate all crossings or route every obscured socket in overlapping manual layouts.",
+      "User accepted the exact candidate and authorized publication. Version 0.9.0 is published and all 12 public assets passed publication-workflow and separate independent download checks. Both 0.6.0 and 0.8.0 updater native preservation gates passed; no 0.7.0 updater is supplied."
+    ],
+    "published_release_unchanged": "0.8.0",
+    "archives": [
+      {
+        "file": "native-workbench-0.9.0-source.zip",
+        "bytes": 46423298,
+        "sha256": "7bfc3802cad3b476300ae7075214e2c06ee320d987df66945ff0809cb3218824"
+      },
+      {
+        "file": "native-workbench-0.9.0-starter-windows.zip",
+        "bytes": 17002821,
+        "sha256": "c2661c144e073c4efdd190ffd186bacd9398b6413b81770d7a057c3947eecf02"
+      },
+      {
+        "file": "native-workbench-0.9.0-update-from-0.6.0.zip",
+        "bytes": 12951447,
+        "sha256": "eed778882bed560e765c1f2c03d6473b2ea07f2b219e4bd81bff7297e67b177d"
+      },
+      {
+        "file": "native-workbench-0.9.0-update-from-0.8.0.zip",
+        "bytes": 12864532,
+        "sha256": "caa50ff7807be889fd9f4fbb617a458b1d2b38f397ce365d4fc7fc17a2511d9e",
+        "build_record": "evidence/cwl-dag-icon-0.9.0-update-build-2026-10-06.json"
+      }
+    ],
+    "handover": "cwl-dag-icon-0.9.0-handover.md",
+    "artifact_audit": "evidence/cwl-dag-icon-0.9.0-artifact-audit-2026-10-06.json",
+    "pull_request": "https://github.com/comparativechrono/workbench/pull/2",
+    "published": true,
+    "user_accepted": true,
+    "initial_validation": {
+      "run_id": 37485987457,
+      "overall_conclusion": "failure",
+      "source_passed": 125,
+      "source_failed": 0,
+      "source_skipped": 0,
+      "source_platform": "Ubuntu 22.04.5",
+      "stock_cwltool_version": "3.3.20260925135507",
+      "stock_cwl_fixture_validated_and_executed": true,
+      "per_windows_path": {
+        "workspace_passed": 32,
+        "references_update_passed": 9,
+        "new_feature_passed": 7,
+        "new_feature_failed": 1,
+        "skipped": 0
+      },
+      "windows_platform": "Windows Server 2022 build 20348",
+      "private_python": "3.13.16",
+      "new_feature_failure": "Canvas-width fixture requirement exceeded the hosted viewport; failed before new connection interactions.",
+      "long_path_regression": {
+        "checks_passed": 3,
+        "failures": 0,
+        "skips": 0,
+        "full_starter_stages": 5,
+        "output_hashes_checked": 20,
+        "long_path_opt_in": false,
+        "original_policy_restored": true
+      }
+    },
+    "focused_verification": {
+      "application_source_commit": "beea34ab29f3e7cb9a7e79dbcfa11c89f40ee59d",
+      "application_rebuilt": false,
+      "validator_commit": "bc972125814c1f24dca86391d0c5f240716a52f3",
+      "run_id": 37489208656,
+      "run_url": "https://github.com/comparativechrono/workbench/actions/runs/37489208656",
+      "status": "passed for the exact candidate; user acceptance recorded; unchanged application archives published",
+      "success": true,
+      "per_windows_path": {
+        "passed": 9,
+        "failed": 0,
+        "skipped": 0,
+        "nativeGUIValidated": true
+      },
+      "reports": [
+        "evidence/cwl-dag-icon-0.9.0-final-ordinary-native-results.json",
+        "evidence/cwl-dag-icon-0.9.0-final-spaces-native-results.json"
+      ],
+      "captures_reviewed": 4,
+      "capture_zooms_percent": [
+        100,
+        83
+      ],
+      "zoom_capture": "BM_CLICK only for the focused zoom capture; separate 32-check workspace gates already passed physical zoom-button interaction.",
+      "fixture_geometry": {
+        "zoom_button_center": [
+          582,
+          732
+        ],
+        "work_area_size": [
+          1024,
+          728
+        ],
+        "hit_window_class": "MSTaskListWClass"
+      },
+      "retained_failed_attempts": [
+        {
+          "run_id": 37485987457,
+          "failure": "Initial canvas-width fixture requirement exceeded the hosted viewport; failed before new connection interactions."
+        },
+        {
+          "run_id": 37487450679,
+          "validator_commit": "3352ef7819294ea1677688368af8bc0253140d0e",
+          "failure": "Viewport fixture corrected, then the validator inspected the wrong selected card; retained screenshot showed the intended connection."
+        },
+        {
+          "run_id": 37488239616,
+          "validator_commit": "a8c939a81ee6bdc0f3bb8f3682d4a415d768d9e8",
+          "failure": "Correct connections and native icons were confirmed; zoom-capture interaction timed out because the button center fell behind the taskbar."
+        }
+      ]
+    },
+    "updater": {
+      "from_version": "0.6.0",
+      "target_version": "0.9.0",
+      "preservation_gate_passed": true,
+      "from_0_8_0_built_or_tested": true,
+      "from_0_8_0_status": "published unchanged after passing native preservation and post-update scientific/CWL checks",
+      "from_0_8_0": {
+        "from_version": "0.8.0",
+        "target_version": "0.9.0",
+        "archive": "native-workbench-0.9.0-update-from-0.8.0.zip",
+        "bytes": 12864532,
+        "sha256": "caa50ff7807be889fd9f4fbb617a458b1d2b38f397ce365d4fc7fc17a2511d9e",
+        "application_source_commit": "beea34ab29f3e7cb9a7e79dbcfa11c89f40ee59d",
+        "packaging_validation_commit": "648676c4388f1c4dc9f9af0476bf31f9cfca8c92",
+        "run_id": 37527359533,
+        "run_url": "https://github.com/comparativechrono/workbench/actions/runs/37527359533",
+        "status": "passed",
+        "application_rebuilt": false,
+        "all_jobs_passed": 3,
+        "per_windows_path": {
+          "passed": 13,
+          "failed": 0,
+          "skipped": 0,
+          "core_files_verified": 70,
+          "existing_files_preserved": 202,
+          "preserved_file_changes": 0,
+          "repeated_update_idempotent": true
+        },
+        "scientific_evidence": {
+          "alignment_records": 202,
+          "variant_truth": "starter:1351 G>A; GT=1/1",
+          "outputs_independently_hashed": 20,
+          "native_commands_compared": 18,
+          "cwl_runner_replays": 5,
+          "baseline_and_post_update_reference_analysis_passed": true,
+          "post_update_reference_cwl_checked": true
+        },
+        "build_record": "evidence/cwl-dag-icon-0.9.0-update-build-2026-10-06.json",
+        "native_reports": [
+          "evidence/cwl-dag-icon-0.9.0-update-final-ordinary-2026-10-06.json",
+          "evidence/cwl-dag-icon-0.9.0-update-final-spaces-2026-10-06.json"
+        ],
+        "scope": "Native updater CLI/private runtime; synthetic local reference. Host Python socket operations denied, native subprocesses not OS-firewalled. No updater picker UI or live reference download. Embedded-runner replay is not execution through a Windows CWL engine.",
+        "retained_failed_attempts": [
+          {
+            "run_id": 37526784016,
+            "failure": "Failed before update: fixture expected provider display name instead of provider ID.",
+            "passed_per_path": 1
+          },
+          {
+            "run_id": 37527241170,
+            "failure": "Failed before update: saved-workflow fixture omitted explicit reference-input binding.",
+            "passed_per_path": 1
+          }
+        ]
+      }
+    },
+    "user_acceptance": {
+      "recorded_on": "2026-10-06",
+      "user_statement": "Go ahead accept and release, the testers are happy with it",
+      "evidence_type": "user-reported tester acceptance and explicit release authorization",
+      "accepted_candidate_source_commit": "beea34ab29f3e7cb9a7e79dbcfa11c89f40ee59d",
+      "accepted_candidate_starter_sha256": "c2661c144e073c4efdd190ffd186bacd9398b6413b81770d7a057c3947eecf02",
+      "publication_authorized": true,
+      "scope": "Supersedes pending tester review for the exact validated candidate. User-reported acceptance is not a new automated run and does not broaden tested display, hardware, scientific or external-CWL environments.",
+      "record": "evidence/cwl-dag-icon-0.9.0-acceptance-2026-10-06.json"
+    },
+    "pull_request_state": "merged",
+    "merge_commit": "1ee61f1e2334bf0049aa4b9227da6f8663fc0c43",
+    "publication": {
+      "status": "published; publication workflow and separate independent public-download verification passed",
+      "release_id": 405123004,
+      "release_tag": "app-v0.9.0",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/app-v0.9.0",
+      "published_at": "2026-10-06T20:39:35Z",
+      "release_tag_commit": "1ee61f1e2334bf0049aa4b9227da6f8663fc0c43",
+      "prerelease": true,
+      "draft": false,
+      "published": true,
+      "accepted_source_commit": "beea34ab29f3e7cb9a7e79dbcfa11c89f40ee59d",
+      "promotion_policy": "Six accepted candidate members promoted unchanged without rebuilding; separate 0.8.0 updater published unchanged from its successful native gate.",
+      "public_assets_verified": 12,
+      "original_candidate_companions_unchanged": 6,
+      "publication_run_id": 37528064595,
+      "publication_run_url": "https://github.com/comparativechrono/workbench/actions/runs/37528064595",
+      "publication_workflow_conclusion": "success",
+      "promotion_guard_checks_passed": 18,
+      "publication_receipt": "evidence/cwl-dag-icon-0.9.0-publication-receipt-2026-10-06.json",
+      "publication_receipt_sha256": "850642929418095feef3b3a26295b8b190b92e2a7c2eec4dd92a6bca8c80816b",
+      "publication_artifact": {
+        "id": 11443535914,
+        "bytes": 105580300,
+        "sha256": "3140035006f20fcfa71cab0dd11c5073ddb076ed2b15a283349d26c6e361139c",
+        "independently_downloaded_hash_and_crc_verified": true
+      },
+      "public_verification_scope": "Publication workflow and separate independent audit freshly downloaded all 12 canonical asset URLs anonymously and checked size/SHA-256. The independent audit also checked five ZIP CRCs, all three checksum manifests, six unchanged accepted candidate companions and exact validated updater bytes. Native evidence is reused for unchanged application/updater bytes; no new native execution is claimed.",
+      "updater_from_versions": [
+        "0.6.0",
+        "0.8.0"
+      ],
+      "updater_from_0_7_0_supported": false,
+      "handover": "cwl-dag-icon-0.9.0-handover.md",
+      "public_download_record": "evidence/cwl-dag-icon-0.9.0-public-downloads-2026-10-06.json",
+      "release_validation_record": "evidence/cwl-dag-icon-0.9.0-release-validation-2026-10-06.json",
+      "zip_crcs_verified": 5,
+      "checksum_manifests_verified": 3,
+      "independent_public_verification": {
+        "status": "passed",
+        "checked_utc": "2026-10-06T20:43:54.882611+00:00",
+        "assets": 12,
+        "zip_crcs": 5,
+        "checksum_manifests": 3,
+        "original_candidate_members_unchanged": 6,
+        "validated_0_8_0_updater_unchanged": true,
+        "release_metadata_and_tag_unchanged": true,
+        "record": "evidence/cwl-dag-icon-0.9.0-public-downloads-2026-10-06.json",
+        "record_sha256": "4016dafbb342265d62891b8ebb11a41cfc182ce6e958170cebef148612612cb8",
+        "scope": "Fresh anonymous downloads and byte/CRC/checksum verification; reuses exact accepted application and native updater evidence, without claiming new native execution.",
+        "local_recovery": "Truncated local WINDOWS-EVIDENCE.zip recovered by a fresh independently checked download and atomic local replacement; final full audit passed; no remote change."
+      }
+    },
+    "published_downloads": [
+      {
+        "name": "BUILD-PROVENANCE.json",
+        "url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.9.0/BUILD-PROVENANCE.json",
+        "bytes": 940,
+        "sha256": "0de10868b19243071cffd7753381516f67bdfe62350b9a57d7f43326919b9a2c"
+      },
+      {
+        "name": "BUILD-UPDATE-PROVENANCE.json",
+        "url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.9.0/BUILD-UPDATE-PROVENANCE.json",
+        "bytes": 2059,
+        "sha256": "202c3999ca365a45acb427bcdf8e30d169d84f6f4f308d2a3004515d29a07311"
+      },
+      {
+        "name": "EVIDENCE-SHA256SUMS.txt",
+        "url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.9.0/EVIDENCE-SHA256SUMS.txt",
+        "bytes": 727,
+        "sha256": "e8a7b8a297f50f5d6af7356dda493bb1a6d741562ab909e0e988293c56d29174"
+      },
+      {
+        "name": "native-workbench-0.9.0-source.zip",
+        "url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.9.0/native-workbench-0.9.0-source.zip",
+        "bytes": 46423298,
+        "sha256": "7bfc3802cad3b476300ae7075214e2c06ee320d987df66945ff0809cb3218824"
+      },
+      {
+        "name": "native-workbench-0.9.0-starter-windows.zip",
+        "url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.9.0/native-workbench-0.9.0-starter-windows.zip",
+        "bytes": 17002821,
+        "sha256": "c2661c144e073c4efdd190ffd186bacd9398b6413b81770d7a057c3947eecf02"
+      },
+      {
+        "name": "native-workbench-0.9.0-update-from-0.6.0.zip",
+        "url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.9.0/native-workbench-0.9.0-update-from-0.6.0.zip",
+        "bytes": 12951447,
+        "sha256": "eed778882bed560e765c1f2c03d6473b2ea07f2b219e4bd81bff7297e67b177d"
+      },
+      {
+        "name": "native-workbench-0.9.0-update-from-0.8.0.zip",
+        "url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.9.0/native-workbench-0.9.0-update-from-0.8.0.zip",
+        "bytes": 12864532,
+        "sha256": "caa50ff7807be889fd9f4fbb617a458b1d2b38f397ce365d4fc7fc17a2511d9e"
+      },
+      {
+        "name": "RELEASE-VALIDATION.json",
+        "url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.9.0/RELEASE-VALIDATION.json",
+        "bytes": 9033,
+        "sha256": "85f979460248df7de872f58613843ed09a868714e7bd6c6b3947e37ca70cfacf"
+      },
+      {
+        "name": "SHA256SUMS.txt",
+        "url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.9.0/SHA256SUMS.txt",
+        "bytes": 320,
+        "sha256": "c622bb22bc27fc571d5a9e728d80dabff7fe66d4617e9654aaa0259d212480a1"
+      },
+      {
+        "name": "source-metadata.json",
+        "url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.9.0/source-metadata.json",
+        "bytes": 1763,
+        "sha256": "94280fda60803a5ad5598187008ce3e78adf4de751deb450517c24ccb109ddb8"
+      },
+      {
+        "name": "UPDATE-SHA256SUMS.txt",
+        "url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.9.0/UPDATE-SHA256SUMS.txt",
+        "bytes": 111,
+        "sha256": "12e14bd7ef99d227c8e9a77c583424bb409d096c5fe1a7030cda9e926c0e7e5e"
+      },
+      {
+        "name": "WINDOWS-EVIDENCE.zip",
+        "url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.9.0/WINDOWS-EVIDENCE.zip",
+        "bytes": 16852143,
+        "sha256": "1d5b22a19be174007e44e52159a4901bba72c09c2fe6651102f96f51ab4e4e4e"
+      }
+    ]
+  },
+  "tool_setup_development": {
+    "recorded_on": "2026-10-07",
+    "version": "0.10.0",
+    "branch": "feature/native-tool-setup-0.10.0",
+    "status": "published0.10.0-exact-candidate-and-ten-public-downloads-verified",
+    "guide": "tool-setup.md",
+    "official_catalogue": "published and independently verified; bundled owner trust passed clean-client production Full in both Windows paths",
+    "published_baseline": "0.9.0",
+    "packaged_source_commit": "5a390acd8440856e3f4e32de237322a18bb82d7e",
+    "release_tag_commit": "2e474345dff195b860df39fdde263c840dd1fba3",
+    "release_url": "https://github.com/comparativechrono/workbench/releases/tag/app-v0.10.0"
+  },
+  "accepted_application_candidate": {
+    "version": "0.16.0",
+    "source_commit": "e855dc4396e0c16ae35f4e840eb9cc734adb4441",
+    "run_id": 37952018931,
+    "candidate_run_conclusion": "success",
+    "final_native_run_id": 37952018931,
+    "updater_run_id": 37952583789,
+    "regression_run_id": 37952595124,
+    "status": "published-exact-accepted-archives-publisher-public-downloads-verified",
+    "released": true,
+    "release_authorized": true,
+    "authorization": {
+      "authorized": true,
+      "message": "Great lets do a new release at this point",
+      "date": "2026-10-09"
+    },
+    "tag": "app-v0.16.0",
+    "release_id": 408075619,
+    "release_url": "https://github.com/comparativechrono/workbench/releases/tag/app-v0.16.0",
+    "prerelease": true,
+    "draft": false,
+    "published_at": "2026-10-09T15:54:56Z",
+    "release_tag_commit": "60243d45a81a6ef7e16e4a0ee719f4aa2e4f74c9",
+    "merged_release_commit": "60243d45a81a6ef7e16e4a0ee719f4aa2e4f74c9",
+    "pull_request": "https://github.com/comparativechrono/workbench/pull/12",
+    "pull_request_state": "merged",
+    "validator_commit": "0e92d969e13fb7fe96b972bdb71b433f834dbbbe",
+    "updater_baseline": "0.11.0",
+    "updater_built": true,
+    "archives": {
+      "native-workbench-0.16.0-starter-windows.zip": {
+        "bytes": 17846873,
+        "sha256": "f96e03e43cac92ba8ca9a0a3807eb671f9924d5e624cadbba94d1a5ca1309073"
+      },
+      "native-workbench-0.16.0-source.zip": {
+        "bytes": 47848425,
+        "sha256": "f746f00a82675c2cf52364a3b4d040721c6d06ac5605488efbdc0376ef5b7e44"
+      },
+      "native-workbench-pack-align-0.4.1.zip": {
+        "bytes": 575862,
+        "sha256": "3a08cf061f0b62c5502d1420115db3fcae2b04bf695ad3cfd1c3063de0fafa02"
+      },
+      "native-workbench-0.16.0-update-from-0.11.0.zip": {
+        "bytes": 13199905,
+        "sha256": "d75d5129e9b9feaef70faa62d5ea91049c0162df8c7bdc74c7bc81d1933eec8f"
+      }
+    },
+    "publication_run_id": 37955110070,
+    "publication_workflow_conclusion": "success",
+    "publication": "evidence/curated-workflows-0.16.0-publication-2026-10-09.json",
+    "public_downloads": "evidence/curated-workflows-0.16.0-public-downloads-2026-10-09.json",
+    "public_assets_verified": 13,
+    "release_lock": "evidence/curated-workflows-0.16.0-release-lock.json",
+    "handover": "curated-workflows-0.16.0-release-handover.md",
+    "public_verification_scope": "Publisher freshly downloaded all 13 public assets anonymously and verified byte counts and SHA-256. This index does not claim a separate independent 13-asset download audit or new native execution during publication.",
+    "release_channel": "development-prerelease"
+  },
+  "expandable_tool_library_development": {
+    "recorded_on": "2026-10-07",
+    "version": "0.11.0",
+    "branch": "feature/expandable-tool-library",
+    "status": "published-exact-accepted-archives-public-downloads-verified",
+    "packaged_source_commit": "acfa060c9a400d82509278b657ee37853c7922b0",
+    "validator_commit": "3c2d5079355e6a056dcdbe39f25b7b7bead7d670",
+    "guide": "expandable-tool-library.md",
+    "published_baseline": "0.10.1",
+    "released": true,
+    "updater_built": true,
+    "release_authorized": true,
+    "updater_baseline": "0.10.1",
+    "final_validator_commit": "0c880d1060f22edb7e9c663743a1966a2f8f2eea",
+    "release_lock": "evidence/tool-library-0.11.0-release-lock.json",
+    "release_summary": "evidence/tool-library-0.11.0-release-summary.json",
+    "updater_run": 37683536378,
+    "final_native_run": 37685190036,
+    "release_tag": "app-v0.11.0",
+    "release_url": "https://github.com/comparativechrono/workbench/releases/tag/app-v0.11.0",
+    "release_tag_commit": "a97af2d02a3a6f4623ceec0f06f69fa10d04cbb6",
+    "publication_run": 37708604434,
+    "preparation_run": 37708488034,
+    "publication_record": "evidence/tool-library-0.11.0-publication-2026-10-08.json",
+    "public_downloads": "evidence/tool-library-0.11.0-public-downloads-2026-10-08.json"
+  },
+  "active_development": {
+    "recorded_on": "2026-10-13",
+    "kind": "completed-source-stack-integration",
+    "branch": "main",
+    "merge_commit": "9c9cdeacf35d1bf3aa60277f0fb05d5af41c6254",
+    "reviewed_tree": "be386799379aa412eaa39f72043be863edf01649",
+    "status": "completed stack merged into main; unpublished application and packs remain unpublished",
+    "merged_prs": [
+      18,
+      17,
+      15,
+      14
+    ],
+    "previously_merged_pr": 16,
+    "open_pull_requests": [],
+    "evidence": "evidence/stack-integration-2026-10-13.json",
+    "compatibility_evidence": "evidence/merge-pack-compatibility-2026-10-13.json",
+    "published_application": "0.16.0",
+    "unpublished_application_candidate": "0.16.1",
+    "release_published": false,
+    "catalogue_changed": false,
+    "next_work_authorized": false
+  },
+  "ui_patch_0_16_1_development": {
+    "recorded_on": "2026-10-09",
+    "kind": "native-keyboard-narrow-display-patch",
+    "application_version": "0.16.1",
+    "application_rebuilt": true,
+    "application_source_commit": "8938e709b041106e8a46e1447383e8e9ba3e0cb9",
+    "branch": "fix/native-ui-0.16.1",
+    "base_branch": "feature/deployment-acceptance",
+    "base_pull_request": "https://github.com/comparativechrono/workbench/pull/14",
+    "starting_commit": "f74d90229be6a78d6ad0c0076c54c04bb7e7cae2",
+    "status": "implementation and recorded source/native/archive/settled-visual validation complete; ready as an unpublished draft review candidate",
+    "authorization": "Continuation to repair the desktop defects observed in the accepted Windows acceptance and deployment set; unpublished review only.",
+    "release_authorized": false,
+    "released": false,
+    "published_baseline": "0.16.0",
+    "published_assets_changed": false,
+    "pull_request": "https://github.com/comparativechrono/workbench/pull/15",
+    "pull_request_state": "draft",
+    "candidate_commit": "8938e709b041106e8a46e1447383e8e9ba3e0cb9",
+    "scope": [
+      "Results keyboard focus and immediate Escape after Search on fresh and upgraded installations",
+      "Read-only queue/status polling preserves edit focus when no outgoing actions exist; mutation guards and FIFO ordering remain",
+      "Monitor-work-area initial placement and minimum bounds, including the observed 1024-pixel desktop",
+      "New Starter, matching source companion and core-only 0.16.0-to-0.16.1 updater",
+      "Exact ordinary/spaced Windows validation, source/archive audit and screenshot review"
+    ],
+    "handover": "ui-patch-0.16.1-handover.md",
+    "companion_baseline_handover": "deployment-acceptance-handover.md",
+    "verification_progress": {
+      "status": "third candidate source/native/archive checks and settled 96-DPI visual review passed; final validator recheck passed on unchanged archives",
+      "current_run": "https://github.com/comparativechrono/workbench/actions/runs/37988570028",
+      "source_tests": {
+        "python_suites": 13,
+        "passed": 141,
+        "failed": 0,
+        "skipped": 0,
+        "source_commit": "8938e709b041106e8a46e1447383e8e9ba3e0cb9",
+        "evidence": "evidence/ui-patch-0.16.1-source-validation-2026-10-09.json"
+      },
+      "native_build": {
+        "executables": 3,
+        "strict_warnings": "passed",
+        "cpp_json_check": "passed"
+      },
+      "exact_packaged_windows": {
+        "status": "passed",
+        "passed_each_path": 84,
+        "paths": [
+          "ordinary",
+          "spaces"
+        ],
+        "scope": "Third candidate exact Starter and updater, distinct from retained failed attempts.",
+        "evidence": "evidence/ui-patch-0.16.1-native-validation-2026-10-09.json"
+      },
+      "archive_source_audit": {
+        "status": "passed",
+        "git_source_files": 787,
+        "packaged_python_source_matches": 33,
+        "core_files": 87,
+        "unchanged_pack_files": 186,
+        "unchanged_runtime_files": 39,
+        "evidence": "evidence/ui-patch-0.16.1-archive-audit-2026-10-09.json"
+      },
+      "screenshot_review": {
+        "status": "passed for recorded settled hosted 96-DPI observations",
+        "corrected_interpretation": "Crops derived from the original third-run image bytes show General settings and Readiness present. The earlier full-frame omission interpretation was incorrect and is not evidence of product defect or transient absence.",
+        "passive_capture_observation": "Visible captures before PrintWindow show fixed controls settled by the first requested 250-ms frame (about 0.3 seconds elapsed), unchanged at 750/1250 ms. Immediate frames can retain old geometry.",
+        "scope": "Settled observations in both Windows paths. Immediate resize frames can retain old geometry; finite samples do not establish zero flicker or exclude shorter unsampled transients. High-DPI, physical-trackpad and representative-PC acceptance remain outstanding.",
+        "evidence": "evidence/ui-patch-0.16.1-visual-review-2026-10-09.json"
+      },
+      "validator_recheck": {
+        "status": "passed",
+        "run": "https://github.com/comparativechrono/workbench/actions/runs/37989535317",
+        "validator_commit": "69022689e686b2cacdc98dbdbef728e664941e67",
+        "application_source_commit": "8938e709b041106e8a46e1447383e8e9ba3e0cb9",
+        "repeated_checks_each_path": 19,
+        "paths": [
+          "ordinary",
+          "spaces"
+        ],
+        "application_rebuilt": false,
+        "scope": "Repeats the patch gate on the same frozen archives. These 19 checks are within the existing 84 native checks per path, not 103 unique checks."
+      },
+      "representative_machine_acceptance": "not established"
+    },
+    "known_limits": [
+      "Draft review candidate only; no merge or release. Published 0.16.0 and the deployment companion original failures remain unchanged.",
+      "Previous source, native and science passes do not validate the rebuilt 0.16.1 archives.",
+      "Layout targets the observed 96-DPI desktop with a 960-pixel outer minimum width. Source review identifies busy Cancel/Results overlap below 908 logical client pixels and possible footer overlap below 902. Smaller work areas and high DPI remain unvalidated; monitor clamping is not acceptance of every resulting layout.",
+      "Representative PCs, high DPI and transitions, multiple monitors, physical trackpads and managed-machine acceptance remain outstanding.",
+      "Executable signing needs a controlled identity; institutional deployment requires actual IT approval.",
+      "Scientific Linux CWL and SDK/build recovery remain later sets. Benchmarking is handled separately."
+    ],
+    "next_action": "Review the unpublished draft candidate and perform the outstanding representative-PC acceptance. No merge or release is authorized by this delivery.",
+    "validation_attempts": [
+      {
+        "candidate_commit": "5e2bc368c5ea869ff794ad9d90a40480b6fd06fe",
+        "run": "https://github.com/comparativechrono/workbench/actions/runs/37986650814",
+        "status": "failed native gate; retained historical attempt",
+        "source_tests": {
+          "python_suites": 13,
+          "passed": 141,
+          "failed": 0,
+          "skipped": 0,
+          "scope": "Candidate build at 5e2bc368c5ea869ff794ad9d90a40480b6fd06fe"
+        },
+        "native_build": {
+          "executables": 3,
+          "strict_warnings": "passed",
+          "cpp_json_check": "passed"
+        },
+        "ui_gate": {
+          "ordinary": {
+            "passed": 11,
+            "failed": 2
+          },
+          "spaces": {
+            "passed": 10,
+            "failed": 2
+          }
+        },
+        "other_checks_each_path": {
+          "curated": 11,
+          "workspace": 32,
+          "reference_management": 10,
+          "results": 9,
+          "scroll": 3,
+          "total": 65
+        },
+        "follow_up": "Validator fixes correct control IDs and wait for the Setup dismissal reply before app closure. The spaced-path filter-clear failure cause remains unproven; explicit Home/Shift+End selection makes the next attempt observable.",
+        "scope": "These passes and failures describe the first candidate only and are not transferred to subsequent archives."
+      },
+      {
+        "candidate_commit": "473428671cbb75505c163a9a761caf84e73dfdd9",
+        "run": "https://github.com/comparativechrono/workbench/actions/runs/37987546291",
+        "status": "ordinary path passed; spaced-path native patch gate failed; retained historical attempt",
+        "ordinary_all_configured_checks_passed": 84,
+        "spaces_patch_gate": {
+          "passed": 11,
+          "failed": 2,
+          "failed_observations": [
+            "library Tab focus before Results",
+            "library Home focus before Results"
+          ]
+        },
+        "other_checks_each_path": {
+          "curated": 11,
+          "workspace": 32,
+          "reference_management": 10,
+          "results": 9,
+          "scroll": 3,
+          "total": 65
+        },
+        "follow_up": "Third candidate changes read-only queue/status polling to avoid disabling edits when no outgoing actions exist; mutation guards and FIFO remain. Passive 2.4-second focus holds span polling intervals without refocusing.",
+        "evidence_preservation": "Original reports and archive audits retained in the attempt history.",
+        "scope": "The ordinary-path pass does not waive the spaced-path failures or validate subsequent rebuilt archives."
+      }
+    ],
+    "archives": [
+      {
+        "file": "native-workbench-0.16.1-source.zip",
+        "bytes": 48078770,
+        "sha256": "48523c0e7090f661442bec2999c1658a1532ad7a5fa7fe882b1081b23452acc7"
+      },
+      {
+        "file": "native-workbench-0.16.1-starter-windows.zip",
+        "bytes": 17847594,
+        "sha256": "7dfed53de2279f51deaea405dbfd29b36cddb733e5a20c43b3112f27a7728a8e"
+      },
+      {
+        "file": "native-workbench-0.16.1-update-from-0.16.0.zip",
+        "bytes": 12982946,
+        "sha256": "f2dc435495f43d837e80837f3ba83ff7b6963294219d5bc88bc8fb0e5d82effd"
+      }
+    ],
+    "validator_commit": "69022689e686b2cacdc98dbdbef728e664941e67"
+  },
+  "readiness_performance_development": {
+    "recorded_on": "2026-10-08",
+    "version": "0.12.0",
+    "branch": "feature/readiness-performance",
+    "starting_commit": "82729febfcfab1c43bd9c9798d03c80f595545cb",
+    "status": "first implementation tranche and exact candidate gates complete; draft PR #7; unpublished; representative-machine, benchmark and release acceptance pending",
+    "authorization": "Owner accepted the full proposed feature programme and instructed development to begin.",
+    "milestone": 1,
+    "scope": [
+      "explicit run readiness",
+      "scoped local performance records",
+      "reviewable local diagnostic export"
+    ],
+    "handover": "readiness-performance.md",
+    "roadmap": "roadmap.md",
+    "published_baseline": "0.11.0",
+    "published_assets_changed": false,
+    "later_accepted_milestones": [
+      "sample table, general batch workflows, durable queue and reusable indexes",
+      "verified completed-step restart, resource-bounded concurrency and portable projects"
+    ],
+    "cross_cutting_acceptance": [
+      "high-DPI displays",
+      "keyboard accessibility",
+      "physical trackpads",
+      "managed Windows machines"
+    ],
+    "evidence_scope": "Do not transfer historical native results to changed bytes. Unavailable or skipped checks are not passes.",
+    "pull_request": "https://github.com/comparativechrono/workbench/pull/7",
+    "pull_request_state": "draft",
+    "source_evidence": "evidence/readiness-performance-0.12.0-source-2026-10-08.json",
+    "retained_candidate_failures": [
+      "evidence/readiness-performance-0.12.0-initial-failure-2026-10-08.json",
+      "evidence/readiness-performance-0.12.0-second-failure-2026-10-08.json",
+      "evidence/readiness-performance-0.12.0-third-failure-2026-10-08.json",
+      "evidence/readiness-performance-0.12.0-fourth-failure-2026-10-08.json",
+      "evidence/readiness-performance-0.12.0-fifth-failure-2026-10-08.json",
+      "evidence/readiness-performance-0.12.0-sixth-visual-finding-2026-10-08.json",
+      "evidence/readiness-performance-0.12.0-font-gate-failure-2026-10-08.json"
+    ],
+    "verification_progress": {
+      "offline_hostname_regression": "fixed; strict socket audit gate retained; cold-import regressions added",
+      "native_subchecks": "Final exact candidate: 14 process-resource, 5 readiness/diagnostic, 7 library and 32 workspace checks passed per path; 10 Windows diagnostic source checks passed with one POSIX-only skip.",
+      "remaining_native_gate": "Defined hosted Windows gates and independent 96-DPI dialog screenshot reviews passed; broader device acceptance and release-specific gates remain.",
+      "source_scope": "Initial local consolidated and later CI suite selections differ; preserve each result without adding counts.",
+      "final_candidate_evidence": {
+        "path": "evidence/readiness-performance-0.12.0-candidate-2026-10-08.json",
+        "status": "passed within recorded scope; candidate only"
+      },
+      "representative_machine_acceptance": "pending",
+      "artifact_audit": "evidence/readiness-performance-0.12.0-artifact-audit-2026-10-08.json",
+      "realistic_windows_linux_benchmark": "not performed",
+      "updater_built": false
+    },
+    "tested_source_commit": "eaa691d55a3659a793086ce272b826bcba1cabea",
+    "tested_run": "https://github.com/comparativechrono/workbench/actions/runs/37808653384"
+  },
+  "batch_queue_indexes_development": {
+    "recorded_on": "2026-10-08",
+    "version": "0.13.0",
+    "branch": "feature/batch-queue-indexes",
+    "starting_commit": "dc7c8e9ea78f12d6229150c48af8c60d6632046b",
+    "base_branch": "feature/readiness-performance",
+    "status": "implementation and recorded exact hosted Windows gates complete; draft PR #8; unpublished; representative-machine and release/update acceptance pending",
+    "authorization": "Owner requested implementation of the next accepted tranche; release not requested.",
+    "milestone": 2,
+    "scope": [
+      "explicit sample tables and per-sample mapping",
+      "independent sample batches and explicit combined metrics/text reports",
+      "durable serial queue with immutable plans and paused restart",
+      "verified reusable minimap2 short-read indexes"
+    ],
+    "handover": "batch-queue-indexes-0.13.0-handover.md",
+    "index_contract": "reference-indexes.md",
+    "roadmap": "roadmap.md",
+    "published_baseline": "0.11.0",
+    "published_assets_changed": false,
+    "release_authorized": false,
+    "released": false,
+    "updater_built": false,
+    "additional_candidate_pack": {
+      "id": "align",
+      "version": "0.4.1",
+      "min_app_version": "0.13.0",
+      "published": false,
+      "preserves_published": "align 0.4.0"
+    },
+    "later_accepted_milestones": [
+      "verified completed-step restart",
+      "resource-bounded concurrency",
+      "portable projects"
+    ],
+    "evidence_scope": "Source, exact native hosted Windows execution, physical device acceptance and realistic benchmarking remain separate claims.",
+    "pull_request": "https://github.com/comparativechrono/workbench/pull/8",
+    "pull_request_state": "draft",
+    "feature_guide": "batch-workflows.md",
+    "tested_source_commit": "0ceca7b9c1762542f8fb665a6695b998d32f311e",
+    "build_run": "https://github.com/comparativechrono/workbench/actions/runs/37828085808",
+    "latest_complete_native_run": "https://github.com/comparativechrono/workbench/actions/runs/37828085808",
+    "starter_sha256": "7bf98515d9403e851fcc189f022fed0386fbcdbfa6857823699d4170fc076c75",
+    "verification_progress": {
+      "source": {
+        "passed": 217,
+        "skipped": 5,
+        "failed": 0,
+        "evidence": "evidence/batch-queue-indexes-0.13.0-final-source-2026-10-08.json"
+      },
+      "native_per_path": {
+        "batch_queue_indexes_gui": 11,
+        "resource": 14,
+        "readiness_diagnostics_gui": 5,
+        "library": 7,
+        "workspace": 32,
+        "separate_instrumented_transport": 3,
+        "independent_pack_import_and_declared_scientific_check": "passed",
+        "evidence": "evidence/batch-queue-indexes-0.13.0-final-windows-2026-10-08.json"
+      },
+      "windows_source_per_path": {
+        "queue": {
+          "passed": 28,
+          "skipped": 0
+        },
+        "indexes": {
+          "passed": 18,
+          "skipped": 1,
+          "skip_reason": "Windows symlink creation privilege unavailable"
+        },
+        "diagnostics": {
+          "passed": 10,
+          "skipped": 1,
+          "skip_reason": "POSIX-only symlink case"
+        }
+      },
+      "archive_audit": "evidence/batch-queue-indexes-0.13.0-final-archive-audit-2026-10-08.json",
+      "queue_storage_correction": "Confirmed Windows held-reader replacement hazard; bounded retry of same prepared rename only. Exact packaged short-reader and persistent-error checks passed. Historical missing error messages not reconstructed.",
+      "historical_evidence_retained": [
+        "evidence/batch-queue-indexes-0.13.0-initial-windows-2026-10-08.json",
+        "evidence/batch-queue-indexes-0.13.0-rechecks-2026-10-08.json",
+        "evidence/batch-queue-indexes-0.13.0-queue-diagnostic-2026-10-08.json"
+      ],
+      "representative_machine_acceptance": "pending",
+      "realistic_windows_linux_benchmark": "not performed",
+      "published_baseline_upgrade": "not built or tested for 0.13.0",
+      "live_reference_downloads_and_full_setup": "not rerun for this candidate"
+    }
+  },
+  "recovery_projects_development": {
+    "recorded_on": "2026-10-08",
+    "version": "0.14.0",
+    "branch": "feature/recovery-projects",
+    "starting_commit": "9f5cd4c88634b4cab04cec66b9e43e93e1db0e17",
+    "status": "implementation and recorded hosted validation complete; ready for tester review; unpublished",
+    "authorization": "Owner requested the final accepted implementation tranche. Development only; no release request.",
+    "milestone": 3,
+    "scope": [
+      "verified completed-step restart",
+      "declared CPU admission budgets for parallel DAG execution",
+      "portable project bundles"
+    ],
+    "handover": "recovery-projects-0.14.0-handover.md",
+    "feature_guide": "recovery-projects.md",
+    "published_baseline": "0.11.0",
+    "published_assets_changed": false,
+    "release_authorized": false,
+    "released": false,
+    "updater_built": false,
+    "evidence_scope": "Source, exact hosted Windows, external Linux CWL fixture, representative-machine acceptance and realistic benchmarks are distinct claims.",
+    "pull_request": "https://github.com/comparativechrono/workbench/pull/9",
+    "pull_request_state": "draft",
+    "tested_source_commit": "0e2d5cbcbf1786d6e1723f8466b4b6b94da04802",
+    "build_run": "https://github.com/comparativechrono/workbench/actions/runs/37842857764",
+    "starter_sha256": "4ed5b3827cc0c0f4f34b8b9405458d4f15e058147b549afa383fb3f8b81f531f",
+    "verification_progress": {
+      "source": {
+        "passed": 289,
+        "skipped": 4,
+        "failed": 0,
+        "errors": 0,
+        "evidence": "evidence/recovery-projects-0.14.0-final-source-2026-10-08.json"
+      },
+      "initial_windows": "Failed validator assumptions/imports; corrected frozen-native gate passed, then Windows source and visual checks exposed alias/caption issues. Retained historical evidence; superseded by the final rebuilt candidate.",
+      "archive_audit": "evidence/recovery-projects-0.14.0-final-archive-audit-2026-10-08.json",
+      "representative_machine_acceptance": "pending",
+      "realistic_windows_linux_benchmark": "not performed",
+      "release_update_validation": "not performed",
+      "corrected_initial_native": {
+        "passed_per_path": 12,
+        "run": "https://github.com/comparativechrono/workbench/actions/runs/37841697478",
+        "scope": "Original archive only; source-only follow-up exposed alias defects and screenshot review a clipped caption. New artifact required."
+      },
+      "final_windows": {
+        "run_conclusion": "success",
+        "focused_feature_checks_per_path": 12,
+        "source_passed_per_path": 126,
+        "source_skipped_per_path": 3,
+        "evidence": "evidence/recovery-projects-0.14.0-final-windows-2026-10-08.json",
+        "scope": "Exact final Starter, both Windows paths; prior native regression gates passed. Instrumented abrupt-termination and delayed-host fixtures separately labelled."
+      },
+      "final_visual_review": {
+        "captures_per_path": 6,
+        "paths": 2,
+        "dpi": 96,
+        "status": "passed for observed settled captures; export caption and completed queue capture verified",
+        "limits": "No high-DPI, physical-trackpad, multi-monitor or temporal rendering acceptance implied."
+      }
+    },
+    "starter_candidate_download": "https://github.com/comparativechrono/workbench/actions/runs/37842857764/artifacts/11578890349",
+    "candidate_download_limit": "Temporary Actions artifact retained for 30 days; may require GitHub sign-in; not a release asset."
+  },
+  "curated_workflows_results_development": {
+    "recorded_on": "2026-10-09",
+    "version": "0.16.0",
+    "branch": "release/prepare-app-0.16.0",
+    "status": "release-completed; exact frozen 0.16.0 development prerelease published and 13 public assets verified by anonymous publisher downloads",
+    "authorization": "Great lets do a new release at this point",
+    "authorization_date": "2026-10-09",
+    "release_authorized": true,
+    "released": true,
+    "updater_built": true,
+    "tested_source_commit": "e855dc4396e0c16ae35f4e840eb9cc734adb4441",
+    "validator_commit": "0e92d969e13fb7fe96b972bdb71b433f834dbbbe",
+    "merged_release_commit": "60243d45a81a6ef7e16e4a0ee719f4aa2e4f74c9",
+    "release_tag_commit": "60243d45a81a6ef7e16e4a0ee719f4aa2e4f74c9",
+    "publication_run_id": 37955110070,
+    "publication_status": "published-and-public-downloads-verified",
+    "pull_request": "https://github.com/comparativechrono/workbench/pull/12",
+    "pull_request_state": "merged",
+    "scope": [
+      "two synthetic training workflows: alignment with QC and variant calling",
+      "exact dependencies and expected answers",
+      "native recorded measurements, searchable results and failure guidance"
+    ],
+    "handover": "curated-workflows-0.16.0-release-handover.md",
+    "feature_guide": "curated-workflows-results.md",
+    "historical_published_baseline": "0.11.0",
+    "verification_progress": {
+      "source": {
+        "linux_passed": 488,
+        "linux_skipped": 4,
+        "linux_suites": 33,
+        "windows_passed_per_path": 332,
+        "windows_skipped_per_path": 4,
+        "windows_suites_per_path": 19,
+        "failures": 0
+      },
+      "candidate_native_checks_per_path": {
+        "curated": 11,
+        "reference-live": 9,
+        "reference-management": 10,
+        "recovery": 12,
+        "batch": 11,
+        "readiness": 5,
+        "library": 7,
+        "workspace": 32,
+        "transport": 3,
+        "performance": 14,
+        "align-pack": 1
+      },
+      "release_results_per_path": 9,
+      "release_scroll_panels_per_path": 3,
+      "release_long_path_checks": 4,
+      "updater_checks_per_path": 18,
+      "upgraded_curated_checks_per_path": 11,
+      "scope": "Exact frozen e855 Starter and d75d512 updater on hosted Windows ordinary and space-containing paths; separate final archive and screenshot evidence. Publication promoted accepted bytes without rebuilding and verified all 13 public assets anonymously.",
+      "representative_machine_acceptance": "pending",
+      "scientific_linux_cwl": "pending",
+      "realistic_windows_linux_benchmark": "not performed",
+      "signing_institutional_deployment": "separate outstanding work"
+    },
+    "remaining_scope": [
+      "representative-PC acceptance",
+      "scientific Linux CWL execution",
+      "realistic Windows/Linux benchmarking",
+      "signing and institutional deployment",
+      "pack toolkit work"
+    ],
+    "release_url": "https://github.com/comparativechrono/workbench/releases/tag/app-v0.16.0",
+    "publication": "evidence/curated-workflows-0.16.0-publication-2026-10-09.json",
+    "public_downloads": "evidence/curated-workflows-0.16.0-public-downloads-2026-10-09.json",
+    "starting_commit": "f45622f8915a3fa80c0904fcd97c216e0b5980f3",
+    "build_run": "https://github.com/comparativechrono/workbench/actions/runs/37952018931",
+    "updater_run": "https://github.com/comparativechrono/workbench/actions/runs/37952583789",
+    "regression_run": "https://github.com/comparativechrono/workbench/actions/runs/37952595124",
+    "starter_sha256": "f96e03e43cac92ba8ca9a0a3807eb671f9924d5e624cadbba94d1a5ca1309073",
+    "source_sha256": "f746f00a82675c2cf52364a3b4d040721c6d06ac5605488efbdc0376ef5b7e44",
+    "historical_review_candidates": [
+      {
+        "recorded_on": "2026-10-09",
+        "version": "0.16.0",
+        "branch": "feature/curated-workflows-results",
+        "starting_commit": "f45622f8915a3fa80c0904fcd97c216e0b5980f3",
+        "status": "implementation, exact hosted Windows validation, independent archive audit and static screenshot review complete; unpublished draft review candidate",
+        "scope": [
+          "two synthetic training workflows: alignment with QC and variant calling",
+          "exact dependencies and expected answers",
+          "native recorded measurements, searchable results and failure guidance"
+        ],
+        "handover": "curated-workflows-results-0.16.0-handover.md",
+        "feature_guide": "curated-workflows-results.md",
+        "published_baseline": "0.11.0",
+        "published_assets_changed": false,
+        "release_authorized": false,
+        "released": false,
+        "updater_built": false,
+        "version_decision": "No saved next-set version found; new candidate assigned 0.16.0 to distinguish it from frozen reference-management 0.15.0.",
+        "tested_source_commit": "7a9aca71ddd4816b51dbe693873f42fa50a6b746",
+        "build_run": "https://github.com/comparativechrono/workbench/actions/runs/37941573921",
+        "pull_request": "https://github.com/comparativechrono/workbench/pull/11",
+        "pull_request_state": "draft",
+        "starter_sha256": "1ff91bdb386171aeb166fec4fce4ad23e31287dc9e9695167db113994f416131",
+        "source_sha256": "8fc6a510d178632f12259a3e6e6b115c2c6c40562906eecc5a5557a7a9a361de",
+        "verification_progress": {
+          "source": {
+            "linux_passed": 474,
+            "linux_skipped": 4,
+            "windows_passed_per_path": 318,
+            "windows_skipped_per_path": 4,
+            "portable_native_regression": "passed"
+          },
+          "native_curated_per_path": 11,
+          "all_configured_native_regressions": "passed on the same archive, both paths",
+          "visual_review": "six captures per path, hosted 96 DPI; passed",
+          "representative_machine_acceptance": "pending",
+          "scientific_linux_cwl": "pending",
+          "realistic_windows_linux_benchmark": "not performed",
+          "release_updater_validation": "not performed",
+          "signing_institutional_deployment": "separate outstanding work"
+        },
+        "starter_candidate_download": "https://github.com/comparativechrono/workbench/actions/runs/37941573921/artifacts/11620934453",
+        "candidate_download_limit": "Temporary Actions artifacts expire 2026-11-08; may require GitHub sign-in; not a release asset."
+      }
+    ],
+    "historical_scope": "The retained 7a review candidate and prior 0.12\u20130.15 records describe their original dated validation/authorization. They do not supply passes for the final e855 release.",
+    "release_id": 408075619,
+    "published_at": "2026-10-09T15:54:56Z",
+    "prerelease": true,
+    "draft": false
+  },
+  "accepted_application_candidate_history": [
+    {
+      "version": "0.11.0",
+      "source_commit": "acfa060c9a400d82509278b657ee37853c7922b0",
+      "run_id": 37678010251,
+      "candidate_run_conclusion": "failure; successful build/workspace reused, corrected category and final gates passed separately",
+      "final_native_run_id": 37685190036,
+      "updater_run_id": 37683536378,
+      "status": "published-exact-accepted-archives-public-downloads-verified",
+      "release_url": "https://github.com/comparativechrono/workbench/releases/tag/app-v0.11.0",
+      "release_tag_commit": "a97af2d02a3a6f4623ceec0f06f69fa10d04cbb6",
+      "released": true,
+      "updater_baseline": "0.10.1",
+      "publication": "evidence/tool-library-0.11.0-publication-2026-10-08.json",
+      "public_downloads": "evidence/tool-library-0.11.0-public-downloads-2026-10-08.json"
+    }
+  ],
+  "reference_management_development": {
+    "recorded_on": "2026-10-08",
+    "version": "0.15.0",
+    "branch": "feature/reference-management",
+    "starting_commit": "38917349449ce56a45d3e0f4f41b7d2a38621c6d",
+    "status": "reference-management implementation and recorded hosted validation complete; unpublished candidate ready for tester review",
+    "authorization": "Owner requested remaining accepted groups one at a time. This first group is reference management; publication is not authorized by the earlier unmet broader-completion condition.",
+    "scope": [
+      "resumable reference downloads",
+      "reviewed local reference imports",
+      "verified library relocation retaining original paths",
+      "NCBI RefSeq versioned assembly lookup"
+    ],
+    "feature_guide": "reference-management.md",
+    "handover": "reference-management-0.15.0-handover.md",
+    "published_baseline": "0.11.0",
+    "published_assets_changed": false,
+    "release_authorized": false,
+    "released": false,
+    "updater_built": false,
+    "verification_progress": {
+      "source": {
+        "passed": 430,
+        "skipped": 4,
+        "failed": 0,
+        "scope": "Frozen Linux build29invocations including5namedcoreboundarytests",
+        "evidence": "evidence/reference-management-0.15.0-frozen-source-2026-10-08.json"
+      },
+      "exact_packaged_windows": {
+        "status": "passed combined frozen candidate and corrected-validator evidence",
+        "live_reference_checks_per_path": 9,
+        "management_checks_per_path": 10,
+        "windows_source_passed_per_path": 274,
+        "windows_source_skipped_per_path": 4,
+        "batch_checks_per_path": 11,
+        "visual_captures_reviewed": 22,
+        "dpi": 96,
+        "evidence": "evidence/reference-management-0.15.0-final-validation-2026-10-08.json"
+      },
+      "representative_machine_acceptance": "pending",
+      "realistic_windows_linux_benchmark": "not performed",
+      "release_update_validation": "not performed"
+    },
+    "pull_request": "https://github.com/comparativechrono/workbench/pull/10",
+    "candidate_source_commit": "46bbb39dda2cc5bb08c30af494cb340f976acf3b",
+    "candidate_build_run": "https://github.com/comparativechrono/workbench/actions/runs/37855047291",
+    "candidate_source_tree": "6b1641f7f915a93d8a007933aa6cba62cafc10e9",
+    "validator_commit": "016b14109c50dcce36e635586781b5bb5e19d79b",
+    "recheck_run": "https://github.com/comparativechrono/workbench/actions/runs/37857029068",
+    "starter_sha256": "ce3bcc9c5634dd90f024ecf20f0308a144641c67e0c11c205501518773f6a4c2",
+    "starter_download": "https://github.com/comparativechrono/workbench/actions/runs/37855047291/artifacts/11583866299"
+  },
+  "previous_application_release": {
+    "recorded_on": "2026-10-09",
+    "version": "0.16.0",
+    "branch": "release/prepare-app-0.16.0",
+    "status": "release-completed; exact frozen 0.16.0 development prerelease published and 13 public assets verified by anonymous publisher downloads",
+    "authorization": "Great lets do a new release at this point",
+    "authorization_date": "2026-10-09",
+    "release_authorized": true,
+    "released": true,
+    "updater_built": true,
+    "tested_source_commit": "e855dc4396e0c16ae35f4e840eb9cc734adb4441",
+    "validator_commit": "0e92d969e13fb7fe96b972bdb71b433f834dbbbe",
+    "merged_release_commit": "60243d45a81a6ef7e16e4a0ee719f4aa2e4f74c9",
+    "release_tag_commit": "60243d45a81a6ef7e16e4a0ee719f4aa2e4f74c9",
+    "publication_run_id": 37955110070,
+    "publication_status": "published-and-public-downloads-verified",
+    "pull_request": "https://github.com/comparativechrono/workbench/pull/12",
+    "pull_request_state": "merged",
+    "scope": [
+      "readiness, measurements and diagnostics",
+      "sample batches, durable queue and reusable indexes",
+      "verified restart, declared resource budgets and portable projects",
+      "reference management including NCBI RefSeq",
+      "curated synthetic workflows and recorded-result summaries/search"
+    ],
+    "handover": "curated-workflows-0.16.0-release-handover.md",
+    "feature_guide": "curated-workflows-results.md",
+    "historical_published_baseline": "0.11.0",
+    "verification_progress": {
+      "source": {
+        "linux_passed": 488,
+        "linux_skipped": 4,
+        "linux_suites": 33,
+        "windows_passed_per_path": 332,
+        "windows_skipped_per_path": 4,
+        "windows_suites_per_path": 19,
+        "failures": 0
+      },
+      "candidate_native_checks_per_path": {
+        "curated": 11,
+        "reference-live": 9,
+        "reference-management": 10,
+        "recovery": 12,
+        "batch": 11,
+        "readiness": 5,
+        "library": 7,
+        "workspace": 32,
+        "transport": 3,
+        "performance": 14,
+        "align-pack": 1
+      },
+      "release_results_per_path": 9,
+      "release_scroll_panels_per_path": 3,
+      "release_long_path_checks": 4,
+      "updater_checks_per_path": 18,
+      "upgraded_curated_checks_per_path": 11,
+      "scope": "Exact frozen e855 Starter and d75d512 updater on hosted Windows ordinary and space-containing paths; separate final archive and screenshot evidence. Publication promoted accepted bytes without rebuilding and verified all 13 public assets anonymously.",
+      "representative_machine_acceptance": "pending",
+      "scientific_linux_cwl": "pending",
+      "realistic_windows_linux_benchmark": "not performed",
+      "signing_institutional_deployment": "separate outstanding work"
+    },
+    "remaining_scope": [
+      "representative-PC acceptance",
+      "scientific Linux CWL execution",
+      "realistic Windows/Linux benchmarking",
+      "signing and institutional deployment",
+      "pack toolkit work"
+    ],
+    "release_url": "https://github.com/comparativechrono/workbench/releases/tag/app-v0.16.0",
+    "publication": "evidence/curated-workflows-0.16.0-publication-2026-10-09.json",
+    "public_downloads": "evidence/curated-workflows-0.16.0-public-downloads-2026-10-09.json",
+    "release_id": 408075619,
+    "published_at": "2026-10-09T15:54:56Z",
+    "prerelease": true,
+    "draft": false
+  },
+  "deployment_acceptance_development": {
+    "recorded_on": "2026-10-09",
+    "kind": "deployment-acceptance-companion",
+    "application_version": "0.16.0",
+    "application_rebuilt": false,
+    "application_source_commit": "e855dc4396e0c16ae35f4e840eb9cc734adb4441",
+    "branch": "feature/deployment-acceptance",
+    "status": "complete-observations-with-failed-keyboard-acceptance",
+    "authorization": "okay, lets do that",
+    "authorization_date": "2026-10-09",
+    "release_authorized": false,
+    "released": false,
+    "published_assets_changed": false,
+    "pull_request": "https://github.com/comparativechrono/workbench/pull/14",
+    "pull_request_state": "draft",
+    "candidate_commit": "1a7d1e5f70e3ca710c9b3f6b1313353e8d46cc78",
+    "scope": [
+      "Verified offline companion from four exact published archives",
+      "Executable/runtime/licence inventories with explicit unknowns",
+      "Manual reports and separate imported automation",
+      "Actual Authenticode observations without signing or policy changes",
+      "Actual updater folder-picker and bounded native desktop checks"
+    ],
+    "handover": "deployment-acceptance-handover.md",
+    "acceptance_guide": "../docs/deployment-acceptance.md",
+    "institutional_review_guide": "../docs/institutional-deployment.md",
+    "input_lock": "../packaging/deployment-0.16.0-lock.json",
+    "evidence": "evidence/deployment-acceptance-final-2026-10-09.json",
+    "archive_audit": "evidence/deployment-acceptance-archive-audit-2026-10-09.json",
+    "visual_review": "evidence/deployment-acceptance-visual-review-2026-10-09.json",
+    "attempt_history": "evidence/deployment-acceptance-attempts-2026-10-09.json",
+    "verification_progress": {
+      "status": "Complete observations; CI failed",
+      "current_run": "https://github.com/comparativechrono/workbench/actions/runs/37979351047",
+      "source_tests": {
+        "passed": 87,
+        "failed": 0,
+        "skipped": 0,
+        "platform": "ubuntu-22.04"
+      },
+      "each_windows_path": {
+        "native_passed": 14,
+        "native_failed": 2,
+        "native_blocked": 0,
+        "native_skipped": 0,
+        "curated_passed": 11,
+        "signature_files": 72,
+        "signature_valid": 60,
+        "signature_not_signed": 12,
+        "manual_not_tested": 10
+      },
+      "screenshots_reviewed": 54
+    },
+    "download": {
+      "file": "native-workbench-0.16.0-deployment-toolkit.zip",
+      "bytes": 126494957,
+      "sha256": "7e4fca6d814ad17aa82980db6ca735e9b3f191b1fd1a9e5b885e926290ab5cc5",
+      "id": 11641200131,
+      "url": "https://github.com/comparativechrono/workbench/actions/runs/37979351047/artifacts/11641200131",
+      "expiresAt": "2026-11-08T19:19:03Z"
+    },
+    "known_limits": [
+      "Results Escape after keyboard Search failed on fresh and upgraded published 0.16.0 in both paths. No control had focus before or after Escape. Explicit pointer focus into the query then Escape closed; that diagnostic does not pass the original requirement. The internal application cause is not established. Visible Close fallback was not needed/tested.",
+      "Published minimum width 1040 exceeds the hosted 1024-pixel desktop/work area; right edge clipped. Bounded resize assertions are not acceptance on that narrower display.",
+      "All 10 manual acceptance items remain not-tested. Representative PCs, high DPI and transitions, multiple monitors, physical trackpads, Unicode/path-limit target-PC observations and managed-machine security/IT approval remain outstanding.",
+      "Python socket operations were denied in scientific hosts; no OS network isolation, realistic workload capacity, biological/clinical validation or benchmark is claimed.",
+      "Other migration routes, all optional packs and all earlier application suites were not rerun for the unchanged application. Scientific Linux CWL and SDK/build recovery remain later sets; benchmarking is separate."
+    ],
+    "delivery_recovery": {
+      "problem": "Workspace executor disconnected after validation, local documentation preparation and independent count/hash review.",
+      "recoveredThrough": "GitHub API using the exact existing branch tree, stored artifact metadata, completed review observations and original reports retained in Actions.",
+      "limits": "Original report copies and detailed per-image receipts could not be read from the disconnected local workspace. Durable aggregate receipts reference exact artifact hashes and known native report hashes; no unavailable values are invented. Original reports/screenshots remain downloadable until 2026-11-08."
+    },
+    "historical_next_action": "Review the companion; fix Results keyboard focus/Escape in a separately versioned application candidate, address or explicitly bound narrow-display behavior, preserve published bytes and repeat exact ordinary/spaced native gates.",
+    "follow_up": {
+      "version": "0.16.1",
+      "branch": "fix/native-ui-0.16.1",
+      "pull_request": "https://github.com/comparativechrono/workbench/pull/15",
+      "status": "Preceding UI patch and subsequent tester-feedback revision have their own completed exact-package validation; deployment companion failed observations remain unchanged.",
+      "handover": "ui-patch-0.16.1-handover.md",
+      "scope": "The original companion observations, including failed Results Escape checks, remain unchanged.",
+      "active_handover": "tester-feedback-0.16.1-handover.md"
+    }
+  },
+  "active_development_record": "stack_integration",
+  "resize_redraw_0_16_1_development": {
+    "recorded_on": "2026-10-10",
+    "kind": "tools-resize-correction",
+    "application_version": "0.16.1",
+    "branch": "fix/native-ui-0.16.1",
+    "starting_commit": "93c0a6b1189781fb8df960b025a512ed73461240",
+    "base_branch": "feature/deployment-acceptance",
+    "base_commit": "f74d90229be6a78d6ad0c0076c54c04bb7e7cae2",
+    "pull_request": "https://github.com/comparativechrono/workbench/pull/15",
+    "pull_request_state": "draft",
+    "status": "implemented; bounded concurrent-resize comparison supports prevention of observed mixed layouts; strict single-transition negative control remains unreproduced",
+    "authorization": "Fix the remaining Tools-window resize defect; unpublished review candidate only.",
+    "release_authorized": false,
+    "released": false,
+    "published_baseline": "0.16.0",
+    "published_assets_changed": false,
+    "application_source_commit": "51077179a6e92020a7e9b992fa0cbe2b5a6c3e1e",
+    "archives": [
+      {
+        "file": "native-workbench-0.16.1-source.zip",
+        "bytes": 48380545,
+        "sha256": "92daf78ad2bfc69d221c7274c69d7918e963dfe6e41405ee36ddf768c8f2e387"
+      },
+      {
+        "file": "native-workbench-0.16.1-starter-windows.zip",
+        "bytes": 17879852,
+        "sha256": "7fd59d5b021867991506e98ef94c5b239245030fb9da55d77accf8d8e2d43682"
+      },
+      {
+        "file": "native-workbench-0.16.1-update-from-0.16.0.zip",
+        "bytes": 13042517,
+        "sha256": "35bbd786043561ea40a1a12f941da8f370f26fc9df63cd2904dbee16a18bbda5"
+      }
+    ],
+    "handover": "resize-redraw-0.16.1-handover.md",
+    "prior_handover": "tester-feedback-0.16.1-handover.md",
+    "prior_application_source_commit": "73778e00461e2b83c07b9ea97df2b9c5d4b6317d",
+    "prior_starter_sha256": "1291f93b5ece3c4da34eb2f2e29fccc83b6d87ec5fb73abf28bfd9cc8f155b75",
+    "prior_observation": "Immediate Tools resize frames displayed the previous layout/right-bottom clipping although native bounds were already correct; the visible image was corrected by the first later sample about 0.30-0.32 seconds, not an exact duration measurement.",
+    "verification_progress": {
+      "source_tests": {
+        "passed": 235,
+        "suites": 18,
+        "configured_skips": 0,
+        "validator_tests_included": true
+      },
+      "strict_native_builds": 3,
+      "cpp_json": "passed",
+      "archive_source_audit": "passed",
+      "existing_native_regressions_per_path": 81,
+      "patch_checks_per_path": 23,
+      "feedback_checks_per_path": 13,
+      "unique_native_checks_per_path": 117,
+      "native_count_scope": "Completed scopes across the original run and unchanged-archive recheck; repetitions add no unique coverage, and neither overall workflow is claimed successful.",
+      "candidate_resize": "All sampled post-DwmFlush frames matched target in Tools/Workflow, fresh/upgraded, ordinary/spaced paths; pre-wait transients remain.",
+      "old_negative_control": "Six transitions and 88 frames on fresh ordinary path; five immediate pre-wait non-target frames, no post-wait stale/non-target frames. Strict reproduction requirement failed.",
+      "bounded_additional_diagnostic": {
+        "status": "completed observation; bounded mixed-layout difference confirmed visually",
+        "old_frames": 46,
+        "old_mixed_layout_frames": 14,
+        "corrected_frames": 64,
+        "corrected_mixed_layout_frames": 0,
+        "bursts_per_package": 3,
+        "resizes_per_burst": 12,
+        "native_gui_validated": false,
+        "performance_comparison": false
+      },
+      "screenshot_review": "194 recheck patch captures verified through 69 unique views and 125 hash duplicates; settled layout readable, 24 immediate transitional captures retained. Separate final concurrent-resize visual review confirms old mixed layouts and complete corrected endpoints.",
+      "final_validator_source_tests": {
+        "passed": 31,
+        "patch": 16,
+        "feedback": 15,
+        "overlaps_source_and_recheck_totals": true
+      },
+      "final_repeated_observations": {
+        "resize_frames": 697,
+        "resize_transitions": 48,
+        "post_wait_frames": 649,
+        "post_wait_non_target_frames": 0,
+        "immediate_non_target_frames": 21,
+        "feedback_frames": 2610,
+        "feedback_black_blocks": 0,
+        "feedback_unexpected_stable_changes": 0,
+        "scope": "Final run only; repeats do not add unique coverage."
+      }
+    },
+    "known_limits": [
+      "Strict single-transition old post-compositor stale layout was not reproduced, so the overall workflow remains failed. The bounded concurrent-resize difference does not quantify the original lag or prove universal behavior.",
+      "Pre-wait frames may retain previous geometry or newly exposed black bands. Finite sampling cannot establish zero flicker.",
+      "Observed hosted display is 96 DPI at 960x680 and 1024x728; a 1280x900 request was clamped.",
+      "Representative-PC/high-DPI/multiple-monitor/physical-trackpad/managed-machine acceptance remains outstanding.",
+      "Signing/IT approval, scientific Linux CWL and SDK/build recovery remain separate; benchmarking is managed separately.",
+      "Actions downloads expire 2026-11-09; original-report hashes do not preserve raw content access."
+    ],
+    "next_action": "Review the exact unpublished candidate and retain the strict negative-control failure, bounded concurrent-resize evidence and outstanding representative-machine acceptance. No merge or release.",
+    "source_build_run": 38041029923,
+    "validator_commit": "20514d31650f71d4ab99dd9450a747823a995667",
+    "validator_run": 38042425723,
+    "validator_run_status": "failed: unchanged strict old negative-control requirement not reproduced; candidate gates passed",
+    "evidence": {
+      "source": "evidence/resize-redraw-0.16.1-source-validation-2026-10-10.json",
+      "archives": "evidence/resize-redraw-0.16.1-archive-audit-2026-10-10.json",
+      "attempt1": "evidence/resize-redraw-0.16.1-attempt1-2026-10-10.json",
+      "attempt1_visual": "evidence/resize-redraw-0.16.1-attempt1-visual-review-2026-10-10.json",
+      "recheck": "evidence/resize-redraw-0.16.1-recheck-2026-10-10.json",
+      "recheck_visual": "evidence/resize-redraw-0.16.1-recheck-visual-review-2026-10-10.json",
+      "observation": "evidence/resize-redraw-0.16.1-observation-2026-10-10.json",
+      "observation_visual": "evidence/resize-redraw-0.16.1-observation-visual-review-2026-10-10.json"
+    }
+  },
+  "wrapped_tool_library_0_16_1_development": {
+    "recorded_on": "2026-10-10",
+    "kind": "wrapped-native-tool-library",
+    "application_version": "0.16.1",
+    "branch": "fix/native-ui-0.16.1",
+    "starting_commit": "568f2a74a62c4befb7ffe9c9f26390fe5a8c1d72",
+    "base_branch": "feature/deployment-acceptance",
+    "base_commit": "f74d90229be6a78d6ad0c0076c54c04bb7e7cae2",
+    "pull_request": "https://github.com/comparativechrono/workbench/pull/15",
+    "pull_request_state": "draft",
+    "status": "implementation and recorded source/archive/native/visual validation complete; ready for unpublished draft review",
+    "authorization": "Show complete wrapped native library names in bold and descriptions in regular text, removing the label hover popup; continue unpublished draft review.",
+    "release_authorized": false,
+    "released": false,
+    "published_baseline": "0.16.0",
+    "published_assets_changed": false,
+    "handover": "wrapped-tool-library-0.16.1-handover.md",
+    "contract": "expandable-tool-library.md",
+    "candidate_workflow": "../.github/workflows/native-wrapped-library-candidate.yml",
+    "scope": [
+      "Wrap each complete displayName in bold and displayDescription in regular weight inside the left library pane, with row heights following the text",
+      "Remove library hover label popups",
+      "Preserve native TreeView categories, keyboard/accessibility, search/filter, selection and workflow dragging",
+      "Preserve workflows, exact pack pins, Methods, Samples editing, reference management and existing redraw corrections",
+      "Build and validate new exact source/Starter/updater archives in ordinary and space-containing Windows paths with screenshot review"
+    ],
+    "prior_handover": "resize-redraw-0.16.1-handover.md",
+    "prior_application_source_commit": "51077179a6e92020a7e9b992fa0cbe2b5a6c3e1e",
+    "evidence_boundary": "Previous passes apply only to their named bytes. The earlier strict single-transition resize negative control remains failed and is not rerun or reclassified by the new library scope.",
+    "known_limits": [
+      "Unpublished draft review only; no merge or release and no tool-pack or version changes.",
+      "Acceptance applies only to the recorded exact ff13 archives and hosted Windows scope; previous failed runs retain their original verdicts.",
+      "Both feedback rechecks used one real exposed owned caption click after the blank Samples modal closed; automatic foreground restoration is not established.",
+      "Finite temporal samples and selected stills do not establish zero flashing or representative-PC, high-DPI, multiple-monitor, screen-reader, physical-trackpad or managed-machine acceptance.",
+      "Signing/IT approval, scientific Linux CWL, SDK/build recovery and release/updater rollout remain separate; benchmarking is managed separately.",
+      "Actions artifacts expire 2026-11-09; durable receipts preserve identities/findings rather than binary captures."
+    ],
+    "next_action": "Review the exact unpublished candidate through draft PR #15 and obtain representative-PC acceptance; no merge or release is included.",
+    "application_source_commit": "ff13db729a6215e9fe5dfa4a4efdb9c769880287",
+    "initial_validator_commit": "ff13db729a6215e9fe5dfa4a4efdb9c769880287",
+    "source_build_run": 38075960020,
+    "source_build_run_url": "https://github.com/comparativechrono/workbench/actions/runs/38075960020",
+    "implementation": {
+      "native_control": "TreeView 104 within native parent viewport 430, with variable integral-height rows and complete accessible name/description text",
+      "display": "Full canonical names at bold font weight 700 and descriptions at regular font weight 400",
+      "wrapping": "Font-measured lines and oversized-token splitting that preserves UTF-16 surrogate pairs",
+      "reflow": "Width/content caching, reserved scrollbar width, preserved first visible row and within-row offset",
+      "hover": "Library tooltip behavior disabled",
+      "contrast": "Windows system colours in high-contrast mode",
+      "preserved": "Native categories, keyboard, selection, search/filter, workflow dragging, tool identities and saved pins",
+      "viewport": "Outer native pixel scrolling; real child window bounded to viewport height plus largest row; actual native screen item/hit geometry retained",
+      "tall_row_contract": "Complete wrapped rows, including a 2048-character fixture, and catalogue overflow passed the tied native gates in both path layouts",
+      "window_class": "Registered application viewport class compatible with composited drawing; exact current Windows startup passed",
+      "overflow_correction": "Native coarse scrolling permanently enabled; child width extends one DPI-adjusted native scrollbar width outside parent clip; all visible text wrapping and paint bounds use parent viewport"
+    },
+    "retained_attempts": [
+      {
+        "application_source_commit": "a2c35bf035281b3446dfab8c133fd34e8545ce78",
+        "validator_commit": "a2c35bf035281b3446dfab8c133fd34e8545ce78",
+        "run": 38072008564,
+        "status": "superseded original candidate; native validation failed",
+        "source_tests": {
+          "passed": 254,
+          "suites": 20,
+          "cpp_json": "passed",
+          "strict_native_builds": 3
+        },
+        "archive_source_audit": "passed for original bytes only",
+        "archives": [
+          {
+            "file": "native-workbench-0.16.1-source.zip",
+            "bytes": 48461110,
+            "sha256": "64677205101d704957e6bbf9da66245256b5dca1ad606ec908f8f0fffec7df14"
+          },
+          {
+            "file": "native-workbench-0.16.1-starter-windows.zip",
+            "bytes": 17886478,
+            "sha256": "e5fc48276f92a4038aaeadcea5b28eefa70386f849ae35579b04f6e117e53085"
+          },
+          {
+            "file": "native-workbench-0.16.1-update-from-0.16.0.zip",
+            "bytes": 13049139,
+            "sha256": "5db241c23ac5d63d70ebbed18980075a6900977ac8281384d8ca6c2df9e02e64"
+          }
+        ],
+        "native": "Seven gates passed per path; three stopped on driver assumptions including a whole-row viewport precondition and exact name-only labels."
+      },
+      {
+        "application_source_commit": "a2c35bf035281b3446dfab8c133fd34e8545ce78",
+        "validator_commit": "5c5da273653d125156911cb7a27633e0924dce91",
+        "status": "frozen-package focused gate failed on real complete-text reachability defect",
+        "observation": "Native wheel input could not reveal a complete wrapped text line."
+      },
+      {
+        "application_source_commit": "a2c35bf035281b3446dfab8c133fd34e8545ce78",
+        "validator_commit": "fa762eb70a946d6968683944fcf7c9fc92165acf",
+        "status": "diagnostic completed; not native GUI acceptance",
+        "observation": "Native whole-item scrolling could not reach the suffix of an oversized row; production viewport correction required.",
+        "native_gui_validated": false
+      },
+      {
+        "application_source_commit": "aed0e2ac898fce412927a7bc997d57c164d60b3c",
+        "validator_commit": "aed0e2ac898fce412927a7bc997d57c164d60b3c",
+        "run": 38074041970,
+        "status": "superseded first viewport candidate; all ten native gates failed per path because native control creation prevented desktop startup",
+        "source_tests": {
+          "passed": 258,
+          "suites": 20,
+          "cpp_json": "passed",
+          "strict_native_builds": 3
+        },
+        "archive_source_audit": "passed for first viewport bytes only",
+        "native": {
+          "successful_gates_per_path": 0,
+          "failed_gates_per_path": 10,
+          "partial_checks_before_failure_per_path": 51,
+          "native_gui_validated": false,
+          "unavailable_checks": "Candidate desktop interaction checks were not reached because native control creation failed."
+        },
+        "focused_native_receipt_sha256": "31b6d41c0083f079d864226c7cb7a99725c9c3f0cb8a3411239098d0118e6c8a",
+        "consequence": "Production viewport class-registration correction requires a fresh exact build and full native validation."
+      },
+      {
+        "application_source_commit": "3bf08f0a8ae94f8842afc3fa07f4c20789f7ed3e",
+        "validator_commit": "3bf08f0a8ae94f8842afc3fa07f4c20789f7ed3e",
+        "run": 38074534436,
+        "status": "native run failed; source/build/archive passed",
+        "complete_native_gates_per_path": 8,
+        "checks_in_complete_gates_per_path": 104,
+        "wrapped": "Four passes/path, then missing keyboard-focus precondition.",
+        "ordinary_feedback": "Eleven passes, then real blank catalogue viewport during overflow scrolling.",
+        "spaces_feedback": "One pass, then runner console obscured application.",
+        "consequence": "Frozen diagnostic/keyboard recheck on identical archives; resolve genuine overflow failure and complete full validation before acceptance.",
+        "archives": [
+          {
+            "file": "native-workbench-0.16.1-source.zip",
+            "bytes": 48479470,
+            "sha256": "a59c12e7150dd45371d9f85e65e412036521f11d510ca8b6bb5ced215087cde2"
+          },
+          {
+            "file": "native-workbench-0.16.1-starter-windows.zip",
+            "bytes": 17889122,
+            "sha256": "48a1dbd91575c04c5b30bf59dd7d3a9c1383e22893c809bfad87f976f1c3caca"
+          },
+          {
+            "file": "native-workbench-0.16.1-update-from-0.16.0.zip",
+            "bytes": 13051787,
+            "sha256": "b5fc660a87410696893c1edf780ae1faebb9c6d629a118de262c0200a3f12fdc"
+          }
+        ]
+      },
+      {
+        "application_source_commit": "3bf08f0a8ae94f8842afc3fa07f4c20789f7ed3e",
+        "validator_commit": "f037fb612097aeff7fd576960a25d17c376504ee",
+        "run": 38075533050,
+        "status": "success within frozen focused-check and diagnostic scope",
+        "focused_checks_passed_per_path": 7,
+        "diagnostic": "Completed with nativeGUIValidated=false; TVS_NOSCROLL prevented native first-visible-item movement and clearing it moved the anchor.",
+        "consequence": "Production overflow correction requires fresh archives/full validation; prior overall failures remain retained."
+      },
+      {
+        "application_source_commit": "ff13db729a6215e9fe5dfa4a4efdb9c769880287",
+        "validator_commit": "ff13db729a6215e9fe5dfa4a4efdb9c769880287",
+        "run": 38075960020,
+        "status": "original full run failed on ordinary infrastructure obstruction; source/build/archive passed",
+        "spaces": {
+          "full_gates": 10,
+          "passed": 124
+        },
+        "ordinary": {
+          "full_gates": 9,
+          "full_gate_passes": 111,
+          "feedback_partial_passes": 1
+        },
+        "failure": "Hosted runner console obscured app and caused foreground timeout."
+      },
+      {
+        "application_source_commit": "ff13db729a6215e9fe5dfa4a4efdb9c769880287",
+        "validator_commit": "7ea0ce6bf6821089c524c307f99efb0a1892d2a3",
+        "run": 38076722339,
+        "status": "success; all three jobs passed",
+        "feedback_checks_passed_per_path": 13,
+        "failed": 0,
+        "application_rebuilt": false,
+        "consequence": "Combined same-archive scope is 124 distinct native checks/path; final evidence audit and visual review passed."
+      }
+    ],
+    "ready_for_acceptance": true,
+    "previous_frozen_validator_commit": "f037fb612097aeff7fd576960a25d17c376504ee",
+    "previous_frozen_validator_run": 38075533050,
+    "previous_frozen_validator_run_url": "https://github.com/comparativechrono/workbench/actions/runs/38075533050",
+    "previous_frozen_validator_run_status": "success: seven focused checks/path and diagnostic completion on unchanged 3bf08f0 archives; not overall acceptance",
+    "previous_3bf08f0_verification": {
+      "implementation": "production overflow correction implemented; fresh exact package validation pending",
+      "source_tests": {
+        "passed": 258,
+        "suites": 20,
+        "strict_native_builds": 3,
+        "cpp_json": "passed"
+      },
+      "source_validation_receipt_sha256": "c6e9bf325d0e6d3c180e3717a53ace9a977f7a1eb645c3e6a18e9a98d13c91b8",
+      "candidate_build": "passed",
+      "archive_source_audit": {
+        "status": "passed",
+        "git_source_files": 862,
+        "runtime_modules": 34,
+        "examples": 6,
+        "core_files": 90,
+        "starter_files": 277,
+        "unchanged_against_both_baselines": {
+          "runtime_files": 39,
+          "pack_files": 186
+        }
+      },
+      "exact_native_windows_checks": {
+        "overall": "failed; not ready for acceptance",
+        "complete_gates_per_path": 8,
+        "checks_in_complete_gates_per_path": 104,
+        "wrapped_partial_passes_per_path": 4,
+        "wrapped_failure": "missing keyboard-focus precondition",
+        "ordinary_feedback_partial_passes": 11,
+        "ordinary_feedback_failure": "real blank catalogue viewport during overflow scrolling",
+        "spaces_feedback_partial_passes": 1,
+        "spaces_feedback_failure": "HostedComputeAgent console obscured the app; infrastructure failure",
+        "verified_focused_observations": "Tested complete names/descriptions, font weights, absence of hover popup and 2048-character text coverage passed both paths",
+        "count_scope": "Full gates and partial outcomes remain distinct; no overall acceptance claimed."
+      },
+      "screenshot_review": "final acceptance review pending",
+      "frozen_recheck": {
+        "validator_commit": "f037fb612097aeff7fd576960a25d17c376504ee",
+        "run": 38075533050,
+        "status": "success",
+        "application_source_commit": "3bf08f0a8ae94f8842afc3fa07f4c20789f7ed3e",
+        "focused_checks_passed_per_path": 7,
+        "diagnostic_completed": true,
+        "diagnostic_native_gui_validated": false,
+        "diagnostic_finding": "TVS_NOSCROLL blocks native first-visible-item anchor movement; clearing the style enables it.",
+        "limit": "Does not erase prior overall native failures or validate a changed production package."
+      }
+    },
+    "verification_progress": {
+      "implementation": "production correction complete and independently reviewed; exact native validation passed",
+      "candidate_build": "passed",
+      "source_tests": {
+        "passed": 258,
+        "suites": 20,
+        "cpp_json": "passed",
+        "strict_native_builds": 3
+      },
+      "archive_source_audit": {
+        "status": "passed",
+        "git_source_files": 864,
+        "runtime_modules": 34,
+        "examples": 6,
+        "core_files": 90,
+        "starter_files": 277,
+        "unchanged_against_both_baselines": {
+          "runtime_files": 39,
+          "pack_files": 186
+        },
+        "updater_inventory_files": 55,
+        "updater_operations": 9,
+        "updater_reconstructs_exact_starter": true
+      },
+      "exact_native_windows_checks": {
+        "status": "124 distinct checks passed per path on unchanged ff13 archives across initial run and frozen feedback recheck",
+        "application_source_commit": "ff13db729a6215e9fe5dfa4a4efdb9c769880287",
+        "source_build_run": 38075960020,
+        "frozen_feedback_run": 38076722339,
+        "unique_checks_per_path": 124,
+        "scopes": {
+          "wrapped_library": 7,
+          "patch": 23,
+          "feedback": 13,
+          "existing_regressions": 81
+        },
+        "original_run_verdict": "failed: ordinary feedback interrupted by hosted runner console after one feedback pass; spaces all ten gates/124 checks passed",
+        "feedback_recheck_checks_passed_per_path": 13,
+        "feedback_recheck_failures": 0,
+        "overflow_widths_passed": [
+          960,
+          1024
+        ],
+        "application_rebuilt_for_recheck": false,
+        "limit": "Repeated observations add no unique coverage; original failed run remains failed."
+      },
+      "screenshot_review": {
+        "status": "complete within captured hosted display scope",
+        "initial_actual_images": 25,
+        "recheck_actual_images": 16,
+        "total_image_records": 41,
+        "finding": "No additional layout defect in unobscured selected captures; fresh recheck overflow/collapse endpoints populated in both paths."
+      },
+      "initial_native_evidence_audit": "passed identity/receipt checks; preserves failed overall native verdict, not acceptance",
+      "frozen_feedback_recheck": {
+        "validator_commit": "7ea0ce6bf6821089c524c307f99efb0a1892d2a3",
+        "run": 38076722339,
+        "status": "success",
+        "portable_gate_tests_passed": 18,
+        "independent_review": "passed",
+        "application_rebuilt": false,
+        "assertions": "All rendering and scrolling assertions unchanged; real titlebar activation only after blank Samples closes at setup boundary.",
+        "native_checks_passed_per_path": 13,
+        "native_failures": 0,
+        "all_jobs_passed": true
+      },
+      "final_evidence_audit": "passed",
+      "input_precondition": "Both feedback rechecks used one exposed owned caption click at the blank-Samples modal-close setup boundary; automatic foreground restoration is not established."
+    },
+    "archives": [
+      {
+        "file": "native-workbench-0.16.1-source.zip",
+        "bytes": 48487148,
+        "sha256": "002fbc8401ab744a8172f3ae11d240c925ed7a8d1241bd5d94e0413675bb1b5d"
+      },
+      {
+        "file": "native-workbench-0.16.1-starter-windows.zip",
+        "bytes": 17889148,
+        "sha256": "28f1362287991621dde030da54eb444846142c0243be6b9d86c4b4f1bf99dd47"
+      },
+      {
+        "file": "native-workbench-0.16.1-update-from-0.16.0.zip",
+        "bytes": 13051808,
+        "sha256": "d0a20f0b8288c79dba695e9cc82e78a78e95244ebb267e959d99fb9e438e7aee"
+      }
+    ],
+    "evidence": {
+      "source": "evidence/wrapped-library-0.16.1-final-source-2026-10-10.json",
+      "archives": "evidence/wrapped-library-0.16.1-native-scroll-archive-2026-10-10.json",
+      "historical_index": "evidence/wrapped-library-0.16.1-historical-evidence-index-2026-10-10.json",
+      "native_initial": "evidence/wrapped-library-0.16.1-native-scroll-native-2026-10-10.json",
+      "class_diagnostic": "evidence/wrapped-library-0.16.1-native-scroll-class-diagnostic-2026-10-10.json",
+      "validator_source": "evidence/wrapped-library-0.16.1-feedback-recheck-source-2026-10-10.json",
+      "recheck_native": "evidence/wrapped-library-0.16.1-feedback-recheck-native-2026-10-10.json",
+      "visual": "evidence/wrapped-library-0.16.1-visual-review-2026-10-10.json",
+      "recheck_visual": "evidence/wrapped-library-0.16.1-feedback-recheck-visual-2026-10-10.json",
+      "final_acceptance": "evidence/wrapped-library-0.16.1-final-acceptance-2026-10-10.json"
+    },
+    "validator_commit": "7ea0ce6bf6821089c524c307f99efb0a1892d2a3",
+    "validator_run": 38076722339,
+    "validator_run_url": "https://github.com/comparativechrono/workbench/actions/runs/38076722339",
+    "validator_run_status": "success: all three jobs passed, 13 feedback checks/path on unchanged application archives",
+    "acceptance_scope": "Exact unpublished archives on hosted Windows in ordinary and spaced paths; representative-PC and broader deployment acceptance outstanding."
+  },
+  "prodigal_fasttree_development": {
+    "recorded_on": "2026-10-13",
+    "kind": "optional-pack-batch",
+    "branch": "feature/prodigal-fasttree-packs",
+    "base_branch": "fix/native-ui-0.16.1",
+    "base_commit": "2b2e97aa15970f0e7fb3a5428e8ab7dad6acada2",
+    "source_commit": "d175076d57f4c84743cb375369c604085a720204",
+    "source_tree": "e15f450758f0713755f68c7f5ad2b9b42832c611",
+    "pull_request": "https://github.com/comparativechrono/workbench/pull/16",
+    "pull_request_state": "merged",
+    "packs": {
+      "prodigal": "1.0.0",
+      "fasttree": "1.0.0"
+    },
+    "status": "merged into existing fix/native-ui-0.16.1 integration base; unpublished; no main or PR15 merge",
+    "application_changed": false,
+    "published_application": "0.16.0",
+    "unpublished_application_candidate": "0.16.1",
+    "released": false,
+    "release_authorized": false,
+    "catalogue_changed": false,
+    "handover": "prodigal-fasttree-handover.md",
+    "run": 38387733137,
+    "initial_failed_run": 38385903740,
+    "ready_for_draft_review": true,
+    "validator_commit": "9ea63994661073b115e80533c3288d50d250decb",
+    "validator_run": 38389163430,
+    "artifact_url": "https://github.com/comparativechrono/workbench/actions/runs/38387733137/artifacts/11806999226",
+    "evidence": "evidence/prodigal-fasttree-1.0.0-final-review-2026-10-13.json",
+    "native_pack_tests_per_path": {
+      "prodigal": 16,
+      "fasttree": 14,
+      "skipped": 0
+    },
+    "actual_display_images_reviewed": 44,
+    "measurement_display_limit": "Native Results displays status and tool provenance; new pack JSON measurements remain in output files.",
+    "merge_commit": "8addaa1278c535e4931eb0b2b85b8f47b51ddd66",
+    "merge_evidence": "evidence/prodigal-fasttree-merge-2026-10-13.json"
+  },
+  "tester_feedback_0_16_1_development": {
+    "recorded_on": "2026-10-09",
+    "kind": "tester-feedback-revision",
+    "application_version": "0.16.1",
+    "branch": "fix/native-ui-0.16.1",
+    "starting_commit": "8cd3457745da52d38b5470c9ae917c8394ca46b0",
+    "base_branch": "feature/deployment-acceptance",
+    "base_commit": "f74d90229be6a78d6ad0c0076c54c04bb7e7cae2",
+    "base_pull_request": "https://github.com/comparativechrono/workbench/pull/14",
+    "pull_request": "https://github.com/comparativechrono/workbench/pull/15",
+    "pull_request_state": "draft",
+    "status": "implementation and recorded source/native/archive/temporal/visual validation complete; ready as an unpublished draft review candidate",
+    "authorization": "Implement the new tester-feedback revision within the existing unpublished review candidate.",
+    "release_authorized": false,
+    "released": false,
+    "published_baseline": "0.16.0",
+    "published_assets_changed": false,
+    "candidate_commit": "73778e00461e2b83c07b9ea97df2b9c5d4b6317d",
+    "application_source_commit": "73778e00461e2b83c07b9ea97df2b9c5d4b6317d",
+    "application_rebuilt": true,
+    "scope": [
+      "Address Run flashing and redundant unchanged-status polling redraws while retaining meaningful state updates and action guards",
+      "Preserve viewport anchoring on category expansion and address collapse black flashing",
+      "Restore separate Methods and remove the primary Readiness button while keeping Run preflight; no runtime or memory forecasts",
+      "Native Samples New/Edit/Save as CSV/TSV with explicit file columns, base folders and mapping",
+      "Verified one-row synthetic Starter example without invented independent replicates",
+      "New exact source/native/archive/temporal/screenshot evidence for this revision"
+    ],
+    "handover": "tester-feedback-0.16.1-handover.md",
+    "prior_candidate_handover": "ui-patch-0.16.1-handover.md",
+    "prior_candidate_application_source_commit": "8938e709b041106e8a46e1447383e8e9ba3e0cb9",
+    "prior_candidate_validator_commit": "69022689e686b2cacdc98dbdbef728e664941e67",
+    "evidence_boundary": "Previous 141 source passes, 84 native checks per path, 19 repeated patch checks per path, archive audit and settled visual review apply only to the prior 8938e709 archives. No previous pass tests this revision.",
+    "verification_progress": {
+      "status": "recorded source/archive/native and bounded visual validation complete",
+      "candidate_build": "passed; frozen archives from application source 73778e00461e2b83c07b9ea97df2b9c5d4b6317d",
+      "source_tests": {
+        "passed": 220,
+        "suites": 18,
+        "failed": 0,
+        "configured_skips": 0,
+        "cpp_json": "passed",
+        "strict_native_builds": 3
+      },
+      "archive_source_audit": "passed",
+      "completed_regression_checks_per_path": 81,
+      "completed_regression_scopes": {
+        "batch": 11,
+        "curated": 11,
+        "readiness": 5,
+        "reference_management": 10,
+        "results": 9,
+        "scroll": 3,
+        "workspace": 32
+      },
+      "patch_checks_per_path": 19,
+      "patch_repeats": "19 passed per path in validator rechecks on identical archives; repeated observations add no unique coverage",
+      "feedback_checks_per_path": {
+        "required": 13,
+        "passed": 13,
+        "failed": 0,
+        "status": "passed",
+        "prior_partial_attempt_passes": [
+          {
+            "ordinary": 5,
+            "spaces": 5
+          },
+          {
+            "ordinary": 7,
+            "spaces": 7
+          },
+          {
+            "ordinary": 7,
+            "spaces": 7
+          },
+          {
+            "ordinary": 7,
+            "spaces": 11
+          }
+        ]
+      },
+      "regression_visual_capture_files": 112,
+      "regression_visual_review": "passed within recorded 96-DPI viewports",
+      "temporal_review": {
+        "series_per_path": 41,
+        "ordinary_frames": 1510,
+        "spaces_frames": 1306,
+        "sampled_black_blocks": 0,
+        "unexpected_stable_differences": 0,
+        "limit": "finite samples, not zero flicker"
+      },
+      "representative_machine_acceptance": "not established",
+      "patch_visual_review": {
+        "capture_files": 82,
+        "unique_images": 43,
+        "exact_byte_duplicates": 39,
+        "status": "settled acceptable; immediate Tools-resize old geometry/right-bottom clipping until first later sample about 0.30\u20130.32 seconds; workflow series stable"
+      },
+      "unique_native_checks_per_path": 113,
+      "validator_source_tests": {
+        "passed": 23,
+        "patch": 8,
+        "feedback": 15,
+        "separate_from_application_tests": true
+      },
+      "observed_display": {
+        "dpi": 96,
+        "workspace_sizes": [
+          [
+            960,
+            680
+          ],
+          [
+            1024,
+            728
+          ]
+        ],
+        "samples_size": [
+          940,
+          680
+        ]
+      },
+      "feedback_visual_review": {
+        "status": "passed within captured 96-DPI scope",
+        "capture_files": 192,
+        "unique_bmp_hashes": 51,
+        "direct_views": 52,
+        "exact_hash_reuses": 140,
+        "all_capture_hashes_dimensions_and_lossless_pixels_verified": true,
+        "unexpected_layout_defects_observed": false
+      }
+    },
+    "known_limits": [
+      "Unpublished 0.16.1 revision only; no merge or release. Published 0.16.0 and all historical receipt files remain unchanged.",
+      "New candidate bytes require new evidence; prior passes and settled screenshots are not transferred.",
+      "Finite temporal sampling does not establish zero flicker or exclude shorter unsampled transients.",
+      "The Starter example is one synthetic sample; repeated rows are not independent biological replicates.",
+      "Prior source geometry had busy Cancel/Results overlap below 908 logical client pixels and footer overlap below 902. Changed controls require fresh layout review, not an inherited fit claim.",
+      "Representative-PC, high-DPI, multiple-monitor, physical-trackpad and managed-machine acceptance remain outstanding.",
+      "Executable signing requires a controlled identity and institutional deployment requires actual IT approval.",
+      "Scientific Linux CWL and SDK/build recovery remain later sets; benchmarking is handled separately."
+    ],
+    "next_action": "Review draft PR #15 and test the exact candidate on representative PCs; preserve recorded source/archive evidence and bounded display/temporal limits. No merge or release in this delivery.",
+    "validator_commit": "f9e7120196ddd284d33c0e8221b78fbf4529058f",
+    "validator_run": 37999874335,
+    "validator_run_url": "https://github.com/comparativechrono/workbench/actions/runs/37999874335",
+    "source_build_run": 37997370988,
+    "validator_run_status": "success",
+    "evidence_delivery": {
+      "repository_contents": "Focused sanitized receipts and original-report SHA-256 manifest with artifact locations; no full raw JSON blobs.",
+      "excluded": "Opaque session/cache/review tokens and detailed runner/input records.",
+      "reason": "Automatic approval review rejected unfiltered raw report uploads; rejected blobs were not referenced in a commit.",
+      "original_reports": "Preserved in local validation workspace and original GitHub Actions artifacts.",
+      "artifact_expiry": "2026-11-08",
+      "limit": "Original-report hashes do not preserve access to raw content after artifact expiry."
+    }
+  },
+  "kalign_development": {
+    "recorded_on": "2026-10-13",
+    "kind": "optional-pack",
+    "branch": "feature/kalign-pack",
+    "base_branch": "fix/native-ui-0.16.1",
+    "base_commit": "8addaa1278c535e4931eb0b2b85b8f47b51ddd66",
+    "packs": {
+      "kalign": "1.0.0"
+    },
+    "tool_version": "3.5.1-workbench1",
+    "status": "merged into main; unpublished pack candidate with retained validation limits",
+    "application_changed": false,
+    "published_application": "0.16.0",
+    "unpublished_application_candidate": "0.16.1",
+    "released": false,
+    "release_authorized": false,
+    "catalogue_changed": false,
+    "handover": "kalign-handover.md",
+    "source_commit": "8149bdc02a2104e97ea6512ae0a8bc76c8defc32",
+    "source_tree": "27ecf6181bef93217a4218335311b4e2ca93fa58",
+    "pull_request": "https://github.com/comparativechrono/workbench/pull/17",
+    "pull_request_state": "draft",
+    "ready_for_draft_review": true,
+    "run": 38396201555,
+    "initial_failed_run": 38395587781,
+    "evidence": "evidence/kalign-1.0.0-final-review-2026-10-13.json",
+    "artifact_url": "https://github.com/comparativechrono/workbench/actions/runs/38396201555/artifacts/11812411631",
+    "source_tests_passed": 94,
+    "source_tests_skipped": 1,
+    "native_selected_tests_per_path": 17,
+    "native_selected_skips": 0,
+    "actual_display_images_reviewed": 20,
+    "measurement_display_limit": "Native Results displays status and provenance; Kalign JSON measurements remain output files.",
+    "merged": true,
+    "integration_commit": "9c9cdeacf35d1bf3aa60277f0fb05d5af41c6254",
+    "integration_evidence": "evidence/stack-integration-2026-10-13.json"
+  },
+  "primer3_plink2_development": {
+    "recorded_on": "2026-10-13",
+    "kind": "optional-pack-batch",
+    "branch": "feature/primer3-plink2-packs",
+    "base_branch": "feature/kalign-pack",
+    "base_commit": "8c0321d0cf04751a7c921d42098bed13ebb7b11a",
+    "packs": {
+      "primer3": "1.0.0",
+      "plink2": "1.0.0"
+    },
+    "status": "merged into main; unpublished pack candidate with retained validation limits",
+    "application_changed": false,
+    "published_application": "0.16.0",
+    "unpublished_application_candidate": "0.16.1",
+    "released": false,
+    "release_authorized": false,
+    "catalogue_changed": false,
+    "handover": "primer3-plink2-handover.md",
+    "source_commit": "3d1d83b70d053af625b5cb45362851c0fefab2a1",
+    "source_tree": "32becfa4831b7e50cdcfe342645d0ac02d32b8cb",
+    "pull_request": "https://github.com/comparativechrono/workbench/pull/18",
+    "candidate_run": 38403212748,
+    "final_evidence": "evidence/primer3-plink2-1.0.0-final-review-2026-10-13.json",
+    "candidate_download": "https://github.com/comparativechrono/workbench/actions/runs/38403212748/artifacts/11816422463",
+    "artifact_expires_on": "2026-11-12",
+    "source_selected_tests": 112,
+    "source_passed_tests": 111,
+    "source_platform_skips": 1,
+    "native_selected_tests_per_path": 31,
+    "native_selected_skips": 0,
+    "native_science_gate_checks_per_path": 8,
+    "native_gui_gate_checks_per_path": 10,
+    "actual_display_images_reviewed": 38,
+    "measurement_display_limit": "Native Results displays status and provenance; Primer3/PLINK2 JSON measurements remain output files.",
+    "merged": true,
+    "integration_commit": "9c9cdeacf35d1bf3aa60277f0fb05d5af41c6254",
+    "integration_evidence": "evidence/stack-integration-2026-10-13.json"
+  },
+  "stack_integration": {
+    "recorded_on": "2026-10-13",
+    "kind": "completed-source-stack-integration",
+    "branch": "main",
+    "merge_commit": "9c9cdeacf35d1bf3aa60277f0fb05d5af41c6254",
+    "reviewed_tree": "be386799379aa412eaa39f72043be863edf01649",
+    "status": "completed stack merged into main; unpublished application and packs remain unpublished",
+    "merged_prs": [
+      18,
+      17,
+      15,
+      14
+    ],
+    "previously_merged_pr": 16,
+    "open_pull_requests": [],
+    "evidence": "evidence/stack-integration-2026-10-13.json",
+    "compatibility_evidence": "evidence/merge-pack-compatibility-2026-10-13.json",
+    "published_application": "0.16.0",
+    "unpublished_application_candidate": "0.16.1",
+    "release_published": false,
+    "catalogue_changed": false,
+    "next_work_authorized": false
+  }
+}

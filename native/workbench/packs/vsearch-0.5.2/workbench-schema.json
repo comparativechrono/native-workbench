@@ -1,0 +1,426 @@
+{
+  "schema": 1,
+  "category": "Amplicon analysis",
+  "citations": [
+    {
+      "text": "Rognes et al. (2016). VSEARCH: a versatile open source tool for metagenomics. PeerJ 4:e2584.",
+      "url": "https://doi.org/10.7717/peerj.2584"
+    }
+  ],
+  "workflows": {
+    "merge-pairs": {
+      "ports": [
+        {
+          "id": "reads",
+          "type": "pair",
+          "accepts": [
+            "pair"
+          ],
+          "manifestInputs": [
+            "reads1",
+            "reads2"
+          ],
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "merged",
+          "type": "reads",
+          "manifestOutputs": [
+            "merged"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "unmerged",
+          "type": "pair",
+          "manifestOutputs": [
+            "unmerged1",
+            "unmerged2"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "pair-check",
+          "type": "metrics",
+          "manifestOutputs": [
+            "pair-check"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "log",
+          "type": "metrics",
+          "manifestOutputs": [
+            "log"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        }
+      ],
+      "methods": "Mate identifiers and record structure were checked with paircheck, then paired reads were merged with VSEARCH using Phred+33 qualities, the configured overlap and mismatch thresholds, and an output quality cap of 41. Staggered pairs were not allowed. Unmerged mates were retained separately; ambiguous bases receive quality zero under VSEARCH merging rules."
+    },
+    "quality-filter": {
+      "ports": [
+        {
+          "id": "reads",
+          "type": "reads",
+          "accepts": [
+            "reads"
+          ],
+          "manifestInputs": [
+            "reads"
+          ],
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "retained",
+          "type": "reads",
+          "manifestOutputs": [
+            "retained"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "fasta",
+          "type": "fasta-nucleotide",
+          "manifestOutputs": [
+            "fasta"
+          ],
+          "state": {
+            "compression": "none",
+            "alphabet": "nucleotide",
+            "alignment": "unaligned",
+            "abundance": false
+          }
+        },
+        {
+          "id": "discarded",
+          "type": "reads",
+          "manifestOutputs": [
+            "discarded"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "log",
+          "type": "metrics",
+          "manifestOutputs": [
+            "log"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        }
+      ],
+      "methods": "Single or merged reads were quality filtered with VSEARCH, interpreting qualities as Phred+33. Reads exceeding the configured expected-error or N-base threshold or outside the selected length range were discarded; retained reads were exported as FASTQ and FASTA. No ASV inference or error-model denoising was performed."
+    },
+    "dereplicate": {
+      "ports": [
+        {
+          "id": "sequences",
+          "type": "fasta-nucleotide",
+          "accepts": [
+            "fasta-nucleotide"
+          ],
+          "manifestInputs": [
+            "sequences"
+          ],
+          "min": 1,
+          "max": 1,
+          "validation": {
+            "rejectAbundance": true
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": "unique",
+          "type": "fasta-nucleotide-abundance",
+          "manifestOutputs": [
+            "unique"
+          ],
+          "state": {
+            "compression": "none",
+            "alphabet": "nucleotide",
+            "alignment": "unaligned",
+            "abundance": true
+          }
+        },
+        {
+          "id": "membership",
+          "type": "cluster-membership",
+          "manifestOutputs": [
+            "membership"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "log",
+          "type": "metrics",
+          "manifestOutputs": [
+            "log"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        }
+      ],
+      "methods": "Full-length nucleotide sequences were dereplicated using VSEARCH fastx_uniques with the configured strand comparison. Each input record contributed one count; prior header abundance values were not used. Unique sequences were sorted by abundance and written with new Uniq identifiers and explicit size annotations (--sizeout); UC membership was retained."
+    },
+    "dereplicate-weighted": {
+      "ports": [
+        {
+          "id": "sequences",
+          "type": "fasta-nucleotide-abundance",
+          "accepts": [
+            "fasta-nucleotide-abundance"
+          ],
+          "manifestInputs": [
+            "sequences"
+          ],
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "unique",
+          "type": "fasta-nucleotide-abundance",
+          "manifestOutputs": [
+            "unique"
+          ],
+          "state": {
+            "compression": "none",
+            "alphabet": "nucleotide",
+            "alignment": "unaligned",
+            "abundance": true
+          }
+        },
+        {
+          "id": "membership",
+          "type": "cluster-membership",
+          "manifestOutputs": [
+            "membership"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "log",
+          "type": "metrics",
+          "manifestOutputs": [
+            "log"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        }
+      ],
+      "methods": "Full-length nucleotide sequences were dereplicated using VSEARCH fastx_uniques with the configured strand comparison. Existing positive size annotations were summed (--sizein). Unique sequences were sorted by abundance and written with new Uniq identifiers and explicit size annotations (--sizeout); UC membership was retained."
+    },
+    "filter-abundance": {
+      "ports": [
+        {
+          "id": "sequences",
+          "type": "fasta-nucleotide-abundance",
+          "accepts": [
+            "fasta-nucleotide-abundance"
+          ],
+          "manifestInputs": [
+            "sequences"
+          ],
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "retained",
+          "type": "fasta-nucleotide-abundance",
+          "manifestOutputs": [
+            "retained"
+          ],
+          "state": {
+            "compression": "none",
+            "alphabet": "nucleotide",
+            "alignment": "unaligned",
+            "abundance": true
+          }
+        },
+        {
+          "id": "log",
+          "type": "metrics",
+          "manifestOutputs": [
+            "log"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        }
+      ],
+      "methods": "Sequences were filtered by their positive size annotations using VSEARCH sortbysize and the configured minimum abundance. Retained sequences were sorted by decreasing abundance without changing their counts. This threshold is not an error-model denoising step."
+    },
+    "cluster-abundance": {
+      "ports": [
+        {
+          "id": "sequences",
+          "type": "fasta-nucleotide-abundance",
+          "accepts": [
+            "fasta-nucleotide-abundance"
+          ],
+          "manifestInputs": [
+            "sequences"
+          ],
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "centroids",
+          "type": "fasta-nucleotide-abundance",
+          "manifestOutputs": [
+            "centroids"
+          ],
+          "state": {
+            "compression": "none",
+            "alphabet": "nucleotide",
+            "alignment": "unaligned",
+            "abundance": true
+          }
+        },
+        {
+          "id": "membership",
+          "type": "cluster-membership",
+          "manifestOutputs": [
+            "membership"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "log",
+          "type": "metrics",
+          "manifestOutputs": [
+            "log"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        }
+      ],
+      "methods": "Abundance-annotated sequences were greedily clustered with VSEARCH cluster_size in decreasing abundance order using the configured identity threshold and strand policy. Identity used matching columns divided by alignment length excluding terminal gaps (iddef 2); nucleotide masking was disabled. The heuristic centroid search used maxaccepts 1 and maxrejects 32. Input abundances were summed into OTU centroid size annotations; this produces OTU-style clusters, not ASVs."
+    },
+    "chimera-reference": {
+      "ports": [
+        {
+          "id": "sequences",
+          "type": "fasta-nucleotide-abundance",
+          "accepts": [
+            "fasta-nucleotide-abundance"
+          ],
+          "manifestInputs": [
+            "sequences"
+          ],
+          "min": 1,
+          "max": 1
+        },
+        {
+          "id": "reference",
+          "type": "fasta-nucleotide",
+          "accepts": [
+            "fasta-nucleotide"
+          ],
+          "manifestInputs": [
+            "reference"
+          ],
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "nonchimeras",
+          "type": "fasta-nucleotide-abundance",
+          "manifestOutputs": [
+            "nonchimeras"
+          ],
+          "state": {
+            "compression": "none",
+            "alphabet": "nucleotide",
+            "alignment": "unaligned",
+            "abundance": true
+          }
+        },
+        {
+          "id": "chimeras",
+          "type": "fasta-nucleotide-abundance",
+          "manifestOutputs": [
+            "chimeras"
+          ],
+          "state": {
+            "compression": "none",
+            "alphabet": "nucleotide",
+            "alignment": "unaligned",
+            "abundance": true
+          }
+        },
+        {
+          "id": "borderline",
+          "type": "fasta-nucleotide-abundance",
+          "manifestOutputs": [
+            "borderline"
+          ],
+          "state": {
+            "compression": "none",
+            "alphabet": "nucleotide",
+            "alignment": "unaligned",
+            "abundance": true
+          }
+        },
+        {
+          "id": "classification",
+          "type": "metrics",
+          "manifestOutputs": [
+            "classification"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "log",
+          "type": "metrics",
+          "manifestOutputs": [
+            "log"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        }
+      ],
+      "methods": "Reference-based chimera screening used VSEARCH uchime_ref with the supplied nucleotide reference in the plus orientation, the configured minimum score and segment-difference thresholds, and disabled masking. Abundances were retained. Nonchimera, chimera and borderline classifications were written separately with an 18-field UCHIME table. Classification depends on reference coverage and curation and does not prove that all retained sequences are nonchimeric."
+    }
+  }
+}

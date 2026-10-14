@@ -1,0 +1,49 @@
+[pack]
+format=2
+id=example-seqtk
+version=$pack_version
+name=Seqtk reverse complement example
+platform=windows-x86_64
+description=Developer template for a single tool operation with typed FASTA ports.
+color=#307F78
+
+[tool:seqtk]
+path=bin/seqtk.exe
+version=$tool_version
+sha256=$tool_sha
+
+[asset:workbench-schema]
+path=workbench-schema.json
+sha256=$schema_sha
+
+[asset:workbench-checks]
+path=workbench-checks.json
+sha256=$checks_sha
+
+[asset:fixture-sequences]
+path=fixtures/sequences.fasta
+sha256=$fixture_sha
+
+[workflow:reverse-complement]
+name=Reverse complement FASTA
+description=Reverse-complement nucleotide sequences with Seqtk.
+inputs=sequences
+outputs=reversed
+steps=run
+
+[input:reverse-complement:sequences]
+label=Nucleotide FASTA
+type=file
+filter=FASTA sequences|*.fa;*.fasta;*.fna
+
+[output:reverse-complement:reversed]
+label=Reverse-complemented sequences
+path=reversed.fasta
+
+[step:reverse-complement:run]
+label=Reverse complement
+tool=seqtk
+stdout=reversed
+arg.0=seq
+arg.1=-r
+arg.2={input:sequences}

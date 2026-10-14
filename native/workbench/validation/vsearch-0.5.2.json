@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "pack": "vsearch",
+  "packVersion": "0.5.2",
+  "upstreamVersion": "2.32.0",
+  "manifestSha256": "2971ca612558983b23a259c4e2416ddbc129dbff9fdfeac5d2bbaa17a3a652d8",
+  "tests": "tests/test_vsearch_pack.py",
+  "testsPassed": 9,
+  "nativeWindowsExecuted": false,
+  "scientificExecution": "Official SHA-pinned Linux2.32.0 binary using unchanged Windows manifest argv; paircheck Linux reference. Windows GUI selfchecks execute actual pack separately.",
+  "workflows": 7,
+  "nativeSelfChecks": 3,
+  "inventoryFiles": 112,
+  "byteIdenticalRebuild": true,
+  "peImports": {
+    "vsearch.exe": [
+      "KERNEL32.dll",
+      "msvcrt.dll"
+    ],
+    "zlib1.dll": [
+      "KERNEL32.dll",
+      "msvcrt.dll"
+    ],
+    "libbz2.dll": [
+      "KERNEL32.dll",
+      "msvcrt.dll"
+    ]
+  },
+  "limitations": [
+    "Non-ASCII and long Windows paths require Windows validation; upstream uses narrow-character fopen.",
+    "Current Windows archive matches official GitHub asset digest; upstream SHA256SUMS contains stale Windows checksum."
+  ]
+}

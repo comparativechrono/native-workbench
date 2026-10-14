@@ -1,0 +1,101 @@
+name: Frozen Prodigal and FastTree native form review
+
+on:
+  push:
+    branches: [validation/prodigal-fasttree-forms]
+    paths:
+      - 'scripts/check_prodigal_fasttree_windows.py'
+      - 'scripts/check_prodigal_fasttree_gui.py'
+      - 'scripts/audit_prodigal_fasttree_candidate.py'
+      - 'tests/test_prodigal_fasttree_validation.py'
+      - '.github/workflows/native-prodigal-fasttree-recheck.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: prodigal-fasttree-frozen-forms-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  contracts:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Verify the gate evidence contracts
+        run: |
+          python3 tests/test_prodigal_fasttree_validation.py
+          python3 -m py_compile scripts/check_prodigal_fasttree_windows.py scripts/check_prodigal_fasttree_gui.py
+
+  native:
+    needs: contracts
+    runs-on: windows-2022
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        folder: [ordinary, 'path with spaces']
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Retrieve the exact previously built pack candidate
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: prodigal-fasttree-candidate-d175076d57f4c84743cb375369c604085a720204
+          run-id: 38387733137
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/frozen-packs
+      - name: Retrieve the unchanged wrapped-library application
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: wrapped-library-starter-ff13db729a6215e9fe5dfa4a4efdb9c769880287
+          run-id: 38075960020
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/frozen-ui
+      - name: Verify frozen archive identities and review all native form pages
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $candidate = Join-Path $env:RUNNER_TEMP 'frozen-packs'
+          # These are the audited inner files of artifact 11806999226 from the
+          # original build. No tool, pack, application or source ZIP is rebuilt.
+          $pins = @{
+            'native-workbench-pack-prodigal-1.0.0.zip' = '321a8717b2e8841f7caf2c13ac2837638c9cc10000aaeb0919463c70cb07dad4'
+            'native-workbench-pack-fasttree-1.0.0.zip' = '4525aa8001b7b190eecbee5a164bb9586ce9f78d8672635df25ae4e462165c20'
+            'native-workbench-prodigal-fasttree-1.0.0-source-evidence.zip' = '2c4f1fb1f1d4f2aa7d855e8eaf47aa8726bea2ef19a1a9b7876e0189c5ef6e64'
+            'BUILD-PROVENANCE.json' = '4731ec5536e017b990cd99438f72801733801ddd5f11fb9e48026750336ba703'
+            'SHA256SUMS.txt' = '31f53245f5d89128decaf536b9989ef4935db716ada3c7c64a77ae38cb5620fe'
+            'archive-source-audit.json' = 'c88a7bfa8d6b4b958f7862b26c4cd9a017709371897d04b4d65e8ed4ad476292'
+          }
+          foreach ($name in $pins.Keys) {
+            if ((Get-FileHash (Join-Path $candidate $name) -Algorithm SHA256).Hash -ne $pins[$name]) {
+              throw "Frozen candidate differs: $name"
+            }
+          }
+          $archive = Join-Path $env:RUNNER_TEMP 'frozen-ui/native-workbench-0.16.1-starter-windows.zip'
+          if ((Get-FileHash $archive -Algorithm SHA256).Hash -ne '28f1362287991621dde030da54eb444846142c0243be6b9d86c4b4f1bf99dd47') { throw 'Frozen UI application differs.' }
+          $parent = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'frozen-ui-app'
+          Expand-Archive $archive $parent
+          $app = Join-Path $parent 'native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I -B scripts/check_prodigal_fasttree_windows.py native --candidate $candidate --candidate-source-commit d175076d57f4c84743cb375369c604085a720204 --source-commit $env:GITHUB_SHA --app-root $app --app-archive $archive --app-version 0.16.1 --mode gui --report "$env:RUNNER_TEMP/pack-form-evidence/native.json"
+          if ($LASTEXITCODE -ne 0) { throw 'Frozen archive native form review failed.' }
+      - name: Preserve native form evidence and screenshots
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: prodigal-fasttree-frozen-forms-${{ matrix.folder }}-${{ github.sha }}
+          path: ${{ runner.temp }}/pack-form-evidence
+          if-no-files-found: error
+          compression-level: 6
+          retention-days: 30

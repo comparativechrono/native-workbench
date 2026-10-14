@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "patch_id": "fastp-report-fix-0.4.1",
+  "created_utc": "2026-10-02T16:13:55.694300+00:00",
+  "platform": "Linux filesystem transaction tests",
+  "native_windows_execution": false,
+  "passed": 10,
+  "failed": 0,
+  "skipped": 0,
+  "tests": [
+    "test_bad_payload_and_undeclared_payload_are_rejected",
+    "test_bad_source_hash_does_not_modify_installation",
+    "test_exclusive_lock_is_preserved",
+    "test_failure_at_every_rename_rolls_back",
+    "test_install_backup_unchanged_data_and_idempotence",
+    "test_installed_patch_tampering_cannot_become_noop",
+    "test_metadata_traversal_and_nonallowlisted_application_rejected",
+    "test_mixed_versions_are_rejected",
+    "test_symlink_inside_pack_is_rejected_without_following",
+    "test_undeclared_pack_file_is_rejected"
+  ],
+  "rename_failure_positions_tested": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "updater_sha256": "509ac83035287b8f7fdf04e9d54cbc0ca9ccc4d75e46a4803f368fc4214b237a",
+  "test_sha256": "4cc1d0be8d6488a233640b69f01f5eaf47b7e6d70a1d5355d4138dae7ac051a2",
+  "real_pack_manifest_inventory_verified": [
+    "fastp-0.4.0",
+    "fastp-0.4.1",
+    "research-variants-0.4.0",
+    "research-variants-0.4.1"
+  ],
+  "scope": "Complete synthetic upgrade, original backups, inputs/results unchanged, verified idempotence, rollback at all 12 rename boundaries, hash/inventory rejection, mixed-state rejection, exclusive lock, symlink rejection and path/application allowlists. Real old/new manifests parsed and all declared tool/asset hashes verified. Does not establish Windows sharing/rename behavior or executable runtime correctness."
+}

@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "checks": 7,
+  "nativeWindowsExecuted": false,
+  "scope": "Portable environment-block contract; native CreateProcess compile checked by bridge build",
+  "sourceSha256": {
+    "desktop/child_environment.h": "56d401fc31db03dd2bff153e660866f0fd8cf90fc8555c6b394b3b5cd412004b",
+    "desktop/runner.cpp": "e544deb2908571dbef7c62ebef861e6208e62722e0157adea0f8dd4a2a128488",
+    "desktop/process_pipeline.cpp": "c7c7b340b82c22cc7999fbe2cfb78b7a3fe510948688bc5f721547c2464a418b",
+    "tests/test_child_environment.cpp": "ed3d5c3eecb888a2720ffbea53010fa4a9da542e2dfdd326bf2fab6b023b3cdb"
+  }
+}

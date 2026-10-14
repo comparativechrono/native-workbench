@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "file": "CRoaring-LICENSE.txt",
+  "sourceURL": "https://raw.githubusercontent.com/RoaringBitmap/CRoaring/v0.2.52/LICENSE",
+  "sha256": "5b223235c64f595576d15ba2d983ef14f8e9e3ec45aafcad689dc40008e1b29e",
+  "bytes": 11352,
+  "purpose": "Redistribution notice for the corresponding packaged runtime or compiled library."
+}

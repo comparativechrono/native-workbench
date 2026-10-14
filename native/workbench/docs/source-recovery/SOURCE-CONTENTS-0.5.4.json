@@ -1,0 +1,1505 @@
+{
+  "schema": 1,
+  "release": "0.5.4",
+  "included_files": 1309,
+  "runtime_source_archives": [
+    {
+      "runtime_path": "packs/bowtie2-0.5.3/licenses/bowtie2-2.5.5-source.tar.gz",
+      "bytes": 10645909,
+      "sha256": "e38d1833ec235ca27fa57589d32d897c9addf87085b7cb7bc978662954662da2"
+    },
+    {
+      "runtime_path": "packs/bowtie2-0.5.3/licenses/zlib-1.3.2.tar.gz",
+      "bytes": 1566911,
+      "sha256": "b99a0b86c0ba9360ec7e78c4f1e43b1cbdf1e6936c8fa0f6835c0cd694a495a1"
+    },
+    {
+      "runtime_path": "packs/bowtie2-0.5.3/licenses/zstd-1.5.5.tar.gz",
+      "bytes": 2386533,
+      "sha256": "98e9c3d949d1b924e28e01eccb7deed865eefebf25c2f21c702e5cd5b63b85e1"
+    },
+    {
+      "runtime_path": "packs/hisat2-0.5.3/licenses/hisat2-v2.2.3.tar.gz",
+      "bytes": 7059086,
+      "sha256": "b53107422e5b44ebea4b20b1a77bb9e240d6b92d654fcd7e6a6ab5d1aae86c45"
+    },
+    {
+      "runtime_path": "packs/lofreq-0.5.3/licenses/cosmopolitan-3.3.10.tar.gz",
+      "bytes": 44847345,
+      "sha256": "1ecfd628305e844f7d8ded53742e4a7f2b908b4ad2e9fb423c81595986f5b2ff"
+    },
+    {
+      "runtime_path": "packs/lofreq-0.5.3/licenses/lofreq-2.1.5-source-subset.tar.gz",
+      "bytes": 221889,
+      "sha256": "5578d1ac7afd6d6ed8180b5d893322aef2389d58bd82258fabe3821186b8aa9e"
+    },
+    {
+      "runtime_path": "packs/lofreq-0.5.3/licenses/samtools-htslib-1.24.tar.bz2",
+      "bytes": 9491012,
+      "sha256": "89b2a440123eeaa400392ce1736e7d60ce9041843027d76819753c5a8246bfdd"
+    },
+    {
+      "runtime_path": "packs/muscle-0.5.2/licenses/muscle-v5.3.tar.gz",
+      "bytes": 28692261,
+      "sha256": "74b22a94e630b16015c2bd9ae83aa2be2c2048d3e41f560b2d4a954725c81968"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/GenomicsDB-1.5.5-source.tar.gz",
+      "bytes": 6765965,
+      "sha256": "fe8c1c71c2918b1b38c6d7ecf354eff616ac7ec129eacd51f70d3c9eaf96bca1"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/OpenJDK17U-jdk-sources_17.0.20.1_1.tar.gz",
+      "bytes": 109272338,
+      "sha256": "21e2a065d244ab048e737f21af5d1fc74daaeb6707de36477ead8db1dca71214"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/biz.aQute.bnd--biz.aQute.bnd.annotation-7.0.0-sources.jar",
+      "bytes": 47557,
+      "sha256": "cecb830b0da21f0d6733017cd53c548b2a0fd46f776de59328e737d29a45f814"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/bwa-cb950614ce7217788780b9a8d445c64cd4d8f62e-source.tar.gz",
+      "bytes": 207625,
+      "sha256": "0aa6b2000f48b5d73e7ed87fe35c092d47709f9be78e98692a191a4676b7a2f1"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/ch.qos.logback--logback-core-1.5.13-sources.jar",
+      "bytes": 488413,
+      "sha256": "0cafa20eea81fc8442e06dea9b1904b72ea7352861df07f8576644e24c653dcd"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil--jniloader-1.1-sources.jar",
+      "bytes": 4441,
+      "sha256": "f31f1d3d257c1c298bff289424283bb881ba372e451745d828c04d02df091cf2"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--core-1.1-sources.jar",
+      "bytes": 679209,
+      "sha256": "bdef30ae70e449dc2389a056e34b10cbce95d7d3ef400099db54e34af88c810c"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--native_ref-java-1.1-sources.jar",
+      "bytes": 28183,
+      "sha256": "9f0baec202cfc31bdecc1ae5b3746a4d31fc30d2d7679fef6dfc7f01a57a86e6"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--native_system-java-1.1-sources.jar",
+      "bytes": 28200,
+      "sha256": "1fcdd2af960ac58f53c959fc224571c6dae2efd51ccf37dbdb2a399af5fc93fc"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--netlib-native_ref-linux-x86_64-1.1-sources.jar",
+      "bytes": 86855,
+      "sha256": "5abc59d71b2b231a127efbdb190e72b9aa666edc8e329feabce0b8859ec3dc07"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--netlib-native_ref-osx-x86_64-1.1-sources.jar",
+      "bytes": 89373,
+      "sha256": "19d18939446877aaf295205526b47f85e6271328ec823322fcbe7d7dbc1a77ba"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--netlib-native_system-linux-x86_64-1.1-sources.jar",
+      "bytes": 89748,
+      "sha256": "6b2af363d6f66d139df1e8de041c5507a5769837971ee35dac98f8e508208c37"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--netlib-native_system-osx-x86_64-1.1-sources.jar",
+      "bytes": 86986,
+      "sha256": "b83eb9788e6336f8b1d6b0de0432f9620c163963af899b69d13c3d55f84870c1"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.pjfanning--jersey-json-1.20-sources.jar",
+      "bytes": 134527,
+      "sha256": "bfcbab4bcc22451cbdc0729ecb1b7664ec40a214d423d1e136b753b439e0ee44"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.sun.istack--istack-commons-runtime-3.0.8-sources.jar",
+      "bytes": 25886,
+      "sha256": "4874ce5789c8684debd0099c8fa4ec8e00545626af4c9890760f0cb6fdf6d4db"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.sun.jersey--jersey-client-1.19-sources.jar",
+      "bytes": 122357,
+      "sha256": "1c1f6043818271a876e77b8632df67400e5448b28566cb435d9d1f5177839a7a"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.sun.jersey--jersey-core-1.19-sources.jar",
+      "bytes": 380026,
+      "sha256": "d5c40741fb2507955c3c74794e5ebcd6fd3ed88d83528322b84a9120950db348"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.sun.jersey--jersey-server-1.19.4-sources.jar",
+      "bytes": 694729,
+      "sha256": "8f45b0a00ffddefed2fe99a73dcca04abab392193b1d590cc217ae0fc8b06cb5"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.sun.jersey--jersey-servlet-1.19-sources.jar",
+      "bytes": 104294,
+      "sha256": "afa62ae8b3000003fd244a65301e658b3384b456a7e34fb677faa59285e79f54"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.sun.jersey.contribs--jersey-guice-1.19.4-sources.jar",
+      "bytes": 12560,
+      "sha256": "d0d4083231c60f738a40a0bd9ce50ac3bb1a0263f131c37adb413cbb6e0d1d8d"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/fermi-lite-562638112b7992f4d7a243ccd9ab2b3bd08c6b08-source.tar.gz",
+      "bytes": 248166,
+      "sha256": "77b985a94c7d415a702976cc79ec39fe93bedfc28f7bbdb47899ebbff1bccda4"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/gatk-4.7.0.0-source.tar.gz",
+      "bytes": 109654269,
+      "sha256": "35ffd523a378374aabdb29321bdad90fe48eba31f7c251592cd6305e950016d3"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/gatk-bwamem-jni-1.0.4-source.tar.gz",
+      "bytes": 75302,
+      "sha256": "6557109ab0056e2875f3293a3a6fa96e239af1bb6943ca1752bd17b2d371da04"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/gatk-fermilite-jni-1.2.0-source.tar.gz",
+      "bytes": 63573,
+      "sha256": "2955b8258ddeee50e145455ea16b0d164576fbab59a6266b2c88e7781865e894"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/gnu.getopt--java-getopt-1.0.13-sources.jar",
+      "bytes": 57158,
+      "sha256": "0728c551077cbb0c4e721b95915c732642d70eef24b29ac7de549983e4f1818b"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/jakarta.activation--jakarta.activation-api-1.2.1-sources.jar",
+      "bytes": 43221,
+      "sha256": "e9638b764202c0def1b4d54bd37a984c681b2ed46a548ae94ef3f7e4a4b58a31"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/jakarta.annotation--jakarta.annotation-api-1.3.5-sources.jar",
+      "bytes": 38267,
+      "sha256": "aa27e9291dce4ddbb0aea52a1cbef41c6330b96b0ae387a995ed412b68a3af7c"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/jakarta.servlet--jakarta.servlet-api-4.0.3-sources.jar",
+      "bytes": 166894,
+      "sha256": "8643aae750a34a7fa3f543e5e0bcdaeb7d12ae75f5267d535efacaa5bc06f7f7"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/jakarta.validation--jakarta.validation-api-2.0.2-sources.jar",
+      "bytes": 97203,
+      "sha256": "19c594e00f04d7f3953a065d798d9ee5edf37d00e01e5894babd61bc7652fa5c"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/jakarta.ws.rs--jakarta.ws.rs-api-2.1.6-sources.jar",
+      "bytes": 246372,
+      "sha256": "5fb0591472e00439db7d1511caa40a39cda42e24b0bade6378f880384b7cc073"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/jakarta.xml.bind--jakarta.xml.bind-api-2.3.2-sources.jar",
+      "bytes": 194036,
+      "sha256": "61ceb3ed35ecf99f1803eac9c4b8f12103c7531952beae38ba53cc727f405532"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/javax.annotation--javax.annotation-api-1.3.2-sources.jar",
+      "bytes": 42279,
+      "sha256": "128971e52e0d84a66e3b6e049dab8ad7b2c58b7e1ad37fa2debd3d40c2947b95"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/javax.servlet--javax.servlet-api-3.1.0-sources.jar",
+      "bytes": 223386,
+      "sha256": "5c6d640f01e8e7ffdba21b2b75c0f64f0c30fd1fc3372123750c034cb363012a"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/javax.ws.rs--jsr311-api-1.1.1-sources.jar",
+      "bytes": 70022,
+      "sha256": "99227bada18620d29406be240e7c749da68e646ce1d2a61d6f320863f05a30da"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/javax.xml.bind--jaxb-api-2.2.11-sources.jar",
+      "bytes": 244349,
+      "sha256": "467ba7ce05e329ea8cefe44ff033d5a71ad799b1d774e3fbfa89e71e1c454b51"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/libuuid-1.0.3.tar.gz",
+      "bytes": 318256,
+      "sha256": "46af3275291091009ad7f1b899de3d0cea0252737550e7919d17237997db5644"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/mummer-4.0.0rc1.tar.gz",
+      "bytes": 967486,
+      "sha256": "85006adb2d6539c2f738c3e3bb14b58bb6f62cd6c6ca5ede884a87ae76e07d1d"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/netlib-java-1.1.0-source.tar.gz",
+      "bytes": 2358125,
+      "sha256": "94a1b8f0a15edded8dece5d138743e4389ad8d54e505063cfe77b11f4d09b80d"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.broadinstitute--gatk-bwamem-jni-1.0.4-sources.jar",
+      "bytes": 15305,
+      "sha256": "086340a9963a94d832fcb095372962292da8f3c26f0d6ae5a030a074be9c25f7"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.broadinstitute--gatk-fermilite-jni-1.2.0-sources.jar",
+      "bytes": 6165,
+      "sha256": "501959ddc1e5035661c7a8a72d5cf69faa389c9e9171fed0291a73c3642b40b4"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-client-9.4.52.v20230823-sources.jar",
+      "bytes": 179971,
+      "sha256": "5aa054f7ae140da9d09b5fdaee66427571f7e86606a3b7ce793d12f61cad99c2"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-continuation-9.4.52.v20230823-sources.jar",
+      "bytes": 26338,
+      "sha256": "7968ec3c906715f1da32a2e6dfd85d819f229145fbcabf62550e34e3cc9162f4"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-http-9.4.52.v20230823-sources.jar",
+      "bytes": 139438,
+      "sha256": "e965cfce9a44f40002fa6ade07d7b9ae21427b8e239f3f1624ed0f880ce0f523"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-plus-9.4.52.v20230823-sources.jar",
+      "bytes": 52635,
+      "sha256": "ef2e09a1cf4e564451c2d6b4b79eb622556e8b5c88bc4b2386a96eb56a674b00"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-proxy-9.4.52.v20230823-sources.jar",
+      "bytes": 45558,
+      "sha256": "319dfa07ddf0f44ff6173963c6baf3736b8469054ceedfd11f97e904695d1343"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-security-9.4.52.v20230823-sources.jar",
+      "bytes": 86036,
+      "sha256": "f3cf76dafe9d4f00da02e1db3e83246729ac5816bcf89a60b0029b637e12a17f"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-server-9.4.52.v20230823-sources.jar",
+      "bytes": 444485,
+      "sha256": "6c2136bfa16a18ef5e89dc7dc6231be4e65226f2517c8ce84b0dc93f0a18a422"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-servlet-9.4.52.v20230823-sources.jar",
+      "bytes": 81433,
+      "sha256": "e992d81bef3b8d577465cc2f97f2abab56f6adc2f1c2b598778ab53a61e42ca6"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-servlets-9.4.52.v20230823-sources.jar",
+      "bytes": 68415,
+      "sha256": "ae59cea5631502110635415b1369c0777bf841691c40ca95f5176a3a18e3d78a"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-util-9.4.52.v20230823-sources.jar",
+      "bytes": 386267,
+      "sha256": "735c794fa166915e5c2d8fb2960b2befb3299955cfd8bff2c04c8ec621a2b009"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-util-ajax-9.4.43.v20210629-sources.jar",
+      "bytes": 36772,
+      "sha256": "169481a3a7e5d785c76a3f51eb92eb6993bbc26f1c8c210a11aec766ab82306b"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-webapp-9.4.43.v20210629-sources.jar",
+      "bytes": 94430,
+      "sha256": "5770ed5896e4f6c872579fdbf8d4f6fed76b8a8be6434243ad5c53692a509c91"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-xml-9.4.43.v20210629-sources.jar",
+      "bytes": 45218,
+      "sha256": "1a7e10ccaa69b076ff8a0e18090cb9bab1cb8a520436b6131b166cb4808c0bcf"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty.websocket--websocket-api-9.4.43.v20210629-sources.jar",
+      "bytes": 62801,
+      "sha256": "19d2a7f4dc2fab3984b9a517bfec7ec4c5e4d78480ca3a8d42f75abd70a162f2"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty.websocket--websocket-client-9.4.43.v20210629-sources.jar",
+      "bytes": 38052,
+      "sha256": "773249f4700fc7c5738aae2efd28adca9146b4da3d94a381162329fc9b65e50a"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty.websocket--websocket-common-9.4.43.v20210629-sources.jar",
+      "bytes": 148531,
+      "sha256": "33a38b9f5b3dcacd0fd932c6ee5262fd33d9b08c43fd04c47743e3a2f73a8951"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2--hk2-api-2.6.1-sources.jar",
+      "bytes": 220531,
+      "sha256": "636e56f6454a7c680271dd8e2e49d1fd50625bb9e206555a14ccf900188cc18c"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2--hk2-locator-2.6.1-sources.jar",
+      "bytes": 124542,
+      "sha256": "d76811aeabe487e35001fb4a0ab3d986a091c331f4d61962c33f6c98f94e5053"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2--hk2-utils-2.6.1-sources.jar",
+      "bytes": 94602,
+      "sha256": "36552a965412a1d5a9eb2ee0282fd224151e79ac5dc42ae794f0bac67e523dc5"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2--osgi-resource-locator-1.0.3-sources.jar",
+      "bytes": 10377,
+      "sha256": "603d0e07134189505c76a8c8d5d4451a91bf1327a05f1f5bcea09bad61bd507e"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2.external--aopalliance-repackaged-2.6.1-sources.jar",
+      "bytes": 38893,
+      "sha256": "13392e5ad2540a5718abb1dc7c380ebd754c1b95c7d6140dd38bfeade1e6dd21"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2.external--jakarta.inject-2.6.1-sources.jar",
+      "bytes": 27859,
+      "sha256": "fbbadf59b395bf326910de95682eaaa83dcc0f1d65cd4a077c6988deff6a527a"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jaxb--jaxb-runtime-2.3.2-sources.jar",
+      "bytes": 757829,
+      "sha256": "b85c2e314e6565e7dc4fb7e00ec8688c1c0fe9c9f7275125fb8dee43898f3743"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.containers--jersey-container-servlet-2.40-sources.jar",
+      "bytes": 28608,
+      "sha256": "1c299c59ea2a891fd002b63de3813450d905acc5369ccffa7e4149f6fc5832a8"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.containers--jersey-container-servlet-core-2.40-sources.jar",
+      "bytes": 63233,
+      "sha256": "3ba5d4afe931292534a8c28d611128206d1243942a89e8a5e3b74e433ea70c39"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.core--jersey-client-2.40-sources.jar",
+      "bytes": 195284,
+      "sha256": "4a1b52f93d82f6bc0462f749e937ff02c4bf9526d5f02c35f35b15a6051c9a37"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.core--jersey-common-2.40-sources.jar",
+      "bytes": 794790,
+      "sha256": "cd00982cc1a0ffaea55ed692f52aab84b842ac7856ea960e1a4eba35ac14affc"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.core--jersey-server-2.40-sources.jar",
+      "bytes": 786100,
+      "sha256": "85de1a89cb0323cf97010a17dd52b32e08e9d75e0fc325dfb5171bd7c7265acd"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.inject--jersey-hk2-2.40-sources.jar",
+      "bytes": 47885,
+      "sha256": "83c5984aae32bf6fb19f385503459b4144c73fd520c054c8534b123dc816581d"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.javassist--javassist-3.29.2-GA-sources.jar",
+      "bytes": 550059,
+      "sha256": "dc88b4ac96851f3102588d73dcb2d8b012e42d866938bc5b84be26442bde7b28"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.jgrapht--jgrapht-core-1.1.0-sources.jar",
+      "bytes": 502174,
+      "sha256": "1c86ceeda071cacf039e663c465ad589ef032411a60a50d15de38729da639f18"
+    },
+    {
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.jgrapht--jgrapht-io-1.1.0-sources.jar",
+      "bytes": 89387,
+      "sha256": "ab002cd84b4a95f4288f41bc49d369f3d23593d8f267fe07f557bfe25200ccf2"
+    },
+    {
+      "runtime_path": "packs/vardict-0.5.3/licenses/OpenJDK8U-jdk-sources_8u504b01.tar.gz",
+      "bytes": 94314011,
+      "sha256": "86cd14f299616dddca13268cc2fa794eb4d28fc732dedaad8c5b8a3078e5d3c9"
+    },
+    {
+      "runtime_path": "packs/vardict-0.5.3/licenses/VarDict-009e017-source.tar.gz",
+      "bytes": 931032,
+      "sha256": "1d70dd8eacb59a9e8fa909f6b322fbef6474d11eb27b6b21273761df0dfdd422"
+    },
+    {
+      "runtime_path": "packs/vardict-0.5.3/licenses/VarDictJava-1.8.3-source.tar.gz",
+      "bytes": 104964746,
+      "sha256": "b45a3f7301c468d514c3916179f9f3c25f31e12f663ce6c674109caf3d60701e"
+    },
+    {
+      "runtime_path": "packs/vardict-0.5.3/licenses/build-extlibs-source.tar.gz",
+      "bytes": 2454408,
+      "sha256": "c204ef125854ad2b33cff775818e7c9c4b7fa81e8f12c09b8de7bc80fa4c63b0"
+    },
+    {
+      "runtime_path": "packs/vardict-0.5.3/licenses/gcc-13.2.0.tar.xz",
+      "bytes": 87858592,
+      "sha256": "e275e76442a6067341a27f04c5c6b83d8613144004c0413528863dc6b5c743da"
+    },
+    {
+      "runtime_path": "packs/vardict-0.5.3/licenses/mingw-w64-11.0.1-source.tar.gz",
+      "bytes": 13919536,
+      "sha256": "493cb0bde1e470a281c7a633fcc1158de3b8919f687020c60a936e7b2512398d"
+    },
+    {
+      "runtime_path": "packs/vardict-0.5.3/licenses/perl-5.42.3.tar.xz",
+      "bytes": 14495300,
+      "sha256": "c9387e1473a1866935cb047ece7c2e0a80767a3acdecb79d4a375f8a95970ddc"
+    },
+    {
+      "runtime_path": "packs/vardict-0.5.3/licenses/strawberry-5.42.3.1-source.tar.gz",
+      "bytes": 2674982,
+      "sha256": "c5d2edf05f4a3471a085a0bc21023cd9e73530b55a2d4043e9d79d480e4d273c"
+    },
+    {
+      "runtime_path": "packs/vsearch-0.5.2/licenses/vsearch-2.32.0.tar.gz",
+      "bytes": 1189974,
+      "sha256": "99578a8b960a0fb87c1f19dc65aedecddc01cfa91851b697dac8294dd08a6ceb"
+    }
+  ],
+  "restore_from_runtime": [
+    {
+      "source_path": "packs/bowtie2-0.5.3/licenses/bowtie2-2.5.5-source.tar.gz",
+      "runtime_path": "packs/bowtie2-0.5.3/licenses/bowtie2-2.5.5-source.tar.gz",
+      "bytes": 10645909,
+      "sha256": "e38d1833ec235ca27fa57589d32d897c9addf87085b7cb7bc978662954662da2"
+    },
+    {
+      "source_path": "packs/bowtie2-0.5.3/licenses/zlib-1.3.2.tar.gz",
+      "runtime_path": "packs/bowtie2-0.5.3/licenses/zlib-1.3.2.tar.gz",
+      "bytes": 1566911,
+      "sha256": "b99a0b86c0ba9360ec7e78c4f1e43b1cbdf1e6936c8fa0f6835c0cd694a495a1"
+    },
+    {
+      "source_path": "packs/bowtie2-0.5.3/licenses/zstd-1.5.5.tar.gz",
+      "runtime_path": "packs/bowtie2-0.5.3/licenses/zstd-1.5.5.tar.gz",
+      "bytes": 2386533,
+      "sha256": "98e9c3d949d1b924e28e01eccb7deed865eefebf25c2f21c702e5cd5b63b85e1"
+    },
+    {
+      "source_path": "packs/hisat2-0.5.3/licenses/hisat2-v2.2.3.tar.gz",
+      "runtime_path": "packs/hisat2-0.5.3/licenses/hisat2-v2.2.3.tar.gz",
+      "bytes": 7059086,
+      "sha256": "b53107422e5b44ebea4b20b1a77bb9e240d6b92d654fcd7e6a6ab5d1aae86c45"
+    },
+    {
+      "source_path": "packs/lofreq-0.5.3/licenses/cosmopolitan-3.3.10.tar.gz",
+      "runtime_path": "packs/lofreq-0.5.3/licenses/cosmopolitan-3.3.10.tar.gz",
+      "bytes": 44847345,
+      "sha256": "1ecfd628305e844f7d8ded53742e4a7f2b908b4ad2e9fb423c81595986f5b2ff"
+    },
+    {
+      "source_path": "packs/lofreq-0.5.3/licenses/lofreq-2.1.5-source-subset.tar.gz",
+      "runtime_path": "packs/lofreq-0.5.3/licenses/lofreq-2.1.5-source-subset.tar.gz",
+      "bytes": 221889,
+      "sha256": "5578d1ac7afd6d6ed8180b5d893322aef2389d58bd82258fabe3821186b8aa9e"
+    },
+    {
+      "source_path": "packs/lofreq-0.5.3/licenses/samtools-htslib-1.24.tar.bz2",
+      "runtime_path": "packs/lofreq-0.5.3/licenses/samtools-htslib-1.24.tar.bz2",
+      "bytes": 9491012,
+      "sha256": "89b2a440123eeaa400392ce1736e7d60ce9041843027d76819753c5a8246bfdd"
+    },
+    {
+      "source_path": "packs/muscle-0.5.2/licenses/muscle-v5.3.tar.gz",
+      "runtime_path": "packs/muscle-0.5.2/licenses/muscle-v5.3.tar.gz",
+      "bytes": 28692261,
+      "sha256": "74b22a94e630b16015c2bd9ae83aa2be2c2048d3e41f560b2d4a954725c81968"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/GenomicsDB-1.5.5-source.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/GenomicsDB-1.5.5-source.tar.gz",
+      "bytes": 6765965,
+      "sha256": "fe8c1c71c2918b1b38c6d7ecf354eff616ac7ec129eacd51f70d3c9eaf96bca1"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/OpenJDK17U-jdk-sources_17.0.20.1_1.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/OpenJDK17U-jdk-sources_17.0.20.1_1.tar.gz",
+      "bytes": 109272338,
+      "sha256": "21e2a065d244ab048e737f21af5d1fc74daaeb6707de36477ead8db1dca71214"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/biz.aQute.bnd--biz.aQute.bnd.annotation-7.0.0-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/biz.aQute.bnd--biz.aQute.bnd.annotation-7.0.0-sources.jar",
+      "bytes": 47557,
+      "sha256": "cecb830b0da21f0d6733017cd53c548b2a0fd46f776de59328e737d29a45f814"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/bwa-cb950614ce7217788780b9a8d445c64cd4d8f62e-source.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/bwa-cb950614ce7217788780b9a8d445c64cd4d8f62e-source.tar.gz",
+      "bytes": 207625,
+      "sha256": "0aa6b2000f48b5d73e7ed87fe35c092d47709f9be78e98692a191a4676b7a2f1"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/ch.qos.logback--logback-core-1.5.13-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/ch.qos.logback--logback-core-1.5.13-sources.jar",
+      "bytes": 488413,
+      "sha256": "0cafa20eea81fc8442e06dea9b1904b72ea7352861df07f8576644e24c653dcd"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/com.github.fommil--jniloader-1.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil--jniloader-1.1-sources.jar",
+      "bytes": 4441,
+      "sha256": "f31f1d3d257c1c298bff289424283bb881ba372e451745d828c04d02df091cf2"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--core-1.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--core-1.1-sources.jar",
+      "bytes": 679209,
+      "sha256": "bdef30ae70e449dc2389a056e34b10cbce95d7d3ef400099db54e34af88c810c"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--native_ref-java-1.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--native_ref-java-1.1-sources.jar",
+      "bytes": 28183,
+      "sha256": "9f0baec202cfc31bdecc1ae5b3746a4d31fc30d2d7679fef6dfc7f01a57a86e6"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--native_system-java-1.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--native_system-java-1.1-sources.jar",
+      "bytes": 28200,
+      "sha256": "1fcdd2af960ac58f53c959fc224571c6dae2efd51ccf37dbdb2a399af5fc93fc"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--netlib-native_ref-linux-x86_64-1.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--netlib-native_ref-linux-x86_64-1.1-sources.jar",
+      "bytes": 86855,
+      "sha256": "5abc59d71b2b231a127efbdb190e72b9aa666edc8e329feabce0b8859ec3dc07"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--netlib-native_ref-osx-x86_64-1.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--netlib-native_ref-osx-x86_64-1.1-sources.jar",
+      "bytes": 89373,
+      "sha256": "19d18939446877aaf295205526b47f85e6271328ec823322fcbe7d7dbc1a77ba"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--netlib-native_system-linux-x86_64-1.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--netlib-native_system-linux-x86_64-1.1-sources.jar",
+      "bytes": 89748,
+      "sha256": "6b2af363d6f66d139df1e8de041c5507a5769837971ee35dac98f8e508208c37"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--netlib-native_system-osx-x86_64-1.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--netlib-native_system-osx-x86_64-1.1-sources.jar",
+      "bytes": 86986,
+      "sha256": "b83eb9788e6336f8b1d6b0de0432f9620c163963af899b69d13c3d55f84870c1"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/com.github.pjfanning--jersey-json-1.20-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.pjfanning--jersey-json-1.20-sources.jar",
+      "bytes": 134527,
+      "sha256": "bfcbab4bcc22451cbdc0729ecb1b7664ec40a214d423d1e136b753b439e0ee44"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/com.sun.istack--istack-commons-runtime-3.0.8-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.sun.istack--istack-commons-runtime-3.0.8-sources.jar",
+      "bytes": 25886,
+      "sha256": "4874ce5789c8684debd0099c8fa4ec8e00545626af4c9890760f0cb6fdf6d4db"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/com.sun.jersey--jersey-client-1.19-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.sun.jersey--jersey-client-1.19-sources.jar",
+      "bytes": 122357,
+      "sha256": "1c1f6043818271a876e77b8632df67400e5448b28566cb435d9d1f5177839a7a"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/com.sun.jersey--jersey-core-1.19-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.sun.jersey--jersey-core-1.19-sources.jar",
+      "bytes": 380026,
+      "sha256": "d5c40741fb2507955c3c74794e5ebcd6fd3ed88d83528322b84a9120950db348"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/com.sun.jersey--jersey-server-1.19.4-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.sun.jersey--jersey-server-1.19.4-sources.jar",
+      "bytes": 694729,
+      "sha256": "8f45b0a00ffddefed2fe99a73dcca04abab392193b1d590cc217ae0fc8b06cb5"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/com.sun.jersey--jersey-servlet-1.19-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.sun.jersey--jersey-servlet-1.19-sources.jar",
+      "bytes": 104294,
+      "sha256": "afa62ae8b3000003fd244a65301e658b3384b456a7e34fb677faa59285e79f54"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/com.sun.jersey.contribs--jersey-guice-1.19.4-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.sun.jersey.contribs--jersey-guice-1.19.4-sources.jar",
+      "bytes": 12560,
+      "sha256": "d0d4083231c60f738a40a0bd9ce50ac3bb1a0263f131c37adb413cbb6e0d1d8d"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/fermi-lite-562638112b7992f4d7a243ccd9ab2b3bd08c6b08-source.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/fermi-lite-562638112b7992f4d7a243ccd9ab2b3bd08c6b08-source.tar.gz",
+      "bytes": 248166,
+      "sha256": "77b985a94c7d415a702976cc79ec39fe93bedfc28f7bbdb47899ebbff1bccda4"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/gatk-4.7.0.0-source.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/gatk-4.7.0.0-source.tar.gz",
+      "bytes": 109654269,
+      "sha256": "35ffd523a378374aabdb29321bdad90fe48eba31f7c251592cd6305e950016d3"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/gatk-bwamem-jni-1.0.4-source.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/gatk-bwamem-jni-1.0.4-source.tar.gz",
+      "bytes": 75302,
+      "sha256": "6557109ab0056e2875f3293a3a6fa96e239af1bb6943ca1752bd17b2d371da04"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/gatk-fermilite-jni-1.2.0-source.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/gatk-fermilite-jni-1.2.0-source.tar.gz",
+      "bytes": 63573,
+      "sha256": "2955b8258ddeee50e145455ea16b0d164576fbab59a6266b2c88e7781865e894"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/gnu.getopt--java-getopt-1.0.13-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/gnu.getopt--java-getopt-1.0.13-sources.jar",
+      "bytes": 57158,
+      "sha256": "0728c551077cbb0c4e721b95915c732642d70eef24b29ac7de549983e4f1818b"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/jakarta.activation--jakarta.activation-api-1.2.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/jakarta.activation--jakarta.activation-api-1.2.1-sources.jar",
+      "bytes": 43221,
+      "sha256": "e9638b764202c0def1b4d54bd37a984c681b2ed46a548ae94ef3f7e4a4b58a31"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/jakarta.annotation--jakarta.annotation-api-1.3.5-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/jakarta.annotation--jakarta.annotation-api-1.3.5-sources.jar",
+      "bytes": 38267,
+      "sha256": "aa27e9291dce4ddbb0aea52a1cbef41c6330b96b0ae387a995ed412b68a3af7c"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/jakarta.servlet--jakarta.servlet-api-4.0.3-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/jakarta.servlet--jakarta.servlet-api-4.0.3-sources.jar",
+      "bytes": 166894,
+      "sha256": "8643aae750a34a7fa3f543e5e0bcdaeb7d12ae75f5267d535efacaa5bc06f7f7"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/jakarta.validation--jakarta.validation-api-2.0.2-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/jakarta.validation--jakarta.validation-api-2.0.2-sources.jar",
+      "bytes": 97203,
+      "sha256": "19c594e00f04d7f3953a065d798d9ee5edf37d00e01e5894babd61bc7652fa5c"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/jakarta.ws.rs--jakarta.ws.rs-api-2.1.6-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/jakarta.ws.rs--jakarta.ws.rs-api-2.1.6-sources.jar",
+      "bytes": 246372,
+      "sha256": "5fb0591472e00439db7d1511caa40a39cda42e24b0bade6378f880384b7cc073"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/jakarta.xml.bind--jakarta.xml.bind-api-2.3.2-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/jakarta.xml.bind--jakarta.xml.bind-api-2.3.2-sources.jar",
+      "bytes": 194036,
+      "sha256": "61ceb3ed35ecf99f1803eac9c4b8f12103c7531952beae38ba53cc727f405532"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/javax.annotation--javax.annotation-api-1.3.2-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/javax.annotation--javax.annotation-api-1.3.2-sources.jar",
+      "bytes": 42279,
+      "sha256": "128971e52e0d84a66e3b6e049dab8ad7b2c58b7e1ad37fa2debd3d40c2947b95"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/javax.servlet--javax.servlet-api-3.1.0-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/javax.servlet--javax.servlet-api-3.1.0-sources.jar",
+      "bytes": 223386,
+      "sha256": "5c6d640f01e8e7ffdba21b2b75c0f64f0c30fd1fc3372123750c034cb363012a"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/javax.ws.rs--jsr311-api-1.1.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/javax.ws.rs--jsr311-api-1.1.1-sources.jar",
+      "bytes": 70022,
+      "sha256": "99227bada18620d29406be240e7c749da68e646ce1d2a61d6f320863f05a30da"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/javax.xml.bind--jaxb-api-2.2.11-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/javax.xml.bind--jaxb-api-2.2.11-sources.jar",
+      "bytes": 244349,
+      "sha256": "467ba7ce05e329ea8cefe44ff033d5a71ad799b1d774e3fbfa89e71e1c454b51"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/libuuid-1.0.3.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/libuuid-1.0.3.tar.gz",
+      "bytes": 318256,
+      "sha256": "46af3275291091009ad7f1b899de3d0cea0252737550e7919d17237997db5644"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/mummer-4.0.0rc1.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/mummer-4.0.0rc1.tar.gz",
+      "bytes": 967486,
+      "sha256": "85006adb2d6539c2f738c3e3bb14b58bb6f62cd6c6ca5ede884a87ae76e07d1d"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/netlib-java-1.1.0-source.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/netlib-java-1.1.0-source.tar.gz",
+      "bytes": 2358125,
+      "sha256": "94a1b8f0a15edded8dece5d138743e4389ad8d54e505063cfe77b11f4d09b80d"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.broadinstitute--gatk-bwamem-jni-1.0.4-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.broadinstitute--gatk-bwamem-jni-1.0.4-sources.jar",
+      "bytes": 15305,
+      "sha256": "086340a9963a94d832fcb095372962292da8f3c26f0d6ae5a030a074be9c25f7"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.broadinstitute--gatk-fermilite-jni-1.2.0-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.broadinstitute--gatk-fermilite-jni-1.2.0-sources.jar",
+      "bytes": 6165,
+      "sha256": "501959ddc1e5035661c7a8a72d5cf69faa389c9e9171fed0291a73c3642b40b4"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-client-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-client-9.4.52.v20230823-sources.jar",
+      "bytes": 179971,
+      "sha256": "5aa054f7ae140da9d09b5fdaee66427571f7e86606a3b7ce793d12f61cad99c2"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-continuation-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-continuation-9.4.52.v20230823-sources.jar",
+      "bytes": 26338,
+      "sha256": "7968ec3c906715f1da32a2e6dfd85d819f229145fbcabf62550e34e3cc9162f4"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-http-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-http-9.4.52.v20230823-sources.jar",
+      "bytes": 139438,
+      "sha256": "e965cfce9a44f40002fa6ade07d7b9ae21427b8e239f3f1624ed0f880ce0f523"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-plus-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-plus-9.4.52.v20230823-sources.jar",
+      "bytes": 52635,
+      "sha256": "ef2e09a1cf4e564451c2d6b4b79eb622556e8b5c88bc4b2386a96eb56a674b00"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-proxy-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-proxy-9.4.52.v20230823-sources.jar",
+      "bytes": 45558,
+      "sha256": "319dfa07ddf0f44ff6173963c6baf3736b8469054ceedfd11f97e904695d1343"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-security-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-security-9.4.52.v20230823-sources.jar",
+      "bytes": 86036,
+      "sha256": "f3cf76dafe9d4f00da02e1db3e83246729ac5816bcf89a60b0029b637e12a17f"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-server-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-server-9.4.52.v20230823-sources.jar",
+      "bytes": 444485,
+      "sha256": "6c2136bfa16a18ef5e89dc7dc6231be4e65226f2517c8ce84b0dc93f0a18a422"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-servlet-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-servlet-9.4.52.v20230823-sources.jar",
+      "bytes": 81433,
+      "sha256": "e992d81bef3b8d577465cc2f97f2abab56f6adc2f1c2b598778ab53a61e42ca6"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-servlets-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-servlets-9.4.52.v20230823-sources.jar",
+      "bytes": 68415,
+      "sha256": "ae59cea5631502110635415b1369c0777bf841691c40ca95f5176a3a18e3d78a"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-util-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-util-9.4.52.v20230823-sources.jar",
+      "bytes": 386267,
+      "sha256": "735c794fa166915e5c2d8fb2960b2befb3299955cfd8bff2c04c8ec621a2b009"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-util-ajax-9.4.43.v20210629-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-util-ajax-9.4.43.v20210629-sources.jar",
+      "bytes": 36772,
+      "sha256": "169481a3a7e5d785c76a3f51eb92eb6993bbc26f1c8c210a11aec766ab82306b"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-webapp-9.4.43.v20210629-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-webapp-9.4.43.v20210629-sources.jar",
+      "bytes": 94430,
+      "sha256": "5770ed5896e4f6c872579fdbf8d4f6fed76b8a8be6434243ad5c53692a509c91"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-xml-9.4.43.v20210629-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-xml-9.4.43.v20210629-sources.jar",
+      "bytes": 45218,
+      "sha256": "1a7e10ccaa69b076ff8a0e18090cb9bab1cb8a520436b6131b166cb4808c0bcf"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty.websocket--websocket-api-9.4.43.v20210629-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty.websocket--websocket-api-9.4.43.v20210629-sources.jar",
+      "bytes": 62801,
+      "sha256": "19d2a7f4dc2fab3984b9a517bfec7ec4c5e4d78480ca3a8d42f75abd70a162f2"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty.websocket--websocket-client-9.4.43.v20210629-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty.websocket--websocket-client-9.4.43.v20210629-sources.jar",
+      "bytes": 38052,
+      "sha256": "773249f4700fc7c5738aae2efd28adca9146b4da3d94a381162329fc9b65e50a"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty.websocket--websocket-common-9.4.43.v20210629-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty.websocket--websocket-common-9.4.43.v20210629-sources.jar",
+      "bytes": 148531,
+      "sha256": "33a38b9f5b3dcacd0fd932c6ee5262fd33d9b08c43fd04c47743e3a2f73a8951"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2--hk2-api-2.6.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2--hk2-api-2.6.1-sources.jar",
+      "bytes": 220531,
+      "sha256": "636e56f6454a7c680271dd8e2e49d1fd50625bb9e206555a14ccf900188cc18c"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2--hk2-locator-2.6.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2--hk2-locator-2.6.1-sources.jar",
+      "bytes": 124542,
+      "sha256": "d76811aeabe487e35001fb4a0ab3d986a091c331f4d61962c33f6c98f94e5053"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2--hk2-utils-2.6.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2--hk2-utils-2.6.1-sources.jar",
+      "bytes": 94602,
+      "sha256": "36552a965412a1d5a9eb2ee0282fd224151e79ac5dc42ae794f0bac67e523dc5"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2--osgi-resource-locator-1.0.3-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2--osgi-resource-locator-1.0.3-sources.jar",
+      "bytes": 10377,
+      "sha256": "603d0e07134189505c76a8c8d5d4451a91bf1327a05f1f5bcea09bad61bd507e"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2.external--aopalliance-repackaged-2.6.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2.external--aopalliance-repackaged-2.6.1-sources.jar",
+      "bytes": 38893,
+      "sha256": "13392e5ad2540a5718abb1dc7c380ebd754c1b95c7d6140dd38bfeade1e6dd21"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2.external--jakarta.inject-2.6.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2.external--jakarta.inject-2.6.1-sources.jar",
+      "bytes": 27859,
+      "sha256": "fbbadf59b395bf326910de95682eaaa83dcc0f1d65cd4a077c6988deff6a527a"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jaxb--jaxb-runtime-2.3.2-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jaxb--jaxb-runtime-2.3.2-sources.jar",
+      "bytes": 757829,
+      "sha256": "b85c2e314e6565e7dc4fb7e00ec8688c1c0fe9c9f7275125fb8dee43898f3743"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.containers--jersey-container-servlet-2.40-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.containers--jersey-container-servlet-2.40-sources.jar",
+      "bytes": 28608,
+      "sha256": "1c299c59ea2a891fd002b63de3813450d905acc5369ccffa7e4149f6fc5832a8"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.containers--jersey-container-servlet-core-2.40-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.containers--jersey-container-servlet-core-2.40-sources.jar",
+      "bytes": 63233,
+      "sha256": "3ba5d4afe931292534a8c28d611128206d1243942a89e8a5e3b74e433ea70c39"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.core--jersey-client-2.40-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.core--jersey-client-2.40-sources.jar",
+      "bytes": 195284,
+      "sha256": "4a1b52f93d82f6bc0462f749e937ff02c4bf9526d5f02c35f35b15a6051c9a37"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.core--jersey-common-2.40-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.core--jersey-common-2.40-sources.jar",
+      "bytes": 794790,
+      "sha256": "cd00982cc1a0ffaea55ed692f52aab84b842ac7856ea960e1a4eba35ac14affc"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.core--jersey-server-2.40-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.core--jersey-server-2.40-sources.jar",
+      "bytes": 786100,
+      "sha256": "85de1a89cb0323cf97010a17dd52b32e08e9d75e0fc325dfb5171bd7c7265acd"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.inject--jersey-hk2-2.40-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.inject--jersey-hk2-2.40-sources.jar",
+      "bytes": 47885,
+      "sha256": "83c5984aae32bf6fb19f385503459b4144c73fd520c054c8534b123dc816581d"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.javassist--javassist-3.29.2-GA-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.javassist--javassist-3.29.2-GA-sources.jar",
+      "bytes": 550059,
+      "sha256": "dc88b4ac96851f3102588d73dcb2d8b012e42d866938bc5b84be26442bde7b28"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.jgrapht--jgrapht-core-1.1.0-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.jgrapht--jgrapht-core-1.1.0-sources.jar",
+      "bytes": 502174,
+      "sha256": "1c86ceeda071cacf039e663c465ad589ef032411a60a50d15de38729da639f18"
+    },
+    {
+      "source_path": "packs/mutect2-0.5.4/licenses/org.jgrapht--jgrapht-io-1.1.0-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.jgrapht--jgrapht-io-1.1.0-sources.jar",
+      "bytes": 89387,
+      "sha256": "ab002cd84b4a95f4288f41bc49d369f3d23593d8f267fe07f557bfe25200ccf2"
+    },
+    {
+      "source_path": "packs/vardict-0.5.3/licenses/OpenJDK8U-jdk-sources_8u504b01.tar.gz",
+      "runtime_path": "packs/vardict-0.5.3/licenses/OpenJDK8U-jdk-sources_8u504b01.tar.gz",
+      "bytes": 94314011,
+      "sha256": "86cd14f299616dddca13268cc2fa794eb4d28fc732dedaad8c5b8a3078e5d3c9"
+    },
+    {
+      "source_path": "packs/vardict-0.5.3/licenses/VarDict-009e017-source.tar.gz",
+      "runtime_path": "packs/vardict-0.5.3/licenses/VarDict-009e017-source.tar.gz",
+      "bytes": 931032,
+      "sha256": "1d70dd8eacb59a9e8fa909f6b322fbef6474d11eb27b6b21273761df0dfdd422"
+    },
+    {
+      "source_path": "packs/vardict-0.5.3/licenses/VarDictJava-1.8.3-source.tar.gz",
+      "runtime_path": "packs/vardict-0.5.3/licenses/VarDictJava-1.8.3-source.tar.gz",
+      "bytes": 104964746,
+      "sha256": "b45a3f7301c468d514c3916179f9f3c25f31e12f663ce6c674109caf3d60701e"
+    },
+    {
+      "source_path": "packs/vardict-0.5.3/licenses/build-extlibs-source.tar.gz",
+      "runtime_path": "packs/vardict-0.5.3/licenses/build-extlibs-source.tar.gz",
+      "bytes": 2454408,
+      "sha256": "c204ef125854ad2b33cff775818e7c9c4b7fa81e8f12c09b8de7bc80fa4c63b0"
+    },
+    {
+      "source_path": "packs/vardict-0.5.3/licenses/gcc-13.2.0.tar.xz",
+      "runtime_path": "packs/vardict-0.5.3/licenses/gcc-13.2.0.tar.xz",
+      "bytes": 87858592,
+      "sha256": "e275e76442a6067341a27f04c5c6b83d8613144004c0413528863dc6b5c743da"
+    },
+    {
+      "source_path": "packs/vardict-0.5.3/licenses/mingw-w64-11.0.1-source.tar.gz",
+      "runtime_path": "packs/vardict-0.5.3/licenses/mingw-w64-11.0.1-source.tar.gz",
+      "bytes": 13919536,
+      "sha256": "493cb0bde1e470a281c7a633fcc1158de3b8919f687020c60a936e7b2512398d"
+    },
+    {
+      "source_path": "packs/vardict-0.5.3/licenses/perl-5.42.3.tar.xz",
+      "runtime_path": "packs/vardict-0.5.3/licenses/perl-5.42.3.tar.xz",
+      "bytes": 14495300,
+      "sha256": "c9387e1473a1866935cb047ece7c2e0a80767a3acdecb79d4a375f8a95970ddc"
+    },
+    {
+      "source_path": "packs/vardict-0.5.3/licenses/strawberry-5.42.3.1-source.tar.gz",
+      "runtime_path": "packs/vardict-0.5.3/licenses/strawberry-5.42.3.1-source.tar.gz",
+      "bytes": 2674982,
+      "sha256": "c5d2edf05f4a3471a085a0bc21023cd9e73530b55a2d4043e9d79d480e4d273c"
+    },
+    {
+      "source_path": "packs/vsearch-0.5.2/licenses/vsearch-2.32.0.tar.gz",
+      "runtime_path": "packs/vsearch-0.5.2/licenses/vsearch-2.32.0.tar.gz",
+      "bytes": 1189974,
+      "sha256": "99578a8b960a0fb87c1f19dc65aedecddc01cfa91851b697dac8294dd08a6ceb"
+    },
+    {
+      "source_path": "variant-build/cosmopolitan-3.3.10.tar.gz",
+      "runtime_path": "packs/lofreq-0.5.3/licenses/cosmopolitan-3.3.10.tar.gz",
+      "bytes": 44847345,
+      "sha256": "1ecfd628305e844f7d8ded53742e4a7f2b908b4ad2e9fb423c81595986f5b2ff"
+    },
+    {
+      "source_path": "vendor-expanded/gatk/OpenJDK17U-jdk-sources_17.0.20.1_1.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/OpenJDK17U-jdk-sources_17.0.20.1_1.tar.gz",
+      "bytes": 109272338,
+      "sha256": "21e2a065d244ab048e737f21af5d1fc74daaeb6707de36477ead8db1dca71214"
+    },
+    {
+      "source_path": "vendor-expanded/gatk/gatk-4.7.0.0-source.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/gatk-4.7.0.0-source.tar.gz",
+      "bytes": 109654269,
+      "sha256": "35ffd523a378374aabdb29321bdad90fe48eba31f7c251592cd6305e950016d3"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/GenomicsDB-1.5.5-source.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/GenomicsDB-1.5.5-source.tar.gz",
+      "bytes": 6765965,
+      "sha256": "fe8c1c71c2918b1b38c6d7ecf354eff616ac7ec129eacd51f70d3c9eaf96bca1"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/biz.aQute.bnd--biz.aQute.bnd.annotation-7.0.0-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/biz.aQute.bnd--biz.aQute.bnd.annotation-7.0.0-sources.jar",
+      "bytes": 47557,
+      "sha256": "cecb830b0da21f0d6733017cd53c548b2a0fd46f776de59328e737d29a45f814"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/bwa-cb950614ce7217788780b9a8d445c64cd4d8f62e-source.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/bwa-cb950614ce7217788780b9a8d445c64cd4d8f62e-source.tar.gz",
+      "bytes": 207625,
+      "sha256": "0aa6b2000f48b5d73e7ed87fe35c092d47709f9be78e98692a191a4676b7a2f1"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/ch.qos.logback--logback-core-1.5.13-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/ch.qos.logback--logback-core-1.5.13-sources.jar",
+      "bytes": 488413,
+      "sha256": "0cafa20eea81fc8442e06dea9b1904b72ea7352861df07f8576644e24c653dcd"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/com.github.fommil--jniloader-1.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil--jniloader-1.1-sources.jar",
+      "bytes": 4441,
+      "sha256": "f31f1d3d257c1c298bff289424283bb881ba372e451745d828c04d02df091cf2"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/com.github.fommil.netlib--core-1.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--core-1.1-sources.jar",
+      "bytes": 679209,
+      "sha256": "bdef30ae70e449dc2389a056e34b10cbce95d7d3ef400099db54e34af88c810c"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/com.github.fommil.netlib--native_ref-java-1.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--native_ref-java-1.1-sources.jar",
+      "bytes": 28183,
+      "sha256": "9f0baec202cfc31bdecc1ae5b3746a4d31fc30d2d7679fef6dfc7f01a57a86e6"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/com.github.fommil.netlib--native_system-java-1.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--native_system-java-1.1-sources.jar",
+      "bytes": 28200,
+      "sha256": "1fcdd2af960ac58f53c959fc224571c6dae2efd51ccf37dbdb2a399af5fc93fc"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/com.github.fommil.netlib--netlib-native_ref-linux-x86_64-1.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--netlib-native_ref-linux-x86_64-1.1-sources.jar",
+      "bytes": 86855,
+      "sha256": "5abc59d71b2b231a127efbdb190e72b9aa666edc8e329feabce0b8859ec3dc07"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/com.github.fommil.netlib--netlib-native_ref-osx-x86_64-1.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--netlib-native_ref-osx-x86_64-1.1-sources.jar",
+      "bytes": 89373,
+      "sha256": "19d18939446877aaf295205526b47f85e6271328ec823322fcbe7d7dbc1a77ba"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/com.github.fommil.netlib--netlib-native_system-linux-x86_64-1.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--netlib-native_system-linux-x86_64-1.1-sources.jar",
+      "bytes": 89748,
+      "sha256": "6b2af363d6f66d139df1e8de041c5507a5769837971ee35dac98f8e508208c37"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/com.github.fommil.netlib--netlib-native_system-osx-x86_64-1.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.fommil.netlib--netlib-native_system-osx-x86_64-1.1-sources.jar",
+      "bytes": 86986,
+      "sha256": "b83eb9788e6336f8b1d6b0de0432f9620c163963af899b69d13c3d55f84870c1"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/com.github.pjfanning--jersey-json-1.20-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.github.pjfanning--jersey-json-1.20-sources.jar",
+      "bytes": 134527,
+      "sha256": "bfcbab4bcc22451cbdc0729ecb1b7664ec40a214d423d1e136b753b439e0ee44"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/com.sun.istack--istack-commons-runtime-3.0.8-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.sun.istack--istack-commons-runtime-3.0.8-sources.jar",
+      "bytes": 25886,
+      "sha256": "4874ce5789c8684debd0099c8fa4ec8e00545626af4c9890760f0cb6fdf6d4db"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/com.sun.jersey--jersey-client-1.19-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.sun.jersey--jersey-client-1.19-sources.jar",
+      "bytes": 122357,
+      "sha256": "1c1f6043818271a876e77b8632df67400e5448b28566cb435d9d1f5177839a7a"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/com.sun.jersey--jersey-core-1.19-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.sun.jersey--jersey-core-1.19-sources.jar",
+      "bytes": 380026,
+      "sha256": "d5c40741fb2507955c3c74794e5ebcd6fd3ed88d83528322b84a9120950db348"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/com.sun.jersey--jersey-server-1.19.4-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.sun.jersey--jersey-server-1.19.4-sources.jar",
+      "bytes": 694729,
+      "sha256": "8f45b0a00ffddefed2fe99a73dcca04abab392193b1d590cc217ae0fc8b06cb5"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/com.sun.jersey--jersey-servlet-1.19-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.sun.jersey--jersey-servlet-1.19-sources.jar",
+      "bytes": 104294,
+      "sha256": "afa62ae8b3000003fd244a65301e658b3384b456a7e34fb677faa59285e79f54"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/com.sun.jersey.contribs--jersey-guice-1.19.4-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/com.sun.jersey.contribs--jersey-guice-1.19.4-sources.jar",
+      "bytes": 12560,
+      "sha256": "d0d4083231c60f738a40a0bd9ce50ac3bb1a0263f131c37adb413cbb6e0d1d8d"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/fermi-lite-562638112b7992f4d7a243ccd9ab2b3bd08c6b08-source.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/fermi-lite-562638112b7992f4d7a243ccd9ab2b3bd08c6b08-source.tar.gz",
+      "bytes": 248166,
+      "sha256": "77b985a94c7d415a702976cc79ec39fe93bedfc28f7bbdb47899ebbff1bccda4"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/gatk-bwamem-jni-1.0.4-source.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/gatk-bwamem-jni-1.0.4-source.tar.gz",
+      "bytes": 75302,
+      "sha256": "6557109ab0056e2875f3293a3a6fa96e239af1bb6943ca1752bd17b2d371da04"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/gatk-fermilite-jni-1.2.0-source.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/gatk-fermilite-jni-1.2.0-source.tar.gz",
+      "bytes": 63573,
+      "sha256": "2955b8258ddeee50e145455ea16b0d164576fbab59a6266b2c88e7781865e894"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/gnu.getopt--java-getopt-1.0.13-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/gnu.getopt--java-getopt-1.0.13-sources.jar",
+      "bytes": 57158,
+      "sha256": "0728c551077cbb0c4e721b95915c732642d70eef24b29ac7de549983e4f1818b"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/jakarta.activation--jakarta.activation-api-1.2.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/jakarta.activation--jakarta.activation-api-1.2.1-sources.jar",
+      "bytes": 43221,
+      "sha256": "e9638b764202c0def1b4d54bd37a984c681b2ed46a548ae94ef3f7e4a4b58a31"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/jakarta.annotation--jakarta.annotation-api-1.3.5-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/jakarta.annotation--jakarta.annotation-api-1.3.5-sources.jar",
+      "bytes": 38267,
+      "sha256": "aa27e9291dce4ddbb0aea52a1cbef41c6330b96b0ae387a995ed412b68a3af7c"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/jakarta.servlet--jakarta.servlet-api-4.0.3-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/jakarta.servlet--jakarta.servlet-api-4.0.3-sources.jar",
+      "bytes": 166894,
+      "sha256": "8643aae750a34a7fa3f543e5e0bcdaeb7d12ae75f5267d535efacaa5bc06f7f7"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/jakarta.validation--jakarta.validation-api-2.0.2-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/jakarta.validation--jakarta.validation-api-2.0.2-sources.jar",
+      "bytes": 97203,
+      "sha256": "19c594e00f04d7f3953a065d798d9ee5edf37d00e01e5894babd61bc7652fa5c"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/jakarta.ws.rs--jakarta.ws.rs-api-2.1.6-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/jakarta.ws.rs--jakarta.ws.rs-api-2.1.6-sources.jar",
+      "bytes": 246372,
+      "sha256": "5fb0591472e00439db7d1511caa40a39cda42e24b0bade6378f880384b7cc073"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/jakarta.xml.bind--jakarta.xml.bind-api-2.3.2-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/jakarta.xml.bind--jakarta.xml.bind-api-2.3.2-sources.jar",
+      "bytes": 194036,
+      "sha256": "61ceb3ed35ecf99f1803eac9c4b8f12103c7531952beae38ba53cc727f405532"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/javax.annotation--javax.annotation-api-1.3.2-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/javax.annotation--javax.annotation-api-1.3.2-sources.jar",
+      "bytes": 42279,
+      "sha256": "128971e52e0d84a66e3b6e049dab8ad7b2c58b7e1ad37fa2debd3d40c2947b95"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/javax.servlet--javax.servlet-api-3.1.0-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/javax.servlet--javax.servlet-api-3.1.0-sources.jar",
+      "bytes": 223386,
+      "sha256": "5c6d640f01e8e7ffdba21b2b75c0f64f0c30fd1fc3372123750c034cb363012a"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/javax.ws.rs--jsr311-api-1.1.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/javax.ws.rs--jsr311-api-1.1.1-sources.jar",
+      "bytes": 70022,
+      "sha256": "99227bada18620d29406be240e7c749da68e646ce1d2a61d6f320863f05a30da"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/javax.xml.bind--jaxb-api-2.2.11-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/javax.xml.bind--jaxb-api-2.2.11-sources.jar",
+      "bytes": 244349,
+      "sha256": "467ba7ce05e329ea8cefe44ff033d5a71ad799b1d774e3fbfa89e71e1c454b51"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/libuuid-1.0.3.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/libuuid-1.0.3.tar.gz",
+      "bytes": 318256,
+      "sha256": "46af3275291091009ad7f1b899de3d0cea0252737550e7919d17237997db5644"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/mummer-4.0.0rc1.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/mummer-4.0.0rc1.tar.gz",
+      "bytes": 967486,
+      "sha256": "85006adb2d6539c2f738c3e3bb14b58bb6f62cd6c6ca5ede884a87ae76e07d1d"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/netlib-java-1.1.0-source.tar.gz",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/netlib-java-1.1.0-source.tar.gz",
+      "bytes": 2358125,
+      "sha256": "94a1b8f0a15edded8dece5d138743e4389ad8d54e505063cfe77b11f4d09b80d"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.broadinstitute--gatk-bwamem-jni-1.0.4-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.broadinstitute--gatk-bwamem-jni-1.0.4-sources.jar",
+      "bytes": 15305,
+      "sha256": "086340a9963a94d832fcb095372962292da8f3c26f0d6ae5a030a074be9c25f7"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.broadinstitute--gatk-fermilite-jni-1.2.0-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.broadinstitute--gatk-fermilite-jni-1.2.0-sources.jar",
+      "bytes": 6165,
+      "sha256": "501959ddc1e5035661c7a8a72d5cf69faa389c9e9171fed0291a73c3642b40b4"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.eclipse.jetty--jetty-client-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-client-9.4.52.v20230823-sources.jar",
+      "bytes": 179971,
+      "sha256": "5aa054f7ae140da9d09b5fdaee66427571f7e86606a3b7ce793d12f61cad99c2"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.eclipse.jetty--jetty-continuation-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-continuation-9.4.52.v20230823-sources.jar",
+      "bytes": 26338,
+      "sha256": "7968ec3c906715f1da32a2e6dfd85d819f229145fbcabf62550e34e3cc9162f4"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.eclipse.jetty--jetty-http-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-http-9.4.52.v20230823-sources.jar",
+      "bytes": 139438,
+      "sha256": "e965cfce9a44f40002fa6ade07d7b9ae21427b8e239f3f1624ed0f880ce0f523"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.eclipse.jetty--jetty-plus-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-plus-9.4.52.v20230823-sources.jar",
+      "bytes": 52635,
+      "sha256": "ef2e09a1cf4e564451c2d6b4b79eb622556e8b5c88bc4b2386a96eb56a674b00"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.eclipse.jetty--jetty-proxy-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-proxy-9.4.52.v20230823-sources.jar",
+      "bytes": 45558,
+      "sha256": "319dfa07ddf0f44ff6173963c6baf3736b8469054ceedfd11f97e904695d1343"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.eclipse.jetty--jetty-security-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-security-9.4.52.v20230823-sources.jar",
+      "bytes": 86036,
+      "sha256": "f3cf76dafe9d4f00da02e1db3e83246729ac5816bcf89a60b0029b637e12a17f"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.eclipse.jetty--jetty-server-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-server-9.4.52.v20230823-sources.jar",
+      "bytes": 444485,
+      "sha256": "6c2136bfa16a18ef5e89dc7dc6231be4e65226f2517c8ce84b0dc93f0a18a422"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.eclipse.jetty--jetty-servlet-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-servlet-9.4.52.v20230823-sources.jar",
+      "bytes": 81433,
+      "sha256": "e992d81bef3b8d577465cc2f97f2abab56f6adc2f1c2b598778ab53a61e42ca6"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.eclipse.jetty--jetty-servlets-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-servlets-9.4.52.v20230823-sources.jar",
+      "bytes": 68415,
+      "sha256": "ae59cea5631502110635415b1369c0777bf841691c40ca95f5176a3a18e3d78a"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.eclipse.jetty--jetty-util-9.4.52.v20230823-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-util-9.4.52.v20230823-sources.jar",
+      "bytes": 386267,
+      "sha256": "735c794fa166915e5c2d8fb2960b2befb3299955cfd8bff2c04c8ec621a2b009"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.eclipse.jetty--jetty-util-ajax-9.4.43.v20210629-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-util-ajax-9.4.43.v20210629-sources.jar",
+      "bytes": 36772,
+      "sha256": "169481a3a7e5d785c76a3f51eb92eb6993bbc26f1c8c210a11aec766ab82306b"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.eclipse.jetty--jetty-webapp-9.4.43.v20210629-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-webapp-9.4.43.v20210629-sources.jar",
+      "bytes": 94430,
+      "sha256": "5770ed5896e4f6c872579fdbf8d4f6fed76b8a8be6434243ad5c53692a509c91"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.eclipse.jetty--jetty-xml-9.4.43.v20210629-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty--jetty-xml-9.4.43.v20210629-sources.jar",
+      "bytes": 45218,
+      "sha256": "1a7e10ccaa69b076ff8a0e18090cb9bab1cb8a520436b6131b166cb4808c0bcf"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.eclipse.jetty.websocket--websocket-api-9.4.43.v20210629-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty.websocket--websocket-api-9.4.43.v20210629-sources.jar",
+      "bytes": 62801,
+      "sha256": "19d2a7f4dc2fab3984b9a517bfec7ec4c5e4d78480ca3a8d42f75abd70a162f2"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.eclipse.jetty.websocket--websocket-client-9.4.43.v20210629-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty.websocket--websocket-client-9.4.43.v20210629-sources.jar",
+      "bytes": 38052,
+      "sha256": "773249f4700fc7c5738aae2efd28adca9146b4da3d94a381162329fc9b65e50a"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.eclipse.jetty.websocket--websocket-common-9.4.43.v20210629-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.eclipse.jetty.websocket--websocket-common-9.4.43.v20210629-sources.jar",
+      "bytes": 148531,
+      "sha256": "33a38b9f5b3dcacd0fd932c6ee5262fd33d9b08c43fd04c47743e3a2f73a8951"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.glassfish.hk2--hk2-api-2.6.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2--hk2-api-2.6.1-sources.jar",
+      "bytes": 220531,
+      "sha256": "636e56f6454a7c680271dd8e2e49d1fd50625bb9e206555a14ccf900188cc18c"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.glassfish.hk2--hk2-locator-2.6.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2--hk2-locator-2.6.1-sources.jar",
+      "bytes": 124542,
+      "sha256": "d76811aeabe487e35001fb4a0ab3d986a091c331f4d61962c33f6c98f94e5053"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.glassfish.hk2--hk2-utils-2.6.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2--hk2-utils-2.6.1-sources.jar",
+      "bytes": 94602,
+      "sha256": "36552a965412a1d5a9eb2ee0282fd224151e79ac5dc42ae794f0bac67e523dc5"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.glassfish.hk2--osgi-resource-locator-1.0.3-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2--osgi-resource-locator-1.0.3-sources.jar",
+      "bytes": 10377,
+      "sha256": "603d0e07134189505c76a8c8d5d4451a91bf1327a05f1f5bcea09bad61bd507e"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.glassfish.hk2.external--aopalliance-repackaged-2.6.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2.external--aopalliance-repackaged-2.6.1-sources.jar",
+      "bytes": 38893,
+      "sha256": "13392e5ad2540a5718abb1dc7c380ebd754c1b95c7d6140dd38bfeade1e6dd21"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.glassfish.hk2.external--jakarta.inject-2.6.1-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.hk2.external--jakarta.inject-2.6.1-sources.jar",
+      "bytes": 27859,
+      "sha256": "fbbadf59b395bf326910de95682eaaa83dcc0f1d65cd4a077c6988deff6a527a"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.glassfish.jaxb--jaxb-runtime-2.3.2-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jaxb--jaxb-runtime-2.3.2-sources.jar",
+      "bytes": 757829,
+      "sha256": "b85c2e314e6565e7dc4fb7e00ec8688c1c0fe9c9f7275125fb8dee43898f3743"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.glassfish.jersey.containers--jersey-container-servlet-2.40-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.containers--jersey-container-servlet-2.40-sources.jar",
+      "bytes": 28608,
+      "sha256": "1c299c59ea2a891fd002b63de3813450d905acc5369ccffa7e4149f6fc5832a8"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.glassfish.jersey.containers--jersey-container-servlet-core-2.40-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.containers--jersey-container-servlet-core-2.40-sources.jar",
+      "bytes": 63233,
+      "sha256": "3ba5d4afe931292534a8c28d611128206d1243942a89e8a5e3b74e433ea70c39"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.glassfish.jersey.core--jersey-client-2.40-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.core--jersey-client-2.40-sources.jar",
+      "bytes": 195284,
+      "sha256": "4a1b52f93d82f6bc0462f749e937ff02c4bf9526d5f02c35f35b15a6051c9a37"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.glassfish.jersey.core--jersey-common-2.40-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.core--jersey-common-2.40-sources.jar",
+      "bytes": 794790,
+      "sha256": "cd00982cc1a0ffaea55ed692f52aab84b842ac7856ea960e1a4eba35ac14affc"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.glassfish.jersey.core--jersey-server-2.40-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.core--jersey-server-2.40-sources.jar",
+      "bytes": 786100,
+      "sha256": "85de1a89cb0323cf97010a17dd52b32e08e9d75e0fc325dfb5171bd7c7265acd"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.glassfish.jersey.inject--jersey-hk2-2.40-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.glassfish.jersey.inject--jersey-hk2-2.40-sources.jar",
+      "bytes": 47885,
+      "sha256": "83c5984aae32bf6fb19f385503459b4144c73fd520c054c8534b123dc816581d"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.javassist--javassist-3.29.2-GA-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.javassist--javassist-3.29.2-GA-sources.jar",
+      "bytes": 550059,
+      "sha256": "dc88b4ac96851f3102588d73dcb2d8b012e42d866938bc5b84be26442bde7b28"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.jgrapht--jgrapht-core-1.1.0-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.jgrapht--jgrapht-core-1.1.0-sources.jar",
+      "bytes": 502174,
+      "sha256": "1c86ceeda071cacf039e663c465ad589ef032411a60a50d15de38729da639f18"
+    },
+    {
+      "source_path": "vendor-expanded/gatk-thirdparty/org.jgrapht--jgrapht-io-1.1.0-sources.jar",
+      "runtime_path": "packs/mutect2-0.5.4/licenses/org.jgrapht--jgrapht-io-1.1.0-sources.jar",
+      "bytes": 89387,
+      "sha256": "ab002cd84b4a95f4288f41bc49d369f3d23593d8f267fe07f557bfe25200ccf2"
+    },
+    {
+      "source_path": "vendor-expanded/hisat2/hisat2-v2.2.3.tar.gz",
+      "runtime_path": "packs/hisat2-0.5.3/licenses/hisat2-v2.2.3.tar.gz",
+      "bytes": 7059086,
+      "sha256": "b53107422e5b44ebea4b20b1a77bb9e240d6b92d654fcd7e6a6ab5d1aae86c45"
+    },
+    {
+      "source_path": "vendor-expanded/lofreq/lofreq-2.1.5-source-subset.tar.gz",
+      "runtime_path": "packs/lofreq-0.5.3/licenses/lofreq-2.1.5-source-subset.tar.gz",
+      "bytes": 221889,
+      "sha256": "5578d1ac7afd6d6ed8180b5d893322aef2389d58bd82258fabe3821186b8aa9e"
+    },
+    {
+      "source_path": "vendor-expanded/muscle-5.3/muscle-v5.3.tar.gz",
+      "runtime_path": "packs/muscle-0.5.2/licenses/muscle-v5.3.tar.gz",
+      "bytes": 28692261,
+      "sha256": "74b22a94e630b16015c2bd9ae83aa2be2c2048d3e41f560b2d4a954725c81968"
+    },
+    {
+      "source_path": "vendor-expanded/vardict/OpenJDK8U-jdk-sources_8u504b01.tar.gz",
+      "runtime_path": "packs/vardict-0.5.3/licenses/OpenJDK8U-jdk-sources_8u504b01.tar.gz",
+      "bytes": 94314011,
+      "sha256": "86cd14f299616dddca13268cc2fa794eb4d28fc732dedaad8c5b8a3078e5d3c9"
+    },
+    {
+      "source_path": "vendor-expanded/vardict/VarDict-009e017-source.tar.gz",
+      "runtime_path": "packs/vardict-0.5.3/licenses/VarDict-009e017-source.tar.gz",
+      "bytes": 931032,
+      "sha256": "1d70dd8eacb59a9e8fa909f6b322fbef6474d11eb27b6b21273761df0dfdd422"
+    },
+    {
+      "source_path": "vendor-expanded/vardict/VarDictJava-1.8.3-source.tar.gz",
+      "runtime_path": "packs/vardict-0.5.3/licenses/VarDictJava-1.8.3-source.tar.gz",
+      "bytes": 104964746,
+      "sha256": "b45a3f7301c468d514c3916179f9f3c25f31e12f663ce6c674109caf3d60701e"
+    },
+    {
+      "source_path": "vendor-expanded/vardict/build-extlibs-source.tar.gz",
+      "runtime_path": "packs/vardict-0.5.3/licenses/build-extlibs-source.tar.gz",
+      "bytes": 2454408,
+      "sha256": "c204ef125854ad2b33cff775818e7c9c4b7fa81e8f12c09b8de7bc80fa4c63b0"
+    },
+    {
+      "source_path": "vendor-expanded/vardict/gcc-13.2.0.tar.xz",
+      "runtime_path": "packs/vardict-0.5.3/licenses/gcc-13.2.0.tar.xz",
+      "bytes": 87858592,
+      "sha256": "e275e76442a6067341a27f04c5c6b83d8613144004c0413528863dc6b5c743da"
+    },
+    {
+      "source_path": "vendor-expanded/vardict/mingw-w64-11.0.1-source.tar.gz",
+      "runtime_path": "packs/vardict-0.5.3/licenses/mingw-w64-11.0.1-source.tar.gz",
+      "bytes": 13919536,
+      "sha256": "493cb0bde1e470a281c7a633fcc1158de3b8919f687020c60a936e7b2512398d"
+    },
+    {
+      "source_path": "vendor-expanded/vardict/perl-5.42.3.tar.xz",
+      "runtime_path": "packs/vardict-0.5.3/licenses/perl-5.42.3.tar.xz",
+      "bytes": 14495300,
+      "sha256": "c9387e1473a1866935cb047ece7c2e0a80767a3acdecb79d4a375f8a95970ddc"
+    },
+    {
+      "source_path": "vendor-expanded/vardict/strawberry-5.42.3.1-source.tar.gz",
+      "runtime_path": "packs/vardict-0.5.3/licenses/strawberry-5.42.3.1-source.tar.gz",
+      "bytes": 2674982,
+      "sha256": "c5d2edf05f4a3471a085a0bc21023cd9e73530b55a2d4043e9d79d480e4d273c"
+    },
+    {
+      "source_path": "vendor-expanded/vsearch/vsearch-2.32.0.tar.gz",
+      "runtime_path": "packs/vsearch-0.5.2/licenses/vsearch-2.32.0.tar.gz",
+      "bytes": 1189974,
+      "sha256": "99578a8b960a0fb87c1f19dc65aedecddc01cfa91851b697dac8294dd08a6ceb"
+    },
+    {
+      "source_path": "vendor-variant/archives/samtools-1.24.tar.bz2",
+      "runtime_path": "packs/lofreq-0.5.3/licenses/samtools-htslib-1.24.tar.bz2",
+      "bytes": 9491012,
+      "sha256": "89b2a440123eeaa400392ce1736e7d60ce9041843027d76819753c5a8246bfdd"
+    }
+  ],
+  "policy": "Application/history/build/test source, patches, provenance and licenses are retained. Compiled executables, bundled runtime copies, generated results and expanded rebuildable vendor/build trees are excluded. Exact corresponding-source archives already in shipped packs/licenses are referenced by SHA-256 and can be restored with scripts/restore_source_archives.py. Locally patched source must be represented by retained patches/build scripts or a complete corresponding-source archive."
+}

@@ -1,0 +1,14 @@
+{
+  "fastp": [
+    "PACK-README.md",
+    "bin/fastp.exe",
+    "licenses/fastp/BUILD-NOTES.txt",
+    "pack.ini"
+  ],
+  "research-variants": [
+    "PACK-README.md",
+    "bin/fastp.exe",
+    "licenses/fastp/BUILD-NOTES.txt",
+    "pack.ini"
+  ]
+}

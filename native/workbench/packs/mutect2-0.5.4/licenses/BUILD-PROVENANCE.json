@@ -1,0 +1,18 @@
+{
+  "packVersion": "0.5.4",
+  "sourcePins": {
+    "gatk-4.7.0.0.zip": "d093d2693b1626361a413ca59d6d4a0bf968717f280a8fd9ce060b25eb2ed1db",
+    "gatk-4.7.0.0-source.tar.gz": "35ffd523a378374aabdb29321bdad90fe48eba31f7c251592cd6305e950016d3",
+    "OpenJDK17U-jre_x64_windows_hotspot_17.0.20.1_1.zip": "bc21a93923103cdaac93ee337b0ae4365e739fde36df823dd456bc67c8a9d352",
+    "OpenJDK17U-jdk-sources_17.0.20.1_1.tar.gz": "21e2a065d244ab048e737f21af5d1fc74daaeb6707de36477ead8db1dca71214",
+    "Microsoft-VC-Runtime-2015-2022-License.docx": "f1e3d56ceb2ad68aae0711b910375009e651ac5530fa0760f0dea6e81e54fae1"
+  },
+  "gatkVersion": "4.7.0.0",
+  "gatkWorkbenchAdaptation": "4.7.0.0-workbench1",
+  "gatkJarSha256": "882e180707e0e6887885853fc486fa54098620fe9a80bdcdaaa655c7e3861365",
+  "compatibilityJarSha256": "d3a35b8cf2790f12b5d57574b7d46de3598a8836201f3f9b899798521db9e78a",
+  "thirdpartyInventorySha256": "9b7390d1da5e84da71b826a88c62d324a55e51b5d2172bb5cec91626fc40cd5e",
+  "javaRuntime": "Temurin 17.0.20.1+1",
+  "javaMode": "LOGLESS_CACHING PairHMM; JAVA SmithWaterman; JDK compression; libdeflate and snappy disabled",
+  "nativeWindowsExecutedDuringBuild": false
+}

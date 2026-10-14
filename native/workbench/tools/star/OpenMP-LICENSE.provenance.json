@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "file": "OpenMP-LICENSE.txt",
+  "sourceURL": "https://raw.githubusercontent.com/llvm/llvm-project/85ac560262434c9ccfc0c183ec22d4138ed647fb/openmp/LICENSE.TXT",
+  "sha256": "fdad1758a9e1f9d5a81e18879b3406772115edc92c24bfa36b70c654f325e8e4",
+  "bytes": 19741,
+  "purpose": "Redistribution notice for the corresponding packaged runtime or compiled library."
+}

@@ -1,0 +1,136 @@
+--- a/src/htmlreporter.cpp
++++ b/src/htmlreporter.cpp
+@@ -1,4 +1,21 @@
+ #include "htmlreporter.h"
++
++// Native Workbench reporting-only fix: dynamic text is not HTML markup.
++static string escapeReportHtml(const string& value) {
++    string escaped;
++    for (char c : value) {
++        switch (c) {
++            case '&': escaped += "&amp;"; break;
++            case '<': escaped += "&lt;"; break;
++            case '>': escaped += "&gt;"; break;
++            case '"': escaped += "&quot;"; break;
++            case '\'': escaped += "&#39;"; break;
++            default: escaped += c;
++        }
++    }
++    return escaped;
++}
++
+ #include <chrono>
+ #include <memory.h>
+ #include "knownadapters.h"
+@@ -110,7 +127,7 @@
+     }
+ 
+     ofs << endl;
+-    ofs << "<h1 style='text-align:left;'><a href='https://github.com/OpenGene/fastp' target='_blank' style='color:#663355;text-decoration:none;'>" + mOptions->reportTitle + "</a>"<<endl;
++    ofs << "<h1 style='text-align:left;'><a href='https://github.com/OpenGene/fastp' target='_blank' style='color:#663355;text-decoration:none;'>" + escapeReportHtml(mOptions->reportTitle) + "</a>"<<endl;
+     ofs << "<div class='section_div'>\n";
+     ofs << "<div class='section_title' onclick=showOrHide('summary')><a name='summary'>Summary</a></div>\n";
+     ofs << "<div id='summary'>\n";
+@@ -271,7 +288,7 @@
+     json_str += "];\n";
+ 
+     json_str += "var layout={title:'Insert size distribution (" + to_string(unknownPercents) + "% reads are with unknown length)', xaxis:{title:'Insert size'}, yaxis:{title:'Read percent (%)'}};\n";
+-    json_str += "Plotly.newPlot('plot_insert_size', data, layout);\n";
++    json_str += "Plotly.newPlot('plot_insert_size', data, layout, {showLink:false, sendData:false, modeBarButtonsToRemove:['sendDataToCloud']});\n";
+ 
+     ofs << json_str;
+     ofs << "</script>" << endl;
+@@ -331,7 +348,7 @@
+     json_str += "];\n";
+ 
+     json_str += "var layout={title:'duplication rate (" + to_string(mDupRate*100.0) + "%)', xaxis:{title:'duplication level'}, yaxis:{title:'Read percent (%) & GC ratio'}};\n";
+-    json_str += "Plotly.newPlot('plot_duplication', data, layout);\n";
++    json_str += "Plotly.newPlot('plot_duplication', data, layout, {showLink:false, sendData:false, modeBarButtonsToRemove:['sendDataToCloud']});\n";
+ 
+     ofs << json_str;
+     ofs << "</script>" << endl;
+@@ -420,7 +437,7 @@
+     ofs << "title: '" << caption << "',";
+     ofs <<"xaxis:{title:'base quality score'}, yaxis:{title:'base count'}}; "<< endl;
+ 
+-    ofs << "Plotly.newPlot('plot_" + divName + "', data, layout); " << endl;
++    ofs << "Plotly.newPlot('plot_" + divName + "', data, layout, {showLink:false, sendData:false, modeBarButtonsToRemove:['sendDataToCloud']}); " << endl;
+     ofs << "</script>" << endl;
+ }
+ 
+@@ -594,9 +611,8 @@
+ }
+ 
+ void HtmlReporter::printJS(ofstream& ofs){
+-    ofs << "<script src='https://opengene.org/plotly-1.2.0.min.js'></script>" << endl;
++    ofs << "<script src='plotly-1.2.0.min.js'></script>" << endl;
+     ofs << "\n<script type='text/javascript'>" << endl;
+-    ofs << "    window.Plotly || document.write('<script src=\"https://cdn.plot.ly/plotly-1.2.0.min.js\"><\\/script>')" << endl;
+     ofs << "</script>" << endl;
+     ofs << "\n<script type=\"text/javascript\">" << endl;
+     ofs << "    function showOrHide(divname) {" << endl;
+@@ -623,7 +639,7 @@
+ void HtmlReporter::printFooter(ofstream& ofs){
+     ofs << "\n</div>" << endl;
+     ofs << "<div id='footer'> ";
+-    ofs << "<p>"<<command<<"</p>";
++    ofs << "<p>"<<escapeReportHtml(command)<<"</p>";
+     ofs << "fastp " << FASTP_VER << ", at " << getCurrentSystemTime() << " </div>";
+     ofs << "</body></html>";
+ }
+--- a/src/stats.cpp
++++ b/src/stats.cpp
+@@ -772,7 +772,7 @@
+         json_str += ",type:'log'";
+     }
+     json_str += "}, yaxis:{title:'quality'}};\n";
+-    json_str += "Plotly.newPlot('plot_" + divName + "', data, layout);\n";
++    json_str += "Plotly.newPlot('plot_" + divName + "', data, layout, {showLink:false, sendData:false, modeBarButtonsToRemove:['sendDataToCloud']});\n";
+ 
+     ofs << json_str;
+     ofs << "</script>" << endl;
+@@ -866,7 +866,7 @@
+         json_str += ",type:'log'";
+     }
+     json_str += "}, yaxis:{title:'base content ratios'}};\n";
+-    json_str += "Plotly.newPlot('plot_" + divName + "', data, layout);\n";
++    json_str += "Plotly.newPlot('plot_" + divName + "', data, layout, {showLink:false, sendData:false, modeBarButtonsToRemove:['sendDataToCloud']});\n";
+ 
+     ofs << json_str;
+     ofs << "</script>" << endl;
+--- a/src/jsonreporter.cpp
++++ b/src/jsonreporter.cpp
+@@ -1,4 +1,24 @@
+ #include "jsonreporter.h"
++
++// Native Workbench reporting-only fix: preserve Windows paths and UTF-8 text.
++static string escapeReportJson(const string& value) {
++    static const char hex[] = "0123456789abcdef";
++    string escaped;
++    for (unsigned char c : value) {
++        if (c == '"' || c == '\\') {
++            escaped += '\\';
++            escaped += static_cast<char>(c);
++        } else if (c < 0x20) {
++            escaped += "\\u00";
++            escaped += hex[c >> 4];
++            escaped += hex[c & 15];
++        } else {
++            escaped += static_cast<char>(c);
++        }
++    }
++    return escaped;
++}
++
+ 
+ JsonReporter::JsonReporter(Options* opt){
+     mOptions = opt;
+@@ -166,7 +186,7 @@
+         postStats2 -> reportJson(ofs, "\t");
+     }
+ 
+-    ofs << "\t\"command\": " << "\"" << command << "\"" << endl;
++    ofs << "\t\"command\": " << "\"" << escapeReportJson(command) << "\"" << endl;
+ 
+     ofs << "}";
+ }

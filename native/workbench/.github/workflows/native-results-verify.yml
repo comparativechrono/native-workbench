@@ -1,0 +1,66 @@
+name: Verify frozen Windows results candidate
+
+on:
+  push:
+    branches: [validation/cwl-dag-candidate]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: results-verify-${{ github.ref }}
+  cancel-in-progress: true
+
+# Reuses the exact candidate whose source/CWL, workspace, References and
+# long-path gates already ran. Only the results GUI fixture is being corrected.
+jobs:
+  native:
+    runs-on: windows-2022
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        folder: [ordinary, 'path with spaces']
+    env:
+      SOURCE_COMMIT: beea34ab29f3e7cb9a7e79dbcfa11c89f40ee59d
+      ASSET_SHA256: c2661c144e073c4efdd190ffd186bacd9398b6413b81770d7a057c3947eecf02
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: results-candidate-beea34ab29f3e7cb9a7e79dbcfa11c89f40ee59d
+          run-id: 37485987457
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: ${{ runner.temp }}/results-candidate
+      - name: Verify frozen artifact and run corrected native results fixture
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $candidate = Join-Path $env:RUNNER_TEMP 'results-candidate'
+          $starter = Join-Path $candidate 'native-workbench-0.9.0-starter-windows.zip'
+          if ((Get-FileHash $starter -Algorithm SHA256).Hash -ne $env:ASSET_SHA256) { throw 'Frozen candidate SHA-256 mismatch.' }
+          $provenance = Get-Content (Join-Path $candidate 'BUILD-PROVENANCE.json') -Raw | ConvertFrom-Json
+          if ($provenance.sourceCommit -ne $env:SOURCE_COMMIT) { throw 'Candidate source commit mismatch.' }
+          $caseRoot = Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER
+          Expand-Archive $starter $caseRoot
+          $app = Join-Path $caseRoot 'native-workbench'
+          $evidence = Join-Path $env:RUNNER_TEMP 'results-feature-evidence'
+          New-Item -ItemType Directory -Path $evidence -Force | Out-Null
+          @{sourceCommit=$env:SOURCE_COMMIT; validationCommit=$env:GITHUB_SHA; buildRun=37485987457; validationRun=$env:GITHUB_RUN_ID; artifactSha256=$env:ASSET_SHA256; rebuilt=$false} | ConvertTo-Json | Set-Content (Join-Path $evidence 'validation-context.json')
+          & (Join-Path $app 'runtime/python/python.exe') -I scripts/check_results_windows.py --app-root $app --report (Join-Path $evidence 'native-results.json') --source-commit $env:SOURCE_COMMIT --asset-sha256 $env:ASSET_SHA256
+          if ($LASTEXITCODE -ne 0) { throw 'Frozen native results candidate check failed.' }
+      - name: Retain actual native results and captures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: frozen-results-${{ matrix.folder }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/results-feature-evidence
+          if-no-files-found: error
+          retention-days: 30

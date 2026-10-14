@@ -1,0 +1,114 @@
+Native Workbench 0.5.4 - GATK Mutect2
+
+This release adds one independently versioned Mutect2 pack to the native desktop
+and typed pipeline engine. All seventeen 0.5.3 pack directories, including the
+fastp fix and previous aligners/callers, are preserved byte-for-byte.
+
+WHAT THE PACK RUNS
+The pack uses GATK 4.7.0.0-workbench1 and a private Temurin Java 17 runtime.
+Four operations
+cover tumor-only and matched tumor/normal analysis, each with a basic version
+and a version requiring both a germline allele-frequency resource and a panel
+of normals. All four require a matching reference and BED target intervals.
+The workflow copies and indexes the reference, BAM files and any resource
+VCFs in the run directory.
+
+In the tool library, choose one of:
+- Mutect2: tumor only
+- Mutect2: tumor + matched normal
+- Mutect2: tumor only + population/PoN
+- Mutect2: tumor + matched normal + population/PoN
+
+Each operation performs Mutect2 calling with F1R2 counts, learns a read
+orientation artifact model with LearnReadOrientationModel, then passes that
+model and the caller statistics to FilterMutectCalls. Results retain the raw
+candidates, calls with filter labels, separate PASS calls, CSI indexes and
+statistics. The primary output is variants.vcf.gz with all FILTER labels;
+variants.pass.vcf.gz contains only PASS calls. unfiltered.vcf and its .stats,
+f1r2.tar.gz, orientation-priors.tar.gz and filtering-stats.tsv retain the
+intermediate evidence. Methods, exact arguments, versions, citations and logs accompany
+the results and can also be reviewed before execution.
+
+The Java implementation uses LOGLESS_CACHING PairHMM, JAVA Smith-Waterman and
+JDK compression. These explicitly selected implementations avoid requiring
+Intel native GATK acceleration libraries on Windows. They can be slower than
+an accelerated Linux GATK run. A small Workbench compatibility override handles local file paths
+containing spaces correctly. It leaves the upstream GATK JAR unchanged and
+loads the documented path-handling class before it; scientific calling and
+filtering implementations are unchanged. The source, patch and build recipe
+are retained. The bundled runtime does not require a system
+Java installation or change the machine's PATH or environment settings.
+
+PREPARING INPUTS
+Supply coordinate-sorted DNA BAM files with read-group sample names and the
+matching uncompressed reference. The tumor and matched-normal files must have
+distinct sample names. The workbench checks the declared sample metadata and
+reference compatibility; it cannot establish that the samples come from the
+same person or prove biological tumor/normal identity. Private BAM indexes use
+BAI; alignments beyond the BAI coordinate range are unsupported.
+
+Use BED intervals for the regions to analyze. BED uses zero-based, half-open
+coordinates. Resource contigs and reference build must agree with the analysis.
+The resource-enabled operations require both a germline VCF with population
+allele frequencies and a panel-of-normals VCF. Choose resources appropriate to
+your organism, reference build and assay. Resources are selected from local
+files; the workflow does not fetch a human reference or population database.
+
+Prepare alignments appropriately before connecting them to Mutect2. This pack
+does not mark duplicates, recalibrate base qualities or perform other upstream
+read preparation. The BAM inputs and reference are copied into a private run
+directory before indexing, so allow disk space for those copies and results.
+The default maximum Java heap is 2,048 MiB. Set it to a value the machine can
+provide while leaving memory for Windows and other programs; Java also needs
+memory outside that heap. Whole-genome analyses can require substantially more resources than the
+small installation fixtures.
+
+INTERPRETING THE RESULTS
+FilterMutectCalls is part of every included operation. Unfiltered candidates
+are retained for inspection and reproducibility; they are not the final call
+set. A PASS label reflects the selected model and parameters, not a guarantee
+that a variant is a true somatic mutation. Keep the full filter-labelled VCF
+when inspecting why candidates were rejected.
+
+Tumor-only calling has greater uncertainty about germline variation. The
+basic operations omit the germline-frequency resource and panel of normals;
+their availability does not imply equivalent specificity to a suitably
+resourced analysis with an appropriate matched normal.
+
+The contamination fraction is an explicit user-supplied setting. The pack does
+not estimate contamination, run GetPileupSummaries/CalculateContamination or
+infer the sample's tumor purity. A default of zero means that no contamination
+was specified; it is not a measurement demonstrating no contamination. The
+read orientation model addresses a different artifact and does not replace
+contamination estimation. Mitochondrial and structural-variant workflows are
+not included in this pack.
+
+REPRODUCIBILITY AND WINDOWS CHECKS
+Every runtime file and scientific asset is declared and checksum-pinned. The
+pack includes deterministic fixture inputs and expected output assertions.
+Choose File > Check installation to run them on your own Windows machine and
+save the reports and tool logs. The fixtures exercise stated behavior; they
+are not a general sensitivity/specificity or whole-genome performance benchmark.
+
+Linux scientific checks and Windows executable/import inspection are reported
+separately from native Windows execution. Passing those checks alone does not
+establish successful execution under your institution's Windows application
+control rules. This is the same local native desktop with private pipes and
+no browser, HTTP listener, WSL or Docker requirement.
+
+The pack import limits are now 1,024 MiB total, 512 MiB per executable/runtime
+asset and 2,000 files/folders. The larger bounded inventory accommodates the
+GATK JAR and the complete corresponding-source archives for its private Java
+runtime. Existing packs and their integrity checks are retained.
+
+SOURCE AND UPDATES
+GATK and OpenJDK source archives, additional dependency source materials and
+notices are supplied under the pack's licenses directory. BUILD-0.5.4.txt and SOURCE-CONTENTS-0.5.4.json explain how
+to restore their exact local source aliases after extracting the application
+source ZIP. No download is needed for that restoration step.
+
+The compact 0.5.4 update requires the exact native 0.5.3 installation. Close
+all its NativeWorkbench windows, extract the update separately and open
+UpdateWorkbench.exe to select that installation. Settings, analysis results
+and unrelated extra files are retained. For an older release, use the full
+0.5.4 distribution in a separate folder.

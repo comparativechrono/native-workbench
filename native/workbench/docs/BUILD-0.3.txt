@@ -1,0 +1,62 @@
+Native Workbench 0.3.0 build and evidence notes
+
+Desktop compiler:
+llvm-mingw-20260922-ucrt-ubuntu-22.04-x86_64
+SHA-256: bb7bb7654b33d5aa8712acb837c963b2e0c56352560c76105270a3268c665c21
+Set BW_MINGW_ROOT to the extracted compiler directory, then run desktop/build.sh.
+Build uses C++17, -O2, -Wall -Wextra -Werror, a static C++ runtime and the Windows
+UCRT/system DLLs. GUI rendering uses native Win32 and GDI+, without WebView or
+a browser runtime. Top-level rounding is an optional DWM hint.
+
+Rebuild order, from source/native-workbench on Linux (Python 3.12+, GCC,
+binutils, GNU make, zlib development headers, plus the two pinned compilers):
+  python3 scripts/build.py
+  BW_MINGW_ROOT=/path/to/llvm-mingw bash platform_windows/build.sh
+  cp build/windows/bwfastq.exe packs/core-bio-0.2.0/bin/bwfastq.exe
+  python3 baselines/build_upstream.py --cosmocc-root /path/to/cosmocc-3.3.10
+  python3 build_variant.py --cosmocc-root /path/to/cosmocc-3.3.10
+  python3 tools/build_paircheck.py --cosmocc-root /path/to/cosmocc-3.3.10 --test
+  python3 desktop/prepare_modular_packs.py
+  BW_MINGW_ROOT=/path/to/llvm-mingw bash desktop/build.sh
+
+The legacy core-bio-0.2.0 pack is included only in the source tree as the
+generator's seed for the FASTQ host and original license notices. Keep its
+bin/bwfastq.exe and licenses directory, plus vendor-variant/licenses. The new
+GUI executable is build/desktop/NativeWorkbench.exe; deploy it beside packs/
+and examples/ in the application directory. The source tree already includes
+examples/variant-truth for the native installation check. Copy only the five
+0.3.0 packs into a clean application directory for the shipped pack selection.
+
+To repeat scientific checks using the included binaries:
+  python3 validation/validate_variant_pipeline.py --output validation/recheck
+  python3 validation/smoke_pack_workflows.py --fixtures validation/recheck --output validation/recheck-packs
+Both output folders must be new. Add --practical-dir /path/to/VariantCalling to
+the first command to repeat both real yeast lanes. This creates large temporary
+alignment files; the tiny fixture is generated automatically when it runs.
+
+Cosmopolitan compiler/runtime: 3.3.10, pinned by build_variant.py and provenance.
+No upstream seqtk/minimap2/SAMtools/BCFtools algorithm source patches were made.
+Paircheck is a separate MIT-licensed validation helper, not a variant caller.
+HTSlib compression workers are disabled at the pack command level because the
+tested pinned runtime cannot wait on its recursive thread-pool mutex safely.
+
+Validation scope:
+- Pack schema and literal-argument behavior executed as portable C++ on Linux.
+- Commands from every generated pack executed through portable tools on Linux.
+- Native Linux and portable complete pipelines compared on known truth + yeast.
+- All final Windows objects and executable cross-compiled and reviewed.
+- The new native Windows GUI/process-runner integration awaits Check installation
+  on the user's Windows PC. Existing Windows evidence covers earlier tools only.
+
+Raw full-pipeline evidence originally used BAI; its report records added CSI
+creation/retrieval checks for all outputs. The final fixture/pack definitions use
+CSI and the actual pack smoke report validates their current commands.
+
+Versioned packs are independently runnable collections. Pipeline packs include
+their own pinned executable copies and license notices so imports are self-contained.
+The manifest hash is checked again before a run to reject a stale generated form.
+Outputs and ordered dependencies are declared, not inferred from tool names.
+
+The included SVG is a design preview of the implemented geometry and palette,
+not a captured Windows screenshot. Actual native font/control appearance varies
+with Windows theme and scaling. Reproducibility reports are not performance claims.

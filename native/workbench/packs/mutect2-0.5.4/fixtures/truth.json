@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "seed": 5407,
+  "referenceMd5": "9c89abde02d73a4051a6ed7a383c4c4a",
+  "samples": [
+    "NORMAL",
+    "TUMOR"
+  ],
+  "fragmentsPerLocusPerSample": 120,
+  "readLength": 150,
+  "explanation": "Deterministic synthetic aligned pairs; nominal fractions refer to fragments. Somatic SNV/insertion/deletion, shared germline SNV and Phred-2 alternate noise. Synthetic PoN deliberately lists the truth SNV to test resource-driven suppression.",
+  "variants": [
+    {
+      "chrom": "chr1",
+      "pos": 1000,
+      "ref": "C",
+      "alt": "G",
+      "kind": "snv",
+      "tumorFraction": 0.3,
+      "normalFraction": 0.0
+    },
+    {
+      "chrom": "chr1",
+      "pos": 2000,
+      "ref": "T",
+      "alt": "TAGC",
+      "kind": "insertion",
+      "tumorFraction": 0.3,
+      "normalFraction": 0.0
+    },
+    {
+      "chrom": "chr1",
+      "pos": 3001,
+      "ref": "GTTT",
+      "alt": "G",
+      "kind": "deletion",
+      "tumorFraction": 0.3,
+      "normalFraction": 0.0
+    },
+    {
+      "chrom": "chr1",
+      "pos": 4000,
+      "ref": "T",
+      "alt": "A",
+      "kind": "germline",
+      "tumorFraction": 0.5,
+      "normalFraction": 0.5
+    },
+    {
+      "chrom": "chr1",
+      "pos": 4500,
+      "ref": "A",
+      "alt": "C",
+      "kind": "low-quality-noise",
+      "tumorFraction": 0.02,
+      "normalFraction": 0.0
+    }
+  ]
+}

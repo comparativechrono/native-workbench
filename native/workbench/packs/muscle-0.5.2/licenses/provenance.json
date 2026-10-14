@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "modifiedDate": "2026-10-03",
+  "tool": "MUSCLE",
+  "upstreamVersion": "5.3",
+  "distributedBuild": "5.3-workbench1",
+  "source": {
+    "tag": "v5.3",
+    "commit": "2cf9d33078c9a85697e38a6f3ad827e6862420df",
+    "url": "https://codeload.github.com/rcedgar/muscle/tar.gz/refs/tags/v5.3",
+    "sha256": "74b22a94e630b16015c2bd9ae83aa2be2c2048d3e41f560b2d4a954725c81968",
+    "retained": "muscle-v5.3.tar.gz"
+  },
+  "patch": {
+    "file": "workbench1.patch",
+    "sha256": "98e194d09a893766266406263be8c834cff20a4390274ca914866a4329589df1",
+    "changes": [
+      "Use fixed-width 64-bit integer typedefs on LLP64 Windows.",
+      "Use Windows platform branches for MinGW in process, memory and file helpers while retaining MSVC-only debug/compiler guards.",
+      "Make -align honour existing -nt/-amino flags, consistent with -super5; report selected alphabet.",
+      "Record the actual source commit and workbench1 build identity."
+    ]
+  },
+  "windows": {
+    "executableSha256": "edc84f98e1f3cbf6f3df717ccfdb03af7ad7677cd9ae2e66065f2079d0ed2146",
+    "openmpSha256": "47619606767a9760a84d867e27ce0775940f3a1824bdf61ee33b45a1fbd77ea6",
+    "toolchain": "llvm-mingw-20260922-ucrt-ubuntu-22.04-x86_64",
+    "toolchainUrl": "https://github.com/mstorsjo/llvm-mingw/releases/tag/20260922",
+    "imports": {
+      "muscle.exe": [
+        "libomp.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-filesystem-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-locale-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-private-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll",
+        "KERNEL32.dll",
+        "api-ms-win-crt-multibyte-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll"
+      ],
+      "libomp.dll": [
+        "KERNEL32.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-private-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll"
+      ]
+    },
+    "executed": false,
+    "pathLimitations": "The upstream narrow Windows filename APIs remain. Only ASCII installation/input/output paths are supported by this pack; spaces are covered by Linux argument tests. Native Windows and Unicode-path acceptance testing remains required."
+  },
+  "galaxyGuidance": {
+    "url": "https://github.com/galaxyproject/tools-iuc/blob/147197a0b7e225c92b6cb18f392a8512fda080e0/deprecated/packages/package_muscle_3_8_31/tool_dependencies.xml",
+    "version": "MUSCLE 3.8.31 legacy dependency recipe",
+    "scope": "Tool-family selection and pinned binary/source provenance only. No current IUC tools/muscle wrapper exists at the recorded tree. MUSCLE5 options, behavior and tests come from MUSCLE5 upstream source/manual; this is not a port of MUSCLE3 CLI syntax."
+  },
+  "upstreamManual": "https://drive5.com/muscle5/manual",
+  "citation": {
+    "text": "Edgar RC (2022). High-accuracy alignment ensembles enable unbiased assessments of sequence homology and phylogeny. Nature Communications 13, 6968.",
+    "url": "https://doi.org/10.1038/s41467-022-34630-w"
+  },
+  "upstreamOfficialWindowsNotDistributed": {
+    "sha256": "a86637db99deb3efa1cb6762c4e3160ca33644608270eb167e4214f1f9409711",
+    "reason": "Imports VCOMP140.DLL; replaced by the documented source build plus app-local LLVM OpenMP runtime."
+  },
+  "license": "GPL-3.0; unmodified upstream license retained. LLVM/OpenMP/compiler runtime notices are separate."
+}

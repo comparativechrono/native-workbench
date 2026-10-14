@@ -1,0 +1,208 @@
+Cosmopolitan
+Copyright 2024 Justine Alexandra Roberts Tunney
+Permission to use, copy, modify, and/or distribute this software for
+any purpose with or without fee is hereby granted, provided that the
+above copyright notice and this permission notice appear in all copies.
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL
+WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE
+AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL
+DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR
+PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
+TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+FreeBSD Error Library (BSD-3 License)
+Copyright 1993 The Regents of the University of California
+*NSYNC (Apache 2.0)
+Copyright 2016 Google, Inc.
+https://github.com/google/nsync
+zlib 1.2.13 (zlib License)
+Copyright 1995-2022 Jean-loup Gailly and Mark Adler
+Invented 1990 Phillip Walter Katz
+puff (zlib License)
+Copyright 2002-2013 Mark Adler
+boringssl blake2b (ISC License)
+Copyright 2021 Google LLC
+OpenBSD Strings (ISC)
+Copyright (c) 1998, 2015 Todd C. Miller <millert@openbsd.org>
+Optimized Routines (MIT License)
+Copyright 2022 ARM Limited
+FreeBSD libm (BSD-2 License)
+Copyright (c) 1992-2024 The FreeBSD Project.
+Copyright (c) 2005-2011 Bruce D. Evans, Steven G. Kargl, David Schultz
+Copyright (c) 2009-2013 Steven G. Kargl
+fdlibm (fdlibm license)
+Copyright (C) 1993 by Sun Microsystems, Inc. All rights reserved.
+Musl libc (MIT License)
+Copyright 2005-2014 Rich Felker, et. al.
+gdtoa (MIT License)
+The author of this software is David M. Gay
+Kudos go to Guy L. Steele, Jr. and Jon L. White
+Copyright (C) 1997, 1998, 2000 by Lucent Technologies
+OpenBSD Sorting (BSD-3)
+Copyright 1993 The Regents of the University of California
+Smoothsort (MIT License)
+Copyright 2011 Valentin Ochs
+Discovered by Edsger Dijkstra
+Chromium (BSD-3 License)
+Copyright 2017 The Chromium Authors
+WaitOnAddress
+WakeByAddressAll
+WakeByAddressSingle
+ProcessPrng
+AccessCheck
+DuplicateToken
+GetFileSecurityW
+GetUserNameW
+MapGenericMask
+OpenProcessToken
+RegCloseKey
+RegEnumKeyExW
+RegGetValueW
+RegOpenKeyExW
+RegQueryInfoKeyW
+GetAdaptersAddresses
+AddVectoredExceptionHandler
+CancelIoEx
+CloseHandle
+CreateEventW
+CreateFileMappingW
+CreateFileW
+CreateNamedPipeW
+CreateProcessW
+CreateSemaphoreW
+CreateThread
+DeleteFileW
+DeleteProcThreadAttributeList
+DeviceIoControl
+DuplicateHandle
+ExitThread
+FindClose
+FindFirstFileW
+FlushConsoleInputBuffer
+FlushFileBuffers
+FreeEnvironmentStringsW
+GetConsoleMode
+GetCurrentDirectoryW
+GetCurrentProcessId
+GetCurrentThread
+GetCurrentThreadId
+GetEnvironmentStringsW
+GetEnvironmentVariableW
+GetExitCodeProcess
+GetFileAttributesExW
+GetFileAttributesW
+GetFileInformationByHandle
+GetFileInformationByHandleEx
+GetFileType
+GetFinalPathNameByHandleW
+GetLastError
+GetModuleFileNameW
+GetModuleHandleA
+GetNumberOfConsoleInputEvents
+GetOverlappedResult
+GetPriorityClass
+GetProcAddress
+GetProcessHeap
+GetProcessIoCounters
+GetProcessTimes
+GetStdHandle
+GetSystemDirectoryA
+GetSystemTimeAsFileTime
+GetSystemTimePreciseAsFileTime
+GetTempPathW
+GetThreadContext
+GetThreadTimes
+GetTickCount64
+HeapAlloc
+HeapFree
+InitializeProcThreadAttributeList
+LockFileEx
+MapViewOfFileEx
+OpenProcess
+PeekNamedPipe
+QueryPerformanceCounter
+QueryPerformanceFrequency
+ReOpenFile
+ReadConsoleInputW
+ReadFile
+ReleaseSemaphore
+RemoveDirectoryW
+RemoveVectoredExceptionHandler
+ResetEvent
+ResumeThread
+SetConsoleCP
+SetConsoleCtrlHandler
+SetConsoleMode
+SetConsoleOutputCP
+SetEnvironmentVariableW
+SetEvent
+SetFileAttributesW
+SetFileInformationByHandle
+SetLastError
+SetStdHandle
+SetThreadContext
+Sleep
+SleepEx
+SuspendThread
+TerminateProcess
+UnlockFileEx
+UnmapViewOfFile
+UpdateProcThreadAttribute
+VirtualProtect
+WaitForMultipleObjects
+WaitForSingleObject
+WriteFile
+GetProcessMemoryInfo
+WSACleanup
+WSACloseEvent
+WSACreateEvent
+WSAGetLastError
+WSAGetOverlappedResult
+WSAIoctl
+WSAPoll
+WSARecv
+WSARecvFrom
+WSASend
+WSASendTo
+WSASocketW
+WSAStartup
+WSAWaitForMultipleEvents
+bind
+closesocket
+getpeername
+getsockname
+setsockopt
+01/#%	
+O@ARV$
+(?243
+B_&-
+. C\+)"G
+F<<;
+r	MJ
+goh#Y!z
+pq+Ts
+Z$dfe
+G]["BU
+t>nm
+01/#%	
+O@ARU$
+(?243
+Bb&V
+. C`+)"G
+F\<;
+01/#%	
+O@AYT$
+(?243
+B]&[
+. C_+)"G
+F<<;
+01/#%		^
+O@AZ\$
+(?243
+Bh&-
+. Cd+)"G
+Fe<;
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNTVGHNNCDNNMNKNNNNYSANBWXRNNNNNNntvghnncdnnmnknnnnysanbwxrnNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+.cosmoPK
+.cosmo

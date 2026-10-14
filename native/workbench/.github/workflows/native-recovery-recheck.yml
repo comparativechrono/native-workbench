@@ -1,0 +1,129 @@
+name: Recheck the frozen 0.14.0 candidate with corrected validators
+
+on:
+  push:
+    branches: [feature/recovery-projects]
+    paths:
+      - scripts/check_recovery_windows.py
+      - workspace/tests/test_recovery_execution.py
+      - workspace/tests/test_project_manager.py
+      - workspace/tests/test_recovery_service.py
+      - .github/workflows/native-recovery-recheck.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: native-recovery-recheck-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  native:
+    if: github.event_name == 'workflow_dispatch' || (contains(github.event.head_commit.message, '[frozen candidate recheck]'))
+    runs-on: windows-2022
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        folder: [ordinary, 'path with spaces']
+    env:
+      FROZEN_COMMIT: cd0ed848fd9d9c8728b0d83991511a348c13719e
+      FROZEN_RUN: '37840523641'
+      FROZEN_STARTER_SHA256: f5b347a1e379f48bd5b72950bc331f25be39a9764f6342ab066f5cb62bfe1837
+      FROZEN_DESKTOP_SHA256: 4017b774c66824ec55151b7ac788c8788784462a6f9212d4280ba6a32ec1c3e8
+      FROZEN_BRIDGE_SHA256: 086792e16bebdc535a3f30f9f0626379253a66f910de0b2bd9d19e6e289e330a
+      CASE_FOLDER: ${{ matrix.folder }}
+      SOURCE_ONLY_RECHECK: ${{ contains(github.event.head_commit.message, '[source-only recheck]') }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Reject changes to the application or build inputs before reusing any archive
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $changed = @(& git diff --name-only $env:FROZEN_COMMIT HEAD)
+          if ($LASTEXITCODE -ne 0) { throw 'Could not compare validator checkout to frozen source.' }
+          $rejected = @($changed | Where-Object {
+            $_ -notmatch '^scripts/check_[^/]+\.py$' -and
+            $_ -notmatch '^workspace/tests/' -and
+            $_ -notmatch '^tests/' -and
+            $_ -notmatch '^knowledge/' -and
+            $_ -notmatch '^\.github/'
+          })
+          if ($rejected.Count -ne 0) { throw ('Frozen candidate reuse refused: application/build inputs changed: ' + ($rejected -join ', ')) }
+          $evidence = Join-Path $env:RUNNER_TEMP 'recovery-recheck-evidence'
+          New-Item -ItemType Directory -Force -Path $evidence | Out-Null
+          @{
+            schema = 1
+            packagedSourceCommit = $env:FROZEN_COMMIT
+            packagedBuildRun = $env:FROZEN_RUN
+            validatorCommit = '${{ github.sha }}'
+            starterSha256 = $env:FROZEN_STARTER_SHA256
+            changedPaths = $changed
+            archiveRebuilt = $false
+            nativeRecoveryGateRequested = $env:SOURCE_ONLY_RECHECK -ne 'true'
+            skippedNativeGateIsNotPass = $true
+            reusedBuildIsNotNewPass = $true
+            scope = 'Corrected recovery/resource/project validator and isolated Windows source suites only. Process accounting, readiness, batch/index, library, workspace, independent pack and delayed-host transport observations remain separate records from the original frozen build run.'
+          } | ConvertTo-Json -Depth 8 | Set-Content -Encoding utf8 (Join-Path $evidence 'RECHECK-PROVENANCE.json')
+      - uses: actions/download-artifact@v4
+        with:
+          name: recovery-candidate-cd0ed848fd9d9c8728b0d83991511a348c13719e
+          run-id: 37840523641
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/frozen-recovery-candidate
+      - name: Verify the original provenance and pinned archive, then extract afresh
+        id: prepare
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $candidate = Join-Path $env:RUNNER_TEMP 'frozen-recovery-candidate'
+          $provenance = Get-Content (Join-Path $candidate 'BUILD-PROVENANCE.json') -Raw | ConvertFrom-Json
+          if ($provenance.sourceCommit -ne $env:FROZEN_COMMIT) { throw 'The artifact was built from another source commit.' }
+          $starter = Join-Path $candidate 'native-workbench-0.14.0-starter-windows.zip'
+          if ((Get-FileHash $starter -Algorithm SHA256).Hash -ne $env:FROZEN_STARTER_SHA256) { throw 'Frozen starter SHA-256 mismatch.' }
+          $record = @($provenance.archives | Where-Object file -eq 'native-workbench-0.14.0-starter-windows.zip')
+          if ($record.Count -ne 1 -or $record[0].sha256 -ne $env:FROZEN_STARTER_SHA256) { throw 'Original build provenance does not bind the expected starter.' }
+          $caseRoot = Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER
+          Expand-Archive $starter (Join-Path $caseRoot 'recovery-recheck')
+          Expand-Archive $starter (Join-Path $caseRoot 'recovery-fault')
+          foreach ($folder in @('recovery-recheck', 'recovery-fault')) {
+            $app = Join-Path $caseRoot "$folder/native-workbench"
+            if ((Get-FileHash (Join-Path $app 'NativeWorkbench.exe') -Algorithm SHA256).Hash -ne $env:FROZEN_DESKTOP_SHA256) { throw 'Frozen desktop executable SHA-256 mismatch.' }
+            if ((Get-FileHash (Join-Path $app 'WorkbenchBridge.exe') -Algorithm SHA256).Hash -ne $env:FROZEN_BRIDGE_SHA256) { throw 'Frozen bridge executable SHA-256 mismatch.' }
+          }
+      - name: Recheck exact-package recovery, resource admission, offline projects and native interfaces
+        if: always() && !cancelled() && steps.prepare.outcome == 'success' && !contains(github.event.head_commit.message, '[source-only recheck]')
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'recovery-recheck/native-workbench'
+          $fault = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'recovery-fault/native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I scripts/check_recovery_windows.py --app-root $app --fault-root $fault --report "$env:RUNNER_TEMP/recovery-recheck-evidence/native-recovery.json" --source-commit $env:FROZEN_COMMIT --asset-sha256 $env:FROZEN_STARTER_SHA256 --asset-name 'native-workbench-0.14.0-starter-windows.zip' --app-version '0.14.0'
+          if ($LASTEXITCODE -ne 0) { throw 'Frozen exact-package recovery/resource/project gate failed.' }
+      - name: Isolated Windows recovery, projects, queue, index and diagnostics source regressions
+        if: always() && !cancelled() && steps.prepare.outcome == 'success'
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'recovery-recheck/native-workbench'
+          $failed = @()
+          foreach ($suite in @('test_recovery_execution', 'test_project_manager', 'test_recovery_service', 'test_run_queue', 'test_reference_indexes', 'test_diagnostics')) {
+            Write-Output "Independent Windows source suite: $suite"
+            & (Join-Path $app 'runtime/python/python.exe') -I "workspace/tests/$suite.py"
+            if ($LASTEXITCODE -ne 0) { $failed += $suite }
+          }
+          if ($failed.Count -ne 0) { throw ('Windows source regressions failed: ' + ($failed -join ', ')) }
+      - name: Retain original-archive provenance and every successful or failed observation
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: recovery-recheck-windows-${{ matrix.folder }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/recovery-recheck-evidence
+          if-no-files-found: error
+          retention-days: 30

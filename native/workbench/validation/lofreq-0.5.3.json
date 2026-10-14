@@ -1,0 +1,94 @@
+{
+  "release": "0.5.3",
+  "tool": "LoFreq2.1.5-workbench-port2",
+  "created": "2026-10-03T10:48:48.683360+00:00",
+  "nativeWindowsExecuted": false,
+  "environments": [
+    "Linux native ELF",
+    "Actual packaged Cosmopolitan APE via Linux loader"
+  ],
+  "testCount": 13,
+  "testsPassed": true,
+  "cleanSourceSubsetRebuild": "Identical Linux/APE SHA256 after deleting LoFreq source/objects and compiling the pinned permitted subset; cached independently pinned HTSlib retained.",
+  "scientificTruth": [
+    {
+      "variant": "chrTest:150 A>C",
+      "AF": 0.1,
+      "depth": 400,
+      "alternateReads": 40,
+      "noiseAt180": "rejected even with min-baseq0"
+    },
+    {
+      "variant": "chrTest:199 A>AT",
+      "AF": 0.2,
+      "depth": 400,
+      "alternateReads": 80,
+      "preparation": "LoFreq Dindel BI/BD"
+    }
+  ],
+  "comparison": "All VCF scientific row fields identical for Linux and portable APE; SNV result also identical to upstream shell-filter dispatch comparator.",
+  "limitations": [
+    "Synthetic fixtures are correctness checks, not a biological sensitivity/specificity benchmark.",
+    "Native Windows execution remains to be performed with the included installation checks.",
+    "Site-only VCF contains no genotypes or sample columns.",
+    "Dindel preparation assumes Illumina DNA and rejects spliced CIGARs."
+  ],
+  "pack": {
+    "files": 57,
+    "bytes": 59718118
+  },
+  "files": {
+    "portableBinary": {
+      "path": "packs/lofreq-0.5.3/bin/lofreq.exe",
+      "sha256": "e4337e5ff5974d37d3a6299afa55074a8652719796a8af9638d64242151db9d0"
+    },
+    "samtools": {
+      "path": "packs/lofreq-0.5.3/bin/samtools.exe",
+      "sha256": "49c2f16425d464e4ad1c1439d7a9e32a3b1c1bf8e5d54403778de610d2f440b3"
+    },
+    "linuxBinary": {
+      "path": "vendor-expanded/lofreq/lofreq-linux",
+      "sha256": "38e37bf3b929a7f30400e4194901ea2a4104cca693279ade4e6ce43d18cf4cb1"
+    },
+    "originalFilterComparator": {
+      "path": "vendor-expanded/lofreq/lofreq-original-filter-linux",
+      "sha256": "91bf1a13c8dd989e49ea65cbb08bb307dc2c1e694c57ec0e19f71bb619cc69be"
+    },
+    "sourceSubset": {
+      "path": "packs/lofreq-0.5.3/licenses/lofreq-2.1.5-source-subset.tar.gz",
+      "sha256": "5578d1ac7afd6d6ed8180b5d893322aef2389d58bd82258fabe3821186b8aa9e"
+    },
+    "manifest": {
+      "path": "packs/lofreq-0.5.3/pack.ini",
+      "sha256": "4a00d450461cb434e04ddd377b901f73f9027e27a38f947238b6b18e9f5d862e"
+    },
+    "schema": {
+      "path": "packs/lofreq-0.5.3/workbench-schema.json",
+      "sha256": "0075d2880082772ac94e27a20a267e747e97974c48081d695bded16d3a2d8b78"
+    },
+    "checks": {
+      "path": "packs/lofreq-0.5.3/workbench-checks.json",
+      "sha256": "b1b4d6692c7d33a2464bf09d58ee01a0cdb3a3a19f9e9dfcd6d0f1a9b649c2e8"
+    },
+    "buildScript": {
+      "path": "tools/build_lofreq.py",
+      "sha256": "3bb984a0b83ea528fe163ba90d2f81027eedd7a6148bb5256125d48033cfedfb"
+    },
+    "packScript": {
+      "path": "scripts/prepare_lofreq_pack.py",
+      "sha256": "8fa28dec05c28ece59e21cbc0003a0eb0377acc6e1d6f5659cc79deb633f29c8"
+    },
+    "tests": {
+      "path": "tests/test_lofreq_pack.py",
+      "sha256": "2ebd26e7d85fa9c96075b6f6822221691a942c7d4c839ce8ea575dc4863be362"
+    }
+  },
+  "excludedSymbols": [
+    "main_uniq",
+    "binom",
+    "cdfbin",
+    "cdfbet",
+    "bratio"
+  ],
+  "excludedSource": "src/cdflib90/* and historical dist/*; exact exclusions in pack licenses/provenance.json"
+}

@@ -1,0 +1,26 @@
+{
+  "adaptation": "gatk-4.7.0.0-workbench-local-path-1",
+  "scope": "One local-filesystem path conversion method; no variant-calling algorithms or model parameters changed.",
+  "compiler": {
+    "name": "OpenJDK17U-jdk_x64_linux_hotspot_17.0.20.1_1.tar.gz",
+    "url": "https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.20.1%2B1/OpenJDK17U-jdk_x64_linux_hotspot_17.0.20.1_1.tar.gz",
+    "sha256": "3808d1d15e3ec6bd5b84057fb5d84c33d8a1536a258146bcea2e603fc726e08e"
+  },
+  "sourceArchiveSHA256": "35ffd523a378374aabdb29321bdad90fe48eba31f7c251592cd6305e950016d3",
+  "originalGatkJarSHA256": "882e180707e0e6887885853fc486fa54098620fe9a80bdcdaaa655c7e3861365",
+  "originalSourceSHA256": "2d23bb13c6d949fa8be6ef53995e84805d51669ef588bd042e6aceb677a514a4",
+  "modifiedSourceSHA256": "5b9f0c83e8d90c49ac8efbf2433e62fe741771c52658823a9a3a80e3678e0486",
+  "patchSHA256": "0526a28160abc63da09e7fd683a160cdee49767d388f4755a557498b387f336e",
+  "compatibilityJarSHA256": "d3a35b8cf2790f12b5d57574b7d46de3598a8836201f3f9b899798521db9e78a",
+  "classes": [
+    {
+      "path": "org/broadinstitute/hellbender/utils/io/IOUtils.class",
+      "sha256": "e7f3a01b6f443edfc024425c736d77b2dd564bc50a7b7be2f62c97f9723d2ada",
+      "majorVersion": 61
+    }
+  ],
+  "reproduction": "Run scripts/build_mutect2_compat.py --output NEW_EMPTY_DIRECTORY. ZIP timestamps, entry order and class compilation settings are fixed.",
+  "launch": "Place this JAR beside the unchanged gatk.jar and run the explicitly bundled Java 17 executable with -jar gatk-path-compat.jar and the original GATK arguments.",
+  "manifest": "Original upstream Main-Class and Add-Opens retained, with relative Class-Path: gatk.jar appended.",
+  "nativeWindowsExecuted": false
+}

@@ -1,0 +1,121 @@
+{
+  "schema": 1,
+  "checks": [
+    {
+      "id": "align-nucleotide",
+      "workflow": "align-nucleotide",
+      "params": {
+        "threads": "1",
+        "perturb": "0",
+        "permutation": "none"
+      },
+      "inputs": {
+        "sequences": [
+          {
+            "sequences": "fixture-nucleotide"
+          }
+        ]
+      },
+      "expect": [
+        {
+          "output": "aligned",
+          "kind": "fasta",
+          "records": 3,
+          "aligned": true,
+          "ungapped": {
+            "dna_a": "ACGTTGCAACGTTGCAACGTTGCA",
+            "dna_b": "ACGTTGCAACGCTGCAACGTTGCA",
+            "dna_c": "ACGTTGCAACGTTGCAACGCA"
+          }
+        }
+      ]
+    },
+    {
+      "id": "align-protein",
+      "workflow": "align-protein",
+      "params": {
+        "threads": "1",
+        "perturb": "0",
+        "permutation": "none"
+      },
+      "inputs": {
+        "sequences": [
+          {
+            "sequences": "fixture-protein"
+          }
+        ]
+      },
+      "expect": [
+        {
+          "output": "aligned",
+          "kind": "fasta",
+          "records": 3,
+          "aligned": true,
+          "ungapped": {
+            "protein_a": "MKTAYIAKQRQISFVKSHFSRQDILDLWQ",
+            "protein_b": "MKTAYIAKQRQISFVKSHFNRQDILDLWQ",
+            "protein_c": "MKTAYIAKQRQISFVKSHFSRQDILWQ"
+          }
+        }
+      ]
+    },
+    {
+      "id": "super5-nucleotide",
+      "workflow": "super5-nucleotide",
+      "params": {
+        "threads": "1",
+        "perturb": "0",
+        "permutation": "none"
+      },
+      "inputs": {
+        "sequences": [
+          {
+            "sequences": "fixture-nucleotide"
+          }
+        ]
+      },
+      "expect": [
+        {
+          "output": "aligned",
+          "kind": "fasta",
+          "records": 3,
+          "aligned": true,
+          "ungapped": {
+            "dna_a": "ACGTTGCAACGTTGCAACGTTGCA",
+            "dna_b": "ACGTTGCAACGCTGCAACGTTGCA",
+            "dna_c": "ACGTTGCAACGTTGCAACGCA"
+          }
+        }
+      ]
+    },
+    {
+      "id": "super5-protein",
+      "workflow": "super5-protein",
+      "params": {
+        "threads": "1",
+        "perturb": "0",
+        "permutation": "none"
+      },
+      "inputs": {
+        "sequences": [
+          {
+            "sequences": "fixture-protein"
+          }
+        ]
+      },
+      "expect": [
+        {
+          "output": "aligned",
+          "kind": "fasta",
+          "records": 3,
+          "aligned": true,
+          "ungapped": {
+            "protein_a": "MKTAYIAKQRQISFVKSHFSRQDILDLWQ",
+            "protein_b": "MKTAYIAKQRQISFVKSHFNRQDILDLWQ",
+            "protein_c": "MKTAYIAKQRQISFVKSHFSRQDILWQ"
+          }
+        }
+      ]
+    }
+  ]
+}

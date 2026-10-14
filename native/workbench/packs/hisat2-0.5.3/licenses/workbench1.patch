@@ -1,0 +1,10 @@
+--- a/hisat2.cpp
++++ b/hisat2.cpp
+@@ -1697,6 +1697,7 @@
+             else if(strandness == "R")  rna_strandness = RNA_STRANDNESS_R;
+             else if(strandness == "FR") rna_strandness = RNA_STRANDNESS_FR;
+             else if(strandness == "RF") rna_strandness = RNA_STRANDNESS_RF;
++            else if(strandness == "unstranded") rna_strandness = RNA_STRANDNESS_UNKNOWN;
+             else {
+                 cerr << "Error: should be one of F, R, FR, or RF " << endl;
+ 				throw 1;

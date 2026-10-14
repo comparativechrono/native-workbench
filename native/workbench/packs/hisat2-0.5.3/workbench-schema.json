@@ -1,0 +1,473 @@
+{
+  "schema": 1,
+  "category": "Read alignment",
+  "citations": [
+    {
+      "text": "Kim D, Paggi JM, Park C, Bennett C and Salzberg SL (2019). Graph-based genome alignment and genotyping with HISAT2 and HISAT-genotype. Nature Biotechnology 37:907-915.",
+      "url": "https://doi.org/10.1038/s41587-019-0201-4"
+    }
+  ],
+  "workflows": {
+    "rna-single": {
+      "ports": [
+        {
+          "id": "reads",
+          "label": "FASTQ reads",
+          "type": "reads",
+          "accepts": [
+            "reads"
+          ],
+          "manifestInputs": [
+            "reads"
+          ],
+          "min": 1,
+          "max": 1,
+          "requiredState": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "reference",
+          "label": "Reference genome",
+          "type": "reference",
+          "accepts": [
+            "reference"
+          ],
+          "manifestInputs": [
+            "reference"
+          ],
+          "min": 1,
+          "max": 1,
+          "requiredState": {
+            "compression": "none"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": "aligned",
+          "label": "Coordinate-sorted RNA alignments",
+          "type": "bam-rna",
+          "manifestOutputs": [
+            "aligned"
+          ],
+          "state": {
+            "sort": "coordinate",
+            "pairing": "single",
+            "duplicates": "retained"
+          }
+        },
+        {
+          "id": "summary",
+          "label": "HISAT2 alignment summary",
+          "type": "metrics",
+          "manifestOutputs": [
+            "summary"
+          ]
+        },
+        {
+          "id": "bam-index",
+          "label": "RNA BAM CSI index",
+          "type": "index",
+          "manifestOutputs": [
+            "bam-index"
+          ]
+        },
+        {
+          "id": "aligned-sam",
+          "label": "Unsorted RNA alignments",
+          "type": "sam-rna",
+          "manifestOutputs": [
+            "aligned-sam"
+          ],
+          "state": {
+            "sort": "unsorted",
+            "pairing": "single",
+            "duplicates": "retained"
+          }
+        },
+        {
+          "id": "reference",
+          "label": "Private indexed reference",
+          "type": "reference",
+          "manifestOutputs": [
+            "reference"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "hisat-index",
+          "label": "HISAT2 64-bit reference index",
+          "type": "index",
+          "manifestOutputs": [
+            "index-1",
+            "index-2",
+            "index-3",
+            "index-4",
+            "index-5",
+            "index-6",
+            "index-7",
+            "index-8"
+          ]
+        }
+      ],
+      "methods": "Reads were aligned to a privately indexed genomic reference using HISAT2 2.2.3-workbench1 and its 64-bit linear index. Spliced alignment and transcript-assembly-oriented reporting (--dta) were enabled with the recorded library strandedness and intron limits. SAMtools 1.24 coordinate-sorted the RNA alignments and generated a CSI index. No annotation-derived splice sites were supplied. Phred+33 input, read-group metadata, CPU count and alignment seed were explicit; duplicates were retained.",
+      "pathPolicy": {
+        "asciiOnly": true,
+        "forbiddenCharacters": [
+          ","
+        ]
+      },
+      "citations": [
+        {
+          "text": "Danecek P et al. (2021). Twelve years of SAMtools and BCFtools. GigaScience 10(2):giab008.",
+          "url": "https://doi.org/10.1093/gigascience/giab008"
+        }
+      ],
+      "parameterConstraints": [
+        {
+          "left": "min-intron",
+          "operator": "<=",
+          "right": "max-intron"
+        }
+      ]
+    },
+    "rna-paired": {
+      "ports": [
+        {
+          "id": "reads",
+          "label": "Paired FASTQ reads",
+          "type": "pair",
+          "accepts": [
+            "pair"
+          ],
+          "manifestInputs": [
+            "reads1",
+            "reads2"
+          ],
+          "min": 1,
+          "max": 1,
+          "requiredState": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "reference",
+          "label": "Reference genome",
+          "type": "reference",
+          "accepts": [
+            "reference"
+          ],
+          "manifestInputs": [
+            "reference"
+          ],
+          "min": 1,
+          "max": 1,
+          "requiredState": {
+            "compression": "none"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": "aligned",
+          "label": "Coordinate-sorted RNA alignments",
+          "type": "bam-rna",
+          "manifestOutputs": [
+            "aligned"
+          ],
+          "state": {
+            "sort": "coordinate",
+            "pairing": "paired",
+            "duplicates": "retained"
+          }
+        },
+        {
+          "id": "summary",
+          "label": "HISAT2 alignment summary",
+          "type": "metrics",
+          "manifestOutputs": [
+            "summary"
+          ]
+        },
+        {
+          "id": "bam-index",
+          "label": "RNA BAM CSI index",
+          "type": "index",
+          "manifestOutputs": [
+            "bam-index"
+          ]
+        },
+        {
+          "id": "pair-check",
+          "label": "Read-pair validation",
+          "type": "metrics",
+          "manifestOutputs": [
+            "pair-check"
+          ]
+        },
+        {
+          "id": "aligned-sam",
+          "label": "Unsorted RNA alignments",
+          "type": "sam-rna",
+          "manifestOutputs": [
+            "aligned-sam"
+          ],
+          "state": {
+            "sort": "unsorted",
+            "pairing": "paired",
+            "duplicates": "retained"
+          }
+        },
+        {
+          "id": "reference",
+          "label": "Private indexed reference",
+          "type": "reference",
+          "manifestOutputs": [
+            "reference"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "hisat-index",
+          "label": "HISAT2 64-bit reference index",
+          "type": "index",
+          "manifestOutputs": [
+            "index-1",
+            "index-2",
+            "index-3",
+            "index-4",
+            "index-5",
+            "index-6",
+            "index-7",
+            "index-8"
+          ]
+        }
+      ],
+      "methods": "Reads were aligned to a privately indexed genomic reference using HISAT2 2.2.3-workbench1 and its 64-bit linear index. Spliced alignment and transcript-assembly-oriented reporting (--dta) were enabled with the recorded library strandedness and intron limits. SAMtools 1.24 coordinate-sorted the RNA alignments and generated a CSI index. No annotation-derived splice sites were supplied. Phred+33 input, read-group metadata, CPU count and alignment seed were explicit; duplicates were retained.",
+      "pathPolicy": {
+        "asciiOnly": true,
+        "forbiddenCharacters": [
+          ","
+        ]
+      },
+      "citations": [
+        {
+          "text": "Danecek P et al. (2021). Twelve years of SAMtools and BCFtools. GigaScience 10(2):giab008.",
+          "url": "https://doi.org/10.1093/gigascience/giab008"
+        }
+      ],
+      "parameterConstraints": [
+        {
+          "left": "min-intron",
+          "operator": "<=",
+          "right": "max-intron"
+        }
+      ]
+    },
+    "dna-single": {
+      "ports": [
+        {
+          "id": "reads",
+          "label": "FASTQ reads",
+          "type": "reads",
+          "accepts": [
+            "reads"
+          ],
+          "manifestInputs": [
+            "reads"
+          ],
+          "min": 1,
+          "max": 1,
+          "requiredState": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "reference",
+          "label": "Reference genome",
+          "type": "reference",
+          "accepts": [
+            "reference"
+          ],
+          "manifestInputs": [
+            "reference"
+          ],
+          "min": 1,
+          "max": 1,
+          "requiredState": {
+            "compression": "none"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": "aligned",
+          "label": "Unsorted DNA alignments",
+          "type": "sam",
+          "manifestOutputs": [
+            "aligned"
+          ],
+          "state": {
+            "sort": "unsorted",
+            "pairing": "single",
+            "duplicates": "retained"
+          }
+        },
+        {
+          "id": "summary",
+          "label": "HISAT2 alignment summary",
+          "type": "metrics",
+          "manifestOutputs": [
+            "summary"
+          ]
+        },
+        {
+          "id": "reference",
+          "label": "Private indexed reference",
+          "type": "reference",
+          "manifestOutputs": [
+            "reference"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "hisat-index",
+          "label": "HISAT2 64-bit reference index",
+          "type": "index",
+          "manifestOutputs": [
+            "index-1",
+            "index-2",
+            "index-3",
+            "index-4",
+            "index-5",
+            "index-6",
+            "index-7",
+            "index-8"
+          ]
+        }
+      ],
+      "methods": "Reads were aligned to a privately indexed genomic reference using HISAT2 2.2.3-workbench1 and its 64-bit linear index. Spliced alignment was disabled (--no-spliced-alignment), producing unsorted DNA SAM. Phred+33 input, read-group metadata, CPU count and alignment seed were explicit; duplicates were retained.",
+      "pathPolicy": {
+        "asciiOnly": true,
+        "forbiddenCharacters": [
+          ","
+        ]
+      }
+    },
+    "dna-paired": {
+      "ports": [
+        {
+          "id": "reads",
+          "label": "Paired FASTQ reads",
+          "type": "pair",
+          "accepts": [
+            "pair"
+          ],
+          "manifestInputs": [
+            "reads1",
+            "reads2"
+          ],
+          "min": 1,
+          "max": 1,
+          "requiredState": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "reference",
+          "label": "Reference genome",
+          "type": "reference",
+          "accepts": [
+            "reference"
+          ],
+          "manifestInputs": [
+            "reference"
+          ],
+          "min": 1,
+          "max": 1,
+          "requiredState": {
+            "compression": "none"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": "aligned",
+          "label": "Unsorted DNA alignments",
+          "type": "sam",
+          "manifestOutputs": [
+            "aligned"
+          ],
+          "state": {
+            "sort": "unsorted",
+            "pairing": "paired",
+            "duplicates": "retained"
+          }
+        },
+        {
+          "id": "summary",
+          "label": "HISAT2 alignment summary",
+          "type": "metrics",
+          "manifestOutputs": [
+            "summary"
+          ]
+        },
+        {
+          "id": "pair-check",
+          "label": "Read-pair validation",
+          "type": "metrics",
+          "manifestOutputs": [
+            "pair-check"
+          ]
+        },
+        {
+          "id": "reference",
+          "label": "Private indexed reference",
+          "type": "reference",
+          "manifestOutputs": [
+            "reference"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "hisat-index",
+          "label": "HISAT2 64-bit reference index",
+          "type": "index",
+          "manifestOutputs": [
+            "index-1",
+            "index-2",
+            "index-3",
+            "index-4",
+            "index-5",
+            "index-6",
+            "index-7",
+            "index-8"
+          ]
+        }
+      ],
+      "methods": "Reads were aligned to a privately indexed genomic reference using HISAT2 2.2.3-workbench1 and its 64-bit linear index. Spliced alignment was disabled (--no-spliced-alignment), producing unsorted DNA SAM. Phred+33 input, read-group metadata, CPU count and alignment seed were explicit; duplicates were retained.",
+      "pathPolicy": {
+        "asciiOnly": true,
+        "forbiddenCharacters": [
+          ","
+        ]
+      },
+      "parameterConstraints": [
+        {
+          "left": "min-insert",
+          "operator": "<=",
+          "right": "max-insert"
+        }
+      ]
+    }
+  }
+}

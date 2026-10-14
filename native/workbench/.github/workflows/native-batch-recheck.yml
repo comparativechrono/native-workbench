@@ -1,0 +1,109 @@
+name: Recheck the frozen 0.13.0 candidate with corrected validators
+
+on:
+  push:
+    branches: [feature/batch-queue-indexes]
+    paths:
+      - scripts/check_batch_windows.py
+      - workspace/tests/test_reference_indexes.py
+      - .github/workflows/native-batch-recheck.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: native-batch-recheck-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  native:
+    if: github.event_name == 'workflow_dispatch' || (contains(github.event.head_commit.message, '[frozen candidate recheck]') && !contains(github.event.head_commit.message, '[queue diagnostic]'))
+    runs-on: windows-2022
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        folder: [ordinary, 'path with spaces']
+    env:
+      FROZEN_COMMIT: 0ceca7b9c1762542f8fb665a6695b998d32f311e
+      FROZEN_RUN: '37828085808'
+      FROZEN_STARTER_SHA256: 7bf98515d9403e851fcc189f022fed0386fbcdbfa6857823699d4170fc076c75
+      CASE_FOLDER: ${{ matrix.folder }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Reject changes to the application or build inputs before reusing any archive
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $changed = @(& git diff --name-only $env:FROZEN_COMMIT HEAD)
+          if ($LASTEXITCODE -ne 0) { throw 'Could not compare validator checkout to frozen source.' }
+          $rejected = @($changed | Where-Object {
+            $_ -notmatch '^scripts/check_[^/]+\.py$' -and
+            $_ -notmatch '^workspace/tests/' -and
+            $_ -notmatch '^tests/' -and
+            $_ -notmatch '^knowledge/' -and
+            $_ -notmatch '^\.github/'
+          })
+          if ($rejected.Count -ne 0) { throw ('Frozen candidate reuse refused: application/build inputs changed: ' + ($rejected -join ', ')) }
+          $evidence = Join-Path $env:RUNNER_TEMP 'batch-recheck-evidence'
+          New-Item -ItemType Directory -Force -Path $evidence | Out-Null
+          @{
+            schema = 1
+            packagedSourceCommit = $env:FROZEN_COMMIT
+            packagedBuildRun = $env:FROZEN_RUN
+            validatorCommit = '${{ github.sha }}'
+            starterSha256 = $env:FROZEN_STARTER_SHA256
+            changedPaths = $changed
+            archiveRebuilt = $false
+            reusedBuildIsNotNewPass = $true
+            scope = 'Corrected batch validator and Windows reference-index source tests only. Resource, readiness, library, workspace, independent pack and delayed-host transport observations remain separate records from the original frozen build run.'
+          } | ConvertTo-Json -Depth 8 | Set-Content -Encoding utf8 (Join-Path $evidence 'RECHECK-PROVENANCE.json')
+      - uses: actions/download-artifact@v4
+        with:
+          name: batch-candidate-0ceca7b9c1762542f8fb665a6695b998d32f311e
+          run-id: 37828085808
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/frozen-batch-candidate
+      - name: Verify the original provenance and pinned archive, then extract afresh
+        id: prepare
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $candidate = Join-Path $env:RUNNER_TEMP 'frozen-batch-candidate'
+          $provenance = Get-Content (Join-Path $candidate 'BUILD-PROVENANCE.json') -Raw | ConvertFrom-Json
+          if ($provenance.sourceCommit -ne $env:FROZEN_COMMIT) { throw 'The artifact was built from another source commit.' }
+          $starter = Join-Path $candidate 'native-workbench-0.13.0-starter-windows.zip'
+          if ((Get-FileHash $starter -Algorithm SHA256).Hash -ne $env:FROZEN_STARTER_SHA256) { throw 'Frozen starter SHA-256 mismatch.' }
+          $record = @($provenance.archives | Where-Object file -eq 'native-workbench-0.13.0-starter-windows.zip')
+          if ($record.Count -ne 1 -or $record[0].sha256 -ne $env:FROZEN_STARTER_SHA256) { throw 'Original build provenance does not bind the expected starter.' }
+          Expand-Archive $starter (Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'batch-recheck')
+      - name: Recheck exact-package samples, queue, scientific indexing and native interfaces
+        if: always() && !cancelled() && steps.prepare.outcome == 'success'
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'batch-recheck/native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I scripts/check_batch_windows.py --app-root $app --report "$env:RUNNER_TEMP/batch-recheck-evidence/native-batch.json" --source-commit $env:FROZEN_COMMIT --asset-sha256 $env:FROZEN_STARTER_SHA256 --asset-name 'native-workbench-0.13.0-starter-windows.zip'
+          if ($LASTEXITCODE -ne 0) { throw 'Frozen exact-package batch gate failed.' }
+      - name: Correctly encoded Windows reference-index source regressions
+        if: always() && !cancelled() && steps.prepare.outcome == 'success'
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'batch-recheck/native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I workspace/tests/test_reference_indexes.py
+          if ($LASTEXITCODE -ne 0) { throw 'Windows reference-index source regression failed.' }
+      - name: Retain original-archive provenance and every successful or failed observation
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: batch-recheck-windows-${{ matrix.folder }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/batch-recheck-evidence
+          if-no-files-found: error
+          retention-days: 30

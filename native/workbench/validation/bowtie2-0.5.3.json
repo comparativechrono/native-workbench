@@ -1,0 +1,323 @@
+{
+  "schema": 1,
+  "tool": "Bowtie 2",
+  "version": "2.5.5",
+  "packVersion": "0.5.3",
+  "testsRun": 12,
+  "failures": 0,
+  "errors": 0,
+  "success": true,
+  "nativeWindowsExecuted": false,
+  "manifestSha256": "cdaa52bde3dec022e6716d4fc6b6e78481982f1d6491b5cd21ff4d64d33cec32",
+  "windowsBinaries": [
+    {
+      "name": "bowtie2-align-s.exe",
+      "sha256": "d9b13685cf659903071be0531349e124865d0e48b7be314e69b5bbacfad6ffb1",
+      "bytes": 23487748,
+      "imports": [
+        "KERNEL32.dll",
+        "msvcrt.dll"
+      ]
+    },
+    {
+      "name": "bowtie2-align-l.exe",
+      "sha256": "4a06c29533a2c3ee18687d2034a0406b12ecf1d34630c29c3816958d18c08d6e",
+      "bytes": 23534292,
+      "imports": [
+        "KERNEL32.dll",
+        "msvcrt.dll"
+      ]
+    },
+    {
+      "name": "bowtie2-build-s.exe",
+      "sha256": "af2d87fb75f9b7ac70f398ed359e9b1caca044f2c70cfc9801dc4d7910b331fb",
+      "bytes": 10252368,
+      "imports": [
+        "KERNEL32.dll",
+        "msvcrt.dll"
+      ]
+    },
+    {
+      "name": "bowtie2-build-l.exe",
+      "sha256": "f72393d73da773322f1c965710a7b8e47a95649546f4f519bcab6d0e2516b762",
+      "bytes": 10384953,
+      "imports": [
+        "KERNEL32.dll",
+        "msvcrt.dll"
+      ]
+    }
+  ],
+  "linuxBinaries": {
+    "bowtie2-align-s": "e24a717f95d4d1403f69844ebd257f1d3b14c600679a2943fd2a3161f2ec0dab",
+    "bowtie2-align-l": "39bbceff23a89acddc7ea4c6deab10757c6ac37fc1ac4f0888d562a92a293b7b",
+    "bowtie2-build-s": "4006e604ca4e2146a6f0c8be40993c7590df68a001ae35b50fb1496ef7e20f2c",
+    "bowtie2-build-l": "a7a57dc4bd2232855ed6bff928a968563a3326c5b4c0feddefdc86f1c360e24a"
+  },
+  "commands": [
+    {
+      "workflow": "single-end",
+      "step": "index",
+      "tool": "build-s",
+      "exitCode": 0
+    },
+    {
+      "workflow": "single-end",
+      "step": "align",
+      "tool": "align-s",
+      "exitCode": 0
+    },
+    {
+      "workflow": "paired-end",
+      "step": "check-pairs",
+      "tool": "paircheck",
+      "exitCode": 0
+    },
+    {
+      "workflow": "paired-end",
+      "step": "index",
+      "tool": "build-s",
+      "exitCode": 0
+    },
+    {
+      "workflow": "paired-end",
+      "step": "align",
+      "tool": "align-s",
+      "exitCode": 0
+    },
+    {
+      "workflow": "single-end-large",
+      "step": "index",
+      "tool": "build-l",
+      "exitCode": 0
+    },
+    {
+      "workflow": "single-end-large",
+      "step": "align",
+      "tool": "align-l",
+      "exitCode": 0
+    },
+    {
+      "workflow": "paired-end-large",
+      "step": "check-pairs",
+      "tool": "paircheck",
+      "exitCode": 0
+    },
+    {
+      "workflow": "paired-end-large",
+      "step": "index",
+      "tool": "build-l",
+      "exitCode": 0
+    },
+    {
+      "workflow": "paired-end-large",
+      "step": "align",
+      "tool": "align-l",
+      "exitCode": 0
+    },
+    {
+      "workflow": "single-end",
+      "step": "index",
+      "tool": "build-s",
+      "exitCode": 0
+    },
+    {
+      "workflow": "single-end",
+      "step": "align",
+      "tool": "align-s",
+      "exitCode": 0
+    },
+    {
+      "workflow": "paired-end",
+      "step": "check-pairs",
+      "tool": "paircheck",
+      "exitCode": 0
+    },
+    {
+      "workflow": "paired-end",
+      "step": "index",
+      "tool": "build-s",
+      "exitCode": 0
+    },
+    {
+      "workflow": "paired-end",
+      "step": "align",
+      "tool": "align-s",
+      "exitCode": 0
+    },
+    {
+      "workflow": "single-end",
+      "step": "index",
+      "tool": "build-s",
+      "exitCode": 0
+    },
+    {
+      "workflow": "single-end",
+      "step": "align",
+      "tool": "align-s",
+      "exitCode": 0
+    },
+    {
+      "workflow": "single-end",
+      "step": "index",
+      "tool": "build-s",
+      "exitCode": 0
+    },
+    {
+      "workflow": "single-end",
+      "step": "align",
+      "tool": "align-s",
+      "exitCode": -6
+    },
+    {
+      "workflow": "paired-end",
+      "step": "check-pairs",
+      "tool": "paircheck",
+      "exitCode": 1
+    },
+    {
+      "workflow": "paired-end",
+      "step": "check-pairs",
+      "tool": "paircheck",
+      "exitCode": 0
+    },
+    {
+      "workflow": "paired-end",
+      "step": "index",
+      "tool": "build-s",
+      "exitCode": 0
+    },
+    {
+      "workflow": "paired-end",
+      "step": "align",
+      "tool": "align-s",
+      "exitCode": 0
+    },
+    {
+      "workflow": "paired-end-large",
+      "step": "check-pairs",
+      "tool": "paircheck",
+      "exitCode": 0
+    },
+    {
+      "workflow": "paired-end-large",
+      "step": "index",
+      "tool": "build-l",
+      "exitCode": 0
+    },
+    {
+      "workflow": "paired-end-large",
+      "step": "align",
+      "tool": "align-l",
+      "exitCode": 0
+    },
+    {
+      "workflow": "paired-end",
+      "step": "check-pairs",
+      "tool": "paircheck",
+      "exitCode": 0
+    },
+    {
+      "workflow": "paired-end",
+      "step": "index",
+      "tool": "build-s",
+      "exitCode": 0
+    },
+    {
+      "workflow": "paired-end",
+      "step": "align",
+      "tool": "align-s",
+      "exitCode": 0
+    },
+    {
+      "workflow": "paired-end",
+      "step": "check-pairs",
+      "tool": "paircheck",
+      "exitCode": 0
+    },
+    {
+      "workflow": "paired-end",
+      "step": "index",
+      "tool": "build-s",
+      "exitCode": 0
+    },
+    {
+      "workflow": "paired-end",
+      "step": "align",
+      "tool": "align-s",
+      "exitCode": 0
+    },
+    {
+      "workflow": "paired-end",
+      "step": "check-pairs",
+      "tool": "paircheck",
+      "exitCode": 0
+    },
+    {
+      "workflow": "paired-end",
+      "step": "index",
+      "tool": "build-s",
+      "exitCode": 0
+    },
+    {
+      "workflow": "paired-end",
+      "step": "align",
+      "tool": "align-s",
+      "exitCode": 0
+    },
+    {
+      "workflow": "single-end",
+      "step": "index",
+      "tool": "build-s",
+      "exitCode": 0
+    },
+    {
+      "workflow": "single-end",
+      "step": "align",
+      "tool": "align-s",
+      "exitCode": 0
+    },
+    {
+      "workflow": "single-end",
+      "step": "index",
+      "tool": "build-s",
+      "exitCode": 0
+    },
+    {
+      "workflow": "single-end",
+      "step": "align",
+      "tool": "align-s",
+      "exitCode": 0
+    },
+    {
+      "workflow": "single-end-large",
+      "step": "index",
+      "tool": "build-l",
+      "exitCode": 0
+    },
+    {
+      "workflow": "single-end-large",
+      "step": "align",
+      "tool": "align-l",
+      "exitCode": 0
+    },
+    {
+      "workflow": "single-end",
+      "step": "index",
+      "tool": "build-s",
+      "exitCode": 0
+    },
+    {
+      "workflow": "single-end",
+      "step": "align",
+      "tool": "align-s",
+      "exitCode": 0
+    }
+  ],
+  "checks": [
+    "All four shipped workflows execute the actual manifest argv against pinned official Linux counterparts.",
+    "Mapped coordinates, CIGAR, pair flags, fragment lengths, unmapped records, sample/library/RG/PL tags, gzip input and spaces, malformed reads and mate rejection checked.",
+    "Small/large index results and thread/seed reproducibility compared on exact unique-read fixtures.",
+    "All four hash-pinned native self-check assertions executed against actual produced SAM.",
+    "Windows PE imports and executable digests inspected; no Windows execution performed."
+  ]
+}

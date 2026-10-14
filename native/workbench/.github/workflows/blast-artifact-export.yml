@@ -1,0 +1,110 @@
+name: Export completed BLAST build as small artifacts
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  export:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Verify the immutable source build artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import json, os, urllib.request
+          url = 'https://api.github.com/repos/comparativechrono/workbench/actions/artifacts/11305653305'
+          request = urllib.request.Request(url, headers={'Authorization': 'Bearer '+os.environ['GH_TOKEN'], 'Accept': 'application/vnd.github+json'})
+          with urllib.request.urlopen(request) as response:
+              artifact = json.load(response)
+          assert artifact['digest'] == 'sha256:d33abde91c590c065fd4755eb4a7f006d39bda5d321cd8ddf33937f3115cde18'
+          assert artifact['workflow_run']['id'] == 37207486793
+          assert artifact['workflow_run']['head_sha'] == '1a23b8506bcaa1c0d923d82f2bb91b918af2df54'
+          assert not artifact['expired']
+          with open('parent-artifact.json', 'w') as output:
+              json.dump(artifact, output, indent=2)
+          print('Verified the completed build artifact identity and SHA-256.')
+          PY
+      - uses: actions/download-artifact@v4
+        with:
+          artifact-ids: '11305653305'
+          run-id: '37207486793'
+          repository: comparativechrono/workbench
+          github-token: ${{ github.token }}
+          path: original
+          merge-multiple: true
+      - name: Verify original file hashes and export-size bounds
+        run: |
+          python - <<'PY'
+          import hashlib, io, json, pathlib, shutil, zipfile
+          root = pathlib.Path('original'); evidence = pathlib.Path('evidence'); evidence.mkdir()
+          sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
+          record = json.loads((root/'build-provenance.json').read_text(encoding='utf-8-sig'))
+          expected = {item['name']: item['sha256'] for item in record['binaries']}
+          expected['blast-guard.exe'] = record['adapterSha256']
+          assert set(expected) == {name+'.exe' for name in ('blastn','blastp','blastx','tblastn','makeblastdb','blast_formatter','blast-guard')}
+          for name, digest in expected.items():
+              path = root/'bin'/name
+              assert sha(path) == digest, name
+              buffer = io.BytesIO()
+              with zipfile.ZipFile(buffer, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=6) as archive:
+                  archive.write(path, name)
+              assert buffer.tell() < 31*1024*1024, name+' requires a separate export strategy'
+          assert sha(root/'source.tar.gz') == record['sourceSha256']
+          assert sha(root/'sqlite.zip') == record['sqliteSha256']
+          inventory = []
+          for path in sorted(root.rglob('*')):
+              if not path.is_file(): continue
+              relative = path.relative_to(root)
+              inventory.append({'path':relative.as_posix(),'bytes':path.stat().st_size,'sha256':sha(path)})
+              if relative.parts[0]=='bin' or relative.as_posix() in ('source.tar.gz','sqlite.zip'): continue
+              destination = evidence/relative; destination.parent.mkdir(parents=True,exist_ok=True); shutil.copy2(path,destination)
+          shutil.copy2('parent-artifact.json', evidence/'parent-artifact.json')
+          (evidence/'export-inventory.json').write_text(json.dumps({'schema':1,'parentArtifactId':11305653305,'parentArtifactSha256':'d33abde91c590c065fd4755eb4a7f006d39bda5d321cd8ddf33937f3115cde18','sourceBuildRun':37207486793,'sourceBuildCommit':'1a23b8506bcaa1c0d923d82f2bb91b918af2df54','files':inventory,'sourceArchivesOmitted':'Recover the exact pinned public source archives; their original hashes are preserved.'},indent=2)+'\n')
+          print('Seven unchanged executable files and build evidence verified; no rebuild performed.')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: blast-export-blastn
+          path: original/bin/blastn.exe
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        with:
+          name: blast-export-blastp
+          path: original/bin/blastp.exe
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        with:
+          name: blast-export-blastx
+          path: original/bin/blastx.exe
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        with:
+          name: blast-export-tblastn
+          path: original/bin/tblastn.exe
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        with:
+          name: blast-export-makeblastdb
+          path: original/bin/makeblastdb.exe
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        with:
+          name: blast-export-blast-formatter
+          path: original/bin/blast_formatter.exe
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        with:
+          name: blast-export-blast-guard
+          path: original/bin/blast-guard.exe
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        with:
+          name: blast-export-evidence
+          path: evidence/
+          if-no-files-found: error

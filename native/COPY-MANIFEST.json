@@ -1,0 +1,3178 @@
+{
+ "copied_on": "2026-10-14",
+ "current": {
+  "repository": "https://github.com/comparativechrono/workbench",
+  "commit": "9435fd65636917dab30e2c6b393549d1f371ac3d",
+  "files": 691,
+  "bytes": 10696348,
+  "left_out": [
+   ".git",
+   "AGENTS.md",
+   "knowledge/evidence/"
+  ]
+ },
+ "legacy": {
+  "companion": "https://github.com/comparativechrono/workbench/releases/download/app-v0.16.0/native-workbench-0.16.0-source.zip",
+  "companion_sha256": "f746f00a82675c2cf52364a3b4d040721c6d06ac5605488efbdc0376ef5b7e44",
+  "member": "legacy/native-workbench-0.5.4-source.zip",
+  "files_added": [
+   "baselines/README.md",
+   "baselines/benchmark_upstream.py",
+   "baselines/build_upstream.py",
+   "baselines/licenses/Cosmocc-3.3.10-README.md",
+   "baselines/licenses/Cosmopolitan-LICENSE-3.3.10",
+   "baselines/licenses/ape-loader-3.3.10-ISC-header.txt",
+   "baselines/licenses/minimap2-MIT-LICENSE",
+   "baselines/licenses/minimap2-embedded-runtime-notices.txt",
+   "baselines/licenses/provenance.json",
+   "baselines/licenses/seqtk-MIT-LICENSE",
+   "baselines/licenses/seqtk-embedded-runtime-notices.txt",
+   "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.fdlibm",
+   "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.freebsd",
+   "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.musl",
+   "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.openbsd",
+   "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.optimized-routines",
+   "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/intrin/armopt.c",
+   "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/intrin/musl.c",
+   "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/log/err.c",
+   "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/str/smoothsort.c",
+   "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/str/strlcpy.c",
+   "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/str/todd.c",
+   "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/gdtoa.c",
+   "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/gdtoa.internal.h",
+   "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/notice.c",
+   "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/puff/puff.c",
+   "baselines/licenses/cosmopolitan-3.3.10/third_party/nsync/LICENSE.txt",
+   "baselines/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE",
+   "baselines/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE.chromium",
+   "baselines/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE.zlib",
+   "docs/fastp-report-fix/READ-THIS.txt",
+   "docs/fastp-report-fix/patch-metadata.json",
+   "docs/fastp-report-fix/evidence/desktop-build.json",
+   "docs/fastp-report-fix/evidence/fastp-report-escaping.json",
+   "docs/fastp-report-fix/evidence/fastp-validation.json",
+   "docs/fastp-report-fix/evidence/pack-differences.json",
+   "docs/fastp-report-fix/evidence/pack-model.txt",
+   "docs/fastp-report-fix/evidence/updater-tests.json",
+   "docs/fastp-report-fix/evidence/windows-0.4.0-summary.json",
+   "docs/fastp-report-fix/licenses/fastp/BUILD-NOTES.txt",
+   "docs/fastp-report-fix/licenses/fastp/cosmopolitan-libcxx-LICENSE.txt",
+   "docs/fastp-report-fix/licenses/fastp/cosmopolitan-libcxxabi-LICENSE.txt",
+   "docs/fastp-report-fix/licenses/fastp/cosmopolitan-libunwind-LICENSE.txt",
+   "docs/fastp-report-fix/licenses/fastp/fastp-MIT-LICENSE.txt",
+   "docs/fastp-report-fix/licenses/fastp/highway-Apache2-LICENSE.txt",
+   "docs/fastp-report-fix/licenses/fastp/highway-BSD3-LICENSE.txt",
+   "docs/fastp-report-fix/licenses/fastp/isa-l-BSD3-LICENSE.txt",
+   "docs/fastp-report-fix/licenses/fastp/libdeflate-MIT-LICENSE.txt",
+   "docs/fastp-report-fix/licenses/fastp/plotly-MIT-LICENSE.txt",
+   "docs/fastp-report-fix/source/desktop/workbench.h",
+   "docs/fastp-report-fix/source/desktop/workbench.manifest",
+   "docs/fastp-report-fix/source/desktop/workbench.rc",
+   "docs/fastp-report-fix/source/vendor-expanded/fastp-offline-report.patch",
+   "docs/fastp-report-fix/source/vendor-expanded/fastp-provenance.json",
+   "examples/reads.fastq",
+   "examples/reference.fa",
+   "examples/tiny.expected.json",
+   "examples/tiny.fastq",
+   "examples/fastp-truth/expected-paired1.fastq",
+   "examples/fastp-truth/expected-paired2.fastq",
+   "examples/fastp-truth/reads1.fastq",
+   "examples/fastp-truth/reads1.fastq.gz",
+   "examples/fastp-truth/reads2.fastq",
+   "examples/fastp-truth/reads2.fastq.gz",
+   "examples/fastp-truth/truth.json",
+   "examples/trimming-truth/adapters.fa",
+   "examples/trimming-truth/expected-paired1.fastq",
+   "examples/trimming-truth/expected-paired2.fastq",
+   "examples/trimming-truth/expected-rejected1.fastq",
+   "examples/trimming-truth/expected-rejected2.fastq",
+   "examples/trimming-truth/reads1.fastq",
+   "examples/trimming-truth/reads2.fastq",
+   "examples/trimming-truth/truth.json",
+   "examples/variant-truth/expected-variants.tsv",
+   "examples/variant-truth/reads1.fastq",
+   "examples/variant-truth/reads2.fastq",
+   "examples/variant-truth/reference.fa",
+   "examples/variant-truth/truth.json",
+   "packs/bowtie2-0.5.3/PACK-README.txt",
+   "packs/bowtie2-0.5.3/pack.ini",
+   "packs/bowtie2-0.5.3/workbench-checks.json",
+   "packs/bowtie2-0.5.3/workbench-schema.json",
+   "packs/bowtie2-0.5.3/fixtures/reads1.fastq",
+   "packs/bowtie2-0.5.3/fixtures/reads2.fastq",
+   "packs/bowtie2-0.5.3/fixtures/reference.fa",
+   "packs/bowtie2-0.5.3/fixtures/single.fastq",
+   "packs/bowtie2-0.5.3/licenses/GCC-COPYING.RUNTIME",
+   "packs/bowtie2-0.5.3/licenses/GCC-COPYING3",
+   "packs/bowtie2-0.5.3/licenses/bowtie2-2.5.5-AUTHORS",
+   "packs/bowtie2-0.5.3/licenses/bowtie2-2.5.5-BOWTIE2_VERSION",
+   "packs/bowtie2-0.5.3/licenses/bowtie2-2.5.5-MANUAL.markdown",
+   "packs/bowtie2-0.5.3/licenses/bowtie2-2.5.5-Makefile",
+   "packs/bowtie2-0.5.3/licenses/galaxy-LICENSE",
+   "packs/bowtie2-0.5.3/licenses/galaxy-bowtie2_macros.xml",
+   "packs/bowtie2-0.5.3/licenses/galaxy-bowtie2_wrapper.xml",
+   "packs/bowtie2-0.5.3/licenses/mingw-runtime-COPYING",
+   "packs/bowtie2-0.5.3/licenses/provenance.json",
+   "packs/bowtie2-0.5.3/licenses/zlib-1.3.2-LICENSE",
+   "packs/bowtie2-0.5.3/licenses/zstd-1.5.5-COPYING",
+   "packs/bowtie2-0.5.3/licenses/zstd-1.5.5-LICENSE",
+   "packs/core-bio-0.2.0/PACK-README.md",
+   "packs/core-bio-0.2.0/pack.ini",
+   "packs/hisat2-0.5.3/PACK-README.md",
+   "packs/hisat2-0.5.3/pack.ini",
+   "packs/hisat2-0.5.3/workbench-checks.json",
+   "packs/hisat2-0.5.3/workbench-schema.json",
+   "packs/hisat2-0.5.3/fixtures/dna-r1.fastq",
+   "packs/hisat2-0.5.3/fixtures/dna-r2.fastq",
+   "packs/hisat2-0.5.3/fixtures/dna-single.fastq",
+   "packs/hisat2-0.5.3/fixtures/reference.fa",
+   "packs/hisat2-0.5.3/fixtures/rna-r1.fastq",
+   "packs/hisat2-0.5.3/fixtures/rna-r2.fastq",
+   "packs/hisat2-0.5.3/fixtures/rna-single.fastq",
+   "packs/hisat2-0.5.3/licenses/COPYING.winstorecompat.txt",
+   "packs/hisat2-0.5.3/licenses/MODIFICATIONS.txt",
+   "packs/hisat2-0.5.3/licenses/cpuid-GPL-runtime-exception.h",
+   "packs/hisat2-0.5.3/licenses/provenance.json",
+   "packs/hisat2-0.5.3/licenses/windows-build.json",
+   "packs/hisat2-0.5.3/licenses/workbench1.patch",
+   "packs/hisat2-0.5.3/licenses/samtools-runtime/BUILD-NOTES.txt",
+   "packs/hisat2-0.5.3/licenses/samtools-runtime/bcftools-1.24.txt",
+   "packs/hisat2-0.5.3/licenses/samtools-runtime/bcftools-embedded-runtime-notices.txt",
+   "packs/hisat2-0.5.3/licenses/samtools-runtime/cosmopolitan-heapsort.c.txt",
+   "packs/hisat2-0.5.3/licenses/samtools-runtime/cosmopolitan-mergesort.c.txt",
+   "packs/hisat2-0.5.3/licenses/samtools-runtime/cosmopolitan-opensort.c.txt",
+   "packs/hisat2-0.5.3/licenses/samtools-runtime/cosmopolitan-qsort.c.txt",
+   "packs/hisat2-0.5.3/licenses/samtools-runtime/cosmopolitan-strftime.c.txt",
+   "packs/hisat2-0.5.3/licenses/samtools-runtime/htscodecs-1.6.7.txt",
+   "packs/hisat2-0.5.3/licenses/samtools-runtime/htslib-1.24.txt",
+   "packs/hisat2-0.5.3/licenses/samtools-runtime/lz4.txt",
+   "packs/hisat2-0.5.3/licenses/samtools-runtime/runtime-notices-provenance.json",
+   "packs/hisat2-0.5.3/licenses/samtools-runtime/samtools-1.24.txt",
+   "packs/hisat2-0.5.3/licenses/samtools-runtime/samtools-embedded-runtime-notices.txt",
+   "packs/hisat2-0.5.3/licenses/samtools-runtime/source-header-notices.txt",
+   "packs/lofreq-0.5.3/PACK-README.md",
+   "packs/lofreq-0.5.3/pack.ini",
+   "packs/lofreq-0.5.3/workbench-checks.json",
+   "packs/lofreq-0.5.3/workbench-schema.json",
+   "packs/lofreq-0.5.3/fixtures/indels.bam",
+   "packs/lofreq-0.5.3/fixtures/indels.sam",
+   "packs/lofreq-0.5.3/fixtures/reference.fa",
+   "packs/lofreq-0.5.3/fixtures/snps.bam",
+   "packs/lofreq-0.5.3/fixtures/snps.sam",
+   "packs/lofreq-0.5.3/licenses/LoFreq-MIT.txt",
+   "packs/lofreq-0.5.3/licenses/cosmopolitan-notice-index.json",
+   "packs/lofreq-0.5.3/licenses/provenance.json",
+   "packs/lofreq-0.5.3/licenses/uthash-BSD.txt",
+   "packs/lofreq-0.5.3/licenses/workbench-port.patch",
+   "packs/muscle-0.5.2/PACK-README.md",
+   "packs/muscle-0.5.2/pack.ini",
+   "packs/muscle-0.5.2/workbench-checks.json",
+   "packs/muscle-0.5.2/workbench-schema.json",
+   "packs/muscle-0.5.2/fixtures/nucleotide.fa",
+   "packs/muscle-0.5.2/fixtures/protein.fa",
+   "packs/muscle-0.5.2/licenses/MODIFICATIONS.txt",
+   "packs/muscle-0.5.2/licenses/MUSCLE-GPL-3.0.txt",
+   "packs/muscle-0.5.2/licenses/galaxy-legacy-dependency.xml",
+   "packs/muscle-0.5.2/licenses/provenance.json",
+   "packs/muscle-0.5.2/licenses/windows-build.json",
+   "packs/muscle-0.5.2/licenses/windows-imports.json",
+   "packs/muscle-0.5.2/licenses/workbench1.patch",
+   "packs/mutect2-0.5.4/PACK-README.md",
+   "packs/mutect2-0.5.4/pack.ini",
+   "packs/mutect2-0.5.4/workbench-checks.json",
+   "packs/mutect2-0.5.4/workbench-schema.json",
+   "packs/mutect2-0.5.4/fixtures/empty.bed",
+   "packs/mutect2-0.5.4/fixtures/germline.vcf",
+   "packs/mutect2-0.5.4/fixtures/normal.bam",
+   "packs/mutect2-0.5.4/fixtures/pon.vcf",
+   "packs/mutect2-0.5.4/fixtures/reference.fa",
+   "packs/mutect2-0.5.4/fixtures/targets.bed",
+   "packs/mutect2-0.5.4/fixtures/truth.json",
+   "packs/mutect2-0.5.4/fixtures/tumor.bam",
+   "packs/mutect2-0.5.4/licenses/BUILD-PROVENANCE.json",
+   "packs/mutect2-0.5.4/licenses/GATK-LICENSE.TXT",
+   "packs/mutect2-0.5.4/licenses/GATK-README.md",
+   "packs/mutect2-0.5.4/licenses/GATK-THIRD-PARTY-SOURCES.txt",
+   "packs/mutect2-0.5.4/licenses/GATK-build.gradle",
+   "packs/mutect2-0.5.4/licenses/GPL-2.0.txt",
+   "packs/mutect2-0.5.4/licenses/GenomicsDB-1.5.5-LICENSE.txt",
+   "packs/mutect2-0.5.4/licenses/IOUtils-workbench.java",
+   "packs/mutect2-0.5.4/licenses/JniLoader-LICENSE.txt",
+   "packs/mutect2-0.5.4/licenses/LGPL-2.0.txt",
+   "packs/mutect2-0.5.4/licenses/LGPL-2.1.txt",
+   "packs/mutect2-0.5.4/licenses/LGPL-3.0.txt",
+   "packs/mutect2-0.5.4/licenses/Microsoft-VC-Runtime-2015-2022-License.docx",
+   "packs/mutect2-0.5.4/licenses/Microsoft-runtime-components.json",
+   "packs/mutect2-0.5.4/licenses/compatibility-provenance.json",
+   "packs/mutect2-0.5.4/licenses/gatk-embedded-components.json",
+   "packs/mutect2-0.5.4/licenses/gatk-local-path.patch",
+   "packs/mutect2-0.5.4/licenses/gatk-native-source-audit.json",
+   "packs/mutect2-0.5.4/licenses/gatk-notice-1144eb91871b78f1.txt",
+   "packs/mutect2-0.5.4/licenses/gatk-notice-16f63100497ebf6c.txt",
+   "packs/mutect2-0.5.4/licenses/gatk-notice-1b8e2eb3299cd794.txt",
+   "packs/mutect2-0.5.4/licenses/gatk-notice-39953a1f04bae577.txt",
+   "packs/mutect2-0.5.4/licenses/gatk-notice-52888004af12e998.txt",
+   "packs/mutect2-0.5.4/licenses/gatk-notice-532fb54569072a7e.txt",
+   "packs/mutect2-0.5.4/licenses/gatk-notice-55cab5018458796e.txt",
+   "packs/mutect2-0.5.4/licenses/gatk-notice-5b99f69ee04da8ff.txt",
+   "packs/mutect2-0.5.4/licenses/gatk-notice-635dc2bd7e1064a9.txt",
+   "packs/mutect2-0.5.4/licenses/gatk-notice-75d4817c230af39c.txt",
+   "packs/mutect2-0.5.4/licenses/gatk-notice-774d8fedaaa28921.txt",
+   "packs/mutect2-0.5.4/licenses/gatk-notice-7cae1ce44809ead2.txt",
+   "packs/mutect2-0.5.4/licenses/gatk-notice-81144c5ecac4fd43.txt",
+   "packs/mutect2-0.5.4/licenses/gatk-notice-84f3a2b466037444.txt",
+   "packs/mutect2-0.5.4/licenses/gatk-notice-8db7336782c429c3.txt",
+   "packs/mutect2-0.5.4/licenses/gatk-notice-95aef05dc05ee767.txt",
+   "packs/mutect2-0.5.4/licenses/gatk-notice-c48f26b1a772657e.txt",
+   "packs/mutect2-0.5.4/licenses/gatk-notice-c693279643b8cd5d.txt",
+   "packs/mutect2-0.5.4/licenses/gatk-notice-d0fd1e404bfa5659.txt",
+   "packs/mutect2-0.5.4/licenses/gatk-notice-dfb14fbb9e7d0952.txt",
+   "packs/mutect2-0.5.4/licenses/gatk-notice-index.json",
+   "packs/mutect2-0.5.4/licenses/gatk-thirdparty-notices.txt",
+   "packs/mutect2-0.5.4/licenses/gatk-thirdparty-poms.json",
+   "packs/mutect2-0.5.4/licenses/gatk-thirdparty-source-inventory.json",
+   "packs/mutect2-0.5.4/licenses/gnu.getopt--java-getopt-1.0.13.pom",
+   "packs/mutect2-0.5.4/licenses/native-notice-index.json",
+   "packs/mutect2-0.5.4/licenses/net.sourceforge.f2j--arpack_combined_all-0.1.pom",
+   "packs/mutect2-0.5.4/licenses/org.broadinstitute--gatk-bwamem-jni-1.0.4.pom",
+   "packs/mutect2-0.5.4/licenses/org.broadinstitute--gatk-fermilite-jni-1.2.0.pom",
+   "packs/seqkit-0.5.2/PACK-README.txt",
+   "packs/seqkit-0.5.2/pack.ini",
+   "packs/seqkit-0.5.2/workbench-checks.json",
+   "packs/seqkit-0.5.2/workbench-schema.json",
+   "packs/seqkit-0.5.2/fixtures/cds.fasta",
+   "packs/seqkit-0.5.2/fixtures/reads.fastq",
+   "packs/seqkit-0.5.2/licenses/SeqKit-LICENSE",
+   "packs/seqkit-0.5.2/licenses/go.mod",
+   "packs/seqkit-0.5.2/licenses/go.sum",
+   "packs/seqkit-0.5.2/licenses/provenance.json",
+   "packs/seqkit-0.5.2/licenses/go/001-LICENSE",
+   "packs/seqkit-0.5.2/licenses/go/002-PATENTS",
+   "packs/seqkit-0.5.2/licenses/go/006-LICENSE",
+   "packs/seqkit-0.5.2/licenses/go/007-LICENSE",
+   "packs/seqkit-0.5.2/licenses/go/008-LICENSE",
+   "packs/seqkit-0.5.2/licenses/go/026-LICENSE",
+   "packs/seqkit-0.5.2/licenses/go/027-LICENSE",
+   "packs/seqkit-0.5.2/licenses/go/028-copyright_test.go",
+   "packs/seqkit-0.5.2/licenses/go/029-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/03ab7f65a188/001-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/06cc41040e48/001-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/10387c885202/001-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/11bbffcd17fd/001-LICENSE.txt",
+   "packs/seqkit-0.5.2/licenses/modules/141571873008/001-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/1a28682a3b0b/001-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/1a28682a3b0b/002-copyright.go",
+   "packs/seqkit-0.5.2/licenses/modules/1a28682a3b0b/002-licenses.go",
+   "packs/seqkit-0.5.2/licenses/modules/287be456a7da/001-LICENSE.md",
+   "packs/seqkit-0.5.2/licenses/modules/2f0c4a1da39e/001-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/2f0c4a1da39e/002-LICENSE.libyaml",
+   "packs/seqkit-0.5.2/licenses/modules/2f0c4a1da39e/003-NOTICE",
+   "packs/seqkit-0.5.2/licenses/modules/2ff5fb046bde/001-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/362ba67cf7c9/001-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/369b8b1796bc/001-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/380753110fcc/001-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/380753110fcc/002-LICENSE-SIL",
+   "packs/seqkit-0.5.2/licenses/modules/3a50ce192b5b/001-AUTHORS.md",
+   "packs/seqkit-0.5.2/licenses/modules/3a50ce192b5b/002-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/4eb74b485a48/001-AUTHORS",
+   "packs/seqkit-0.5.2/licenses/modules/4fd601d1d188/001-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/50e50a9ab5ec/001-AUTHORS",
+   "packs/seqkit-0.5.2/licenses/modules/547a4a7736ed/001-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/55e08e94ece7/001-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/5d2ce87e5060/001-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/62f8d9aacb48/001-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/62f8d9aacb48/002-LICENSE.color.org",
+   "packs/seqkit-0.5.2/licenses/modules/6505a22e57fc/001-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/6505a22e57fc/002-LICENSE-link.txt",
+   "packs/seqkit-0.5.2/licenses/modules/7854c28120a8/001-LICENSE.md",
+   "packs/seqkit-0.5.2/licenses/modules/80d3641cd70f/001-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/83c656a07d38/001-AUTHORS",
+   "packs/seqkit-0.5.2/licenses/modules/83c656a07d38/002-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/888c2c54ac50/001-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/94dd5aaff89a/001-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/9750afe2cfcf/001-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/9808f94c5d9c/001-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/992eb08841ec/001-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/9cea85d89df4/001-AUTHORS",
+   "packs/seqkit-0.5.2/licenses/modules/9cea85d89df4/002-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/a059a1019106/001-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/a2e02a0a9374/001-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/a66c7a7354d0/001-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/ab88c462e768/001-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/acac17a2f6e9/001-AUTHORS",
+   "packs/seqkit-0.5.2/licenses/modules/acac17a2f6e9/002-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/acac17a2f6e9/003-COPYING",
+   "packs/seqkit-0.5.2/licenses/modules/acdf350c67fd/001-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/b06d83bdc69e/001-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/b2b1ce0ae100/001-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/bb6c89c0c093/001-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/cb102dbe44c4/001-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/d0d666767bf9/001-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/dc2f214cb916/001-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/e528a968c074/001-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/e528a968c074/002-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/e528a968c074/004-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/e528a968c074/005-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/e528a968c074/006-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/e528a968c074/007-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/e528a968c074/008-AUTHORS",
+   "packs/seqkit-0.5.2/licenses/modules/e528a968c074/010-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/e528a968c074/011-LICENSE.txt",
+   "packs/seqkit-0.5.2/licenses/modules/ea6e45f5630a/001-AUTHORS",
+   "packs/seqkit-0.5.2/licenses/modules/ea6e45f5630a/002-LICENSE",
+   "packs/seqkit-0.5.2/licenses/modules/ed398141bf73/001-LICENSE",
+   "packs/vardict-0.5.3/PACK-README.md",
+   "packs/vardict-0.5.3/pack.ini",
+   "packs/vardict-0.5.3/workbench-checks.json",
+   "packs/vardict-0.5.3/workbench-schema.json",
+   "packs/vardict-0.5.3/fixtures/indels.bam",
+   "packs/vardict-0.5.3/fixtures/indels.sam",
+   "packs/vardict-0.5.3/fixtures/input.bam",
+   "packs/vardict-0.5.3/fixtures/input.sam",
+   "packs/vardict-0.5.3/fixtures/reference.fa",
+   "packs/vardict-0.5.3/fixtures/targets.bed",
+   "packs/vardict-0.5.3/fixtures/truth.json",
+   "packs/vardict-0.5.3/licenses/BUILD-PROVENANCE.json",
+   "packs/vardict-0.5.3/licenses/Microsoft-runtime-components.json",
+   "packs/vardict-0.5.3/licenses/VarDict-1.8.3-1144eb91.txt",
+   "packs/vardict-0.5.3/licenses/VarDict-1.8.3-81144c5e.txt",
+   "packs/vardict-0.5.3/licenses/VarDict-Perl-LICENSE.txt",
+   "packs/vardict-0.5.3/licenses/VarDictJava-MIT.txt",
+   "packs/vardict-0.5.3/licenses/VarDictJava-Readme.md",
+   "packs/vardict-0.5.3/licenses/commons-cli-1.2-1144eb91.txt",
+   "packs/vardict-0.5.3/licenses/commons-cli-1.2-81144c5e.txt",
+   "packs/vardict-0.5.3/licenses/fisher-validation.json",
+   "packs/vardict-0.5.3/licenses/htsjdk-source-NOTICES.txt",
+   "packs/vardict-0.5.3/licenses/java-ASSEMBLY_EXCEPTION",
+   "packs/vardict-0.5.3/licenses/java-LICENSE",
+   "packs/vardict-0.5.3/licenses/java-NOTICE",
+   "packs/vardict-0.5.3/licenses/jregex-1.2_01-sources-NOTICES.txt",
+   "packs/vardict-0.5.3/licenses/perl-Artistic.txt",
+   "packs/vardict-0.5.3/licenses/perl-Copying.txt",
+   "packs/vardict-0.5.3/licenses/perl-Readme.txt",
+   "packs/vardict-0.5.3/licenses/strawberry-README.txt",
+   "packs/vardict-0.5.3/licenses/testsomatic.R",
+   "packs/vardict-0.5.3/licenses/teststrandbias.R",
+   "packs/vsearch-0.5.2/PACK-README.md",
+   "packs/vsearch-0.5.2/pack.ini",
+   "packs/vsearch-0.5.2/workbench-checks.json",
+   "packs/vsearch-0.5.2/workbench-schema.json",
+   "packs/vsearch-0.5.2/fixtures/derep-fasta.txt",
+   "packs/vsearch-0.5.2/fixtures/merge-r1.txt",
+   "packs/vsearch-0.5.2/fixtures/merge-r2.txt",
+   "packs/vsearch-0.5.2/fixtures/quality-fastq.txt",
+   "packs/vsearch-0.5.2/fixtures/weighted-fasta.txt",
+   "packs/vsearch-0.5.2/licenses/LICENSE.txt",
+   "packs/vsearch-0.5.2/licenses/LICENSE_bzip2.txt",
+   "packs/vsearch-0.5.2/licenses/SHA256SUMS",
+   "packs/vsearch-0.5.2/licenses/cityhash-MIT.txt",
+   "packs/vsearch-0.5.2/licenses/cosmopolitan-notice-index.json",
+   "packs/vsearch-0.5.2/licenses/github-release-metadata.json",
+   "packs/vsearch-0.5.2/licenses/paircheck-MIT.txt",
+   "packs/vsearch-0.5.2/licenses/upstream-README.md",
+   "packs/vsearch-0.5.2/licenses/upstream-downloads.json",
+   "packs/vsearch-0.5.2/licenses/vsearch-2.32.0.tar.gz.sha256",
+   "packs/vsearch-0.5.2/licenses/vsearch-allpairs_global.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-chimeras_denovo.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-cigar.5",
+   "packs/vsearch-0.5.2/licenses/vsearch-cluster_fast.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-cluster_size.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-cluster_smallmem.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-cluster_unoise.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-cut.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-derep_fulllength.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-derep_id.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-derep_prefix.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-derep_smallmem.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-expected_error.7",
+   "packs/vsearch-0.5.2/licenses/vsearch-fasta.5",
+   "packs/vsearch-0.5.2/licenses/vsearch-fasta2fastq.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-fastq.5",
+   "packs/vsearch-0.5.2/licenses/vsearch-fastq_chars.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-fastq_convert.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-fastq_eestats.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-fastq_eestats2.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-fastq_filter.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-fastq_join.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-fastq_mergepairs.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-fastq_stats.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-fastx_filter.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-fastx_getseq.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-fastx_getseqs.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-fastx_getsubseq.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-fastx_mask.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-fastx_revcomp.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-fastx_subsample.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-fastx_syncpairs.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-fastx_uniques.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-help.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-history.7",
+   "packs/vsearch-0.5.2/licenses/vsearch-makeudb_usearch.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-maskfasta.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-nucleotides.7",
+   "packs/vsearch-0.5.2/licenses/vsearch-orient.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-pairwise_alignment_parameters.7",
+   "packs/vsearch-0.5.2/licenses/vsearch-rereplicate.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-sam.5",
+   "packs/vsearch-0.5.2/licenses/vsearch-scramble.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-search_exact.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-sff.5",
+   "packs/vsearch-0.5.2/licenses/vsearch-sff_convert.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-shuffle.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-sintax.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-sortbylength.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-sortbysize.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-uchime2_denovo.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-uchime3_denovo.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-uchime_denovo.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-uchime_ref.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-udb.5",
+   "packs/vsearch-0.5.2/licenses/vsearch-udb2fasta.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-udbinfo.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-udbstats.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-usearch.7",
+   "packs/vsearch-0.5.2/licenses/vsearch-usearch_global.1",
+   "packs/vsearch-0.5.2/licenses/vsearch-userfields.7",
+   "packs/vsearch-0.5.2/licenses/vsearch-version.1",
+   "packs/vsearch-0.5.2/licenses/vsearch.1",
+   "packs/vsearch-0.5.2/licenses/zlib-license-provenance.txt",
+   "scripts/module.ld",
+   "scripts/module_embed.S",
+   "tests/VarDictFisherProbe.java",
+   "validation/aligner-caller-0.5.3-pipeline-tests.json",
+   "validation/aligner-caller-0.5.3-pipeline-tests.log",
+   "validation/aligner-callers-0.5.3-updater-tests.log",
+   "validation/bowtie2-0.5.3.json",
+   "validation/bridge-0.5.3-build.log",
+   "validation/child-environment-0.5.3.json",
+   "validation/child-environment-0.5.3.log",
+   "validation/desktop-0.5.1-desktop-tests.log",
+   "validation/desktop-0.5.1-engine-tests.log",
+   "validation/desktop-0.5.1-pipe-smoke.json",
+   "validation/desktop-0.5.3-build.log",
+   "validation/desktop-host-0.5.3-tests.log",
+   "validation/expansion-0.5.2-catalog-tests.log",
+   "validation/expansion-0.5.2-desktop-tests.log",
+   "validation/expansion-0.5.2-engine-tests.log",
+   "validation/expansion-0.5.2-native-manifest-tests.log",
+   "validation/expansion-0.5.2-pack-check-tests.log",
+   "validation/expansion-0.5.2-pack-schema-tests.log",
+   "validation/expansion-0.5.2-pin-tests.log",
+   "validation/expansion-0.5.2-pipeline-tests.json",
+   "validation/expansion-0.5.2-pipeline-tests.log",
+   "validation/expansion-0.5.2-schema-engine-evidence.json",
+   "validation/expansion-0.5.2-updater-tests.log",
+   "validation/expansion-0.5.2.json",
+   "validation/fastp-linux-ape-comparison.json",
+   "validation/fastp-linux-rebuild-provenance.json",
+   "validation/fastp-restored-fix.json",
+   "validation/gatk-thirdparty-0.5.4.json",
+   "validation/hisat2-0.5.3-native-parser.txt",
+   "validation/hisat2-0.5.3-scientific.json",
+   "validation/hisat2-0.5.3-tests.txt",
+   "validation/lofreq-0.5.3-tests.log",
+   "validation/lofreq-0.5.3.json",
+   "validation/muscle-0.5.2-tests.log",
+   "validation/muscle-0.5.2.json",
+   "validation/mutect2-0.5.4-compat-tests.log",
+   "validation/mutect2-0.5.4-core-pipeline.json",
+   "validation/mutect2-0.5.4-native-host-tests.log",
+   "validation/mutect2-0.5.4-packaging-tests.log",
+   "validation/mutect2-0.5.4-portability.json",
+   "validation/mutect2-0.5.4-release-tests.json",
+   "validation/mutect2-0.5.4-scientific.json",
+   "validation/mutect2-0.5.4-tests.log",
+   "validation/mutect2-0.5.4-updater-tests.log",
+   "validation/native-components-0.5.3.json",
+   "validation/native-components-0.5.4.json",
+   "validation/native-desktop-0.5.1.json",
+   "validation/pack-budget-0.5.3.log",
+   "validation/packaging-0.5.3-tests.log",
+   "validation/packaging-prestage-0.5.3.json",
+   "validation/release-pins-0.5.3-tests.log",
+   "validation/seqkit-0.5.2.json",
+   "validation/seqkit-self-checks-0.5.2.json",
+   "validation/smoke_pack_workflows.py",
+   "validation/source-exclusions-0.5.3.json",
+   "validation/validate_bwa.py",
+   "validation/validate_research_pipeline.py",
+   "validation/validate_variant_pipeline.py",
+   "validation/vardict-0.5.3-reproduction.md",
+   "validation/vardict-0.5.3.json",
+   "validation/vsearch-0.5.2.json",
+   "validation/workspace-browser-checks.json",
+   "validation/workspace-engine-tests.log",
+   "validation/workspace-integration.json",
+   "validation/workspace-portable-graph.json",
+   "vendor/provenance.json",
+   "vendor-expanded/fastp-provenance.json",
+   "vendor-expanded/bwa/BUILD-NOTES.txt",
+   "vendor-expanded/bwa/provenance.json",
+   "vendor-expanded/bwa/licenses/BWA-0.7.19-README.md",
+   "vendor-expanded/bwa/licenses/embedded-runtime-strings.txt",
+   "vendor-expanded/bwa/licenses/source-header-notices.txt",
+   "vendor-expanded/cutadapt/provenance.json",
+   "vendor-expanded/cutadapt/licenses/Python-LICENSE.txt",
+   "vendor-expanded/cutadapt/licenses/RUNTIME-NOTES.txt",
+   "vendor-expanded/cutadapt/licenses/backports_zstd-1.7.0.dist-info/licenses/LICENSE.txt",
+   "vendor-expanded/cutadapt/licenses/backports_zstd-1.7.0.dist-info/licenses/LICENSE_zstd.txt",
+   "vendor-expanded/cutadapt/licenses/cutadapt-5.2.dist-info/licenses/LICENSE",
+   "vendor-expanded/cutadapt/licenses/dnaio-1.2.4.dist-info/licenses/LICENSE",
+   "vendor-expanded/cutadapt/licenses/isal-1.8.0.dist-info/licenses/LICENSE",
+   "vendor-expanded/cutadapt/licenses/xopen-2.1.0.dist-info/licenses/LICENSE",
+   "vendor-expanded/fastp-assets/plotly-1.2.0.min.js",
+   "vendor-expanded/freebayes/README.txt",
+   "vendor-expanded/freebayes/provenance.json",
+   "vendor-expanded/freebayes/release.json",
+   "vendor-expanded/freebayes/validate.py",
+   "vendor-expanded/freebayes/validate_region.py",
+   "vendor-expanded/freebayes/compat/llrintl.c",
+   "vendor-expanded/freebayes/compat/portability.patch",
+   "vendor-expanded/freebayes/compat/test_llrintl.c",
+   "vendor-expanded/freebayes/licenses/freebayes-1.3.10-LICENSE",
+   "vendor-expanded/freebayes/licenses/freebayes-1.3.10-contrib-SeqLib-LICENSE",
+   "vendor-expanded/freebayes/licenses/freebayes-1.3.10-contrib-fastahack-LICENSE",
+   "vendor-expanded/freebayes/licenses/freebayes-1.3.10-contrib-fastahack-libdisorder.LICENSE",
+   "vendor-expanded/freebayes/licenses/freebayes-1.3.10-contrib-ttmath-COPYRIGHT",
+   "vendor-expanded/freebayes/licenses/freebayes-1.3.10-source-header-notices.txt",
+   "vendor-expanded/freebayes/licenses/freebayes-embedded-runtime-notices.txt",
+   "vendor-expanded/freebayes/licenses/intervaltree-LICENSE",
+   "vendor-expanded/freebayes/licenses/intervaltree-source-header-notices.txt",
+   "vendor-expanded/freebayes/licenses/license-provenance.json",
+   "vendor-expanded/freebayes/licenses/simde-0.8.2-COPYING",
+   "vendor-expanded/freebayes/licenses/simde-0.8.2-source-header-notices.txt",
+   "vendor-expanded/freebayes/licenses/tabixpp-1.1.2-LICENSE",
+   "vendor-expanded/freebayes/licenses/tabixpp-1.1.2-source-header-notices.txt",
+   "vendor-expanded/hisat2/commit.json",
+   "vendor-expanded/hisat2/downloads.json",
+   "vendor-expanded/hisat2/gcc-exception-origin.json",
+   "vendor-expanded/hisat2/linux-build.log",
+   "vendor-expanded/hisat2/release.json",
+   "vendor-expanded/hisat2/upstream-build.log",
+   "vendor-expanded/hisat2/windows-build.log",
+   "vendor-expanded/lofreq/excluded-source-members.json",
+   "vendor-expanded/lofreq/tags.json",
+   "vendor-expanded/lofreq/fixtures/indelqual.bam",
+   "vendor-expanded/lofreq/fixtures/indels.bam",
+   "vendor-expanded/lofreq/fixtures/indels.sam",
+   "vendor-expanded/lofreq/fixtures/indels.vcf",
+   "vendor-expanded/lofreq/fixtures/reference.fa.fai",
+   "vendor-expanded/lofreq/fixtures/snps-ape.vcf",
+   "vendor-expanded/lofreq/fixtures/snps.bam",
+   "vendor-expanded/lofreq/fixtures/snps.vcf",
+   "vendor-expanded/muscle-5.3/binary-commit.json",
+   "vendor-expanded/muscle-5.3/commit.json",
+   "vendor-expanded/muscle-5.3/downloads.json",
+   "vendor-expanded/muscle-5.3/galaxy-muscle-tree.json",
+   "vendor-expanded/muscle-5.3/galaxy-wrapper-commits.json",
+   "vendor-expanded/muscle-5.3/linux-build.log",
+   "vendor-expanded/muscle-5.3/release.json",
+   "vendor-expanded/muscle-5.3/validation.json",
+   "vendor-expanded/muscle-5.3/windows-build.log",
+   "vendor-expanded/muscle-5.3/test data with spaces/align-nucleotide.afa",
+   "vendor-expanded/muscle-5.3/test data with spaces/align-nucleotide.log",
+   "vendor-expanded/muscle-5.3/test data with spaces/align-protein.afa",
+   "vendor-expanded/muscle-5.3/test data with spaces/align-protein.log",
+   "vendor-expanded/muscle-5.3/test data with spaces/super5-nucleotide.afa",
+   "vendor-expanded/muscle-5.3/test data with spaces/super5-nucleotide.log",
+   "vendor-expanded/muscle-5.3/test data with spaces/super5-protein.afa",
+   "vendor-expanded/muscle-5.3/test data with spaces/super5-protein.log",
+   "vendor-expanded/muscle-5.3/test-data/align-stop.afa",
+   "vendor-expanded/muscle-5.3/test-data/stop-protein.fa",
+   "vendor-expanded/muscle-5.3/test-data/super5-stop.afa",
+   "vendor-expanded/vardict/VarDict-submodule.json",
+   "vendor-expanded/vardict/files.json",
+   "vendor-expanded/vardict/galaxy-files.json",
+   "vendor-expanded/vardict/galaxy-macros.xml",
+   "vendor-expanded/vardict/galaxy-vardict.xml",
+   "vendor-expanded/vardict/htsjdk-files.json",
+   "vendor-expanded/vardict/jregex-1.2_01.pom",
+   "vendor-expanded/vardict/perl-SHA256SUMS.txt",
+   "vendor-expanded/vardict/perl-release.json",
+   "vendor-expanded/vardict/release.json",
+   "vendor-expanded/vardict/temurin-release.json",
+   "vendor-expanded/vardict/ubuntu-r-index.html",
+   "vendor-expanded/vardict/var2vcf_valid.pl",
+   "workspace/release-expansion/examples/sequence-expansion/proteins.faa",
+   "workspace/tests/test_ui_browser.cjs",
+   "workspace/tests/test_ui_model.cjs",
+   "workspace/web/app.js",
+   "workspace/web/dag.css",
+   "workspace/web/dag.js",
+   "workspace/web/index.html",
+   "workspace/web/model.js",
+   "workspace/web/workspace.css"
+  ],
+  "bytes_added": 17477801
+ },
+ "excluded_archives": [
+  {
+   "path": "vendor/archives/minimap2-v2.28.tar.gz",
+   "bytes": 260341,
+   "sha256": "5ea6683b4184b5c49f6dbaef2bc5b66155e405888a0790d1b21fd3c93e474278"
+  },
+  {
+   "path": "vendor/archives/seqtk-v1.4.tar.gz",
+   "bytes": 23748,
+   "sha256": "d124604ec24f29ed14ce127426ab90e0f3a2c0280c80d1a3ff8b1c09feede19c"
+  },
+  {
+   "path": "vendor-expanded/archives/fastp-v1.3.7.tar.gz",
+   "bytes": 117752,
+   "sha256": "5b7d6880c66e9e10e5923c68ee0c0b5a30f59bd252d836c379c74f8533c26993"
+  },
+  {
+   "path": "vendor-expanded/archives/highway-1.3.0.tar.gz",
+   "bytes": 3634890,
+   "sha256": "07b3c1ba2c1096878a85a31a5b9b3757427af963b1141ca904db2f9f4afe0bc2"
+  },
+  {
+   "path": "vendor-expanded/archives/isa-l-v2.32.1.tar.gz",
+   "bytes": 842741,
+   "sha256": "d9f7179ab0e14a3db9b610fac22793854a1435e8423ec9ce07f4cbedc5f92f5e"
+  },
+  {
+   "path": "vendor-expanded/archives/libdeflate-v1.26.tar.gz",
+   "bytes": 198768,
+   "sha256": "bba03fffc5538576213675ce6968fcff6ce2e67d82e4d5febea2d05f9f13cf85"
+  },
+  {
+   "path": "vendor-expanded/archives/plotly-1.2.0-LICENSE.txt",
+   "bytes": 1078,
+   "sha256": "891d94cad73e4fdf9abc46c39468d145545f74e2d4ab43abe74b7ed299f2e484"
+  },
+  {
+   "path": "vendor-expanded/archives/plotly-1.2.0.js",
+   "bytes": 2607547,
+   "sha256": "1169b79526878ee915c12fefc375930f9249f4ac9c265b0300da7c9d14569f9d"
+  },
+  {
+   "path": "vendor-expanded/archives/plotly-1.2.0.min.js",
+   "bytes": 1123006,
+   "sha256": "60169d9df25530f1d5e29c663ceb18ea7492862acb308800fc5ab0f0bf31a41e"
+  },
+  {
+   "path": "vendor-expanded/bwa/archives/bwa-v0.7.19.tar.gz",
+   "bytes": 238518,
+   "sha256": "cdff5db67652c5b805a3df08c4e813a822c65791913eccfb3cf7d528588f37bc"
+  },
+  {
+   "path": "vendor-expanded/cutadapt/archives/backports_zstd-1.7.0.tar.gz",
+   "bytes": 1003722,
+   "sha256": "1a967189c1822b6e85a2e550fdfc88a3272c17633ea0a4732dac5911a8034f2b"
+  },
+  {
+   "path": "vendor-expanded/cutadapt/archives/cutadapt-5.2.tar.gz",
+   "bytes": 253642,
+   "sha256": "2394deead42ecae5fe0fdf369e35f3e2afed770e14059582272779c2e8295d3c"
+  },
+  {
+   "path": "vendor-expanded/cutadapt/archives/dnaio-1.2.4.tar.gz",
+   "bytes": 60430,
+   "sha256": "a7570311f29e8b3c1ea39a60f57b7baf8dad8f2508595c58d4278c5571463166"
+  },
+  {
+   "path": "vendor-expanded/cutadapt/archives/isal-1.8.0.tar.gz",
+   "bytes": 4133365,
+   "sha256": "124233e9a31a62030a07aafd48c26689561926f4e10417ed3ea46c211218f2b4"
+  },
+  {
+   "path": "vendor-expanded/cutadapt/archives/xopen-2.1.0.tar.gz",
+   "bytes": 32424,
+   "sha256": "06584821588f813563863b63d5e02568a4328661b7507ea38c432f24c69ea4b7"
+  },
+  {
+   "path": "vendor-expanded/cutadapt/archives/zlib_ng-1.0.0.tar.gz",
+   "bytes": 5799954,
+   "sha256": "c753cea73f9e803c246e9bf01a59eb652897ed8a19334ada0f968394c7f61650"
+  },
+  {
+   "path": "vendor-expanded/freebayes/archives/freebayes-1.3.10-src.tar.gz",
+   "bytes": 3021582,
+   "sha256": "f828738176b38987d40cd8180d68d77af90163384f4ed9a16bb05cfa2fdb5a71"
+  },
+  {
+   "path": "vendor-expanded/freebayes/archives/intervaltree-aa593775.tar.gz",
+   "bytes": 72574,
+   "sha256": "9e425796787985322e1dbced4aaf12669ebe402914aac3ba1255b02a4511dc89"
+  },
+  {
+   "path": "vendor-expanded/freebayes/archives/musl-1.2.5.tar.gz",
+   "bytes": 1080786,
+   "sha256": "a9a118bbe84d8764da0ea0d28b3ab3fae8477fc7e4085d90102b8596fc7c75e4"
+  },
+  {
+   "path": "vendor-expanded/freebayes/archives/simde-v0.8.2.tar.gz",
+   "bytes": 7468969,
+   "sha256": "ed2a3268658f2f2a9b5367628a85ccd4cf9516460ed8604eed369653d49b25fb"
+  },
+  {
+   "path": "vendor-expanded/freebayes/archives/tabixpp-v1.1.2.tar.gz",
+   "bytes": 6962,
+   "sha256": "c850299c3c495221818a85c9205c60185c8ed9468d5ec2ed034470bb852229dc"
+  },
+  {
+   "path": "vendor-variant/archives/bcftools-1.24.tar.bz2",
+   "bytes": 8272861,
+   "sha256": "8caddc22610ee2851666047c859bb91da0c1e32d0c2ec553db6f153ad130e46f"
+  }
+ ],
+ "duplicates_left_out": [
+  {
+   "path": "SOURCE-CONTENTS.json",
+   "same_bytes_as": "docs/source-recovery/SOURCE-CONTENTS-0.5.4.json",
+   "bytes": 77510
+  },
+  {
+   "path": "baselines/licenses/cosmopolitan-3.3.10/LICENSE",
+   "same_bytes_as": "baselines/licenses/Cosmopolitan-LICENSE-3.3.10",
+   "bytes": 759
+  },
+  {
+   "path": "docs/fastp-report-fix/LICENSE",
+   "same_bytes_as": "LICENSE",
+   "bytes": 1216
+  },
+  {
+   "path": "docs/fastp-report-fix/apply_fastp_fix.py",
+   "same_bytes_as": "scripts/apply_fastp_fix.py",
+   "bytes": 16215
+  },
+  {
+   "path": "docs/fastp-report-fix/licenses/Cosmocc-3.3.10-README.md",
+   "same_bytes_as": "baselines/licenses/Cosmocc-3.3.10-README.md",
+   "bytes": 14863
+  },
+  {
+   "path": "docs/fastp-report-fix/licenses/Cosmopolitan-LICENSE-3.3.10",
+   "same_bytes_as": "baselines/licenses/Cosmopolitan-LICENSE-3.3.10",
+   "bytes": 759
+  },
+  {
+   "path": "docs/fastp-report-fix/licenses/Native-Workbench-MIT.txt",
+   "same_bytes_as": "LICENSE",
+   "bytes": 1216
+  },
+  {
+   "path": "docs/fastp-report-fix/licenses/ape-loader-3.3.10-ISC-header.txt",
+   "same_bytes_as": "baselines/licenses/ape-loader-3.3.10-ISC-header.txt",
+   "bytes": 1836
+  },
+  {
+   "path": "docs/fastp-report-fix/licenses/minimap2-MIT-LICENSE",
+   "same_bytes_as": "baselines/licenses/minimap2-MIT-LICENSE",
+   "bytes": 1140
+  },
+  {
+   "path": "docs/fastp-report-fix/licenses/minimap2-embedded-runtime-notices.txt",
+   "same_bytes_as": "baselines/licenses/minimap2-embedded-runtime-notices.txt",
+   "bytes": 1717
+  },
+  {
+   "path": "docs/fastp-report-fix/licenses/provenance.json",
+   "same_bytes_as": "baselines/licenses/provenance.json",
+   "bytes": 7329
+  },
+  {
+   "path": "docs/fastp-report-fix/licenses/seqtk-MIT-LICENSE",
+   "same_bytes_as": "baselines/licenses/seqtk-MIT-LICENSE",
+   "bytes": 1086
+  },
+  {
+   "path": "docs/fastp-report-fix/licenses/seqtk-embedded-runtime-notices.txt",
+   "same_bytes_as": "baselines/licenses/seqtk-embedded-runtime-notices.txt",
+   "bytes": 1918
+  },
+  {
+   "path": "docs/fastp-report-fix/licenses/cosmopolitan-3.3.10/LICENSE",
+   "same_bytes_as": "baselines/licenses/Cosmopolitan-LICENSE-3.3.10",
+   "bytes": 759
+  },
+  {
+   "path": "docs/fastp-report-fix/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.fdlibm",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.fdlibm",
+   "bytes": 336
+  },
+  {
+   "path": "docs/fastp-report-fix/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.freebsd",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.freebsd",
+   "bytes": 6109
+  },
+  {
+   "path": "docs/fastp-report-fix/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.musl",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.musl",
+   "bytes": 6204
+  },
+  {
+   "path": "docs/fastp-report-fix/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.openbsd",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.openbsd",
+   "bytes": 19445
+  },
+  {
+   "path": "docs/fastp-report-fix/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.optimized-routines",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.optimized-routines",
+   "bytes": 13491
+  },
+  {
+   "path": "docs/fastp-report-fix/licenses/cosmopolitan-3.3.10/notice-source/libc/intrin/armopt.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/intrin/armopt.c",
+   "bytes": 109
+  },
+  {
+   "path": "docs/fastp-report-fix/licenses/cosmopolitan-3.3.10/notice-source/libc/intrin/musl.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/intrin/musl.c",
+   "bytes": 101
+  },
+  {
+   "path": "docs/fastp-report-fix/licenses/cosmopolitan-3.3.10/notice-source/libc/log/err.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/log/err.c",
+   "bytes": 5730
+  },
+  {
+   "path": "docs/fastp-report-fix/licenses/cosmopolitan-3.3.10/notice-source/libc/str/smoothsort.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/str/smoothsort.c",
+   "bytes": 7981
+  },
+  {
+   "path": "docs/fastp-report-fix/licenses/cosmopolitan-3.3.10/notice-source/libc/str/strlcpy.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/str/strlcpy.c",
+   "bytes": 2713
+  },
+  {
+   "path": "docs/fastp-report-fix/licenses/cosmopolitan-3.3.10/notice-source/libc/str/todd.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/str/todd.c",
+   "bytes": 124
+  },
+  {
+   "path": "docs/fastp-report-fix/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/gdtoa.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/gdtoa.c",
+   "bytes": 19547
+  },
+  {
+   "path": "docs/fastp-report-fix/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/gdtoa.internal.h",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/gdtoa.internal.h",
+   "bytes": 15838
+  },
+  {
+   "path": "docs/fastp-report-fix/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/notice.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/notice.c",
+   "bytes": 204
+  },
+  {
+   "path": "docs/fastp-report-fix/licenses/cosmopolitan-3.3.10/notice-source/third_party/puff/puff.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/puff/puff.c",
+   "bytes": 40453
+  },
+  {
+   "path": "docs/fastp-report-fix/licenses/cosmopolitan-3.3.10/third_party/nsync/LICENSE.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/nsync/LICENSE.txt",
+   "bytes": 11358
+  },
+  {
+   "path": "docs/fastp-report-fix/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE",
+   "bytes": 2971
+  },
+  {
+   "path": "docs/fastp-report-fix/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE.chromium",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE.chromium",
+   "bytes": 1536
+  },
+  {
+   "path": "docs/fastp-report-fix/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE.zlib",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE.zlib",
+   "bytes": 1002
+  },
+  {
+   "path": "docs/fastp-report-fix/licenses/windows-runtime/COPYING",
+   "same_bytes_as": "desktop/licenses/COPYING",
+   "bytes": 2326
+  },
+  {
+   "path": "docs/fastp-report-fix/licenses/windows-runtime/COPYING.MinGW-w64-runtime.txt",
+   "same_bytes_as": "desktop/licenses/COPYING.MinGW-w64-runtime.txt",
+   "bytes": 12155
+  },
+  {
+   "path": "docs/fastp-report-fix/licenses/windows-runtime/COPYING.MinGW-w64.txt",
+   "same_bytes_as": "desktop/licenses/COPYING.MinGW-w64.txt",
+   "bytes": 5905
+  },
+  {
+   "path": "docs/fastp-report-fix/licenses/windows-runtime/COPYING.winpthreads.txt",
+   "same_bytes_as": "desktop/licenses/COPYING.winpthreads.txt",
+   "bytes": 2883
+  },
+  {
+   "path": "docs/fastp-report-fix/licenses/windows-runtime/LLVM-Apache-2.0-with-exceptions.txt",
+   "same_bytes_as": "desktop/licenses/LLVM-Apache-2.0-with-exceptions.txt",
+   "bytes": 15141
+  },
+  {
+   "path": "docs/fastp-report-fix/source/README-0.4.1.txt",
+   "same_bytes_as": "README-0.4.1.txt",
+   "bytes": 8221
+  },
+  {
+   "path": "docs/fastp-report-fix/source/desktop/inspect_research.py",
+   "same_bytes_as": "desktop/inspect_research.py",
+   "bytes": 22015
+  },
+  {
+   "path": "docs/fastp-report-fix/source/desktop/modular_validation.cpp",
+   "same_bytes_as": "desktop/modular_validation.cpp",
+   "bytes": 77324
+  },
+  {
+   "path": "docs/fastp-report-fix/source/desktop/prepare_research_packs.py",
+   "same_bytes_as": "desktop/prepare_research_packs.py",
+   "bytes": 24336
+  },
+  {
+   "path": "docs/fastp-report-fix/source/scripts/apply_fastp_fix.py",
+   "same_bytes_as": "scripts/apply_fastp_fix.py",
+   "bytes": 16215
+  },
+  {
+   "path": "docs/fastp-report-fix/source/scripts/package_fastp_fix.py",
+   "same_bytes_as": "scripts/package_fastp_fix.py",
+   "bytes": 11848
+  },
+  {
+   "path": "docs/fastp-report-fix/source/tests/test_apply_fastp_fix.py",
+   "same_bytes_as": "tests/test_apply_fastp_fix.py",
+   "bytes": 9927
+  },
+  {
+   "path": "docs/fastp-report-fix/source/tools/build_fastp.py",
+   "same_bytes_as": "tools/build_fastp.py",
+   "bytes": 14870
+  },
+  {
+   "path": "docs/fastp-report-fix/source/tools/test_fastp.py",
+   "same_bytes_as": "tools/test_fastp.py",
+   "bytes": 12829
+  },
+  {
+   "path": "packs/bowtie2-0.5.3/licenses/bowtie2-2.5.5-LICENSE",
+   "same_bytes_as": "packs/bowtie2-0.5.3/licenses/GCC-COPYING3",
+   "bytes": 35147
+  },
+  {
+   "path": "packs/bowtie2-0.5.3/licenses/build_paircheck.py",
+   "same_bytes_as": "tools/build_paircheck.py",
+   "bytes": 9577
+  },
+  {
+   "path": "packs/bowtie2-0.5.3/licenses/mingw-COPYING",
+   "same_bytes_as": "desktop/licenses/COPYING.MinGW-w64.txt",
+   "bytes": 5905
+  },
+  {
+   "path": "packs/bowtie2-0.5.3/licenses/paircheck.c",
+   "same_bytes_as": "tools/paircheck.c",
+   "bytes": 15975
+  },
+  {
+   "path": "packs/bowtie2-0.5.3/licenses/winpthreads-COPYING",
+   "same_bytes_as": "desktop/licenses/COPYING.winpthreads.txt",
+   "bytes": 2883
+  },
+  {
+   "path": "packs/bowtie2-0.5.3/licenses/paircheck-runtime/Cosmocc-3.3.10-README.md",
+   "same_bytes_as": "baselines/licenses/Cosmocc-3.3.10-README.md",
+   "bytes": 14863
+  },
+  {
+   "path": "packs/bowtie2-0.5.3/licenses/paircheck-runtime/Cosmopolitan-LICENSE-3.3.10",
+   "same_bytes_as": "baselines/licenses/Cosmopolitan-LICENSE-3.3.10",
+   "bytes": 759
+  },
+  {
+   "path": "packs/bowtie2-0.5.3/licenses/paircheck-runtime/Native-Workbench-MIT.txt",
+   "same_bytes_as": "LICENSE",
+   "bytes": 1216
+  },
+  {
+   "path": "packs/bowtie2-0.5.3/licenses/paircheck-runtime/ape-loader-3.3.10-ISC-header.txt",
+   "same_bytes_as": "baselines/licenses/ape-loader-3.3.10-ISC-header.txt",
+   "bytes": 1836
+  },
+  {
+   "path": "packs/bowtie2-0.5.3/licenses/paircheck-runtime/minimap2-MIT-LICENSE",
+   "same_bytes_as": "baselines/licenses/minimap2-MIT-LICENSE",
+   "bytes": 1140
+  },
+  {
+   "path": "packs/bowtie2-0.5.3/licenses/paircheck-runtime/minimap2-embedded-runtime-notices.txt",
+   "same_bytes_as": "baselines/licenses/minimap2-embedded-runtime-notices.txt",
+   "bytes": 1717
+  },
+  {
+   "path": "packs/bowtie2-0.5.3/licenses/paircheck-runtime/provenance.json",
+   "same_bytes_as": "baselines/licenses/provenance.json",
+   "bytes": 7329
+  },
+  {
+   "path": "packs/bowtie2-0.5.3/licenses/paircheck-runtime/seqtk-MIT-LICENSE",
+   "same_bytes_as": "baselines/licenses/seqtk-MIT-LICENSE",
+   "bytes": 1086
+  },
+  {
+   "path": "packs/bowtie2-0.5.3/licenses/paircheck-runtime/seqtk-embedded-runtime-notices.txt",
+   "same_bytes_as": "baselines/licenses/seqtk-embedded-runtime-notices.txt",
+   "bytes": 1918
+  },
+  {
+   "path": "packs/bowtie2-0.5.3/licenses/paircheck-runtime/cosmopolitan-3.3.10/LICENSE",
+   "same_bytes_as": "baselines/licenses/Cosmopolitan-LICENSE-3.3.10",
+   "bytes": 759
+  },
+  {
+   "path": "packs/bowtie2-0.5.3/licenses/paircheck-runtime/cosmopolitan-3.3.10/libc/tinymath/LICENSE.fdlibm",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.fdlibm",
+   "bytes": 336
+  },
+  {
+   "path": "packs/bowtie2-0.5.3/licenses/paircheck-runtime/cosmopolitan-3.3.10/libc/tinymath/LICENSE.freebsd",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.freebsd",
+   "bytes": 6109
+  },
+  {
+   "path": "packs/bowtie2-0.5.3/licenses/paircheck-runtime/cosmopolitan-3.3.10/libc/tinymath/LICENSE.musl",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.musl",
+   "bytes": 6204
+  },
+  {
+   "path": "packs/bowtie2-0.5.3/licenses/paircheck-runtime/cosmopolitan-3.3.10/libc/tinymath/LICENSE.openbsd",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.openbsd",
+   "bytes": 19445
+  },
+  {
+   "path": "packs/bowtie2-0.5.3/licenses/paircheck-runtime/cosmopolitan-3.3.10/libc/tinymath/LICENSE.optimized-routines",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.optimized-routines",
+   "bytes": 13491
+  },
+  {
+   "path": "packs/bowtie2-0.5.3/licenses/paircheck-runtime/cosmopolitan-3.3.10/notice-source/libc/intrin/armopt.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/intrin/armopt.c",
+   "bytes": 109
+  },
+  {
+   "path": "packs/bowtie2-0.5.3/licenses/paircheck-runtime/cosmopolitan-3.3.10/notice-source/libc/intrin/musl.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/intrin/musl.c",
+   "bytes": 101
+  },
+  {
+   "path": "packs/bowtie2-0.5.3/licenses/paircheck-runtime/cosmopolitan-3.3.10/notice-source/libc/log/err.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/log/err.c",
+   "bytes": 5730
+  },
+  {
+   "path": "packs/bowtie2-0.5.3/licenses/paircheck-runtime/cosmopolitan-3.3.10/notice-source/libc/str/smoothsort.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/str/smoothsort.c",
+   "bytes": 7981
+  },
+  {
+   "path": "packs/bowtie2-0.5.3/licenses/paircheck-runtime/cosmopolitan-3.3.10/notice-source/libc/str/strlcpy.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/str/strlcpy.c",
+   "bytes": 2713
+  },
+  {
+   "path": "packs/bowtie2-0.5.3/licenses/paircheck-runtime/cosmopolitan-3.3.10/notice-source/libc/str/todd.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/str/todd.c",
+   "bytes": 124
+  },
+  {
+   "path": "packs/bowtie2-0.5.3/licenses/paircheck-runtime/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/gdtoa.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/gdtoa.c",
+   "bytes": 19547
+  },
+  {
+   "path": "packs/bowtie2-0.5.3/licenses/paircheck-runtime/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/gdtoa.internal.h",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/gdtoa.internal.h",
+   "bytes": 15838
+  },
+  {
+   "path": "packs/bowtie2-0.5.3/licenses/paircheck-runtime/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/notice.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/notice.c",
+   "bytes": 204
+  },
+  {
+   "path": "packs/bowtie2-0.5.3/licenses/paircheck-runtime/cosmopolitan-3.3.10/notice-source/third_party/puff/puff.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/puff/puff.c",
+   "bytes": 40453
+  },
+  {
+   "path": "packs/bowtie2-0.5.3/licenses/paircheck-runtime/cosmopolitan-3.3.10/third_party/nsync/LICENSE.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/nsync/LICENSE.txt",
+   "bytes": 11358
+  },
+  {
+   "path": "packs/bowtie2-0.5.3/licenses/paircheck-runtime/cosmopolitan-3.3.10/third_party/zlib/LICENSE",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE",
+   "bytes": 2971
+  },
+  {
+   "path": "packs/bowtie2-0.5.3/licenses/paircheck-runtime/cosmopolitan-3.3.10/third_party/zlib/LICENSE.chromium",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE.chromium",
+   "bytes": 1536
+  },
+  {
+   "path": "packs/bowtie2-0.5.3/licenses/paircheck-runtime/cosmopolitan-3.3.10/third_party/zlib/LICENSE.zlib",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE.zlib",
+   "bytes": 1002
+  },
+  {
+   "path": "packs/bowtie2-0.5.3/licenses/paircheck-runtime/windows-runtime/COPYING",
+   "same_bytes_as": "desktop/licenses/COPYING",
+   "bytes": 2326
+  },
+  {
+   "path": "packs/bowtie2-0.5.3/licenses/paircheck-runtime/windows-runtime/COPYING.MinGW-w64-runtime.txt",
+   "same_bytes_as": "desktop/licenses/COPYING.MinGW-w64-runtime.txt",
+   "bytes": 12155
+  },
+  {
+   "path": "packs/bowtie2-0.5.3/licenses/paircheck-runtime/windows-runtime/COPYING.MinGW-w64.txt",
+   "same_bytes_as": "desktop/licenses/COPYING.MinGW-w64.txt",
+   "bytes": 5905
+  },
+  {
+   "path": "packs/bowtie2-0.5.3/licenses/paircheck-runtime/windows-runtime/COPYING.winpthreads.txt",
+   "same_bytes_as": "desktop/licenses/COPYING.winpthreads.txt",
+   "bytes": 2883
+  },
+  {
+   "path": "packs/bowtie2-0.5.3/licenses/paircheck-runtime/windows-runtime/LLVM-Apache-2.0-with-exceptions.txt",
+   "same_bytes_as": "desktop/licenses/LLVM-Apache-2.0-with-exceptions.txt",
+   "bytes": 15141
+  },
+  {
+   "path": "packs/core-bio-0.2.0/licenses/Cosmocc-3.3.10-README.md",
+   "same_bytes_as": "baselines/licenses/Cosmocc-3.3.10-README.md",
+   "bytes": 14863
+  },
+  {
+   "path": "packs/core-bio-0.2.0/licenses/Cosmopolitan-LICENSE-3.3.10",
+   "same_bytes_as": "baselines/licenses/Cosmopolitan-LICENSE-3.3.10",
+   "bytes": 759
+  },
+  {
+   "path": "packs/core-bio-0.2.0/licenses/Native-Workbench-MIT.txt",
+   "same_bytes_as": "LICENSE",
+   "bytes": 1216
+  },
+  {
+   "path": "packs/core-bio-0.2.0/licenses/ape-loader-3.3.10-ISC-header.txt",
+   "same_bytes_as": "baselines/licenses/ape-loader-3.3.10-ISC-header.txt",
+   "bytes": 1836
+  },
+  {
+   "path": "packs/core-bio-0.2.0/licenses/minimap2-MIT-LICENSE",
+   "same_bytes_as": "baselines/licenses/minimap2-MIT-LICENSE",
+   "bytes": 1140
+  },
+  {
+   "path": "packs/core-bio-0.2.0/licenses/minimap2-embedded-runtime-notices.txt",
+   "same_bytes_as": "baselines/licenses/minimap2-embedded-runtime-notices.txt",
+   "bytes": 1717
+  },
+  {
+   "path": "packs/core-bio-0.2.0/licenses/provenance.json",
+   "same_bytes_as": "baselines/licenses/provenance.json",
+   "bytes": 7329
+  },
+  {
+   "path": "packs/core-bio-0.2.0/licenses/seqtk-MIT-LICENSE",
+   "same_bytes_as": "baselines/licenses/seqtk-MIT-LICENSE",
+   "bytes": 1086
+  },
+  {
+   "path": "packs/core-bio-0.2.0/licenses/seqtk-embedded-runtime-notices.txt",
+   "same_bytes_as": "baselines/licenses/seqtk-embedded-runtime-notices.txt",
+   "bytes": 1918
+  },
+  {
+   "path": "packs/core-bio-0.2.0/licenses/cosmopolitan-3.3.10/LICENSE",
+   "same_bytes_as": "baselines/licenses/Cosmopolitan-LICENSE-3.3.10",
+   "bytes": 759
+  },
+  {
+   "path": "packs/core-bio-0.2.0/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.fdlibm",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.fdlibm",
+   "bytes": 336
+  },
+  {
+   "path": "packs/core-bio-0.2.0/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.freebsd",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.freebsd",
+   "bytes": 6109
+  },
+  {
+   "path": "packs/core-bio-0.2.0/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.musl",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.musl",
+   "bytes": 6204
+  },
+  {
+   "path": "packs/core-bio-0.2.0/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.openbsd",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.openbsd",
+   "bytes": 19445
+  },
+  {
+   "path": "packs/core-bio-0.2.0/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.optimized-routines",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.optimized-routines",
+   "bytes": 13491
+  },
+  {
+   "path": "packs/core-bio-0.2.0/licenses/cosmopolitan-3.3.10/notice-source/libc/intrin/armopt.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/intrin/armopt.c",
+   "bytes": 109
+  },
+  {
+   "path": "packs/core-bio-0.2.0/licenses/cosmopolitan-3.3.10/notice-source/libc/intrin/musl.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/intrin/musl.c",
+   "bytes": 101
+  },
+  {
+   "path": "packs/core-bio-0.2.0/licenses/cosmopolitan-3.3.10/notice-source/libc/log/err.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/log/err.c",
+   "bytes": 5730
+  },
+  {
+   "path": "packs/core-bio-0.2.0/licenses/cosmopolitan-3.3.10/notice-source/libc/str/smoothsort.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/str/smoothsort.c",
+   "bytes": 7981
+  },
+  {
+   "path": "packs/core-bio-0.2.0/licenses/cosmopolitan-3.3.10/notice-source/libc/str/strlcpy.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/str/strlcpy.c",
+   "bytes": 2713
+  },
+  {
+   "path": "packs/core-bio-0.2.0/licenses/cosmopolitan-3.3.10/notice-source/libc/str/todd.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/str/todd.c",
+   "bytes": 124
+  },
+  {
+   "path": "packs/core-bio-0.2.0/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/gdtoa.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/gdtoa.c",
+   "bytes": 19547
+  },
+  {
+   "path": "packs/core-bio-0.2.0/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/gdtoa.internal.h",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/gdtoa.internal.h",
+   "bytes": 15838
+  },
+  {
+   "path": "packs/core-bio-0.2.0/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/notice.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/notice.c",
+   "bytes": 204
+  },
+  {
+   "path": "packs/core-bio-0.2.0/licenses/cosmopolitan-3.3.10/notice-source/third_party/puff/puff.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/puff/puff.c",
+   "bytes": 40453
+  },
+  {
+   "path": "packs/core-bio-0.2.0/licenses/cosmopolitan-3.3.10/third_party/nsync/LICENSE.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/nsync/LICENSE.txt",
+   "bytes": 11358
+  },
+  {
+   "path": "packs/core-bio-0.2.0/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE",
+   "bytes": 2971
+  },
+  {
+   "path": "packs/core-bio-0.2.0/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE.chromium",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE.chromium",
+   "bytes": 1536
+  },
+  {
+   "path": "packs/core-bio-0.2.0/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE.zlib",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE.zlib",
+   "bytes": 1002
+  },
+  {
+   "path": "packs/core-bio-0.2.0/licenses/windows-runtime/COPYING",
+   "same_bytes_as": "desktop/licenses/COPYING",
+   "bytes": 2326
+  },
+  {
+   "path": "packs/core-bio-0.2.0/licenses/windows-runtime/COPYING.MinGW-w64-runtime.txt",
+   "same_bytes_as": "desktop/licenses/COPYING.MinGW-w64-runtime.txt",
+   "bytes": 12155
+  },
+  {
+   "path": "packs/core-bio-0.2.0/licenses/windows-runtime/COPYING.MinGW-w64.txt",
+   "same_bytes_as": "desktop/licenses/COPYING.MinGW-w64.txt",
+   "bytes": 5905
+  },
+  {
+   "path": "packs/core-bio-0.2.0/licenses/windows-runtime/COPYING.winpthreads.txt",
+   "same_bytes_as": "desktop/licenses/COPYING.winpthreads.txt",
+   "bytes": 2883
+  },
+  {
+   "path": "packs/core-bio-0.2.0/licenses/windows-runtime/LLVM-Apache-2.0-with-exceptions.txt",
+   "same_bytes_as": "desktop/licenses/LLVM-Apache-2.0-with-exceptions.txt",
+   "bytes": 15141
+  },
+  {
+   "path": "packs/hisat2-0.5.3/licenses/COPYING",
+   "same_bytes_as": "desktop/licenses/COPYING",
+   "bytes": 2326
+  },
+  {
+   "path": "packs/hisat2-0.5.3/licenses/COPYING.MinGW-w64-runtime.txt",
+   "same_bytes_as": "desktop/licenses/COPYING.MinGW-w64-runtime.txt",
+   "bytes": 12155
+  },
+  {
+   "path": "packs/hisat2-0.5.3/licenses/COPYING.MinGW-w64.txt",
+   "same_bytes_as": "desktop/licenses/COPYING.MinGW-w64.txt",
+   "bytes": 5905
+  },
+  {
+   "path": "packs/hisat2-0.5.3/licenses/COPYING.winpthreads.txt",
+   "same_bytes_as": "desktop/licenses/COPYING.winpthreads.txt",
+   "bytes": 2883
+  },
+  {
+   "path": "packs/hisat2-0.5.3/licenses/GCC-RUNTIME-EXCEPTION-3.1.txt",
+   "same_bytes_as": "packs/bowtie2-0.5.3/licenses/GCC-COPYING.RUNTIME",
+   "bytes": 3324
+  },
+  {
+   "path": "packs/hisat2-0.5.3/licenses/HISAT2-GPL-3.0.txt",
+   "same_bytes_as": "packs/bowtie2-0.5.3/licenses/GCC-COPYING3",
+   "bytes": 35147
+  },
+  {
+   "path": "packs/hisat2-0.5.3/licenses/LLVM-LICENSE.txt",
+   "same_bytes_as": "desktop/licenses/LLVM-Apache-2.0-with-exceptions.txt",
+   "bytes": 15141
+  },
+  {
+   "path": "packs/hisat2-0.5.3/licenses/build_hisat2_native.py",
+   "same_bytes_as": "scripts/build_hisat2_native.py",
+   "bytes": 5952
+  },
+  {
+   "path": "packs/hisat2-0.5.3/licenses/paircheck.c",
+   "same_bytes_as": "tools/paircheck.c",
+   "bytes": 15975
+  },
+  {
+   "path": "packs/hisat2-0.5.3/licenses/portable-runtime/Cosmocc-3.3.10-README.md",
+   "same_bytes_as": "baselines/licenses/Cosmocc-3.3.10-README.md",
+   "bytes": 14863
+  },
+  {
+   "path": "packs/hisat2-0.5.3/licenses/portable-runtime/Cosmopolitan-LICENSE-3.3.10",
+   "same_bytes_as": "baselines/licenses/Cosmopolitan-LICENSE-3.3.10",
+   "bytes": 759
+  },
+  {
+   "path": "packs/hisat2-0.5.3/licenses/portable-runtime/ape-loader-3.3.10-ISC-header.txt",
+   "same_bytes_as": "baselines/licenses/ape-loader-3.3.10-ISC-header.txt",
+   "bytes": 1836
+  },
+  {
+   "path": "packs/hisat2-0.5.3/licenses/portable-runtime/minimap2-MIT-LICENSE",
+   "same_bytes_as": "baselines/licenses/minimap2-MIT-LICENSE",
+   "bytes": 1140
+  },
+  {
+   "path": "packs/hisat2-0.5.3/licenses/portable-runtime/minimap2-embedded-runtime-notices.txt",
+   "same_bytes_as": "baselines/licenses/minimap2-embedded-runtime-notices.txt",
+   "bytes": 1717
+  },
+  {
+   "path": "packs/hisat2-0.5.3/licenses/portable-runtime/provenance.json",
+   "same_bytes_as": "baselines/licenses/provenance.json",
+   "bytes": 7329
+  },
+  {
+   "path": "packs/hisat2-0.5.3/licenses/portable-runtime/seqtk-MIT-LICENSE",
+   "same_bytes_as": "baselines/licenses/seqtk-MIT-LICENSE",
+   "bytes": 1086
+  },
+  {
+   "path": "packs/hisat2-0.5.3/licenses/portable-runtime/seqtk-embedded-runtime-notices.txt",
+   "same_bytes_as": "baselines/licenses/seqtk-embedded-runtime-notices.txt",
+   "bytes": 1918
+  },
+  {
+   "path": "packs/hisat2-0.5.3/licenses/portable-runtime/cosmopolitan-3.3.10/LICENSE",
+   "same_bytes_as": "baselines/licenses/Cosmopolitan-LICENSE-3.3.10",
+   "bytes": 759
+  },
+  {
+   "path": "packs/hisat2-0.5.3/licenses/portable-runtime/cosmopolitan-3.3.10/libc/tinymath/LICENSE.fdlibm",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.fdlibm",
+   "bytes": 336
+  },
+  {
+   "path": "packs/hisat2-0.5.3/licenses/portable-runtime/cosmopolitan-3.3.10/libc/tinymath/LICENSE.freebsd",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.freebsd",
+   "bytes": 6109
+  },
+  {
+   "path": "packs/hisat2-0.5.3/licenses/portable-runtime/cosmopolitan-3.3.10/libc/tinymath/LICENSE.musl",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.musl",
+   "bytes": 6204
+  },
+  {
+   "path": "packs/hisat2-0.5.3/licenses/portable-runtime/cosmopolitan-3.3.10/libc/tinymath/LICENSE.openbsd",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.openbsd",
+   "bytes": 19445
+  },
+  {
+   "path": "packs/hisat2-0.5.3/licenses/portable-runtime/cosmopolitan-3.3.10/libc/tinymath/LICENSE.optimized-routines",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.optimized-routines",
+   "bytes": 13491
+  },
+  {
+   "path": "packs/hisat2-0.5.3/licenses/portable-runtime/cosmopolitan-3.3.10/notice-source/libc/intrin/armopt.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/intrin/armopt.c",
+   "bytes": 109
+  },
+  {
+   "path": "packs/hisat2-0.5.3/licenses/portable-runtime/cosmopolitan-3.3.10/notice-source/libc/intrin/musl.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/intrin/musl.c",
+   "bytes": 101
+  },
+  {
+   "path": "packs/hisat2-0.5.3/licenses/portable-runtime/cosmopolitan-3.3.10/notice-source/libc/log/err.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/log/err.c",
+   "bytes": 5730
+  },
+  {
+   "path": "packs/hisat2-0.5.3/licenses/portable-runtime/cosmopolitan-3.3.10/notice-source/libc/str/smoothsort.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/str/smoothsort.c",
+   "bytes": 7981
+  },
+  {
+   "path": "packs/hisat2-0.5.3/licenses/portable-runtime/cosmopolitan-3.3.10/notice-source/libc/str/strlcpy.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/str/strlcpy.c",
+   "bytes": 2713
+  },
+  {
+   "path": "packs/hisat2-0.5.3/licenses/portable-runtime/cosmopolitan-3.3.10/notice-source/libc/str/todd.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/str/todd.c",
+   "bytes": 124
+  },
+  {
+   "path": "packs/hisat2-0.5.3/licenses/portable-runtime/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/gdtoa.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/gdtoa.c",
+   "bytes": 19547
+  },
+  {
+   "path": "packs/hisat2-0.5.3/licenses/portable-runtime/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/gdtoa.internal.h",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/gdtoa.internal.h",
+   "bytes": 15838
+  },
+  {
+   "path": "packs/hisat2-0.5.3/licenses/portable-runtime/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/notice.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/notice.c",
+   "bytes": 204
+  },
+  {
+   "path": "packs/hisat2-0.5.3/licenses/portable-runtime/cosmopolitan-3.3.10/notice-source/third_party/puff/puff.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/puff/puff.c",
+   "bytes": 40453
+  },
+  {
+   "path": "packs/hisat2-0.5.3/licenses/portable-runtime/cosmopolitan-3.3.10/third_party/nsync/LICENSE.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/nsync/LICENSE.txt",
+   "bytes": 11358
+  },
+  {
+   "path": "packs/hisat2-0.5.3/licenses/portable-runtime/cosmopolitan-3.3.10/third_party/zlib/LICENSE",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE",
+   "bytes": 2971
+  },
+  {
+   "path": "packs/hisat2-0.5.3/licenses/portable-runtime/cosmopolitan-3.3.10/third_party/zlib/LICENSE.chromium",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE.chromium",
+   "bytes": 1536
+  },
+  {
+   "path": "packs/hisat2-0.5.3/licenses/portable-runtime/cosmopolitan-3.3.10/third_party/zlib/LICENSE.zlib",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE.zlib",
+   "bytes": 1002
+  },
+  {
+   "path": "packs/lofreq-0.5.3/licenses/build_lofreq.py",
+   "same_bytes_as": "tools/build_lofreq.py",
+   "bytes": 9287
+  },
+  {
+   "path": "packs/lofreq-0.5.3/licenses/build_variant.py",
+   "same_bytes_as": "build_variant.py",
+   "bytes": 6466
+  },
+  {
+   "path": "packs/lofreq-0.5.3/licenses/cosmo-08919e4a0fab.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/puff/puff.c",
+   "bytes": 40453
+  },
+  {
+   "path": "packs/lofreq-0.5.3/licenses/cosmo-0a4d0c35d10e.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE.chromium",
+   "bytes": 1536
+  },
+  {
+   "path": "packs/lofreq-0.5.3/licenses/cosmo-23fe236829e0.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE",
+   "bytes": 2971
+  },
+  {
+   "path": "packs/lofreq-0.5.3/licenses/cosmo-2e02e1fdffdd.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/notice.c",
+   "bytes": 204
+  },
+  {
+   "path": "packs/lofreq-0.5.3/licenses/cosmo-33307c2b2dd9.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.optimized-routines",
+   "bytes": 13491
+  },
+  {
+   "path": "packs/lofreq-0.5.3/licenses/cosmo-419eeeee451e.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/gdtoa.internal.h",
+   "bytes": 15838
+  },
+  {
+   "path": "packs/lofreq-0.5.3/licenses/cosmo-4e9d36274e34.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/gdtoa.c",
+   "bytes": 19547
+  },
+  {
+   "path": "packs/lofreq-0.5.3/licenses/cosmo-52e7a333bc22.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.musl",
+   "bytes": 6204
+  },
+  {
+   "path": "packs/lofreq-0.5.3/licenses/cosmo-576238310b08.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE.zlib",
+   "bytes": 1002
+  },
+  {
+   "path": "packs/lofreq-0.5.3/licenses/cosmo-6e9847f392bd.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/intrin/armopt.c",
+   "bytes": 109
+  },
+  {
+   "path": "packs/lofreq-0.5.3/licenses/cosmo-8eb208322ab9.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.fdlibm",
+   "bytes": 336
+  },
+  {
+   "path": "packs/lofreq-0.5.3/licenses/cosmo-92cd994db3a4.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/str/todd.c",
+   "bytes": 124
+  },
+  {
+   "path": "packs/lofreq-0.5.3/licenses/cosmo-9d4fd89dc08d.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/nsync/LICENSE.txt",
+   "bytes": 11358
+  },
+  {
+   "path": "packs/lofreq-0.5.3/licenses/cosmo-a5aeda998917.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.openbsd",
+   "bytes": 19445
+  },
+  {
+   "path": "packs/lofreq-0.5.3/licenses/cosmo-aeae7b159faf.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/log/err.c",
+   "bytes": 5730
+  },
+  {
+   "path": "packs/lofreq-0.5.3/licenses/cosmo-b6fa3455ae9f.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/str/strlcpy.c",
+   "bytes": 2713
+  },
+  {
+   "path": "packs/lofreq-0.5.3/licenses/cosmo-bb867fe0288a.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/intrin/musl.c",
+   "bytes": 101
+  },
+  {
+   "path": "packs/lofreq-0.5.3/licenses/cosmo-c693279643b8.txt",
+   "same_bytes_as": "baselines/licenses/Cosmopolitan-LICENSE-3.3.10",
+   "bytes": 759
+  },
+  {
+   "path": "packs/lofreq-0.5.3/licenses/cosmo-fb63f1333b85.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/str/smoothsort.c",
+   "bytes": 7981
+  },
+  {
+   "path": "packs/lofreq-0.5.3/licenses/cosmo-fcddfa410cb6.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.freebsd",
+   "bytes": 6109
+  },
+  {
+   "path": "packs/lofreq-0.5.3/licenses/prepare_lofreq_pack.py",
+   "same_bytes_as": "scripts/prepare_lofreq_pack.py",
+   "bytes": 19258
+  },
+  {
+   "path": "packs/lofreq-0.5.3/licenses/runtime-BUILD-NOTES.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/BUILD-NOTES.txt",
+   "bytes": 703
+  },
+  {
+   "path": "packs/lofreq-0.5.3/licenses/runtime-bcftools-1.24.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/bcftools-1.24.txt",
+   "bytes": 41065
+  },
+  {
+   "path": "packs/lofreq-0.5.3/licenses/runtime-bcftools-embedded-runtime-notices.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/bcftools-embedded-runtime-notices.txt",
+   "bytes": 2573
+  },
+  {
+   "path": "packs/lofreq-0.5.3/licenses/runtime-cosmopolitan-heapsort.c.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/cosmopolitan-heapsort.c.txt",
+   "bytes": 7903
+  },
+  {
+   "path": "packs/lofreq-0.5.3/licenses/runtime-cosmopolitan-mergesort.c.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/cosmopolitan-mergesort.c.txt",
+   "bytes": 11025
+  },
+  {
+   "path": "packs/lofreq-0.5.3/licenses/runtime-cosmopolitan-opensort.c.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/cosmopolitan-opensort.c.txt",
+   "bytes": 123
+  },
+  {
+   "path": "packs/lofreq-0.5.3/licenses/runtime-cosmopolitan-qsort.c.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/cosmopolitan-qsort.c.txt",
+   "bytes": 8568
+  },
+  {
+   "path": "packs/lofreq-0.5.3/licenses/runtime-cosmopolitan-strftime.c.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/cosmopolitan-strftime.c.txt",
+   "bytes": 16880
+  },
+  {
+   "path": "packs/lofreq-0.5.3/licenses/runtime-htscodecs-1.6.7.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/htscodecs-1.6.7.txt",
+   "bytes": 2160
+  },
+  {
+   "path": "packs/lofreq-0.5.3/licenses/runtime-htslib-1.24.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/htslib-1.24.txt",
+   "bytes": 3540
+  },
+  {
+   "path": "packs/lofreq-0.5.3/licenses/runtime-lz4.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/lz4.txt",
+   "bytes": 1311
+  },
+  {
+   "path": "packs/lofreq-0.5.3/licenses/runtime-runtime-notices-provenance.json",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/runtime-notices-provenance.json",
+   "bytes": 1811
+  },
+  {
+   "path": "packs/lofreq-0.5.3/licenses/runtime-samtools-1.24.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/samtools-1.24.txt",
+   "bytes": 1706
+  },
+  {
+   "path": "packs/lofreq-0.5.3/licenses/runtime-samtools-embedded-runtime-notices.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/samtools-embedded-runtime-notices.txt",
+   "bytes": 2368
+  },
+  {
+   "path": "packs/lofreq-0.5.3/licenses/runtime-source-header-notices.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/source-header-notices.txt",
+   "bytes": 961632
+  },
+  {
+   "path": "packs/muscle-0.5.2/licenses/COPYING",
+   "same_bytes_as": "desktop/licenses/COPYING",
+   "bytes": 2326
+  },
+  {
+   "path": "packs/muscle-0.5.2/licenses/COPYING.MinGW-w64-runtime.txt",
+   "same_bytes_as": "desktop/licenses/COPYING.MinGW-w64-runtime.txt",
+   "bytes": 12155
+  },
+  {
+   "path": "packs/muscle-0.5.2/licenses/COPYING.MinGW-w64.txt",
+   "same_bytes_as": "desktop/licenses/COPYING.MinGW-w64.txt",
+   "bytes": 5905
+  },
+  {
+   "path": "packs/muscle-0.5.2/licenses/COPYING.winpthreads.txt",
+   "same_bytes_as": "desktop/licenses/COPYING.winpthreads.txt",
+   "bytes": 2883
+  },
+  {
+   "path": "packs/muscle-0.5.2/licenses/COPYING.winstorecompat.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/COPYING.winstorecompat.txt",
+   "bytes": 1099
+  },
+  {
+   "path": "packs/muscle-0.5.2/licenses/LLVM-LICENSE.txt",
+   "same_bytes_as": "desktop/licenses/LLVM-Apache-2.0-with-exceptions.txt",
+   "bytes": 15141
+  },
+  {
+   "path": "packs/muscle-0.5.2/licenses/build_muscle_windows.py",
+   "same_bytes_as": "scripts/build_muscle_windows.py",
+   "bytes": 7642
+  },
+  {
+   "path": "packs/muscle-0.5.2/licenses/galaxy-LICENSE",
+   "same_bytes_as": "packs/bowtie2-0.5.3/licenses/galaxy-LICENSE",
+   "bytes": 1077
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/GPL-3.0.txt",
+   "same_bytes_as": "packs/muscle-0.5.2/licenses/MUSCLE-GPL-3.0.txt",
+   "bytes": 35149
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/gatk-notice-1c924813cc7cb91d.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/nsync/LICENSE.txt",
+   "bytes": 11358
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/gatk-notice-b5255fb26e3efc11.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/nsync/LICENSE.txt",
+   "bytes": 11358
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/gatk-notice-d1e3cabedd7280e8.txt",
+   "same_bytes_as": "docs/fastp-report-fix/licenses/fastp/highway-Apache2-LICENSE.txt",
+   "bytes": 11356
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/gatk-notice-eb652ac0eeb8fb2f.txt",
+   "same_bytes_as": "packs/mutect2-0.5.4/licenses/gatk-notice-75d4817c230af39c.txt",
+   "bytes": 11560
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/native-0bdef9e195c4df08.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/htscodecs-1.6.7.txt",
+   "bytes": 2160
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/native-0f932cb815a5d85a.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/lz4.txt",
+   "bytes": 1311
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/native-141b0b58b5bef6c4.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/intrin/musl.c",
+   "bytes": 101
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/native-2df9a75cc8fa423f.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE",
+   "bytes": 2971
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/native-3a3640573483802a.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/htslib-1.24.txt",
+   "bytes": 3540
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/native-3e339c803aad9356.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/cosmopolitan-heapsort.c.txt",
+   "bytes": 7903
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/native-49e23b8d489ca8e0.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/cosmopolitan-mergesort.c.txt",
+   "bytes": 11025
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/native-5c2dc730bd1327b5.txt",
+   "same_bytes_as": "baselines/licenses/Cosmopolitan-LICENSE-3.3.10",
+   "bytes": 759
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/native-62df1fecd571c20e.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.freebsd",
+   "bytes": 6109
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/native-64466ad5e1ff5206.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/intrin/armopt.c",
+   "bytes": 109
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/native-65a20323b4ead2d6.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/bcftools-1.24.txt",
+   "bytes": 41065
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/native-6e47599ab39ed273.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/gdtoa.internal.h",
+   "bytes": 15838
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/native-720e4e8ddd98a67b.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/cosmopolitan-strftime.c.txt",
+   "bytes": 16880
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/native-72f3f6a4695c08c6.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/cosmopolitan-qsort.c.txt",
+   "bytes": 8568
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/native-7315d1b1b0844d94.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/nsync/LICENSE.txt",
+   "bytes": 11358
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/native-811581c7affdf5d2.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/str/smoothsort.c",
+   "bytes": 7981
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/native-8710ca06fb9a3ee1.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE.chromium",
+   "bytes": 1536
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/native-8c04ed9e74967a29.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/cosmopolitan-opensort.c.txt",
+   "bytes": 123
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/native-99397cde9a1e05c2.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/str/strlcpy.c",
+   "bytes": 2713
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/native-99db9bda00917830.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/puff/puff.c",
+   "bytes": 40453
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/native-9a75636ef3750441.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.musl",
+   "bytes": 6204
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/native-9ce3505f64b3b296.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.fdlibm",
+   "bytes": 336
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/native-a504758beee9b53a.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/gdtoa.c",
+   "bytes": 19547
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/native-a7669f1adf3453be.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/notice.c",
+   "bytes": 204
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/native-b1ca13d38fcb28c2.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.optimized-routines",
+   "bytes": 13491
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/native-c064d957d8dda3ac.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/BUILD-NOTES.txt",
+   "bytes": 703
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/native-c1bedcc87b99953f.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/source-header-notices.txt",
+   "bytes": 961632
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/native-c38c79110e9a330d.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/bcftools-embedded-runtime-notices.txt",
+   "bytes": 2573
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/native-c78d348569aa55c1.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE.zlib",
+   "bytes": 1002
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/native-cca3393855eccfdd.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/samtools-embedded-runtime-notices.txt",
+   "bytes": 2368
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/native-ce2d013cfa7c3ae0.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/str/todd.c",
+   "bytes": 124
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/native-e8298d8cff5f1a72.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/log/err.c",
+   "bytes": 5730
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/native-ea3adb5e3b1e55ce.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/samtools-1.24.txt",
+   "bytes": 1706
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/native-ed3bd2ccb96e4761.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.openbsd",
+   "bytes": 19445
+  },
+  {
+   "path": "packs/mutect2-0.5.4/licenses/native-f66bd6c4b6be097b.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/runtime-notices-provenance.json",
+   "bytes": 1811
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/go/003-LICENSE",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/go/001-LICENSE",
+   "bytes": 1453
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/go/004-PATENTS",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/go/002-PATENTS",
+   "bytes": 1303
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/go/005-LICENSE",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/nsync/LICENSE.txt",
+   "bytes": 11358
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/go/009-PATENTS",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/go/002-PATENTS",
+   "bytes": 1303
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/go/010-LICENSE",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/go/001-LICENSE",
+   "bytes": 1453
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/go/011-PATENTS",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/go/002-PATENTS",
+   "bytes": 1303
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/go/012-LICENSE",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/go/001-LICENSE",
+   "bytes": 1453
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/go/013-PATENTS",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/go/002-PATENTS",
+   "bytes": 1303
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/go/014-LICENSE",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/go/001-LICENSE",
+   "bytes": 1453
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/go/015-PATENTS",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/go/002-PATENTS",
+   "bytes": 1303
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/go/016-LICENSE",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/go/001-LICENSE",
+   "bytes": 1453
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/go/017-PATENTS",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/go/002-PATENTS",
+   "bytes": 1303
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/go/018-LICENSE",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/go/001-LICENSE",
+   "bytes": 1453
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/go/019-PATENTS",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/go/002-PATENTS",
+   "bytes": 1303
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/go/020-LICENSE",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/go/001-LICENSE",
+   "bytes": 1453
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/go/021-PATENTS",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/go/002-PATENTS",
+   "bytes": 1303
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/go/022-LICENSE",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/go/001-LICENSE",
+   "bytes": 1453
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/go/023-PATENTS",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/go/002-PATENTS",
+   "bytes": 1303
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/go/024-LICENSE",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/go/001-LICENSE",
+   "bytes": 1453
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/go/025-PATENTS",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/go/002-PATENTS",
+   "bytes": 1303
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/go/030-LICENSE",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/go/001-LICENSE",
+   "bytes": 1453
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/go/031-PATENTS",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/go/002-PATENTS",
+   "bytes": 1303
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/go/032-LICENSE",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/go/001-LICENSE",
+   "bytes": 1453
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/go/033-PATENTS",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/go/002-PATENTS",
+   "bytes": 1303
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/go/034-LICENSE",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/go/001-LICENSE",
+   "bytes": 1453
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/go/035-PATENTS",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/go/002-PATENTS",
+   "bytes": 1303
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/go/036-LICENSE",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/go/001-LICENSE",
+   "bytes": 1453
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/go/037-PATENTS",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/go/002-PATENTS",
+   "bytes": 1303
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/modules/141571873008/002-LICENSE",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/modules/141571873008/001-LICENSE",
+   "bytes": 1091
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/modules/141571873008/003-LICENSE",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/modules/141571873008/001-LICENSE",
+   "bytes": 1091
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/modules/1a28682a3b0b/003-copyright.go",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/modules/1a28682a3b0b/002-copyright.go",
+   "bytes": 2994
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/modules/4d71e233fdb5/001-LICENSE",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/go/001-LICENSE",
+   "bytes": 1453
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/modules/4d71e233fdb5/002-PATENTS",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/go/002-PATENTS",
+   "bytes": 1303
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/modules/4eb74b485a48/002-LICENSE",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/modules/06cc41040e48/001-LICENSE",
+   "bytes": 1533
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/modules/6068564e18dc/001-LICENSE",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/modules/5d2ce87e5060/001-LICENSE",
+   "bytes": 1085
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/modules/6b13efd86cb2/001-LICENSE",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/go/001-LICENSE",
+   "bytes": 1453
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/modules/6b13efd86cb2/002-PATENTS",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/go/002-PATENTS",
+   "bytes": 1303
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/modules/7ed23dec1da4/001-LICENSE",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/go/001-LICENSE",
+   "bytes": 1453
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/modules/7ed23dec1da4/002-PATENTS",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/go/002-PATENTS",
+   "bytes": 1303
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/modules/9cb071e257db/001-UNLICENSE",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/modules/3a50ce192b5b/002-LICENSE",
+   "bytes": 1211
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/modules/b51318a5f09d/001-LICENSE",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/go/001-LICENSE",
+   "bytes": 1453
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/modules/b51318a5f09d/002-PATENTS",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/go/002-PATENTS",
+   "bytes": 1303
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/modules/dc957412cc90/001-LICENSE",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/go/001-LICENSE",
+   "bytes": 1453
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/modules/dc957412cc90/002-PATENTS",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/go/002-PATENTS",
+   "bytes": 1303
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/modules/e528a968c074/003-LICENSE",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/modules/bb6c89c0c093/001-LICENSE",
+   "bytes": 1477
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/modules/e528a968c074/009-LICENSE",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/modules/e528a968c074/004-LICENSE",
+   "bytes": 1486
+  },
+  {
+   "path": "packs/seqkit-0.5.2/licenses/modules/fe2c5c159ce7/001-LICENSE.txt",
+   "same_bytes_as": "packs/seqkit-0.5.2/licenses/modules/e528a968c074/011-LICENSE.txt",
+   "bytes": 1068
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/Microsoft-VC-Runtime-2015-2022-License.docx",
+   "same_bytes_as": "packs/mutect2-0.5.4/licenses/Microsoft-VC-Runtime-2015-2022-License.docx",
+   "bytes": 39644
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/commons-math3-3.6.1-1144eb91.txt",
+   "same_bytes_as": "packs/vardict-0.5.3/licenses/VarDict-1.8.3-1144eb91.txt",
+   "bytes": 324
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/commons-math3-3.6.1-81144c5e.txt",
+   "same_bytes_as": "packs/vardict-0.5.3/licenses/VarDict-1.8.3-81144c5e.txt",
+   "bytes": 24038
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/gcc-COPYING.RUNTIME.txt",
+   "same_bytes_as": "packs/bowtie2-0.5.3/licenses/GCC-COPYING.RUNTIME",
+   "bytes": 3324
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/gcc-COPYING3.txt",
+   "same_bytes_as": "packs/bowtie2-0.5.3/licenses/GCC-COPYING3",
+   "bytes": 35147
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/native-0bdef9e195c4df08.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/htscodecs-1.6.7.txt",
+   "bytes": 2160
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/native-0f932cb815a5d85a.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/lz4.txt",
+   "bytes": 1311
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/native-141b0b58b5bef6c4.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/intrin/musl.c",
+   "bytes": 101
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/native-2df9a75cc8fa423f.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE",
+   "bytes": 2971
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/native-3a3640573483802a.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/htslib-1.24.txt",
+   "bytes": 3540
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/native-3e339c803aad9356.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/cosmopolitan-heapsort.c.txt",
+   "bytes": 7903
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/native-49e23b8d489ca8e0.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/cosmopolitan-mergesort.c.txt",
+   "bytes": 11025
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/native-5c2dc730bd1327b5.txt",
+   "same_bytes_as": "baselines/licenses/Cosmopolitan-LICENSE-3.3.10",
+   "bytes": 759
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/native-62df1fecd571c20e.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.freebsd",
+   "bytes": 6109
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/native-64466ad5e1ff5206.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/intrin/armopt.c",
+   "bytes": 109
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/native-65a20323b4ead2d6.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/bcftools-1.24.txt",
+   "bytes": 41065
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/native-6e47599ab39ed273.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/gdtoa.internal.h",
+   "bytes": 15838
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/native-720e4e8ddd98a67b.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/cosmopolitan-strftime.c.txt",
+   "bytes": 16880
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/native-72f3f6a4695c08c6.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/cosmopolitan-qsort.c.txt",
+   "bytes": 8568
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/native-7315d1b1b0844d94.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/nsync/LICENSE.txt",
+   "bytes": 11358
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/native-811581c7affdf5d2.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/str/smoothsort.c",
+   "bytes": 7981
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/native-8710ca06fb9a3ee1.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE.chromium",
+   "bytes": 1536
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/native-8c04ed9e74967a29.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/cosmopolitan-opensort.c.txt",
+   "bytes": 123
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/native-99397cde9a1e05c2.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/str/strlcpy.c",
+   "bytes": 2713
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/native-99db9bda00917830.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/puff/puff.c",
+   "bytes": 40453
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/native-9a75636ef3750441.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.musl",
+   "bytes": 6204
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/native-9ce3505f64b3b296.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.fdlibm",
+   "bytes": 336
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/native-a504758beee9b53a.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/gdtoa.c",
+   "bytes": 19547
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/native-a7669f1adf3453be.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/notice.c",
+   "bytes": 204
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/native-b1ca13d38fcb28c2.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.optimized-routines",
+   "bytes": 13491
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/native-c064d957d8dda3ac.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/BUILD-NOTES.txt",
+   "bytes": 703
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/native-c1bedcc87b99953f.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/source-header-notices.txt",
+   "bytes": 961632
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/native-c38c79110e9a330d.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/bcftools-embedded-runtime-notices.txt",
+   "bytes": 2573
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/native-c78d348569aa55c1.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE.zlib",
+   "bytes": 1002
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/native-cca3393855eccfdd.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/samtools-embedded-runtime-notices.txt",
+   "bytes": 2368
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/native-ce2d013cfa7c3ae0.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/str/todd.c",
+   "bytes": 124
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/native-e8298d8cff5f1a72.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/log/err.c",
+   "bytes": 5730
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/native-ea3adb5e3b1e55ce.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/samtools-1.24.txt",
+   "bytes": 1706
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/native-ed3bd2ccb96e4761.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.openbsd",
+   "bytes": 19445
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/native-f66bd6c4b6be097b.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/runtime-notices-provenance.json",
+   "bytes": 1811
+  },
+  {
+   "path": "packs/vardict-0.5.3/licenses/native-notice-index.json",
+   "same_bytes_as": "packs/mutect2-0.5.4/licenses/native-notice-index.json",
+   "bytes": 3419
+  },
+  {
+   "path": "packs/vsearch-0.5.2/licenses/LICENSE_GNU_GPL3.txt",
+   "same_bytes_as": "packs/bowtie2-0.5.3/licenses/GCC-COPYING3",
+   "bytes": 35147
+  },
+  {
+   "path": "packs/vsearch-0.5.2/licenses/build_paircheck.py",
+   "same_bytes_as": "tools/build_paircheck.py",
+   "bytes": 9577
+  },
+  {
+   "path": "packs/vsearch-0.5.2/licenses/cosmo-08919e4a0fab.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/puff/puff.c",
+   "bytes": 40453
+  },
+  {
+   "path": "packs/vsearch-0.5.2/licenses/cosmo-0a4d0c35d10e.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE.chromium",
+   "bytes": 1536
+  },
+  {
+   "path": "packs/vsearch-0.5.2/licenses/cosmo-23fe236829e0.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE",
+   "bytes": 2971
+  },
+  {
+   "path": "packs/vsearch-0.5.2/licenses/cosmo-2e02e1fdffdd.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/notice.c",
+   "bytes": 204
+  },
+  {
+   "path": "packs/vsearch-0.5.2/licenses/cosmo-33307c2b2dd9.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.optimized-routines",
+   "bytes": 13491
+  },
+  {
+   "path": "packs/vsearch-0.5.2/licenses/cosmo-419eeeee451e.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/gdtoa.internal.h",
+   "bytes": 15838
+  },
+  {
+   "path": "packs/vsearch-0.5.2/licenses/cosmo-4e9d36274e34.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/gdtoa.c",
+   "bytes": 19547
+  },
+  {
+   "path": "packs/vsearch-0.5.2/licenses/cosmo-52e7a333bc22.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.musl",
+   "bytes": 6204
+  },
+  {
+   "path": "packs/vsearch-0.5.2/licenses/cosmo-576238310b08.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE.zlib",
+   "bytes": 1002
+  },
+  {
+   "path": "packs/vsearch-0.5.2/licenses/cosmo-6e9847f392bd.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/intrin/armopt.c",
+   "bytes": 109
+  },
+  {
+   "path": "packs/vsearch-0.5.2/licenses/cosmo-8eb208322ab9.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.fdlibm",
+   "bytes": 336
+  },
+  {
+   "path": "packs/vsearch-0.5.2/licenses/cosmo-92cd994db3a4.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/str/todd.c",
+   "bytes": 124
+  },
+  {
+   "path": "packs/vsearch-0.5.2/licenses/cosmo-9d4fd89dc08d.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/nsync/LICENSE.txt",
+   "bytes": 11358
+  },
+  {
+   "path": "packs/vsearch-0.5.2/licenses/cosmo-a5aeda998917.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.openbsd",
+   "bytes": 19445
+  },
+  {
+   "path": "packs/vsearch-0.5.2/licenses/cosmo-aeae7b159faf.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/log/err.c",
+   "bytes": 5730
+  },
+  {
+   "path": "packs/vsearch-0.5.2/licenses/cosmo-b6fa3455ae9f.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/str/strlcpy.c",
+   "bytes": 2713
+  },
+  {
+   "path": "packs/vsearch-0.5.2/licenses/cosmo-bb867fe0288a.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/intrin/musl.c",
+   "bytes": 101
+  },
+  {
+   "path": "packs/vsearch-0.5.2/licenses/cosmo-c693279643b8.txt",
+   "same_bytes_as": "baselines/licenses/Cosmopolitan-LICENSE-3.3.10",
+   "bytes": 759
+  },
+  {
+   "path": "packs/vsearch-0.5.2/licenses/cosmo-fb63f1333b85.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/str/smoothsort.c",
+   "bytes": 7981
+  },
+  {
+   "path": "packs/vsearch-0.5.2/licenses/cosmo-fcddfa410cb6.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.freebsd",
+   "bytes": 6109
+  },
+  {
+   "path": "packs/vsearch-0.5.2/licenses/paircheck.c",
+   "same_bytes_as": "tools/paircheck.c",
+   "bytes": 15975
+  },
+  {
+   "path": "packs/vsearch-0.5.2/licenses/zlib-1.3.1.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE.zlib",
+   "bytes": 1002
+  },
+  {
+   "path": "validation/vardict-0.5.3-fisher.json",
+   "same_bytes_as": "packs/vardict-0.5.3/licenses/fisher-validation.json",
+   "bytes": 10089
+  },
+  {
+   "path": "vendor-expanded/fastp-offline-report.patch",
+   "same_bytes_as": "docs/fastp-report-fix/source/vendor-expanded/fastp-offline-report.patch",
+   "bytes": 5556
+  },
+  {
+   "path": "vendor-expanded/bwa/licenses/BUILD-NOTES.txt",
+   "same_bytes_as": "vendor-expanded/bwa/BUILD-NOTES.txt",
+   "bytes": 5382
+  },
+  {
+   "path": "vendor-expanded/bwa/licenses/BWA-0.7.19-COPYING",
+   "same_bytes_as": "packs/bowtie2-0.5.3/licenses/GCC-COPYING3",
+   "bytes": 35147
+  },
+  {
+   "path": "vendor-expanded/bwa/licenses/Cosmocc-3.3.10-README.md",
+   "same_bytes_as": "baselines/licenses/Cosmocc-3.3.10-README.md",
+   "bytes": 14863
+  },
+  {
+   "path": "vendor-expanded/bwa/licenses/Cosmopolitan-LICENSE-3.3.10",
+   "same_bytes_as": "baselines/licenses/Cosmopolitan-LICENSE-3.3.10",
+   "bytes": 759
+  },
+  {
+   "path": "vendor-expanded/bwa/licenses/ape-loader-3.3.10-ISC-header.txt",
+   "same_bytes_as": "baselines/licenses/ape-loader-3.3.10-ISC-header.txt",
+   "bytes": 1836
+  },
+  {
+   "path": "vendor-expanded/bwa/licenses/cosmopolitan-3.3.10/LICENSE",
+   "same_bytes_as": "baselines/licenses/Cosmopolitan-LICENSE-3.3.10",
+   "bytes": 759
+  },
+  {
+   "path": "vendor-expanded/bwa/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.fdlibm",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.fdlibm",
+   "bytes": 336
+  },
+  {
+   "path": "vendor-expanded/bwa/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.freebsd",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.freebsd",
+   "bytes": 6109
+  },
+  {
+   "path": "vendor-expanded/bwa/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.musl",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.musl",
+   "bytes": 6204
+  },
+  {
+   "path": "vendor-expanded/bwa/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.openbsd",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.openbsd",
+   "bytes": 19445
+  },
+  {
+   "path": "vendor-expanded/bwa/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.optimized-routines",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.optimized-routines",
+   "bytes": 13491
+  },
+  {
+   "path": "vendor-expanded/bwa/licenses/cosmopolitan-3.3.10/notice-source/libc/intrin/armopt.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/intrin/armopt.c",
+   "bytes": 109
+  },
+  {
+   "path": "vendor-expanded/bwa/licenses/cosmopolitan-3.3.10/notice-source/libc/intrin/musl.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/intrin/musl.c",
+   "bytes": 101
+  },
+  {
+   "path": "vendor-expanded/bwa/licenses/cosmopolitan-3.3.10/notice-source/libc/log/err.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/log/err.c",
+   "bytes": 5730
+  },
+  {
+   "path": "vendor-expanded/bwa/licenses/cosmopolitan-3.3.10/notice-source/libc/str/smoothsort.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/str/smoothsort.c",
+   "bytes": 7981
+  },
+  {
+   "path": "vendor-expanded/bwa/licenses/cosmopolitan-3.3.10/notice-source/libc/str/strlcpy.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/str/strlcpy.c",
+   "bytes": 2713
+  },
+  {
+   "path": "vendor-expanded/bwa/licenses/cosmopolitan-3.3.10/notice-source/libc/str/todd.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/str/todd.c",
+   "bytes": 124
+  },
+  {
+   "path": "vendor-expanded/bwa/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/gdtoa.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/gdtoa.c",
+   "bytes": 19547
+  },
+  {
+   "path": "vendor-expanded/bwa/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/gdtoa.internal.h",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/gdtoa.internal.h",
+   "bytes": 15838
+  },
+  {
+   "path": "vendor-expanded/bwa/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/notice.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/notice.c",
+   "bytes": 204
+  },
+  {
+   "path": "vendor-expanded/bwa/licenses/cosmopolitan-3.3.10/notice-source/third_party/puff/puff.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/puff/puff.c",
+   "bytes": 40453
+  },
+  {
+   "path": "vendor-expanded/bwa/licenses/cosmopolitan-3.3.10/third_party/nsync/LICENSE.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/nsync/LICENSE.txt",
+   "bytes": 11358
+  },
+  {
+   "path": "vendor-expanded/bwa/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE",
+   "bytes": 2971
+  },
+  {
+   "path": "vendor-expanded/bwa/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE.chromium",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE.chromium",
+   "bytes": 1536
+  },
+  {
+   "path": "vendor-expanded/bwa/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE.zlib",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE.zlib",
+   "bytes": 1002
+  },
+  {
+   "path": "vendor-expanded/cutadapt/licenses/zlib_ng-1.0.0.dist-info/licenses/LICENSE",
+   "same_bytes_as": "vendor-expanded/cutadapt/licenses/isal-1.8.0.dist-info/licenses/LICENSE",
+   "bytes": 2532
+  },
+  {
+   "path": "vendor-expanded/fastp-licenses/BUILD-NOTES.txt",
+   "same_bytes_as": "docs/fastp-report-fix/licenses/fastp/BUILD-NOTES.txt",
+   "bytes": 604
+  },
+  {
+   "path": "vendor-expanded/fastp-licenses/cosmopolitan-libcxx-LICENSE.txt",
+   "same_bytes_as": "docs/fastp-report-fix/licenses/fastp/cosmopolitan-libcxx-LICENSE.txt",
+   "bytes": 16703
+  },
+  {
+   "path": "vendor-expanded/fastp-licenses/cosmopolitan-libcxxabi-LICENSE.txt",
+   "same_bytes_as": "docs/fastp-report-fix/licenses/fastp/cosmopolitan-libcxxabi-LICENSE.txt",
+   "bytes": 16706
+  },
+  {
+   "path": "vendor-expanded/fastp-licenses/cosmopolitan-libunwind-LICENSE.txt",
+   "same_bytes_as": "docs/fastp-report-fix/licenses/fastp/cosmopolitan-libunwind-LICENSE.txt",
+   "bytes": 16706
+  },
+  {
+   "path": "vendor-expanded/fastp-licenses/fastp-MIT-LICENSE.txt",
+   "same_bytes_as": "docs/fastp-report-fix/licenses/fastp/fastp-MIT-LICENSE.txt",
+   "bytes": 1096
+  },
+  {
+   "path": "vendor-expanded/fastp-licenses/highway-Apache2-LICENSE.txt",
+   "same_bytes_as": "docs/fastp-report-fix/licenses/fastp/highway-Apache2-LICENSE.txt",
+   "bytes": 11356
+  },
+  {
+   "path": "vendor-expanded/fastp-licenses/highway-BSD3-LICENSE.txt",
+   "same_bytes_as": "docs/fastp-report-fix/licenses/fastp/highway-BSD3-LICENSE.txt",
+   "bytes": 1515
+  },
+  {
+   "path": "vendor-expanded/fastp-licenses/isa-l-BSD3-LICENSE.txt",
+   "same_bytes_as": "docs/fastp-report-fix/licenses/fastp/isa-l-BSD3-LICENSE.txt",
+   "bytes": 1600
+  },
+  {
+   "path": "vendor-expanded/fastp-licenses/libdeflate-MIT-LICENSE.txt",
+   "same_bytes_as": "docs/fastp-report-fix/licenses/fastp/libdeflate-MIT-LICENSE.txt",
+   "bytes": 1078
+  },
+  {
+   "path": "vendor-expanded/fastp-licenses/plotly-MIT-LICENSE.txt",
+   "same_bytes_as": "docs/fastp-report-fix/licenses/fastp/plotly-MIT-LICENSE.txt",
+   "bytes": 1078
+  },
+  {
+   "path": "vendor-expanded/freebayes/licenses/BUILD-NOTES.txt",
+   "same_bytes_as": "vendor-expanded/freebayes/README.txt",
+   "bytes": 3473
+  },
+  {
+   "path": "vendor-expanded/freebayes/licenses/cosmo-LICENSE",
+   "same_bytes_as": "baselines/licenses/Cosmopolitan-LICENSE-3.3.10",
+   "bytes": 759
+  },
+  {
+   "path": "vendor-expanded/freebayes/licenses/cosmo-libc-tinymath-LICENSE.fdlibm",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.fdlibm",
+   "bytes": 336
+  },
+  {
+   "path": "vendor-expanded/freebayes/licenses/cosmo-libc-tinymath-LICENSE.freebsd",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.freebsd",
+   "bytes": 6109
+  },
+  {
+   "path": "vendor-expanded/freebayes/licenses/cosmo-libc-tinymath-LICENSE.musl",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.musl",
+   "bytes": 6204
+  },
+  {
+   "path": "vendor-expanded/freebayes/licenses/cosmo-libc-tinymath-LICENSE.openbsd",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.openbsd",
+   "bytes": 19445
+  },
+  {
+   "path": "vendor-expanded/freebayes/licenses/cosmo-libc-tinymath-LICENSE.optimized-routines",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.optimized-routines",
+   "bytes": 13491
+  },
+  {
+   "path": "vendor-expanded/freebayes/licenses/cosmo-notice-source-libc-intrin-armopt.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/intrin/armopt.c",
+   "bytes": 109
+  },
+  {
+   "path": "vendor-expanded/freebayes/licenses/cosmo-notice-source-libc-intrin-musl.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/intrin/musl.c",
+   "bytes": 101
+  },
+  {
+   "path": "vendor-expanded/freebayes/licenses/cosmo-notice-source-libc-log-err.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/log/err.c",
+   "bytes": 5730
+  },
+  {
+   "path": "vendor-expanded/freebayes/licenses/cosmo-notice-source-libc-str-smoothsort.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/str/smoothsort.c",
+   "bytes": 7981
+  },
+  {
+   "path": "vendor-expanded/freebayes/licenses/cosmo-notice-source-libc-str-strlcpy.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/str/strlcpy.c",
+   "bytes": 2713
+  },
+  {
+   "path": "vendor-expanded/freebayes/licenses/cosmo-notice-source-libc-str-todd.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/libc/str/todd.c",
+   "bytes": 124
+  },
+  {
+   "path": "vendor-expanded/freebayes/licenses/cosmo-notice-source-third_party-gdtoa-gdtoa.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/gdtoa.c",
+   "bytes": 19547
+  },
+  {
+   "path": "vendor-expanded/freebayes/licenses/cosmo-notice-source-third_party-gdtoa-gdtoa.internal.h",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/gdtoa.internal.h",
+   "bytes": 15838
+  },
+  {
+   "path": "vendor-expanded/freebayes/licenses/cosmo-notice-source-third_party-gdtoa-notice.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/gdtoa/notice.c",
+   "bytes": 204
+  },
+  {
+   "path": "vendor-expanded/freebayes/licenses/cosmo-notice-source-third_party-puff-puff.c",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/notice-source/third_party/puff/puff.c",
+   "bytes": 40453
+  },
+  {
+   "path": "vendor-expanded/freebayes/licenses/cosmo-third_party-nsync-LICENSE.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/nsync/LICENSE.txt",
+   "bytes": 11358
+  },
+  {
+   "path": "vendor-expanded/freebayes/licenses/cosmo-third_party-zlib-LICENSE",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE",
+   "bytes": 2971
+  },
+  {
+   "path": "vendor-expanded/freebayes/licenses/cosmo-third_party-zlib-LICENSE.chromium",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE.chromium",
+   "bytes": 1536
+  },
+  {
+   "path": "vendor-expanded/freebayes/licenses/cosmo-third_party-zlib-LICENSE.zlib",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE.zlib",
+   "bytes": 1002
+  },
+  {
+   "path": "vendor-expanded/freebayes/licenses/cosmopolitan-3.3.10-libcxx-LICENSE.txt",
+   "same_bytes_as": "docs/fastp-report-fix/licenses/fastp/cosmopolitan-libcxx-LICENSE.txt",
+   "bytes": 16703
+  },
+  {
+   "path": "vendor-expanded/freebayes/licenses/cosmopolitan-3.3.10-libcxxabi-LICENSE.txt",
+   "same_bytes_as": "docs/fastp-report-fix/licenses/fastp/cosmopolitan-libcxxabi-LICENSE.txt",
+   "bytes": 16706
+  },
+  {
+   "path": "vendor-expanded/freebayes/licenses/cosmopolitan-3.3.10-libunwind-LICENSE.txt",
+   "same_bytes_as": "docs/fastp-report-fix/licenses/fastp/cosmopolitan-libunwind-LICENSE.txt",
+   "bytes": 16706
+  },
+  {
+   "path": "vendor-expanded/freebayes/licenses/freebayes-1.3.10-contrib-smithwaterman-LICENSE",
+   "same_bytes_as": "vendor-expanded/freebayes/licenses/freebayes-1.3.10-contrib-fastahack-LICENSE",
+   "bytes": 1080
+  },
+  {
+   "path": "vendor-expanded/freebayes/licenses/freebayes-1.3.10-contrib-smithwaterman-libdisorder.LICENSE",
+   "same_bytes_as": "vendor-expanded/freebayes/licenses/freebayes-1.3.10-contrib-fastahack-libdisorder.LICENSE",
+   "bytes": 18325
+  },
+  {
+   "path": "vendor-expanded/freebayes/licenses/musl-1.2.5-COPYRIGHT",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/libc/tinymath/LICENSE.musl",
+   "bytes": 6204
+  },
+  {
+   "path": "vendor-expanded/freebayes/licenses/variant-cosmopolitan-heapsort.c.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/cosmopolitan-heapsort.c.txt",
+   "bytes": 7903
+  },
+  {
+   "path": "vendor-expanded/freebayes/licenses/variant-cosmopolitan-mergesort.c.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/cosmopolitan-mergesort.c.txt",
+   "bytes": 11025
+  },
+  {
+   "path": "vendor-expanded/freebayes/licenses/variant-cosmopolitan-opensort.c.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/cosmopolitan-opensort.c.txt",
+   "bytes": 123
+  },
+  {
+   "path": "vendor-expanded/freebayes/licenses/variant-cosmopolitan-qsort.c.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/cosmopolitan-qsort.c.txt",
+   "bytes": 8568
+  },
+  {
+   "path": "vendor-expanded/freebayes/licenses/variant-cosmopolitan-strftime.c.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/cosmopolitan-strftime.c.txt",
+   "bytes": 16880
+  },
+  {
+   "path": "vendor-expanded/freebayes/licenses/variant-htscodecs-1.6.7.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/htscodecs-1.6.7.txt",
+   "bytes": 2160
+  },
+  {
+   "path": "vendor-expanded/freebayes/licenses/variant-htslib-1.24.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/htslib-1.24.txt",
+   "bytes": 3540
+  },
+  {
+   "path": "vendor-expanded/freebayes/licenses/variant-lz4.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/lz4.txt",
+   "bytes": 1311
+  },
+  {
+   "path": "vendor-expanded/freebayes/licenses/variant-source-header-notices.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/source-header-notices.txt",
+   "bytes": 961632
+  },
+  {
+   "path": "vendor-expanded/gatk-thirdparty/GATK-THIRD-PARTY-SOURCES.txt",
+   "same_bytes_as": "packs/mutect2-0.5.4/licenses/GATK-THIRD-PARTY-SOURCES.txt",
+   "bytes": 3499
+  },
+  {
+   "path": "vendor-expanded/gatk-thirdparty/GPL-2.0.txt",
+   "same_bytes_as": "packs/mutect2-0.5.4/licenses/GPL-2.0.txt",
+   "bytes": 17984
+  },
+  {
+   "path": "vendor-expanded/gatk-thirdparty/GPL-3.0.txt",
+   "same_bytes_as": "packs/muscle-0.5.2/licenses/MUSCLE-GPL-3.0.txt",
+   "bytes": 35149
+  },
+  {
+   "path": "vendor-expanded/gatk-thirdparty/GenomicsDB-1.5.5-LICENSE.txt",
+   "same_bytes_as": "packs/mutect2-0.5.4/licenses/GenomicsDB-1.5.5-LICENSE.txt",
+   "bytes": 3143
+  },
+  {
+   "path": "vendor-expanded/gatk-thirdparty/JniLoader-LICENSE.txt",
+   "same_bytes_as": "packs/mutect2-0.5.4/licenses/JniLoader-LICENSE.txt",
+   "bytes": 7632
+  },
+  {
+   "path": "vendor-expanded/gatk-thirdparty/LGPL-2.0.txt",
+   "same_bytes_as": "packs/mutect2-0.5.4/licenses/LGPL-2.0.txt",
+   "bytes": 25270
+  },
+  {
+   "path": "vendor-expanded/gatk-thirdparty/LGPL-2.1.txt",
+   "same_bytes_as": "packs/mutect2-0.5.4/licenses/LGPL-2.1.txt",
+   "bytes": 26419
+  },
+  {
+   "path": "vendor-expanded/gatk-thirdparty/LGPL-3.0.txt",
+   "same_bytes_as": "packs/mutect2-0.5.4/licenses/LGPL-3.0.txt",
+   "bytes": 7652
+  },
+  {
+   "path": "vendor-expanded/gatk-thirdparty/gatk-embedded-components.json",
+   "same_bytes_as": "packs/mutect2-0.5.4/licenses/gatk-embedded-components.json",
+   "bytes": 197726
+  },
+  {
+   "path": "vendor-expanded/gatk-thirdparty/gatk-native-source-audit.json",
+   "same_bytes_as": "packs/mutect2-0.5.4/licenses/gatk-native-source-audit.json",
+   "bytes": 3107
+  },
+  {
+   "path": "vendor-expanded/gatk-thirdparty/gatk-thirdparty-notices.txt",
+   "same_bytes_as": "packs/mutect2-0.5.4/licenses/gatk-thirdparty-notices.txt",
+   "bytes": 1236484
+  },
+  {
+   "path": "vendor-expanded/gatk-thirdparty/gatk-thirdparty-poms.json",
+   "same_bytes_as": "packs/mutect2-0.5.4/licenses/gatk-thirdparty-poms.json",
+   "bytes": 5868606
+  },
+  {
+   "path": "vendor-expanded/gatk-thirdparty/gatk-thirdparty-source-inventory.json",
+   "same_bytes_as": "packs/mutect2-0.5.4/licenses/gatk-thirdparty-source-inventory.json",
+   "bytes": 33067
+  },
+  {
+   "path": "vendor-expanded/gatk-thirdparty/gnu.getopt--java-getopt-1.0.13.pom",
+   "same_bytes_as": "packs/mutect2-0.5.4/licenses/gnu.getopt--java-getopt-1.0.13.pom",
+   "bytes": 2001
+  },
+  {
+   "path": "vendor-expanded/gatk-thirdparty/net.sourceforge.f2j--arpack_combined_all-0.1.pom",
+   "same_bytes_as": "packs/mutect2-0.5.4/licenses/net.sourceforge.f2j--arpack_combined_all-0.1.pom",
+   "bytes": 1338
+  },
+  {
+   "path": "vendor-expanded/gatk-thirdparty/org.broadinstitute--gatk-bwamem-jni-1.0.4.pom",
+   "same_bytes_as": "packs/mutect2-0.5.4/licenses/org.broadinstitute--gatk-bwamem-jni-1.0.4.pom",
+   "bytes": 1442
+  },
+  {
+   "path": "vendor-expanded/gatk-thirdparty/org.broadinstitute--gatk-fermilite-jni-1.2.0.pom",
+   "same_bytes_as": "packs/mutect2-0.5.4/licenses/org.broadinstitute--gatk-fermilite-jni-1.2.0.pom",
+   "bytes": 1464
+  },
+  {
+   "path": "vendor-expanded/hisat2/GCC-RUNTIME-EXCEPTION-3.1.txt",
+   "same_bytes_as": "packs/bowtie2-0.5.3/licenses/GCC-COPYING.RUNTIME",
+   "bytes": 3324
+  },
+  {
+   "path": "vendor-expanded/hisat2/windows-rebuild.log",
+   "same_bytes_as": "vendor-expanded/hisat2/windows-build.log",
+   "bytes": 1428
+  },
+  {
+   "path": "vendor-expanded/hisat2/workbench1.patch",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/workbench1.patch",
+   "bytes": 487
+  },
+  {
+   "path": "vendor-expanded/lofreq/fixtures/reference.fa",
+   "same_bytes_as": "packs/lofreq-0.5.3/fixtures/reference.fa",
+   "bytes": 510
+  },
+  {
+   "path": "vendor-expanded/lofreq/fixtures/snps.sam",
+   "same_bytes_as": "packs/lofreq-0.5.3/fixtures/snps.sam",
+   "bytes": 218961
+  },
+  {
+   "path": "vendor-expanded/muscle-5.3/galaxy-LICENSE",
+   "same_bytes_as": "packs/bowtie2-0.5.3/licenses/galaxy-LICENSE",
+   "bytes": 1077
+  },
+  {
+   "path": "vendor-expanded/muscle-5.3/galaxy-legacy-dependency.xml",
+   "same_bytes_as": "packs/muscle-0.5.2/licenses/galaxy-legacy-dependency.xml",
+   "bytes": 4384
+  },
+  {
+   "path": "vendor-expanded/muscle-5.3/scientific-tests.txt",
+   "same_bytes_as": "validation/muscle-0.5.2-tests.log",
+   "bytes": 916
+  },
+  {
+   "path": "vendor-expanded/muscle-5.3/workbench1.patch",
+   "same_bytes_as": "packs/muscle-0.5.2/licenses/workbench1.patch",
+   "bytes": 3389
+  },
+  {
+   "path": "vendor-expanded/muscle-5.3/runtime-notices/COPYING",
+   "same_bytes_as": "desktop/licenses/COPYING",
+   "bytes": 2326
+  },
+  {
+   "path": "vendor-expanded/muscle-5.3/runtime-notices/COPYING.MinGW-w64-runtime.txt",
+   "same_bytes_as": "desktop/licenses/COPYING.MinGW-w64-runtime.txt",
+   "bytes": 12155
+  },
+  {
+   "path": "vendor-expanded/muscle-5.3/runtime-notices/COPYING.MinGW-w64.txt",
+   "same_bytes_as": "desktop/licenses/COPYING.MinGW-w64.txt",
+   "bytes": 5905
+  },
+  {
+   "path": "vendor-expanded/muscle-5.3/runtime-notices/COPYING.winpthreads.txt",
+   "same_bytes_as": "desktop/licenses/COPYING.winpthreads.txt",
+   "bytes": 2883
+  },
+  {
+   "path": "vendor-expanded/muscle-5.3/runtime-notices/COPYING.winstorecompat.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/COPYING.winstorecompat.txt",
+   "bytes": 1099
+  },
+  {
+   "path": "vendor-expanded/muscle-5.3/test-data/nucleotide.fa",
+   "same_bytes_as": "packs/muscle-0.5.2/fixtures/nucleotide.fa",
+   "bytes": 93
+  },
+  {
+   "path": "vendor-expanded/muscle-5.3/test-data/protein.fa",
+   "same_bytes_as": "packs/muscle-0.5.2/fixtures/protein.fa",
+   "bytes": 121
+  },
+  {
+   "path": "vendor-expanded/vardict/LICENSE.txt",
+   "same_bytes_as": "packs/vardict-0.5.3/licenses/VarDictJava-MIT.txt",
+   "bytes": 1088
+  },
+  {
+   "path": "vendor-expanded/vardict/Microsoft-VC-Runtime-2015-2022-License.docx",
+   "same_bytes_as": "packs/mutect2-0.5.4/licenses/Microsoft-VC-Runtime-2015-2022-License.docx",
+   "bytes": 39644
+  },
+  {
+   "path": "vendor-expanded/vardict/Readme.md",
+   "same_bytes_as": "packs/vardict-0.5.3/licenses/VarDictJava-Readme.md",
+   "bytes": 39252
+  },
+  {
+   "path": "vendor-expanded/vsearch/SHA256SUMS",
+   "same_bytes_as": "packs/vsearch-0.5.2/licenses/SHA256SUMS",
+   "bytes": 1456
+  },
+  {
+   "path": "vendor-expanded/vsearch/github-release-metadata.json",
+   "same_bytes_as": "packs/vsearch-0.5.2/licenses/github-release-metadata.json",
+   "bytes": 65134
+  },
+  {
+   "path": "vendor-expanded/vsearch/upstream-downloads.json",
+   "same_bytes_as": "packs/vsearch-0.5.2/licenses/upstream-downloads.json",
+   "bytes": 1815
+  },
+  {
+   "path": "vendor-expanded/vsearch/vsearch-2.32.0.tar.gz.sha256",
+   "same_bytes_as": "packs/vsearch-0.5.2/licenses/vsearch-2.32.0.tar.gz.sha256",
+   "bytes": 88
+  },
+  {
+   "path": "vendor-expanded/vsearch/zlib-1.3.1-LICENSE.txt",
+   "same_bytes_as": "baselines/licenses/cosmopolitan-3.3.10/third_party/zlib/LICENSE.zlib",
+   "bytes": 1002
+  },
+  {
+   "path": "vendor-variant/licenses/BUILD-NOTES.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/BUILD-NOTES.txt",
+   "bytes": 703
+  },
+  {
+   "path": "vendor-variant/licenses/bcftools-1.24.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/bcftools-1.24.txt",
+   "bytes": 41065
+  },
+  {
+   "path": "vendor-variant/licenses/bcftools-embedded-runtime-notices.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/bcftools-embedded-runtime-notices.txt",
+   "bytes": 2573
+  },
+  {
+   "path": "vendor-variant/licenses/cosmopolitan-heapsort.c.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/cosmopolitan-heapsort.c.txt",
+   "bytes": 7903
+  },
+  {
+   "path": "vendor-variant/licenses/cosmopolitan-mergesort.c.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/cosmopolitan-mergesort.c.txt",
+   "bytes": 11025
+  },
+  {
+   "path": "vendor-variant/licenses/cosmopolitan-opensort.c.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/cosmopolitan-opensort.c.txt",
+   "bytes": 123
+  },
+  {
+   "path": "vendor-variant/licenses/cosmopolitan-qsort.c.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/cosmopolitan-qsort.c.txt",
+   "bytes": 8568
+  },
+  {
+   "path": "vendor-variant/licenses/cosmopolitan-strftime.c.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/cosmopolitan-strftime.c.txt",
+   "bytes": 16880
+  },
+  {
+   "path": "vendor-variant/licenses/htscodecs-1.6.7.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/htscodecs-1.6.7.txt",
+   "bytes": 2160
+  },
+  {
+   "path": "vendor-variant/licenses/htslib-1.24.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/htslib-1.24.txt",
+   "bytes": 3540
+  },
+  {
+   "path": "vendor-variant/licenses/lz4.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/lz4.txt",
+   "bytes": 1311
+  },
+  {
+   "path": "vendor-variant/licenses/runtime-notices-provenance.json",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/runtime-notices-provenance.json",
+   "bytes": 1811
+  },
+  {
+   "path": "vendor-variant/licenses/samtools-1.24.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/samtools-1.24.txt",
+   "bytes": 1706
+  },
+  {
+   "path": "vendor-variant/licenses/samtools-embedded-runtime-notices.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/samtools-embedded-runtime-notices.txt",
+   "bytes": 2368
+  },
+  {
+   "path": "vendor-variant/licenses/source-header-notices.txt",
+   "same_bytes_as": "packs/hisat2-0.5.3/licenses/samtools-runtime/source-header-notices.txt",
+   "bytes": 961632
+  }
+ ],
+ "legacy_versions_not_copied": [
+  "desktop/bridge.cpp",
+  "desktop/build_bridge.sh",
+  "desktop/build_desktop_workspace.sh",
+  "desktop/build_workspace_update_launcher.sh",
+  "desktop/desktop_workspace.cpp",
+  "desktop/process_pipeline.cpp",
+  "desktop/runner.cpp",
+  "desktop/workbench.h",
+  "desktop/workflow_runner.cpp",
+  "desktop/workspace_update_launcher.cpp",
+  "tests/test_desktop_json.cpp",
+  "tests/test_pack_checks.py",
+  "workspace/PACK-METADATA.md",
+  "workspace/catalog.py",
+  "workspace/desktop_host.py",
+  "workspace/desktop_model.py",
+  "workspace/engine.py",
+  "workspace/example.py",
+  "workspace/pack_checks.py",
+  "workspace/service.py",
+  "workspace/verify_installation.py",
+  "workspace/tests/test_catalog.py",
+  "workspace/tests/test_desktop_host.py",
+  "workspace/tests/test_pack_schema.py",
+  "workspace/tests/test_release_pins.py",
+  "workspace/tests/test_server.py"
+ ],
+ "renamed": {
+  ".gitignore": "gitignore.from-workbench"
+ }
+}

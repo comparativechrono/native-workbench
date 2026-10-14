@@ -1,0 +1,35 @@
+{
+  "seed": 20261002,
+  "read_pairs": 1869,
+  "duplicate_pairs_added": 12,
+  "variants": [
+    {
+      "chrom": "fixture",
+      "pos": 1501,
+      "ref": "C",
+      "alt": "G",
+      "gt": "0/1"
+    },
+    {
+      "chrom": "fixture",
+      "pos": 2500,
+      "ref": "G",
+      "alt": "GGTT",
+      "gt": "1/1"
+    },
+    {
+      "chrom": "fixture",
+      "pos": 3501,
+      "ref": "A",
+      "alt": "C",
+      "gt": "1/1"
+    },
+    {
+      "chrom": "fixture",
+      "pos": 4500,
+      "ref": "CATG",
+      "alt": "C",
+      "gt": "1/1"
+    }
+  ]
+}

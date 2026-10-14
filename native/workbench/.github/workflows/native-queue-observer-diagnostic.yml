@@ -1,0 +1,100 @@
+name: Diagnose exact frozen queue persistence and receipt observation
+
+on:
+  push:
+    branches: [feature/batch-queue-indexes]
+    paths:
+      - scripts/check_queue_observer_windows.py
+      - .github/workflows/native-queue-observer-diagnostic.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: native-queue-observer-diagnostic-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  native:
+    if: github.event_name == 'workflow_dispatch' || (contains(github.event.head_commit.message, '[frozen candidate recheck]') && contains(github.event.head_commit.message, '[queue diagnostic]'))
+    runs-on: windows-2022
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        folder: [ordinary, 'path with spaces']
+    env:
+      FROZEN_COMMIT: 80e9071caf4e5862ae0e862921fd747f47ab23ea
+      FROZEN_RUN: '37819501574'
+      FROZEN_STARTER_SHA256: 3790af14624dc87bd808bc5c3c7508f98a45284c25a0576cdf6a75fbe1de8bab
+      CASE_FOLDER: ${{ matrix.folder }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Reject changes to the application or build inputs before reusing any archive
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $changed = @(& git diff --name-only $env:FROZEN_COMMIT HEAD)
+          if ($LASTEXITCODE -ne 0) { throw 'Could not compare validator checkout to frozen source.' }
+          $rejected = @($changed | Where-Object {
+            $_ -notmatch '^scripts/check_[^/]+\.py$' -and
+            $_ -notmatch '^workspace/tests/' -and
+            $_ -notmatch '^tests/' -and
+            $_ -notmatch '^knowledge/' -and
+            $_ -notmatch '^\.github/'
+          })
+          if ($rejected.Count -ne 0) { throw ('Frozen candidate reuse refused: application/build inputs changed: ' + ($rejected -join ', ')) }
+          $evidence = Join-Path $env:RUNNER_TEMP 'queue-observer-evidence'
+          New-Item -ItemType Directory -Force -Path $evidence | Out-Null
+          @{
+            schema = 1
+            packagedSourceCommit = $env:FROZEN_COMMIT
+            packagedBuildRun = $env:FROZEN_RUN
+            validatorCommit = '${{ github.sha }}'
+            starterSha256 = $env:FROZEN_STARTER_SHA256
+            changedPaths = $changed
+            archiveRebuilt = $false
+            reusedBuildIsNotNewPass = $true
+            scope = 'Focused 24-cycle queue storage and live-receipt observation diagnostic. Exact candidate full-gate observations remain separate records; this is not a repeated full-suite pass.'
+          } | ConvertTo-Json -Depth 8 | Set-Content -Encoding utf8 (Join-Path $evidence 'RECHECK-PROVENANCE.json')
+      - uses: actions/download-artifact@v4
+        with:
+          name: batch-candidate-80e9071caf4e5862ae0e862921fd747f47ab23ea
+          run-id: 37819501574
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/frozen-batch-candidate
+      - name: Verify the original provenance and pinned archive, then extract afresh
+        id: prepare
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $candidate = Join-Path $env:RUNNER_TEMP 'frozen-batch-candidate'
+          $provenance = Get-Content (Join-Path $candidate 'BUILD-PROVENANCE.json') -Raw | ConvertFrom-Json
+          if ($provenance.sourceCommit -ne $env:FROZEN_COMMIT) { throw 'The artifact was built from another source commit.' }
+          $starter = Join-Path $candidate 'native-workbench-0.13.0-starter-windows.zip'
+          if ((Get-FileHash $starter -Algorithm SHA256).Hash -ne $env:FROZEN_STARTER_SHA256) { throw 'Frozen starter SHA-256 mismatch.' }
+          $record = @($provenance.archives | Where-Object file -eq 'native-workbench-0.13.0-starter-windows.zip')
+          if ($record.Count -ne 1 -or $record[0].sha256 -ne $env:FROZEN_STARTER_SHA256) { throw 'Original build provenance does not bind the expected starter.' }
+          Expand-Archive $starter (Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'queue-observer')
+      - name: Diagnose 24 alternating unobserved and live-observed exact-host queue cycles
+        if: always() && !cancelled() && steps.prepare.outcome == 'success'
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'queue-observer/native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I scripts/check_queue_observer_windows.py --app-root $app --report "$env:RUNNER_TEMP/queue-observer-evidence/queue-observer.json" --source-commit $env:FROZEN_COMMIT --asset-sha256 $env:FROZEN_STARTER_SHA256
+          if ($LASTEXITCODE -ne 0) { throw 'Focused queue diagnostic found an unexpected failure; inspect retained exact job messages.' }
+      - name: Retain original-archive provenance and every successful or failed observation
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: queue-observer-windows-${{ matrix.folder }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/queue-observer-evidence
+          if-no-files-found: error
+          retention-days: 30

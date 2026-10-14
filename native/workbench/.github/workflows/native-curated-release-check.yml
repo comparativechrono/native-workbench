@@ -1,0 +1,178 @@
+name: Native Windows frozen 0.16.0 release checks
+
+on:
+  push:
+    branches: [release/check-app-0.16.0]
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: native-curated-release-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  SOURCE_COMMIT: e855dc4396e0c16ae35f4e840eb9cc734adb4441
+  STARTER_SHA256: f96e03e43cac92ba8ca9a0a3807eb671f9924d5e624cadbba94d1a5ca1309073
+  STARTER_ASSET: native-workbench-0.16.0-starter-windows.zip
+
+jobs:
+  native:
+    runs-on: windows-2022
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        folder: [ordinary, 'path with spaces']
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Retrieve the accepted frozen standalone candidate without rebuilding
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: curated-transfer-starter-e855dc4396e0c16ae35f4e840eb9cc734adb4441
+          run-id: 37952018931
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/frozen-candidate
+      - name: Verify frozen archive and extract isolated regression applications
+        id: prepare
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $starter = Join-Path $env:RUNNER_TEMP ('frozen-candidate/' + $env:STARTER_ASSET)
+          if ((Get-FileHash $starter -Algorithm SHA256).Hash -ne $env:STARTER_SHA256) { throw 'Accepted Starter SHA-256 mismatch.' }
+          $validators = @{
+            'scripts/check_results_windows.py' = '5c318c45c297dc7b267724db4db3abfc5c42d9dfc93805a5377a055d3f88747b'
+            'scripts/check_scroll_frames_0160_windows.py' = 'e93a5c199415ee7231f052f640352f0c8fa90093946f237ac01840ba97baeed2'
+            'scripts/check_workspace_ui_windows.py' = '30a38a4f5bc8d5a5af93eee80560963f87e4ef019a3e98ec9780f1964d847d13'
+            'scripts/check_references_windows.py' = '5920501af2272bce364afc3b28733a4f0fb4b7291aabaca42a683f4706b485b0'
+          }
+          foreach ($path in $validators.Keys) {
+            if ((Get-FileHash $path -Algorithm SHA256).Hash -ne $validators[$path]) { throw "Release validator SHA-256 mismatch: $path" }
+          }
+          $caseRoot = Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER
+          foreach ($gate in @('results', 'scroll')) {
+            Expand-Archive $starter (Join-Path $caseRoot $gate)
+            $manifest = Get-Content (Join-Path $caseRoot ($gate + '/native-workbench/manifest.json')) -Raw | ConvertFrom-Json
+            if ($manifest.version -ne '0.16.0') { throw 'Extracted application version differs from frozen release.' }
+          }
+          $evidence = Join-Path $env:RUNNER_TEMP 'release-regression-evidence'
+          New-Item -ItemType Directory -Force $evidence | Out-Null
+          @{ schema = 1; success = $true; sourceCommit = $env:SOURCE_COMMIT; validatorCommit = '${{ github.sha }}';
+             candidateRun = 37952018931; assetName = $env:STARTER_ASSET; assetSha256 = $env:STARTER_SHA256;
+             appVersion = '0.16.0'; installationCase = $env:CASE_FOLDER; validatorSha256 = $validators;
+             rebuilt = $false; scope = 'Frozen archive identity and unchanged validator identities; gate outcomes are separate reports.' } |
+            ConvertTo-Json -Depth 5 | Set-Content (Join-Path $evidence 'frozen-inputs.json')
+      - name: Native scientific results, CWL replay, routed DAG connections and icon
+        if: always() && !cancelled() && steps.prepare.outcome == 'success'
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'results/native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I scripts/check_results_windows.py --app-root $app --report "$env:RUNNER_TEMP/results-evidence/native-results.json" --source-commit $env:SOURCE_COMMIT --asset-sha256 $env:STARTER_SHA256
+          if ($LASTEXITCODE -ne 0) { throw 'Frozen 0.16.0 native results release check failed.' }
+      - name: Observe displayed scrolling frames and precision wheel routing
+        if: always() && !cancelled() && steps.prepare.outcome == 'success'
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'scroll/native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I scripts/check_scroll_frames_0160_windows.py --app-root $app --report "$env:RUNNER_TEMP/scroll-evidence/native-scroll.json" --source-commit $env:SOURCE_COMMIT --asset-sha256 $env:STARTER_SHA256
+          if ($LASTEXITCODE -ne 0) { throw 'Frozen 0.16.0 native scrolling release check failed.' }
+      - name: Retain exact reports and native captures even on failure
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: curated-release-checks-${{ matrix.folder }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/release-regression-evidence
+            ${{ runner.temp }}/results-evidence
+            ${{ runner.temp }}/scroll-evidence
+          if-no-files-found: error
+          retention-days: 30
+
+  native-long-paths:
+    # This changes only a disposable hosted runner's policy and restores it in
+    # finally. Application bytes are unchanged; there is no end-user policy step.
+    runs-on: windows-2022
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Retrieve the same accepted frozen standalone candidate
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: curated-transfer-starter-e855dc4396e0c16ae35f4e840eb9cc734adb4441
+          run-id: 37952018931
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/frozen-candidate
+      - name: Recheck full scientific results with Windows long-path opt-in disabled
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $starter = Join-Path $env:RUNNER_TEMP ('frozen-candidate/' + $env:STARTER_ASSET)
+          if ((Get-FileHash $starter -Algorithm SHA256).Hash -ne $env:STARTER_SHA256) { throw 'Accepted Starter SHA-256 mismatch.' }
+          $validators = @{
+            'scripts/check_long_paths_0160_windows.py' = 'a4bb843413f78e7ef1c05e03c646d685833f3534a9342cbf04b2f0bf46ad9429'
+            'scripts/check_references_windows.py' = '5920501af2272bce364afc3b28733a4f0fb4b7291aabaca42a683f4706b485b0'
+          }
+          foreach ($path in $validators.Keys) {
+            if ((Get-FileHash $path -Algorithm SHA256).Hash -ne $validators[$path]) { throw "Release validator SHA-256 mismatch: $path" }
+          }
+          $appRoot = Join-Path $env:RUNNER_TEMP 'long-path-frozen'
+          Expand-Archive $starter $appRoot
+          $app = Join-Path $appRoot 'native-workbench'
+          $manifest = Get-Content (Join-Path $app 'manifest.json') -Raw | ConvertFrom-Json
+          if ($manifest.version -ne '0.16.0') { throw 'Extracted application version differs from frozen release.' }
+          $evidence = Join-Path $env:RUNNER_TEMP 'long-path-evidence'
+          New-Item -ItemType Directory -Force $evidence | Out-Null
+          @{ schema = 1; success = $true; sourceCommit = $env:SOURCE_COMMIT; validatorCommit = '${{ github.sha }}';
+             candidateRun = 37952018931; assetName = $env:STARTER_ASSET; assetSha256 = $env:STARTER_SHA256;
+             appVersion = '0.16.0'; validatorSha256 = $validators; rebuilt = $false;
+             scope = 'Current frozen package only; no previous-package negative control or GUI claim.' } |
+            ConvertTo-Json -Depth 5 | Set-Content (Join-Path $evidence 'frozen-inputs.json')
+          $key = 'HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem'
+          $before = Get-ItemProperty -Path $key -Name LongPathsEnabled -ErrorAction SilentlyContinue
+          $hadValue = $null -ne $before
+          $oldValue = if ($hadValue) { [int]$before.LongPathsEnabled } else { $null }
+          $setup = @{ scope = 'Disposable hosted CI runner only; no application or user-machine policy changes'; previousValue = $oldValue; requestedValue = 0; restored = $false }
+          try {
+            New-ItemProperty -Path $key -Name LongPathsEnabled -PropertyType DWord -Value 0 -Force | Out-Null
+            $setup.observedValue = [int](Get-ItemPropertyValue -Path $key -Name LongPathsEnabled)
+            if ($setup.observedValue -ne 0) { throw 'Could not establish disabled-policy regression environment.' }
+            $setup | ConvertTo-Json | Set-Content (Join-Path $evidence 'policy-setup.json')
+            # The exact private Python and every app child start after the policy
+            # change, avoiding a process-cached Windows long-path policy value.
+            & (Join-Path $app 'runtime/python/python.exe') -I scripts/check_long_paths_0160_windows.py --app-root $app --output-root (Join-Path $env:RUNNER_TEMP 'frozen synthetic check') --report (Join-Path $evidence 'native-long-paths.json') --source-commit $env:SOURCE_COMMIT --asset-sha256 $env:STARTER_SHA256
+            if ($LASTEXITCODE -ne 0) { throw 'Frozen 0.16.0 long-path scientific regression failed.' }
+          } finally {
+            if ($hadValue) {
+              Set-ItemProperty -Path $key -Name LongPathsEnabled -Value $oldValue
+              $setup.restoredValue = [int](Get-ItemPropertyValue -Path $key -Name LongPathsEnabled)
+              $setup.restored = $setup.restoredValue -eq $oldValue
+            } else {
+              Remove-ItemProperty -Path $key -Name LongPathsEnabled -ErrorAction SilentlyContinue
+              $setup.restored = $null -eq (Get-ItemProperty -Path $key -Name LongPathsEnabled -ErrorAction SilentlyContinue)
+            }
+            $setup | ConvertTo-Json | Set-Content (Join-Path $evidence 'policy-setup.json')
+            if (-not $setup.restored) { throw 'Disposable runner policy was not restored.' }
+          }
+      - name: Retain long-path evidence and policy restoration even on failure
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: curated-release-long-paths-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/long-path-evidence
+          if-no-files-found: error
+          retention-days: 30

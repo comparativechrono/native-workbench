@@ -1,0 +1,31 @@
+Native Windows pipeline companion
+
+Build on Linux with the pinned llvm-mingw compiler:
+  BW_MINGW_ROOT=/path/to/llvm-mingw bash tests/build_windows_pipeline.sh
+
+Run build/pipeline-checks/WindowsPipelineChecks.exe on Windows. An optional
+first argument selects an existing writable output parent. It creates its own
+new pipeline-native-checks-* folder; existing files are not overwritten.
+The application invokes it as OUTPUT_PARENT --report NEW_REPORT_FILE to receive
+a fixed-location copy of the JSON report. The helper resolves its own executable
+path before launching --child modes, so installation-root placement is supported.
+Invalid arguments, failed child modes and failed checks return nonzero.
+
+The same executable serves as controlled producer and sink children. Six cases
+exercise the production desktop/process_pipeline.cpp implementation:
+  1. Success: 2 MiB exact binary stream, both 256 KiB stderr streams, Unicode
+     output paths and literal metacharacters/quotes/trailing backslash in argv.
+  2. Producer fails after emitting a complete valid prefix; exit 17 is retained.
+  3. Sink fails first; exit 23 is retained and the producer is stopped.
+  4. Cancellation stops two waiting children in their shared process job.
+  5. A timeout stops both children and raises the documented exception.
+  6. CREATE_NEW refuses an existing output without changing its bytes.
+
+Success writes pipeline-validation.json in that test folder and prints the
+path. Failure exits nonzero and leaves evidence. The test does not delete its
+outputs. It is a process-lifecycle test, not a biological or performance test.
+Cross-compiling this executable is not a native Windows test result.
+
+Implementation reference:
+https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-updateprocthreadattribute
+https://learn.microsoft.com/en-us/windows/win32/api/jobapi2/nf-jobapi2-terminatejobobject

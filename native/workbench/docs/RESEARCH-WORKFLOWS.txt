@@ -1,0 +1,164 @@
+Native Workbench 0.4 — research workflow scope and validation
+Protocol revision 1, 2026-10-02
+
+Purpose and scope
+These packs expose established bioinformatics tools through local, reproducible
+workflows. The initial research scope is one biological sample, paired short
+DNA reads, an appropriate reference genome, and germline SNP/short-indel calls.
+Prepared C/C++ tool builds and a private, bundled CPython runtime for Cutadapt
+provide local execution. Pack manifests describe their different inputs,
+outputs, runtime assets and steps. New upstream tools still need preparation
+and validation before their packs can be distributed.
+Users select preprocessing, aligner and caller deliberately. Research use does
+not require that every bioinformatics tool run here; it requires a suitable,
+documented method and evidence that this particular execution is reliable.
+
+The supported combinations are those actually listed in the delivered pack
+manifests and validation report. Do not interpret an available binary, an exit
+code of zero, or a four-variant fixture as a universal accuracy certification.
+The user-provided yeast data are a real-data reproducibility check; no trusted
+variant truth set or original practical instructions were supplied for them.
+
+Required study decisions
+Record the organism, reference assembly/version, sequencing chemistry, library
+preparation, sample identity and intended variant classes. Confirm that the
+selected reads belong together and use Phred+33 quality encoding. Paired-file
+validation must precede preprocessing; validate the retained pairs again before
+alignment. A filename or lane number alone does not establish sample identity.
+
+Choose adapters from the actual library preparation. The program must never
+silently assume that generic Illumina adapters or every sequence in an attached
+primer file are appropriate. Use an explicit adapter workflow when sequences
+are known, or a separately named quality-only workflow when adapter removal is
+not intended. Keep supplied adapter assets and their hashes with provenance.
+Use the quality reports to assess changes, not simply whether fewer reads remain.
+
+Read-group metadata comprise ID (unique read group), SM (biological sample),
+LB (physical library), PL (sequencing platform) and PU (platform unit). IDs and
+labels must be validated as data, never interpolated into shell commands.
+Separate lanes of one library need distinct RG/PU but the same confirmed SM/LB.
+The initial full workflows process one R1/R2 pair; they do not infer or perform
+multi-lane merging, cohort joint genotyping or sample-sheet orchestration.
+
+Select ploidy from the experiment. Haploid and diploid presets are not inferred
+from species names. A uniform-ploidy run applies the same model to all included
+contigs; mitochondria, aneuploid regions, mixed populations and sex chromosomes
+may require different modelling. Read support is not a substitute for that
+decision. FreeBayes ploidy and allele-fraction thresholds must be explicit;
+BCFtools and FreeBayes parameters with similar names need not mean the same thing.
+
+Read preprocessing
+Cutadapt 5.2 performs explicit paired adapter/quality trimming. Retain the JSON
+and text report, cleaned mates and rejected pairs. With pair-filter=any, either
+mate below the chosen minimum length sends BOTH mates to the paired rejection
+files. This preserves synchrony; it does not automatically rescue the longer
+mate as a single-end read. Original inputs remain available. A later single-end
+rescue analysis must be an explicit, separately validated choice.
+
+Adapter trimming, base-quality trimming and minimum retained length are distinct
+settings. Quality trimming occurs before adapter removal in Cutadapt. A quality
+cutoff is not a guarantee that every retained base exceeds that value. No hidden
+merging, error correction, UMI extraction, poly-G or poly-X trimming is applied
+by a plain Cutadapt adapter/quality workflow. Two-colour chemistry may require
+a separately specified treatment of dark-cycle G tails.
+
+If the fastp pack is present, its overlap-based adapter handling, supplied
+adapter sequences, quality operations and poly-G policy are recorded separately.
+Keep unpaired and failed-read outputs where that workflow exposes them. A fastp
+duplication estimate may be disabled to reduce memory; this differs from later
+alignment-based duplicate marking and must be stated in its report description.
+Different trimmers are alternative methods, not byte-identical implementations.
+
+Alignment and BAM preparation
+BWA-MEM or minimap2 short-read mode aligns both mates together. Retain the
+aligner's explicit parameters and read-group header. Build indexes only on a
+private reference copy, and retain the exact reference hash. Use one internally
+consistent reference assembly for alignment, pileup, normalization and inspection.
+Do not claim support for an organism/reference scale that has not been tested.
+The full research workflows stream alignment directly into name sorting. They
+do not require a full intermediate SAM or an additional unsorted BAM on disk;
+sort scratch files and later BAM intermediates still require free local space.
+
+Group records by read name, run SAMtools fixmate -m, sort by genomic coordinate,
+and mark duplicate fragments. The selected duplicate policy must be visible.
+Keep flagged reads in the BAM for review. Default duplicate exclusion in a
+caller is not the same as physically deleting those records. Standard positional
+duplicate marking can be inappropriate for amplicons or UMI libraries; those
+require their own validated preparation and consensus/duplicate policy.
+
+Expose a sort-memory setting and place scratch files inside the new run folder.
+Record mapping workers separately from compression workers. The pinned portable
+HTSlib build currently runs single-threaded: additional compression threads have
+a known recursive-mutex compatibility failure. The workbench must not enable
+that unvalidated path merely because an upstream command accepts -@/--threads.
+Check BAM readability and coordinate indexing; provide flag counts, alignment
+statistics and reference-wise coverage summaries when included by the workflow.
+
+Calling and output interpretation
+BCFtools computes likelihoods then calls variants with an explicit ploidy.
+Mapping/base-quality thresholds and maximum pileup depth are recorded. BCFtools
+1.24 uses its pinned default sampling seed 0; the current manifest does not
+override that seed. Its separate maximum depth for indel calling also remains
+at the upstream default of 250 reads per input file. Increasing the exposed
+pileup depth cap alone does not increase that indel limit. A depth cap can
+subsample deep loci and affect calls; it is not a minimum coverage threshold.
+FreeBayes instead has its own observation counts,
+allele-fraction thresholds and optional high-coverage skip rule. Skipping a deep
+locus is not equivalent to subsampling it. Missing records at such sites do not
+demonstrate reference genotypes or adequate callability.
+
+Preserve raw calls. Normalize against the exact reference, split multiallelic
+representations where configured, and retain a VCF containing all calls with
+explicit soft FILTER labels. Emit a separately named PASS-only VCF with its
+index. QUAL and sample DP thresholds are user choices, not universal research
+acceptance criteria. Inspect depth, genotype quality, allele balance and the
+study's error modes; use a matched truth resource when available. Normalization
+does not automatically decompose every complex haplotype into primitive SNPs.
+
+The deliverable includes the marked, indexed BAM; preprocessing and alignment
+QC; raw/normalized/filtered variants as configured; PASS-only variants; indexes;
+logs; exact argv arrays; versions; input/tool/asset/output hashes; and a completion
+record. Partial outputs stay distinct from successful final outputs. No raw
+data are uploaded by these local workflows. Tool packs are trusted executable
+software, not a process-isolation or privacy sandbox.
+
+Validation and limits
+The synthetic variant fixture tests known SNPs, a heterozygous genotype, short
+insertion/deletion alleles and deliberate duplicate pairs. The independent
+trimming fixture is constructed from known clean inserts, exact synthetic
+adapter suffixes, Q0 terminal bases, a boundary-length pair, and pairs where one
+or both reads become too short. Expected cleaned/rejected FASTQ sequences and
+qualities are written before invoking a trimmer; they are not derived from its
+output or a reimplementation of its matching algorithm.
+
+The manifest validator runs the actual declared steps. It checks required
+artifacts and input immutability, decodes BAM/VCF data and compares portable
+execution against matched Linux tool versions. Comparison retains scientific
+fields; only documented command, path, version and date metadata may be omitted.
+A separate gzip decoder checks produced compressed FASTQ streams completely,
+including their trailers. Artifact hashes recorded immediately after production
+are checked again before consumption and at completion to detect later changes.
+A recorded mismatch remains a mismatch until explained, not a successful test.
+Small fixtures exercise integration and regression behaviour; organism-specific
+accuracy, difficult genomic regions, high depth, very large references and
+performance limits need broader data and assessment. Linux execution of portable
+binaries does not establish Windows runtime support for newly added tools.
+
+Concrete next tool classes, outside the initial scope
+Somatic tumour/normal and low-frequency calling; UMI consensus; structural
+variants and copy number; RNA/spliced alignment; long-read-specific calling;
+joint genotyping of cohorts; GATK resource-based recalibration; variant annotation
+and prioritisation; calibrated callability and benchmarking against established
+truth sets. Their requirements must be implemented and validated individually.
+Neither the whole GATK best-practices stack nor clinical validation is claimed.
+
+Primary documentation reviewed 2026-10-02
+Cutadapt 5.2: https://cutadapt.readthedocs.io/en/v5.2/guide.html
+BWA: https://github.com/lh3/bwa and https://bio-bwa.sourceforge.net/bwa.shtml
+minimap2: https://github.com/lh3/minimap2
+SAMtools: https://www.htslib.org/doc/samtools.html
+SAM read-group platform values: https://samtools.github.io/hts-specs/SAMv1.pdf
+SAMtools duplicate marking: https://www.htslib.org/doc/samtools-markdup.html
+BCFtools: https://www.htslib.org/doc/bcftools.html
+FreeBayes: https://github.com/freebayes/freebayes
+fastp: https://github.com/OpenGene/fastp

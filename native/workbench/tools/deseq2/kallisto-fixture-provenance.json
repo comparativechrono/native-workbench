@@ -1,0 +1,38 @@
+{
+  "source": "Actual unmodified upstream kallisto0.52.0 Linux executable output, using exact fixtures from released Workbench kallisto1.0.1. This is tximport parser/estimates compatibility, not a differential expression experiment.",
+  "archiveUrl": "https://github.com/pachterlab/kallisto/releases/download/v0.52.0/kallisto_linux-v0.52.0.tar.gz",
+  "archiveSha256": "2a85c0a6ce54890e4b3a8953f3eea867f3e6e3aa581d28ea6e5f5f89b12aff2e",
+  "kallistoExecutableSha256": "9000fd5afc1fb9f07cb4cf6513a4d932bcb086079982d0740843016a07178fa1",
+  "workbenchKallistoArchiveSha256": "641cd1f2b05e0951b1f8a58f45d6308ca6206bf86bf90fb74d0daa2860f5eecd",
+  "commands": [
+    [
+      "/workspace/scratch/0c5293ac0f36/github-workbench/build/deseq2-kallisto-upstream/kallisto/kallisto",
+      "index",
+      "-i",
+      "/workspace/scratch/0c5293ac0f36/github-workbench/build/deseq2-kallisto-upstream/transcripts.idx",
+      "/workspace/scratch/0c5293ac0f36/github-workbench/build/deseq2-kallisto/pack/fixtures/transcripts.fasta"
+    ],
+    [
+      "/workspace/scratch/0c5293ac0f36/github-workbench/build/deseq2-kallisto-upstream/kallisto/kallisto",
+      "quant",
+      "-i",
+      "/workspace/scratch/0c5293ac0f36/github-workbench/build/deseq2-kallisto-upstream/transcripts.idx",
+      "-o",
+      "/workspace/scratch/0c5293ac0f36/github-workbench/build/deseq2-kallisto-upstream/quant",
+      "--single",
+      "-l",
+      "180",
+      "-s",
+      "20",
+      "--plaintext",
+      "-t",
+      "1",
+      "/workspace/scratch/0c5293ac0f36/github-workbench/build/deseq2-kallisto/pack/fixtures/single.fastq"
+    ]
+  ],
+  "outputSha256": "cd3934109c1dbb2186cbbedb431345b46399e31eefd3bece53cb7e6b09e0522c",
+  "inputSha256": {
+    "transcripts.fasta": "3df298b76e9e64f33246ae0d2d30075f117d727e935e985332c3f3ab624acee6",
+    "single.fastq": "e7d4119cb35b5ef1e8e09a953a413837b2164717504546485c88057d73956812"
+  }
+}

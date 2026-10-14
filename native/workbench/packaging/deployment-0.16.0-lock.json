@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "id": "native-workbench-deployment-0.16.0",
+  "applicationVersion": "0.16.0",
+  "sourceCommit": "e855dc4396e0c16ae35f4e840eb9cc734adb4441",
+  "updaterSourceCommit": "0e92d969e13fb7fe96b972bdb71b433f834dbbbe",
+  "baselineVersion": "0.11.0",
+  "coreFiles": 87,
+  "sourceFiles": 748,
+  "inputArchives": [
+    {
+      "role": "starter",
+      "file": "native-workbench-0.16.0-starter-windows.zip",
+      "bytes": 17846873,
+      "sha256": "f96e03e43cac92ba8ca9a0a3807eb671f9924d5e624cadbba94d1a5ca1309073",
+      "url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.16.0/native-workbench-0.16.0-starter-windows.zip"
+    },
+    {
+      "role": "updater",
+      "file": "native-workbench-0.16.0-update-from-0.11.0.zip",
+      "bytes": 13199905,
+      "sha256": "d75d5129e9b9feaef70faa62d5ea91049c0162df8c7bdc74c7bc81d1933eec8f",
+      "url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.16.0/native-workbench-0.16.0-update-from-0.11.0.zip"
+    },
+    {
+      "role": "source",
+      "file": "native-workbench-0.16.0-source.zip",
+      "bytes": 47848425,
+      "sha256": "f746f00a82675c2cf52364a3b4d040721c6d06ac5605488efbdc0376ef5b7e44",
+      "url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.16.0/native-workbench-0.16.0-source.zip"
+    },
+    {
+      "role": "baseline",
+      "file": "native-workbench-0.11.0-starter-windows.zip",
+      "bytes": 17044022,
+      "sha256": "e816e2f7cd5efe98af752fbf072fab00344ebaa2b6963795c2fbf4a86b5fa81c",
+      "url": "https://github.com/comparativechrono/workbench/releases/download/app-v0.11.0/native-workbench-0.11.0-starter-windows.zip"
+    }
+  ],
+  "packs": [
+    {
+      "id": "align",
+      "version": "0.4.0",
+      "folder": "packs/align-0.4.0",
+      "manifestSha256": "81c962222c93356a4f7727b23193c71d7dcd515859e62a179574781f411824d3"
+    },
+    {
+      "id": "bam",
+      "version": "0.4.0",
+      "folder": "packs/bam-0.4.0",
+      "manifestSha256": "45b3f9d5092b0b3014f67b29331003e1214c72919f85695a571fb371030a9888"
+    },
+    {
+      "id": "variants",
+      "version": "0.4.0",
+      "folder": "packs/variants-0.4.0",
+      "manifestSha256": "ea4b7f0a6c28709e4190b6514c07cbf7bdd58e1a4f2a2d931f2cae3ce6ec3795"
+    },
+    {
+      "id": "align",
+      "version": "0.4.1",
+      "folder": "packs/align-0.4.1",
+      "manifestSha256": "7f8f36efbfd6a8255a98eabb06746fbcc5bbdb872f392a65ca3e79a586d04939"
+    }
+  ],
+  "scope": "Exact published Starter and updater bytes. Baseline archive is for disposable upgrade acceptance only. No optional catalogue downloads.",
+  "trust": "SHA-256 establishes exact-byte integrity against this reviewed lock, not publisher authentication, executable signing or institutional approval."
+}

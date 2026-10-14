@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "pack": "bracken",
+  "upstreamVersion": "3.1",
+  "upstreamTag": "v3.1",
+  "upstreamCommit": "cfeac04b6445c44c3825866683a6fdd18746cb58",
+  "resolvedOn": "2026-10-04",
+  "upstreamSource": {
+    "filename": "Bracken-v3.1.tar.gz",
+    "url": "https://codeload.github.com/jenniferlu717/Bracken/tar.gz/refs/tags/v3.1",
+    "bytes": 141466,
+    "sha256": "c0a35331a8aac1e0dbb14c2a92c4de6f89f0aac540101c05c2eec54032107560"
+  },
+  "estimator": {
+    "archivePath": "Bracken-3.1/src/est_abundance.py",
+    "sha256": "c311cb56921b92c807ea28710c98349c725f27b7cee2b20e2e343c50e2981cca"
+  },
+  "pythonVersion": "3.13.16",
+  "python": [
+    {
+      "filename": "python-3.13.16-embed-amd64.zip",
+      "url": "https://www.python.org/ftp/python/3.13.16/python-3.13.16-embed-amd64.zip",
+      "sha256": "97dae5274cc54867065e8d5a3226e48c35017ed332a0fdb0e27d5b5821961297",
+      "bytes": 11439094
+    },
+    {
+      "filename": "Python-3.13.16.tar.xz",
+      "url": "https://www.python.org/ftp/python/3.13.16/Python-3.13.16.tar.xz",
+      "sha256": "f4b1bfb3c79b5bb11b8d228a12504163b4c0dab4d679828d8f5f26b6cb6ab35d",
+      "bytes": 23225704
+    }
+  ],
+  "versionNote": "Official release/tag is v3.1; its unused POSIX bracken launcher still prints VERSION=3.0.1. This pack invokes the byte-identical v3.1 est_abundance.py directly."
+}

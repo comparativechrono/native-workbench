@@ -1,0 +1,230 @@
+Native Workbench 0.4.0: rebuild from the source ZIP
+
+Scope and layout
+
+Extract the nested source ZIP on Linux x86-64 and change into its
+native-workbench directory. All commands below run from that directory.
+This recipe rebuilds the pinned source versions and the released workflow
+configuration. It does not claim that a build in a different directory or with
+another native compiler has byte-identical binaries: debug paths, toolchain
+versions and build metadata can affect executable hashes. Preserve the shipped
+provenance as evidence for the shipped binaries; record new hashes and rerun
+validation for rebuilt binaries. The pack generators calculate current hashes.
+
+The source ZIP includes application/helper sources, dependency archives,
+compatibility patches, licenses, version metadata, Linux references and portable
+binaries. The legacy packs/core-bio-0.2.0 seed supplies bwfastq and common license
+notices to the generators. Do not remove that seed from a build tree. Only the
+ten 0.4.0 packs belong in the final application's packs directory.
+
+The source ZIP excludes compiler toolchains and intermediate object trees.
+Cutadapt is assembled from official pinned Windows wheels and an embeddable
+Python distribution; this recipe does not recompile those upstream wheels.
+Their source distributions, wheel hashes, URLs and licenses are also included.
+
+Build host
+
+Use Linux x86-64, Python 3.12 with venv/pip, GCC/G++, GNU make/binutils, zlib
+headers/library, tar, xz, unzip, curl and sha256sum. Python 3.12 is required for
+the included cp312 Linux reference wheels; the other Python build scripts work
+with Python 3.12+. Native references were built with Ubuntu GCC/G++ 13.3.0.
+Use a writable path without spaces for the compiler/source build tree: several
+upstream Makefiles accept compiler/include paths through shell variables.
+Most compilation uses two jobs; FreeBayes compiles its largest translation unit
+alone. Check free disk space before rebuilding and running real-data checks.
+
+Compiler pins (download once; never downloaded by the application)
+
+Cosmopolitan cosmocc 3.3.10:
+  URL: https://cosmo.zip/pub/cosmocc/cosmocc-3.3.10.zip
+  SHA256: 00d61c1215667314f66e288c8285bae38cc6137fca083e5bba6c74e3a52439de
+
+Desktop/Windows-host compiler:
+  Release: https://github.com/mstorsjo/llvm-mingw/releases/tag/20260922
+  Archive: llvm-mingw-20260922-ucrt-ubuntu-22.04-x86_64.tar.xz
+  URL: https://github.com/mstorsjo/llvm-mingw/releases/download/20260922/llvm-mingw-20260922-ucrt-ubuntu-22.04-x86_64.tar.xz
+  SHA256: bb7bb7654b33d5aa8712acb837c963b2e0c56352560c76105270a3268c665c21
+
+The pinned Cosmopolitan source archive is included at
+variant-build/cosmopolitan-3.3.10.tar.gz. It supplies original runtime license
+texts during fastp preparation; it is not the compiler distribution.
+  URL: https://codeload.github.com/jart/cosmopolitan/tar.gz/refs/tags/3.3.10
+  SHA256: 1ecfd628305e844f7d8ded53742e4a7f2b908b4ad2e9fb423c81595986f5b2ff
+
+Fetch the two compiler archives if they are not already available:
+
+  mkdir -p downloads toolchains
+  curl -fL https://cosmo.zip/pub/cosmocc/cosmocc-3.3.10.zip -o downloads/cosmocc-3.3.10.zip
+  curl -fL https://github.com/mstorsjo/llvm-mingw/releases/download/20260922/llvm-mingw-20260922-ucrt-ubuntu-22.04-x86_64.tar.xz -o downloads/llvm-mingw-20260922-ucrt-ubuntu-22.04-x86_64.tar.xz
+  sha256sum -c <<'CHECKSUMS'
+00d61c1215667314f66e288c8285bae38cc6137fca083e5bba6c74e3a52439de  downloads/cosmocc-3.3.10.zip
+bb7bb7654b33d5aa8712acb837c963b2e0c56352560c76105270a3268c665c21  downloads/llvm-mingw-20260922-ucrt-ubuntu-22.04-x86_64.tar.xz
+1ecfd628305e844f7d8ded53742e4a7f2b908b4ad2e9fb423c81595986f5b2ff  variant-build/cosmopolitan-3.3.10.tar.gz
+CHECKSUMS
+  tar -xJf downloads/llvm-mingw-20260922-ucrt-ubuntu-22.04-x86_64.tar.xz -C toolchains
+  export BW_MINGW_ROOT="$PWD/toolchains/llvm-mingw-20260922-ucrt-ubuntu-22.04-x86_64"
+
+Stop if any checksum fails. build_variant.py below verifies and extracts the
+Cosmopolitan ZIP while retaining its executable permissions and symlinks.
+If using an existing verified compiler tree instead, pass --cosmocc-root to
+build scripts and set BW_MINGW_ROOT to the llvm-mingw tree's absolute path.
+
+Rebuild order
+
+1. Build SAMtools/BCFtools and the HTSlib libraries needed by FreeBayes:
+
+  python3 build_variant.py --build all --tool all --toolchain-archive downloads/cosmocc-3.3.10.zip
+
+This creates variant-build/cosmocc-3.3.10 and separate Linux/portable upstream
+build trees. HTSlib static libraries are under
+variant-build/{linux,cosmo}/samtools/samtools-1.24/htslib-1.24/libhts.a.
+The default --build is all; --tool selects all, samtools or bcftools. To reuse
+an already extracted compiler, omit --toolchain-archive and optionally supply
+--cosmocc-root. The source archive hashes are checked on every build.
+
+2. Rebuild the original FASTQ module/hosts and refresh the generator seed:
+
+  python3 scripts/build.py
+  bash platform_windows/build.sh
+  mkdir -p packs/core-bio-0.2.0/bin
+  cp build/windows/bwfastq.exe packs/core-bio-0.2.0/bin/bwfastq.exe
+
+The Windows build consumes the fastq.module produced by the preceding step.
+Keep the existing seed licenses directory. Do not use desktop/prepare_pack.py
+for this general rebuild: it is the historical format-1 pack recreation script
+and intentionally requires the original 0.2 binary hashes.
+
+3. Build both seqtk/minimap2 targets and install the Linux APE loader:
+
+  python3 baselines/build_upstream.py --cosmocc-root variant-build/cosmocc-3.3.10
+
+Without --cosmocc-root or --toolchain-archive this script builds only native
+Linux references. With the compiler path above it builds both targets and
+copies ape-loader-linux. It checks vendor/provenance.json archive hashes.
+
+4. Build the expanded upstream tools and the input-pair validator:
+
+  python3 tools/build_bwa.py --build all
+  python3 tools/build_freebayes.py --target all --jobs 2
+  python3 tools/build_fastp.py --build all --jobs 2
+  python3 tools/build_paircheck.py --build all --test
+
+All four now default to variant-build/cosmocc-3.3.10 within this source tree;
+they do not require a sibling 0.3 checkout. All accept --cosmocc-root. BWA,
+fastp and paircheck use --build {all,linux,cosmo}; FreeBayes uses --target
+{all,linux,cosmo}. These target selectors default to all.
+
+FreeBayes also accepts --htslib-build-root (default variant-build), --jobs
+(default 2), and --resume. Use a clean build for the release; --resume is for
+an interrupted build with the same sources/options. Its musl llrintl adapter
+must exactly match the file in the pinned musl source archive.
+
+Fastp also accepts --cosmo-source-archive, defaulting to the included
+variant-build/cosmopolitan-3.3.10.tar.gz, and --jobs (default 2, bounded to 1..4).
+It creates fastp-assets/plotly-1.2.0.min.js and the associated license texts.
+Both the minified Plotly asset and its readable source/license are hash-checked.
+Paircheck --test checks both binaries; --practical-data /path/to/VariantCalling
+also checks lane1 and lane2. Use --build all when requesting both-build tests.
+
+5. Assemble the isolated Cutadapt runtime and native Linux reference:
+
+  python3.12 tools/prepare_cutadapt.py --linux-reference
+
+This verifies every file in vendor-expanded/cutadapt/provenance.json, extracts
+the official CPython 3.13.16 Windows x64 embeddable distribution and Windows
+wheels, and creates the Linux reference venv at expanded-build/cutadapt-linux.
+The Linux pip install uses --no-index and included wheels. The Windows runtime
+uses python313._pth and isolated imports; it does not install into system Python.
+Without --linux-reference only the Windows runtime is prepared. --download can
+recover a missing pinned input from its recorded URL, but is unnecessary for a
+complete source ZIP. Existing files with a bad checksum are rejected.
+
+6. Generate the packs, then build the native Windows application:
+
+  python3 desktop/prepare_research_packs.py
+  bash desktop/build.sh
+  bash tests/build_windows_pipeline.sh
+
+prepare_research_packs.py calls the base modular generator and adds the research
+packs. It rebuilds the ten 0.4.0 pack directories, includes tool/runtime assets
+and licenses, and records current SHA256 hashes. Do not pass --without-freebayes
+or --without-fastp when recreating this release. prepare_modular_packs.py alone
+builds only the five base packs. The complete release has 43 workflows.
+
+The application is build/desktop/NativeWorkbench.exe. The desktop uses C++17,
+-O2, -Wall -Wextra -Werror and a static C++ runtime with Windows UCRT/system DLLs.
+Its native Win32/GDI+ UI needs neither a browser runtime nor a Python GUI.
+Stage NativeWorkbench.exe beside packs/ and examples/; copy only these packs:
+  reads-0.4.0, align-0.4.0, bam-0.4.0, variants-0.4.0,
+  variant-pipeline-0.4.0, trimming-0.4.0, fastp-0.4.0,
+  bwa-0.4.0, freebayes-0.4.0, research-variants-0.4.0.
+Retain examples/variant-truth and the supplied runtime/license documentation.
+Copy build/pipeline-checks/WindowsPipelineChecks.exe beside NativeWorkbench.exe
+to enable the grouped six-case process check. The complete package then exposes
+34 installation checks. Retain examples/trimming-truth and examples/fastp-truth.
+Legacy desktop/inspect.py targets format-1 packs and is not the 0.4 checker.
+Use python3 desktop/inspect_research.py for the 0.4 static package/PE audit.
+
+Pin inventories and source changes
+
+The following files contain exact upstream URLs, archive SHA256 hashes,
+versions, compiler/build details and corresponding license origins:
+  vendor/provenance.json                      seqtk 1.4, minimap2 2.28
+  variant-provenance.json                     SAMtools/BCFtools/HTSlib 1.24
+  vendor-expanded/bwa/provenance.json          classic BWA 0.7.19-r1273
+  vendor-expanded/freebayes/provenance.json    FreeBayes 1.3.10 and dependencies
+  vendor-expanded/fastp-provenance.json        fastp 1.3.7 and dependencies
+  vendor-expanded/cutadapt/provenance.json     Cutadapt 5.2/runtime/wheels
+
+FreeBayes additionally pins Tabix++ 1.1.2, SIMDe 0.8.2, an IntervalTree commit,
+and musl 1.2.5's unchanged x86-64 llrintl function. Compatibility patches use
+public 64-bit file offsets and omit a glibc-only diagnostic backtrace.
+Fastp statically links ISA-L 2.32.1's upstream C backend, libdeflate 1.26 and
+Highway 1.3.0. Its source patch makes HTML reports load the local Plotly asset
+and disables chart cloud-sharing controls. No variant-calling, alignment or
+trimming algorithm was replaced. Paircheck is a separate validation helper.
+
+Keep all license inventories when distributing binaries. The runtime and
+third-party notices are not optional, including BWA's GPL source/license files.
+The included source ZIP and build instructions accompany BWA redistribution.
+
+Checks after rebuilding
+
+Run each validation command with a new output directory:
+
+  mkdir -p build/model
+  g++ -std=c++17 -O2 -Wall -Wextra -Werror tests/test_pack_model.cpp desktop/pack_model.cpp -o build/model/test_pack_model
+  build/model/test_pack_model packs/*-0.4.0/pack.ini
+  python3 validation/validate_variant_pipeline.py --output validation/rebuild-tiny
+  python3 validation/smoke_pack_workflows.py --fixtures validation/rebuild-tiny --output validation/rebuild-base-packs
+  python3 validation/validate_bwa.py --output validation/rebuild-bwa
+  python3 tools/test_fastp.py --output validation/rebuild-fastp
+  python3 vendor-expanded/freebayes/validate.py --fixture validation/rebuild-tiny --output validation/rebuild-freebayes
+
+Add --practical-dir /path/to/VariantCalling to validate_variant_pipeline.py or
+validate_bwa.py for the original yeast lanes, and --practical-data to
+ tools/test_fastp.py. The FreeBayes region validator additionally accepts
+--inputs /path/to/prepared/bam-and-reference-directory, --region I and --output
+NEW_DIRECTORY; it requires reference.fa/.fai and alignment.marked.bam/.csi.
+
+The literal-manifest research validator's interface is:
+  python3 validation/validate_research_pipeline.py --fixtures-only --output validation/rebuild-fixtures
+  python3 validation/validate_research_pipeline.py --plan PLAN.json --output validation/rebuild-research
+The plan format is documented at the top of that script. Set its input, pack
+and executable-prefix paths to this checkout. Portable prefixes use
+baselines/bin/ape-loader-linux followed by the APE .exe. Linux Cutadapt checks
+use expanded-build/cutadapt-linux/bin/python; running Windows Cutadapt wheels
+on Linux is not a valid substitute. Do not resolve that venv interpreter's
+symlink to the system Python, which would bypass the venv.
+
+Keep HTSlib worker threads disabled. The release's single-thread SAMtools and
+BCFtools commands avoid an unresolved Cosmopolitan recursive-mutex/condition
+variable incompatibility. Alignment/preprocessing concurrency is separately
+specified by each workflow. Do not infer HTSlib threading support from it.
+
+Finally, execute Check installation on Windows. Optional process-integration
+checks are included by the companion build above; they can also be run separately
+according to tests/WINDOWS-PIPELINES.txt. Cross-compilation, PE inspection and Linux APE
+execution do not establish that the GUI, Windows process runner or newly added
+Windows tools have passed native Windows execution. Preserve the resulting
+reports with the rebuilt binary hashes. No performance claim is implied.

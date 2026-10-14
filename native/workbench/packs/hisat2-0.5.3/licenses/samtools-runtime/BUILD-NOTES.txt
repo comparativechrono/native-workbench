@@ -1,0 +1,12 @@
+Portable SAMtools and BCFtools 1.24 / HTSlib 1.24
+
+Use SAMtools and BCFtools without optional thread-pool flags (-@ / --threads).
+HTSlib uses a recursive mutex with condition variables; Cosmopolitan 3.3.10
+condition variables only accept normal mutexes. The GUI omits these options.
+Minimap2 mapping threads work and remain selectable. No mutex substitution or
+upstream algorithm patches have been applied.
+
+SAMtools uses MIT; BCFtools selects MIT/Expat (GSL disabled). HTSlib,
+htscodecs and LZ4 notices, source-header notices, and embedded runtime notices
+are included here. Redistribute the complete pack licenses directory, which
+also contains Cosmopolitan and its third-party runtime license texts.

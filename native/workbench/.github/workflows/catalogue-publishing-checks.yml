@@ -1,0 +1,33 @@
+name: Catalogue publication source checks
+
+on:
+  push:
+    branches: [feature/catalogue-publishing-infrastructure]
+  pull_request:
+    paths:
+      - 'scripts/sign_setup_catalogue.py'
+      - 'scripts/deploy_setup_catalogue.py'
+      - 'tests/test_sign_setup_catalogue.py'
+      - 'tests/test_deploy_setup_catalogue.py'
+      - '.github/workflows/publish-setup-catalogue.yml'
+      - '.github/workflows/catalogue-publishing-checks.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Verify signing cleanup, identity binding and publication transactions
+        run: |
+          python3 -m unittest discover -s tests -p 'test_sign_setup_catalogue.py' -v
+          python3 -m unittest discover -s tests -p 'test_deploy_setup_catalogue.py' -v
+          python3 -m unittest discover -s tests -p 'test_publish_pack_catalog.py' -v
+          python3 -m unittest discover -s tests -p 'test_prepare_setup_catalogue.py' -v
+          git diff --exit-code

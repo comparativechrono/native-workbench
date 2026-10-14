@@ -1,0 +1,27 @@
+
+muscle 5.3.linux64 [d9725ac]  0.0b RAM, 2 cores
+Built Nov 10 2024 22:58:59
+(C) Copyright 2004-2021 Robert C. Edgar.
+https://drive5.com
+
+[super5 /workspace/scratch/0c5293ac0f36/integration-source/native-workbench/vendor-expanded/muscle-5.3/test-data/nucleotide.fa]
+Input: 3 seqs, avg length 23, max 24, min 21
+
+00:00   33.3% Derep 1 uniques, 0 dupes
+00:00  100.0% Derep 3 uniques, 0 dupes
+00:00   33.3% UCLUST 3 seqs EE<0.01, 0 centroids, 0 members
+00:00 CPU has 2 cores, running 1 threads                   
+00:00  100.0% UCLUST 3 seqs EE<0.01, 1 centroids, 1 members
+00:00   50.0% UCLUST 2 seqs EE<0.30, 0 centroids, 0 members
+00:00  100.0% UCLUST 2 seqs EE<0.30, 1 centroids, 0 members
+00:00  100.0% Make cluster MFAs                            
+1 clusters pass 1              
+1 clusters pass 2
+00:00 
+00:00 Align cluster 1 / 1 (2 seqs)
+00:00 
+00:00   50.0% Derep 1 uniques, 0 dupes
+00:00  100.0% Derep 2 uniques, 0 dupes
+00:00  100.0% Calc posteriors         
+00:00  100.0% UPGMA5         
+00:00  100.0% Consensus sequences

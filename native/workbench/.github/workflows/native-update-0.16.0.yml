@@ -1,0 +1,147 @@
+name: Validate accepted 0.16.0 update from 0.11.0
+
+on:
+  push:
+    branches: [release/update-app-0.16.0]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: update-0.16.0-${{ github.ref }}
+  cancel-in-progress: false
+
+# The application is never rebuilt. Only the versioned updater launcher and
+# the updater archive are newly built from the accepted source/payload.
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 20
+    outputs:
+      update_sha256: ${{ steps.package.outputs.update_sha256 }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Retrieve the accepted standalone application without rebuilding
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: curated-candidate-e855dc4396e0c16ae35f4e840eb9cc734adb4441
+          run-id: 37952018931
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/accepted-candidate
+      - name: Verify updater source, source contracts and immutable build inputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 tests/test_core_update.py
+          python3 tests/test_build_update_0160.py
+          python3 - <<'PY'
+          from pathlib import Path
+          import subprocess
+          source = 'e855dc4396e0c16ae35f4e840eb9cc734adb4441'
+          names = ('desktop/build_workspace_update_launcher.sh', 'desktop/workspace_update_launcher.cpp',
+                   'desktop/workbench.manifest', 'scripts/apply_core_update.py',
+                   'scripts/apply_desktop_update.py', 'scripts/make_core_update.py')
+          for name in names:
+              frozen = subprocess.check_output(['git', 'show', source + ':' + name])
+              if Path(name).read_bytes() != frozen:
+                  raise SystemExit('Updater implementation differs from accepted source: ' + name)
+          PY
+          mkdir -p "$RUNNER_TEMP/update-inputs"
+          curl --fail --location --retry 3 'https://github.com/comparativechrono/workbench/releases/download/app-v0.11.0/native-workbench-0.11.0-starter-windows.zip' -o "$RUNNER_TEMP/update-inputs/baseline.zip"
+          curl --fail --location --retry 3 'https://github.com/mstorsjo/llvm-mingw/releases/download/20260922/llvm-mingw-20260922-ucrt-ubuntu-22.04-x86_64.tar.xz' -o "$RUNNER_TEMP/update-inputs/compiler.tar.xz"
+          cd "$RUNNER_TEMP/update-inputs"
+          sha256sum --check <<'SUMS'
+          e816e2f7cd5efe98af752fbf072fab00344ebaa2b6963795c2fbf4a86b5fa81c  baseline.zip
+          bb7bb7654b33d5aa8712acb837c963b2e0c56352560c76105270a3268c665c21  compiler.tar.xz
+          SUMS
+          tar -xf compiler.tar.xz
+      - name: Build the updater launcher only and freeze an exact core update
+        id: package
+        shell: bash
+        run: |
+          set -euo pipefail
+          export BW_MINGW_ROOT="$RUNNER_TEMP/update-inputs/llvm-mingw-20260922-ucrt-ubuntu-22.04-x86_64"
+          bash desktop/build_workspace_update_launcher.sh
+          launcher_sha=$(sha256sum build/desktop/UpdateWorkbench.exe | cut -d ' ' -f 1)
+          python3 scripts/build_update_0160.py \
+            --starter "$RUNNER_TEMP/accepted-candidate/native-workbench-0.16.0-starter-windows.zip" \
+            --starter-sha256 f96e03e43cac92ba8ca9a0a3807eb671f9924d5e624cadbba94d1a5ca1309073 \
+            --baseline "$RUNNER_TEMP/update-inputs/baseline.zip" \
+            --launcher build/desktop/UpdateWorkbench.exe --launcher-sha256 "$launcher_sha" \
+            --source-commit e855dc4396e0c16ae35f4e840eb9cc734adb4441 \
+            --output "$RUNNER_TEMP/update-candidate" --work "$RUNNER_TEMP/update-build-work"
+      - name: Retain the exact frozen updater and its provenance
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: update-0.16.0-from-0.11.0-${{ github.sha }}
+          path: ${{ runner.temp }}/update-candidate
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+
+  native:
+    needs: build
+    runs-on: windows-2022
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        folder: [ordinary, 'path with spaces']
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: update-0.16.0-from-0.11.0-${{ github.sha }}
+          path: ${{ runner.temp }}/update-candidate
+      - name: Retrieve the same accepted standalone application
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: curated-candidate-e855dc4396e0c16ae35f4e840eb9cc734adb4441
+          run-id: 37952018931
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/accepted-candidate
+      - name: Validate native upgrade, preservation, optional import, curated science and GUI
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+          UPDATE_SHA256: ${{ needs.build.outputs.update_sha256 }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $starter = Join-Path $env:RUNNER_TEMP 'accepted-candidate/native-workbench-0.16.0-starter-windows.zip'
+          $update = Join-Path $env:RUNNER_TEMP 'update-candidate/native-workbench-0.16.0-update-from-0.11.0.zip'
+          $baseline = Join-Path $env:RUNNER_TEMP 'baseline-0.11.0.zip'
+          $pack = Join-Path $env:RUNNER_TEMP 'optional-reads-0.4.0.zip'
+          $align = Join-Path $env:RUNNER_TEMP 'accepted-candidate/native-workbench-pack-align-0.4.1.zip'
+          Invoke-WebRequest -Uri 'https://github.com/comparativechrono/workbench/releases/download/app-v0.11.0/native-workbench-0.11.0-starter-windows.zip' -OutFile $baseline
+          Invoke-WebRequest -Uri 'https://github.com/comparativechrono/workbench/releases/download/pack-reads-v0.4.0/native-workbench-pack-reads-0.4.0.zip' -OutFile $pack
+          if ((Get-FileHash $starter -Algorithm SHA256).Hash -ne 'f96e03e43cac92ba8ca9a0a3807eb671f9924d5e624cadbba94d1a5ca1309073') { throw 'Accepted starter SHA-256 mismatch.' }
+          if ((Get-FileHash $baseline -Algorithm SHA256).Hash -ne 'e816e2f7cd5efe98af752fbf072fab00344ebaa2b6963795c2fbf4a86b5fa81c') { throw 'Published baseline SHA-256 mismatch.' }
+          if ((Get-FileHash $update -Algorithm SHA256).Hash -ne $env:UPDATE_SHA256) { throw 'Frozen updater SHA-256 mismatch.' }
+          if ((Get-FileHash $pack -Algorithm SHA256).Hash -ne '2dd05fece8deb2b0178d8b1bc2b6830f175b3fbc2f5a4d48f9c9023cbfe6775b') { throw 'Optional pack SHA-256 mismatch.' }
+          if ((Get-FileHash $align -Algorithm SHA256).Hash -ne '3a08cf061f0b62c5502d1420115db3fcae2b04bf695ad3cfd1c3063de0fafa02') { throw 'Independent align pack SHA-256 mismatch.' }
+          $caseRoot = Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER
+          Expand-Archive $starter (Join-Path $caseRoot 'accepted')
+          Expand-Archive $baseline (Join-Path $caseRoot 'baseline')
+          Expand-Archive $update (Join-Path $caseRoot 'updater')
+          $app = Join-Path $caseRoot 'accepted/native-workbench'
+          $base = Join-Path $caseRoot 'baseline/native-workbench'
+          $updater = Join-Path $caseRoot 'updater'
+          & (Join-Path $updater 'runtime/python/python.exe') -I scripts/check_update_0160_windows.py --base-app-root $base --app-root $app --update-root $updater --baseline-archive $baseline --starter-archive $starter --update-archive $update --optional-pack-archive $pack --align-pack-archive $align --update-sha256 $env:UPDATE_SHA256 --starter-sha256 'f96e03e43cac92ba8ca9a0a3807eb671f9924d5e624cadbba94d1a5ca1309073' --source-commit 'e855dc4396e0c16ae35f4e840eb9cc734adb4441' --report "$env:RUNNER_TEMP/update-evidence/update-native.json"
+          if ($LASTEXITCODE -ne 0) { throw 'Native 0.11.0-to-0.16.0 update gate failed.' }
+      - name: Retain actual updater and scientific evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: update-0.16.0-${{ matrix.folder }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/update-evidence
+          if-no-files-found: error
+          retention-days: 30

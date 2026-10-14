@@ -1,0 +1,128 @@
+{
+  "tool": "fastp",
+  "version": "1.3.7",
+  "official_release": "https://github.com/OpenGene/fastp/releases/tag/v1.3.7",
+  "upstream_sources": {
+    "fastp-1.3.7": {
+      "archive": "vendor-expanded/archives/fastp-v1.3.7.tar.gz",
+      "sha256": "5b7d6880c66e9e10e5923c68ee0c0b5a30f59bd252d836c379c74f8533c26993",
+      "url": "https://codeload.github.com/OpenGene/fastp/tar.gz/refs/tags/v1.3.7"
+    },
+    "isa-l-2.32.1": {
+      "archive": "vendor-expanded/archives/isa-l-v2.32.1.tar.gz",
+      "sha256": "d9f7179ab0e14a3db9b610fac22793854a1435e8423ec9ce07f4cbedc5f92f5e",
+      "url": "https://codeload.github.com/intel/isa-l/tar.gz/refs/tags/v2.32.1"
+    },
+    "libdeflate-1.26": {
+      "archive": "vendor-expanded/archives/libdeflate-v1.26.tar.gz",
+      "sha256": "bba03fffc5538576213675ce6968fcff6ce2e67d82e4d5febea2d05f9f13cf85",
+      "url": "https://codeload.github.com/ebiggers/libdeflate/tar.gz/refs/tags/v1.26"
+    },
+    "highway-1.3.0": {
+      "archive": "vendor-expanded/archives/highway-1.3.0.tar.gz",
+      "sha256": "07b3c1ba2c1096878a85a31a5b9b3757427af963b1141ca904db2f9f4afe0bc2",
+      "url": "https://codeload.github.com/google/highway/tar.gz/refs/tags/1.3.0"
+    }
+  },
+  "plotly": {
+    "version": "1.2.0",
+    "runtime_path": "vendor-expanded/fastp-assets/plotly-1.2.0.min.js",
+    "runtime_sha256": "60169d9df25530f1d5e29c663ceb18ea7492862acb308800fc5ab0f0bf31a41e",
+    "runtime_url": "https://opengene.org/plotly-1.2.0.min.js",
+    "source_path": "vendor-expanded/archives/plotly-1.2.0.js",
+    "source_sha256": "1169b79526878ee915c12fefc375930f9249f4ac9c265b0300da7c9d14569f9d",
+    "source_url": "https://raw.githubusercontent.com/plotly/plotly.js/v1.2.0/dist/plotly.js",
+    "license_sha256": "891d94cad73e4fdf9abc46c39468d145545f74e2d4ab43abe74b7ed299f2e484"
+  },
+  "outputs": {
+    "linux": {
+      "path": "baselines/bin/fastp-linux",
+      "sha256": "ed38e122ea7cd5d72f19350a4f2576cc71eeee83a15f4a6d2b760ce6faeb4c3f",
+      "bytes": 841104
+    },
+    "cosmo": {
+      "path": "baselines/bin/fastp-cosmo.exe",
+      "sha256": "1dc1c0898be5625180d65dd630f426701d5741978a757624695d6bd54c1c4bd4",
+      "bytes": 1636988
+    }
+  },
+  "cpu_configuration": {
+    "baseline": "x86-64 (SSE2), -march=x86-64 -mtune=generic",
+    "optional_instructions": "Highway and libdeflate choose optional SIMD at runtime",
+    "isa_l_backend": "unmodified upstream C/noarch; no assembly dependency"
+  },
+  "patches": [
+    "HTML charts use bundled Plotly; no remote fallback or cloud-sharing controls.",
+    "JSON command text escapes backslashes, double quotes and all control bytes; UTF-8 is preserved.",
+    "HTML command and report-title text is escaped as text, not interpreted as markup.",
+    "No adapter trimming, quality filtering, read processing or compression algorithms changed."
+  ],
+  "patch_path": "vendor-expanded/fastp-offline-report.patch",
+  "build_script": "tools/build_fastp.py",
+  "test_script": "tools/test_fastp.py",
+  "validation_report": "fastp-build/windows-json-fixed-validation-3/fastp-validation.json",
+  "validation_report_sha256": "85966f1691d96456aa3343a8109bbd294c1e2e0d9ba8dfe7719b968a0d5dd379",
+  "validation_summary": [
+    {
+      "case": "fixture-plain",
+      "paired_output_exact": true,
+      "json_equal_excluding_command": true,
+      "known_truth_exact": true
+    },
+    {
+      "case": "fixture-gzip",
+      "paired_output_exact": true,
+      "json_equal_excluding_command": true,
+      "known_truth_exact": true
+    },
+    {
+      "case": "fixture-windows-paths",
+      "paired_output_exact": true,
+      "json_equal_excluding_command": true,
+      "known_truth_exact": true
+    },
+    {
+      "case": "fixture-report-special-characters",
+      "paired_output_exact": true,
+      "json_equal_excluding_command": true,
+      "known_truth_exact": true
+    },
+    {
+      "case": "yeast-lane1",
+      "paired_output_exact": true,
+      "output_record_multisets_equal": true,
+      "json_equal_excluding_command": true
+    }
+  ],
+  "upstream_unit_checks_per_build": 11,
+  "windows_runtime_tested": false,
+  "windows_imports": [
+    "API-MS-Win-Core-Synch-l1-2-0.dll",
+    "BCryptPrimitives.dll",
+    "advapi32.dll",
+    "kernel32.dll",
+    "psapi.dll"
+  ],
+  "licenses": [
+    "vendor-expanded/fastp-licenses/BUILD-NOTES.txt",
+    "vendor-expanded/fastp-licenses/cosmopolitan-libcxx-LICENSE.txt",
+    "vendor-expanded/fastp-licenses/cosmopolitan-libcxxabi-LICENSE.txt",
+    "vendor-expanded/fastp-licenses/cosmopolitan-libunwind-LICENSE.txt",
+    "vendor-expanded/fastp-licenses/fastp-MIT-LICENSE.txt",
+    "vendor-expanded/fastp-licenses/highway-Apache2-LICENSE.txt",
+    "vendor-expanded/fastp-licenses/highway-BSD3-LICENSE.txt",
+    "vendor-expanded/fastp-licenses/isa-l-BSD3-LICENSE.txt",
+    "vendor-expanded/fastp-licenses/libdeflate-MIT-LICENSE.txt",
+    "vendor-expanded/fastp-licenses/plotly-MIT-LICENSE.txt"
+  ],
+  "patch_sha256": "4e88d6b1dd155c4815b0010dc4b7884dbfd72222765876b357e459ae534f040b",
+  "report_escaping_validation": "validation/fastp-report-escaping.json",
+  "report_escaping_validation_sha256": "b461525237c85e1db7c9e907b2da5a918d7486687028cdb36c25051610e26413",
+  "previous_optional_empty_output_check": "fastp-build/orphan-validation/results.json",
+  "previous_optional_empty_output_note": "Recorded for the original release binaries before the reporting-only escaping patch.",
+  "workbench_0_5_rebuild": {
+    "note": "Patched Linux reference rebuilt from pinned local archives for 0.5 source distribution. Supplied 0.4.1 Windows/APE binary is unchanged. Original patch provenance is retained in the runtime docs/fastp-report-fix.",
+    "provenance": "validation/fastp-linux-rebuild-provenance.json",
+    "validation": "validation/fastp-linux-ape-comparison.json"
+  }
+}

@@ -1,0 +1,4 @@
+MUSCLE 5.3-workbench1, modified 2026-10-03 for Native Workbench.
+MUSCLE changes remain under GNU GPL version 3; the original GPL license and release source are retained.
+Changes: MinGW platform and 64-bit integer portability; explicit alphabet flags in -align; selected-alphabet logging and local build identifier. No scoring model or alignment algorithm replacement.
+This is a local source build, not an official upstream binary. The exact applied patch is workbench1.patch.

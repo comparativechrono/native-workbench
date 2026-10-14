@@ -1,0 +1,98 @@
+name: Native Windows frozen 0.11.0 release checks
+
+on:
+  push:
+    branches: [verify/library-release-0.11.0]
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: native-library-release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  native:
+    runs-on: windows-2022
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        folder: [ordinary, 'path with spaces']
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Retrieve the accepted frozen standalone candidate
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: tool-library-transfer-starter-acfa060c9a400d82509278b657ee37853c7922b0
+          run-id: 37678010251
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/frozen-candidate
+      - name: Verify frozen archive and extract separate applications
+        id: prepare
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $starter = Join-Path $env:RUNNER_TEMP 'frozen-candidate/native-workbench-0.11.0-starter-windows.zip'
+          if ((Get-FileHash $starter -Algorithm SHA256).Hash -ne 'e816e2f7cd5efe98af752fbf072fab00344ebaa2b6963795c2fbf4a86b5fa81c') { throw 'Accepted Starter SHA-256 mismatch.' }
+          $caseRoot = Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER
+          foreach ($gate in @('library', 'results', 'references', 'scroll')) { Expand-Archive $starter (Join-Path $caseRoot $gate) }
+      - name: Native categories, actual library wheel scrolling and viewport preservation
+        if: always() && !cancelled() && steps.prepare.outcome == 'success'
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+          VALIDATOR_COMMIT: ${{ github.sha }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'library/native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I scripts/check_tool_library_windows.py --app-root $app --report "$env:RUNNER_TEMP/library-evidence/native-tool-library.json" --source-commit 'acfa060c9a400d82509278b657ee37853c7922b0' --asset-sha256 'e816e2f7cd5efe98af752fbf072fab00344ebaa2b6963795c2fbf4a86b5fa81c' --asset-name 'native-workbench-0.11.0-starter-windows.zip'
+          if ($LASTEXITCODE -ne 0) { throw 'Native category and library scrolling check failed.' }
+      - name: Native results, exported CWL, DAG connections and application icon
+        if: always() && !cancelled() && steps.prepare.outcome == 'success'
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'results/native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I scripts/check_results_windows.py --app-root $app --report "$env:RUNNER_TEMP/results-evidence/native-results.json" --source-commit 'acfa060c9a400d82509278b657ee37853c7922b0' --asset-sha256 'e816e2f7cd5efe98af752fbf072fab00344ebaa2b6963795c2fbf4a86b5fa81c'
+          if ($LASTEXITCODE -ne 0) { throw 'Native results release check failed.' }
+      - name: Live References, cancellation, integrity, native selection and offline analysis
+        if: always() && !cancelled() && steps.prepare.outcome == 'success'
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'references/native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I scripts/check_references_windows.py --app-root $app --report "$env:RUNNER_TEMP/references-evidence/native-references.json" --source-commit 'acfa060c9a400d82509278b657ee37853c7922b0' --asset-sha256 'e816e2f7cd5efe98af752fbf072fab00344ebaa2b6963795c2fbf4a86b5fa81c' --asset-name 'native-workbench-0.11.0-starter-windows.zip' --release-tag 'accepted-tool-library-candidate'
+          if ($LASTEXITCODE -ne 0) { throw 'Native References release check failed.' }
+      - name: Observe scrolling frames and precision wheel routing
+        if: always() && !cancelled() && steps.prepare.outcome == 'success'
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'scroll/native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I scripts/check_scroll_frames_windows.py --app-root $app --report "$env:RUNNER_TEMP/scroll-evidence/native-scroll.json" --source-commit 'acfa060c9a400d82509278b657ee37853c7922b0' --asset-sha256 'e816e2f7cd5efe98af752fbf072fab00344ebaa2b6963795c2fbf4a86b5fa81c'
+          if ($LASTEXITCODE -ne 0) { throw 'Native scrolling release check failed.' }
+      - name: Retain exact reports and native captures even on failure
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: tool-library-release-checks-${{ matrix.folder }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/library-evidence
+            ${{ runner.temp }}/results-evidence
+            ${{ runner.temp }}/references-evidence
+            ${{ runner.temp }}/scroll-evidence
+          if-no-files-found: error
+          retention-days: 30

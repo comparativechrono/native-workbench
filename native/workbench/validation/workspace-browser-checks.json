@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "checks": [
+    "all 44 tasks discoverable",
+    "same-level fanout at1048/736/320",
+    "named output provenance",
+    "removal breaks downstream input",
+    "undo restores stable IDs",
+    "rename propagates",
+    "server pipeline persistence",
+    "real review and plan",
+    "simulated native runner integration",
+    "native picker API mapping",
+    "refresh authentication",
+    "saved pipeline unbound",
+    "no browser exceptions or horizontal overflow"
+  ]
+}

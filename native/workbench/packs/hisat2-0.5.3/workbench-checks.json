@@ -1,0 +1,293 @@
+{
+  "schema": 1,
+  "checks": [
+    {
+      "id": "rna-single",
+      "workflow": "rna-single",
+      "params": {
+        "sample": "validation",
+        "read-group": "validation",
+        "library": "lib1",
+        "platform-unit": "unit1",
+        "threads": "1",
+        "seed": "0"
+      },
+      "inputs": {
+        "reference": [
+          {
+            "reference": "fixture-reference"
+          }
+        ],
+        "reads": [
+          {
+            "reads": "fixture-rna-single"
+          }
+        ]
+      },
+      "expect": [
+        {
+          "output": "aligned-sam",
+          "kind": "sam",
+          "records": 2,
+          "mapped": 2,
+          "paired": 0,
+          "properPairs": 0,
+          "spliced": 1,
+          "references": {
+            "chrSynthetic": 1100
+          },
+          "samples": [
+            "validation"
+          ],
+          "allReadGroups": true,
+          "alignments": [
+            {
+              "name": "rna_junction",
+              "reference": "chrSynthetic",
+              "position": 471,
+              "cigar": "30M100N30M",
+              "flag": 0,
+              "tags": {
+                "RG": "validation",
+                "XS": "+"
+              }
+            },
+            {
+              "name": "rna_exon",
+              "reference": "chrSynthetic",
+              "position": 651,
+              "cigar": "60M",
+              "flag": 0,
+              "tags": {
+                "RG": "validation"
+              }
+            }
+          ]
+        },
+        {
+          "output": "summary",
+          "kind": "text",
+          "contains": [
+            "Overall alignment rate: 100.00%"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rna-paired",
+      "workflow": "rna-paired",
+      "params": {
+        "sample": "validation",
+        "read-group": "validation",
+        "library": "lib1",
+        "platform-unit": "unit1",
+        "threads": "1",
+        "seed": "0"
+      },
+      "inputs": {
+        "reference": [
+          {
+            "reference": "fixture-reference"
+          }
+        ],
+        "reads": [
+          {
+            "reads1": "fixture-rna-r1",
+            "reads2": "fixture-rna-r2"
+          }
+        ]
+      },
+      "expect": [
+        {
+          "output": "aligned-sam",
+          "kind": "sam",
+          "records": 2,
+          "mapped": 2,
+          "paired": 2,
+          "properPairs": 2,
+          "spliced": 1,
+          "references": {
+            "chrSynthetic": 1100
+          },
+          "samples": [
+            "validation"
+          ],
+          "allReadGroups": true,
+          "alignments": [
+            {
+              "name": "rna_pair",
+              "reference": "chrSynthetic",
+              "position": 471,
+              "cigar": "30M100N30M",
+              "flag": 99,
+              "tags": {
+                "RG": "validation",
+                "XS": "+"
+              }
+            },
+            {
+              "name": "rna_pair",
+              "reference": "chrSynthetic",
+              "position": 691,
+              "cigar": "60M",
+              "flag": 147,
+              "tags": {
+                "RG": "validation"
+              }
+            }
+          ]
+        },
+        {
+          "output": "summary",
+          "kind": "text",
+          "contains": [
+            "Overall alignment rate: 100.00%"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dna-single",
+      "workflow": "dna-single",
+      "params": {
+        "sample": "validation",
+        "read-group": "validation",
+        "library": "lib1",
+        "platform-unit": "unit1",
+        "threads": "1",
+        "seed": "0"
+      },
+      "inputs": {
+        "reference": [
+          {
+            "reference": "fixture-reference"
+          }
+        ],
+        "reads": [
+          {
+            "reads": "fixture-dna-single"
+          }
+        ]
+      },
+      "expect": [
+        {
+          "output": "aligned",
+          "kind": "sam",
+          "records": 2,
+          "mapped": 2,
+          "paired": 0,
+          "properPairs": 0,
+          "spliced": 0,
+          "references": {
+            "chrSynthetic": 1100
+          },
+          "samples": [
+            "validation"
+          ],
+          "allReadGroups": true,
+          "alignments": [
+            {
+              "name": "dna_exon_a",
+              "reference": "chrSynthetic",
+              "position": 211,
+              "cigar": "60M",
+              "flag": 0,
+              "tags": {
+                "RG": "validation"
+              }
+            },
+            {
+              "name": "dna_exon_b",
+              "reference": "chrSynthetic",
+              "position": 351,
+              "cigar": "60M",
+              "flag": 0,
+              "tags": {
+                "RG": "validation"
+              }
+            }
+          ]
+        },
+        {
+          "output": "summary",
+          "kind": "text",
+          "contains": [
+            "Overall alignment rate: 100.00%"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dna-paired",
+      "workflow": "dna-paired",
+      "params": {
+        "sample": "validation",
+        "read-group": "validation",
+        "library": "lib1",
+        "platform-unit": "unit1",
+        "threads": "1",
+        "seed": "0"
+      },
+      "inputs": {
+        "reference": [
+          {
+            "reference": "fixture-reference"
+          }
+        ],
+        "reads": [
+          {
+            "reads1": "fixture-dna-r1",
+            "reads2": "fixture-dna-r2"
+          }
+        ]
+      },
+      "expect": [
+        {
+          "output": "aligned",
+          "kind": "sam",
+          "records": 2,
+          "mapped": 2,
+          "paired": 2,
+          "properPairs": 2,
+          "spliced": 0,
+          "references": {
+            "chrSynthetic": 1100
+          },
+          "samples": [
+            "validation"
+          ],
+          "allReadGroups": true,
+          "alignments": [
+            {
+              "name": "dna_pair",
+              "reference": "chrSynthetic",
+              "position": 211,
+              "cigar": "60M",
+              "flag": 99,
+              "tags": {
+                "RG": "validation"
+              }
+            },
+            {
+              "name": "dna_pair",
+              "reference": "chrSynthetic",
+              "position": 351,
+              "cigar": "60M",
+              "flag": 147,
+              "tags": {
+                "RG": "validation"
+              }
+            }
+          ]
+        },
+        {
+          "output": "summary",
+          "kind": "text",
+          "contains": [
+            "Overall alignment rate: 100.00%"
+          ]
+        }
+      ]
+    }
+  ]
+}

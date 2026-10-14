@@ -1,0 +1,1102 @@
+{
+  "schema": 1,
+  "category": "Variant calling",
+  "citations": [
+    {
+      "text": "Benjamin et al. (2019). Calling somatic SNVs and indels with Mutect2.",
+      "url": "https://doi.org/10.1101/861054"
+    },
+    {
+      "text": "Van der Auwera and O'Connor (2020). Genomics in the Cloud. GATK somatic short variant discovery.",
+      "url": "https://gatk.broadinstitute.org/hc/en-us/articles/360035531132"
+    }
+  ],
+  "workflows": {
+    "tumor-only": {
+      "ports": [
+        {
+          "id": "tumor",
+          "type": "bam",
+          "accepts": [
+            "bam"
+          ],
+          "manifestInputs": [
+            "tumor"
+          ],
+          "min": 1,
+          "max": 1,
+          "requiredState": {
+            "sort": "coordinate"
+          },
+          "validation": {
+            "singleSample": true,
+            "sampleParameter": "tumor-sample"
+          }
+        },
+        {
+          "id": "reference",
+          "type": "reference",
+          "accepts": [
+            "reference"
+          ],
+          "manifestInputs": [
+            "reference"
+          ],
+          "min": 1,
+          "max": 1,
+          "requiredState": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "targets",
+          "type": "bed",
+          "accepts": [
+            "bed"
+          ],
+          "manifestInputs": [
+            "targets"
+          ],
+          "min": 1,
+          "max": 1,
+          "validation": {
+            "minColumns": 3,
+            "referenceBounds": true
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": "variants",
+          "type": "vcf",
+          "manifestOutputs": [
+            "variants"
+          ],
+          "state": {
+            "compression": "bgzf",
+            "selection": "all-calls-with-filter-labels"
+          }
+        },
+        {
+          "id": "variants-index",
+          "type": "index",
+          "manifestOutputs": [
+            "variants-index"
+          ],
+          "state": {}
+        },
+        {
+          "id": "pass-variants",
+          "type": "vcf-pass",
+          "manifestOutputs": [
+            "pass-variants"
+          ],
+          "state": {
+            "compression": "bgzf",
+            "selection": "PASS-only"
+          }
+        },
+        {
+          "id": "pass-index",
+          "type": "index",
+          "manifestOutputs": [
+            "pass-index"
+          ],
+          "state": {}
+        },
+        {
+          "id": "unfiltered",
+          "type": "vcf",
+          "manifestOutputs": [
+            "unfiltered"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "call-stats",
+          "type": "metrics",
+          "manifestOutputs": [
+            "call-stats"
+          ],
+          "state": {}
+        },
+        {
+          "id": "f1r2",
+          "type": "file",
+          "manifestOutputs": [
+            "f1r2"
+          ],
+          "state": {}
+        },
+        {
+          "id": "orientation-priors",
+          "type": "file",
+          "manifestOutputs": [
+            "orientation-priors"
+          ],
+          "state": {}
+        },
+        {
+          "id": "filtering-stats",
+          "type": "metrics",
+          "manifestOutputs": [
+            "filtering-stats"
+          ],
+          "state": {}
+        },
+        {
+          "id": "variant-stats",
+          "type": "metrics",
+          "manifestOutputs": [
+            "variant-stats"
+          ],
+          "state": {}
+        },
+        {
+          "id": "pass-stats",
+          "type": "metrics",
+          "manifestOutputs": [
+            "pass-stats"
+          ],
+          "state": {}
+        },
+        {
+          "id": "filtered",
+          "type": "vcf",
+          "manifestOutputs": [
+            "filtered"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "reference",
+          "type": "reference",
+          "manifestOutputs": [
+            "reference"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "reference-index",
+          "type": "index",
+          "manifestOutputs": [
+            "reference-index"
+          ],
+          "state": {}
+        },
+        {
+          "id": "reference-dict",
+          "type": "index",
+          "manifestOutputs": [
+            "reference-dict"
+          ],
+          "state": {}
+        },
+        {
+          "id": "tumor-copy",
+          "type": "bam",
+          "manifestOutputs": [
+            "tumor-copy"
+          ],
+          "state": {
+            "sort": "coordinate"
+          }
+        },
+        {
+          "id": "tumor-index",
+          "type": "index",
+          "manifestOutputs": [
+            "tumor-index"
+          ],
+          "state": {}
+        }
+      ],
+      "methods": "Somatic SNV and indel candidates were called with GATK Mutect2 4.7.0.0 (Workbench local-path compatibility adaptation 1) from prepared coordinate-sorted DNA tumor-only BAM over the recorded BED intervals. No population germline resource or panel of normals was supplied. Pure-Java LOGLESS_CACHING PairHMM, JAVA Smith-Waterman and JDK compression were used. Read-orientation counts were modeled with LearnReadOrientationModel and supplied to FilterMutectCalls. The recorded contamination fraction was supplied by the user (default zero); contamination was not estimated by this workflow. Duplicate marking and base-quality recalibration were not performed within this pack. Filtered records and annotations were preserved without normalization or multiallelic splitting, and all FILTER labels plus a separate record-level PASS subset were retained. Tumor-only results can include germline variants and do not alone establish somatic origin.",
+      "parameterRanges": [
+        {
+          "parameter": "contamination",
+          "min": 0,
+          "max": 1
+        }
+      ]
+    },
+    "tumor-normal": {
+      "ports": [
+        {
+          "id": "tumor",
+          "type": "bam",
+          "accepts": [
+            "bam"
+          ],
+          "manifestInputs": [
+            "tumor"
+          ],
+          "min": 1,
+          "max": 1,
+          "requiredState": {
+            "sort": "coordinate"
+          },
+          "validation": {
+            "singleSample": true,
+            "sampleParameter": "tumor-sample"
+          }
+        },
+        {
+          "id": "normal",
+          "type": "bam",
+          "accepts": [
+            "bam"
+          ],
+          "manifestInputs": [
+            "normal"
+          ],
+          "min": 1,
+          "max": 1,
+          "requiredState": {
+            "sort": "coordinate"
+          },
+          "validation": {
+            "singleSample": true,
+            "sampleParameter": "normal-sample"
+          }
+        },
+        {
+          "id": "reference",
+          "type": "reference",
+          "accepts": [
+            "reference"
+          ],
+          "manifestInputs": [
+            "reference"
+          ],
+          "min": 1,
+          "max": 1,
+          "requiredState": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "targets",
+          "type": "bed",
+          "accepts": [
+            "bed"
+          ],
+          "manifestInputs": [
+            "targets"
+          ],
+          "min": 1,
+          "max": 1,
+          "validation": {
+            "minColumns": 3,
+            "referenceBounds": true
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": "variants",
+          "type": "vcf",
+          "manifestOutputs": [
+            "variants"
+          ],
+          "state": {
+            "compression": "bgzf",
+            "selection": "all-calls-with-filter-labels"
+          }
+        },
+        {
+          "id": "variants-index",
+          "type": "index",
+          "manifestOutputs": [
+            "variants-index"
+          ],
+          "state": {}
+        },
+        {
+          "id": "pass-variants",
+          "type": "vcf-pass",
+          "manifestOutputs": [
+            "pass-variants"
+          ],
+          "state": {
+            "compression": "bgzf",
+            "selection": "PASS-only"
+          }
+        },
+        {
+          "id": "pass-index",
+          "type": "index",
+          "manifestOutputs": [
+            "pass-index"
+          ],
+          "state": {}
+        },
+        {
+          "id": "unfiltered",
+          "type": "vcf",
+          "manifestOutputs": [
+            "unfiltered"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "call-stats",
+          "type": "metrics",
+          "manifestOutputs": [
+            "call-stats"
+          ],
+          "state": {}
+        },
+        {
+          "id": "f1r2",
+          "type": "file",
+          "manifestOutputs": [
+            "f1r2"
+          ],
+          "state": {}
+        },
+        {
+          "id": "orientation-priors",
+          "type": "file",
+          "manifestOutputs": [
+            "orientation-priors"
+          ],
+          "state": {}
+        },
+        {
+          "id": "filtering-stats",
+          "type": "metrics",
+          "manifestOutputs": [
+            "filtering-stats"
+          ],
+          "state": {}
+        },
+        {
+          "id": "variant-stats",
+          "type": "metrics",
+          "manifestOutputs": [
+            "variant-stats"
+          ],
+          "state": {}
+        },
+        {
+          "id": "pass-stats",
+          "type": "metrics",
+          "manifestOutputs": [
+            "pass-stats"
+          ],
+          "state": {}
+        },
+        {
+          "id": "filtered",
+          "type": "vcf",
+          "manifestOutputs": [
+            "filtered"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "reference",
+          "type": "reference",
+          "manifestOutputs": [
+            "reference"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "reference-index",
+          "type": "index",
+          "manifestOutputs": [
+            "reference-index"
+          ],
+          "state": {}
+        },
+        {
+          "id": "reference-dict",
+          "type": "index",
+          "manifestOutputs": [
+            "reference-dict"
+          ],
+          "state": {}
+        },
+        {
+          "id": "tumor-copy",
+          "type": "bam",
+          "manifestOutputs": [
+            "tumor-copy"
+          ],
+          "state": {
+            "sort": "coordinate"
+          }
+        },
+        {
+          "id": "tumor-index",
+          "type": "index",
+          "manifestOutputs": [
+            "tumor-index"
+          ],
+          "state": {}
+        },
+        {
+          "id": "normal-copy",
+          "type": "bam",
+          "manifestOutputs": [
+            "normal-copy"
+          ],
+          "state": {
+            "sort": "coordinate"
+          }
+        },
+        {
+          "id": "normal-index",
+          "type": "index",
+          "manifestOutputs": [
+            "normal-index"
+          ],
+          "state": {}
+        }
+      ],
+      "methods": "Somatic SNV and indel candidates were called with GATK Mutect2 4.7.0.0 (Workbench local-path compatibility adaptation 1) from prepared coordinate-sorted DNA tumor and matched-normal BAMs over the recorded BED intervals. No population germline resource or panel of normals was supplied. Pure-Java LOGLESS_CACHING PairHMM, JAVA Smith-Waterman and JDK compression were used. Read-orientation counts were modeled with LearnReadOrientationModel and supplied to FilterMutectCalls. The recorded contamination fraction was supplied by the user (default zero); contamination was not estimated by this workflow. Duplicate marking and base-quality recalibration were not performed within this pack. Filtered records and annotations were preserved without normalization or multiallelic splitting, and all FILTER labels plus a separate record-level PASS subset were retained. Tumor-only results can include germline variants and do not alone establish somatic origin.",
+      "parameterRanges": [
+        {
+          "parameter": "contamination",
+          "min": 0,
+          "max": 1
+        }
+      ],
+      "parameterConstraints": [
+        {
+          "left": "tumor-sample",
+          "operator": "!=",
+          "right": "normal-sample"
+        }
+      ]
+    },
+    "tumor-only-resources": {
+      "ports": [
+        {
+          "id": "tumor",
+          "type": "bam",
+          "accepts": [
+            "bam"
+          ],
+          "manifestInputs": [
+            "tumor"
+          ],
+          "min": 1,
+          "max": 1,
+          "requiredState": {
+            "sort": "coordinate"
+          },
+          "validation": {
+            "singleSample": true,
+            "sampleParameter": "tumor-sample"
+          }
+        },
+        {
+          "id": "reference",
+          "type": "reference",
+          "accepts": [
+            "reference"
+          ],
+          "manifestInputs": [
+            "reference"
+          ],
+          "min": 1,
+          "max": 1,
+          "requiredState": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "targets",
+          "type": "bed",
+          "accepts": [
+            "bed"
+          ],
+          "manifestInputs": [
+            "targets"
+          ],
+          "min": 1,
+          "max": 1,
+          "validation": {
+            "minColumns": 3,
+            "referenceBounds": true
+          }
+        },
+        {
+          "id": "germline-resource",
+          "type": "vcf",
+          "accepts": [
+            "vcf",
+            "vcf-pass"
+          ],
+          "manifestInputs": [
+            "germline-resource"
+          ],
+          "min": 1,
+          "max": 1,
+          "validation": {
+            "requiredInfoFields": [
+              {
+                "id": "AF",
+                "number": "A",
+                "type": "Float"
+              }
+            ]
+          }
+        },
+        {
+          "id": "panel-of-normals",
+          "type": "vcf",
+          "accepts": [
+            "vcf",
+            "vcf-pass"
+          ],
+          "manifestInputs": [
+            "panel-of-normals"
+          ],
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "variants",
+          "type": "vcf",
+          "manifestOutputs": [
+            "variants"
+          ],
+          "state": {
+            "compression": "bgzf",
+            "selection": "all-calls-with-filter-labels"
+          }
+        },
+        {
+          "id": "variants-index",
+          "type": "index",
+          "manifestOutputs": [
+            "variants-index"
+          ],
+          "state": {}
+        },
+        {
+          "id": "pass-variants",
+          "type": "vcf-pass",
+          "manifestOutputs": [
+            "pass-variants"
+          ],
+          "state": {
+            "compression": "bgzf",
+            "selection": "PASS-only"
+          }
+        },
+        {
+          "id": "pass-index",
+          "type": "index",
+          "manifestOutputs": [
+            "pass-index"
+          ],
+          "state": {}
+        },
+        {
+          "id": "unfiltered",
+          "type": "vcf",
+          "manifestOutputs": [
+            "unfiltered"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "call-stats",
+          "type": "metrics",
+          "manifestOutputs": [
+            "call-stats"
+          ],
+          "state": {}
+        },
+        {
+          "id": "f1r2",
+          "type": "file",
+          "manifestOutputs": [
+            "f1r2"
+          ],
+          "state": {}
+        },
+        {
+          "id": "orientation-priors",
+          "type": "file",
+          "manifestOutputs": [
+            "orientation-priors"
+          ],
+          "state": {}
+        },
+        {
+          "id": "filtering-stats",
+          "type": "metrics",
+          "manifestOutputs": [
+            "filtering-stats"
+          ],
+          "state": {}
+        },
+        {
+          "id": "variant-stats",
+          "type": "metrics",
+          "manifestOutputs": [
+            "variant-stats"
+          ],
+          "state": {}
+        },
+        {
+          "id": "pass-stats",
+          "type": "metrics",
+          "manifestOutputs": [
+            "pass-stats"
+          ],
+          "state": {}
+        },
+        {
+          "id": "filtered",
+          "type": "vcf",
+          "manifestOutputs": [
+            "filtered"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "reference",
+          "type": "reference",
+          "manifestOutputs": [
+            "reference"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "reference-index",
+          "type": "index",
+          "manifestOutputs": [
+            "reference-index"
+          ],
+          "state": {}
+        },
+        {
+          "id": "reference-dict",
+          "type": "index",
+          "manifestOutputs": [
+            "reference-dict"
+          ],
+          "state": {}
+        },
+        {
+          "id": "tumor-copy",
+          "type": "bam",
+          "manifestOutputs": [
+            "tumor-copy"
+          ],
+          "state": {
+            "sort": "coordinate"
+          }
+        },
+        {
+          "id": "tumor-index",
+          "type": "index",
+          "manifestOutputs": [
+            "tumor-index"
+          ],
+          "state": {}
+        },
+        {
+          "id": "germline-resource",
+          "type": "vcf",
+          "manifestOutputs": [
+            "germline-resource"
+          ],
+          "state": {
+            "compression": "bgzf"
+          }
+        },
+        {
+          "id": "germline-resource-index",
+          "type": "index",
+          "manifestOutputs": [
+            "germline-resource-index"
+          ],
+          "state": {}
+        },
+        {
+          "id": "panel-of-normals",
+          "type": "vcf",
+          "manifestOutputs": [
+            "panel-of-normals"
+          ],
+          "state": {
+            "compression": "bgzf"
+          }
+        },
+        {
+          "id": "panel-of-normals-index",
+          "type": "index",
+          "manifestOutputs": [
+            "panel-of-normals-index"
+          ],
+          "state": {}
+        }
+      ],
+      "methods": "Somatic SNV and indel candidates were called with GATK Mutect2 4.7.0.0 (Workbench local-path compatibility adaptation 1) from prepared coordinate-sorted DNA tumor-only BAM over the recorded BED intervals. A population germline AF resource and panel of normals were supplied from local files. Pure-Java LOGLESS_CACHING PairHMM, JAVA Smith-Waterman and JDK compression were used. Read-orientation counts were modeled with LearnReadOrientationModel and supplied to FilterMutectCalls. The recorded contamination fraction was supplied by the user (default zero); contamination was not estimated by this workflow. Duplicate marking and base-quality recalibration were not performed within this pack. Filtered records and annotations were preserved without normalization or multiallelic splitting, and all FILTER labels plus a separate record-level PASS subset were retained. Tumor-only results can include germline variants and do not alone establish somatic origin.",
+      "parameterRanges": [
+        {
+          "parameter": "contamination",
+          "min": 0,
+          "max": 1
+        }
+      ]
+    },
+    "tumor-normal-resources": {
+      "ports": [
+        {
+          "id": "tumor",
+          "type": "bam",
+          "accepts": [
+            "bam"
+          ],
+          "manifestInputs": [
+            "tumor"
+          ],
+          "min": 1,
+          "max": 1,
+          "requiredState": {
+            "sort": "coordinate"
+          },
+          "validation": {
+            "singleSample": true,
+            "sampleParameter": "tumor-sample"
+          }
+        },
+        {
+          "id": "normal",
+          "type": "bam",
+          "accepts": [
+            "bam"
+          ],
+          "manifestInputs": [
+            "normal"
+          ],
+          "min": 1,
+          "max": 1,
+          "requiredState": {
+            "sort": "coordinate"
+          },
+          "validation": {
+            "singleSample": true,
+            "sampleParameter": "normal-sample"
+          }
+        },
+        {
+          "id": "reference",
+          "type": "reference",
+          "accepts": [
+            "reference"
+          ],
+          "manifestInputs": [
+            "reference"
+          ],
+          "min": 1,
+          "max": 1,
+          "requiredState": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "targets",
+          "type": "bed",
+          "accepts": [
+            "bed"
+          ],
+          "manifestInputs": [
+            "targets"
+          ],
+          "min": 1,
+          "max": 1,
+          "validation": {
+            "minColumns": 3,
+            "referenceBounds": true
+          }
+        },
+        {
+          "id": "germline-resource",
+          "type": "vcf",
+          "accepts": [
+            "vcf",
+            "vcf-pass"
+          ],
+          "manifestInputs": [
+            "germline-resource"
+          ],
+          "min": 1,
+          "max": 1,
+          "validation": {
+            "requiredInfoFields": [
+              {
+                "id": "AF",
+                "number": "A",
+                "type": "Float"
+              }
+            ]
+          }
+        },
+        {
+          "id": "panel-of-normals",
+          "type": "vcf",
+          "accepts": [
+            "vcf",
+            "vcf-pass"
+          ],
+          "manifestInputs": [
+            "panel-of-normals"
+          ],
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "variants",
+          "type": "vcf",
+          "manifestOutputs": [
+            "variants"
+          ],
+          "state": {
+            "compression": "bgzf",
+            "selection": "all-calls-with-filter-labels"
+          }
+        },
+        {
+          "id": "variants-index",
+          "type": "index",
+          "manifestOutputs": [
+            "variants-index"
+          ],
+          "state": {}
+        },
+        {
+          "id": "pass-variants",
+          "type": "vcf-pass",
+          "manifestOutputs": [
+            "pass-variants"
+          ],
+          "state": {
+            "compression": "bgzf",
+            "selection": "PASS-only"
+          }
+        },
+        {
+          "id": "pass-index",
+          "type": "index",
+          "manifestOutputs": [
+            "pass-index"
+          ],
+          "state": {}
+        },
+        {
+          "id": "unfiltered",
+          "type": "vcf",
+          "manifestOutputs": [
+            "unfiltered"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "call-stats",
+          "type": "metrics",
+          "manifestOutputs": [
+            "call-stats"
+          ],
+          "state": {}
+        },
+        {
+          "id": "f1r2",
+          "type": "file",
+          "manifestOutputs": [
+            "f1r2"
+          ],
+          "state": {}
+        },
+        {
+          "id": "orientation-priors",
+          "type": "file",
+          "manifestOutputs": [
+            "orientation-priors"
+          ],
+          "state": {}
+        },
+        {
+          "id": "filtering-stats",
+          "type": "metrics",
+          "manifestOutputs": [
+            "filtering-stats"
+          ],
+          "state": {}
+        },
+        {
+          "id": "variant-stats",
+          "type": "metrics",
+          "manifestOutputs": [
+            "variant-stats"
+          ],
+          "state": {}
+        },
+        {
+          "id": "pass-stats",
+          "type": "metrics",
+          "manifestOutputs": [
+            "pass-stats"
+          ],
+          "state": {}
+        },
+        {
+          "id": "filtered",
+          "type": "vcf",
+          "manifestOutputs": [
+            "filtered"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "reference",
+          "type": "reference",
+          "manifestOutputs": [
+            "reference"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "reference-index",
+          "type": "index",
+          "manifestOutputs": [
+            "reference-index"
+          ],
+          "state": {}
+        },
+        {
+          "id": "reference-dict",
+          "type": "index",
+          "manifestOutputs": [
+            "reference-dict"
+          ],
+          "state": {}
+        },
+        {
+          "id": "tumor-copy",
+          "type": "bam",
+          "manifestOutputs": [
+            "tumor-copy"
+          ],
+          "state": {
+            "sort": "coordinate"
+          }
+        },
+        {
+          "id": "tumor-index",
+          "type": "index",
+          "manifestOutputs": [
+            "tumor-index"
+          ],
+          "state": {}
+        },
+        {
+          "id": "normal-copy",
+          "type": "bam",
+          "manifestOutputs": [
+            "normal-copy"
+          ],
+          "state": {
+            "sort": "coordinate"
+          }
+        },
+        {
+          "id": "normal-index",
+          "type": "index",
+          "manifestOutputs": [
+            "normal-index"
+          ],
+          "state": {}
+        },
+        {
+          "id": "germline-resource",
+          "type": "vcf",
+          "manifestOutputs": [
+            "germline-resource"
+          ],
+          "state": {
+            "compression": "bgzf"
+          }
+        },
+        {
+          "id": "germline-resource-index",
+          "type": "index",
+          "manifestOutputs": [
+            "germline-resource-index"
+          ],
+          "state": {}
+        },
+        {
+          "id": "panel-of-normals",
+          "type": "vcf",
+          "manifestOutputs": [
+            "panel-of-normals"
+          ],
+          "state": {
+            "compression": "bgzf"
+          }
+        },
+        {
+          "id": "panel-of-normals-index",
+          "type": "index",
+          "manifestOutputs": [
+            "panel-of-normals-index"
+          ],
+          "state": {}
+        }
+      ],
+      "methods": "Somatic SNV and indel candidates were called with GATK Mutect2 4.7.0.0 (Workbench local-path compatibility adaptation 1) from prepared coordinate-sorted DNA tumor and matched-normal BAMs over the recorded BED intervals. A population germline AF resource and panel of normals were supplied from local files. Pure-Java LOGLESS_CACHING PairHMM, JAVA Smith-Waterman and JDK compression were used. Read-orientation counts were modeled with LearnReadOrientationModel and supplied to FilterMutectCalls. The recorded contamination fraction was supplied by the user (default zero); contamination was not estimated by this workflow. Duplicate marking and base-quality recalibration were not performed within this pack. Filtered records and annotations were preserved without normalization or multiallelic splitting, and all FILTER labels plus a separate record-level PASS subset were retained. Tumor-only results can include germline variants and do not alone establish somatic origin.",
+      "parameterRanges": [
+        {
+          "parameter": "contamination",
+          "min": 0,
+          "max": 1
+        }
+      ],
+      "parameterConstraints": [
+        {
+          "left": "tumor-sample",
+          "operator": "!=",
+          "right": "normal-sample"
+        }
+      ]
+    }
+  }
+}

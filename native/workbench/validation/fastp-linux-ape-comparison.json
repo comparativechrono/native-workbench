@@ -1,0 +1,906 @@
+{
+  "tool": "fastp",
+  "version": "1.3.7",
+  "platform": "Linux x86-64 reference versus same-host Cosmopolitan APE",
+  "windows_execution_tested": false,
+  "fixture_seed": 720619,
+  "fixture_before_pairs": 120,
+  "fixture_expected_after_pairs": 100,
+  "fixture_description": "50 adapter-contaminated pairs trim exactly to 60 bases; 50 low-quality-tail pairs trim to 75 bases; 10 all-low-quality mate pairs and 10 excessive-N mate pairs are discarded.",
+  "upstream_tests": [
+    {
+      "target": "linux",
+      "checks": 11,
+      "passed": true
+    },
+    {
+      "target": "cosmo",
+      "checks": 11,
+      "passed": true
+    }
+  ],
+  "comparisons": [
+    {
+      "case": "fixture-plain",
+      "paired_output_exact": true,
+      "json_equal_excluding_command": true,
+      "known_truth_exact": true
+    },
+    {
+      "case": "fixture-gzip",
+      "paired_output_exact": true,
+      "json_equal_excluding_command": true,
+      "known_truth_exact": true
+    },
+    {
+      "case": "fixture-windows-paths",
+      "paired_output_exact": true,
+      "json_equal_excluding_command": true,
+      "known_truth_exact": true
+    },
+    {
+      "case": "fixture-report-special-characters",
+      "paired_output_exact": true,
+      "json_equal_excluding_command": true,
+      "known_truth_exact": true
+    }
+  ],
+  "runs": [
+    {
+      "target": "linux",
+      "exit_code": 0,
+      "wall_seconds": 0.01812434699968435,
+      "command": [
+        "/workspace/scratch/0c5293ac0f36/integration-source/native-workbench/baselines/bin/fastp-linux",
+        "-i",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/reads 1.fastq",
+        "-I",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/reads 2.fastq",
+        "-o",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/fixture-plain-linux/trimmed1.fastq.gz",
+        "-O",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/fixture-plain-linux/trimmed2.fastq.gz",
+        "--json",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/fixture-plain-linux/fastp.json",
+        "--html",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/fixture-plain-linux/fastp.html",
+        "--thread",
+        "2",
+        "--dont_eval_duplication",
+        "--disable_trim_poly_g",
+        "--adapter_sequence",
+        "AGATCGGAAGAGCACACGTCTGAACTCCAGTCA",
+        "--adapter_sequence_r2",
+        "AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT",
+        "--cut_tail",
+        "--cut_tail_window_size",
+        "1",
+        "--cut_tail_mean_quality",
+        "20",
+        "--length_required",
+        "30",
+        "--qualified_quality_phred",
+        "15",
+        "--unqualified_percent_limit",
+        "40",
+        "--n_base_limit",
+        "5"
+      ],
+      "executable_sha256": "ed38e122ea7cd5d72f19350a4f2576cc71eeee83a15f4a6d2b760ce6faeb4c3f",
+      "summary": {
+        "fastp_version": "1.3.7",
+        "sequencing": "paired end (93 cycles + 93 cycles)",
+        "before_filtering": {
+          "total_reads": 240,
+          "total_bases": 21900,
+          "q20_bases": 19500,
+          "q30_bases": 19500,
+          "q20_rate": 0.890411,
+          "q30_rate": 0.890411,
+          "read1_mean_length": 91,
+          "read2_mean_length": 91,
+          "gc_content": 0.49621
+        },
+        "after_filtering": {
+          "total_reads": 200,
+          "total_bases": 13500,
+          "q20_bases": 13500,
+          "q30_bases": 13500,
+          "q20_rate": 1,
+          "q30_rate": 1,
+          "read1_mean_length": 67,
+          "read2_mean_length": 67,
+          "gc_content": 0.494741
+        }
+      },
+      "filtering_result": {
+        "passed_filter_reads": 200,
+        "low_quality_reads": 6,
+        "too_many_N_reads": 20,
+        "adapter_dimer_reads": 14,
+        "too_short_reads": 0,
+        "too_long_reads": 0
+      },
+      "adapters": {
+        "adapter_trimmed_reads": 114,
+        "adapter_trimmed_bases": 3923,
+        "read1_adapter_sequence": "AGATCGGAAGAGCACACGTCTGAACTCCAGTCA",
+        "read2_adapter_sequence": "AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT",
+        "read1_adapter_counts": {
+          "AGATCGGAAGAGCACACGTCTGAACTCCAGTCA": 50
+        },
+        "read2_adapter_counts": {
+          "AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT": 50,
+          "AAAGATTCCAAGAATCTCCGCGGGTTGCTCATGCACCATTAATGAGTGGTGCATATTTCCGGTCATCAACTCCGTAAGCCCCTGTAGTC": 1,
+          "ATATCCGGGTGGGTGGTTCCTACCGCCCTCGTGGCCCTACGAAGACGAGTTGCGAATCGGTTTACGAATTTACAGGGTCAAGCTCTTGA": 1,
+          "ATGCGCTTAGCAGGCAGAAAGCACTGTCCCTGACTCGATGAAGTACCAGTACCGCATTATTCGACCGCTCGGCTGGTCCCTTTAACGAA": 1,
+          "CGATGGCTAATAACTATTTTAAAGCGTGAGAACACCGAGCCCTATTCGGAAGACGACTTACCGACAATCGAGAGCCGCATGAGCTCTGA": 1,
+          "CTATGCGTACAGGACGTCTAGCGTGGAGTCTTCGCAGCTAGGCAGTGTTAATCCGATCCTCATTATATCCAATATAATGGATGGATCCT": 1,
+          "TGAGGGCCTACACGTCCGGCACGTACCGTTGCCTCGCTAGCCGCCACCTGCCCCACTACCTCCTCCGCCGGGAGCCCCGCACTGTTGAA": 1,
+          "TTGAGTGGGGGGTTTATTAAAAACAAATTGTGATTGTCAGAGCTACTGTAGACCAGCCGCAACAGAGACCTCAATACGCTTTGTCCCCA": 1
+        }
+      },
+      "output_sha256": [
+        "cd2b2641b17c4b4480b13f443972a21ad84cfe4ff087403c66564fd85dfc414a",
+        "da223fa6decc325c8a733d6b283d918a46940385ead358f97f1fbdbb0c3f36d2"
+      ],
+      "json_sha256": "69a26489ef20ff88e6ef6e0e40d7cb1851c17fe2e0765667baf1db5ca73aafb2",
+      "html_sha256": "8df5ec8c748a2ff0311fb24d7f0299cb02ec972c086b6f4bcc377e48e67533b7",
+      "offline_chart_script_verified": true,
+      "json_command_exact_roundtrip": true,
+      "html_command_exact_roundtrip": true,
+      "known_truth_exact": true,
+      "case": "fixture-plain"
+    },
+    {
+      "target": "cosmo",
+      "exit_code": 0,
+      "wall_seconds": 0.017965387999538507,
+      "command": [
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-restored-fix/ape-loader-linux",
+        "/workspace/scratch/0c5293ac0f36/integration-source/native-workbench/baselines/bin/fastp-cosmo.exe",
+        "-i",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/reads 1.fastq",
+        "-I",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/reads 2.fastq",
+        "-o",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/fixture-plain-cosmo/trimmed1.fastq.gz",
+        "-O",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/fixture-plain-cosmo/trimmed2.fastq.gz",
+        "--json",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/fixture-plain-cosmo/fastp.json",
+        "--html",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/fixture-plain-cosmo/fastp.html",
+        "--thread",
+        "2",
+        "--dont_eval_duplication",
+        "--disable_trim_poly_g",
+        "--adapter_sequence",
+        "AGATCGGAAGAGCACACGTCTGAACTCCAGTCA",
+        "--adapter_sequence_r2",
+        "AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT",
+        "--cut_tail",
+        "--cut_tail_window_size",
+        "1",
+        "--cut_tail_mean_quality",
+        "20",
+        "--length_required",
+        "30",
+        "--qualified_quality_phred",
+        "15",
+        "--unqualified_percent_limit",
+        "40",
+        "--n_base_limit",
+        "5"
+      ],
+      "executable_sha256": "1dc1c0898be5625180d65dd630f426701d5741978a757624695d6bd54c1c4bd4",
+      "summary": {
+        "fastp_version": "1.3.7",
+        "sequencing": "paired end (93 cycles + 93 cycles)",
+        "before_filtering": {
+          "total_reads": 240,
+          "total_bases": 21900,
+          "q20_bases": 19500,
+          "q30_bases": 19500,
+          "q20_rate": 0.890411,
+          "q30_rate": 0.890411,
+          "read1_mean_length": 91,
+          "read2_mean_length": 91,
+          "gc_content": 0.49621
+        },
+        "after_filtering": {
+          "total_reads": 200,
+          "total_bases": 13500,
+          "q20_bases": 13500,
+          "q30_bases": 13500,
+          "q20_rate": 1,
+          "q30_rate": 1,
+          "read1_mean_length": 67,
+          "read2_mean_length": 67,
+          "gc_content": 0.494741
+        }
+      },
+      "filtering_result": {
+        "passed_filter_reads": 200,
+        "low_quality_reads": 6,
+        "too_many_N_reads": 20,
+        "adapter_dimer_reads": 14,
+        "too_short_reads": 0,
+        "too_long_reads": 0
+      },
+      "adapters": {
+        "adapter_trimmed_reads": 114,
+        "adapter_trimmed_bases": 3923,
+        "read1_adapter_sequence": "AGATCGGAAGAGCACACGTCTGAACTCCAGTCA",
+        "read2_adapter_sequence": "AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT",
+        "read1_adapter_counts": {
+          "AGATCGGAAGAGCACACGTCTGAACTCCAGTCA": 50
+        },
+        "read2_adapter_counts": {
+          "AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT": 50,
+          "AAAGATTCCAAGAATCTCCGCGGGTTGCTCATGCACCATTAATGAGTGGTGCATATTTCCGGTCATCAACTCCGTAAGCCCCTGTAGTC": 1,
+          "ATATCCGGGTGGGTGGTTCCTACCGCCCTCGTGGCCCTACGAAGACGAGTTGCGAATCGGTTTACGAATTTACAGGGTCAAGCTCTTGA": 1,
+          "ATGCGCTTAGCAGGCAGAAAGCACTGTCCCTGACTCGATGAAGTACCAGTACCGCATTATTCGACCGCTCGGCTGGTCCCTTTAACGAA": 1,
+          "CGATGGCTAATAACTATTTTAAAGCGTGAGAACACCGAGCCCTATTCGGAAGACGACTTACCGACAATCGAGAGCCGCATGAGCTCTGA": 1,
+          "CTATGCGTACAGGACGTCTAGCGTGGAGTCTTCGCAGCTAGGCAGTGTTAATCCGATCCTCATTATATCCAATATAATGGATGGATCCT": 1,
+          "TGAGGGCCTACACGTCCGGCACGTACCGTTGCCTCGCTAGCCGCCACCTGCCCCACTACCTCCTCCGCCGGGAGCCCCGCACTGTTGAA": 1,
+          "TTGAGTGGGGGGTTTATTAAAAACAAATTGTGATTGTCAGAGCTACTGTAGACCAGCCGCAACAGAGACCTCAATACGCTTTGTCCCCA": 1
+        }
+      },
+      "output_sha256": [
+        "cd2b2641b17c4b4480b13f443972a21ad84cfe4ff087403c66564fd85dfc414a",
+        "da223fa6decc325c8a733d6b283d918a46940385ead358f97f1fbdbb0c3f36d2"
+      ],
+      "json_sha256": "026f681f079810159cc8f5a8d84498b459c6825b6a4383b6a201e196bc604e3f",
+      "html_sha256": "84e06edd453f5c3550d2a95681a7e9ff3fa94ef3b4c9ad2e40a5e14f993508af",
+      "offline_chart_script_verified": true,
+      "json_command_exact_roundtrip": true,
+      "html_command_exact_roundtrip": true,
+      "known_truth_exact": true,
+      "case": "fixture-plain"
+    },
+    {
+      "target": "linux",
+      "exit_code": 0,
+      "wall_seconds": 0.016248957000243536,
+      "command": [
+        "/workspace/scratch/0c5293ac0f36/integration-source/native-workbench/baselines/bin/fastp-linux",
+        "-i",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/reads 1.fastq.gz",
+        "-I",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/reads 2.fastq.gz",
+        "-o",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/fixture-gzip-linux/trimmed1.fastq.gz",
+        "-O",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/fixture-gzip-linux/trimmed2.fastq.gz",
+        "--json",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/fixture-gzip-linux/fastp.json",
+        "--html",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/fixture-gzip-linux/fastp.html",
+        "--thread",
+        "2",
+        "--dont_eval_duplication",
+        "--disable_trim_poly_g",
+        "--adapter_sequence",
+        "AGATCGGAAGAGCACACGTCTGAACTCCAGTCA",
+        "--adapter_sequence_r2",
+        "AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT",
+        "--cut_tail",
+        "--cut_tail_window_size",
+        "1",
+        "--cut_tail_mean_quality",
+        "20",
+        "--length_required",
+        "30",
+        "--qualified_quality_phred",
+        "15",
+        "--unqualified_percent_limit",
+        "40",
+        "--n_base_limit",
+        "5"
+      ],
+      "executable_sha256": "ed38e122ea7cd5d72f19350a4f2576cc71eeee83a15f4a6d2b760ce6faeb4c3f",
+      "summary": {
+        "fastp_version": "1.3.7",
+        "sequencing": "paired end (93 cycles + 93 cycles)",
+        "before_filtering": {
+          "total_reads": 240,
+          "total_bases": 21900,
+          "q20_bases": 19500,
+          "q30_bases": 19500,
+          "q20_rate": 0.890411,
+          "q30_rate": 0.890411,
+          "read1_mean_length": 91,
+          "read2_mean_length": 91,
+          "gc_content": 0.49621
+        },
+        "after_filtering": {
+          "total_reads": 200,
+          "total_bases": 13500,
+          "q20_bases": 13500,
+          "q30_bases": 13500,
+          "q20_rate": 1,
+          "q30_rate": 1,
+          "read1_mean_length": 67,
+          "read2_mean_length": 67,
+          "gc_content": 0.494741
+        }
+      },
+      "filtering_result": {
+        "passed_filter_reads": 200,
+        "low_quality_reads": 6,
+        "too_many_N_reads": 20,
+        "adapter_dimer_reads": 14,
+        "too_short_reads": 0,
+        "too_long_reads": 0
+      },
+      "adapters": {
+        "adapter_trimmed_reads": 114,
+        "adapter_trimmed_bases": 3923,
+        "read1_adapter_sequence": "AGATCGGAAGAGCACACGTCTGAACTCCAGTCA",
+        "read2_adapter_sequence": "AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT",
+        "read1_adapter_counts": {
+          "AGATCGGAAGAGCACACGTCTGAACTCCAGTCA": 50
+        },
+        "read2_adapter_counts": {
+          "AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT": 50,
+          "AAAGATTCCAAGAATCTCCGCGGGTTGCTCATGCACCATTAATGAGTGGTGCATATTTCCGGTCATCAACTCCGTAAGCCCCTGTAGTC": 1,
+          "ATATCCGGGTGGGTGGTTCCTACCGCCCTCGTGGCCCTACGAAGACGAGTTGCGAATCGGTTTACGAATTTACAGGGTCAAGCTCTTGA": 1,
+          "ATGCGCTTAGCAGGCAGAAAGCACTGTCCCTGACTCGATGAAGTACCAGTACCGCATTATTCGACCGCTCGGCTGGTCCCTTTAACGAA": 1,
+          "CGATGGCTAATAACTATTTTAAAGCGTGAGAACACCGAGCCCTATTCGGAAGACGACTTACCGACAATCGAGAGCCGCATGAGCTCTGA": 1,
+          "CTATGCGTACAGGACGTCTAGCGTGGAGTCTTCGCAGCTAGGCAGTGTTAATCCGATCCTCATTATATCCAATATAATGGATGGATCCT": 1,
+          "TGAGGGCCTACACGTCCGGCACGTACCGTTGCCTCGCTAGCCGCCACCTGCCCCACTACCTCCTCCGCCGGGAGCCCCGCACTGTTGAA": 1,
+          "TTGAGTGGGGGGTTTATTAAAAACAAATTGTGATTGTCAGAGCTACTGTAGACCAGCCGCAACAGAGACCTCAATACGCTTTGTCCCCA": 1
+        }
+      },
+      "output_sha256": [
+        "cd2b2641b17c4b4480b13f443972a21ad84cfe4ff087403c66564fd85dfc414a",
+        "da223fa6decc325c8a733d6b283d918a46940385ead358f97f1fbdbb0c3f36d2"
+      ],
+      "json_sha256": "5d6556ae9d405d329a130466d209bf86fb7100854e03ef0bed342bc7f48eadb8",
+      "html_sha256": "2785eb040d77d23f4600da117c50edd729db1347bd92a543ab9cd9de0e993cb6",
+      "offline_chart_script_verified": true,
+      "json_command_exact_roundtrip": true,
+      "html_command_exact_roundtrip": true,
+      "known_truth_exact": true,
+      "case": "fixture-gzip"
+    },
+    {
+      "target": "cosmo",
+      "exit_code": 0,
+      "wall_seconds": 0.019162693999533076,
+      "command": [
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-restored-fix/ape-loader-linux",
+        "/workspace/scratch/0c5293ac0f36/integration-source/native-workbench/baselines/bin/fastp-cosmo.exe",
+        "-i",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/reads 1.fastq.gz",
+        "-I",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/reads 2.fastq.gz",
+        "-o",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/fixture-gzip-cosmo/trimmed1.fastq.gz",
+        "-O",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/fixture-gzip-cosmo/trimmed2.fastq.gz",
+        "--json",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/fixture-gzip-cosmo/fastp.json",
+        "--html",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/fixture-gzip-cosmo/fastp.html",
+        "--thread",
+        "2",
+        "--dont_eval_duplication",
+        "--disable_trim_poly_g",
+        "--adapter_sequence",
+        "AGATCGGAAGAGCACACGTCTGAACTCCAGTCA",
+        "--adapter_sequence_r2",
+        "AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT",
+        "--cut_tail",
+        "--cut_tail_window_size",
+        "1",
+        "--cut_tail_mean_quality",
+        "20",
+        "--length_required",
+        "30",
+        "--qualified_quality_phred",
+        "15",
+        "--unqualified_percent_limit",
+        "40",
+        "--n_base_limit",
+        "5"
+      ],
+      "executable_sha256": "1dc1c0898be5625180d65dd630f426701d5741978a757624695d6bd54c1c4bd4",
+      "summary": {
+        "fastp_version": "1.3.7",
+        "sequencing": "paired end (93 cycles + 93 cycles)",
+        "before_filtering": {
+          "total_reads": 240,
+          "total_bases": 21900,
+          "q20_bases": 19500,
+          "q30_bases": 19500,
+          "q20_rate": 0.890411,
+          "q30_rate": 0.890411,
+          "read1_mean_length": 91,
+          "read2_mean_length": 91,
+          "gc_content": 0.49621
+        },
+        "after_filtering": {
+          "total_reads": 200,
+          "total_bases": 13500,
+          "q20_bases": 13500,
+          "q30_bases": 13500,
+          "q20_rate": 1,
+          "q30_rate": 1,
+          "read1_mean_length": 67,
+          "read2_mean_length": 67,
+          "gc_content": 0.494741
+        }
+      },
+      "filtering_result": {
+        "passed_filter_reads": 200,
+        "low_quality_reads": 6,
+        "too_many_N_reads": 20,
+        "adapter_dimer_reads": 14,
+        "too_short_reads": 0,
+        "too_long_reads": 0
+      },
+      "adapters": {
+        "adapter_trimmed_reads": 114,
+        "adapter_trimmed_bases": 3923,
+        "read1_adapter_sequence": "AGATCGGAAGAGCACACGTCTGAACTCCAGTCA",
+        "read2_adapter_sequence": "AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT",
+        "read1_adapter_counts": {
+          "AGATCGGAAGAGCACACGTCTGAACTCCAGTCA": 50
+        },
+        "read2_adapter_counts": {
+          "AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT": 50,
+          "AAAGATTCCAAGAATCTCCGCGGGTTGCTCATGCACCATTAATGAGTGGTGCATATTTCCGGTCATCAACTCCGTAAGCCCCTGTAGTC": 1,
+          "ATATCCGGGTGGGTGGTTCCTACCGCCCTCGTGGCCCTACGAAGACGAGTTGCGAATCGGTTTACGAATTTACAGGGTCAAGCTCTTGA": 1,
+          "ATGCGCTTAGCAGGCAGAAAGCACTGTCCCTGACTCGATGAAGTACCAGTACCGCATTATTCGACCGCTCGGCTGGTCCCTTTAACGAA": 1,
+          "CGATGGCTAATAACTATTTTAAAGCGTGAGAACACCGAGCCCTATTCGGAAGACGACTTACCGACAATCGAGAGCCGCATGAGCTCTGA": 1,
+          "CTATGCGTACAGGACGTCTAGCGTGGAGTCTTCGCAGCTAGGCAGTGTTAATCCGATCCTCATTATATCCAATATAATGGATGGATCCT": 1,
+          "TGAGGGCCTACACGTCCGGCACGTACCGTTGCCTCGCTAGCCGCCACCTGCCCCACTACCTCCTCCGCCGGGAGCCCCGCACTGTTGAA": 1,
+          "TTGAGTGGGGGGTTTATTAAAAACAAATTGTGATTGTCAGAGCTACTGTAGACCAGCCGCAACAGAGACCTCAATACGCTTTGTCCCCA": 1
+        }
+      },
+      "output_sha256": [
+        "cd2b2641b17c4b4480b13f443972a21ad84cfe4ff087403c66564fd85dfc414a",
+        "da223fa6decc325c8a733d6b283d918a46940385ead358f97f1fbdbb0c3f36d2"
+      ],
+      "json_sha256": "7e53f7da59e9e707f9c6be8888e21e4946ad56be6f38ef9bcda2fb75a04f245c",
+      "html_sha256": "e92ad25e241b92656725c7a69e6bd74bc3f30dd4fa756320400ec351c27bc861",
+      "offline_chart_script_verified": true,
+      "json_command_exact_roundtrip": true,
+      "html_command_exact_roundtrip": true,
+      "known_truth_exact": true,
+      "case": "fixture-gzip"
+    },
+    {
+      "target": "linux",
+      "exit_code": 0,
+      "wall_seconds": 0.016324571000041033,
+      "command": [
+        "/workspace/scratch/0c5293ac0f36/integration-source/native-workbench/baselines/bin/fastp-linux",
+        "-i",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/C:\\Users\\Tim_H\\reads 1 \u03bc.fastq",
+        "-I",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/C:\\temp\\foo\\u0061\\reads 2 \u03bc.fastq",
+        "-o",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/fixture-windows-paths-linux/trimmed1.fastq.gz",
+        "-O",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/fixture-windows-paths-linux/trimmed2.fastq.gz",
+        "--json",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/fixture-windows-paths-linux/fastp.json",
+        "--html",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/fixture-windows-paths-linux/fastp.html",
+        "--thread",
+        "2",
+        "--dont_eval_duplication",
+        "--disable_trim_poly_g",
+        "--adapter_sequence",
+        "AGATCGGAAGAGCACACGTCTGAACTCCAGTCA",
+        "--adapter_sequence_r2",
+        "AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT",
+        "--cut_tail",
+        "--cut_tail_window_size",
+        "1",
+        "--cut_tail_mean_quality",
+        "20",
+        "--length_required",
+        "30",
+        "--qualified_quality_phred",
+        "15",
+        "--unqualified_percent_limit",
+        "40",
+        "--n_base_limit",
+        "5"
+      ],
+      "executable_sha256": "ed38e122ea7cd5d72f19350a4f2576cc71eeee83a15f4a6d2b760ce6faeb4c3f",
+      "summary": {
+        "fastp_version": "1.3.7",
+        "sequencing": "paired end (93 cycles + 93 cycles)",
+        "before_filtering": {
+          "total_reads": 240,
+          "total_bases": 21900,
+          "q20_bases": 19500,
+          "q30_bases": 19500,
+          "q20_rate": 0.890411,
+          "q30_rate": 0.890411,
+          "read1_mean_length": 91,
+          "read2_mean_length": 91,
+          "gc_content": 0.49621
+        },
+        "after_filtering": {
+          "total_reads": 200,
+          "total_bases": 13500,
+          "q20_bases": 13500,
+          "q30_bases": 13500,
+          "q20_rate": 1,
+          "q30_rate": 1,
+          "read1_mean_length": 67,
+          "read2_mean_length": 67,
+          "gc_content": 0.494741
+        }
+      },
+      "filtering_result": {
+        "passed_filter_reads": 200,
+        "low_quality_reads": 6,
+        "too_many_N_reads": 20,
+        "adapter_dimer_reads": 14,
+        "too_short_reads": 0,
+        "too_long_reads": 0
+      },
+      "adapters": {
+        "adapter_trimmed_reads": 114,
+        "adapter_trimmed_bases": 3923,
+        "read1_adapter_sequence": "AGATCGGAAGAGCACACGTCTGAACTCCAGTCA",
+        "read2_adapter_sequence": "AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT",
+        "read1_adapter_counts": {
+          "AGATCGGAAGAGCACACGTCTGAACTCCAGTCA": 50
+        },
+        "read2_adapter_counts": {
+          "AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT": 50,
+          "AAAGATTCCAAGAATCTCCGCGGGTTGCTCATGCACCATTAATGAGTGGTGCATATTTCCGGTCATCAACTCCGTAAGCCCCTGTAGTC": 1,
+          "ATATCCGGGTGGGTGGTTCCTACCGCCCTCGTGGCCCTACGAAGACGAGTTGCGAATCGGTTTACGAATTTACAGGGTCAAGCTCTTGA": 1,
+          "ATGCGCTTAGCAGGCAGAAAGCACTGTCCCTGACTCGATGAAGTACCAGTACCGCATTATTCGACCGCTCGGCTGGTCCCTTTAACGAA": 1,
+          "CGATGGCTAATAACTATTTTAAAGCGTGAGAACACCGAGCCCTATTCGGAAGACGACTTACCGACAATCGAGAGCCGCATGAGCTCTGA": 1,
+          "CTATGCGTACAGGACGTCTAGCGTGGAGTCTTCGCAGCTAGGCAGTGTTAATCCGATCCTCATTATATCCAATATAATGGATGGATCCT": 1,
+          "TGAGGGCCTACACGTCCGGCACGTACCGTTGCCTCGCTAGCCGCCACCTGCCCCACTACCTCCTCCGCCGGGAGCCCCGCACTGTTGAA": 1,
+          "TTGAGTGGGGGGTTTATTAAAAACAAATTGTGATTGTCAGAGCTACTGTAGACCAGCCGCAACAGAGACCTCAATACGCTTTGTCCCCA": 1
+        }
+      },
+      "output_sha256": [
+        "cd2b2641b17c4b4480b13f443972a21ad84cfe4ff087403c66564fd85dfc414a",
+        "da223fa6decc325c8a733d6b283d918a46940385ead358f97f1fbdbb0c3f36d2"
+      ],
+      "json_sha256": "a9ff7aa9b408ee3157d9b0b4cd1bbe536d034397c8f376f5b9997f1db12faccc",
+      "html_sha256": "d354e051a0f4555df8290a00adc4a7977c2236112055e76843d04663b45a492d",
+      "offline_chart_script_verified": true,
+      "json_command_exact_roundtrip": true,
+      "html_command_exact_roundtrip": true,
+      "known_truth_exact": true,
+      "case": "fixture-windows-paths"
+    },
+    {
+      "target": "cosmo",
+      "exit_code": 0,
+      "wall_seconds": 0.019535262000317744,
+      "command": [
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-restored-fix/ape-loader-linux",
+        "/workspace/scratch/0c5293ac0f36/integration-source/native-workbench/baselines/bin/fastp-cosmo.exe",
+        "-i",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/C:\\Users\\Tim_H\\reads 1 \u03bc.fastq",
+        "-I",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/C:\\temp\\foo\\u0061\\reads 2 \u03bc.fastq",
+        "-o",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/fixture-windows-paths-cosmo/trimmed1.fastq.gz",
+        "-O",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/fixture-windows-paths-cosmo/trimmed2.fastq.gz",
+        "--json",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/fixture-windows-paths-cosmo/fastp.json",
+        "--html",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/fixture-windows-paths-cosmo/fastp.html",
+        "--thread",
+        "2",
+        "--dont_eval_duplication",
+        "--disable_trim_poly_g",
+        "--adapter_sequence",
+        "AGATCGGAAGAGCACACGTCTGAACTCCAGTCA",
+        "--adapter_sequence_r2",
+        "AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT",
+        "--cut_tail",
+        "--cut_tail_window_size",
+        "1",
+        "--cut_tail_mean_quality",
+        "20",
+        "--length_required",
+        "30",
+        "--qualified_quality_phred",
+        "15",
+        "--unqualified_percent_limit",
+        "40",
+        "--n_base_limit",
+        "5"
+      ],
+      "executable_sha256": "1dc1c0898be5625180d65dd630f426701d5741978a757624695d6bd54c1c4bd4",
+      "summary": {
+        "fastp_version": "1.3.7",
+        "sequencing": "paired end (93 cycles + 93 cycles)",
+        "before_filtering": {
+          "total_reads": 240,
+          "total_bases": 21900,
+          "q20_bases": 19500,
+          "q30_bases": 19500,
+          "q20_rate": 0.890411,
+          "q30_rate": 0.890411,
+          "read1_mean_length": 91,
+          "read2_mean_length": 91,
+          "gc_content": 0.49621
+        },
+        "after_filtering": {
+          "total_reads": 200,
+          "total_bases": 13500,
+          "q20_bases": 13500,
+          "q30_bases": 13500,
+          "q20_rate": 1,
+          "q30_rate": 1,
+          "read1_mean_length": 67,
+          "read2_mean_length": 67,
+          "gc_content": 0.494741
+        }
+      },
+      "filtering_result": {
+        "passed_filter_reads": 200,
+        "low_quality_reads": 6,
+        "too_many_N_reads": 20,
+        "adapter_dimer_reads": 14,
+        "too_short_reads": 0,
+        "too_long_reads": 0
+      },
+      "adapters": {
+        "adapter_trimmed_reads": 114,
+        "adapter_trimmed_bases": 3923,
+        "read1_adapter_sequence": "AGATCGGAAGAGCACACGTCTGAACTCCAGTCA",
+        "read2_adapter_sequence": "AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT",
+        "read1_adapter_counts": {
+          "AGATCGGAAGAGCACACGTCTGAACTCCAGTCA": 50
+        },
+        "read2_adapter_counts": {
+          "AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT": 50,
+          "AAAGATTCCAAGAATCTCCGCGGGTTGCTCATGCACCATTAATGAGTGGTGCATATTTCCGGTCATCAACTCCGTAAGCCCCTGTAGTC": 1,
+          "ATATCCGGGTGGGTGGTTCCTACCGCCCTCGTGGCCCTACGAAGACGAGTTGCGAATCGGTTTACGAATTTACAGGGTCAAGCTCTTGA": 1,
+          "ATGCGCTTAGCAGGCAGAAAGCACTGTCCCTGACTCGATGAAGTACCAGTACCGCATTATTCGACCGCTCGGCTGGTCCCTTTAACGAA": 1,
+          "CGATGGCTAATAACTATTTTAAAGCGTGAGAACACCGAGCCCTATTCGGAAGACGACTTACCGACAATCGAGAGCCGCATGAGCTCTGA": 1,
+          "CTATGCGTACAGGACGTCTAGCGTGGAGTCTTCGCAGCTAGGCAGTGTTAATCCGATCCTCATTATATCCAATATAATGGATGGATCCT": 1,
+          "TGAGGGCCTACACGTCCGGCACGTACCGTTGCCTCGCTAGCCGCCACCTGCCCCACTACCTCCTCCGCCGGGAGCCCCGCACTGTTGAA": 1,
+          "TTGAGTGGGGGGTTTATTAAAAACAAATTGTGATTGTCAGAGCTACTGTAGACCAGCCGCAACAGAGACCTCAATACGCTTTGTCCCCA": 1
+        }
+      },
+      "output_sha256": [
+        "cd2b2641b17c4b4480b13f443972a21ad84cfe4ff087403c66564fd85dfc414a",
+        "da223fa6decc325c8a733d6b283d918a46940385ead358f97f1fbdbb0c3f36d2"
+      ],
+      "json_sha256": "198b152ca7a886eb8cbd8181999a825c886a5e98dc8705cd26f0af5992873ac4",
+      "html_sha256": "33c5212f7ce4505937b17d90ac157e0897282a663b3486b19e6243483efd834d",
+      "offline_chart_script_verified": true,
+      "json_command_exact_roundtrip": true,
+      "html_command_exact_roundtrip": true,
+      "known_truth_exact": true,
+      "case": "fixture-windows-paths"
+    },
+    {
+      "target": "linux",
+      "exit_code": 0,
+      "wall_seconds": 0.016992239000501286,
+      "command": [
+        "/workspace/scratch/0c5293ac0f36/integration-source/native-workbench/baselines/bin/fastp-linux",
+        "-i",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/reads 1.fastq",
+        "-I",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/reads 2.fastq",
+        "-o",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/fixture-report-special-characters-linux/trimmed1.fastq.gz",
+        "-O",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/fixture-report-special-characters-linux/trimmed2.fastq.gz",
+        "--json",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/fixture-report-special-characters-linux/fastp.json",
+        "--html",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/fixture-report-special-characters-linux/fastp.html",
+        "--thread",
+        "2",
+        "--dont_eval_duplication",
+        "--disable_trim_poly_g",
+        "--adapter_sequence",
+        "AGATCGGAAGAGCACACGTCTGAACTCCAGTCA",
+        "--adapter_sequence_r2",
+        "AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT",
+        "--cut_tail",
+        "--cut_tail_window_size",
+        "1",
+        "--cut_tail_mean_quality",
+        "20",
+        "--length_required",
+        "30",
+        "--qualified_quality_phred",
+        "15",
+        "--unqualified_percent_limit",
+        "40",
+        "--n_base_limit",
+        "5",
+        "--report_title",
+        "Report \"quoted\" & <script id=\"report-escape-regression\">text</script> apostrophe ' Unicode \u03bc \ud83e\uddec backslash \\ UNC \\\\server\\share \\u0061 \u0001\u0002\u0003\u0004\u0005\u0006\u0007\b\t\n\u000b\f\r\u000e\u000f\u0010\u0011\u0012\u0013\u0014\u0015\u0016\u0017\u0018\u0019\u001a\u001b\u001c\u001d\u001e\u001f"
+      ],
+      "executable_sha256": "ed38e122ea7cd5d72f19350a4f2576cc71eeee83a15f4a6d2b760ce6faeb4c3f",
+      "summary": {
+        "fastp_version": "1.3.7",
+        "sequencing": "paired end (93 cycles + 93 cycles)",
+        "before_filtering": {
+          "total_reads": 240,
+          "total_bases": 21900,
+          "q20_bases": 19500,
+          "q30_bases": 19500,
+          "q20_rate": 0.890411,
+          "q30_rate": 0.890411,
+          "read1_mean_length": 91,
+          "read2_mean_length": 91,
+          "gc_content": 0.49621
+        },
+        "after_filtering": {
+          "total_reads": 200,
+          "total_bases": 13500,
+          "q20_bases": 13500,
+          "q30_bases": 13500,
+          "q20_rate": 1,
+          "q30_rate": 1,
+          "read1_mean_length": 67,
+          "read2_mean_length": 67,
+          "gc_content": 0.494741
+        }
+      },
+      "filtering_result": {
+        "passed_filter_reads": 200,
+        "low_quality_reads": 6,
+        "too_many_N_reads": 20,
+        "adapter_dimer_reads": 14,
+        "too_short_reads": 0,
+        "too_long_reads": 0
+      },
+      "adapters": {
+        "adapter_trimmed_reads": 114,
+        "adapter_trimmed_bases": 3923,
+        "read1_adapter_sequence": "AGATCGGAAGAGCACACGTCTGAACTCCAGTCA",
+        "read2_adapter_sequence": "AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT",
+        "read1_adapter_counts": {
+          "AGATCGGAAGAGCACACGTCTGAACTCCAGTCA": 50
+        },
+        "read2_adapter_counts": {
+          "AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT": 50,
+          "AAAGATTCCAAGAATCTCCGCGGGTTGCTCATGCACCATTAATGAGTGGTGCATATTTCCGGTCATCAACTCCGTAAGCCCCTGTAGTC": 1,
+          "ATATCCGGGTGGGTGGTTCCTACCGCCCTCGTGGCCCTACGAAGACGAGTTGCGAATCGGTTTACGAATTTACAGGGTCAAGCTCTTGA": 1,
+          "ATGCGCTTAGCAGGCAGAAAGCACTGTCCCTGACTCGATGAAGTACCAGTACCGCATTATTCGACCGCTCGGCTGGTCCCTTTAACGAA": 1,
+          "CGATGGCTAATAACTATTTTAAAGCGTGAGAACACCGAGCCCTATTCGGAAGACGACTTACCGACAATCGAGAGCCGCATGAGCTCTGA": 1,
+          "CTATGCGTACAGGACGTCTAGCGTGGAGTCTTCGCAGCTAGGCAGTGTTAATCCGATCCTCATTATATCCAATATAATGGATGGATCCT": 1,
+          "TGAGGGCCTACACGTCCGGCACGTACCGTTGCCTCGCTAGCCGCCACCTGCCCCACTACCTCCTCCGCCGGGAGCCCCGCACTGTTGAA": 1,
+          "TTGAGTGGGGGGTTTATTAAAAACAAATTGTGATTGTCAGAGCTACTGTAGACCAGCCGCAACAGAGACCTCAATACGCTTTGTCCCCA": 1
+        }
+      },
+      "output_sha256": [
+        "cd2b2641b17c4b4480b13f443972a21ad84cfe4ff087403c66564fd85dfc414a",
+        "da223fa6decc325c8a733d6b283d918a46940385ead358f97f1fbdbb0c3f36d2"
+      ],
+      "json_sha256": "cb075f1976001dc38e58de6bea88e65e75302d8b8f902885d16553ed13e43dc6",
+      "html_sha256": "60d69284331c768d71eec41e0eafb850eda7333ef3a2fbae43568f9f8762e52d",
+      "offline_chart_script_verified": true,
+      "json_command_exact_roundtrip": true,
+      "html_command_exact_roundtrip": true,
+      "known_truth_exact": true,
+      "case": "fixture-report-special-characters"
+    },
+    {
+      "target": "cosmo",
+      "exit_code": 0,
+      "wall_seconds": 0.01800582900068548,
+      "command": [
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-restored-fix/ape-loader-linux",
+        "/workspace/scratch/0c5293ac0f36/integration-source/native-workbench/baselines/bin/fastp-cosmo.exe",
+        "-i",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/reads 1.fastq",
+        "-I",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/reads 2.fastq",
+        "-o",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/fixture-report-special-characters-cosmo/trimmed1.fastq.gz",
+        "-O",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/fixture-report-special-characters-cosmo/trimmed2.fastq.gz",
+        "--json",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/fixture-report-special-characters-cosmo/fastp.json",
+        "--html",
+        "/workspace/scratch/0c5293ac0f36/integration-checks/fastp-linux-ape-comparison/fixture-report-special-characters-cosmo/fastp.html",
+        "--thread",
+        "2",
+        "--dont_eval_duplication",
+        "--disable_trim_poly_g",
+        "--adapter_sequence",
+        "AGATCGGAAGAGCACACGTCTGAACTCCAGTCA",
+        "--adapter_sequence_r2",
+        "AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT",
+        "--cut_tail",
+        "--cut_tail_window_size",
+        "1",
+        "--cut_tail_mean_quality",
+        "20",
+        "--length_required",
+        "30",
+        "--qualified_quality_phred",
+        "15",
+        "--unqualified_percent_limit",
+        "40",
+        "--n_base_limit",
+        "5",
+        "--report_title",
+        "Report \"quoted\" & <script id=\"report-escape-regression\">text</script> apostrophe ' Unicode \u03bc \ud83e\uddec backslash \\ UNC \\\\server\\share \\u0061 \u0001\u0002\u0003\u0004\u0005\u0006\u0007\b\t\n\u000b\f\r\u000e\u000f\u0010\u0011\u0012\u0013\u0014\u0015\u0016\u0017\u0018\u0019\u001a\u001b\u001c\u001d\u001e\u001f"
+      ],
+      "executable_sha256": "1dc1c0898be5625180d65dd630f426701d5741978a757624695d6bd54c1c4bd4",
+      "summary": {
+        "fastp_version": "1.3.7",
+        "sequencing": "paired end (93 cycles + 93 cycles)",
+        "before_filtering": {
+          "total_reads": 240,
+          "total_bases": 21900,
+          "q20_bases": 19500,
+          "q30_bases": 19500,
+          "q20_rate": 0.890411,
+          "q30_rate": 0.890411,
+          "read1_mean_length": 91,
+          "read2_mean_length": 91,
+          "gc_content": 0.49621
+        },
+        "after_filtering": {
+          "total_reads": 200,
+          "total_bases": 13500,
+          "q20_bases": 13500,
+          "q30_bases": 13500,
+          "q20_rate": 1,
+          "q30_rate": 1,
+          "read1_mean_length": 67,
+          "read2_mean_length": 67,
+          "gc_content": 0.494741
+        }
+      },
+      "filtering_result": {
+        "passed_filter_reads": 200,
+        "low_quality_reads": 6,
+        "too_many_N_reads": 20,
+        "adapter_dimer_reads": 14,
+        "too_short_reads": 0,
+        "too_long_reads": 0
+      },
+      "adapters": {
+        "adapter_trimmed_reads": 114,
+        "adapter_trimmed_bases": 3923,
+        "read1_adapter_sequence": "AGATCGGAAGAGCACACGTCTGAACTCCAGTCA",
+        "read2_adapter_sequence": "AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT",
+        "read1_adapter_counts": {
+          "AGATCGGAAGAGCACACGTCTGAACTCCAGTCA": 50
+        },
+        "read2_adapter_counts": {
+          "AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT": 50,
+          "AAAGATTCCAAGAATCTCCGCGGGTTGCTCATGCACCATTAATGAGTGGTGCATATTTCCGGTCATCAACTCCGTAAGCCCCTGTAGTC": 1,
+          "ATATCCGGGTGGGTGGTTCCTACCGCCCTCGTGGCCCTACGAAGACGAGTTGCGAATCGGTTTACGAATTTACAGGGTCAAGCTCTTGA": 1,
+          "ATGCGCTTAGCAGGCAGAAAGCACTGTCCCTGACTCGATGAAGTACCAGTACCGCATTATTCGACCGCTCGGCTGGTCCCTTTAACGAA": 1,
+          "CGATGGCTAATAACTATTTTAAAGCGTGAGAACACCGAGCCCTATTCGGAAGACGACTTACCGACAATCGAGAGCCGCATGAGCTCTGA": 1,
+          "CTATGCGTACAGGACGTCTAGCGTGGAGTCTTCGCAGCTAGGCAGTGTTAATCCGATCCTCATTATATCCAATATAATGGATGGATCCT": 1,
+          "TGAGGGCCTACACGTCCGGCACGTACCGTTGCCTCGCTAGCCGCCACCTGCCCCACTACCTCCTCCGCCGGGAGCCCCGCACTGTTGAA": 1,
+          "TTGAGTGGGGGGTTTATTAAAAACAAATTGTGATTGTCAGAGCTACTGTAGACCAGCCGCAACAGAGACCTCAATACGCTTTGTCCCCA": 1
+        }
+      },
+      "output_sha256": [
+        "cd2b2641b17c4b4480b13f443972a21ad84cfe4ff087403c66564fd85dfc414a",
+        "da223fa6decc325c8a733d6b283d918a46940385ead358f97f1fbdbb0c3f36d2"
+      ],
+      "json_sha256": "d3829d53c71cb950c096dd00adabb496a249c1cf55dfd291e834c0851a6c9cc9",
+      "html_sha256": "78baf9fce41ea4ebdd66d7bb61c2119503ec300c6fb5ca805445701b0ba4bbf8",
+      "offline_chart_script_verified": true,
+      "json_command_exact_roundtrip": true,
+      "html_command_exact_roundtrip": true,
+      "known_truth_exact": true,
+      "case": "fixture-report-special-characters"
+    }
+  ]
+}

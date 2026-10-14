@@ -1,0 +1,94 @@
+{
+  "schema": 1,
+  "checks": [
+    {
+      "id": "fastq-statistics",
+      "workflow": "statistics-reads",
+      "params": {},
+      "inputs": {
+        "sequences": [
+          {
+            "sequences": "check-reads"
+          }
+        ]
+      },
+      "expect": [
+        {
+          "output": "statistics",
+          "kind": "text",
+          "contains": [
+            "num_seqs\tsum_len",
+            "\tFASTQ\tDNA\t2\t12\t4\t6.0\t8\t"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quality-loss-conversion",
+      "workflow": "fastq-to-fasta",
+      "params": {},
+      "inputs": {
+        "sequences": [
+          {
+            "sequences": "check-reads"
+          }
+        ]
+      },
+      "expect": [
+        {
+          "output": "result",
+          "kind": "fasta",
+          "records": 2,
+          "sequences": {
+            "r1": "ACGT",
+            "r2": "ATGGCCAA"
+          }
+        }
+      ]
+    },
+    {
+      "id": "translation-standard-code",
+      "workflow": "translate",
+      "params": {},
+      "inputs": {
+        "sequences": [
+          {
+            "sequences": "check-cds"
+          }
+        ]
+      },
+      "expect": [
+        {
+          "output": "result",
+          "kind": "fasta",
+          "records": 1,
+          "sequences": {
+            "cds1_frame=1": "MAIVMGR*KGAR*"
+          }
+        }
+      ]
+    },
+    {
+      "id": "exact-count-sampling",
+      "workflow": "sample-reads",
+      "params": {
+        "count": 1,
+        "seed": 11
+      },
+      "inputs": {
+        "sequences": [
+          {
+            "sequences": "check-reads"
+          }
+        ]
+      },
+      "expect": [
+        {
+          "output": "result",
+          "kind": "fastq",
+          "records": 1
+        }
+      ]
+    }
+  ]
+}

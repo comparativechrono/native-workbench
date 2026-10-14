@@ -1,0 +1,168 @@
+{
+  "schema": 1,
+  "category": "Multiple sequence alignment",
+  "citations": [
+    {
+      "text": "Edgar RC (2022). High-accuracy alignment ensembles enable unbiased assessments of sequence homology and phylogeny. Nature Communications 13, 6968.",
+      "url": "https://doi.org/10.1038/s41467-022-34630-w"
+    }
+  ],
+  "workflows": {
+    "align-nucleotide": {
+      "ports": [
+        {
+          "id": "sequences",
+          "label": "Unaligned nucleotide sequences",
+          "type": "fasta-nucleotide",
+          "accepts": [
+            "fasta-nucleotide"
+          ],
+          "manifestInputs": [
+            "sequences"
+          ],
+          "min": 1,
+          "max": 1,
+          "requiredState": {
+            "compression": "none"
+          },
+          "validation": {
+            "minRecords": 2,
+            "maxLength": 15000,
+            "uniqueIds": true
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": "aligned",
+          "label": "Aligned nucleotide FASTA",
+          "type": "msa-nucleotide",
+          "manifestOutputs": [
+            "aligned"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        }
+      ],
+      "methods": "Homologous nucleotide sequences were aligned with MUSCLE 5.3-workbench1 using the standard -align algorithm and an explicitly selected nucleotide alphabet. One alignment replicate was produced; the recorded thread count, perturbation seed and guide-tree permutation define its settings."
+    },
+    "align-protein": {
+      "ports": [
+        {
+          "id": "sequences",
+          "label": "Unaligned protein sequences",
+          "type": "fasta-protein",
+          "accepts": [
+            "fasta-protein"
+          ],
+          "manifestInputs": [
+            "sequences"
+          ],
+          "min": 1,
+          "max": 1,
+          "requiredState": {
+            "compression": "none"
+          },
+          "validation": {
+            "minRecords": 2,
+            "maxLength": 15000,
+            "uniqueIds": true
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": "aligned",
+          "label": "Aligned protein FASTA",
+          "type": "msa-protein",
+          "manifestOutputs": [
+            "aligned"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        }
+      ],
+      "methods": "Homologous protein sequences were aligned with MUSCLE 5.3-workbench1 using the standard -align algorithm and an explicitly selected protein alphabet. One alignment replicate was produced; the recorded thread count, perturbation seed and guide-tree permutation define its settings."
+    },
+    "super5-nucleotide": {
+      "ports": [
+        {
+          "id": "sequences",
+          "label": "Unaligned nucleotide sequences",
+          "type": "fasta-nucleotide",
+          "accepts": [
+            "fasta-nucleotide"
+          ],
+          "manifestInputs": [
+            "sequences"
+          ],
+          "min": 1,
+          "max": 1,
+          "requiredState": {
+            "compression": "none"
+          },
+          "validation": {
+            "minRecords": 2,
+            "maxLength": 15000,
+            "uniqueIds": true
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": "aligned",
+          "label": "Aligned nucleotide FASTA",
+          "type": "msa-nucleotide",
+          "manifestOutputs": [
+            "aligned"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        }
+      ],
+      "methods": "Homologous nucleotide sequences were aligned with MUSCLE 5.3-workbench1 using the Super5 algorithm and an explicitly selected nucleotide alphabet. One alignment replicate was produced; the recorded thread count, perturbation seed and guide-tree permutation define its settings."
+    },
+    "super5-protein": {
+      "ports": [
+        {
+          "id": "sequences",
+          "label": "Unaligned protein sequences",
+          "type": "fasta-protein",
+          "accepts": [
+            "fasta-protein"
+          ],
+          "manifestInputs": [
+            "sequences"
+          ],
+          "min": 1,
+          "max": 1,
+          "requiredState": {
+            "compression": "none"
+          },
+          "validation": {
+            "minRecords": 2,
+            "maxLength": 15000,
+            "uniqueIds": true
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": "aligned",
+          "label": "Aligned protein FASTA",
+          "type": "msa-protein",
+          "manifestOutputs": [
+            "aligned"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        }
+      ],
+      "methods": "Homologous protein sequences were aligned with MUSCLE 5.3-workbench1 using the Super5 algorithm and an explicitly selected protein alphabet. One alignment replicate was produced; the recorded thread count, perturbation seed and guide-tree permutation define its settings."
+    }
+  }
+}

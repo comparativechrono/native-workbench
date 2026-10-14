@@ -1,0 +1,28 @@
+{
+  "source": "Independent deterministic construction, random seed447: ancestor800 residues, 3 disjoint 70-site pair substitutions, 6 disjoint 15-site terminal substitutions. Reuses independently constructed IQ-TREE fixture design, not tool outputs.",
+  "taxa": [
+    "alpha1",
+    "alpha2",
+    "beta1",
+    "beta2",
+    "gamma1",
+    "gamma2"
+  ],
+  "columns": 800,
+  "variableColumns": 300,
+  "informativeColumns": 210,
+  "unrootedPairs": [
+    [
+      "alpha1",
+      "alpha2"
+    ],
+    [
+      "beta1",
+      "beta2"
+    ],
+    [
+      "gamma1",
+      "gamma2"
+    ]
+  ]
+}

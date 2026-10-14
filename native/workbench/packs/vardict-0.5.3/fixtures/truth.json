@@ -1,0 +1,23 @@
+[
+  {
+    "chrom": "chr1",
+    "pos": 300,
+    "ref": "A",
+    "alt": "C",
+    "filter": "PASS"
+  },
+  {
+    "chrom": "chr1",
+    "pos": 600,
+    "ref": "A",
+    "alt": "AAGC",
+    "filter": "PASS"
+  },
+  {
+    "chrom": "chr1",
+    "pos": 900,
+    "ref": "TCTG",
+    "alt": "T",
+    "filter": "PASS"
+  }
+]

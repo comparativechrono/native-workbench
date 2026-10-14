@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark"><title>Native Workbench</title><link rel="icon" href="data:,"><link rel="stylesheet" href="/workspace.css"><link rel="stylesheet" href="/dag.css"><script src="/model.js" defer></script><script src="/dag.js" defer></script><script src="/app.js" defer></script></head>
+<body>
+<div id="wb-ranked-workspace" data-palette="slate">
+<header class="chrome"><div class="brand"><span class="brand-mark" aria-hidden="true"></span>Native Workbench <span id="wr-version" class="badge"></span></div><div class="row"><label class="palette"><span>Colour</span><select id="wr-palette" aria-label="Colour scheme"><option value="slate">Slate</option><option value="blue">Blue</option><option value="plum">Plum</option></select></label><button type="button" class="quiet" id="wr-new">New analysis</button><button type="button" class="quiet" id="wr-saved">Saved pipelines</button><button type="button" class="quiet" id="wr-manage">Tools &amp; installation</button></div></header>
+<div class="head"><div><div class="eyebrow" id="wr-kind">Local analysis</div><h1 id="wr-title">Opening your workbench…</h1><p class="muted" id="wr-subtitle">Your data stays on this computer.</p></div><div class="row"><button type="button" id="wr-save" hidden>Save pipeline</button><button type="button" class="primary" id="wr-review" disabled>Review &amp; run</button></div></div>
+<div class="layout"><main><nav class="views" aria-label="Analysis views"><button type="button" data-view="steps" aria-pressed="true">Steps</button><button type="button" data-view="dag" aria-pressed="false">DAG</button><button type="button" data-view="methods" aria-pressed="false">Methods</button><button type="button" data-view="run" id="wr-run-view" hidden aria-pressed="false">Run results</button></nav><div id="wr-content"><section class="panel"><p>Loading installed tools…</p></section></div></main><aside id="wr-side" aria-label="Input files and outputs"></aside></div>
+<div class="status"><span id="wr-message" aria-live="polite">Local processing · No data upload</span><button type="button" id="wr-undo" disabled>Undo</button></div>
+</div>
+<noscript>This workbench needs JavaScript enabled in your browser.</noscript>
+</body></html>

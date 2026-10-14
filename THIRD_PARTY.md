@@ -105,6 +105,14 @@ The GPL's terms for distributing compiled programs and their Corresponding Sourc
 - The **hosted genomes** of the genome browser are listed by the IGV team (`igv.org`), and their files come from there and from UCSC (`hgdownload.soe.ucsc.edu`, or its copy `genome-browser.s3.us-east-1.amazonaws.com`); **structures** from RCSB PDB and AlphaFold DB; the **Databases** tab, the **Networks** tab and code in notebooks use public web services (EMBL-EBI – IntAct among them –, NCBI, RCSB PDB, UCSC, STRING, Reactome, NDEx, g:Profiler), each under its own terms of use; a network opened from NDEx comes with its own licence, shown in the list.
 - The **AI assistant** sends a student's messages – and the agent its commands and their output – to the AI service the student chose, with the student's own key. No AI model or service is part of the site.
 
+## Native programs: code and build recipes (`native/`)
+
+`native/workbench/` is a copy of the code of Native Workbench (`comparativechrono/workbench`), which built these programs for Windows. See `native/README.md` and `native/TOOLS.md`.
+
+- Native Workbench's own code is under the MIT licence (`native/workbench/LICENSE`, Copyright 2026 Native Workbench contributors).
+- The upstream sources and patches it holds keep their own licences, and their notices are next to them (`vendor-expanded/`, `tools/`, `baselines/licenses/`, `packs/*/licenses/`).
+- No native executable is bundled yet. Each will be listed here, as the WebAssembly programs are above.
+
 ## Re-implementations written for the course
 
 These files contain no code from the programs they imitate. Their names, options and messages follow the real programs, so that what students learn transfers:

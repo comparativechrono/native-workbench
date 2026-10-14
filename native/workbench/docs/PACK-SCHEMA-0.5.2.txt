@@ -1,0 +1,257 @@
+NATIVE WORKBENCH 0.5.2 — TYPED PACK AUTHOR GUIDE
+
+Purpose
+-------
+A pack remains a versioned directory with a format=2 pack.ini, pinned .exe tools,
+assets, licenses and provenance. The existing native runner executes declared
+exec, pipe and copy steps as argument arrays. There is no shell command field,
+script evaluation, network service, Docker or WSL dependency in this interface.
+
+An optional SHA256-pinned workbench-schema.json asset adds the category, scientific
+data types, named/grouped ports, methods text and tool citations used by the
+native desktop pipeline builder. It cannot add executables or alter arguments.
+This separates reusable tool execution from presentation and pipeline semantics.
+
+Galaxy Tool Shed tool descriptions and tests can guide useful operation design.
+Workbench does not automatically install, interpret, or execute Galaxy XML/Cheetah
+wrappers or their dependency recipes. Each native pack needs explicit licensing,
+version/source provenance, a validated Windows binary/dependency set, a native
+manifest, and biological correctness fixtures. Similar names are not evidence
+that two wrappers implement identical analyses.
+
+Pinning and discovery
+---------------------
+Add the following to pack.ini, replacing the checksum with the actual SHA256:
+
+[asset:workbench-schema]
+path=workbench-schema.json
+sha256=<64 lowercase hexadecimal SHA256 characters>
+
+The schema is an ordinary relative asset inside its pack, at most 1 MiB. Symbolic
+links and junctions are rejected. Its hash is checked during catalogue discovery
+and again before graph execution. The native runner also verifies the asset as
+part of its complete pack integrity checks. A schema change therefore requires
+a corresponding manifest change and new pack version. Frozen plans retain the
+exact manifest and schema identities, declared commands, parameter values and
+named source bindings.
+
+JSON schema 1
+-------------
+This complete example assumes one manifest workflow 'filter', a file input
+'sequences', an integer parameter 'minimum', and outputs 'filtered' and 'stats'.
+Parameter metadata and executable arguments remain exclusively in pack.ini.
+
+{
+  "schema": 1,
+  "category": "Sequence utilities",
+  "citations": [
+    {"text": "Author(s). Software paper. Journal and year.",
+     "url": "https://doi.org/replace-with-the-real-citation"}
+  ],
+  "workflows": {
+    "filter": {
+      "methods": "Sequences are filtered by the configured minimum length.",
+      "ports": [
+        {"id": "sequences", "label": "Nucleotide sequences",
+         "type": "fasta-nucleotide", "accepts": ["fasta-nucleotide"],
+         "manifestInputs": ["sequences"], "min": 1, "max": 1,
+         "requiredState": {"compression": "none"},
+         "validation": {"minRecords": 1, "uniqueIds": false}}
+      ],
+      "outputs": [
+        {"id": "filtered", "label": "Filtered nucleotide sequences",
+         "type": "fasta-nucleotide", "manifestOutputs": ["filtered"],
+         "state": {"compression": "none", "alphabet": "nucleotide"}},
+        {"id": "stats", "label": "Filtering statistics",
+         "type": "metrics", "manifestOutputs": ["stats"], "state": {}}
+      ]
+    }
+  }
+}
+
+The citation above is a syntax example, not a scientific reference to copy.
+Use the real upstream publication/version citation and a normal HTTP(S) URL.
+
+Top-level fields:
+  schema       Required integer 1 (a boolean is not an integer here).
+  category     Required nonempty plain text, maximum 100 characters.
+  citations    Optional list of at most 8 {text, url} objects. text is required
+               plain text up to 2048 characters; URL is optional HTTP(S).
+  workflows    Required object whose keys exactly match all manifest workflows.
+
+Each workflow object:
+  category     Optional category override, maximum 100 characters.
+  ports        Required array, maximum 64; all manifest file/files/directory
+               inputs must be represented exactly once. Scalar parameters are
+               not represented here and cannot be redefined by this schema.
+  outputs      Required array, 1–128; all manifest outputs represented once.
+  methods      Optional plain text up to 4096 characters, describing the actual
+               operation. Do not claim results, validation, or completion.
+  citations    Optional additional list of at most 8 citation objects.
+
+Each input port:
+  id           Unique lowercase manifest-style identifier.
+  label        Optional plain text, up to 150 characters; defaults to the first
+               manifest input's label.
+  type         One registered type (see below); the input slot's default type.
+  accepts      List of registered compatible types, including 'type'; defaults
+               to [type]. No wildcard or user-defined type aliases are allowed.
+  manifestInputs
+               Ordered list of existing file input IDs. Members cannot be used
+               in another port. File fields/filters/roles come from pack.ini.
+  min, max     Number of independent sources, not number of grouped files.
+               A required port has min >= 1. Optional min may be 0. max <= 64.
+               Only one manifest input of type=files may accept max > 1.
+               Grouped ordinary file fields accept exactly one source group.
+  requiredState
+               Optional scientific state requirements, below.
+  validation   Optional full FASTA validation rules, below.
+  help         Optional plain text up to 4096 characters; otherwise uses the
+               underlying input help text.
+
+Each output port:
+  id, label, type
+               As above, except accepts is not an output field.
+  manifestOutputs
+               Ordered list of declared output IDs, each used exactly once.
+               Their relative paths, nonempty and final flags come from pack.ini.
+  state        Optional scientific state. Sequence outputs must explicitly
+               declare compression, consistent with the .gz filename suffix.
+  propagateStateFrom
+               Optional existing input port ID, identifying lineage. It does not
+               copy record counts or establish a new scientific fact. Explicit
+               output state and validation remain authoritative.
+
+Grouping and cardinality
+------------------------
+A pair port must group exactly two manifest file inputs, in read-1/read-2 order,
+with type=pair and accepts=[pair], min=max=1. A pair output similarly groups two
+outputs. A paired source is never a newline-delimited list of unrelated files.
+The UI shows the two named mate fields. Use an explicit paircheck step before
+any tool which pairs reads by position: graph typing alone does not establish
+matching names, sequence counts, or valid FASTQ records.
+
+For a multiple-file input, use one manifest type=files input and e.g. min=2,
+max=64. Each selected source remains separately named. The engine expands them
+as distinct arguments through {inputs:input-id}; it never builds a shell string.
+
+Other grouped file bundles are allowed for general file/index data, but ordinary
+FASTA, FASTQ, identifier-list and cluster-membership ports contain one declared
+file. Parameter-dependent output types should be separate workflows: a DNA
+operation must not advertise protein output, or vice versa, merely because both
+use the .fa extension.
+
+Registered scientific types
+---------------------------
+New types in 0.5.2:
+  fasta-nucleotide             Ungapped nucleotide FASTA (IUPAC, including U).
+  fasta-protein                Ungapped protein FASTA, including ambiguity and
+                               standard U/O/J symbols; '*' is permitted.
+  msa-nucleotide               Aligned nucleotide FASTA; gaps '-' and '.' are
+                               permitted and all records have equal width.
+  msa-protein                  Aligned protein FASTA with the same width rule.
+  fasta-nucleotide-abundance    Nucleotide FASTA whose first-token identifiers
+                               each contain exactly one positive ;size=N; count.
+  id-list                      One nonempty identifier without whitespace per
+                               line; blank lines are ignored.
+  cluster-membership           UC-format cluster membership, not a FASTA file.
+
+Existing types:
+  pair, reads, reference, sam, bam, vcf, vcf-pass, bcf, bcf-likelihoods,
+  metrics, report, index, text, file, directory, script.
+
+'reference' identifies a reference FASTA used for genomic coordinate alignment
+and variant calling. It is distinct from arbitrary nucleotide sequences, protein
+sequences, and multiple-sequence alignments. A .fa/.fasta/.fna suffix alone never
+makes a new sequence output a genomic reference. A pack may explicitly accept
+reference where appropriate (for example, statistics); an MSA input should not
+automatically accept a whole reference genome.
+
+Abundance FASTA counts are biological weights, not just decorative identifiers.
+Each count and their cumulative total must fit the supported range 1..2^63-1.
+An unweighted operation accepting ordinary FASTA should reject existing ;size=N;
+annotations if it would discard their meaning. A weighted operation must use the
+upstream tool's corresponding size-input/output flags and preserve or explicitly
+report changes to the abundance total. Filtering legitimately removes counts;
+counts from separate callers or analyses must not be pooled without a defined
+scientific operation. The generic report pack presents separate attributed
+sections; it does not merge variant calls or sum their counts.
+
+Scientific state
+----------------
+Allowed state keys and values:
+  compression  none | gzip | bgzf
+  alphabet     nucleotide | protein
+  alignment    unaligned | aligned
+  abundance    true | false
+  sort         coordinate | queryname | unsorted | lexicographic | abundance
+  mateFixed    true | false
+  duplicates   marked | retained | removed | requires-remarking
+  selection    all-calls-with-filter-labels | PASS-only
+
+State is a constrained declaration, not permission to skip tool validation.
+Compression is checked against file content; BGZF requires its identifying
+header. Full FASTA scans check permitted alphabets, records, optional input bounds,
+MSA column lengths, and positive abundance annotations. Abundance-sort requirements
+check descending counts. Alignment/BAM sort prerequisites use SAMtools headers;
+FASTA sort metadata never invokes SAMtools. Other declared state must be supported
+by the fixed upstream command and provenance; do not invent unsupported guarantees.
+
+FASTA input validation
+----------------------
+On explicit FASTA sequence input types, validation may declare:
+  minRecords / maxRecords   Inclusive integer record bounds, 0..1,000,000,000.
+  minLength / maxLength     Inclusive sequence-symbol bounds, same range.
+  uniqueIds                 Boolean; require unique first-token identifiers.
+  rejectAbundance           Boolean; reject ;size= headers on raw/unweighted input.
+
+A minimum may not exceed its maximum. MUSCLE packs can, for example, require at
+least two unique sequences and deliberately impose a per-sequence length limit.
+Such limits belong in help text as pack limits; they are not claims about a hard
+memory ceiling or all upstream capabilities. Validation is streamed locally and
+cancellable. The actual scientific tool remains responsible for complete format
+and algorithm-specific validation. FASTQ record/quality and pair checks use the
+pinned tools; the generic engine does not mistake a short signature check for
+full FASTQ validation.
+
+Empty biological results
+------------------------
+Set nonempty=false on manifest outputs where zero passing sequences or zero hits
+is a legitimate result. The workflow may succeed and retain the empty artifact.
+FASTA output validation records zero records without inventing biological data.
+A later operation requiring sequences receives a clear no-records failure instead
+of silently pretending that the downstream analysis ran. Metrics/report outputs
+should still explain the filtering/search outcome where the upstream tool permits.
+
+Methods, execution and history
+------------------------------
+Methods text, exact versions and parameters, typed sources, citations and output
+names enter one frozen plan. Before execution, prose is explicitly planned; after
+execution, only successfully completed operations appear in completed methods.
+An independent failed branch blocks its dependent joins; it does not make their
+methods read as completed. Citations do not imply reproducibility or biological
+accuracy without the corresponding pinned commands and tests.
+
+Compatibility and strictness
+----------------------------
+Without a workbench-schema asset, existing format-2 packs still load. Established
+legacy input/output conventions retain their existing mappings; unknown biological
+inputs/outputs remain conservative file types. An ordinary .fa output not explicitly
+named 'reference' is an untyped file until a schema declares its meaning.
+
+Once a schema asset exists, missing workflows, missing/duplicate manifest members,
+unknown JSON fields, unknown types, duplicate JSON keys, non-finite numbers,
+unsupported schema versions, invalid cardinality, path escape, and checksum drift
+are errors. There is no permissive partial-metadata fallback. Types cannot be
+overridden globally by another pack. Extending the registered ontology requires
+a reviewed core change and appropriate validation; adding operations using these
+types requires only a new self-contained pack.
+
+Validation expected for a release
+---------------------------------
+Use real upstream binaries and fixtures. Check declared outputs and nonempty
+behavior; biological counts/alleles/alignments; paired-input failure paths; wrong
+alphabet, gaps and duplicate identifiers where relevant; upstream/output version
+hashes; separate branches and multi-input joins; cancellation; and native Windows
+startup/execution. Linux reference or portable-adapter tests provide useful
+scientific evidence but are not evidence that the Windows process/UI ran.

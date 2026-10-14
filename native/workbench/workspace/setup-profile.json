@@ -1,0 +1,294 @@
+{
+  "schema": 1,
+  "sourceId": "native-workbench-official",
+  "packs": [
+    {
+      "id": "align",
+      "version": "0.4.0",
+      "name": "minimap2 alignment",
+      "size": 568924,
+      "sha256": "e701dbcf5a8c3fb31c1a82a3c7b7da50eb1cceb64b5b9c88db4795f98ec4f72d",
+      "manifestSha256": "81c962222c93356a4f7727b23193c71d7dcd515859e62a179574781f411824d3",
+      "starter": true
+    },
+    {
+      "id": "bam",
+      "version": "0.4.0",
+      "name": "SAMtools alignment files",
+      "size": 1158320,
+      "sha256": "b9edc1535996c2e86fdb533328fb8fad78b9168bcb0d0733b73090387c27b61f",
+      "manifestSha256": "45b3f9d5092b0b3014f67b29331003e1214c72919f85695a571fb371030a9888",
+      "starter": true
+    },
+    {
+      "id": "bedtools",
+      "version": "1.0.0",
+      "name": "BEDTools",
+      "size": 32015063,
+      "sha256": "f195c4c25acd1b109b8bd73656d64e12939bea847aa4d95a776fa25129455382",
+      "manifestSha256": "4918fb533a648db4e1c53bd3a71676cef008bd7228a84136e2c4f4724420ead1",
+      "starter": false
+    },
+    {
+      "id": "blast",
+      "version": "1.0.0",
+      "name": "NCBI BLAST+",
+      "size": 70024863,
+      "sha256": "3a907171c210d640a53cff6f2c51813be61b87a859a3a65b987947985f97024c",
+      "manifestSha256": "3242e23ba4e5edbec8b288c98d666cb4f0f3c23c9f03fc9d7d4258e4029d90c8",
+      "starter": false
+    },
+    {
+      "id": "bowtie2",
+      "version": "0.5.3",
+      "name": "Bowtie 2",
+      "size": 36396085,
+      "sha256": "d9810ddb3ea67bf296efde3c2b4a1d3f5513c5bdb6ba841a67db02f25c3d0a22",
+      "manifestSha256": "cdaa52bde3dec022e6716d4fc6b6e78481982f1d6491b5cd21ff4d64d33cec32",
+      "starter": false
+    },
+    {
+      "id": "bracken",
+      "version": "1.0.0",
+      "name": "Bracken",
+      "size": 34837071,
+      "sha256": "bfd5ae2ea3ef3e54f3ae5b97530e58bf1aad8562d66ca1c8e190b87472f1d853",
+      "manifestSha256": "f8c171ba9313c768de646c88959f1c16660f27f305a5bd0e7e8f2a007c63b14d",
+      "starter": false
+    },
+    {
+      "id": "bwa",
+      "version": "0.4.0",
+      "name": "BWA",
+      "size": 1870891,
+      "sha256": "c80b8c924861c1b768eb9488821bf5e5582f927d722a30dfb1078b999d9d419c",
+      "manifestSha256": "7d49d9bac3c4c98776f70120915ffa7f2a85ee297787f9c1e45c8b4655ee4a37",
+      "starter": false
+    },
+    {
+      "id": "deseq2",
+      "version": "1.0.0",
+      "name": "DESeq2 and tximport",
+      "size": 277504383,
+      "sha256": "eccffbcaf3adad6ab1da63ea771fe103a807a88722a56f5db82072cf02c1292d",
+      "manifestSha256": "f5a06708651f14f25e89ca3588ed6bf2f91442e43d635a9fc7ab5af066112ee1",
+      "starter": false
+    },
+    {
+      "id": "fastp",
+      "version": "0.4.1",
+      "name": "fastp",
+      "size": 1277199,
+      "sha256": "93c32ccd506bb61eed0e901f83f025fed183557587cc5378ad0d40771db4a8cc",
+      "manifestSha256": "7d18c64a45ebbd78e1d246b660a82d7d1a98166ccfd2c40e3f621cd9fee2a6a6",
+      "starter": false
+    },
+    {
+      "id": "fastqc",
+      "version": "1.0.0",
+      "name": "FastQC",
+      "size": 150996821,
+      "sha256": "10249aef6fa482fe2d0c37a76625e5664ca40dde3630814bc35e26aea6cd1bc4",
+      "manifestSha256": "1f791b7fb3af5aab35a7033f1b933c40f2dd2bbc6930d68c70cbc626f14653bc",
+      "starter": false
+    },
+    {
+      "id": "featurecounts",
+      "version": "1.0.0",
+      "name": "featureCounts",
+      "size": 29829533,
+      "sha256": "f3319b6a8b13c30bc31b782008b0283c7688c739da2dd77cf5ab80859ccff4c2",
+      "manifestSha256": "f40b334f0eb469a34d92696cf17c5ac2848346add6cdb9d73ca06fab93770716",
+      "starter": false
+    },
+    {
+      "id": "freebayes",
+      "version": "0.4.0",
+      "name": "FreeBayes",
+      "size": 4560176,
+      "sha256": "f6f12592c22d6d3ee63f24287d054b317a05551dbe0f6019a88dfd623dd059d0",
+      "manifestSha256": "9ba67c19846368c8d35119ec47404381c2aed6c6fbb693534963e7ec05ea7a7c",
+      "starter": false
+    },
+    {
+      "id": "gatk",
+      "version": "1.0.0",
+      "name": "GATK germline",
+      "size": 681725138,
+      "sha256": "e9eb3a4966f83d667ebb424612aaedd07236bac98c3462d4efbe02c55166bb24",
+      "manifestSha256": "4d876053d922628f8c97896268a32c72a648b6c51b93d3364beecc641293e713",
+      "starter": false
+    },
+    {
+      "id": "hisat2",
+      "version": "0.5.3",
+      "name": "HISAT2",
+      "size": 10085384,
+      "sha256": "85d02ead1c7205428b22c73b1c7f751786645c4a4d51296cb6fc824623fd6126",
+      "manifestSha256": "06f912deb5926b00a8ca269138b4b3822bb4b3e36d4956e30ca7793655052967",
+      "starter": false
+    },
+    {
+      "id": "iqtree",
+      "version": "1.0.0",
+      "name": "IQ-TREE",
+      "size": 248195844,
+      "sha256": "d232985959093083cd1f40f6fcb3496a1164f43912a72b8d6c29c900d0069aad",
+      "manifestSha256": "d6eb92f6840cfa4073e781f92fecd1163c26dc902e0f4c58efe8cfe234b4dc1d",
+      "starter": false
+    },
+    {
+      "id": "kallisto",
+      "version": "1.0.1",
+      "name": "kallisto",
+      "size": 9433934,
+      "sha256": "641cd1f2b05e0951b1f8a58f45d6308ca6206bf86bf90fb74d0daa2860f5eecd",
+      "manifestSha256": "509756b8afb9719a56da60f88ed631a578ee51eb29700bfbf51271aecd00c0c9",
+      "starter": false
+    },
+    {
+      "id": "kraken2",
+      "version": "1.0.0",
+      "name": "Kraken2",
+      "size": 230928151,
+      "sha256": "9feb39546f6af9d718629304d7fc6a5d70d8a015839deef7d4a869e7587a0e91",
+      "manifestSha256": "4c0e1dbe86b43f41c72b7dbdc6c93034d6b6eeb210494bdc8252c110182b677f",
+      "starter": false
+    },
+    {
+      "id": "lofreq",
+      "version": "0.5.3",
+      "name": "LoFreq",
+      "size": 56071589,
+      "sha256": "16f5c06e27dd2d847d84d51fa62f1619c8e104cd00e3bc9a267dcf6873ed36a7",
+      "manifestSha256": "4a00d450461cb434e04ddd377b901f73f9027e27a38f947238b6b18e9f5d862e",
+      "starter": false
+    },
+    {
+      "id": "mosdepth",
+      "version": "1.0.0",
+      "name": "mosdepth",
+      "size": 39762901,
+      "sha256": "b642d231350ef8eba8975a2a493714329f30880daf2e3a90c4faad293f78adfc",
+      "manifestSha256": "7eeb9cabf863568fe651d716d776293aa812e04cc23f032c2fa6c4e807c92b94",
+      "starter": false
+    },
+    {
+      "id": "multiqc",
+      "version": "1.0.0",
+      "name": "MultiQC",
+      "size": 231356965,
+      "sha256": "a171da9ac947c7399057da20a8fcddd74201bdb60cfaf030301a1123b0ff9e3e",
+      "manifestSha256": "5651f9519a4dea176a4f70f09ed8b64d016b3747b6c0dce0482ac6e7872f7f83",
+      "starter": false
+    },
+    {
+      "id": "muscle",
+      "version": "0.5.2",
+      "name": "MUSCLE",
+      "size": 30139115,
+      "sha256": "c07d3e398f48df683926c0970ef77c3b7d2bdab6426b80c80186f2360ed25258",
+      "manifestSha256": "085273422c7f26af77d23643efa961f1fb6ecbdee301109af67ba551f41b82c4",
+      "starter": false
+    },
+    {
+      "id": "mutect2",
+      "version": "0.5.4",
+      "name": "GATK Mutect2",
+      "size": 683046695,
+      "sha256": "25786d85b3679f172331142f890b1bffe5f5e77497b97eb91af855f2858ce08b",
+      "manifestSha256": "bef9c8ee3b35b3b4ead54ed359a019d6592933e5ee84a05e449d014891f7ab3e",
+      "starter": false
+    },
+    {
+      "id": "reads",
+      "version": "0.4.0",
+      "name": "Read quality",
+      "size": 486120,
+      "sha256": "2dd05fece8deb2b0178d8b1bc2b6830f175b3fbc2f5a4d48f9c9023cbfe6775b",
+      "manifestSha256": "65fc3065fb382ffdd13c4b94fa834b26531e63eb87858d84a4c173e567fb73c0",
+      "starter": false
+    },
+    {
+      "id": "research-variants",
+      "version": "0.4.1",
+      "name": "Research variants",
+      "size": 19295391,
+      "sha256": "a28bfb7df0fbc214e1c6e28005e018974801efaa25ff4d5fe166876432a12c60",
+      "manifestSha256": "c255113ec8391e9f967b28612a7e6052da2d8344327db24fff3eff0f4f3db1f7",
+      "starter": false
+    },
+    {
+      "id": "seqkit",
+      "version": "0.5.2",
+      "name": "SeqKit",
+      "size": 9191149,
+      "sha256": "5a977517e1c0871ca7685d4b87688dfe6cbfa6d66dcb01c695281812dee4fd42",
+      "manifestSha256": "07ba276cd0630d3dabac9b12f6ed0efffe8ba1b133a4b6a727a1e7d9097edfb8",
+      "starter": false
+    },
+    {
+      "id": "snpeff",
+      "version": "1.0.0",
+      "name": "SnpEff and SnpSift",
+      "size": 498014278,
+      "sha256": "9d15121c7e9615d7d31937c8bdfb8983dd680e39077ca137ce69793c5b31b570",
+      "manifestSha256": "5640770cb9e7aed897ce411834c65e952d5dca2f162606c9fb53d3c775b6483f",
+      "starter": false
+    },
+    {
+      "id": "star",
+      "version": "1.0.0",
+      "name": "STAR",
+      "size": 16855774,
+      "sha256": "edbeefff1c1149b632407f50a8a28847989a34eaa004752b43680fb6e29e4877",
+      "manifestSha256": "d57f83a5109c49aa855748148b4bdf8557c1c8362aa55d2de533f98b9291897d",
+      "starter": false
+    },
+    {
+      "id": "trimming",
+      "version": "0.4.0",
+      "name": "Read trimming",
+      "size": 12684590,
+      "sha256": "516942d33c978560ce5f5ed5497684951d92efa62cdfbddcd3d7c718235b6df7",
+      "manifestSha256": "5ebd1c6ae0368cdd6d1fb6a01041bb114c7a099fa8ab0e8836813bb60974d646",
+      "starter": false
+    },
+    {
+      "id": "vardict",
+      "version": "0.5.3",
+      "name": "VarDictJava",
+      "size": 372591865,
+      "sha256": "e1eed3c24d27ddb1b3a6f68acad2e9e8d80230732a9e9c986a686cafeed57a0e",
+      "manifestSha256": "f43b5dfa5a7ba9a8a476c956499f67576922d171c00eb63ce36cf25e28caf482",
+      "starter": false
+    },
+    {
+      "id": "variant-pipeline",
+      "version": "0.4.0",
+      "name": "Variant pipeline",
+      "size": 3208822,
+      "sha256": "1ab75723215c95629c71946092eb23a908cd40f3baefc0fb47c78890fa4baf4c",
+      "manifestSha256": "c14b3a1804a0a09bc2929653e9c07c9ac7fcdab92d8ed9ef5b1910e9eb86b367",
+      "starter": false
+    },
+    {
+      "id": "variants",
+      "version": "0.4.0",
+      "name": "BCFtools variants",
+      "size": 2506443,
+      "sha256": "1b15477061d8736c18ddff71a64b3370cfaa7c674af33c404c7d79b311f1e118",
+      "manifestSha256": "ea4b7f0a6c28709e4190b6514c07cbf7bdd58e1a4f2a2d931f2cae3ce6ec3795",
+      "starter": true
+    },
+    {
+      "id": "vsearch",
+      "version": "0.5.2",
+      "name": "VSEARCH",
+      "size": 3187058,
+      "sha256": "86d223d33a3c6ef5136a0b1e08634d9ebfb5dac3a94953dba57da466eb73af85",
+      "manifestSha256": "2971ca612558983b23a259c4e2416ddbc129dbff9fdfeac5d2bbaa17a3a652d8",
+      "starter": false
+    }
+  ]
+}

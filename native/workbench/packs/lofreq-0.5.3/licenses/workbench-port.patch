@@ -1,0 +1,90 @@
+--- a/src/lofreq/lofreq_call.c
++++ b/src/lofreq/lofreq_call.c
+@@ -1013,7 +1013,7 @@
+      char *bam_file = NULL;
+      char *bed_file = NULL;
+      char *vcf_out = NULL; /* == - == stdout */
+-     char vcf_tmp_template[] = "/tmp/lofreq2-call-dyn-bonf.XXXXXX";
++     char vcf_tmp_template[] = "./lofreq2-call-dyn-bonf.XXXXXX";
+      char *vcf_tmp_out = NULL; /* write to this file first, then filter */
+      mplp_conf_t mplp_conf;
+      varcall_conf_t varcall_conf;
+@@ -1403,7 +1403,13 @@
+               }
+          }
+     } else {
+-         vcf_tmp_out = strdup(mktemp(vcf_tmp_template));
++         int temp_fd = mkstemp(vcf_tmp_template);
++         if (temp_fd < 0) {
++              LOG_FATAL("%s\n", "Could not reserve temporary VCF in the working directory");
++              return 1;
++         }
++         close(temp_fd);
++         vcf_tmp_out = strdup(vcf_tmp_template);
+          if (NULL == vcf_tmp_out) {
+               LOG_FATAL("%s\n", "Couldn't create temporary vcf file");
+               return 1;
+@@ -1493,16 +1499,15 @@
+          LOG_VERBOSE("%s\n", "No filtering needed or requested: variants already written to final destination");
+ 
+     } else {
+-         char cmd[BUF_SIZE];
+-         int len;
+-
+-         snprintf(cmd, BUF_SIZE,
+-                  "lofreq filter -i %s -o %s",
+-                  vcf_tmp_out, NULL==vcf_out ? "-" : vcf_out);
+-         len = strlen(cmd);
++         /* Workbench portability: direct argv dispatch, no shell/PATH lookup. */
++         char *filter_argv[12] = {"lofreq", "filter", "-i", vcf_tmp_out,
++                                  "-o", NULL==vcf_out ? "-" : vcf_out};
++         char snv_threshold[32], indel_threshold[32];
++         int filter_argc = 6;
++
+ 
+          if (no_default_filter) {
+-              len += sprintf(cmd+len, " %s", "--no-defaults");
++              filter_argv[filter_argc++] = "--no-defaults";
+          }
+ 
+          if (varcall_conf.bonf_dynamic) {
+@@ -1522,16 +1527,21 @@
+                    }
+               }         
+                              
+-              len += sprintf(cmd+len,/* appending to str with format. see http://stackoverflow.com/questions/14023024/strcat-for-formatted-strings */
+-                             " --snvqual-thresh %d --indelqual-thresh %d",
+-                             snvqual_thresh, indelqual_thresh);
++              snprintf(snv_threshold, sizeof(snv_threshold), "%d", snvqual_thresh);
++              snprintf(indel_threshold, sizeof(indel_threshold), "%d", indelqual_thresh);
++              filter_argv[filter_argc++] = "--snvqual-thresh";
++              filter_argv[filter_argc++] = snv_threshold;
++              filter_argv[filter_argc++] = "--indelqual-thresh";
++              filter_argv[filter_argc++] = indel_threshold;
+          } else {
+               LOG_VERBOSE("%s\n", "No SNV/indel-quality filtering needed (already applied during call since bonf was fixed)");
+          }
+ 
+-         LOG_VERBOSE("Executing %s\n", cmd);
+-         if (0 != (rc = system(cmd))) {
+-              LOG_ERROR("The following command failed: %s\n", cmd);
++         LOG_VERBOSE("%s\n", "Executing built-in lofreq filter directly");
++         filter_argv[filter_argc] = NULL;
++         optind = 0; /* reset getopt before calling the second CLI entry point */
++         if (0 != (rc = main_filter(filter_argc, filter_argv))) {
++              LOG_ERROR("%s\n", "Built-in lofreq filter failed");
+               rc = 1;
+ 
+          } else {
+--- a/src/lofreq/lofreq_main.c
++++ b/src/lofreq/lofreq_main.c
+@@ -210,7 +210,8 @@
+           return main_call(argc, argv);
+ 
+      } else if (strcmp(argv[1], "uniq") == 0)  {
+-          return main_uniq(argc, argv);
++          fprintf(stderr, "uniq is unavailable in this Workbench build (unused cdflib dependency omitted)\n");
++          return 1;
+ 
+      } else if (strcmp(argv[1], "vcfset") == 0)  {
+           return main_vcfset(argc, argv);

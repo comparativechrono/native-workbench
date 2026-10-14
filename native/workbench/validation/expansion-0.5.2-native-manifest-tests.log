@@ -1,0 +1,4 @@
+integration-source/native-workbench/packs/seqkit-0.5.2/pack.ini: 1 tools, 14 workflows
+integration-source/native-workbench/packs/vsearch-0.5.2/pack.ini: 2 tools, 7 workflows
+integration-source/native-workbench/packs/muscle-0.5.2/pack.ini: 1 tools, 4 workflows
+PASS: 180 pack-model checks

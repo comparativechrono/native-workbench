@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "release": "0.5.4",
+  "nativeWindowsExecuted": false,
+  "records": [
+    {
+      "suite": "updater",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_desktop_update*.py"
+      ],
+      "testsRun": 41,
+      "returncode": 0,
+      "log": "validation/mutect2-0.5.4-updater-tests.log"
+    },
+    {
+      "suite": "packaging",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_package_*.py"
+      ],
+      "testsRun": 21,
+      "returncode": 0,
+      "log": "validation/mutect2-0.5.4-packaging-tests.log"
+    },
+    {
+      "suite": "native-host",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "workspace/tests",
+        "-p",
+        "test_desktop_host.py"
+      ],
+      "testsRun": 12,
+      "returncode": 0,
+      "log": "validation/mutect2-0.5.4-native-host-tests.log"
+    }
+  ]
+}

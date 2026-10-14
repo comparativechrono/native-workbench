@@ -1,0 +1,12 @@
+test_ambiguous_protein_alphabet_is_explicit (test_muscle_pack.MusclePackTests.test_ambiguous_protein_alphabet_is_explicit) ... ok
+test_integrity_and_typed_workflows (test_muscle_pack.MusclePackTests.test_integrity_and_typed_workflows) ... ok
+test_no_unbundled_runtime_dependency (test_muscle_pack.MusclePackTests.test_no_unbundled_runtime_dependency) ... ok
+test_normal_alignments_and_official_regression (test_muscle_pack.MusclePackTests.test_normal_alignments_and_official_regression) ... ok
+test_pack_constraints_before_execution (test_muscle_pack.MusclePackTests.test_pack_constraints_before_execution) ... ok
+test_repeated_seed_and_stop_symbols (test_muscle_pack.MusclePackTests.test_repeated_seed_and_stop_symbols) ... ok
+test_rna_retains_uracil (test_muscle_pack.MusclePackTests.test_rna_retains_uracil) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.089s
+
+OK

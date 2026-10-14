@@ -1,0 +1,17 @@
+{
+  "seed": 2026100306,
+  "readPairs": 101,
+  "readLength": 100,
+  "referenceLength": 3000,
+  "variants": [
+    {
+      "chrom": "starter",
+      "pos": 1351,
+      "ref": "G",
+      "alt": "A",
+      "genotypes": {
+        "starter": "1/1"
+      }
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+##fileformat=VCFv4.2
+##source=NativeWorkbench-independent-synthetic-genotypes
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	z-last	001	a.dot	under_score
+1	101	reference_only	A	G	.	PASS	.	GT	0/0	0|0	0/0	0/0
+1	202	alternate_only	C	T	.	PASS	.	GT	1/1	1|1	1/1	1/1
+2	303	one_third	G	A	.	PASS	.	GT	0/0	0/1	1|0	./.
+2	404	all_missing	T	C	.	PASS	.	GT	./.	.|.	./.	.|.
+22	505	balanced	A	C	.	PASS	.	GT	1/1	0/1	.|.	0/0
+22	606	five_sixths	C	G	.	PASS	.	GT	1|1	./.	0|1	1/1

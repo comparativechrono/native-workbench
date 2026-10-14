@@ -1,0 +1,125 @@
+--- a/c++/src/app/blast/blast_formatter.cpp
++++ b/c++/src/app/blast/blast_formatter.cpp
+@@ -291,38 +291,11 @@
+             scope->AddDataLoader(RegisterOMDataLoader(seqdb), CBlastDatabaseArgs::kSubjectsDataLoaderPriority);
+             LOG_POST(Info <<"Add local loader " << search_db->GetDatabaseName());
+         } catch (const CSeqDBException&) {
+-           	SetDiagPostLevel(eDiag_Critical);
+-            string remote_loader = kEmptyStr;
+-            try {
+-            db_adapter.Reset(new CLocalDbAdapter(*search_db));
+-            remote_loader = CRemoteBlastDbDataLoader::RegisterInObjectManager
+-                                    (*( CObjectManager::GetInstance()),
+-                                    search_db->GetDatabaseName(),
+-                                    search_db->IsProtein()  ? CBlastDbDataLoader::eProtein : CBlastDbDataLoader::eNucleotide,
+-                                    true, CObjectManager::eDefault, CBlastDatabaseArgs::kSubjectsDataLoaderPriority)
+-                                    .GetLoader()->GetName();
+-            scope->AddDataLoader(remote_loader, CBlastDatabaseArgs::kSubjectsDataLoaderPriority);
+-            SetDiagPostLevel(eDiag_Warning);
+-            isRemote = true;
+-            LOG_POST(Info <<"Remote " << search_db->GetDatabaseName());
+-            }
+-            catch (CException & ) {
+-            	SetDiagPostLevel(eDiag_Warning);
+-            	NCBI_THROW(CException, eUnknown, "Fail to initialize local or remote DB" );
+-            }
+-        }
+-    }
+-    try {
+-    	const int kGenbankLoaderPriority = 99;
+-        CRef<CReader> reader(new CId2Reader);
+-        reader->SetPreopenConnection(false);
+-        string genbank_loader = CGBDataLoader::RegisterInObjectManager
+-            (*( CObjectManager::GetInstance()), reader,CObjectManager::eNonDefault).GetLoader()->GetName();
+-        scope->AddDataLoader(genbank_loader, kGenbankLoaderPriority);
+-    } catch (const CException& ) {
+-    	LOG_POST(Info << "Failed to add genbank dataloader");
+-    	// It's ok not to have genbank loader
+-    }
++            // Workbench: local analysis must never fall back to remote sequence retrieval.
++            throw;
++        }
++    }
++    // Workbench: do not register the Genbank network fallback data loader.
+     return isRemote;
+ }
+ 
+--- a/c++/src/algo/blast/blastinput/blast_scope_src.cpp
++++ b/c++/src/algo/blast/blastinput/blast_scope_src.cpp
+@@ -58,7 +58,7 @@
+ {
+     m_UseFixedSizeSlices = true;
+     m_UseBlastDbs = (options & eUseBlastDbDataLoader) ? true : false;
+-    m_UseGenbank = (options & eUseGenbankDataLoader) ? true : false;
++    m_UseGenbank = false; // Workbench: no implicit network sequence retrieval.
+     if ( !dbname.empty() ) {
+         m_BlastDbName.assign(dbname);
+     }
+@@ -173,27 +173,10 @@
+         _ASSERT( !m_BlastDbLoaderName.empty() );
+         _TRACE("Registered BLAST DB data loader '" << m_BlastDbLoaderName 
+                << "' as non-default");
+-    } catch (const CSeqDBException& e) {
+-        // if the database isn't found, ignore the exception as the
+-        // remote BLAST database data loader will be tried next
+-        if (e.GetMsg().find("No alias or index file found ") != NPOS) {
+-            _TRACE("Error initializing local BLAST database "
+-                          << "data loader: '" << e.GetMsg() << "'");
+-        }
+-        try {
+-            m_BlastDbLoaderName = CRemoteBlastDbDataLoader::RegisterInObjectManager
+-                    (*m_ObjMgr, dbname, dbtype, m_Config.m_UseFixedSizeSlices,
+-                     CObjectManager::eNonDefault, CObjectManager::kPriority_NotSet)
+-                     .GetLoader()->GetName();
+-            _ASSERT( !m_BlastDbLoaderName.empty() );
+-            _TRACE("Registered BLAST DB data loader '" << m_BlastDbLoaderName 
+-                   << "' as non-default");
+-        } catch (const CSeqDBException& e) {
+-            ERR_POST(Warning << "Error initializing remote BLAST database "
+-                          << "data loader: " << e.GetMsg());
+-            _TRACE("Error initializing remote BLAST database "
+-                          << "data loader: '" << e.GetMsg() << "'");
+-        }
++    } catch (const CSeqDBException&) {
++        // Workbench: an optional missing local query database must not trigger
++        // remote lookup; complete FASTA records are supplied by this pack.
++        m_BlastDbLoaderName.clear();
+     }
+ }
+ 
+@@ -216,32 +199,9 @@
+             _TRACE("Registered BLAST DB data loader '" << m_BlastDbLoaderName 
+                    << "' as non-default");
+ 
+-        } catch (const exception& e) {
+-
+-            // in case of error when initializing the BLAST database, just
+-            // ignore the exception as the remote BLAST database data loader
+-            // will be the fallback (just issue a warning)
+-            ERR_POST(Warning << "Error initializing local BLAST database data "
+-                             << "loader: '" << e.what() << "'");
+-            const CBlastDbDataLoader::EDbType dbtype = 
+-                db_handle->GetSequenceType() == CSeqDB::eProtein
+-                ? CBlastDbDataLoader::eProtein
+-                : CBlastDbDataLoader::eNucleotide;
+-            try {
+-                m_BlastDbLoaderName =
+-                    CRemoteBlastDbDataLoader::RegisterInObjectManager
+-                        (*m_ObjMgr, db_handle->GetDBNameList(), dbtype,
+-                         m_Config.m_UseFixedSizeSlices,
+-                         CObjectManager::eNonDefault,
+-                         CObjectManager::kPriority_NotSet)
+-                         .GetLoader()->GetName();
+-                _ASSERT( !m_BlastDbLoaderName.empty() );
+-                _TRACE("Registered BLAST DB data loader '" << m_BlastDbLoaderName 
+-                       << "' as non-default");
+-            } catch (const CSeqDBException& e) {
+-                ERR_POST(Warning << "Error initializing remote BLAST database "
+-                              << "data loader: " << e.GetMsg());
+-            }
++        } catch (const exception&) {
++            // Workbench: failure to read an explicit local database is an error.
++            throw;
+         }
+     }
+ }

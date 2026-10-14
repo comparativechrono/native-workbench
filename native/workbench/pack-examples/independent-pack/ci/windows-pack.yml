@@ -1,0 +1,68 @@
+name: Native Windows pack release gate
+on:
+  workflow_dispatch:
+    inputs:
+      application_url:
+        description: HTTPS URL of the released 0.6+ application ZIP
+        required: true
+        type: string
+      application_sha256:
+        description: Expected application ZIP SHA-256
+        required: true
+        type: string
+      pack_url:
+        description: HTTPS URL of the candidate pack ZIP
+        required: true
+        type: string
+      pack_sha256:
+        description: Expected candidate pack ZIP SHA-256
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        folder: [ordinary, 'path with spaces']
+    steps:
+      # Pin action revisions to reviewed commits under your repository policy.
+      - uses: actions/checkout@v4
+      - name: Download explicitly selected releases and check their hashes
+        shell: pwsh
+        env:
+          APPLICATION_URL: ${{ inputs.application_url }}
+          APPLICATION_SHA256: ${{ inputs.application_sha256 }}
+          PACK_URL: ${{ inputs.pack_url }}
+          PACK_SHA256: ${{ inputs.pack_sha256 }}
+          CASE_FOLDER: ${{ matrix.folder }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          foreach ($kind in @('APPLICATION', 'PACK')) {
+            $url = [Environment]::GetEnvironmentVariable($kind + '_URL')
+            $expected = [Environment]::GetEnvironmentVariable($kind + '_SHA256')
+            if (([uri]$url).Scheme -ne 'https' -or $expected -notmatch '^[a-fA-F0-9]{64}$') { throw 'Supply HTTPS URLs and exact SHA-256 values.' }
+            $file = Join-Path $env:RUNNER_TEMP ($kind + '.zip')
+            Invoke-WebRequest -Uri $url -OutFile $file
+            if ((Get-FileHash $file -Algorithm SHA256).Hash -ne $expected) { throw ($kind + ' archive hash differs') }
+          }
+          $destination = Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER
+          Expand-Archive (Join-Path $env:RUNNER_TEMP 'APPLICATION.zip') $destination
+      - name: Import offline and run native scientific assertions
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'native-workbench'
+          $python = Join-Path $app 'runtime/python/python.exe'
+          & $python -I scripts/check_pack_release_windows.py --app-root $app --archive (Join-Path $env:RUNNER_TEMP 'PACK.zip') --report (Join-Path $env:RUNNER_TEMP 'native-pack.json')
+          if ($LASTEXITCODE -ne 0) { throw 'Pack scientific gate failed' }
+      - name: Print native evidence
+        if: always()
+        shell: pwsh
+        run: |
+          $report = Join-Path $env:RUNNER_TEMP 'native-pack.json'
+          if (Test-Path $report) { Get-Content $report }

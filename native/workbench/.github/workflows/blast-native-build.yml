@@ -1,0 +1,33 @@
+name: Build local BLAST native tools
+on:
+  workflow_dispatch:
+  push:
+    branches: ['build/blast-native']
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: windows-2022
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pin CMake compatible with the upstream build
+        shell: pwsh
+        run: python -m pip install cmake==3.31.6
+      - name: Build pinned sources with a static runtime
+        shell: pwsh
+        run: ./scripts/build_blast_windows.ps1 -Output C:/blast-build
+      - name: Preserve native executables and source/build evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: blast-native-build
+          path: |
+            C:/blast-build/bin
+            C:/blast-build/build-provenance.json
+            C:/blast-build/*-imports.txt
+            C:/blast-build/build/CMakeCache.txt
+            C:/blast-build/build/CMakeFiles/CMakeConfigureLog.yaml
+            C:/blast-build/source.tar.gz
+            C:/blast-build/sqlite.zip
+          if-no-files-found: error

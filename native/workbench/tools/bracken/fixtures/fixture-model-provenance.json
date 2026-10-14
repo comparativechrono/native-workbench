@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "description": "Every contiguous 150-base forward window in each synthetic fixture genome was classified with real Kraken2 2.17.2, standard settings. The unchanged Bracken 3.1 generator serialized the exhaustive counts. Canonical nucleotide classification is strand independent. This fixture calculation is not an exposed general database-building operation.",
+  "commands": [
+    [
+      "/workspace/scratch/0c5293ac0f36/github-workbench/build/kraken2/linux-upstream/classify",
+      "-H",
+      "/workspace/scratch/0c5293ac0f36/github-workbench/build/kraken2/fixture/hash.k2d",
+      "-t",
+      "/workspace/scratch/0c5293ac0f36/github-workbench/build/kraken2/fixture/taxo.k2d",
+      "-o",
+      "/workspace/scratch/0c5293ac0f36/github-workbench/build/kraken2/fixture/opts.k2d",
+      "-p",
+      "2",
+      "-T",
+      "0",
+      "-g",
+      "2",
+      "-Q",
+      "0",
+      "-O",
+      "/workspace/scratch/0c5293ac0f36/github-workbench/build/bracken-inputs/chain-model/all-window-classifications.tsv",
+      "/workspace/scratch/0c5293ac0f36/github-workbench/build/bracken-inputs/chain-model/all-150-base-windows.fa"
+    ],
+    [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "-I",
+      "-B",
+      "/workspace/scratch/0c5293ac0f36/github-workbench/build/bracken-inputs/Bracken-3.1/src/generate_kmer_distribution.py",
+      "-i",
+      "/workspace/scratch/0c5293ac0f36/github-workbench/build/bracken-inputs/chain-model/exhaustive-window-counts.tsv",
+      "-o",
+      "/workspace/scratch/0c5293ac0f36/github-workbench/build/bracken-inputs/chain-model/database150mers.kmer_distrib"
+    ]
+  ],
+  "classifierSha256": "ab7dbe6eba4489897ef1d868150c651e584c99e48ce756f012b6a9d495d25744",
+  "generatorSha256": "fa74ac171c04f8855b18b892ecde376561eaea01266499fcfb8e1890a0734c87",
+  "distributionSha256": "82a75554218504dbc940b55abd24b8a3d52c506852a2465506d204f01894442f",
+  "referenceSha256": "bd55f2adbf47b698def8d715ff032611d4fb872c97adec211a1001bb303c3144",
+  "counts": {
+    "101": {
+      "10": 251,
+      "101": 2600
+    },
+    "102": {
+      "10": 251,
+      "102": 2600
+    },
+    "201": {
+      "201": 2851
+    }
+  },
+  "windowCount": 8553
+}

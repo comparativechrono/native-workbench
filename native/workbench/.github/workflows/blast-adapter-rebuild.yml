@@ -1,0 +1,82 @@
+name: Rebuild BLAST Windows stream adapter
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  adapter:
+    runs-on: windows-2022
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          artifact-ids: '11305653305'
+          run-id: '37207486793'
+          repository: comparativechrono/workbench
+          github-token: ${{ github.token }}
+          path: C:/blast-original
+          merge-multiple: true
+      - name: Build only the boundary adapter and preserve separate provenance
+        shell: pwsh
+        env:
+          SOURCE_COMMIT: ${{ github.sha }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $original = 'C:/blast-original'
+          $recordPath = Join-Path $original 'build-provenance.json'
+          $recordHash = (Get-FileHash $recordPath -Algorithm SHA256).Hash.ToLower()
+          if ($recordHash -ne '0e1cf6ba61b2be7e339b4f9529f3da3fc0fd469eb782839c4e3c9a127cb91ea3') { throw 'Original build provenance changed' }
+          $record = Get-Content -Raw $recordPath | ConvertFrom-Json
+          foreach ($binary in $record.binaries) {
+            $path = Join-Path $original ('bin/'+$binary.name)
+            if ((Get-FileHash $path -Algorithm SHA256).Hash.ToLower() -ne $binary.sha256) { throw 'Original scientific executable changed' }
+          }
+          $vswhere = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
+          $vs = & $vswhere -latest -products '*' -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath
+          if (!$vs) { throw 'A licensed Visual Studio C++ x64 environment is required' }
+          $devcmd = Join-Path $vs 'Common7\Tools\VsDevCmd.bat'
+          cmd /c "`"$devcmd`" -arch=x64 -host_arch=x64 >nul && set" | ForEach-Object {
+            $pair = $_ -split '=',2
+            if ($pair.Count -eq 2 -and $pair[0]) { [Environment]::SetEnvironmentVariable($pair[0],$pair[1],'Process') }
+          }
+          $output = 'C:/blast-adapter'
+          New-Item -ItemType Directory -Force $output | Out-Null
+          $source = Join-Path $env:GITHUB_WORKSPACE 'tools/blast/guard.cpp'
+          $guard = Join-Path $output 'blast-guard.exe'
+          & cl.exe /nologo /std:c++17 /EHsc /O2 /MT ('/Fe:'+$guard) ('/Fo'+(Join-Path $output 'guard.obj')) $source
+          if ($LASTEXITCODE -ne 0) { throw 'Adapter compilation failed' }
+          $imports = (& dumpbin /nologo /dependents $guard | Out-String)
+          if ($imports -match '(?i)(MSVCP[0-9_]*|VCRUNTIME[0-9_]*|ucrtbase)\.dll') { throw 'Adapter has an external runtime dependency' }
+          Copy-Item $guard (Join-Path $original 'bin/blast-guard.exe')
+          $version = (& (Join-Path $original 'bin/blast-guard.exe') run blastn -version | Out-String).Trim()
+          if ($LASTEXITCODE -ne 0 -or $version -notmatch 'blastn: 2\.17\.0') { throw 'Child standard output was not forwarded' }
+          $stderrPath = Join-Path $output 'missing-database.stderr.txt'
+          & (Join-Path $original 'bin/blast-guard.exe') run blastn -db missing-workbench-database -query (Join-Path $output 'absent-query.fa') 2> $stderrPath
+          $missingExit = $LASTEXITCODE
+          $diagnostic = Get-Content -Raw $stderrPath
+          if ($missingExit -eq 0 -or !$diagnostic) { throw 'Child standard error was not forwarded' }
+          @{schema=1;kind='adapter-only-rebuild';sourceCommit=$env:SOURCE_COMMIT;sourcePath='tools/blast/guard.cpp';
+            parentSourceBuildRun=37207486793;parentSourceBuildCommit='1a23b8506bcaa1c0d923d82f2bb91b918af2df54';
+            parentArtifactId=11305653305;parentArtifactSha256='d33abde91c590c065fd4755eb4a7f006d39bda5d321cd8ddf33937f3115cde18';
+            parentBuildRecordSha256=$recordHash;originalAdapterSha256=$record.adapterSha256;
+            sourceSha256=(Get-FileHash $source -Algorithm SHA256).Hash.ToLower();
+            sha256=(Get-FileHash $guard -Algorithm SHA256).Hash.ToLower();imports=$imports;
+            compiler=@{path=(Get-Command cl.exe).Source;fileVersion=(Get-Item (Get-Command cl.exe).Source).VersionInfo.FileVersion};
+            flags=@('/std:c++17','/EHsc','/O2','/MT');reason='Explicitly forward standard handles to hidden Windows children';
+            unchangedScientificExecutables=$record.binaries;nativeStdoutCheck=$version;nativeStderrCheck=$diagnostic;
+            nativeStderrExitCode=$missingExit;nativeScientificPackChecksPerformed=$false} |
+              ConvertTo-Json -Depth 8 | Set-Content -Encoding utf8 (Join-Path $output 'adapter-provenance.json')
+          $global:LASTEXITCODE = 0
+      - uses: actions/upload-artifact@v4
+        with:
+          name: blast-stream-adapter
+          path: |
+            C:/blast-adapter/blast-guard.exe
+            C:/blast-adapter/adapter-provenance.json
+            C:/blast-adapter/missing-database.stderr.txt
+          if-no-files-found: error

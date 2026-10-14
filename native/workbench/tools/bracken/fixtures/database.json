@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "kind": "native-workbench-kraken2-database",
+  "databaseRoot": ".",
+  "label": "Synthetic three-species fixture",
+  "source": {
+    "description": "Synthetic fixture; every150-base window classified with actual Kraken2 and serialized with upstream Bracken generator",
+    "url": "",
+    "release": "synthetic-2026-10-04"
+  },
+  "files": {
+    "hash.k2d": {
+      "bytes": 200032,
+      "sha256": "c671813f9bd3ac268efe98ff5e4b0bfcbbe21f2006955da112e7ed41735bf5cb"
+    },
+    "opts.k2d": {
+      "bytes": 64,
+      "sha256": "8a64e16f27d4dc0b055919c80cd3dd03d194864b1fd2f0626f17a5fc71c48c47"
+    },
+    "taxo.k2d": {
+      "bytes": 605,
+      "sha256": "dcaf9801bd74ebc8a33a8a8a14cb145dca299cd19a4d08acf3ed56d968f00659"
+    }
+  },
+  "databaseFingerprint": "ef54e32ecbed5849b121b51b8ba9ff98568f1982b16ab3651acd1bb59d12b66a",
+  "kmerLength": 35,
+  "minimizerLength": 31,
+  "alphabet": "nucleotide",
+  "brackenDistributions": [
+    {
+      "readLength": 150,
+      "kmerLength": 35,
+      "path": "database150mers.kmer_distrib",
+      "bytes": 146,
+      "sha256": "82a75554218504dbc940b55abd24b8a3d52c506852a2465506d204f01894442f",
+      "databaseFingerprint": "ef54e32ecbed5849b121b51b8ba9ff98568f1982b16ab3651acd1bb59d12b66a",
+      "association": "locally-built",
+      "source": {
+        "description": "Synthetic fixture; every150-base window classified with actual Kraken2 and serialized with upstream Bracken generator",
+        "url": "",
+        "release": "synthetic-2026-10-04"
+      },
+      "classifierSettings": {
+        "confidence": 0,
+        "minimumHitGroups": 2,
+        "minimumBaseQuality": 0,
+        "quick": false
+      }
+    }
+  ]
+}

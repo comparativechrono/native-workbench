@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-labelledby="title description">
+  <title id="title">Native Workbench</title>
+  <desc id="description">Five linked modules form a W: local tools connected into a scientific workflow.</desc>
+  <rect x="4" y="4" width="120" height="120" rx="26" fill="#20384E"/>
+  <polyline points="23,40 43,88 64,40 85,88 105,40" fill="none" stroke="#62D5BD" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="23" cy="40" r="8" fill="#F5FAFC"/>
+  <circle cx="43" cy="88" r="8" fill="#62D5BD"/>
+  <circle cx="64" cy="40" r="8" fill="#F5FAFC"/>
+  <circle cx="85" cy="88" r="8" fill="#62D5BD"/>
+  <circle cx="105" cy="40" r="8" fill="#F5FAFC"/>
+</svg>

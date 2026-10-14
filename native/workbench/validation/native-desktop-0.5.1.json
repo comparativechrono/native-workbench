@@ -1,0 +1,86 @@
+{
+  "release": "0.5.1",
+  "interface": "native-win32",
+  "transport": "anonymous-pipes",
+  "requiresBrowser": false,
+  "networkListener": false,
+  "nativeWindowsExecutionTested": false,
+  "nativeBinary": {
+    "machine": "x86-64",
+    "format": "PE32+",
+    "bytes": 1086464,
+    "sha256": "1d0a3e1804576523a1f2a832b0f393c7dccfc00621764615a520c96e8b4b6fbb",
+    "imports": [
+      "comctl32.dll",
+      "ole32.dll",
+      "shell32.dll",
+      "user32.dll",
+      "gdi32.dll",
+      "gdiplus.dll",
+      "bcrypt.dll",
+      "api-ms-win-crt-stdio-l1-1-0.dll",
+      "api-ms-win-crt-string-l1-1-0.dll",
+      "api-ms-win-crt-runtime-l1-1-0.dll",
+      "api-ms-win-crt-locale-l1-1-0.dll",
+      "api-ms-win-crt-heap-l1-1-0.dll",
+      "api-ms-win-crt-private-l1-1-0.dll",
+      "api-ms-win-crt-math-l1-1-0.dll",
+      "kernel32.dll",
+      "api-ms-win-crt-convert-l1-1-0.dll",
+      "api-ms-win-crt-time-l1-1-0.dll",
+      "api-ms-win-crt-multibyte-l1-1-0.dll",
+      "api-ms-win-crt-environment-l1-1-0.dll",
+      "api-ms-win-crt-filesystem-l1-1-0.dll"
+    ]
+  },
+  "validation": {
+    "desktopHostAndModelTests": 29,
+    "engineTests": 27,
+    "catalogueTests": 13,
+    "fixedReleasePinTests": 4,
+    "updaterTransactionTests": 10,
+    "portableCppJsonAndFraming": "passed",
+    "realScientificTools": "Linux portable adapter: branch variant truth checks and distinct-lane BAM merge; Windows runner not executed here",
+    "nativeUI": "Clean Windows crosscompile and independent source/contract review; no Windows visual or interaction execution"
+  },
+  "pipeSmoke": {
+    "transport": "stdio",
+    "socketConstructionAndConnectBlocked": true,
+    "windowsGuiExecuted": false,
+    "results": [
+      {
+        "method": "init",
+        "ok": true,
+        "replyBytes": 452458,
+        "nodes": 0,
+        "valid": null
+      },
+      {
+        "method": "example",
+        "ok": true,
+        "replyBytes": 494025,
+        "nodes": 8,
+        "valid": null
+      },
+      {
+        "method": "review",
+        "ok": true,
+        "replyBytes": 4246,
+        "nodes": 0,
+        "valid": true
+      },
+      {
+        "method": "shutdown",
+        "ok": true,
+        "replyBytes": 73,
+        "nodes": 0,
+        "valid": null
+      }
+    ],
+    "exitCode": 0
+  },
+  "limitations": [
+    "This is an unsigned development build.",
+    "Native Windows UI interaction and process integration remain to be validated on Windows."
+  ]
+}

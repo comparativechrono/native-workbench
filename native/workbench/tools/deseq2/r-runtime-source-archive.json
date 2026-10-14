@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "name": "native-workbench-deseq2-1.0.0-r-runtime-sources.zip",
+  "bytes": 458255663,
+  "sha256": "4dcb85cea0f859ffec0562ca1a3ce4eb814bbbcdf6e994c328a284c3763b844b",
+  "sourceLockSha256": "73cd990b9dcf6fede7db537169b3e086b04a87b7dd09f6e5ead397ef5f931a64",
+  "sourceFiles": 230,
+  "RVersion": "4.6.1",
+  "correspondingRuntimeSha256": "086fe014ca972b8f1a6e0fb4011af92f0041d565b5639b2b2a8a0ad29a256a77",
+  "scope": "Corresponding third-party sources, R-project patches and build recipes for the private Windows R runtime; the pack itself contains R, Python and R-package sources.",
+  "url": "https://github.com/comparativechrono/workbench/releases/download/pack-deseq2-v1.0.0/native-workbench-deseq2-1.0.0-r-runtime-sources.zip"
+}

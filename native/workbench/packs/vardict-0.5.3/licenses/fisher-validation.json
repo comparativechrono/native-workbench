@@ -1,0 +1,576 @@
+{
+  "schema": 1,
+  "VarDictJava": "1.8.3",
+  "java": "Temurin8u504-b01",
+  "reference": "Ubuntu R4.3.3 stats::fisher.test, officialteststrandbias.R rounding5decimals",
+  "tables": [
+    {
+      "cells": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "javaP": 1.0,
+      "rP": 1.0,
+      "javaOdds": "0.0",
+      "rOdds": "0.0",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0.0
+    },
+    {
+      "cells": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "javaP": 1.0,
+      "rP": 1.0,
+      "javaOdds": "inf",
+      "rOdds": "inf",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0
+    },
+    {
+      "cells": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "javaP": 1.0,
+      "rP": 1.0,
+      "javaOdds": "0.0",
+      "rOdds": "0.0",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0.0
+    },
+    {
+      "cells": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "javaP": 1.0,
+      "rP": 1.0,
+      "javaOdds": "1.0",
+      "rOdds": "1.0",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0.0
+    },
+    {
+      "cells": [
+        10,
+        5,
+        2,
+        8
+      ],
+      "javaP": 0.04141,
+      "rP": 0.04141,
+      "javaOdds": "7.28157",
+      "rOdds": "7.28157",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0.0
+    },
+    {
+      "cells": [
+        5,
+        5,
+        0,
+        10
+      ],
+      "javaP": 0.03251,
+      "rP": 0.03251,
+      "javaOdds": "inf",
+      "rOdds": "inf",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0
+    },
+    {
+      "cells": [
+        0,
+        0,
+        3,
+        4
+      ],
+      "javaP": 1.0,
+      "rP": 1.0,
+      "javaOdds": "0.0",
+      "rOdds": "0.0",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0.0
+    },
+    {
+      "cells": [
+        3,
+        4,
+        0,
+        0
+      ],
+      "javaP": 1.0,
+      "rP": 1.0,
+      "javaOdds": "0.0",
+      "rOdds": "0.0",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0.0
+    },
+    {
+      "cells": [
+        0,
+        10,
+        0,
+        20
+      ],
+      "javaP": 1.0,
+      "rP": 1.0,
+      "javaOdds": "0.0",
+      "rOdds": "0.0",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0.0
+    },
+    {
+      "cells": [
+        1000,
+        1000,
+        500,
+        500
+      ],
+      "javaP": 1.0,
+      "rP": 1.0,
+      "javaOdds": "1.0",
+      "rOdds": "1.0",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0.0
+    },
+    {
+      "cells": [
+        10000,
+        9000,
+        2000,
+        3000
+      ],
+      "javaP": 0.0,
+      "rP": 0.0,
+      "javaOdds": "1.6666",
+      "rOdds": "1.6666",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0.0
+    },
+    {
+      "cells": [
+        100,
+        0,
+        0,
+        100
+      ],
+      "javaP": 0.0,
+      "rP": 0.0,
+      "javaOdds": "inf",
+      "rOdds": "inf",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0
+    },
+    {
+      "cells": [
+        1,
+        100,
+        100,
+        1
+      ],
+      "javaP": 0.0,
+      "rP": 0.0,
+      "javaOdds": "0.00016",
+      "rOdds": "0.00016",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0.0
+    },
+    {
+      "cells": [
+        1000,
+        1001,
+        1000,
+        999
+      ],
+      "javaP": 1.0,
+      "rP": 1.0,
+      "javaOdds": "0.998",
+      "rOdds": "0.998",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0.0
+    },
+    {
+      "cells": [
+        50,
+        40,
+        10,
+        1
+      ],
+      "javaP": 0.02595,
+      "rP": 0.02595,
+      "javaOdds": "0.12692",
+      "rOdds": "0.12692",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0.0
+    },
+    {
+      "cells": [
+        3,
+        12,
+        8,
+        2
+      ],
+      "javaP": 0.00514,
+      "rP": 0.00514,
+      "javaOdds": "0.07261",
+      "rOdds": "0.07261",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0.0
+    },
+    {
+      "cells": [
+        631,
+        873,
+        911,
+        221
+      ],
+      "javaP": 0.0,
+      "rP": 0.0,
+      "javaOdds": "0.17547",
+      "rOdds": "0.17547",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0.0
+    },
+    {
+      "cells": [
+        467,
+        514,
+        728,
+        494
+      ],
+      "javaP": 0.0,
+      "rP": 0.0,
+      "javaOdds": "0.61665",
+      "rOdds": "0.61665",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0.0
+    },
+    {
+      "cells": [
+        959,
+        735,
+        533,
+        369
+      ],
+      "javaP": 0.22697,
+      "rP": 0.22697,
+      "javaOdds": "0.90333",
+      "rOdds": "0.90333",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0.0
+    },
+    {
+      "cells": [
+        751,
+        465,
+        745,
+        31
+      ],
+      "javaP": 0.0,
+      "rP": 0.0,
+      "javaOdds": "0.06727",
+      "rOdds": "0.06727",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0.0
+    },
+    {
+      "cells": [
+        878,
+        951,
+        37,
+        933
+      ],
+      "javaP": 0.0,
+      "rP": 0.0,
+      "javaOdds": "23.26018",
+      "rOdds": "23.26018",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0.0
+    },
+    {
+      "cells": [
+        173,
+        352,
+        764,
+        135
+      ],
+      "javaP": 0.0,
+      "rP": 0.0,
+      "javaOdds": "0.08706",
+      "rOdds": "0.08706",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0.0
+    },
+    {
+      "cells": [
+        267,
+        902,
+        760,
+        57
+      ],
+      "javaP": 0.0,
+      "rP": 0.0,
+      "javaOdds": "0.02227",
+      "rOdds": "0.02227",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0.0
+    },
+    {
+      "cells": [
+        173,
+        48,
+        368,
+        234
+      ],
+      "javaP": 0.0,
+      "rP": 0.0,
+      "javaOdds": "2.28961",
+      "rOdds": "2.28961",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0.0
+    },
+    {
+      "cells": [
+        451,
+        202,
+        234,
+        129
+      ],
+      "javaP": 0.1426,
+      "rP": 0.1426,
+      "javaOdds": "1.23056",
+      "rOdds": "1.23056",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0.0
+    },
+    {
+      "cells": [
+        141,
+        359,
+        519,
+        783
+      ],
+      "javaP": 0.0,
+      "rP": 0.0,
+      "javaOdds": "0.59271",
+      "rOdds": "0.59271",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0.0
+    },
+    {
+      "cells": [
+        662,
+        872,
+        325,
+        523
+      ],
+      "javaP": 0.02389,
+      "rP": 0.02389,
+      "javaOdds": "1.22158",
+      "rOdds": "1.22158",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0.0
+    },
+    {
+      "cells": [
+        676,
+        412,
+        963,
+        56
+      ],
+      "javaP": 0.0,
+      "rP": 0.0,
+      "javaOdds": "0.09551",
+      "rOdds": "0.09551",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0.0
+    },
+    {
+      "cells": [
+        340,
+        285,
+        156,
+        92
+      ],
+      "javaP": 0.02317,
+      "rP": 0.02317,
+      "javaOdds": "0.70384",
+      "rOdds": "0.70384",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0.0
+    },
+    {
+      "cells": [
+        804,
+        693,
+        566,
+        422
+      ],
+      "javaP": 0.08352,
+      "rP": 0.08352,
+      "javaOdds": "0.86506",
+      "rOdds": "0.86506",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0.0
+    },
+    {
+      "cells": [
+        396,
+        449,
+        253,
+        672
+      ],
+      "javaP": 0.0,
+      "rP": 0.0,
+      "javaOdds": "2.34144",
+      "rOdds": "2.34144",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0.0
+    },
+    {
+      "cells": [
+        795,
+        158,
+        777,
+        53
+      ],
+      "javaP": 0.0,
+      "rP": 0.0,
+      "javaOdds": "0.34341",
+      "rOdds": "0.34341",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0.0
+    },
+    {
+      "cells": [
+        458,
+        661,
+        844,
+        491
+      ],
+      "javaP": 0.0,
+      "rP": 0.0,
+      "javaOdds": "0.40325",
+      "rOdds": "0.40325",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0.0
+    },
+    {
+      "cells": [
+        236,
+        934,
+        352,
+        606
+      ],
+      "javaP": 0.0,
+      "rP": 0.0,
+      "javaOdds": "0.43518",
+      "rOdds": "0.43518",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0.0
+    },
+    {
+      "cells": [
+        980,
+        858,
+        233,
+        914
+      ],
+      "javaP": 0.0,
+      "rP": 0.0,
+      "javaOdds": "4.47824",
+      "rOdds": "4.47824",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0.0
+    },
+    {
+      "cells": [
+        147,
+        81,
+        32,
+        770
+      ],
+      "javaP": 0.0,
+      "rP": 0.0,
+      "javaOdds": "43.31145",
+      "rOdds": "43.31145",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0.0
+    },
+    {
+      "cells": [
+        688,
+        97,
+        840,
+        949
+      ],
+      "javaP": 0.0,
+      "rP": 0.0,
+      "javaOdds": "8.00697",
+      "rOdds": "8.00697",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0.0
+    },
+    {
+      "cells": [
+        52,
+        791,
+        489,
+        939
+      ],
+      "javaP": 0.0,
+      "rP": 0.0,
+      "javaOdds": "0.12635",
+      "rOdds": "0.12635",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0.0
+    },
+    {
+      "cells": [
+        405,
+        561,
+        335,
+        263
+      ],
+      "javaP": 0.0,
+      "rP": 0.0,
+      "javaOdds": "0.56696",
+      "rOdds": "0.56696",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0.0
+    },
+    {
+      "cells": [
+        240,
+        57,
+        393,
+        426
+      ],
+      "javaP": 0.0,
+      "rP": 0.0,
+      "javaOdds": "4.55806",
+      "rOdds": "4.55806",
+      "absolutePDelta": 0.0,
+      "absoluteOddsDelta": 0.0
+    }
+  ],
+  "maxAbsolutePDelta": 0.0,
+  "finiteMaxAbsoluteOddsDelta": 0.0,
+  "thresholdDecisionsAgree": [
+    0.01,
+    0.05
+  ],
+  "nativeWindowsExecuted": false,
+  "limitation": "The upstream --fisher implementation remains experimental. This finite deterministic comparison is not proof of equivalence for every contingency table."
+}

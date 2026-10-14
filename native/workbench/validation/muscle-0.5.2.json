@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "pack": "muscle-0.5.2",
+  "version": "5.3-workbench1",
+  "windowsExecuted": false,
+  "windowsBuildReproduced": true,
+  "manifestSha256": "085273422c7f26af77d23643efa961f1fb6ecbdee301109af67ba551f41b82c4",
+  "binarySha256": "edc84f98e1f3cbf6f3df717ccfdb03af7ad7677cd9ae2e66065f2079d0ed2146",
+  "linuxReferenceSha256": "a40a9b0183986ba93de71b068bf2be2f1cb630ecfa69e1459c6b30a08111a2f0",
+  "scientificTests": 7,
+  "nativeParserChecks": 176,
+  "packSelfChecks": 4,
+  "files": 24,
+  "bytes": 32654529,
+  "maxRelativePath": 38
+}

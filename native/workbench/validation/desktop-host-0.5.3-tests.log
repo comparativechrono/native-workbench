@@ -1,0 +1,17 @@
+test_eof_cancels_and_joins_preparation (test_desktop_host.DesktopHostTests.test_eof_cancels_and_joins_preparation) ... ok
+test_eof_cancels_execution_and_preserves_frozen_graph (test_desktop_host.DesktopHostTests.test_eof_cancels_execution_and_preserves_frozen_graph) ... ok
+test_historical_run_selection_does_not_unlock_model_or_second_run (test_desktop_host.DesktopHostTests.test_historical_run_selection_does_not_unlock_model_or_second_run) ... ok
+test_large_log_is_bounded_and_omissions_are_explicit (test_desktop_host.DesktopHostTests.test_large_log_is_bounded_and_omissions_are_explicit) ... ok
+test_native_host_modules_do_not_import_network_or_browser_transport (test_desktop_host.DesktopHostTests.test_native_host_modules_do_not_import_network_or_browser_transport) ... ok
+test_oversized_frame_is_drained_once_without_executing_its_suffix (test_desktop_host.DesktopHostTests.test_oversized_frame_is_drained_once_without_executing_its_suffix) ... ok
+test_preset_from_node_uses_committed_params_and_rejects_obsolete_pin (test_desktop_host.DesktopHostTests.test_preset_from_node_uses_committed_params_and_rejects_obsolete_pin) ... ok
+test_production_host_startup_and_core_rpc_with_network_audit_denial (test_desktop_host.DesktopHostTests.test_production_host_startup_and_core_rpc_with_network_audit_denial) ... ok
+test_protocol_rejects_bad_frames_and_continues_without_arbitrary_commands (test_desktop_host.DesktopHostTests.test_protocol_rejects_bad_frames_and_continues_without_arbitrary_commands) ... ok
+test_review_and_run_observe_preceding_model_commit (test_desktop_host.DesktopHostTests.test_review_and_run_observe_preceding_model_commit) ... ok
+test_saved_size_limit_preserves_existing_file (test_desktop_host.DesktopHostTests.test_saved_size_limit_preserves_existing_file) ... ok
+test_shutdown_terminates_tracked_native_bridge_if_it_does_not_finish (test_desktop_host.DesktopHostTests.test_shutdown_terminates_tracked_native_bridge_if_it_does_not_finish) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.180s
+
+OK

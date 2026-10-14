@@ -1,0 +1,71 @@
+{
+  "gatkJarSha256": "882e180707e0e6887885853fc486fa54098620fe9a80bdcdaaa655c7e3861365",
+  "genomicsdb": {
+    "version": "1.5.5",
+    "linuxSha256": "71fb2ed71bf3959baf91e7dfa51c1ade2a4bad6d5037893c71f6b5ab6ddfa1e4",
+    "linuxNeeded": [
+      "0x0000000000000001 (NEEDED)             Shared library: [libjvm.so]",
+      "0x0000000000000001 (NEEDED)             Shared library: [libpthread.so.0]",
+      "0x0000000000000001 (NEEDED)             Shared library: [libdl.so.2]",
+      "0x0000000000000001 (NEEDED)             Shared library: [libz.so.1]",
+      "0x0000000000000001 (NEEDED)             Shared library: [librt.so.1]",
+      "0x0000000000000001 (NEEDED)             Shared library: [libm.so.6]",
+      "0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]",
+      "0x0000000000000001 (NEEDED)             Shared library: [ld-linux-x86-64.so.2]"
+    ],
+    "linuxUuidSymbols": [
+      "0000000000ab15d1 T __uuid_generate_random",
+      "0000000000ab1492 T __uuid_generate_time",
+      "0000000000ab16ed T uuid_generate",
+      "0000000000ab1677 T uuid_generate_random",
+      "0000000000ab159c T uuid_generate_time",
+      "0000000000ab15b7 T uuid_generate_time_safe",
+      "0000000000ab171f T uuid_pack",
+      "0000000000ab1825 T uuid_unpack",
+      "0000000000ab1ab6 T uuid_unparse",
+      "0000000000ab1a5c T uuid_unparse_lower",
+      "0000000000ab1a89 T uuid_unparse_upper"
+    ],
+    "linuxCsvLibrarySymbols": [],
+    "sourceEvidence": [
+      "scripts/prereqs/install_prereqs.sh: UUID_VERSION=${UUID_VERSION:-1.0.3}; static SourceForge libuuid build",
+      "CMakeLists.txt: libcsv detection only when NOT BUILD_DISTRIBUTABLE_LIBRARY AND NOT BUILD_BINDINGS",
+      "cmake/Modules/Findlibuuid.cmake: static libuuid.a for distributable Linux build; Apple uses system headers"
+    ],
+    "libuuidLicense": "Exact libuuid1.0.3 COPYING states Modified BSD; GenomicsDB top-level license contains an older generic LGPL warning. Both original texts are preserved.",
+    "macDylibDependencies": [
+      "/usr/lib/libcurl.4.dylib",
+      "/usr/lib/libz.1.dylib",
+      "/usr/lib/libSystem.B.dylib",
+      "CoreFoundation.framework",
+      "/usr/lib/libc++.1.dylib"
+    ],
+    "macUuidDefinedSymbols": []
+  },
+  "nativeSourceCommits": {
+    "libbwa.Linux.so": {
+      "sha256": "91454971318dc1b7890926964ee7cf12c2933a5267e233f4eabe96ab764c7e41",
+      "embeddedCommitStrings": [
+        "cb950614ce7217788780b9a8d445c64cd4d8f62e"
+      ]
+    },
+    "libbwa.Darwin.dylib": {
+      "sha256": "a0f998d9ab7fa8d0b11bb807d94efe1433e59176990239e6ae42856519ef5467",
+      "embeddedCommitStrings": [
+        "cb950614ce7217788780b9a8d445c64cd4d8f62e"
+      ]
+    },
+    "libfml.Linux.so": {
+      "sha256": "355e4a692fe34489935b98e6c0b99bfc5c729a18e95186dfe2014ae2d78fa7b2",
+      "embeddedCommitStrings": [
+        "562638112b7992f4d7a243ccd9ab2b3bd08c6b08"
+      ]
+    },
+    "libfml.Darwin.dylib": {
+      "sha256": "5e6e8d502558758ebb2562d4c7b7b557f8cdb7bd61d6c877827dfbd749a60e99",
+      "embeddedCommitStrings": [
+        "562638112b7992f4d7a243ccd9ab2b3bd08c6b08"
+      ]
+    }
+  }
+}

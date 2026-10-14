@@ -1,0 +1,93 @@
+name: Diagnose native integral-row scrolling
+
+on:
+  push:
+    branches: [fix/native-ui-0.16.1]
+    paths:
+      - '.github/workflows/native-library-scroll-probe.yml'
+      - 'scripts/check_library_scroll_probe_windows.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: native-library-scroll-probe-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  SOURCE_COMMIT: a2c35bf035281b3446dfab8c133fd34e8545ce78
+  STARTER_SHA256: e5fc48276f92a4038aaeadcea5b28eefa70386f849ae35579b04f6e117e53085
+  UPDATE_SHA256: 5db241c23ac5d63d70ebbed18980075a6900977ac8281384d8ca6c2df9e02e64
+
+jobs:
+  native:
+    runs-on: windows-2022
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        folder: [ordinary]
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Retrieve the exact wrapped-library candidate without rebuilding
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: wrapped-library-candidate-a2c35bf035281b3446dfab8c133fd34e8545ce78
+          run-id: 38072008564
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/frozen-library-candidate
+      - name: Verify unchanged production sources and frozen application identities
+        id: prepare
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          git diff --exit-code $env:SOURCE_COMMIT -- desktop workspace examples src include platform_windows pack-examples scripts/build_ui_patch_candidate.py scripts/package_split.py scripts/make_core_update.py scripts/apply_core_update.py scripts/apply_desktop_update.py
+          if ($LASTEXITCODE -ne 0) { throw 'Production or packaging source changed; use a new candidate build instead of a frozen recheck.' }
+          $candidate = Join-Path $env:RUNNER_TEMP 'frozen-library-candidate'
+          $starter = Join-Path $candidate 'native-workbench-0.16.1-starter-windows.zip'
+          $updater = Join-Path $candidate 'native-workbench-0.16.1-update-from-0.16.0.zip'
+          $source = Join-Path $candidate 'native-workbench-0.16.1-source.zip'
+          if ((Get-FileHash $starter -Algorithm SHA256).Hash -ne $env:STARTER_SHA256) { throw 'Frozen Starter identity mismatch.' }
+          if ((Get-FileHash $updater -Algorithm SHA256).Hash -ne $env:UPDATE_SHA256) { throw 'Frozen updater identity mismatch.' }
+          if ((Get-FileHash $source -Algorithm SHA256).Hash -ne '64677205101d704957e6bbf9da66245256b5dca1ad606ec908f8f0fffec7df14') { throw 'Frozen source companion identity mismatch.' }
+          $provenance = Get-Content (Join-Path $candidate 'BUILD-PROVENANCE.json') -Raw | ConvertFrom-Json
+          if ($provenance.sourceCommit -ne $env:SOURCE_COMMIT -or $provenance.appVersion -ne '0.16.1') { throw 'Frozen build provenance mismatch.' }
+          $case = Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER
+          foreach ($gate in @('wrapped-library')) {
+            Expand-Archive $starter (Join-Path $case $gate)
+          }
+          $evidence = Join-Path $env:RUNNER_TEMP 'library-scroll-probe-evidence'
+          New-Item -ItemType Directory -Path $evidence | Out-Null
+          @{ schema = 1; kind = 'frozen-tree-scroll-probe-inputs'; sourceCommit = $env:SOURCE_COMMIT;
+             gateCommit = $env:GITHUB_SHA; candidateRun = 38072008564; appVersion = '0.16.1';
+             starterSha256 = $env:STARTER_SHA256; updateSha256 = $env:UPDATE_SHA256;
+             sourceSha256 = '64677205101d704957e6bbf9da66245256b5dca1ad606ec908f8f0fffec7df14';
+             rebuilt = $false; installationCase = $env:CASE_FOLDER;
+             scope = 'Frozen archive and source identities only; native interaction and displayed-frame observations are separate.' } |
+            ConvertTo-Json -Depth 4 | Set-Content (Join-Path $evidence 'frozen-inputs.json')
+      - name: Observe documented scroll inputs without an acceptance claim
+        if: always() && !cancelled() && steps.prepare.outcome == 'success'
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'wrapped-library/native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I -B scripts/check_library_scroll_probe_windows.py --app-root $app --starter-archive (Join-Path $env:RUNNER_TEMP 'frozen-library-candidate/native-workbench-0.16.1-starter-windows.zip') --starter-sha256 $env:STARTER_SHA256 --source-commit $env:SOURCE_COMMIT --gate-commit $env:GITHUB_SHA --report "$env:RUNNER_TEMP/library-scroll-probe-evidence/wrapped-library/native-tree-scroll-probe.json" --app-version 0.16.1
+          if ($LASTEXITCODE -ne 0) { throw 'Native scroll diagnostic did not complete; retain actual observations.' }
+      - name: Retain diagnostic observations and failures
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: native-tree-scroll-probe-${{ matrix.folder }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/library-scroll-probe-evidence
+          if-no-files-found: error
+          retention-days: 30

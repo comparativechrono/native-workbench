@@ -1,0 +1,218 @@
+{
+  "schema": 1,
+  "status": "assets-published-catalogue-pending",
+  "repository": "https://github.com/comparativechrono/workbench",
+  "application": {
+    "tag": "app-v0.6.0",
+    "assets": [
+      {
+        "archive": "../release-assets/native-workbench-0.6.0-starter-windows.zip",
+        "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/app-v0.6.0/native-workbench-0.6.0-starter-windows.zip"
+      },
+      {
+        "archive": "../release-assets/native-workbench-0.6.0-update-from-0.5.4.zip",
+        "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/app-v0.6.0/native-workbench-0.6.0-update-from-0.5.4.zip"
+      },
+      {
+        "archive": "../release-assets/native-workbench-0.6.0-pack-sdk.zip",
+        "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/app-v0.6.0/native-workbench-0.6.0-pack-sdk.zip"
+      },
+      {
+        "archive": "../release-assets/native-workbench-0.6.0-source.zip",
+        "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/app-v0.6.0/native-workbench-0.6.0-source.zip"
+      },
+      {
+        "archive": "../release-assets/README-FIRST.txt",
+        "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/app-v0.6.0/README-FIRST.txt"
+      },
+      {
+        "archive": "../release-assets/SHA256SUMS.txt",
+        "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/app-v0.6.0/SHA256SUMS.txt"
+      },
+      {
+        "archive": "../release-assets/release-verification.json",
+        "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/app-v0.6.0/release-verification.json"
+      }
+    ]
+  },
+  "packs": [
+    {
+      "tag": "pack-align-v0.4.0",
+      "id": "align",
+      "version": "0.4.0",
+      "archive": "../release-assets/packs/native-workbench-pack-align-0.4.0.zip",
+      "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/pack-align-v0.4.0/native-workbench-pack-align-0.4.0.zip",
+      "bytes": 568924,
+      "sha256": "e701dbcf5a8c3fb31c1a82a3c7b7da50eb1cceb64b5b9c88db4795f98ec4f72d"
+    },
+    {
+      "tag": "pack-bam-v0.4.0",
+      "id": "bam",
+      "version": "0.4.0",
+      "archive": "../release-assets/packs/native-workbench-pack-bam-0.4.0.zip",
+      "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/pack-bam-v0.4.0/native-workbench-pack-bam-0.4.0.zip",
+      "bytes": 1158320,
+      "sha256": "b9edc1535996c2e86fdb533328fb8fad78b9168bcb0d0733b73090387c27b61f"
+    },
+    {
+      "tag": "pack-bowtie2-v0.5.3",
+      "id": "bowtie2",
+      "version": "0.5.3",
+      "archive": "../release-assets/packs/native-workbench-pack-bowtie2-0.5.3.zip",
+      "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/pack-bowtie2-v0.5.3/native-workbench-pack-bowtie2-0.5.3.zip",
+      "bytes": 36396085,
+      "sha256": "d9810ddb3ea67bf296efde3c2b4a1d3f5513c5bdb6ba841a67db02f25c3d0a22"
+    },
+    {
+      "tag": "pack-bwa-v0.4.0",
+      "id": "bwa",
+      "version": "0.4.0",
+      "archive": "../release-assets/packs/native-workbench-pack-bwa-0.4.0.zip",
+      "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/pack-bwa-v0.4.0/native-workbench-pack-bwa-0.4.0.zip",
+      "bytes": 1870891,
+      "sha256": "c80b8c924861c1b768eb9488821bf5e5582f927d722a30dfb1078b999d9d419c"
+    },
+    {
+      "tag": "pack-fastp-v0.4.1",
+      "id": "fastp",
+      "version": "0.4.1",
+      "archive": "../release-assets/packs/native-workbench-pack-fastp-0.4.1.zip",
+      "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/pack-fastp-v0.4.1/native-workbench-pack-fastp-0.4.1.zip",
+      "bytes": 1277199,
+      "sha256": "93c32ccd506bb61eed0e901f83f025fed183557587cc5378ad0d40771db4a8cc"
+    },
+    {
+      "tag": "pack-freebayes-v0.4.0",
+      "id": "freebayes",
+      "version": "0.4.0",
+      "archive": "../release-assets/packs/native-workbench-pack-freebayes-0.4.0.zip",
+      "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/pack-freebayes-v0.4.0/native-workbench-pack-freebayes-0.4.0.zip",
+      "bytes": 4560176,
+      "sha256": "f6f12592c22d6d3ee63f24287d054b317a05551dbe0f6019a88dfd623dd059d0"
+    },
+    {
+      "tag": "pack-hisat2-v0.5.3",
+      "id": "hisat2",
+      "version": "0.5.3",
+      "archive": "../release-assets/packs/native-workbench-pack-hisat2-0.5.3.zip",
+      "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/pack-hisat2-v0.5.3/native-workbench-pack-hisat2-0.5.3.zip",
+      "bytes": 10085384,
+      "sha256": "85d02ead1c7205428b22c73b1c7f751786645c4a4d51296cb6fc824623fd6126"
+    },
+    {
+      "tag": "pack-lofreq-v0.5.3",
+      "id": "lofreq",
+      "version": "0.5.3",
+      "archive": "../release-assets/packs/native-workbench-pack-lofreq-0.5.3.zip",
+      "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/pack-lofreq-v0.5.3/native-workbench-pack-lofreq-0.5.3.zip",
+      "bytes": 56071589,
+      "sha256": "16f5c06e27dd2d847d84d51fa62f1619c8e104cd00e3bc9a267dcf6873ed36a7"
+    },
+    {
+      "tag": "pack-muscle-v0.5.2",
+      "id": "muscle",
+      "version": "0.5.2",
+      "archive": "../release-assets/packs/native-workbench-pack-muscle-0.5.2.zip",
+      "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/pack-muscle-v0.5.2/native-workbench-pack-muscle-0.5.2.zip",
+      "bytes": 30139115,
+      "sha256": "c07d3e398f48df683926c0970ef77c3b7d2bdab6426b80c80186f2360ed25258"
+    },
+    {
+      "tag": "pack-mutect2-v0.5.4",
+      "id": "mutect2",
+      "version": "0.5.4",
+      "archive": "../release-assets/packs/native-workbench-pack-mutect2-0.5.4.zip",
+      "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/pack-mutect2-v0.5.4/native-workbench-pack-mutect2-0.5.4.zip",
+      "bytes": 683046695,
+      "sha256": "25786d85b3679f172331142f890b1bffe5f5e77497b97eb91af855f2858ce08b"
+    },
+    {
+      "tag": "pack-reads-v0.4.0",
+      "id": "reads",
+      "version": "0.4.0",
+      "archive": "../release-assets/packs/native-workbench-pack-reads-0.4.0.zip",
+      "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/pack-reads-v0.4.0/native-workbench-pack-reads-0.4.0.zip",
+      "bytes": 486120,
+      "sha256": "2dd05fece8deb2b0178d8b1bc2b6830f175b3fbc2f5a4d48f9c9023cbfe6775b"
+    },
+    {
+      "tag": "pack-research-variants-v0.4.1",
+      "id": "research-variants",
+      "version": "0.4.1",
+      "archive": "../release-assets/packs/native-workbench-pack-research-variants-0.4.1.zip",
+      "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/pack-research-variants-v0.4.1/native-workbench-pack-research-variants-0.4.1.zip",
+      "bytes": 19295391,
+      "sha256": "a28bfb7df0fbc214e1c6e28005e018974801efaa25ff4d5fe166876432a12c60"
+    },
+    {
+      "tag": "pack-seqkit-v0.5.2",
+      "id": "seqkit",
+      "version": "0.5.2",
+      "archive": "../release-assets/packs/native-workbench-pack-seqkit-0.5.2.zip",
+      "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/pack-seqkit-v0.5.2/native-workbench-pack-seqkit-0.5.2.zip",
+      "bytes": 9191149,
+      "sha256": "5a977517e1c0871ca7685d4b87688dfe6cbfa6d66dcb01c695281812dee4fd42"
+    },
+    {
+      "tag": "pack-trimming-v0.4.0",
+      "id": "trimming",
+      "version": "0.4.0",
+      "archive": "../release-assets/packs/native-workbench-pack-trimming-0.4.0.zip",
+      "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/pack-trimming-v0.4.0/native-workbench-pack-trimming-0.4.0.zip",
+      "bytes": 12684590,
+      "sha256": "516942d33c978560ce5f5ed5497684951d92efa62cdfbddcd3d7c718235b6df7"
+    },
+    {
+      "tag": "pack-vardict-v0.5.3",
+      "id": "vardict",
+      "version": "0.5.3",
+      "archive": "../release-assets/packs/native-workbench-pack-vardict-0.5.3.zip",
+      "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/pack-vardict-v0.5.3/native-workbench-pack-vardict-0.5.3.zip",
+      "bytes": 372591865,
+      "sha256": "e1eed3c24d27ddb1b3a6f68acad2e9e8d80230732a9e9c986a686cafeed57a0e"
+    },
+    {
+      "tag": "pack-variant-pipeline-v0.4.0",
+      "id": "variant-pipeline",
+      "version": "0.4.0",
+      "archive": "../release-assets/packs/native-workbench-pack-variant-pipeline-0.4.0.zip",
+      "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/pack-variant-pipeline-v0.4.0/native-workbench-pack-variant-pipeline-0.4.0.zip",
+      "bytes": 3208822,
+      "sha256": "1ab75723215c95629c71946092eb23a908cd40f3baefc0fb47c78890fa4baf4c"
+    },
+    {
+      "tag": "pack-variants-v0.4.0",
+      "id": "variants",
+      "version": "0.4.0",
+      "archive": "../release-assets/packs/native-workbench-pack-variants-0.4.0.zip",
+      "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/pack-variants-v0.4.0/native-workbench-pack-variants-0.4.0.zip",
+      "bytes": 2506443,
+      "sha256": "1b15477061d8736c18ddff71a64b3370cfaa7c674af33c404c7d79b311f1e118"
+    },
+    {
+      "tag": "pack-vsearch-v0.5.2",
+      "id": "vsearch",
+      "version": "0.5.2",
+      "archive": "../release-assets/packs/native-workbench-pack-vsearch-0.5.2.zip",
+      "downloadURL": "https://github.com/comparativechrono/workbench/releases/download/pack-vsearch-v0.5.2/native-workbench-pack-vsearch-0.5.2.zip",
+      "bytes": 3187058,
+      "sha256": "86d223d33a3c6ef5136a0b1e08634d9ebfb5dac3a94953dba57da466eb73af85"
+    }
+  ],
+  "catalogue": {
+    "branch": "catalogue",
+    "catalogUrl": "https://raw.githubusercontent.com/comparativechrono/workbench/catalogue/catalogue.json",
+    "sourceUrl": "https://raw.githubusercontent.com/comparativechrono/workbench/catalogue/source.json",
+    "sourceId": "comparativechrono-workbench",
+    "sourceName": "Comparative Chrono Workbench tools",
+    "allowedHosts": [
+      "github.com",
+      "raw.githubusercontent.com",
+      "release-assets.githubusercontent.com"
+    ],
+    "privateKey": "not-created-or-supplied",
+    "publicKey": "not-generated-until-signing",
+    "published": false,
+    "configured": false
+  }
+}

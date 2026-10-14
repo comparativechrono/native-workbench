@@ -1,0 +1,124 @@
+name: Native Windows reference check
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: Published application release or candidate tag
+        required: true
+        type: string
+      asset_name:
+        description: Exact application starter ZIP asset
+        required: true
+        type: string
+      asset_sha256:
+        description: Expected SHA-256 of this exact starter ZIP
+        required: true
+        type: string
+      update_sha256:
+        description: Optional SHA-256 of the same release's 0.6.0-to-target updater ZIP
+        required: false
+        default: ''
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  native:
+    runs-on: windows-2022
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        folder: [ordinary, 'path with spaces']
+    steps:
+      - name: Check out the gate at its exact source commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Download and verify the exact application
+        shell: pwsh
+        env:
+          REPOSITORY: ${{ github.repository }}
+          RELEASE_TAG: ${{ inputs.release_tag }}
+          ASSET_NAME: ${{ inputs.asset_name }}
+          ASSET_SHA256: ${{ inputs.asset_sha256 }}
+          CASE_FOLDER: ${{ matrix.folder }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          if ($env:REPOSITORY -ne 'comparativechrono/workbench') { throw 'This gate is for comparativechrono/workbench.' }
+          if ($env:RELEASE_TAG -notmatch '^[a-zA-Z0-9][a-zA-Z0-9._-]{0,100}$') { throw 'Invalid release tag.' }
+          if ($env:ASSET_SHA256 -notmatch '^[a-fA-F0-9]{64}$') { throw 'Invalid SHA-256.' }
+          if ($env:ASSET_NAME -notmatch '^native-workbench-[0-9]+\.[0-9]+\.[0-9]+-starter-windows\.zip$') { throw 'Expected a starter ZIP asset.' }
+          $archive = Join-Path $env:RUNNER_TEMP 'reference-application.zip'
+          $url = "https://github.com/$env:REPOSITORY/releases/download/$env:RELEASE_TAG/$env:ASSET_NAME"
+          Invoke-WebRequest -Uri $url -OutFile $archive
+          if ((Get-FileHash $archive -Algorithm SHA256).Hash -ne $env:ASSET_SHA256) { throw 'Application SHA-256 mismatch.' }
+          Expand-Archive $archive (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER)
+      - name: Prepare the exact optional core migration
+        if: inputs.update_sha256 != ''
+        shell: pwsh
+        env:
+          REPOSITORY: ${{ github.repository }}
+          RELEASE_TAG: ${{ inputs.release_tag }}
+          ASSET_NAME: ${{ inputs.asset_name }}
+          UPDATE_SHA256: ${{ inputs.update_sha256 }}
+          CASE_FOLDER: ${{ matrix.folder }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          if ($env:UPDATE_SHA256 -notmatch '^[a-fA-F0-9]{64}$') { throw 'Invalid updater SHA-256.' }
+          if ($env:ASSET_NAME -notmatch '^native-workbench-([0-9]+\.[0-9]+\.[0-9]+)-starter-windows\.zip$') { throw 'Invalid target starter identity.' }
+          $targetVersion = $Matches[1]
+          $updateAsset = "native-workbench-$targetVersion-update-from-0.6.0.zip"
+          $archive = Join-Path $env:RUNNER_TEMP 'reference-core-update.zip'
+          Invoke-WebRequest -Uri "https://github.com/$env:REPOSITORY/releases/download/$env:RELEASE_TAG/$updateAsset" -OutFile $archive
+          if ((Get-FileHash $archive -Algorithm SHA256).Hash -ne $env:UPDATE_SHA256) { throw 'Updater SHA-256 mismatch.' }
+          Expand-Archive $archive (Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'core updater')
+          $baseline = Join-Path $env:RUNNER_TEMP 'reference-base-0.6.0.zip'
+          Invoke-WebRequest -Uri 'https://github.com/comparativechrono/workbench/releases/download/app-v0.6.0/native-workbench-0.6.0-starter-windows.zip' -OutFile $baseline
+          if ((Get-FileHash $baseline -Algorithm SHA256).Hash -ne '16fa802304c734b5721d838ff38b7e90ed36ccfc185a22239859cc3762af695a') { throw '0.6.0 baseline SHA-256 mismatch.' }
+          Expand-Archive $baseline (Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'update target')
+          $optionalPack = Join-Path $env:RUNNER_TEMP 'reference-optional-reads.zip'
+          Invoke-WebRequest -Uri 'https://github.com/comparativechrono/workbench/releases/download/pack-reads-v0.4.0/native-workbench-pack-reads-0.4.0.zip' -OutFile $optionalPack
+          if ((Get-FileHash $optionalPack -Algorithm SHA256).Hash -ne '2dd05fece8deb2b0178d8b1bc2b6830f175b3fbc2f5a4d48f9c9023cbfe6775b') { throw 'Optional reads pack SHA-256 mismatch.' }
+      - name: Exercise native references and offline scientific reuse
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+          SOURCE_COMMIT: ${{ github.sha }}
+          ASSET_SHA256: ${{ inputs.asset_sha256 }}
+          ASSET_NAME: ${{ inputs.asset_name }}
+          RELEASE_TAG: ${{ inputs.release_tag }}
+          UPDATE_SHA256: ${{ inputs.update_sha256 }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'native-workbench'
+          $python = Join-Path $app 'runtime/python/python.exe'
+          $evidence = Join-Path $env:RUNNER_TEMP 'reference-evidence'
+          $arguments = @('-I', (Join-Path $env:GITHUB_WORKSPACE 'scripts/check_references_windows.py'), '--app-root', $app, '--report', (Join-Path $evidence 'native-references.json'), '--source-commit', $env:SOURCE_COMMIT, '--asset-sha256', $env:ASSET_SHA256, '--asset-name', $env:ASSET_NAME, '--release-tag', $env:RELEASE_TAG)
+          if ($env:UPDATE_SHA256) {
+            $caseRoot = Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER
+            $arguments += @('--update-root', (Join-Path $caseRoot 'core updater'), '--base-app-root', (Join-Path $caseRoot 'update target/native-workbench'), '--update-archive', (Join-Path $env:RUNNER_TEMP 'reference-core-update.zip'), '--update-sha256', $env:UPDATE_SHA256, '--optional-pack-archive', (Join-Path $env:RUNNER_TEMP 'reference-optional-reads.zip'))
+          }
+          & $python @arguments
+          if ($LASTEXITCODE -ne 0) { throw 'Native reference gate failed. Inspect the retained evidence.' }
+      - name: Record the exact evidence scope
+        if: always()
+        shell: pwsh
+        run: |
+          $report = Join-Path $env:RUNNER_TEMP 'reference-evidence/native-references.json'
+          if (Test-Path $report) {
+            $text = Get-Content $report -Raw
+            Write-Output $text
+            Add-Content $env:GITHUB_STEP_SUMMARY ('```json' + "`n" + $text + "`n" + '```')
+          }
+      - name: Retain reports and native window captures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: references-${{ matrix.folder }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/reference-evidence
+          if-no-files-found: error
+          retention-days: 30

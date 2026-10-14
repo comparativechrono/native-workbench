@@ -1,0 +1,72 @@
+[
+  {
+    "name": "v2.1.5",
+    "zipball_url": "https://api.github.com/repos/CSB5/lofreq/zipball/refs/tags/v2.1.5",
+    "tarball_url": "https://api.github.com/repos/CSB5/lofreq/tarball/refs/tags/v2.1.5",
+    "commit": {
+      "sha": "8fe42b04dcd9775fb618d8004649421c0632b35c",
+      "url": "https://api.github.com/repos/CSB5/lofreq/commits/8fe42b04dcd9775fb618d8004649421c0632b35c"
+    },
+    "node_id": "MDM6UmVmMjYwMDAzMTI6cmVmcy90YWdzL3YyLjEuNQ=="
+  },
+  {
+    "name": "v2.1.4",
+    "zipball_url": "https://api.github.com/repos/CSB5/lofreq/zipball/refs/tags/v2.1.4",
+    "tarball_url": "https://api.github.com/repos/CSB5/lofreq/tarball/refs/tags/v2.1.4",
+    "commit": {
+      "sha": "e3af6ff698ac6dc6e35f4d6196537d38b2af858b",
+      "url": "https://api.github.com/repos/CSB5/lofreq/commits/e3af6ff698ac6dc6e35f4d6196537d38b2af858b"
+    },
+    "node_id": "MDM6UmVmMjYwMDAzMTI6cmVmcy90YWdzL3YyLjEuNA=="
+  },
+  {
+    "name": "v2.1.3.1",
+    "zipball_url": "https://api.github.com/repos/CSB5/lofreq/zipball/refs/tags/v2.1.3.1",
+    "tarball_url": "https://api.github.com/repos/CSB5/lofreq/tarball/refs/tags/v2.1.3.1",
+    "commit": {
+      "sha": "0b93d4386cd7c8a88815f7a50269c8cfb0440358",
+      "url": "https://api.github.com/repos/CSB5/lofreq/commits/0b93d4386cd7c8a88815f7a50269c8cfb0440358"
+    },
+    "node_id": "MDM6UmVmMjYwMDAzMTI6cmVmcy90YWdzL3YyLjEuMy4x"
+  },
+  {
+    "name": "v2.1.3",
+    "zipball_url": "https://api.github.com/repos/CSB5/lofreq/zipball/refs/tags/v2.1.3",
+    "tarball_url": "https://api.github.com/repos/CSB5/lofreq/tarball/refs/tags/v2.1.3",
+    "commit": {
+      "sha": "572ba75dd3c8b76cc3548b781fc7f0a29a6fc12e",
+      "url": "https://api.github.com/repos/CSB5/lofreq/commits/572ba75dd3c8b76cc3548b781fc7f0a29a6fc12e"
+    },
+    "node_id": "MDM6UmVmMjYwMDAzMTI6cmVmcy90YWdzL3YyLjEuMw=="
+  },
+  {
+    "name": "v2.1.2",
+    "zipball_url": "https://api.github.com/repos/CSB5/lofreq/zipball/refs/tags/v2.1.2",
+    "tarball_url": "https://api.github.com/repos/CSB5/lofreq/tarball/refs/tags/v2.1.2",
+    "commit": {
+      "sha": "a74d33edc0d8b0ef0728c3c2e1a57ccb9f728f56",
+      "url": "https://api.github.com/repos/CSB5/lofreq/commits/a74d33edc0d8b0ef0728c3c2e1a57ccb9f728f56"
+    },
+    "node_id": "MDM6UmVmMjYwMDAzMTI6cmVmcy90YWdzL3YyLjEuMg=="
+  },
+  {
+    "name": "v2.1.2a",
+    "zipball_url": "https://api.github.com/repos/CSB5/lofreq/zipball/refs/tags/v2.1.2a",
+    "tarball_url": "https://api.github.com/repos/CSB5/lofreq/tarball/refs/tags/v2.1.2a",
+    "commit": {
+      "sha": "32f9f0a0b193c0d1ee3feca3e087b3874312be3b",
+      "url": "https://api.github.com/repos/CSB5/lofreq/commits/32f9f0a0b193c0d1ee3feca3e087b3874312be3b"
+    },
+    "node_id": "MDM6UmVmMjYwMDAzMTI6cmVmcy90YWdzL3YyLjEuMmE="
+  },
+  {
+    "name": "v2.1.1",
+    "zipball_url": "https://api.github.com/repos/CSB5/lofreq/zipball/refs/tags/v2.1.1",
+    "tarball_url": "https://api.github.com/repos/CSB5/lofreq/tarball/refs/tags/v2.1.1",
+    "commit": {
+      "sha": "623b1be5a2e3b1b12d527b04ee11f2fadb402319",
+      "url": "https://api.github.com/repos/CSB5/lofreq/commits/623b1be5a2e3b1b12d527b04ee11f2fadb402319"
+    },
+    "node_id": "MDM6UmVmMjYwMDAzMTI6cmVmcy90YWdzL3YyLjEuMQ=="
+  }
+]

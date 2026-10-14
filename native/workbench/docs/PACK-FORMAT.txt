@@ -1,0 +1,382 @@
+NATIVE WORKBENCH 0.4 — TOOL PACK FORMAT 2
+
+Purpose
+-------
+A pack supplies a named, coloured collection of workflows. Its manifest declares
+all tools, form fields, output files and ordered execution steps. The workbench
+builds the form from these declarations. Adding a compatible tool or a workflow
+does not require editing the desktop UI or its execution engine.
+
+A tool must already be a compatible Windows x86-64 executable. Packaging a Linux
+ELF executable in this format does not make it runnable on Windows. The bundled
+Cosmopolitan builds are prepared Windows-compatible executables.
+
+Packs are trusted executable software, not a sandbox. SHA-256 verifies that the
+selected executable bytes agree with the manifest; it does not authenticate an
+unknown publisher or prove what a tool will do. Import does not execute tools,
+download anything, install services or change Windows policy.
+
+Folder layout
+-------------
+packs/<pack-id>-<version>/
+    pack.ini
+    bin/<tool-id>.exe              conventional native tool location
+    runtime/python/python.exe     optional private runtime tool
+    runtime/python/...            individually declared and hashed assets
+    data/adapters.fa              optional declared data asset
+    licenses/...
+    PACK-README.txt                optional
+
+PACK-README.md and README.txt are also accepted optional documentation names.
+The import function copies only the manifest, declared executables and assets,
+these optional README files and the licenses tree. Nested declared paths are
+preserved. It verifies the staged copy, then
+publishes by a same-volume directory rename. A matching installed ID/version is
+never overwritten. Installing a changed pack requires a new version.
+
+Pack roots must be ordinary local-drive folders. Pack roots, ancestors, tools
+and imported license files may not be symbolic links, junctions or other reparse
+points. Manifest reads are protected against replacement and writes while the
+manifest is parsed and hashed. Verification before execution reloads and compares
+the entire manifest digest, not just the tool list, to reject stale UI forms.
+Executables are checked for x86-64 PE32+ headers and checked against their digest.
+At verification, a bounded recursive inventory rejects unlisted files anywhere
+in the installed pack except the approved README names and licenses tree. This
+also catches added DLLs or Python modules that could otherwise affect a private
+runtime despite all declared files still having valid hashes. All traversed
+folders and files reject reparse points. Declared file paths cannot collide
+case-insensitively or make one file the parent of another.
+
+During a workflow, the manifest, tools and all declared assets are held open to
+deny writes and deletion, and their parent directories are protected against
+replacement. Private runtimes must be configured not to write back into their
+pack: the supplied Python workflow uses -I -B and an isolated _pth configuration.
+The workbench does not install Python/Java or change global PATH settings.
+
+Manifest syntax
+---------------
+pack.ini is UTF-8, with optional UTF-8 BOM. LF and CRLF are accepted. Sections and
+keys are case-sensitive. A line beginning with # or ; after trimming spaces and
+tabs is a comment. There are no inline comments. Thus color=#347E88 is a value.
+
+Values are the text after the first = with leading/trailing spaces/tabs removed.
+There is no shell quoting or backslash escaping. For example:
+    arg.0=--sample
+    arg.1={input:sample}
+creates two arguments. Do not add quotes around a placeholder; the process
+launcher quotes each complete argument correctly for Windows. An empty arg.N=
+is an intentionally empty argument. Backslashes in an argument remain literal.
+Input values containing braces are substituted once and are never reinterpreted
+as further placeholders. Unicode names, labels, help, values and user-selected
+folders are supported.
+
+Unknown keys/sections, duplicate sections/keys, missing child sections,
+unreferenced child sections, invalid references and malformed lists are errors.
+IDs start with a lower-case ASCII letter and contain only lower-case letters,
+digits and hyphens, ending in a letter or digit; maximum 48 characters. Pack
+versions use three decimal components X.Y.Z, with no leading zeroes except zero
+itself and at most nine digits per component.
+
+[pack]
+    format=2                         required
+    id=reads                         required ID
+    version=0.4.0                    required version
+    name=Reads                       required, 1..100 characters
+    platform=windows-x86_64           required, only supported platform
+    description=Read transformations optional, up to 2048 characters
+    color=#347E88                    optional RGB hex; default #347E88
+
+[tool:<tool-id>]
+    path=bin/<tool-id>.exe           required relative .exe file path
+    version=1.4-r122                 required, 1..64 ASCII letters/digits/._+-
+    sha256=<64 hex digits>           required; hex may be upper or lower case
+
+A pack declares 1..64 tools. Tool paths may name a prepared executable in nested
+folders, such as runtime/python/python.exe. Slash or backslash separators are
+accepted; executable files must have the .exe suffix and pass PE validation.
+Tool paths are printable ASCII relative paths with the same component/length
+safety rules as output paths. External commands, shell scripts as direct tools,
+environment-variable manipulation and installation hooks are not supported.
+A private interpreter is a declared tool; its libraries, modules and configuration
+files are declared assets. Its argv is still passed directly without a shell.
+
+[asset:<asset-id>]
+    path=data/adapters.fa            required safe relative file path
+    sha256=<64 hex digits>           required; hex may be upper or lower case
+
+Assets contain data or private runtime support files: adapters, DLLs, Python
+modules/PYD files, zip libraries and runtime configuration. An asset is not a
+workflow entrypoint; a step's tool or sink-tool must reference a declared tool.
+Every runtime file must be declared, including metadata such as dist-info and
+_pth files, even when no argument directly references it. Unused-but-bundled
+runtime files must either be declared or omitted from the bundle. Executables
+that are not workflow entrypoints may be assets, and are hashed like any other
+asset. The workbench does not infer dependencies from an executable.
+
+There may be at most 8192 asset declarations, subject to the total installed-pack
+limit of 2000 files/folders, including licenses and metadata. Assets and tools
+share one path namespace. Absolute/traversing paths, device names, streams,
+case-insensitive collisions and file/directory collisions are rejected. Top-level
+pack.ini, licenses, PACK-README.md, PACK-README.txt and README.txt are reserved.
+The asset's identity is its ID, pack version and SHA-256; there is no separate
+asset version field.
+
+[workflow:<workflow-id>]
+    name=Reverse complement          required, 1..100 characters
+    description=Transform reads      optional, up to 2048 characters
+    inputs=reads,threads             required comma-separated input IDs
+    outputs=result                   required comma-separated output IDs
+    steps=reverse                    required ordered comma-separated step IDs
+
+A pack declares 1..64 workflows. Input and output lists may be empty; steps must
+not be empty. List order controls form and output presentation, and execution
+order. Child IDs are scoped to their workflow. Maximum: 32 inputs, 64 outputs,
+64 steps per workflow. Workflows are displayed in workflow-ID order in version
+0.4.0 because the parser stores manifest sections in a sorted map.
+
+[input:<workflow-id>:<input-id>]
+    label=Reads                      required, 1..100 characters
+    type=file                        optional; default file
+    help=Select your FASTQ file       optional, up to 2048 characters
+    required=true                    optional, true or false; default true
+    default=                         optional literal default, up to 4096 chars
+    filter=FASTQ|*.fq;*.fastq         optional for file/files only
+    min=1                            optional for integer only
+    max=64                           optional for integer only
+    choices=sr:Short reads|ont:ONT    required for choice only
+    constraint=identifier            optional for text only: identifier or dna
+    different-from=reads1            optional for file only
+
+Supported types:
+    file       One existing file, with a file picker.
+    files      Multiple existing files. Runtime value is newline-separated
+               filenames; {inputs:id} expands them to separate arguments.
+    directory  One existing directory, with a folder picker.
+    integer    Signed 64-bit decimal, bounded by min/max. Defaults: min=0,
+               max=2147483647. An explicit nonempty default must be in range.
+    choice     A selection from the declared value:Label pairs. The argv value
+               is the value, not the displayed label. Values are unique,
+               nonempty, up to 128 characters; labels up to 100 characters.
+               Maximum 64 choices. A nonempty default must be declared.
+    text       A literal string. The optional identifier constraint permits
+               only 1..64 ASCII letters, digits, underscore, dot and hyphen.
+               This is useful for sample and read-group IDs that tools embed
+               into their own structured formats. constraint=dna permits a
+               nonempty sequence of at most 4096 case-insensitive IUPAC DNA
+               letters ACGTRYSWKMBDHVN. File paths, file: references, tool options
+               and adapter expressions are rejected; externally supplied
+               adapter FASTA files need a separately declared file input.
+               An omitted default lets the user enter a sequence, but an
+               explicitly empty default is invalid. DNA is nonempty even when
+               required=false, so authors should normally leave required=true.
+    boolean    Literal true or false, with default false when omitted. Passing
+               a boolean passes this text; it does not conditionally add a flag.
+
+The different-from constraint names another file input in the same workflow.
+The engine rejects two inputs that resolve to the same underlying file, including
+hard-link aliases. This is used for read mates. It does not validate that two
+FASTQ files contain biologically matching pairs.
+
+File filters are alternating Label|pattern pairs; multiple wildcard patterns
+may be separated by semicolons. Default: All files|*.*. At most 16 pairs. A filter
+helps file selection; it is not a format validator. The tool still checks data.
+A multi-file default cannot contain embedded newlines in the INI format. Use the
+file picker to populate a multi-file value. Optional scalar empty inputs expand
+to an empty argument; an optional empty file list expands to no arguments.
+
+[output:<workflow-id>:<output-id>]
+    label=Reverse complemented reads required, 1..100 characters
+    path=reverse.fastq               required relative file path
+    final=true                       optional; default true
+    nonempty=true                    optional; default true
+
+Every run receives a new output directory, so existing results are not reused or
+overwritten. Nested output folders are created inside that directory. Output
+paths are fixed, printable-ASCII manifest values (user-selected parent folders
+and labels can use Unicode), with / or backslash separators, at most 240
+characters total, 180 characters per component and 12 components.
+
+Absolute paths, traversal, empty components, alternate streams, reserved Windows
+device names, wildcard characters, braces, trailing spaces/periods and colliding
+case-insensitive paths are rejected. A file cannot also be another output's
+parent directory. First path components logs, run.json, run.json.pending,
+workbench.log and workbench.log.pending are reserved.
+
+Every output must have exactly one producing step. final=true displays the file
+as a user result after the full workflow succeeds. final=false marks an
+intermediate; these files are retained. nonempty=false permits an empty output
+file but still requires that the file exists. The engine reports incomplete
+outputs after failure separately from successfully completed final results.
+
+[step:<workflow-id>:<step-id>] — executable
+    label=Reverse complement         required, 1..100 characters
+    kind=exec                        optional; default exec
+    tool=seqtk                       required declared tool ID
+    stdout=result                    optional output ID
+    produces=index,other             optional additional output IDs
+    arg.0=seq                        arguments 0..127, consecutive
+    arg.1=-r
+    arg.2={input:reads}
+
+stdout redirects the child's standard output into that declared output and
+implicitly makes this step its producer. If stdout is absent, stdout is retained
+in the logs folder. stderr always goes to the step's log. produces declares
+additional files the command writes itself, for example through -o. Do not list
+the stdout output again in produces. Arguments may be empty, and each is limited
+to 4096 manifest characters. Argument keys must start at arg.0 and have no gaps
+or leading zeroes.
+
+[step:<workflow-id>:<step-id>] — copy
+    label=Copy reference             required
+    kind=copy                        required to select copying
+    source={input:reference}          required exact scalar file placeholder
+    destination=reference-copy       required declared output ID
+
+Copy source is exactly {input:id} for a file input, {output:id} for an output
+already produced, or {asset:id} for a verified bundled asset. Directory,
+multi-file, text and mixed-literal copy sources are not supported. destination
+implicitly declares the producer; tool, stdout, produces, arg.N and sink fields
+are not allowed on copy steps.
+
+[step:<workflow-id>:<step-id>] — streaming two-process pipe
+    label=Align directly to BAM      required
+    kind=pipe                       required to select paired processes
+    tool=bwa                        required producer tool ID
+    arg.0=mem                       producer arguments, 0..127 consecutive
+    arg.1={output:reference}
+    arg.2={input:reads1}
+    arg.3={input:reads2}
+    sink-tool=samtools               required consumer tool ID
+    sink-arg.0=view                  sink arguments, 0..127 consecutive
+    sink-arg.1=-u
+    sink-arg.2=-o
+    sink-arg.3={output:aligned}
+    sink-arg.4=-
+    produces=aligned                files written by the producer or sink
+
+The producer's stdout connects directly to the sink's stdin through an anonymous
+pipe. No SAM staging file is created by the engine. The sink's stdout goes to
+stdout=<output-id>, if declared, or to the step's stdout log. Both children have
+separate stderr logs, and both run inside the same cancellable process job.
+Either child's failure fails the step and stops its peer. Cancellation stops
+both process trees. Both processes must exit successfully before declared outputs
+are accepted. A successful consumer cannot hide a failed producer.
+
+arg.N and sink-arg.N have separate contiguous numbering and separate command-line
+limits. All ordinary placeholders work in both vectors. sink-tool/sink-arg.N
+are accepted only for kind=pipe. This is exactly one producer and one sink, not
+shell syntax, a process graph or a textual command joined with a pipe character.
+
+Argument placeholders
+---------------------
+    {input:id}    One scalar input value, preserved as part of one argument.
+    {inputs:id}   A whole argument expanding a files input into multiple argv
+                  items. It cannot be embedded inside another string.
+    {output:id}   The absolute path to a declared output in this run directory.
+    {asset:id}    The absolute path to a verified file in the selected pack.
+    {run}         The absolute run directory.
+
+Unknown, nested, unbalanced or unmatched braces are errors; literal braces in
+manifest arguments are not supported. Scalar placeholders may be mixed with
+literal prefixes/suffixes, for example --output={output:result}. No shell,
+command substitution, glob expansion, pipe or redirection parser is involved.
+
+An output can be referenced after an earlier step produces it or from the exec
+or pipe step that declares itself its producer (such as -o {output:bam}). Referencing a
+future output is rejected. This catches missing producers and incorrect pipeline
+ordering; it is not a general dependency scheduler or a semantic tool validator.
+The engine runs steps serially, stops at the first failure/cancellation, and
+checks declared outputs after each successful step. It then holds each completed
+output open denying writes/deletion until final verification and run-report
+publication. Subsequent steps must read earlier outputs and write their own
+separately declared outputs. A later step cannot edit an earlier output in place,
+even when an earlier copy step produced it. Use a tool's separate-output option
+or a prepared tool wrapper that finishes all modifications before it declares
+an artifact complete. The child's working
+directory is the fresh run folder. Cancellation terminates the child job tree.
+
+Execution limits and provenance
+-------------------------------
+There are at most 128 manifest arguments per child process (two separate vectors
+for a pipe step). Expansion permits at most
+1024 argv items and 32760 unquoted characters, and the process launcher also
+checks the final quoted Windows command-line limit. Large file lists may require
+a future tool-specific list-file mechanism; they cannot bypass this limit.
+
+The whole manifest is limited to 2 MiB of UTF-8 bytes on disk and 2 Mi wide
+characters in the portable parser, 8192 characters per line, 10000 sections and
+288 keys per section. Installed-pack verification and import are limited to
+256 MiB and 2000 files/folders. License import nesting is limited to 12
+subdirectory levels, and inventory traversal to 16 levels. Imported manifests,
+tools, assets and metadata must fit these bounds before publication.
+
+run.json records pack/tool versions, manifest/executable/asset digests, asset
+paths, input metadata and hashes, expanded command arguments, timing, status and
+output hashes. Pipe steps record both argv vectors, tool IDs, diagnostic log
+paths and explicit producer_exit_code/sink_exit_code. Their aggregate exit_code
+is the first nonzero code (producer first), or zero only if both children succeed.
+The pack integrity_verified flag indicates whether hash/inventory checks finished;
+declared asset hashes in a failed report are not claimed to be verified when
+this flag is false. workbench.log and per-step logs are retained alongside outputs. The
+workbench runs locally and does not upload data or fetch packages.
+
+Worked minimal format-2 example
+------------------------------
+Replace the example digest with the real executable SHA-256 and include its
+licenses folder before installing this example pack.
+
+[pack]
+format=2
+id=example-reads
+version=1.0.0
+name=Example reads
+platform=windows-x86_64
+color=#347E88
+
+[tool:seqtk]
+path=bin/seqtk.exe
+version=1.4-r122
+sha256=c5df3fadda2e622a2e358de78a0d34513b392b68bd50208ee3dccb4877c72c2e
+
+[workflow:reverse]
+name=Reverse complement
+inputs=reads
+outputs=reverse
+steps=reverse
+
+[input:reverse:reads]
+label=Reads
+type=file
+filter=FASTQ|*.fastq;*.fq|All files|*.*
+
+[output:reverse:reverse]
+label=Reverse complemented reads
+path=reverse.fastq
+
+[step:reverse:reverse]
+label=Reverse complement
+tool=seqtk
+stdout=reverse
+arg.0=seq
+arg.1=-r
+arg.2={input:reads}
+
+Legacy format 1
+---------------
+The existing core-bio 0.2.0 pack remains supported. Its format=1 manifest declares
+exactly [pack], [bwfastq], [seqtk] and [minimap2]. The loader exposes four equivalent
+workflows: statistics, reverse-complement, alignment, statistics-and-alignment.
+The two legacy alignment workflows accept one reads file; use a format-2 paired
+workflow when both mates must be supplied. Their tools receive the same command
+arguments as in the original workbench. Legacy import now benefits from the same
+full-manifest digest check and long-path-safe filesystem handling.
+
+Checking a new manifest while developing on Linux
+------------------------------------------------
+g++ -std=c++17 -O2 -Wall -Wextra -Werror desktop/pack_model.cpp \
+    tests/test_pack_model.cpp -o build/test-pack-model
+build/test-pack-model packs/example-reads-1.0.0/pack.ini
+
+This checks the pure schema and argument-expansion test suite plus supplied
+manifests. It does not run Windows executables. Use Check installation and a real
+workflow on Windows to validate its native execution path and scientific outputs.

@@ -1,0 +1,156 @@
+{
+  "schema": 1,
+  "source": "Assigned synthetic diploid genotypes; integer allele and genotype arithmetic independent of PLINK or its adapter.",
+  "samples": [
+    "z-last",
+    "001",
+    "a.dot",
+    "under_score"
+  ],
+  "variants": [
+    {
+      "chromosome": "1",
+      "position": 101,
+      "id": "reference_only",
+      "reference": "A",
+      "alternate": "G",
+      "genotypes": [
+        "0/0",
+        "0|0",
+        "0/0",
+        "0/0"
+      ],
+      "homRef": 4,
+      "heterozygous": 0,
+      "homAlt": 0,
+      "missing": 0,
+      "calledGenotypes": 4,
+      "observedAlleles": 8,
+      "alternateAlleles": 0,
+      "alternateFrequency": 0.0,
+      "missingFraction": 0.0
+    },
+    {
+      "chromosome": "1",
+      "position": 202,
+      "id": "alternate_only",
+      "reference": "C",
+      "alternate": "T",
+      "genotypes": [
+        "1/1",
+        "1|1",
+        "1/1",
+        "1/1"
+      ],
+      "homRef": 0,
+      "heterozygous": 0,
+      "homAlt": 4,
+      "missing": 0,
+      "calledGenotypes": 4,
+      "observedAlleles": 8,
+      "alternateAlleles": 8,
+      "alternateFrequency": 1.0,
+      "missingFraction": 0.0
+    },
+    {
+      "chromosome": "2",
+      "position": 303,
+      "id": "one_third",
+      "reference": "G",
+      "alternate": "A",
+      "genotypes": [
+        "0/0",
+        "0/1",
+        "1|0",
+        "./."
+      ],
+      "homRef": 1,
+      "heterozygous": 2,
+      "homAlt": 0,
+      "missing": 1,
+      "calledGenotypes": 3,
+      "observedAlleles": 6,
+      "alternateAlleles": 2,
+      "alternateFrequency": 0.3333333333333333,
+      "missingFraction": 0.25
+    },
+    {
+      "chromosome": "2",
+      "position": 404,
+      "id": "all_missing",
+      "reference": "T",
+      "alternate": "C",
+      "genotypes": [
+        "./.",
+        ".|.",
+        "./.",
+        ".|."
+      ],
+      "homRef": 0,
+      "heterozygous": 0,
+      "homAlt": 0,
+      "missing": 4,
+      "calledGenotypes": 0,
+      "observedAlleles": 0,
+      "alternateAlleles": 0,
+      "alternateFrequency": null,
+      "missingFraction": 1.0
+    },
+    {
+      "chromosome": "22",
+      "position": 505,
+      "id": "balanced",
+      "reference": "A",
+      "alternate": "C",
+      "genotypes": [
+        "1/1",
+        "0/1",
+        ".|.",
+        "0/0"
+      ],
+      "homRef": 1,
+      "heterozygous": 1,
+      "homAlt": 1,
+      "missing": 1,
+      "calledGenotypes": 3,
+      "observedAlleles": 6,
+      "alternateAlleles": 3,
+      "alternateFrequency": 0.5,
+      "missingFraction": 0.25
+    },
+    {
+      "chromosome": "22",
+      "position": 606,
+      "id": "five_sixths",
+      "reference": "C",
+      "alternate": "G",
+      "genotypes": [
+        "1|1",
+        "./.",
+        "0|1",
+        "1/1"
+      ],
+      "homRef": 0,
+      "heterozygous": 1,
+      "homAlt": 2,
+      "missing": 1,
+      "calledGenotypes": 3,
+      "observedAlleles": 6,
+      "alternateAlleles": 5,
+      "alternateFrequency": 0.8333333333333334,
+      "missingFraction": 0.25
+    }
+  ],
+  "genotypes": 24,
+  "calledGenotypes": 17,
+  "missingGenotypes": 7,
+  "observedAlleles": 34,
+  "alternateAlleles": 18,
+  "sampleMissing": {
+    "z-last": 1,
+    "001": 2,
+    "a.dot": 2,
+    "under_score": 2
+  },
+  "interpretation": "ALT frequency uses called alleles only; all-missing frequency is undefined, not zero. Missingness denominators include every retained variant or sample. No QC pass thresholds, association, PCA, ancestry or clinical interpretation."
+}

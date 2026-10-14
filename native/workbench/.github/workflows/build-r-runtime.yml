@@ -1,0 +1,92 @@
+name: Recover private Windows R runtime
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  runtime:
+    runs-on: windows-2022
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Recover pinned official runtime and verify relocation
+        shell: pwsh
+        run: |
+          python scripts/build_r_runtime_windows.py --output build/r-runtime-4.6.1
+          if ($LASTEXITCODE -ne 0) { throw 'Private R runtime recovery failed.' }
+      - name: Preserve runtime provenance
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: r-runtime-provenance
+          path: |
+            build/r-runtime-4.6.1/export/r-runtime-provenance.json
+            build/r-runtime-4.6.1/installer.log
+          if-no-files-found: error
+      - name: Export runtime part 000
+        if: success() && hashFiles('build/r-runtime-4.6.1/export/r-runtime.part000') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: r-runtime-part-000
+          path: build/r-runtime-4.6.1/export/r-runtime.part000
+          compression-level: 0
+          if-no-files-found: error
+      - name: Export runtime part 001
+        if: success() && hashFiles('build/r-runtime-4.6.1/export/r-runtime.part001') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: r-runtime-part-001
+          path: build/r-runtime-4.6.1/export/r-runtime.part001
+          compression-level: 0
+          if-no-files-found: error
+      - name: Export runtime part 002
+        if: success() && hashFiles('build/r-runtime-4.6.1/export/r-runtime.part002') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: r-runtime-part-002
+          path: build/r-runtime-4.6.1/export/r-runtime.part002
+          compression-level: 0
+          if-no-files-found: error
+      - name: Export runtime part 003
+        if: success() && hashFiles('build/r-runtime-4.6.1/export/r-runtime.part003') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: r-runtime-part-003
+          path: build/r-runtime-4.6.1/export/r-runtime.part003
+          compression-level: 0
+          if-no-files-found: error
+      - name: Export runtime part 004
+        if: success() && hashFiles('build/r-runtime-4.6.1/export/r-runtime.part004') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: r-runtime-part-004
+          path: build/r-runtime-4.6.1/export/r-runtime.part004
+          compression-level: 0
+          if-no-files-found: error
+      - name: Export runtime part 005
+        if: success() && hashFiles('build/r-runtime-4.6.1/export/r-runtime.part005') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: r-runtime-part-005
+          path: build/r-runtime-4.6.1/export/r-runtime.part005
+          compression-level: 0
+          if-no-files-found: error
+      - name: Export runtime part 006
+        if: success() && hashFiles('build/r-runtime-4.6.1/export/r-runtime.part006') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: r-runtime-part-006
+          path: build/r-runtime-4.6.1/export/r-runtime.part006
+          compression-level: 0
+          if-no-files-found: error
+      - name: Export runtime part 007
+        if: success() && hashFiles('build/r-runtime-4.6.1/export/r-runtime.part007') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: r-runtime-part-007
+          path: build/r-runtime-4.6.1/export/r-runtime.part007
+          compression-level: 0
+          if-no-files-found: error

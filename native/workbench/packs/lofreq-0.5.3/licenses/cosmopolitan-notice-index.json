@@ -1,0 +1,22 @@
+{
+  "cosmo-c693279643b8.txt": "LICENSE",
+  "cosmo-bb867fe0288a.txt": "notice-source/libc/intrin/musl.c",
+  "cosmo-6e9847f392bd.txt": "notice-source/libc/intrin/armopt.c",
+  "cosmo-92cd994db3a4.txt": "notice-source/libc/str/todd.c",
+  "cosmo-b6fa3455ae9f.txt": "notice-source/libc/str/strlcpy.c",
+  "cosmo-fb63f1333b85.txt": "notice-source/libc/str/smoothsort.c",
+  "cosmo-aeae7b159faf.txt": "notice-source/libc/log/err.c",
+  "cosmo-419eeeee451e.txt": "notice-source/third_party/gdtoa/gdtoa.internal.h",
+  "cosmo-4e9d36274e34.txt": "notice-source/third_party/gdtoa/gdtoa.c",
+  "cosmo-2e02e1fdffdd.txt": "notice-source/third_party/gdtoa/notice.c",
+  "cosmo-08919e4a0fab.txt": "notice-source/third_party/puff/puff.c",
+  "cosmo-52e7a333bc22.txt": "libc/tinymath/LICENSE.musl",
+  "cosmo-33307c2b2dd9.txt": "libc/tinymath/LICENSE.optimized-routines",
+  "cosmo-a5aeda998917.txt": "libc/tinymath/LICENSE.openbsd",
+  "cosmo-fcddfa410cb6.txt": "libc/tinymath/LICENSE.freebsd",
+  "cosmo-8eb208322ab9.txt": "libc/tinymath/LICENSE.fdlibm",
+  "cosmo-0a4d0c35d10e.txt": "third_party/zlib/LICENSE.chromium",
+  "cosmo-23fe236829e0.txt": "third_party/zlib/LICENSE",
+  "cosmo-576238310b08.txt": "third_party/zlib/LICENSE.zlib",
+  "cosmo-9d4fd89dc08d.txt": "third_party/nsync/LICENSE.txt"
+}

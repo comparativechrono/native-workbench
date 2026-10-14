@@ -1,0 +1,195 @@
+{
+  "schema": 1,
+  "category": "Variant calling",
+  "citations": [
+    {
+      "text": "Lai et al. (2016). VarDict: a novel and versatile variant caller for next-generation sequencing in cancer research.",
+      "url": "https://doi.org/10.1093/nar/gkw227"
+    }
+  ],
+  "workflows": {
+    "call": {
+      "ports": [
+        {
+          "id": "alignment",
+          "type": "bam",
+          "accepts": [
+            "bam"
+          ],
+          "manifestInputs": [
+            "alignment"
+          ],
+          "min": 1,
+          "max": 1,
+          "requiredState": {
+            "sort": "coordinate"
+          },
+          "validation": {
+            "singleSample": true,
+            "sampleParameter": "sample"
+          }
+        },
+        {
+          "id": "reference",
+          "type": "reference",
+          "accepts": [
+            "reference"
+          ],
+          "manifestInputs": [
+            "reference"
+          ],
+          "min": 1,
+          "max": 1,
+          "requiredState": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "targets",
+          "type": "bed",
+          "accepts": [
+            "bed"
+          ],
+          "manifestInputs": [
+            "targets"
+          ],
+          "min": 1,
+          "max": 1,
+          "validation": {
+            "minColumns": 4,
+            "nonOverlapping": true,
+            "referenceBounds": true
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": "variants",
+          "type": "vcf",
+          "manifestOutputs": [
+            "variants"
+          ],
+          "state": {
+            "compression": "bgzf",
+            "selection": "all-calls-with-filter-labels"
+          }
+        },
+        {
+          "id": "pass-variants",
+          "type": "vcf-pass",
+          "manifestOutputs": [
+            "pass-variants"
+          ],
+          "state": {
+            "compression": "bgzf",
+            "selection": "PASS-only"
+          }
+        },
+        {
+          "id": "variant-stats",
+          "type": "metrics",
+          "manifestOutputs": [
+            "variant-stats"
+          ],
+          "state": {}
+        },
+        {
+          "id": "pass-stats",
+          "type": "metrics",
+          "manifestOutputs": [
+            "pass-stats"
+          ],
+          "state": {}
+        },
+        {
+          "id": "calls-table",
+          "type": "metrics",
+          "manifestOutputs": [
+            "calls-table"
+          ],
+          "state": {}
+        },
+        {
+          "id": "reference",
+          "type": "reference",
+          "manifestOutputs": [
+            "reference"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "reference-index",
+          "type": "index",
+          "manifestOutputs": [
+            "reference-index"
+          ],
+          "state": {}
+        },
+        {
+          "id": "alignment-copy",
+          "type": "bam",
+          "manifestOutputs": [
+            "alignment-copy"
+          ],
+          "state": {
+            "sort": "coordinate"
+          }
+        },
+        {
+          "id": "bam-index",
+          "type": "index",
+          "manifestOutputs": [
+            "bam-index"
+          ],
+          "state": {}
+        },
+        {
+          "id": "raw-vcf",
+          "type": "vcf",
+          "manifestOutputs": [
+            "raw-vcf"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "header-vcf",
+          "type": "vcf",
+          "manifestOutputs": [
+            "header-vcf"
+          ],
+          "state": {
+            "compression": "none"
+          }
+        },
+        {
+          "id": "variants-index",
+          "type": "index",
+          "manifestOutputs": [
+            "variants-index"
+          ],
+          "state": {}
+        },
+        {
+          "id": "pass-index",
+          "type": "index",
+          "manifestOutputs": [
+            "pass-index"
+          ],
+          "state": {}
+        }
+      ],
+      "methods": "Single-sample targeted variants were called with VarDictJava 1.8.3 using local realignment and the upstream EXPERIMENTAL --fisher implementation of strand-bias Fisher tests. Structural-variant calling was disabled. Coordinate-sorted DNA BAM and nonoverlapping BED4 targets were used with the recorded quality, depth and allele-fraction settings. The unmodified upstream var2vcf_valid.pl script bundled with release 1.8.3 (script version 1.8.2) converted every candidate allele (-A) to VCF, retaining FILTER labels; its allele-fraction-based diploid genotype convention was retained (homozygous ALT above 80% AF). This does not determine somatic status or support arbitrary ploidy. BCFtools checked REF alleles, left-aligned/split calls, compressed/indexed all calls and separately exported PASS calls. The Java Fisher path was compared with R on finite deterministic fixtures but remains experimental upstream.",
+      "pathPolicy": {
+        "asciiOnly": true,
+        "forbiddenCharacters": [
+          ";",
+          "|"
+        ]
+      }
+    }
+  }
+}

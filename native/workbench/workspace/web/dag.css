@@ -1,0 +1,34 @@
+#wb-ranked-workspace .dag-stage{width:100%;min-width:0;background:var(--w-paper);border:1px solid var(--w-line);border-radius:12px;padding:14px 7px;box-sizing:border-box}
+#wb-ranked-workspace .dag-canvas{position:relative;min-width:0;padding:5px 0;isolation:isolate}
+#wb-ranked-workspace .dag-rank{position:relative;min-width:0;z-index:1}
+#wb-ranked-workspace .dag-rank+.dag-rank{margin-top:47px}
+#wb-ranked-workspace .dag-card{position:absolute;top:0;display:flex;flex-direction:column;align-items:stretch;gap:7px;min-width:0;max-width:100%;background:var(--w-paper);border:1px solid var(--w-line);border-radius:9px;padding:9px;box-sizing:border-box;overflow-wrap:anywhere;color:var(--w-ink)}
+#wb-ranked-workspace .dag-source{background:var(--w-soft);border-style:dashed}
+#wb-ranked-workspace .dag-card:has(.dag-node-button:hover){border-color:var(--w-accent)}
+#wb-ranked-workspace button.dag-node-button{display:flex;flex:1;flex-direction:column;align-items:flex-start;justify-content:center;gap:3px;min-width:0;width:100%;max-width:100%;padding:0;border:0;border-radius:3px;background:transparent;box-shadow:none;text-align:left;white-space:normal;line-height:1.4;overflow-wrap:anywhere;color:var(--w-ink)}
+#wb-ranked-workspace .dag-node-id{font-size:11px;line-height:1.4;font-weight:600;color:var(--w-accent)}
+#wb-ranked-workspace .dag-title{font-size:12px;font-weight:600;line-height:1.45;color:var(--w-ink);overflow-wrap:anywhere}
+#wb-ranked-workspace .dag-subtitle{font-size:11px;line-height:1.5;color:var(--w-muted)}
+#wb-ranked-workspace button.dag-reference-chip{display:block;width:100%;min-width:0;font-size:11px;line-height:1.5;text-align:left;white-space:normal;overflow-wrap:anywhere;border:1px solid var(--w-line);border-radius:5px;background:var(--w-soft);padding:3px 5px;color:var(--w-muted)}
+#wb-ranked-workspace .dag-compact{padding:9px 3px;min-height:40px}
+#wb-ranked-workspace .dag-compact .dag-node-button{align-items:center;text-align:center}
+#wb-ranked-workspace .dag-compact .dag-node-id{font-size:11px;color:var(--w-ink)}
+#wb-ranked-workspace .dag-highlight{border-color:var(--w-accent);box-shadow:0 0 0 1px var(--w-accent)}
+#wb-ranked-workspace button.dag-highlight-chip{border-color:var(--w-accent);color:var(--w-ink)}
+#wb-ranked-workspace .dag-edges{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:visible}
+#wb-ranked-workspace .dag-edge{fill:none;stroke:var(--w-muted);stroke-opacity:.58;stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round}
+#wb-ranked-workspace .dag-highlight-edge{stroke:var(--w-accent);stroke-opacity:1;stroke-width:2.4}
+#wb-ranked-workspace .dag-arrow{fill:var(--w-muted)}
+#wb-ranked-workspace .dag-arrow-selected{fill:var(--w-accent)}
+#wb-ranked-workspace .dag-key{margin:18px 9px 2px;padding-top:12px;border-top:1px solid var(--w-line)}
+#wb-ranked-workspace .dag-key[hidden]{display:none}
+#wb-ranked-workspace .dag-key-heading{font-size:12px;font-weight:600;color:var(--w-ink);margin:0 0 8px}
+#wb-ranked-workspace .dag-key-row{padding:7px 0;border:1px solid transparent;border-radius:5px;min-width:0}
+#wb-ranked-workspace button.dag-key-button{display:flex;align-items:flex-start;justify-content:flex-start;gap:10px;border:0;background:transparent;box-shadow:none;padding:0;min-width:0;width:100%;text-align:left;line-height:1.5;white-space:normal}
+#wb-ranked-workspace .dag-key-id{font-size:11px;flex:0 0 29px;color:var(--w-accent)}
+#wb-ranked-workspace .dag-key-details{display:block;min-width:0;flex:1;overflow-wrap:anywhere}
+#wb-ranked-workspace .dag-key-name{display:block;font-size:12px;color:var(--w-ink)}
+#wb-ranked-workspace .dag-key-inputs{display:block;font-size:11px;color:var(--w-muted)}
+#wb-ranked-workspace .dag-key-references{padding-left:39px;margin-top:4px}
+#wb-ranked-workspace .dag-key-references .dag-reference-chip+.dag-reference-chip{margin-top:4px}
+#wb-ranked-workspace .dag-empty{font-size:12px;color:var(--w-muted);padding:12px 10px;margin:0}

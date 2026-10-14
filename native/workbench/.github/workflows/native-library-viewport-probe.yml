@@ -1,0 +1,113 @@
+name: Diagnose frozen library viewport and recheck focused navigation
+
+on:
+  # Historical frozen-archive diagnostic. New application changes use the
+  # full candidate workflow; keep this exact source/archive pairing intact.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: native-library-viewport-probe-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  SOURCE_COMMIT: 3bf08f0a8ae94f8842afc3fa07f4c20789f7ed3e
+  STARTER_SHA256: 48a1dbd91575c04c5b30bf59dd7d3a9c1383e22893c809bfad87f976f1c3caca
+  SOURCE_SHA256: a59c12e7150dd45371d9f85e65e412036521f11d510ca8b6bb5ced215087cde2
+  UPDATE_SHA256: b5fc660a87410696893c1edf780ae1faebb9c6d629a118de262c0200a3f12fdc
+
+jobs:
+  validator:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Check focused validator contracts and diagnostic syntax
+        run: |
+          python3 tests/test_wrapped_library_gate.py
+          python3 -m py_compile scripts/check_wrapped_library_windows.py scripts/check_library_viewport_probe_windows.py scripts/native_tree.py
+  native:
+    needs: validator
+    runs-on: windows-2022
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        folder: [ordinary, 'path with spaces']
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Retrieve the exact candidate without rebuilding
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: wrapped-library-candidate-3bf08f0a8ae94f8842afc3fa07f4c20789f7ed3e
+          run-id: 38074534436
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/frozen-library-candidate
+      - name: Verify unchanged production sources and all frozen artifact identities
+        id: prepare
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          git diff --exit-code $env:SOURCE_COMMIT -- desktop workspace examples src include platform_windows pack-examples scripts/build_ui_patch_candidate.py scripts/package_split.py scripts/make_core_update.py scripts/apply_core_update.py scripts/apply_desktop_update.py
+          if ($LASTEXITCODE -ne 0) { throw 'Production or packaging source changed; build a new candidate instead of rechecking frozen bytes.' }
+          $candidate = Join-Path $env:RUNNER_TEMP 'frozen-library-candidate'
+          $starter = Join-Path $candidate 'native-workbench-0.16.1-starter-windows.zip'
+          $updater = Join-Path $candidate 'native-workbench-0.16.1-update-from-0.16.0.zip'
+          $source = Join-Path $candidate 'native-workbench-0.16.1-source.zip'
+          if ((Get-FileHash $starter -Algorithm SHA256).Hash -ne $env:STARTER_SHA256) { throw 'Frozen Starter identity mismatch.' }
+          if ((Get-FileHash $updater -Algorithm SHA256).Hash -ne $env:UPDATE_SHA256) { throw 'Frozen updater identity mismatch.' }
+          if ((Get-FileHash $source -Algorithm SHA256).Hash -ne $env:SOURCE_SHA256) { throw 'Frozen source companion identity mismatch.' }
+          $provenance = Get-Content (Join-Path $candidate 'BUILD-PROVENANCE.json') -Raw | ConvertFrom-Json
+          if ($provenance.sourceCommit -ne $env:SOURCE_COMMIT -or $provenance.appVersion -ne '0.16.1') { throw 'Frozen build provenance mismatch.' }
+          $case = Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER
+          Expand-Archive $starter (Join-Path $case 'wrapped-library')
+          if ($env:CASE_FOLDER -eq 'ordinary') {
+            Expand-Archive $starter (Join-Path $case 'viewport-probe')
+          }
+          $evidence = Join-Path $env:RUNNER_TEMP 'library-viewport-evidence'
+          New-Item -ItemType Directory -Path $evidence | Out-Null
+          @{ schema = 1; kind = 'frozen-library-viewport-inputs'; sourceCommit = $env:SOURCE_COMMIT;
+             gateCommit = $env:GITHUB_SHA; candidateRun = 38074534436; appVersion = '0.16.1';
+             starterSha256 = $env:STARTER_SHA256; updateSha256 = $env:UPDATE_SHA256;
+             sourceSha256 = $env:SOURCE_SHA256; rebuilt = $false; installationCase = $env:CASE_FOLDER;
+             scope = 'Frozen identities only. Viewport diagnostic and focused acceptance use separate fresh extractions and separate reports.' } |
+            ConvertTo-Json -Depth 4 | Set-Content (Join-Path $evidence 'frozen-inputs.json')
+      - name: Diagnose overflow viewport geometry without an acceptance claim
+        if: always() && !cancelled() && steps.prepare.outcome == 'success' && matrix.folder == 'ordinary'
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'viewport-probe/native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I -B scripts/check_library_viewport_probe_windows.py --app-root $app --starter-archive (Join-Path $env:RUNNER_TEMP 'frozen-library-candidate/native-workbench-0.16.1-starter-windows.zip') --starter-sha256 $env:STARTER_SHA256 --source-commit $env:SOURCE_COMMIT --gate-commit $env:GITHUB_SHA --report "$env:RUNNER_TEMP/library-viewport-evidence/viewport-probe/native-library-viewport-probe.json" --app-version 0.16.1
+          if ($LASTEXITCODE -ne 0) { throw 'Native viewport diagnostic did not complete; retained observations are not acceptance.' }
+      - name: Recheck wrapped text, focused keyboard navigation and real drag acceptance
+        if: always() && !cancelled() && steps.prepare.outcome == 'success'
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $app = Join-Path (Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER) 'wrapped-library/native-workbench'
+          & (Join-Path $app 'runtime/python/python.exe') -I -B scripts/check_wrapped_library_windows.py --app-root $app --starter-archive (Join-Path $env:RUNNER_TEMP 'frozen-library-candidate/native-workbench-0.16.1-starter-windows.zip') --starter-sha256 $env:STARTER_SHA256 --source-commit $env:SOURCE_COMMIT --gate-commit $env:GITHUB_SHA --report "$env:RUNNER_TEMP/library-viewport-evidence/wrapped-library/native-wrapped-library.json" --app-version 0.16.1
+          if ($LASTEXITCODE -ne 0) { throw 'Focused wrapped-library acceptance failed; retain screenshots and failures.' }
+      - name: Retain separately identified diagnostic and acceptance evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: library-viewport-evidence-${{ matrix.folder }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/library-viewport-evidence
+          if-no-files-found: error
+          retention-days: 30

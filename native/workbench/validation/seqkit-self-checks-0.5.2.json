@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "folder": "/workspace/scratch/0c5293ac0f36/integration-validation/seqkit-checks/pack-checks-20261003-094607-8f5142dd",
+  "checks": [
+    {
+      "id": "seqkit/fastq-statistics",
+      "status": "passed",
+      "folder": "/workspace/scratch/0c5293ac0f36/integration-validation/seqkit-checks/pack-checks-20261003-094607-8f5142dd/run-20261003-094607-56954b41"
+    },
+    {
+      "id": "seqkit/quality-loss-conversion",
+      "status": "passed",
+      "folder": "/workspace/scratch/0c5293ac0f36/integration-validation/seqkit-checks/pack-checks-20261003-094607-8f5142dd/run-20261003-094607-ebe217e7"
+    },
+    {
+      "id": "seqkit/translation-standard-code",
+      "status": "passed",
+      "folder": "/workspace/scratch/0c5293ac0f36/integration-validation/seqkit-checks/pack-checks-20261003-094607-8f5142dd/run-20261003-094608-d9a60df6"
+    },
+    {
+      "id": "seqkit/exact-count-sampling",
+      "status": "passed",
+      "folder": "/workspace/scratch/0c5293ac0f36/integration-validation/seqkit-checks/pack-checks-20261003-094607-8f5142dd/run-20261003-094608-07e44d55"
+    }
+  ],
+  "nativeWindowsExecuted": false,
+  "passed": 4,
+  "failed": 0,
+  "cancelled": false,
+  "success": true,
+  "message": "4 of 4 additional pack checks passed."
+}

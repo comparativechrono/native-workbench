@@ -1,0 +1,11 @@
+# MUSCLE 5.3-workbench1
+
+Four local operations align homologous nucleotide or protein sequences, using either standard MUSCLE5 alignment or Super5. Each produces one aligned FASTA. Threads, perturbation seed and guide-tree permutation are explicit. Inputs are not references, reads, or already aligned FASTA.
+
+This pack requires at least two nonempty sequences with unique first-word IDs, no gaps, and at most 15,000 residues per sequence. The 15,000-residue ceiling is a Workbench safeguard, not an upstream guarantee of suitability. MUSCLE has no enforced memory ceiling in these operations. Start with modest homologous sets; Super5 is preferable when standard alignment is too expensive. Thread count does not cap RAM. Protein stop symbols are retained. DNA and RNA IUPAC alphabets are accepted; this is sequence alignment, not RNA secondary-structure alignment.
+
+The local build fixes an upstream issue where -align ignored -nt/-amino and guessed the alphabet. Both standard alignment and Super5 now honour explicit nucleotide/protein choice, including proteins containing only nucleotide-like letters. Scoring models and alignment algorithms remain upstream. The GPL source, applied patch and build script are in licenses/. Build from the complete Workbench source with `python3 scripts/prepare_muscle_pack.py --fetch --build`; the pinned LLVM-MinGW toolchain is required. For a Linux scientific reference build use `python3 scripts/build_muscle_windows.py --linux`.
+
+Windows portability: the executable has an app-local SHA-pinned libomp.dll and uses Windows/UCRT system DLLs. No separate Visual C++ redistributable is required. Use ASCII-only installation, input and results paths; upstream narrow filename APIs remain. Windows execution and Unicode paths were not tested in the Linux build environment. A Check installation action runs four real alignment fixtures and verifies sequence identities, residues and equal row lengths. Linux tests cover spaces in paths.
+
+GPLv3 licensing and exact upstream source are retained. This distribution makes no claim to be the upstream official Windows binary. The Galaxy IUC legacy MUSCLE3 recipe informed family selection and provenance practice; MUSCLE5 syntax and behavior were taken from upstream v5.3. Cite Edgar (2022), DOI 10.1038/s41467-022-34630-w.

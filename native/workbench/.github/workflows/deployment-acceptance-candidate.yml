@@ -1,0 +1,198 @@
+name: Validate offline deployment and Windows acceptance kit
+
+on:
+  push:
+    branches: [feature/deployment-acceptance]
+    paths:
+      - 'scripts/**'
+      - 'tests/**'
+      - 'packaging/**'
+      - 'docs/deployment-acceptance.md'
+      - 'docs/institutional-deployment.md'
+      - '.github/workflows/deployment-acceptance-candidate.yml'
+      - 'AGENTS.md'
+      - 'LICENSE'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deployment-acceptance-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  bundle:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 25
+    outputs:
+      sha256: ${{ steps.build.outputs.sha256 }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Check companion contracts without executing Windows binaries
+        run: |
+          python3 tests/test_deployment_inventory.py
+          python3 tests/test_deployment_bundle.py
+          python3 tests/test_deployment_acceptance.py
+          python3 tests/test_deployment_ui_gate.py
+      - name: Retrieve the four exact published inputs
+        env:
+          INPUTS: ${{ runner.temp }}/deployment-inputs
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, os, subprocess
+          from pathlib import Path
+          root = Path(os.environ['INPUTS']); root.mkdir()
+          lock = json.loads(Path('packaging/deployment-0.16.0-lock.json').read_text())
+          for item in lock['inputArchives']:
+              target = root / item['file']
+              subprocess.run(['curl', '--fail', '--location', '--retry', '3', item['url'], '-o', str(target)], check=True)
+              assert target.stat().st_size == item['bytes'], item['file']
+              assert hashlib.sha256(target.read_bytes()).hexdigest() == item['sha256'], item['file']
+          PY
+      - name: Build an immutable companion around the published application
+        id: build
+        env:
+          INPUTS: ${{ runner.temp }}/deployment-inputs
+          OUTPUT: ${{ runner.temp }}/deployment-output
+        run: |
+          python3 scripts/build_deployment_bundle.py --inputs "$INPUTS" --output "$OUTPUT" --toolkit-commit "$GITHUB_SHA"
+          python3 - <<'PY'
+          import hashlib, os, zipfile
+          from pathlib import Path
+          output = Path(os.environ['OUTPUT'])
+          archive = output / 'native-workbench-0.16.0-deployment-toolkit.zip'
+          with zipfile.ZipFile(archive) as z:
+              assert z.testzip() is None
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as stream:
+              stream.write('sha256=' + hashlib.sha256(archive.read_bytes()).hexdigest() + '\n')
+          PY
+      - name: Retain the exact unpublished kit and build provenance
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: deployment-kit-${{ github.sha }}
+          path: ${{ runner.temp }}/deployment-output
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+
+  native:
+    needs: bundle
+    runs-on: windows-2022
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        folder: [ordinary, 'path with spaces']
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: deployment-kit-${{ github.sha }}
+          path: ${{ runner.temp }}/deployment-download
+      - name: Verify the exact kit and initialise an untested machine report
+        id: prepare
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+          KIT_SHA256: ${{ needs.bundle.outputs.sha256 }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $archive = Join-Path $env:RUNNER_TEMP 'deployment-download/native-workbench-0.16.0-deployment-toolkit.zip'
+          if ((Get-FileHash $archive -Algorithm SHA256).Hash -ne $env:KIT_SHA256) { throw 'Kit identity mismatch' }
+          $case = Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER
+          Expand-Archive $archive (Join-Path $case 'kit')
+          $bundle = Join-Path $case 'kit/native-workbench-deployment-0.16.0'
+          $python = Join-Path $bundle 'native-workbench/runtime/python/python.exe'
+          $helper = Join-Path $bundle 'toolkit/scripts/deployment_acceptance.py'
+          $evidence = Join-Path $env:RUNNER_TEMP 'deployment-evidence'
+          New-Item -ItemType Directory -Path $evidence | Out-Null
+          & $python -I -B $helper verify --bundle-root $bundle
+          if ($LASTEXITCODE -ne 0) { throw 'Extracted bundle verification failed' }
+          $env:DEPLOYMENT_BUNDLE_ROOT = $bundle
+          & $python -I -B -c 'import os, subprocess; r = subprocess.run([os.path.join(os.environ["SystemRoot"], "System32", "cmd.exe"), "/d", "/c", "verify.cmd"], cwd=os.environ["DEPLOYMENT_BUNDLE_ROOT"], input=b"\r\n", stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=120); print(r.stdout.decode(errors="replace")); assert r.returncode == 0'
+          if ($LASTEXITCODE -ne 0) { throw 'Packaged verify.cmd did not complete successfully' }
+          & $python -I -B $helper init --bundle-root $bundle --machine-alias 'hosted-windows-2022' --report (Join-Path $evidence 'acceptance.json')
+          if ($LASTEXITCODE -ne 0) { throw 'Untested machine report creation failed' }
+          & $python -I -B $helper prepare --bundle-root $bundle --report (Join-Path $evidence 'acceptance.json') --work-root (Join-Path $case 'tester-copy')
+          if ($LASTEXITCODE -ne 0) { throw 'Verified disposable test copy failed' }
+      - name: Exercise the real updater folder picker and native desktop
+        if: ${{ !cancelled() && steps.prepare.conclusion == 'success' }}
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $case = Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER
+          $bundle = Join-Path $case 'kit/native-workbench-deployment-0.16.0'
+          $app = Join-Path $case 'tester-copy'
+          $python = Join-Path $app 'runtime/python/python.exe'
+          $evidence = Join-Path $env:RUNNER_TEMP 'deployment-evidence'
+          & $python -I -B scripts/check_deployment_ui_windows.py --bundle-root $bundle --app-root $app --baseline-archive (Join-Path $bundle 'archives/native-workbench-0.11.0-starter-windows.zip') --update-root (Join-Path $bundle 'updater') --starter-archive (Join-Path $bundle 'archives/native-workbench-0.16.0-starter-windows.zip') --update-archive (Join-Path $bundle 'archives/native-workbench-0.16.0-update-from-0.11.0.zip') --work (Join-Path $case 'ui-work') --report (Join-Path $evidence 'native-ui/native-deployment-ui.json') --source-commit e855dc4396e0c16ae35f4e840eb9cc734adb4441 --gate-commit $env:GITHUB_SHA
+          $nativeExit = $LASTEXITCODE
+          $helper = Join-Path $bundle 'toolkit/scripts/deployment_acceptance.py'
+          $summary = Join-Path $evidence 'native-ui/native-deployment-gate.json'
+          if (Test-Path $summary) {
+            & $python -I -B $helper import-automated --bundle-root $bundle --report (Join-Path $evidence 'acceptance.json') --automated-report $summary
+            if ($LASTEXITCODE -ne 0) { throw 'Automated observation import failed' }
+          }
+          if ($nativeExit -ne 0) { throw 'Native deployment interaction checks failed; observed failures remain in the retained reports' }
+          if (-not (Test-Path $summary)) { throw 'Completed native gate omitted its bounded summary' }
+      - name: Run curated science and results on a separate copy of the frozen Starter
+        if: ${{ !cancelled() && steps.prepare.conclusion == 'success' }}
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $case = Join-Path $env:RUNNER_TEMP $env:CASE_FOLDER
+          $bundle = Join-Path $case 'kit/native-workbench-deployment-0.16.0'
+          $starter = Join-Path $bundle 'archives/native-workbench-0.16.0-starter-windows.zip'
+          Expand-Archive $starter (Join-Path $case 'science')
+          $app = Join-Path $case 'science/native-workbench'
+          $python = Join-Path $app 'runtime/python/python.exe'
+          & $python -I -B scripts/check_curated_windows.py --app-root $app --report (Join-Path $env:RUNNER_TEMP 'deployment-evidence/curated/native-curated.json') --source-commit e855dc4396e0c16ae35f4e840eb9cc734adb4441 --asset-sha256 f96e03e43cac92ba8ca9a0a3807eb671f9924d5e624cadbba94d1a5ca1309073 --asset-name native-workbench-0.16.0-starter-windows.zip --app-version 0.16.0
+          if ($LASTEXITCODE -ne 0) { throw 'Frozen Starter curated regression failed' }
+      - name: Collect actual Windows signature observations
+        if: ${{ !cancelled() && steps.prepare.conclusion == 'success' }}
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $bundle = Join-Path $env:RUNNER_TEMP ($env:CASE_FOLDER + '/kit/native-workbench-deployment-0.16.0')
+          $python = Join-Path $bundle 'native-workbench/runtime/python/python.exe'
+          $reportPath = Join-Path $env:RUNNER_TEMP 'deployment-evidence/acceptance.json'
+          & $python -I -B (Join-Path $bundle 'toolkit/scripts/deployment_acceptance.py') signatures --bundle-root $bundle --report $reportPath
+          $collectorExit = $LASTEXITCODE
+          $report = Get-Content $reportPath -Raw | ConvertFrom-Json
+          $report.signatures | ConvertTo-Json -Depth 6
+          if ($collectorExit -ne 0 -or $report.signatures.status -ne 'observed') { throw 'Signature observations unavailable; inspect the retained bounded diagnostic' }
+      - name: Verify the immutable kit remains unchanged and manual acceptance remains untested
+        if: ${{ !cancelled() && steps.prepare.conclusion == 'success' }}
+        shell: pwsh
+        env:
+          CASE_FOLDER: ${{ matrix.folder }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $bundle = Join-Path $env:RUNNER_TEMP ($env:CASE_FOLDER + '/kit/native-workbench-deployment-0.16.0')
+          $python = Join-Path $bundle 'native-workbench/runtime/python/python.exe'
+          & $python -I -B (Join-Path $bundle 'toolkit/scripts/deployment_acceptance.py') verify --bundle-root $bundle
+          if ($LASTEXITCODE -ne 0) { throw 'Toolkit changed during testing' }
+          $report = Get-Content (Join-Path $env:RUNNER_TEMP 'deployment-evidence/acceptance.json') -Raw | ConvertFrom-Json
+          if (@($report.manualChecks | Where-Object { $_.status -ne 'not-tested' }).Count -ne 0) { throw 'Hosted evidence silently completed manual acceptance' }
+      - name: Retain actual observations, failures and screenshots
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: deployment-windows-${{ matrix.folder }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/deployment-evidence
+          if-no-files-found: error
+          retention-days: 30

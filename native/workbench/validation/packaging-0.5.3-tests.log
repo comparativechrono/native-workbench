@@ -1,0 +1,14 @@
+test_closed_inventory_rejects_hidden_java_runtime_file (test_package_aligner_callers.ReleaseGuards.test_closed_inventory_rejects_hidden_java_runtime_file) ... ok
+test_declared_runtime_and_license_sources_accepted_but_combined_budget_enforced (test_package_aligner_callers.ReleaseGuards.test_declared_runtime_and_license_sources_accepted_but_combined_budget_enforced) ... ok
+test_finish_rejects_baseline_overlap_before_any_write (test_package_aligner_callers.ReleaseGuards.test_finish_rejects_baseline_overlap_before_any_write) ... ok
+test_individual_asset_cap_independent_of_license_archive_size (test_package_aligner_callers.ReleaseGuards.test_individual_asset_cap_independent_of_license_archive_size) ... ok
+test_original_thirteen_pack_files_preserved_exactly (test_package_aligner_callers.ReleaseGuards.test_original_thirteen_pack_files_preserved_exactly) ... ok
+test_different_existing_source_not_overwritten_and_corrupt_runtime_not_copied (test_package_aligner_callers.SourceInventory.test_different_existing_source_not_overwritten_and_corrupt_runtime_not_copied) ... ok
+test_only_checksum_identical_source_archives_are_referenced_and_local_restore_is_exact (test_package_aligner_callers.SourceInventory.test_only_checksum_identical_source_archives_are_referenced_and_local_restore_is_exact) ... ok
+test_rebuilt_source_code_and_patches_retained_generated_runtime_and_restricted_archive_excluded (test_package_aligner_callers.SourceInventory.test_rebuilt_source_code_and_patches_retained_generated_runtime_and_restricted_archive_excluded) ... ok
+test_restore_rejects_path_escape_and_linked_destination (test_package_aligner_callers.SourceInventory.test_restore_rejects_path_escape_and_linked_destination) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.021s
+
+OK

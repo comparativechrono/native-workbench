@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "source": "Independent deterministic construction: random seed 643; 240-residue ancestor; six related sequences with independently assigned private substitutions, a 12-residue deletion and a shared insertion. Expected alignment columns are constructed before executing Kalign.",
+  "cases": {
+    "nucleotide": {
+      "sequenceIds": [
+        "sample_1",
+        "sample_2",
+        "sample_3",
+        "sample_4",
+        "sample_5",
+        "sample_6"
+      ],
+      "headers": {
+        "sample_1": "sample_1 synthetic nucleotide training sequence 1",
+        "sample_2": "sample_2 synthetic nucleotide training sequence 2",
+        "sample_3": "sample_3 synthetic nucleotide training sequence 3",
+        "sample_4": "sample_4 synthetic nucleotide training sequence 4",
+        "sample_5": "sample_5 synthetic nucleotide training sequence 5",
+        "sample_6": "sample_6 synthetic nucleotide training sequence 6"
+      },
+      "sequences": 6,
+      "columns": 250,
+      "inputResidues": 1446,
+      "gapCharacters": 54,
+      "deletionAncestorColumnsZeroBased": [
+        70,
+        82
+      ],
+      "insertionBeforeAncestorColumnZeroBased": 160,
+      "insertedResidues": "TTGCCCAGTC",
+      "homologyTruthFile": "nucleotide-truth.afa"
+    },
+    "protein": {
+      "sequenceIds": [
+        "sample_1",
+        "sample_2",
+        "sample_3",
+        "sample_4",
+        "sample_5",
+        "sample_6"
+      ],
+      "headers": {
+        "sample_1": "sample_1 synthetic protein training sequence 1",
+        "sample_2": "sample_2 synthetic protein training sequence 2",
+        "sample_3": "sample_3 synthetic protein training sequence 3",
+        "sample_4": "sample_4 synthetic protein training sequence 4",
+        "sample_5": "sample_5 synthetic protein training sequence 5",
+        "sample_6": "sample_6 synthetic protein training sequence 6"
+      },
+      "sequences": 6,
+      "columns": 248,
+      "inputResidues": 1440,
+      "gapCharacters": 48,
+      "deletionAncestorColumnsZeroBased": [
+        70,
+        82
+      ],
+      "insertionBeforeAncestorColumnZeroBased": 160,
+      "insertedResidues": "LEDNSKNM",
+      "homologyTruthFile": "protein-truth.afa"
+    }
+  },
+  "scope": "Small synthetic known-indel homology and residue preservation; no real-data accuracy, phylogenetic inference, time/memory prediction or QC pass threshold."
+}
