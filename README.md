@@ -155,12 +155,23 @@ The workbench was tested in Chromium (Playwright) on 10 October 2026, again afte
 
 The terminal's programs, and the bytes of the files they write, are reached through one interface, `MG.exec`
 (`assets/js/exec.js`). Behind it the **browser backend** (`assets/js/exec-browser.js`) runs the programs in the page,
-compiled to WebAssembly, as described above; it is the default. A **local backend** (`assets/js/exec-local.js`) is
-being built: the programs will run in a companion program on the user's own computer, the *local runner*, which keeps
-the files on disk, so that the memory of a browser tab no longer limits an analysis. This version can connect to a
-runner (`?backend=local`); it cannot yet run programs there, and without a runner the page says so and runs them
-itself. `docs/execution-backends.md` describes the interface, the plan and the runner's protocol; `tests/` checks
-that the browser backend behaves exactly as before (see `tests/README.md`).
+compiled to WebAssembly, as described above; it is the default. The **local backend** (`assets/js/exec-local.js`)
+runs them on the user's own computer, in a companion program, the **local runner** (`runner/`, Node.js, nothing to
+install), with the files of an analysis in a folder on disk – so that neither the memory of a browser tab nor the size
+of a file limits an analysis:
+
+```
+node runner/runner.mjs --workspace ~/my-analysis      # then open the address it prints
+```
+
+The folder is the terminal's home folder; the same programs run there (SAMtools, BCFtools, minimap2, BWA, HISAT2 and
+the rest of the Biowasm builds, and the GNU tools), reading and writing the files on disk; the page holds none of
+their bytes, and finds the files again after a reload. The programs with a worker of their own (featureCounts,
+Salmon, Kraken2 …) are not in the runner yet. Without a runner, `?backend=local` says so and runs the programs in the
+page. `runner/README.md` explains the runner; `docs/execution-backends.md` the interface, the two backends, the
+runner's protocol and the measurements of the first prototype (SAMtools sorting a 5 GiB BAM file from the page);
+`tests/` checks that the browser backend behaves exactly as before and the local one as the browser (see
+`tests/README.md`).
 
 ## Files
 
@@ -168,7 +179,8 @@ that the browser backend behaves exactly as before (see `tests/README.md`).
 index.html             the page (built by build/make_page.py)
 isolation-sw.js        the service worker that makes the page cross-origin isolated (keep it next to index.html)
 assets/js/             the workbench: config.js (settings), the tabs, the shell, the kernels, the AI assistant;
-                       exec.js, exec-browser.js, exec-local.js: where the programs run (docs/execution-backends.md)
+                       exec.js, exec-engine.js, exec-browser.js, exec-local.js: where the programs run
+                       (docs/execution-backends.md)
 assets/css/            styles
 assets/py/smk.py       the browser edition of Snakemake
 assets/vendor/         bundled programs and libraries, with their licences (see THIRD_PARTY.md); genomics-wasm/: the
@@ -180,8 +192,10 @@ data/starter/          the starter notebooks
 build/                 make_page.py, help/ (the help pages), citations.json (the references), template.html,
                        make_starters.py, vendor_sums.py
 serve.py               a small local web server (optional)
-docs/                  execution-backends.md: how the programs are run, and the plan for running them locally
-tests/                 headless checks (Playwright): the parity suite and the execution-backend checks
+runner/                the local runner: the programs on this computer, the files in a folder on disk (runner/README.md)
+docs/                  execution-backends.md: how the programs are run, in the browser and with the local runner
+tests/                 headless checks (Playwright): the parity suite, the execution-backend checks, the local runner,
+                       and the SAMtools prototype (tests/prototype/)
 THIRD_PARTY.md         the third-party software and data, their licences and sources
 ```
 

@@ -1,0 +1,3355 @@
+{
+ "date": "2026-10-14T16:13:41.176Z",
+ "machine": {
+  "os": "Linux 6.18.44-fc-v114",
+  "cpu": "Intel(R) Xeon(R) Processor @ 2.80GHz",
+  "cpus": 2,
+  "memory": 8419655680
+ },
+ "versions": {
+  "node": "22.22.0",
+  "browser": "156.0.8078.4",
+  "playwright": "1.64.1",
+  "samtoolsInPage": "samtools 1.17\nUsing htslib 1.17",
+  "native": "samtools 1.17; Using htslib 1.17",
+  "nativeBuild": "built from samtools-1.17.tar.bz2 (with htslib 1.17): ./configure --without-curses --disable-libcurl CFLAGS=-O2; gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0"
+ },
+ "build": {
+  "samtools": "samtools 1.17 with htslib 1.17, compiled by Biowasm (assets/vendor/biowasm/samtools/1.17)",
+  "emscripten": "2.0.25 (Biowasm Dockerfile-dev: emscripten/emsdk:2.0.25)",
+  "flags": "-O2 -s USE_ZLIB=1 -s USE_BZIP2=1, liblzma 5.2.5; -s MODULARIZE=1 -s ENVIRONMENT=\"web,worker\" -s ALLOW_MEMORY_GROWTH=1 -s INVOKE_RUN=0 -s FORCE_FILESYSTEM=1 (biowasm-build/bin/shared.sh, tools/samtools/compile.sh)",
+  "memory": "wasm32: INITIAL_MEMORY 16 MiB, growth to 2 GiB at most (the build default of Emscripten 2.0.25)",
+  "wasmSha256": "816ea4dc5fdcbea45d160289383a6b845e4dd0e3f35f93fd3bd4c9b159680c76"
+ },
+ "dataset": {
+  "file": "unsorted.bam: node tests/prototype/make-unsorted-sam.mjs --reads 60000000 --seed 1 | samtools view -b (native samtools 1.17)",
+  "bytes": 5376906970,
+  "sortedBytes": 3899606462,
+  "reads": 60000000,
+  "uncompressedBytes": 20179626794
+ },
+ "command": "samtools sort -m 256M -o sorted.bam unsorted.bam",
+ "phases": {
+  "sort": {
+   "name": "sort",
+   "line": "cd ~ && samtools sort -m 256M -o sorted.bam unsorted.bam",
+   "code": 0,
+   "stdout": "",
+   "stderr": "[bam_sort_core] merging from 20 files and 1 in-memory blocks...\n",
+   "wall": 1776.5,
+   "start": {
+    "runner": 79708160,
+    "browser": 511528960,
+    "renderer": 164655104,
+    "jsHeap": 5459888
+   },
+   "peak": {
+    "runner": 484245504,
+    "runnerPeak": 484245504,
+    "browser": 847360000,
+    "renderer": 484573184,
+    "jsHeap": 6082212,
+    "jsHeapTotal": 9506816,
+    "temp": 6285979484,
+    "tempFiles": 36,
+    "output": 3899606462,
+    "extra": 9218589954,
+    "minFree": 15797862400
+   },
+   "traffic": {
+    "requests": 16,
+    "sent": 1280,
+    "received": 50750
+   },
+   "series": [
+    {
+     "t": 0,
+     "runnerRSS": 79708160,
+     "browserRSS": 511528960,
+     "jsHeap": 5459888,
+     "temp": 1330,
+     "output": 0
+    },
+    {
+     "t": 5.1,
+     "runnerRSS": 440188928,
+     "browserRSS": 622116864,
+     "jsHeap": 6011856,
+     "temp": 39845888,
+     "output": 0
+    },
+    {
+     "t": 10.1,
+     "runnerRSS": 440201216,
+     "browserRSS": 722497536,
+     "jsHeap": 6026704,
+     "temp": 79670143,
+     "output": 0
+    },
+    {
+     "t": 15.2,
+     "runnerRSS": 451887104,
+     "browserRSS": 847360000,
+     "jsHeap": 6045068,
+     "temp": 138720042,
+     "output": 0
+    },
+    {
+     "t": 20.2,
+     "runnerRSS": 430399488,
+     "browserRSS": 843530240,
+     "jsHeap": 6058648,
+     "temp": 182760234,
+     "output": 0
+    },
+    {
+     "t": 25.3,
+     "runnerRSS": 425926656,
+     "browserRSS": 843862016,
+     "jsHeap": 6072228,
+     "temp": 222784785,
+     "output": 0
+    },
+    {
+     "t": 30.3,
+     "runnerRSS": 425926656,
+     "browserRSS": 834433024,
+     "jsHeap": 4097276,
+     "temp": 277460913,
+     "output": 0
+    },
+    {
+     "t": 35.3,
+     "runnerRSS": 425934848,
+     "browserRSS": 799326208,
+     "jsHeap": 4110856,
+     "temp": 338278321,
+     "output": 0
+    },
+    {
+     "t": 40.4,
+     "runnerRSS": 425934848,
+     "browserRSS": 799797248,
+     "jsHeap": 4124436,
+     "temp": 386726096,
+     "output": 0
+    },
+    {
+     "t": 45.4,
+     "runnerRSS": 425955328,
+     "browserRSS": 800227328,
+     "jsHeap": 4138016,
+     "temp": 435230330,
+     "output": 0
+    },
+    {
+     "t": 50.4,
+     "runnerRSS": 425955328,
+     "browserRSS": 800788480,
+     "jsHeap": 4162024,
+     "temp": 485806664,
+     "output": 0
+    },
+    {
+     "t": 55.5,
+     "runnerRSS": 425955328,
+     "browserRSS": 801087488,
+     "jsHeap": 4175404,
+     "temp": 552915528,
+     "output": 0
+    },
+    {
+     "t": 60.5,
+     "runnerRSS": 425955328,
+     "browserRSS": 794906624,
+     "jsHeap": 4186984,
+     "temp": 601369716,
+     "output": 0
+    },
+    {
+     "t": 65.5,
+     "runnerRSS": 426000384,
+     "browserRSS": 793415680,
+     "jsHeap": 4198564,
+     "temp": 651965163,
+     "output": 0
+    },
+    {
+     "t": 70.6,
+     "runnerRSS": 426070016,
+     "browserRSS": 793899008,
+     "jsHeap": 4210144,
+     "temp": 698352439,
+     "output": 0
+    },
+    {
+     "t": 75.6,
+     "runnerRSS": 426098688,
+     "browserRSS": 794353664,
+     "jsHeap": 4221724,
+     "temp": 763603195,
+     "output": 0
+    },
+    {
+     "t": 80.6,
+     "runnerRSS": 426160128,
+     "browserRSS": 794959872,
+     "jsHeap": 4233304,
+     "temp": 816031995,
+     "output": 0
+    },
+    {
+     "t": 85.7,
+     "runnerRSS": 426229760,
+     "browserRSS": 795435008,
+     "jsHeap": 4244884,
+     "temp": 856138531,
+     "output": 0
+    },
+    {
+     "t": 90.7,
+     "runnerRSS": 426262528,
+     "browserRSS": 796004352,
+     "jsHeap": 4257364,
+     "temp": 902541491,
+     "output": 0
+    },
+    {
+     "t": 95.7,
+     "runnerRSS": 426328064,
+     "browserRSS": 796078080,
+     "jsHeap": 4268944,
+     "temp": 971974457,
+     "output": 0
+    },
+    {
+     "t": 100.8,
+     "runnerRSS": 426393600,
+     "browserRSS": 796647424,
+     "jsHeap": 4280524,
+     "temp": 1026500409,
+     "output": 0
+    },
+    {
+     "t": 105.8,
+     "runnerRSS": 426463232,
+     "browserRSS": 797184000,
+     "jsHeap": 4292104,
+     "temp": 1066481249,
+     "output": 0
+    },
+    {
+     "t": 110.9,
+     "runnerRSS": 426491904,
+     "browserRSS": 797601792,
+     "jsHeap": 4303904,
+     "temp": 1110634989,
+     "output": 0
+    },
+    {
+     "t": 115.9,
+     "runnerRSS": 426549248,
+     "browserRSS": 797618176,
+     "jsHeap": 4315484,
+     "temp": 1173549549,
+     "output": 0
+    },
+    {
+     "t": 120.9,
+     "runnerRSS": 426618880,
+     "browserRSS": 798605312,
+     "jsHeap": 4327064,
+     "temp": 1226087660,
+     "output": 0
+    },
+    {
+     "t": 126,
+     "runnerRSS": 426692608,
+     "browserRSS": 799027200,
+     "jsHeap": 4338644,
+     "temp": 1278658933,
+     "output": 0
+    },
+    {
+     "t": 131,
+     "runnerRSS": 426762240,
+     "browserRSS": 799649792,
+     "jsHeap": 4350224,
+     "temp": 1329163891,
+     "output": 0
+    },
+    {
+     "t": 136,
+     "runnerRSS": 426799104,
+     "browserRSS": 800206848,
+     "jsHeap": 4361804,
+     "temp": 1388069887,
+     "output": 0
+    },
+    {
+     "t": 141.1,
+     "runnerRSS": 426856448,
+     "browserRSS": 800780288,
+     "jsHeap": 4373412,
+     "temp": 1448887295,
+     "output": 0
+    },
+    {
+     "t": 146.2,
+     "runnerRSS": 426655744,
+     "browserRSS": 801316864,
+     "jsHeap": 4385328,
+     "temp": 1497266820,
+     "output": 0
+    },
+    {
+     "t": 151.3,
+     "runnerRSS": 426700800,
+     "browserRSS": 801976320,
+     "jsHeap": 4402228,
+     "temp": 1539365829,
+     "output": 0
+    },
+    {
+     "t": 156.4,
+     "runnerRSS": 426721280,
+     "browserRSS": 802500608,
+     "jsHeap": 4413808,
+     "temp": 1596185823,
+     "output": 0
+    },
+    {
+     "t": 161.4,
+     "runnerRSS": 426762240,
+     "browserRSS": 803074048,
+     "jsHeap": 4425388,
+     "temp": 1661197535,
+     "output": 0
+    },
+    {
+     "t": 166.5,
+     "runnerRSS": 426807296,
+     "browserRSS": 803635200,
+     "jsHeap": 4436968,
+     "temp": 1711713730,
+     "output": 0
+    },
+    {
+     "t": 171.5,
+     "runnerRSS": 426856448,
+     "browserRSS": 804167680,
+     "jsHeap": 4448548,
+     "temp": 1757993889,
+     "output": 0
+    },
+    {
+     "t": 176.5,
+     "runnerRSS": 426905600,
+     "browserRSS": 804798464,
+     "jsHeap": 4460128,
+     "temp": 1804310018,
+     "output": 0
+    },
+    {
+     "t": 181.6,
+     "runnerRSS": 426917888,
+     "browserRSS": 805285888,
+     "jsHeap": 4471708,
+     "temp": 1873698415,
+     "output": 0
+    },
+    {
+     "t": 186.6,
+     "runnerRSS": 426967040,
+     "browserRSS": 805896192,
+     "jsHeap": 4483508,
+     "temp": 1919835759,
+     "output": 0
+    },
+    {
+     "t": 191.6,
+     "runnerRSS": 427016192,
+     "browserRSS": 806412288,
+     "jsHeap": 4495088,
+     "temp": 1972426711,
+     "output": 0
+    },
+    {
+     "t": 196.7,
+     "runnerRSS": 427040768,
+     "browserRSS": 806977536,
+     "jsHeap": 4506668,
+     "temp": 2027071675,
+     "output": 0
+    },
+    {
+     "t": 201.7,
+     "runnerRSS": 427040768,
+     "browserRSS": 807546880,
+     "jsHeap": 4518248,
+     "temp": 2081750995,
+     "output": 0
+    },
+    {
+     "t": 206.7,
+     "runnerRSS": 427040768,
+     "browserRSS": 808075264,
+     "jsHeap": 4529828,
+     "temp": 2146762707,
+     "output": 0
+    },
+    {
+     "t": 211.8,
+     "runnerRSS": 427040768,
+     "browserRSS": 808587264,
+     "jsHeap": 4541408,
+     "temp": 2199323916,
+     "output": 0
+    },
+    {
+     "t": 216.8,
+     "runnerRSS": 484110336,
+     "browserRSS": 809185280,
+     "jsHeap": 4552988,
+     "temp": 2243464255,
+     "output": 0
+    },
+    {
+     "t": 221.8,
+     "runnerRSS": 484114432,
+     "browserRSS": 809738240,
+     "jsHeap": 4564568,
+     "temp": 2304281663,
+     "output": 0
+    },
+    {
+     "t": 226.9,
+     "runnerRSS": 484114432,
+     "browserRSS": 810315776,
+     "jsHeap": 4576148,
+     "temp": 2360904767,
+     "output": 0
+    },
+    {
+     "t": 231.9,
+     "runnerRSS": 484114432,
+     "browserRSS": 810827776,
+     "jsHeap": 4587728,
+     "temp": 2417527871,
+     "output": 0
+    },
+    {
+     "t": 237,
+     "runnerRSS": 484114432,
+     "browserRSS": 806608896,
+     "jsHeap": 4118080,
+     "temp": 2474150975,
+     "output": 0
+    },
+    {
+     "t": 242,
+     "runnerRSS": 484114432,
+     "browserRSS": 806600704,
+     "jsHeap": 4129660,
+     "temp": 2528676927,
+     "output": 0
+    },
+    {
+     "t": 247,
+     "runnerRSS": 484114432,
+     "browserRSS": 806641664,
+     "jsHeap": 4141240,
+     "temp": 2583202879,
+     "output": 0
+    },
+    {
+     "t": 252.1,
+     "runnerRSS": 484114432,
+     "browserRSS": 806682624,
+     "jsHeap": 4152820,
+     "temp": 2644020287,
+     "output": 0
+    },
+    {
+     "t": 257.1,
+     "runnerRSS": 484114432,
+     "browserRSS": 806797312,
+     "jsHeap": 4164516,
+     "temp": 2700643391,
+     "output": 0
+    },
+    {
+     "t": 262.1,
+     "runnerRSS": 484114432,
+     "browserRSS": 806731776,
+     "jsHeap": 4176096,
+     "temp": 2757266495,
+     "output": 0
+    },
+    {
+     "t": 267.2,
+     "runnerRSS": 484114432,
+     "browserRSS": 806940672,
+     "jsHeap": 4188236,
+     "temp": 2813889599,
+     "output": 0
+    },
+    {
+     "t": 272.2,
+     "runnerRSS": 484114432,
+     "browserRSS": 807071744,
+     "jsHeap": 4211556,
+     "temp": 2870512703,
+     "output": 0
+    },
+    {
+     "t": 277.2,
+     "runnerRSS": 484114432,
+     "browserRSS": 807079936,
+     "jsHeap": 4223136,
+     "temp": 2929232959,
+     "output": 0
+    },
+    {
+     "t": 282.3,
+     "runnerRSS": 484114432,
+     "browserRSS": 807059456,
+     "jsHeap": 4234936,
+     "temp": 2981661759,
+     "output": 0
+    },
+    {
+     "t": 287.3,
+     "runnerRSS": 484114432,
+     "browserRSS": 807219200,
+     "jsHeap": 4246516,
+     "temp": 3040382015,
+     "output": 0
+    },
+    {
+     "t": 292.4,
+     "runnerRSS": 484118528,
+     "browserRSS": 807387136,
+     "jsHeap": 4258096,
+     "temp": 3094907967,
+     "output": 0
+    },
+    {
+     "t": 297.4,
+     "runnerRSS": 484122624,
+     "browserRSS": 807497728,
+     "jsHeap": 4269676,
+     "temp": 3143142463,
+     "output": 0
+    },
+    {
+     "t": 302.4,
+     "runnerRSS": 484126720,
+     "browserRSS": 807669760,
+     "jsHeap": 4281256,
+     "temp": 3201862719,
+     "output": 0
+    },
+    {
+     "t": 307.5,
+     "runnerRSS": 484143104,
+     "browserRSS": 807882752,
+     "jsHeap": 4292836,
+     "temp": 3260582975,
+     "output": 0
+    },
+    {
+     "t": 312.5,
+     "runnerRSS": 484143104,
+     "browserRSS": 808013824,
+     "jsHeap": 4304416,
+     "temp": 3319303231,
+     "output": 0
+    },
+    {
+     "t": 317.5,
+     "runnerRSS": 484143104,
+     "browserRSS": 808124416,
+     "jsHeap": 4315996,
+     "temp": 3380120639,
+     "output": 0
+    },
+    {
+     "t": 322.6,
+     "runnerRSS": 484143104,
+     "browserRSS": 808132608,
+     "jsHeap": 4327576,
+     "temp": 3434646591,
+     "output": 0
+    },
+    {
+     "t": 327.6,
+     "runnerRSS": 484143104,
+     "browserRSS": 808411136,
+     "jsHeap": 4339376,
+     "temp": 3493366847,
+     "output": 0
+    },
+    {
+     "t": 332.7,
+     "runnerRSS": 484143104,
+     "browserRSS": 808542208,
+     "jsHeap": 4350956,
+     "temp": 3547892799,
+     "output": 0
+    },
+    {
+     "t": 337.7,
+     "runnerRSS": 484143104,
+     "browserRSS": 808681472,
+     "jsHeap": 4362536,
+     "temp": 3608710207,
+     "output": 0
+    },
+    {
+     "t": 342.7,
+     "runnerRSS": 484143104,
+     "browserRSS": 808783872,
+     "jsHeap": 4374116,
+     "temp": 3659041855,
+     "output": 0
+    },
+    {
+     "t": 347.8,
+     "runnerRSS": 484143104,
+     "browserRSS": 808984576,
+     "jsHeap": 4385744,
+     "temp": 3711470655,
+     "output": 0
+    },
+    {
+     "t": 352.8,
+     "runnerRSS": 484143104,
+     "browserRSS": 809091072,
+     "jsHeap": 4397324,
+     "temp": 3765996607,
+     "output": 0
+    },
+    {
+     "t": 357.9,
+     "runnerRSS": 484143104,
+     "browserRSS": 809254912,
+     "jsHeap": 4408904,
+     "temp": 3824716863,
+     "output": 0
+    },
+    {
+     "t": 362.9,
+     "runnerRSS": 484143104,
+     "browserRSS": 809447424,
+     "jsHeap": 4420484,
+     "temp": 3881339967,
+     "output": 0
+    },
+    {
+     "t": 367.9,
+     "runnerRSS": 484143104,
+     "browserRSS": 809594880,
+     "jsHeap": 4432064,
+     "temp": 3940060223,
+     "output": 0
+    },
+    {
+     "t": 373,
+     "runnerRSS": 484143104,
+     "browserRSS": 809754624,
+     "jsHeap": 4443644,
+     "temp": 3998780479,
+     "output": 0
+    },
+    {
+     "t": 378,
+     "runnerRSS": 484143104,
+     "browserRSS": 809897984,
+     "jsHeap": 4455224,
+     "temp": 4057500735,
+     "output": 0
+    },
+    {
+     "t": 383.1,
+     "runnerRSS": 484143104,
+     "browserRSS": 810000384,
+     "jsHeap": 4467024,
+     "temp": 4116220991,
+     "output": 0
+    },
+    {
+     "t": 388.1,
+     "runnerRSS": 484143104,
+     "browserRSS": 810156032,
+     "jsHeap": 4478720,
+     "temp": 4172844095,
+     "output": 0
+    },
+    {
+     "t": 393.1,
+     "runnerRSS": 484143104,
+     "browserRSS": 810287104,
+     "jsHeap": 4490300,
+     "temp": 4231564351,
+     "output": 0
+    },
+    {
+     "t": 398.2,
+     "runnerRSS": 484159488,
+     "browserRSS": 810459136,
+     "jsHeap": 4501660,
+     "temp": 2038083850,
+     "output": 0
+    },
+    {
+     "t": 403.3,
+     "runnerRSS": 484159488,
+     "browserRSS": 810557440,
+     "jsHeap": 4513460,
+     "temp": 2107438744,
+     "output": 0
+    },
+    {
+     "t": 408.3,
+     "runnerRSS": 484159488,
+     "browserRSS": 810733568,
+     "jsHeap": 4525040,
+     "temp": 2151478936,
+     "output": 0
+    },
+    {
+     "t": 413.3,
+     "runnerRSS": 484159488,
+     "browserRSS": 810848256,
+     "jsHeap": 4536620,
+     "temp": 2193528229,
+     "output": 0
+    },
+    {
+     "t": 418.4,
+     "runnerRSS": 484159488,
+     "browserRSS": 810905600,
+     "jsHeap": 4548200,
+     "temp": 2246074824,
+     "output": 0
+    },
+    {
+     "t": 423.4,
+     "runnerRSS": 484159488,
+     "browserRSS": 811134976,
+     "jsHeap": 4559780,
+     "temp": 2311086536,
+     "output": 0
+    },
+    {
+     "t": 428.4,
+     "runnerRSS": 484159488,
+     "browserRSS": 811274240,
+     "jsHeap": 4571360,
+     "temp": 2355287537,
+     "output": 0
+    },
+    {
+     "t": 433.5,
+     "runnerRSS": 484159488,
+     "browserRSS": 811458560,
+     "jsHeap": 4582940,
+     "temp": 2401562872,
+     "output": 0
+    },
+    {
+     "t": 438.5,
+     "runnerRSS": 484159488,
+     "browserRSS": 811720704,
+     "jsHeap": 4594520,
+     "temp": 2454112058,
+     "output": 0
+    },
+    {
+     "t": 443.5,
+     "runnerRSS": 484159488,
+     "browserRSS": 807297024,
+     "jsHeap": 3654980,
+     "temp": 2519123770,
+     "output": 0
+    },
+    {
+     "t": 448.6,
+     "runnerRSS": 484159488,
+     "browserRSS": 807301120,
+     "jsHeap": 3666560,
+     "temp": 2563332751,
+     "output": 0
+    },
+    {
+     "t": 453.6,
+     "runnerRSS": 484159488,
+     "browserRSS": 807260160,
+     "jsHeap": 3678360,
+     "temp": 2615915583,
+     "output": 0
+    },
+    {
+     "t": 458.7,
+     "runnerRSS": 484159488,
+     "browserRSS": 807374848,
+     "jsHeap": 3689940,
+     "temp": 2664258861,
+     "output": 0
+    },
+    {
+     "t": 463.7,
+     "runnerRSS": 484159488,
+     "browserRSS": 807473152,
+     "jsHeap": 3701520,
+     "temp": 2731506376,
+     "output": 0
+    },
+    {
+     "t": 468.7,
+     "runnerRSS": 484159488,
+     "browserRSS": 807497728,
+     "jsHeap": 3713100,
+     "temp": 2786032328,
+     "output": 0
+    },
+    {
+     "t": 473.8,
+     "runnerRSS": 484159488,
+     "browserRSS": 807550976,
+     "jsHeap": 3724680,
+     "temp": 2830236956,
+     "output": 0
+    },
+    {
+     "t": 478.8,
+     "runnerRSS": 484159488,
+     "browserRSS": 807677952,
+     "jsHeap": 3736260,
+     "temp": 2878629479,
+     "output": 0
+    },
+    {
+     "t": 483.8,
+     "runnerRSS": 484159488,
+     "browserRSS": 807772160,
+     "jsHeap": 3747840,
+     "temp": 2939590619,
+     "output": 0
+    },
+    {
+     "t": 488.9,
+     "runnerRSS": 484159488,
+     "browserRSS": 807878656,
+     "jsHeap": 3759420,
+     "temp": 3006699483,
+     "output": 0
+    },
+    {
+     "t": 493.9,
+     "runnerRSS": 484159488,
+     "browserRSS": 807968768,
+     "jsHeap": 3771220,
+     "temp": 3061417404,
+     "output": 0
+    },
+    {
+     "t": 499,
+     "runnerRSS": 484159488,
+     "browserRSS": 808079360,
+     "jsHeap": 3782800,
+     "temp": 3116157886,
+     "output": 0
+    },
+    {
+     "t": 504,
+     "runnerRSS": 484159488,
+     "browserRSS": 808230912,
+     "jsHeap": 3794380,
+     "temp": 3166643114,
+     "output": 0
+    },
+    {
+     "t": 509,
+     "runnerRSS": 484159488,
+     "browserRSS": 808370176,
+     "jsHeap": 3805960,
+     "temp": 3217155486,
+     "output": 0
+    },
+    {
+     "t": 514.1,
+     "runnerRSS": 484159488,
+     "browserRSS": 808574976,
+     "jsHeap": 3822156,
+     "temp": 3286551651,
+     "output": 0
+    },
+    {
+     "t": 519.1,
+     "runnerRSS": 484159488,
+     "browserRSS": 808714240,
+     "jsHeap": 3833780,
+     "temp": 3338980451,
+     "output": 0
+    },
+    {
+     "t": 524.1,
+     "runnerRSS": 484159488,
+     "browserRSS": 808742912,
+     "jsHeap": 3845300,
+     "temp": 3389470815,
+     "output": 0
+    },
+    {
+     "t": 529.2,
+     "runnerRSS": 484159488,
+     "browserRSS": 808878080,
+     "jsHeap": 3857040,
+     "temp": 3435758360,
+     "output": 0
+    },
+    {
+     "t": 534.2,
+     "runnerRSS": 484159488,
+     "browserRSS": 808886272,
+     "jsHeap": 3868560,
+     "temp": 3494693154,
+     "output": 0
+    },
+    {
+     "t": 539.3,
+     "runnerRSS": 484159488,
+     "browserRSS": 808992768,
+     "jsHeap": 3880080,
+     "temp": 3545024802,
+     "output": 0
+    },
+    {
+     "t": 544.3,
+     "runnerRSS": 484159488,
+     "browserRSS": 809148416,
+     "jsHeap": 3891600,
+     "temp": 3597646239,
+     "output": 0
+    },
+    {
+     "t": 549.3,
+     "runnerRSS": 484159488,
+     "browserRSS": 809291776,
+     "jsHeap": 3903120,
+     "temp": 3643937025,
+     "output": 0
+    },
+    {
+     "t": 554.4,
+     "runnerRSS": 484159488,
+     "browserRSS": 809074688,
+     "jsHeap": 3914644,
+     "temp": 3702842699,
+     "output": 0
+    },
+    {
+     "t": 559.4,
+     "runnerRSS": 484159488,
+     "browserRSS": 809295872,
+     "jsHeap": 3926164,
+     "temp": 3769951563,
+     "output": 0
+    },
+    {
+     "t": 564.4,
+     "runnerRSS": 484159488,
+     "browserRSS": 809484288,
+     "jsHeap": 3937684,
+     "temp": 3818395573,
+     "output": 0
+    },
+    {
+     "t": 569.5,
+     "runnerRSS": 484159488,
+     "browserRSS": 809635840,
+     "jsHeap": 3949204,
+     "temp": 3870989749,
+     "output": 0
+    },
+    {
+     "t": 574.5,
+     "runnerRSS": 484159488,
+     "browserRSS": 809635840,
+     "jsHeap": 3960724,
+     "temp": 3923581389,
+     "output": 0
+    },
+    {
+     "t": 579.5,
+     "runnerRSS": 484159488,
+     "browserRSS": 809832448,
+     "jsHeap": 3972244,
+     "temp": 3980415858,
+     "output": 0
+    },
+    {
+     "t": 584.6,
+     "runnerRSS": 484159488,
+     "browserRSS": 809922560,
+     "jsHeap": 3983764,
+     "temp": 4041233266,
+     "output": 0
+    },
+    {
+     "t": 589.6,
+     "runnerRSS": 484159488,
+     "browserRSS": 809467904,
+     "jsHeap": 3995504,
+     "temp": 4087575997,
+     "output": 0
+    },
+    {
+     "t": 594.6,
+     "runnerRSS": 484159488,
+     "browserRSS": 808378368,
+     "jsHeap": 4007024,
+     "temp": 4138069585,
+     "output": 0
+    },
+    {
+     "t": 599.7,
+     "runnerRSS": 484163584,
+     "browserRSS": 806629376,
+     "jsHeap": 4018544,
+     "temp": 4188611866,
+     "output": 0
+    },
+    {
+     "t": 604.7,
+     "runnerRSS": 484163584,
+     "browserRSS": 805605376,
+     "jsHeap": 4030064,
+     "temp": 4258033500,
+     "output": 0
+    },
+    {
+     "t": 609.8,
+     "runnerRSS": 484163584,
+     "browserRSS": 803815424,
+     "jsHeap": 4041584,
+     "temp": 4302073692,
+     "output": 0
+    },
+    {
+     "t": 614.8,
+     "runnerRSS": 484163584,
+     "browserRSS": 802742272,
+     "jsHeap": 4053104,
+     "temp": 4360793948,
+     "output": 0
+    },
+    {
+     "t": 619.8,
+     "runnerRSS": 484163584,
+     "browserRSS": 802897920,
+     "jsHeap": 4064624,
+     "temp": 4419514204,
+     "output": 0
+    },
+    {
+     "t": 624.9,
+     "runnerRSS": 484163584,
+     "browserRSS": 802226176,
+     "jsHeap": 4076144,
+     "temp": 4467748700,
+     "output": 0
+    },
+    {
+     "t": 629.9,
+     "runnerRSS": 484163584,
+     "browserRSS": 801665024,
+     "jsHeap": 4087884,
+     "temp": 4522274652,
+     "output": 0
+    },
+    {
+     "t": 635,
+     "runnerRSS": 484163584,
+     "browserRSS": 801792000,
+     "jsHeap": 4099404,
+     "temp": 4572606300,
+     "output": 0
+    },
+    {
+     "t": 640,
+     "runnerRSS": 484163584,
+     "browserRSS": 801939456,
+     "jsHeap": 4110924,
+     "temp": 4629229404,
+     "output": 0
+    },
+    {
+     "t": 645,
+     "runnerRSS": 484163584,
+     "browserRSS": 798158848,
+     "jsHeap": 3616860,
+     "temp": 4683755356,
+     "output": 0
+    },
+    {
+     "t": 650.1,
+     "runnerRSS": 484163584,
+     "browserRSS": 797634560,
+     "jsHeap": 3628380,
+     "temp": 4736184156,
+     "output": 0
+    },
+    {
+     "t": 655.1,
+     "runnerRSS": 484163584,
+     "browserRSS": 797609984,
+     "jsHeap": 3640004,
+     "temp": 4788612956,
+     "output": 0
+    },
+    {
+     "t": 660.1,
+     "runnerRSS": 484163584,
+     "browserRSS": 797663232,
+     "jsHeap": 3651524,
+     "temp": 4838944604,
+     "output": 0
+    },
+    {
+     "t": 665.2,
+     "runnerRSS": 484163584,
+     "browserRSS": 797855744,
+     "jsHeap": 3663044,
+     "temp": 4895567708,
+     "output": 0
+    },
+    {
+     "t": 670.2,
+     "runnerRSS": 484163584,
+     "browserRSS": 797814784,
+     "jsHeap": 3674784,
+     "temp": 4941705052,
+     "output": 0
+    },
+    {
+     "t": 675.3,
+     "runnerRSS": 484163584,
+     "browserRSS": 797892608,
+     "jsHeap": 3686304,
+     "temp": 4989939548,
+     "output": 0
+    },
+    {
+     "t": 680.3,
+     "runnerRSS": 484163584,
+     "browserRSS": 798011392,
+     "jsHeap": 3697824,
+     "temp": 5038174044,
+     "output": 0
+    },
+    {
+     "t": 685.4,
+     "runnerRSS": 484163584,
+     "browserRSS": 798105600,
+     "jsHeap": 3709344,
+     "temp": 5090602844,
+     "output": 0
+    },
+    {
+     "t": 690.4,
+     "runnerRSS": 484163584,
+     "browserRSS": 798081024,
+     "jsHeap": 3720864,
+     "temp": 5143031644,
+     "output": 0
+    },
+    {
+     "t": 695.5,
+     "runnerRSS": 484163584,
+     "browserRSS": 798322688,
+     "jsHeap": 3732384,
+     "temp": 5193363292,
+     "output": 0
+    },
+    {
+     "t": 700.6,
+     "runnerRSS": 484163584,
+     "browserRSS": 798400512,
+     "jsHeap": 3743904,
+     "temp": 5249986396,
+     "output": 0
+    },
+    {
+     "t": 705.6,
+     "runnerRSS": 484163584,
+     "browserRSS": 798560256,
+     "jsHeap": 3755424,
+     "temp": 5304512348,
+     "output": 0
+    },
+    {
+     "t": 710.7,
+     "runnerRSS": 484163584,
+     "browserRSS": 798523392,
+     "jsHeap": 3766944,
+     "temp": 5348552540,
+     "output": 0
+    },
+    {
+     "t": 715.7,
+     "runnerRSS": 484163584,
+     "browserRSS": 798744576,
+     "jsHeap": 3778464,
+     "temp": 5398884188,
+     "output": 0
+    },
+    {
+     "t": 720.8,
+     "runnerRSS": 484163584,
+     "browserRSS": 798883840,
+     "jsHeap": 3790204,
+     "temp": 5455507292,
+     "output": 0
+    },
+    {
+     "t": 725.8,
+     "runnerRSS": 484163584,
+     "browserRSS": 798978048,
+     "jsHeap": 3801724,
+     "temp": 5516324700,
+     "output": 0
+    },
+    {
+     "t": 730.8,
+     "runnerRSS": 484163584,
+     "browserRSS": 799080448,
+     "jsHeap": 3813244,
+     "temp": 5577142108,
+     "output": 0
+    },
+    {
+     "t": 735.9,
+     "runnerRSS": 484163584,
+     "browserRSS": 799248384,
+     "jsHeap": 3824764,
+     "temp": 5629570908,
+     "output": 0
+    },
+    {
+     "t": 740.9,
+     "runnerRSS": 484163584,
+     "browserRSS": 799358976,
+     "jsHeap": 3836284,
+     "temp": 5690388316,
+     "output": 0
+    },
+    {
+     "t": 745.9,
+     "runnerRSS": 484163584,
+     "browserRSS": 799485952,
+     "jsHeap": 3847804,
+     "temp": 5749108572,
+     "output": 0
+    },
+    {
+     "t": 751,
+     "runnerRSS": 484163584,
+     "browserRSS": 799174656,
+     "jsHeap": 3859324,
+     "temp": 5807828828,
+     "output": 0
+    },
+    {
+     "t": 756,
+     "runnerRSS": 484163584,
+     "browserRSS": 799338496,
+     "jsHeap": 3870844,
+     "temp": 5866549084,
+     "output": 0
+    },
+    {
+     "t": 761,
+     "runnerRSS": 484163584,
+     "browserRSS": 799449088,
+     "jsHeap": 3882592,
+     "temp": 5925269340,
+     "output": 0
+    },
+    {
+     "t": 766.1,
+     "runnerRSS": 484163584,
+     "browserRSS": 799617024,
+     "jsHeap": 3894112,
+     "temp": 5979795292,
+     "output": 0
+    },
+    {
+     "t": 771.1,
+     "runnerRSS": 484163584,
+     "browserRSS": 799510528,
+     "jsHeap": 3905736,
+     "temp": 6032224092,
+     "output": 0
+    },
+    {
+     "t": 776.2,
+     "runnerRSS": 484163584,
+     "browserRSS": 799866880,
+     "jsHeap": 3917256,
+     "temp": 6084652892,
+     "output": 0
+    },
+    {
+     "t": 781.2,
+     "runnerRSS": 484163584,
+     "browserRSS": 800043008,
+     "jsHeap": 3928776,
+     "temp": 6143373148,
+     "output": 0
+    },
+    {
+     "t": 786.3,
+     "runnerRSS": 484163584,
+     "browserRSS": 800210944,
+     "jsHeap": 3940516,
+     "temp": 6202093404,
+     "output": 0
+    },
+    {
+     "t": 791.3,
+     "runnerRSS": 484163584,
+     "browserRSS": 800317440,
+     "jsHeap": 3952036,
+     "temp": 6262910812,
+     "output": 0
+    },
+    {
+     "t": 796.4,
+     "runnerRSS": 484163584,
+     "browserRSS": 800440320,
+     "jsHeap": 3963556,
+     "temp": 4073060570,
+     "output": 0
+    },
+    {
+     "t": 801.5,
+     "runnerRSS": 484163584,
+     "browserRSS": 800595968,
+     "jsHeap": 3975076,
+     "temp": 4129683674,
+     "output": 0
+    },
+    {
+     "t": 806.5,
+     "runnerRSS": 484163584,
+     "browserRSS": 800604160,
+     "jsHeap": 3986816,
+     "temp": 4175994924,
+     "output": 0
+    },
+    {
+     "t": 811.6,
+     "runnerRSS": 484163584,
+     "browserRSS": 800866304,
+     "jsHeap": 3998336,
+     "temp": 4224452451,
+     "output": 0
+    },
+    {
+     "t": 816.6,
+     "runnerRSS": 484163584,
+     "browserRSS": 800993280,
+     "jsHeap": 4009856,
+     "temp": 4281266948,
+     "output": 0
+    },
+    {
+     "t": 821.6,
+     "runnerRSS": 484163584,
+     "browserRSS": 801165312,
+     "jsHeap": 4021376,
+     "temp": 4350630064,
+     "output": 0
+    },
+    {
+     "t": 826.7,
+     "runnerRSS": 484163584,
+     "browserRSS": 801148928,
+     "jsHeap": 4032896,
+     "temp": 4407253168,
+     "output": 0
+    },
+    {
+     "t": 831.7,
+     "runnerRSS": 484163584,
+     "browserRSS": 801443840,
+     "jsHeap": 4044416,
+     "temp": 4445195502,
+     "output": 0
+    },
+    {
+     "t": 836.7,
+     "runnerRSS": 484163584,
+     "browserRSS": 801554432,
+     "jsHeap": 4055936,
+     "temp": 4495735120,
+     "output": 0
+    },
+    {
+     "t": 841.8,
+     "runnerRSS": 484163584,
+     "browserRSS": 801730560,
+     "jsHeap": 4067676,
+     "temp": 4558799956,
+     "output": 0
+    },
+    {
+     "t": 846.8,
+     "runnerRSS": 484163584,
+     "browserRSS": 801828864,
+     "jsHeap": 4079196,
+     "temp": 4623811668,
+     "output": 0
+    },
+    {
+     "t": 851.8,
+     "runnerRSS": 484163584,
+     "browserRSS": 797855744,
+     "jsHeap": 3619604,
+     "temp": 4678525000,
+     "output": 0
+    },
+    {
+     "t": 856.8,
+     "runnerRSS": 484163584,
+     "browserRSS": 797368320,
+     "jsHeap": 3631124,
+     "temp": 4733262769,
+     "output": 0
+    },
+    {
+     "t": 861.9,
+     "runnerRSS": 484163584,
+     "browserRSS": 797351936,
+     "jsHeap": 3642644,
+     "temp": 4777479067,
+     "output": 0
+    },
+    {
+     "t": 866.9,
+     "runnerRSS": 484163584,
+     "browserRSS": 797409280,
+     "jsHeap": 3654164,
+     "temp": 4836355694,
+     "output": 0
+    },
+    {
+     "t": 871.9,
+     "runnerRSS": 484163584,
+     "browserRSS": 797528064,
+     "jsHeap": 3665684,
+     "temp": 4905775678,
+     "output": 0
+    },
+    {
+     "t": 877,
+     "runnerRSS": 484163584,
+     "browserRSS": 797683712,
+     "jsHeap": 3677204,
+     "temp": 4962398782,
+     "output": 0
+    },
+    {
+     "t": 882,
+     "runnerRSS": 484163584,
+     "browserRSS": 797757440,
+     "jsHeap": 3688724,
+     "temp": 5012928063,
+     "output": 0
+    },
+    {
+     "t": 887,
+     "runnerRSS": 484163584,
+     "browserRSS": 797822976,
+     "jsHeap": 3700244,
+     "temp": 5065499811,
+     "output": 0
+    },
+    {
+     "t": 892.1,
+     "runnerRSS": 484163584,
+     "browserRSS": 797949952,
+     "jsHeap": 3711984,
+     "temp": 5113916123,
+     "output": 0
+    },
+    {
+     "t": 897.1,
+     "runnerRSS": 484163584,
+     "browserRSS": 798048256,
+     "jsHeap": 3723608,
+     "temp": 5183332666,
+     "output": 0
+    },
+    {
+     "t": 902.1,
+     "runnerRSS": 484163584,
+     "browserRSS": 798253056,
+     "jsHeap": 3735128,
+     "temp": 5239955770,
+     "output": 0
+    },
+    {
+     "t": 907.2,
+     "runnerRSS": 484163584,
+     "browserRSS": 798343168,
+     "jsHeap": 3746648,
+     "temp": 5286285214,
+     "output": 0
+    },
+    {
+     "t": 912.2,
+     "runnerRSS": 484225024,
+     "browserRSS": 798474240,
+     "jsHeap": 3758168,
+     "temp": 5322081538,
+     "output": 8388608
+    },
+    {
+     "t": 917.2,
+     "runnerRSS": 484225024,
+     "browserRSS": 798605312,
+     "jsHeap": 3769688,
+     "temp": 5322081538,
+     "output": 29360128
+    },
+    {
+     "t": 922.3,
+     "runnerRSS": 484225024,
+     "browserRSS": 798724096,
+     "jsHeap": 3781208,
+     "temp": 5322081538,
+     "output": 52428800
+    },
+    {
+     "t": 927.3,
+     "runnerRSS": 484225024,
+     "browserRSS": 798801920,
+     "jsHeap": 3792728,
+     "temp": 5322081538,
+     "output": 75497472
+    },
+    {
+     "t": 932.3,
+     "runnerRSS": 484229120,
+     "browserRSS": 798953472,
+     "jsHeap": 3804248,
+     "temp": 5322081538,
+     "output": 98566144
+    },
+    {
+     "t": 937.4,
+     "runnerRSS": 484229120,
+     "browserRSS": 799064064,
+     "jsHeap": 3815768,
+     "temp": 5322081538,
+     "output": 121634816
+    },
+    {
+     "t": 942.4,
+     "runnerRSS": 484229120,
+     "browserRSS": 799084544,
+     "jsHeap": 3827288,
+     "temp": 5322081538,
+     "output": 144703488
+    },
+    {
+     "t": 947.4,
+     "runnerRSS": 484229120,
+     "browserRSS": 799272960,
+     "jsHeap": 3839028,
+     "temp": 5322081538,
+     "output": 165675008
+    },
+    {
+     "t": 952.5,
+     "runnerRSS": 484229120,
+     "browserRSS": 799432704,
+     "jsHeap": 3850548,
+     "temp": 5322081538,
+     "output": 186646528
+    },
+    {
+     "t": 957.5,
+     "runnerRSS": 484229120,
+     "browserRSS": 799551488,
+     "jsHeap": 3862068,
+     "temp": 5322081538,
+     "output": 209715200
+    },
+    {
+     "t": 962.5,
+     "runnerRSS": 484229120,
+     "browserRSS": 799690752,
+     "jsHeap": 3873588,
+     "temp": 5322081538,
+     "output": 230686720
+    },
+    {
+     "t": 967.6,
+     "runnerRSS": 484229120,
+     "browserRSS": 799809536,
+     "jsHeap": 3885116,
+     "temp": 5322081538,
+     "output": 253755392
+    },
+    {
+     "t": 972.6,
+     "runnerRSS": 484229120,
+     "browserRSS": 799612928,
+     "jsHeap": 3896636,
+     "temp": 5322081538,
+     "output": 274726912
+    },
+    {
+     "t": 977.7,
+     "runnerRSS": 484229120,
+     "browserRSS": 799739904,
+     "jsHeap": 3908156,
+     "temp": 5322081538,
+     "output": 295698432
+    },
+    {
+     "t": 982.7,
+     "runnerRSS": 484229120,
+     "browserRSS": 799232000,
+     "jsHeap": 3919676,
+     "temp": 5322081538,
+     "output": 316669952
+    },
+    {
+     "t": 987.8,
+     "runnerRSS": 484229120,
+     "browserRSS": 799338496,
+     "jsHeap": 3931196,
+     "temp": 5322081538,
+     "output": 337641472
+    },
+    {
+     "t": 992.8,
+     "runnerRSS": 484229120,
+     "browserRSS": 799555584,
+     "jsHeap": 3942716,
+     "temp": 5322081538,
+     "output": 360710144
+    },
+    {
+     "t": 997.8,
+     "runnerRSS": 484229120,
+     "browserRSS": 799670272,
+     "jsHeap": 3954236,
+     "temp": 5322081538,
+     "output": 383778816
+    },
+    {
+     "t": 1002.9,
+     "runnerRSS": 484229120,
+     "browserRSS": 800165888,
+     "jsHeap": 3967428,
+     "temp": 5322081538,
+     "output": 408944640
+    },
+    {
+     "t": 1007.9,
+     "runnerRSS": 484229120,
+     "browserRSS": 799981568,
+     "jsHeap": 3979168,
+     "temp": 5322081538,
+     "output": 432013312
+    },
+    {
+     "t": 1012.9,
+     "runnerRSS": 484229120,
+     "browserRSS": 800120832,
+     "jsHeap": 3990688,
+     "temp": 5322081538,
+     "output": 455081984
+    },
+    {
+     "t": 1018,
+     "runnerRSS": 484229120,
+     "browserRSS": 800260096,
+     "jsHeap": 4002208,
+     "temp": 5322081538,
+     "output": 476053504
+    },
+    {
+     "t": 1023,
+     "runnerRSS": 484229120,
+     "browserRSS": 800407552,
+     "jsHeap": 4013728,
+     "temp": 5322081538,
+     "output": 499122176
+    },
+    {
+     "t": 1028,
+     "runnerRSS": 484229120,
+     "browserRSS": 800550912,
+     "jsHeap": 4025248,
+     "temp": 5322081538,
+     "output": 520093696
+    },
+    {
+     "t": 1033.1,
+     "runnerRSS": 484229120,
+     "browserRSS": 800722944,
+     "jsHeap": 4036768,
+     "temp": 5322081538,
+     "output": 541065216
+    },
+    {
+     "t": 1038.1,
+     "runnerRSS": 484229120,
+     "browserRSS": 800833536,
+     "jsHeap": 4048392,
+     "temp": 5322081538,
+     "output": 564133888
+    },
+    {
+     "t": 1043.1,
+     "runnerRSS": 484229120,
+     "browserRSS": 800964608,
+     "jsHeap": 4059912,
+     "temp": 5322081538,
+     "output": 587202560
+    },
+    {
+     "t": 1048.2,
+     "runnerRSS": 484229120,
+     "browserRSS": 801112064,
+     "jsHeap": 4071652,
+     "temp": 5322081538,
+     "output": 608174080
+    },
+    {
+     "t": 1053.2,
+     "runnerRSS": 484229120,
+     "browserRSS": 801239040,
+     "jsHeap": 4083172,
+     "temp": 5322081538,
+     "output": 629145600
+    },
+    {
+     "t": 1058.2,
+     "runnerRSS": 484229120,
+     "browserRSS": 797233152,
+     "jsHeap": 3619180,
+     "temp": 5322081538,
+     "output": 652214272
+    },
+    {
+     "t": 1063.3,
+     "runnerRSS": 484229120,
+     "browserRSS": 796700672,
+     "jsHeap": 3630700,
+     "temp": 5322081538,
+     "output": 675282944
+    },
+    {
+     "t": 1068.3,
+     "runnerRSS": 484229120,
+     "browserRSS": 796741632,
+     "jsHeap": 3642220,
+     "temp": 5322081538,
+     "output": 696254464
+    },
+    {
+     "t": 1073.4,
+     "runnerRSS": 484229120,
+     "browserRSS": 796835840,
+     "jsHeap": 3653740,
+     "temp": 5322081538,
+     "output": 719323136
+    },
+    {
+     "t": 1078.4,
+     "runnerRSS": 484229120,
+     "browserRSS": 796700672,
+     "jsHeap": 3665260,
+     "temp": 5322081538,
+     "output": 740294656
+    },
+    {
+     "t": 1083.4,
+     "runnerRSS": 484229120,
+     "browserRSS": 796946432,
+     "jsHeap": 3676780,
+     "temp": 5322081538,
+     "output": 761266176
+    },
+    {
+     "t": 1088.5,
+     "runnerRSS": 484229120,
+     "browserRSS": 797122560,
+     "jsHeap": 3688300,
+     "temp": 5322081538,
+     "output": 786432000
+    },
+    {
+     "t": 1093.5,
+     "runnerRSS": 484229120,
+     "browserRSS": 797233152,
+     "jsHeap": 3699820,
+     "temp": 5322081538,
+     "output": 807403520
+    },
+    {
+     "t": 1098.5,
+     "runnerRSS": 484229120,
+     "browserRSS": 797237248,
+     "jsHeap": 3711560,
+     "temp": 5322081538,
+     "output": 830472192
+    },
+    {
+     "t": 1103.6,
+     "runnerRSS": 484229120,
+     "browserRSS": 797433856,
+     "jsHeap": 3723080,
+     "temp": 5322081538,
+     "output": 849346560
+    },
+    {
+     "t": 1108.6,
+     "runnerRSS": 484229120,
+     "browserRSS": 797540352,
+     "jsHeap": 3734600,
+     "temp": 5322081538,
+     "output": 872415232
+    },
+    {
+     "t": 1113.6,
+     "runnerRSS": 484229120,
+     "browserRSS": 797675520,
+     "jsHeap": 3746120,
+     "temp": 5322081538,
+     "output": 893386752
+    },
+    {
+     "t": 1118.7,
+     "runnerRSS": 484229120,
+     "browserRSS": 797642752,
+     "jsHeap": 3757640,
+     "temp": 5322081538,
+     "output": 916455424
+    },
+    {
+     "t": 1123.7,
+     "runnerRSS": 484229120,
+     "browserRSS": 797863936,
+     "jsHeap": 3769160,
+     "temp": 5322081538,
+     "output": 939524096
+    },
+    {
+     "t": 1128.8,
+     "runnerRSS": 484229120,
+     "browserRSS": 797995008,
+     "jsHeap": 3780680,
+     "temp": 5322081538,
+     "output": 962592768
+    },
+    {
+     "t": 1133.8,
+     "runnerRSS": 484229120,
+     "browserRSS": 798117888,
+     "jsHeap": 3792200,
+     "temp": 5322081538,
+     "output": 983564288
+    },
+    {
+     "t": 1138.8,
+     "runnerRSS": 484229120,
+     "browserRSS": 798199808,
+     "jsHeap": 3803720,
+     "temp": 5322081538,
+     "output": 1006632960
+    },
+    {
+     "t": 1143.9,
+     "runnerRSS": 484229120,
+     "browserRSS": 798306304,
+     "jsHeap": 3815240,
+     "temp": 5322081538,
+     "output": 1029701632
+    },
+    {
+     "t": 1148.9,
+     "runnerRSS": 484229120,
+     "browserRSS": 798429184,
+     "jsHeap": 3826760,
+     "temp": 5322081538,
+     "output": 1052770304
+    },
+    {
+     "t": 1153.9,
+     "runnerRSS": 484229120,
+     "browserRSS": 798588928,
+     "jsHeap": 3838500,
+     "temp": 5322081538,
+     "output": 1073741824
+    },
+    {
+     "t": 1159,
+     "runnerRSS": 484229120,
+     "browserRSS": 798699520,
+     "jsHeap": 3850020,
+     "temp": 5322081538,
+     "output": 1094713344
+    },
+    {
+     "t": 1164,
+     "runnerRSS": 484229120,
+     "browserRSS": 798830592,
+     "jsHeap": 3861540,
+     "temp": 5322081538,
+     "output": 1117782016
+    },
+    {
+     "t": 1169,
+     "runnerRSS": 484229120,
+     "browserRSS": 798957568,
+     "jsHeap": 3873060,
+     "temp": 5322081538,
+     "output": 1140850688
+    },
+    {
+     "t": 1174.1,
+     "runnerRSS": 484229120,
+     "browserRSS": 799088640,
+     "jsHeap": 3884608,
+     "temp": 5322081538,
+     "output": 1166016512
+    },
+    {
+     "t": 1179.1,
+     "runnerRSS": 484229120,
+     "browserRSS": 799236096,
+     "jsHeap": 3896232,
+     "temp": 5322081538,
+     "output": 1189085184
+    },
+    {
+     "t": 1184.1,
+     "runnerRSS": 484229120,
+     "browserRSS": 799375360,
+     "jsHeap": 3907752,
+     "temp": 5322081538,
+     "output": 1214251008
+    },
+    {
+     "t": 1189.2,
+     "runnerRSS": 484229120,
+     "browserRSS": 799494144,
+     "jsHeap": 3919272,
+     "temp": 5322081538,
+     "output": 1235222528
+    },
+    {
+     "t": 1194.2,
+     "runnerRSS": 484229120,
+     "browserRSS": 799657984,
+     "jsHeap": 3930792,
+     "temp": 5322081538,
+     "output": 1256194048
+    },
+    {
+     "t": 1199.2,
+     "runnerRSS": 484229120,
+     "browserRSS": 799784960,
+     "jsHeap": 3942312,
+     "temp": 5322081538,
+     "output": 1281359872
+    },
+    {
+     "t": 1204.3,
+     "runnerRSS": 484229120,
+     "browserRSS": 799932416,
+     "jsHeap": 3953832,
+     "temp": 5322081538,
+     "output": 1304428544
+    },
+    {
+     "t": 1209.3,
+     "runnerRSS": 484229120,
+     "browserRSS": 800047104,
+     "jsHeap": 3965352,
+     "temp": 5322081538,
+     "output": 1327497216
+    },
+    {
+     "t": 1214.3,
+     "runnerRSS": 484229120,
+     "browserRSS": 800182272,
+     "jsHeap": 3977092,
+     "temp": 5322081538,
+     "output": 1350565888
+    },
+    {
+     "t": 1219.4,
+     "runnerRSS": 484229120,
+     "browserRSS": 800325632,
+     "jsHeap": 3988612,
+     "temp": 5322081538,
+     "output": 1371537408
+    },
+    {
+     "t": 1224.4,
+     "runnerRSS": 484229120,
+     "browserRSS": 800468992,
+     "jsHeap": 4000132,
+     "temp": 5322081538,
+     "output": 1392508928
+    },
+    {
+     "t": 1229.4,
+     "runnerRSS": 484229120,
+     "browserRSS": 800579584,
+     "jsHeap": 4011652,
+     "temp": 5322081538,
+     "output": 1413480448
+    },
+    {
+     "t": 1234.5,
+     "runnerRSS": 484229120,
+     "browserRSS": 800645120,
+     "jsHeap": 4023172,
+     "temp": 5322081538,
+     "output": 1436549120
+    },
+    {
+     "t": 1239.5,
+     "runnerRSS": 484229120,
+     "browserRSS": 800899072,
+     "jsHeap": 4034692,
+     "temp": 5322081538,
+     "output": 1459617792
+    },
+    {
+     "t": 1244.6,
+     "runnerRSS": 484229120,
+     "browserRSS": 801034240,
+     "jsHeap": 4046212,
+     "temp": 5322081538,
+     "output": 1482686464
+    },
+    {
+     "t": 1249.6,
+     "runnerRSS": 484229120,
+     "browserRSS": 801189888,
+     "jsHeap": 4057952,
+     "temp": 5322081538,
+     "output": 1501560832
+    },
+    {
+     "t": 1254.7,
+     "runnerRSS": 484229120,
+     "browserRSS": 801288192,
+     "jsHeap": 4069472,
+     "temp": 5322081538,
+     "output": 1524629504
+    },
+    {
+     "t": 1259.7,
+     "runnerRSS": 484233216,
+     "browserRSS": 801460224,
+     "jsHeap": 4080992,
+     "temp": 5322081538,
+     "output": 1547698176
+    },
+    {
+     "t": 1264.7,
+     "runnerRSS": 484233216,
+     "browserRSS": 797134848,
+     "jsHeap": 3620992,
+     "temp": 5322081538,
+     "output": 1570766848
+    },
+    {
+     "t": 1269.8,
+     "runnerRSS": 484233216,
+     "browserRSS": 796979200,
+     "jsHeap": 3632512,
+     "temp": 5322081538,
+     "output": 1593835520
+    },
+    {
+     "t": 1274.8,
+     "runnerRSS": 484233216,
+     "browserRSS": 796950528,
+     "jsHeap": 3644032,
+     "temp": 5322081538,
+     "output": 1616904192
+    },
+    {
+     "t": 1279.8,
+     "runnerRSS": 484233216,
+     "browserRSS": 797048832,
+     "jsHeap": 3655552,
+     "temp": 5322081538,
+     "output": 1639972864
+    },
+    {
+     "t": 1284.9,
+     "runnerRSS": 484233216,
+     "browserRSS": 797065216,
+     "jsHeap": 3667072,
+     "temp": 5322081538,
+     "output": 1660944384
+    },
+    {
+     "t": 1289.9,
+     "runnerRSS": 484233216,
+     "browserRSS": 797143040,
+     "jsHeap": 3678592,
+     "temp": 5322081538,
+     "output": 1684013056
+    },
+    {
+     "t": 1294.9,
+     "runnerRSS": 484233216,
+     "browserRSS": 797204480,
+     "jsHeap": 3690112,
+     "temp": 5322081538,
+     "output": 1707081728
+    },
+    {
+     "t": 1300,
+     "runnerRSS": 484233216,
+     "browserRSS": 797319168,
+     "jsHeap": 3701632,
+     "temp": 5322081538,
+     "output": 1732247552
+    },
+    {
+     "t": 1305,
+     "runnerRSS": 484233216,
+     "browserRSS": 797421568,
+     "jsHeap": 3713152,
+     "temp": 5322081538,
+     "output": 1755316224
+    },
+    {
+     "t": 1310.1,
+     "runnerRSS": 484233216,
+     "browserRSS": 797450240,
+     "jsHeap": 3724892,
+     "temp": 5322081538,
+     "output": 1778384896
+    },
+    {
+     "t": 1315.1,
+     "runnerRSS": 484233216,
+     "browserRSS": 797605888,
+     "jsHeap": 3736516,
+     "temp": 5322081538,
+     "output": 1801453568
+    },
+    {
+     "t": 1320.1,
+     "runnerRSS": 484233216,
+     "browserRSS": 797716480,
+     "jsHeap": 3748036,
+     "temp": 5322081538,
+     "output": 1822425088
+    },
+    {
+     "t": 1325.2,
+     "runnerRSS": 484233216,
+     "browserRSS": 797847552,
+     "jsHeap": 3759556,
+     "temp": 5322081538,
+     "output": 1845493760
+    },
+    {
+     "t": 1330.2,
+     "runnerRSS": 484233216,
+     "browserRSS": 797941760,
+     "jsHeap": 3771076,
+     "temp": 5322081538,
+     "output": 1868562432
+    },
+    {
+     "t": 1335.2,
+     "runnerRSS": 484233216,
+     "browserRSS": 798048256,
+     "jsHeap": 3782596,
+     "temp": 5322081538,
+     "output": 1891631104
+    },
+    {
+     "t": 1340.3,
+     "runnerRSS": 484233216,
+     "browserRSS": 798175232,
+     "jsHeap": 3794336,
+     "temp": 5322081538,
+     "output": 1910505472
+    },
+    {
+     "t": 1345.3,
+     "runnerRSS": 484233216,
+     "browserRSS": 798285824,
+     "jsHeap": 3805636,
+     "temp": 5322081538,
+     "output": 1933574144
+    },
+    {
+     "t": 1350.3,
+     "runnerRSS": 484233216,
+     "browserRSS": 798392320,
+     "jsHeap": 3817156,
+     "temp": 5322081538,
+     "output": 1956642816
+    },
+    {
+     "t": 1355.4,
+     "runnerRSS": 484233216,
+     "browserRSS": 798691328,
+     "jsHeap": 3828676,
+     "temp": 5322081538,
+     "output": 1979711488
+    },
+    {
+     "t": 1360.4,
+     "runnerRSS": 484233216,
+     "browserRSS": 798814208,
+     "jsHeap": 3840196,
+     "temp": 5322081538,
+     "output": 2002780160
+    },
+    {
+     "t": 1365.4,
+     "runnerRSS": 484233216,
+     "browserRSS": 798957568,
+     "jsHeap": 3851716,
+     "temp": 5322081538,
+     "output": 2027945984
+    },
+    {
+     "t": 1370.5,
+     "runnerRSS": 484233216,
+     "browserRSS": 798928896,
+     "jsHeap": 3863236,
+     "temp": 5322081538,
+     "output": 2048917504
+    },
+    {
+     "t": 1375.5,
+     "runnerRSS": 484233216,
+     "browserRSS": 799162368,
+     "jsHeap": 3874756,
+     "temp": 5322081538,
+     "output": 2071986176
+    },
+    {
+     "t": 1380.5,
+     "runnerRSS": 484233216,
+     "browserRSS": 799322112,
+     "jsHeap": 3886284,
+     "temp": 5322081538,
+     "output": 2095054848
+    },
+    {
+     "t": 1385.6,
+     "runnerRSS": 484233216,
+     "browserRSS": 799457280,
+     "jsHeap": 3898024,
+     "temp": 5322081538,
+     "output": 2120220672
+    },
+    {
+     "t": 1390.6,
+     "runnerRSS": 484233216,
+     "browserRSS": 799436800,
+     "jsHeap": 3909544,
+     "temp": 5322081538,
+     "output": 2143289344
+    },
+    {
+     "t": 1395.6,
+     "runnerRSS": 484233216,
+     "browserRSS": 799703040,
+     "jsHeap": 3921064,
+     "temp": 5322081538,
+     "output": 2166358016
+    },
+    {
+     "t": 1400.7,
+     "runnerRSS": 484233216,
+     "browserRSS": 799870976,
+     "jsHeap": 3932584,
+     "temp": 5322081538,
+     "output": 2189426688
+    },
+    {
+     "t": 1405.7,
+     "runnerRSS": 484233216,
+     "browserRSS": 800018432,
+     "jsHeap": 3944104,
+     "temp": 5322081538,
+     "output": 2212495360
+    },
+    {
+     "t": 1410.8,
+     "runnerRSS": 484233216,
+     "browserRSS": 800022528,
+     "jsHeap": 3955624,
+     "temp": 5322081538,
+     "output": 2233466880
+    },
+    {
+     "t": 1415.8,
+     "runnerRSS": 484233216,
+     "browserRSS": 800260096,
+     "jsHeap": 3967144,
+     "temp": 5322081538,
+     "output": 2254438400
+    },
+    {
+     "t": 1420.8,
+     "runnerRSS": 484233216,
+     "browserRSS": 800399360,
+     "jsHeap": 3978664,
+     "temp": 5322081538,
+     "output": 2277507072
+    },
+    {
+     "t": 1425.9,
+     "runnerRSS": 484233216,
+     "browserRSS": 800567296,
+     "jsHeap": 3990404,
+     "temp": 5322081538,
+     "output": 2302672896
+    },
+    {
+     "t": 1430.9,
+     "runnerRSS": 484233216,
+     "browserRSS": 800673792,
+     "jsHeap": 4001924,
+     "temp": 5322081538,
+     "output": 2327838720
+    },
+    {
+     "t": 1435.9,
+     "runnerRSS": 484233216,
+     "browserRSS": 800845824,
+     "jsHeap": 4013444,
+     "temp": 5322081538,
+     "output": 2350907392
+    },
+    {
+     "t": 1440.9,
+     "runnerRSS": 484233216,
+     "browserRSS": 800899072,
+     "jsHeap": 4024964,
+     "temp": 5322081538,
+     "output": 2376073216
+    },
+    {
+     "t": 1446,
+     "runnerRSS": 484233216,
+     "browserRSS": 801128448,
+     "jsHeap": 4036484,
+     "temp": 5322081538,
+     "output": 2401239040
+    },
+    {
+     "t": 1451,
+     "runnerRSS": 484233216,
+     "browserRSS": 801234944,
+     "jsHeap": 4048004,
+     "temp": 5322081538,
+     "output": 2424307712
+    },
+    {
+     "t": 1456,
+     "runnerRSS": 484233216,
+     "browserRSS": 801398784,
+     "jsHeap": 4059524,
+     "temp": 5322081538,
+     "output": 2447376384
+    },
+    {
+     "t": 1461.1,
+     "runnerRSS": 484233216,
+     "browserRSS": 801517568,
+     "jsHeap": 4071044,
+     "temp": 5322081538,
+     "output": 2470445056
+    },
+    {
+     "t": 1466.1,
+     "runnerRSS": 484233216,
+     "browserRSS": 801656832,
+     "jsHeap": 4082668,
+     "temp": 5322081538,
+     "output": 2493513728
+    },
+    {
+     "t": 1471.2,
+     "runnerRSS": 484233216,
+     "browserRSS": 797134848,
+     "jsHeap": 3620500,
+     "temp": 5322081538,
+     "output": 2512388096
+    },
+    {
+     "t": 1476.2,
+     "runnerRSS": 484233216,
+     "browserRSS": 797184000,
+     "jsHeap": 3631800,
+     "temp": 5322081538,
+     "output": 2535456768
+    },
+    {
+     "t": 1481.2,
+     "runnerRSS": 484233216,
+     "browserRSS": 797155328,
+     "jsHeap": 3643320,
+     "temp": 5322081538,
+     "output": 2558525440
+    },
+    {
+     "t": 1486.2,
+     "runnerRSS": 484233216,
+     "browserRSS": 797126656,
+     "jsHeap": 3655060,
+     "temp": 5322081538,
+     "output": 2581594112
+    },
+    {
+     "t": 1491.3,
+     "runnerRSS": 484237312,
+     "browserRSS": 797175808,
+     "jsHeap": 3666580,
+     "temp": 5322081538,
+     "output": 2606759936
+    },
+    {
+     "t": 1496.3,
+     "runnerRSS": 484237312,
+     "browserRSS": 797220864,
+     "jsHeap": 3678100,
+     "temp": 5322081538,
+     "output": 2629828608
+    },
+    {
+     "t": 1501.4,
+     "runnerRSS": 484237312,
+     "browserRSS": 797335552,
+     "jsHeap": 3689620,
+     "temp": 5322081538,
+     "output": 2652897280
+    },
+    {
+     "t": 1506.4,
+     "runnerRSS": 484237312,
+     "browserRSS": 797458432,
+     "jsHeap": 3701140,
+     "temp": 5322081538,
+     "output": 2678063104
+    },
+    {
+     "t": 1511.4,
+     "runnerRSS": 484237312,
+     "browserRSS": 797528064,
+     "jsHeap": 3712660,
+     "temp": 5322081538,
+     "output": 2699034624
+    },
+    {
+     "t": 1516.5,
+     "runnerRSS": 484237312,
+     "browserRSS": 797638656,
+     "jsHeap": 3724180,
+     "temp": 5322081538,
+     "output": 2724200448
+    },
+    {
+     "t": 1521.5,
+     "runnerRSS": 484237312,
+     "browserRSS": 797523968,
+     "jsHeap": 3735700,
+     "temp": 5322081538,
+     "output": 2747269120
+    },
+    {
+     "t": 1526.5,
+     "runnerRSS": 484237312,
+     "browserRSS": 797765632,
+     "jsHeap": 3747440,
+     "temp": 5322081538,
+     "output": 2768240640
+    },
+    {
+     "t": 1531.5,
+     "runnerRSS": 484237312,
+     "browserRSS": 797978624,
+     "jsHeap": 3758960,
+     "temp": 5322081538,
+     "output": 2791309312
+    },
+    {
+     "t": 1536.6,
+     "runnerRSS": 484237312,
+     "browserRSS": 798089216,
+     "jsHeap": 3770480,
+     "temp": 5322081538,
+     "output": 2814377984
+    },
+    {
+     "t": 1541.6,
+     "runnerRSS": 484237312,
+     "browserRSS": 798191616,
+     "jsHeap": 3782000,
+     "temp": 5322081538,
+     "output": 2841640960
+    },
+    {
+     "t": 1546.6,
+     "runnerRSS": 484237312,
+     "browserRSS": 798310400,
+     "jsHeap": 3793520,
+     "temp": 5322081538,
+     "output": 2864709632
+    },
+    {
+     "t": 1551.7,
+     "runnerRSS": 484237312,
+     "browserRSS": 798392320,
+     "jsHeap": 3805040,
+     "temp": 5322081538,
+     "output": 2887778304
+    },
+    {
+     "t": 1556.7,
+     "runnerRSS": 484237312,
+     "browserRSS": 798552064,
+     "jsHeap": 3816560,
+     "temp": 5322081538,
+     "output": 2912944128
+    },
+    {
+     "t": 1561.8,
+     "runnerRSS": 484241408,
+     "browserRSS": 798695424,
+     "jsHeap": 3828080,
+     "temp": 5322081538,
+     "output": 2933915648
+    },
+    {
+     "t": 1566.8,
+     "runnerRSS": 484241408,
+     "browserRSS": 798769152,
+     "jsHeap": 3839820,
+     "temp": 5322081538,
+     "output": 2956984320
+    },
+    {
+     "t": 1571.8,
+     "runnerRSS": 484241408,
+     "browserRSS": 798896128,
+     "jsHeap": 3851340,
+     "temp": 5322081538,
+     "output": 2980052992
+    },
+    {
+     "t": 1576.9,
+     "runnerRSS": 484241408,
+     "browserRSS": 799006720,
+     "jsHeap": 3862860,
+     "temp": 5322081538,
+     "output": 3001024512
+    },
+    {
+     "t": 1581.9,
+     "runnerRSS": 484241408,
+     "browserRSS": 799174656,
+     "jsHeap": 3874380,
+     "temp": 5322081538,
+     "output": 3024093184
+    },
+    {
+     "t": 1587,
+     "runnerRSS": 484245504,
+     "browserRSS": 799313920,
+     "jsHeap": 3885908,
+     "temp": 5322081538,
+     "output": 3047161856
+    },
+    {
+     "t": 1592,
+     "runnerRSS": 484245504,
+     "browserRSS": 799428608,
+     "jsHeap": 3897428,
+     "temp": 5322081538,
+     "output": 3072327680
+    },
+    {
+     "t": 1597,
+     "runnerRSS": 484245504,
+     "browserRSS": 799596544,
+     "jsHeap": 3908948,
+     "temp": 5322081538,
+     "output": 3093299200
+    },
+    {
+     "t": 1602,
+     "runnerRSS": 484245504,
+     "browserRSS": 799711232,
+     "jsHeap": 3920468,
+     "temp": 5322081538,
+     "output": 3118465024
+    },
+    {
+     "t": 1607.1,
+     "runnerRSS": 484245504,
+     "browserRSS": 799846400,
+     "jsHeap": 3932092,
+     "temp": 5322081538,
+     "output": 3143630848
+    },
+    {
+     "t": 1612.1,
+     "runnerRSS": 484245504,
+     "browserRSS": 800034816,
+     "jsHeap": 3943612,
+     "temp": 5322081538,
+     "output": 3166699520
+    },
+    {
+     "t": 1617.2,
+     "runnerRSS": 484245504,
+     "browserRSS": 800133120,
+     "jsHeap": 3955132,
+     "temp": 5322081538,
+     "output": 3191865344
+    },
+    {
+     "t": 1622.2,
+     "runnerRSS": 484245504,
+     "browserRSS": 800264192,
+     "jsHeap": 3966872,
+     "temp": 5322081538,
+     "output": 3214934016
+    },
+    {
+     "t": 1627.2,
+     "runnerRSS": 484245504,
+     "browserRSS": 800411648,
+     "jsHeap": 3978392,
+     "temp": 5322081538,
+     "output": 3238002688
+    },
+    {
+     "t": 1632.2,
+     "runnerRSS": 484245504,
+     "browserRSS": 800526336,
+     "jsHeap": 3989912,
+     "temp": 5322081538,
+     "output": 3263168512
+    },
+    {
+     "t": 1637.3,
+     "runnerRSS": 484245504,
+     "browserRSS": 800714752,
+     "jsHeap": 4001432,
+     "temp": 5322081538,
+     "output": 3288334336
+    },
+    {
+     "t": 1642.3,
+     "runnerRSS": 484245504,
+     "browserRSS": 800841728,
+     "jsHeap": 4012952,
+     "temp": 5322081538,
+     "output": 3311403008
+    },
+    {
+     "t": 1647.3,
+     "runnerRSS": 484245504,
+     "browserRSS": 800956416,
+     "jsHeap": 4024472,
+     "temp": 5322081538,
+     "output": 3334471680
+    },
+    {
+     "t": 1652.4,
+     "runnerRSS": 484245504,
+     "browserRSS": 801103872,
+     "jsHeap": 4035992,
+     "temp": 5322081538,
+     "output": 3357540352
+    },
+    {
+     "t": 1657.4,
+     "runnerRSS": 484245504,
+     "browserRSS": 801267712,
+     "jsHeap": 4047512,
+     "temp": 5322081538,
+     "output": 3380609024
+    },
+    {
+     "t": 1662.4,
+     "runnerRSS": 484245504,
+     "browserRSS": 801280000,
+     "jsHeap": 4059252,
+     "temp": 5322081538,
+     "output": 3403677696
+    },
+    {
+     "t": 1667.5,
+     "runnerRSS": 484245504,
+     "browserRSS": 801529856,
+     "jsHeap": 4070772,
+     "temp": 5322081538,
+     "output": 3426746368
+    },
+    {
+     "t": 1672.5,
+     "runnerRSS": 484245504,
+     "browserRSS": 801669120,
+     "jsHeap": 4082292,
+     "temp": 5322081538,
+     "output": 3445620736
+    },
+    {
+     "t": 1677.6,
+     "runnerRSS": 484245504,
+     "browserRSS": 797396992,
+     "jsHeap": 3622196,
+     "temp": 5322081538,
+     "output": 3468689408
+    },
+    {
+     "t": 1682.6,
+     "runnerRSS": 484245504,
+     "browserRSS": 797208576,
+     "jsHeap": 3634840,
+     "temp": 5322081538,
+     "output": 3491758080
+    },
+    {
+     "t": 1687.6,
+     "runnerRSS": 484245504,
+     "browserRSS": 797016064,
+     "jsHeap": 3646360,
+     "temp": 5322081538,
+     "output": 3516923904
+    },
+    {
+     "t": 1692.6,
+     "runnerRSS": 484245504,
+     "browserRSS": 797073408,
+     "jsHeap": 3657880,
+     "temp": 5322081538,
+     "output": 3539992576
+    },
+    {
+     "t": 1697.7,
+     "runnerRSS": 484245504,
+     "browserRSS": 797392896,
+     "jsHeap": 3679272,
+     "temp": 5322081538,
+     "output": 3565158400
+    },
+    {
+     "t": 1702.7,
+     "runnerRSS": 484245504,
+     "browserRSS": 797179904,
+     "jsHeap": 3690792,
+     "temp": 5322081538,
+     "output": 3588227072
+    },
+    {
+     "t": 1707.8,
+     "runnerRSS": 484245504,
+     "browserRSS": 797360128,
+     "jsHeap": 3702312,
+     "temp": 5322081538,
+     "output": 3611295744
+    },
+    {
+     "t": 1712.8,
+     "runnerRSS": 484245504,
+     "browserRSS": 797429760,
+     "jsHeap": 3713832,
+     "temp": 5322081538,
+     "output": 3636461568
+    },
+    {
+     "t": 1717.8,
+     "runnerRSS": 484245504,
+     "browserRSS": 797556736,
+     "jsHeap": 3725352,
+     "temp": 5322081538,
+     "output": 3659530240
+    },
+    {
+     "t": 1722.8,
+     "runnerRSS": 484245504,
+     "browserRSS": 797569024,
+     "jsHeap": 3737092,
+     "temp": 5322081538,
+     "output": 3682598912
+    },
+    {
+     "t": 1727.9,
+     "runnerRSS": 484245504,
+     "browserRSS": 797720576,
+     "jsHeap": 3748392,
+     "temp": 5322081538,
+     "output": 3707764736
+    },
+    {
+     "t": 1732.9,
+     "runnerRSS": 484245504,
+     "browserRSS": 797822976,
+     "jsHeap": 3760132,
+     "temp": 5322081538,
+     "output": 3730833408
+    },
+    {
+     "t": 1737.9,
+     "runnerRSS": 484245504,
+     "browserRSS": 797962240,
+     "jsHeap": 3771652,
+     "temp": 5322081538,
+     "output": 3751804928
+    },
+    {
+     "t": 1743,
+     "runnerRSS": 484245504,
+     "browserRSS": 798007296,
+     "jsHeap": 3783172,
+     "temp": 5322081538,
+     "output": 3774873600
+    },
+    {
+     "t": 1748,
+     "runnerRSS": 484245504,
+     "browserRSS": 798158848,
+     "jsHeap": 3795364,
+     "temp": 5322081538,
+     "output": 3797942272
+    },
+    {
+     "t": 1753,
+     "runnerRSS": 484245504,
+     "browserRSS": 798285824,
+     "jsHeap": 3806884,
+     "temp": 5322081538,
+     "output": 3823108096
+    },
+    {
+     "t": 1758.1,
+     "runnerRSS": 484245504,
+     "browserRSS": 798420992,
+     "jsHeap": 3818404,
+     "temp": 5322081538,
+     "output": 3844079616
+    },
+    {
+     "t": 1763.1,
+     "runnerRSS": 484245504,
+     "browserRSS": 798515200,
+     "jsHeap": 3830028,
+     "temp": 5322081538,
+     "output": 3865051136
+    },
+    {
+     "t": 1768.1,
+     "runnerRSS": 484245504,
+     "browserRSS": 798584832,
+     "jsHeap": 3841548,
+     "temp": 5322081538,
+     "output": 3888119808
+    },
+    {
+     "t": 1773.2,
+     "runnerRSS": 484245504,
+     "browserRSS": 798736384,
+     "jsHeap": 3853068,
+     "temp": 1249020968,
+     "output": 3899606462
+    },
+    {
+     "t": 1776.4,
+     "runnerRSS": 117731328,
+     "browserRSS": 801206272,
+     "jsHeap": 4075716,
+     "temp": 64,
+     "output": 3899606462
+    }
+   ],
+   "run": {
+    "id": 3,
+    "program": "samtools",
+    "args": [
+     "sort",
+     "-m",
+     "256M",
+     "-o",
+     "sorted.bam",
+     "unsorted.bam"
+    ],
+    "code": 0,
+    "error": null,
+    "started": 1791994422277,
+    "secs": 1775.799,
+    "memory": 398131200,
+    "cwd": "/shared/vfs/home/user",
+    "maxRSS": 484073472
+   }
+  },
+  "index": {
+   "name": "index",
+   "line": "samtools index sorted.bam",
+   "code": 0,
+   "stdout": "",
+   "stderr": "",
+   "wall": 101.2,
+   "start": {
+    "runner": 118546432,
+    "browser": 801853440,
+    "renderer": 449220608,
+    "jsHeap": 4493772
+   },
+   "peak": {
+    "runner": 151363584,
+    "runnerPeak": 484204544,
+    "browser": 804106240,
+    "renderer": 451362816,
+    "jsHeap": 4493772,
+    "jsHeapTotal": 5836800,
+    "temp": 64,
+    "tempFiles": 2,
+    "output": 3899606462,
+    "extra": 3899606526,
+    "minFree": 21116891136
+   },
+   "traffic": {
+    "requests": 16,
+    "sent": 1281,
+    "received": 50969
+   },
+   "series": [
+    {
+     "t": 0,
+     "runnerRSS": 118546432,
+     "browserRSS": 801853440,
+     "jsHeap": 4493772,
+     "temp": 64,
+     "output": 3899606462
+    },
+    {
+     "t": 5.3,
+     "runnerRSS": 133332992,
+     "browserRSS": 802373632,
+     "jsHeap": 4224420,
+     "temp": 0,
+     "output": 3899606462
+    },
+    {
+     "t": 10.3,
+     "runnerRSS": 134033408,
+     "browserRSS": 801964032,
+     "jsHeap": 4235952,
+     "temp": 0,
+     "output": 3899606462
+    },
+    {
+     "t": 15.3,
+     "runnerRSS": 134414336,
+     "browserRSS": 802000896,
+     "jsHeap": 4247532,
+     "temp": 0,
+     "output": 3899606462
+    },
+    {
+     "t": 20.4,
+     "runnerRSS": 134897664,
+     "browserRSS": 802131968,
+     "jsHeap": 4259112,
+     "temp": 0,
+     "output": 3899606462
+    },
+    {
+     "t": 25.4,
+     "runnerRSS": 135692288,
+     "browserRSS": 802234368,
+     "jsHeap": 4270692,
+     "temp": 0,
+     "output": 3899606462
+    },
+    {
+     "t": 30.4,
+     "runnerRSS": 136273920,
+     "browserRSS": 802369536,
+     "jsHeap": 4282272,
+     "temp": 0,
+     "output": 3899606462
+    },
+    {
+     "t": 35.4,
+     "runnerRSS": 136990720,
+     "browserRSS": 802541568,
+     "jsHeap": 4293876,
+     "temp": 0,
+     "output": 3899606462
+    },
+    {
+     "t": 40.5,
+     "runnerRSS": 137916416,
+     "browserRSS": 802697216,
+     "jsHeap": 4305676,
+     "temp": 0,
+     "output": 3899606462
+    },
+    {
+     "t": 45.5,
+     "runnerRSS": 138424320,
+     "browserRSS": 802816000,
+     "jsHeap": 4317256,
+     "temp": 0,
+     "output": 3899606462
+    },
+    {
+     "t": 50.5,
+     "runnerRSS": 139038720,
+     "browserRSS": 802902016,
+     "jsHeap": 4328836,
+     "temp": 0,
+     "output": 3899606462
+    },
+    {
+     "t": 55.6,
+     "runnerRSS": 139632640,
+     "browserRSS": 803053568,
+     "jsHeap": 4340416,
+     "temp": 0,
+     "output": 3899606462
+    },
+    {
+     "t": 60.6,
+     "runnerRSS": 140791808,
+     "browserRSS": 803196928,
+     "jsHeap": 4351996,
+     "temp": 0,
+     "output": 3899606462
+    },
+    {
+     "t": 65.6,
+     "runnerRSS": 142295040,
+     "browserRSS": 803352576,
+     "jsHeap": 4363576,
+     "temp": 0,
+     "output": 3899606462
+    },
+    {
+     "t": 70.7,
+     "runnerRSS": 143265792,
+     "browserRSS": 803495936,
+     "jsHeap": 4375156,
+     "temp": 0,
+     "output": 3899606462
+    },
+    {
+     "t": 75.7,
+     "runnerRSS": 144809984,
+     "browserRSS": 803627008,
+     "jsHeap": 4386736,
+     "temp": 0,
+     "output": 3899606462
+    },
+    {
+     "t": 80.7,
+     "runnerRSS": 145973248,
+     "browserRSS": 803782656,
+     "jsHeap": 4398316,
+     "temp": 0,
+     "output": 3899606462
+    },
+    {
+     "t": 85.8,
+     "runnerRSS": 147300352,
+     "browserRSS": 803889152,
+     "jsHeap": 4409896,
+     "temp": 0,
+     "output": 3899606462
+    },
+    {
+     "t": 90.8,
+     "runnerRSS": 148467712,
+     "browserRSS": 804032512,
+     "jsHeap": 4421476,
+     "temp": 0,
+     "output": 3899606462
+    },
+    {
+     "t": 95.8,
+     "runnerRSS": 150151168,
+     "browserRSS": 800493568,
+     "jsHeap": 3714524,
+     "temp": 0,
+     "output": 3899606462
+    },
+    {
+     "t": 100.8,
+     "runnerRSS": 151363584,
+     "browserRSS": 799952896,
+     "jsHeap": 3726104,
+     "temp": 0,
+     "output": 3899606462
+    }
+   ],
+   "run": {
+    "id": 4,
+    "program": "samtools",
+    "args": [
+     "index",
+     "sorted.bam"
+    ],
+    "code": 0,
+    "error": null,
+    "started": 1791996199768,
+    "secs": 100.975,
+    "memory": 29097984,
+    "cwd": "/shared/vfs/home/user",
+    "maxRSS": 484204544
+   }
+  },
+  "idxstats": {
+   "name": "idxstats",
+   "line": "samtools idxstats sorted.bam",
+   "code": 0,
+   "stdout": "chr1\t248956422\t6888093\t0\nchr2\t242193529\t6698517\t0\nchr3\t198295559\t5485064\t0\nchr4\t190214555\t5261972\t0\nchr5\t181538259\t5021194\t0\nchr6\t170805979\t4374355\t0\nchr7\t159345973\t2202324\t0\nchr8\t145138636\t2005398\t0\nchr9\t138394717\t1914819\t0\nchr10\t133797422\t1851621\t0\nchr11\t135086622\t1866417\t0\nchr12\t133275309\t1843336\t0\nchr13\t114364328\t1582334\t0\nchr14\t107043718\t1479985\t0\nchr15\t101991189\t1410512\t0\nchr16\t90338345\t1249570\t0\nchr17\t83257441\t1152866\t0\nchr18\t80373285\t1110690\t0\nchr19\t58617616\t811361\t0\nchr20\t64444167\t891101\t0\nchr21\t46709983\t645405\t0\nchr22\t50818468\t702238\t0\nchrX\t156040895\t2158861\t0\nchrY\t57227415\t791702\t0\nchrM\t16569\t227\t0\n*\t0\t0\t600038\n",
+   "stderr": "",
+   "wall": 0.3,
+   "start": {
+    "runner": 119242752,
+    "browser": 800366592,
+    "renderer": 447602688,
+    "jsHeap": 4347924
+   },
+   "peak": {
+    "runner": 119242752,
+    "runnerPeak": 484204544,
+    "browser": 800366592,
+    "renderer": 447602688,
+    "jsHeap": 4347924,
+    "jsHeapTotal": 5574656,
+    "temp": 0,
+    "tempFiles": 2,
+    "output": 3899606462,
+    "extra": 3899606462,
+    "minFree": 21114441728
+   },
+   "traffic": {
+    "requests": 12,
+    "sent": 1108,
+    "received": 39027
+   },
+   "series": [
+    {
+     "t": 0,
+     "runnerRSS": 119242752,
+     "browserRSS": 800366592,
+     "jsHeap": 4347924,
+     "temp": 0,
+     "output": 3899606462
+    }
+   ]
+  },
+  "region": {
+   "name": "region",
+   "line": "samtools view -c sorted.bam chr21:20000000-30000000",
+   "code": 0,
+   "stdout": "138146\n",
+   "stderr": "",
+   "wall": 0.5,
+   "start": {
+    "runner": 119263232,
+    "browser": 801468416,
+    "renderer": 448663552,
+    "jsHeap": 4252852
+   },
+   "peak": {
+    "runner": 119263232,
+    "runnerPeak": 484204544,
+    "browser": 801468416,
+    "renderer": 448663552,
+    "jsHeap": 4252852,
+    "jsHeapTotal": 5312512,
+    "temp": 630,
+    "tempFiles": 2,
+    "output": 3899606462,
+    "extra": 3899607092,
+    "minFree": 21114437632
+   },
+   "traffic": {
+    "requests": 12,
+    "sent": 1135,
+    "received": 38294
+   },
+   "series": [
+    {
+     "t": 0,
+     "runnerRSS": 119263232,
+     "browserRSS": 801468416,
+     "jsHeap": 4252852,
+     "temp": 630,
+     "output": 3899606462
+    }
+   ]
+  },
+  "header": {
+   "name": "header",
+   "line": "samtools view -H sorted.bam | head -1",
+   "code": 0,
+   "stdout": "@HD\tVN:1.6\tSO:coordinate\n",
+   "stderr": "",
+   "wall": 0.4,
+   "start": {
+    "runner": 119324672,
+    "browser": 802328576,
+    "renderer": 449523712,
+    "jsHeap": 4348992
+   },
+   "peak": {
+    "runner": 119324672,
+    "runnerPeak": 484204544,
+    "browser": 802328576,
+    "renderer": 449523712,
+    "jsHeap": 4348992,
+    "jsHeapTotal": 5574656,
+    "temp": 7,
+    "tempFiles": 2,
+    "output": 3899606462,
+    "extra": 3899606469,
+    "minFree": 21114437632
+   },
+   "traffic": {
+    "requests": 23,
+    "sent": 2135,
+    "received": 76310
+   },
+   "series": [
+    {
+     "t": 0,
+     "runnerRSS": 119324672,
+     "browserRSS": 802328576,
+     "jsHeap": 4348992,
+     "temp": 7,
+     "output": 3899606462
+    }
+   ]
+  },
+  "afterReload": {
+   "name": "after reload",
+   "line": "cd ~ && samtools view -c sorted.bam chrM && ls -l sorted.bam",
+   "code": 0,
+   "stdout": "227\n-rw-r--r-- 1 user user 3899606462 Oct 14 17:43 sorted.bam\n",
+   "stderr": "",
+   "wall": 0.2,
+   "start": {
+    "runner": 119443456,
+    "browser": 575762432,
+    "renderer": 212086784,
+    "jsHeap": 4501736
+   },
+   "peak": {
+    "runner": 119443456,
+    "runnerPeak": 484204544,
+    "browser": 575762432,
+    "renderer": 212086784,
+    "jsHeap": 4501736,
+    "jsHeapTotal": 11866112,
+    "temp": 1327,
+    "tempFiles": 3,
+    "output": 3899606462,
+    "extra": 3899607789,
+    "minFree": 21114433536
+   },
+   "traffic": {
+    "requests": 16,
+    "sent": 1282,
+    "received": 51056
+   },
+   "series": [
+    {
+     "t": 0,
+     "runnerRSS": 119443456,
+     "browserRSS": 575762432,
+     "jsHeap": 4501736,
+     "temp": 1327,
+     "output": 3899606462
+    }
+   ]
+  }
+ },
+ "checks": {
+  "passed": 19,
+  "failed": 0
+ },
+ "reload": {
+  "secs": 0.9,
+  "entries": {
+   "unsorted.bam": {
+    "kind": "local",
+    "size": 5376906970
+   },
+   "sorted.bam": {
+    "kind": "local",
+    "size": 3899606462
+   },
+   "sorted.bam.bai": {
+    "kind": "local",
+    "size": 2447528
+   }
+  }
+ },
+ "afterReloadCount": 227,
+ "browserErrors": [],
+ "native": {
+  "sort": {
+   "wall": 1297.3,
+   "maxRSS": 382345216,
+   "code": 0
+  },
+  "records": {
+   "page": {
+    "code": 0,
+    "sha256": "baf69b1fb961e60196c8cf08c867812c848a52a1da0b4880988539b97d22d389",
+    "bytes": 25188813270
+   },
+   "native": {
+    "code": 0,
+    "sha256": "baf69b1fb961e60196c8cf08c867812c848a52a1da0b4880988539b97d22d389",
+    "bytes": 25188813270
+   }
+  },
+  "bytesAfterHeader": {
+   "identical": true,
+   "page": "da47efabec6e702ade32c3986e1f0e3932dc9733c9b865a91a6999456b1d8cc7",
+   "native": "da47efabec6e702ade32c3986e1f0e3932dc9733c9b865a91a6999456b1d8cc7",
+   "sizes": [
+    3899605701,
+    3899605701
+   ]
+  }
+ }
+}

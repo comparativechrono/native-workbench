@@ -3211,7 +3211,8 @@ Try 'ls --help' for more information.`, 2);
     const name = ctx.args.filter((a) => !a.startsWith('-'))[0];
     if (!name) throw userErr('What manual page do you want?\nFor example, try \'man samtools\'.');
     const t = MG.shellTools[name];
-    if (t && t.man) return ctx.out(t.man + '\n');
+    // (the manual pages say where the programs run: in the browser, or on this computer with the local runner)
+    if (t && t.man) return ctx.out((MG.exec && MG.exec.capabilities.where === 'local' ? t.man.replace(' · compiled program, running in your browser', ' · compiled program, running on this computer (the local runner)') : t.man) + '\n');
     if (MG.shellBuiltins[name] && MG.shellHelp && MG.shellHelp(name)) return ctx.out(MG.shellHelp(name));
     if (MG.shellBuiltins[name]) return ctx.out(`${name}: a command of the shell itself (bash has it too). help lists what this terminal has.\n`);
     throw userErr(`No manual entry for ${name}`, 16);

@@ -47,6 +47,7 @@
       // (the programs were to run elsewhere – ?backend=local – and run in this page instead: said once)
       MG.exec.whenChosen().then(() => {
         if (MG.exec.fallback) this.note(MG.exec.fallback.message);
+        for (const n of MG.exec.notices) this.note(n);
       });
       this._renderPrompt();
       this.renderFiles();

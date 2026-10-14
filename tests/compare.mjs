@@ -14,8 +14,10 @@ if (!fc) {
   console.error('usage: node compare.mjs reference-1.json reference-2.json candidate.json');
   process.exit(2);
 }
+// (a file whose bytes a backend holds: 'aioli' in the browser, 'local' in the local runner – the same, for this)
+const held = (s) => s.replace(/"(k|kind)":(\s*)"(aioli|local)"/g, '"$1":$2"held"');
 const load = (f) => {
-  const j = JSON.parse(fs.readFileSync(f, 'utf8'));
+  const j = JSON.parse(held(fs.readFileSync(f, 'utf8')));
   return new Map(j.results.map((r) => [r.id, r.result]));
 };
 const A = load(fa), B = load(fb), C = load(fc);

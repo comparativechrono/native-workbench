@@ -6,6 +6,9 @@ import { chromium } from 'playwright';
 import { spawn } from 'node:child_process';
 import net from 'node:net';
 import path from 'node:path';
+import fs from 'node:fs';
+import os from 'node:os';
+import crypto from 'node:crypto';
 
 export async function freePort() {
   return new Promise((resolve, reject) => {
@@ -32,11 +35,21 @@ async function waitForPort(port, ms = 15000) {
   throw new Error(`nothing listens on port ${port}`);
 }
 
-/** Serve `root` (a checkout of the workbench) and open it. → { page, browser, close, url, errors } */
-export async function openWorkbench(root, { query = '', port, headless = true, server } = {}) {
+/** Serve `root` (a checkout of the workbench) and open it. → { page, browser, close, url, errors, workspace, server }
+    (server: the process that serves it – null when the test brings its own)
+    runner: serve it with the local runner (runner/runner.mjs) and run the programs there, in a new, empty workspace
+    (or in `workspace`) – the page is opened with ?backend=local and the key of the session */
+export async function openWorkbench(root, { query = '', port, headless = true, server, runner, workspace } = {}) {
   port = port || (await freePort());
+  let srv = null, ws = null;
+  if (runner) {
+    ws = workspace || fs.mkdtempSync(path.join(os.tmpdir(), 'wb-ws-'));
+    const key = crypto.randomBytes(12).toString('hex');
+    srv = spawn('node', [path.join(root, 'runner', 'runner.mjs'), '--workspace', ws, '--port', String(port), '--token', key], { stdio: 'ignore' });
+    query = `?backend=local${query ? '&' + query.replace(/^\?/, '') : ''}#runner-token=${key}`;
+  }
   // (a test may bring its own server – a mock local runner that also serves the page)
-  const srv = server ? null : spawn('python3', [path.join(root, 'serve.py'), String(port)], { stdio: 'ignore' });
+  else if (!server) srv = spawn('python3', [path.join(root, 'serve.py'), String(port)], { stdio: 'ignore' });
   await waitForPort(port);
   const browser = await chromium.launch({ headless });
   const context = await browser.newContext();
@@ -55,7 +68,7 @@ export async function openWorkbench(root, { query = '', port, headless = true, s
     } catch (e) { /* already closed */ }
     if (srv) srv.kill('SIGKILL');
   };
-  return { page, browser, close, url, errors };
+  return { page, browser, close, url, errors, workspace: ws, server: srv };
 }
 
 /** every file and folder below the home folder: path, kind, size, permissions and a hash of the bytes */

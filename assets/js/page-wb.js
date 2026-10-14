@@ -52,10 +52,30 @@
     }
     for (const [p, e] of fs.entries) if (e.kind === 'dir' && (p === '/data' || p.startsWith('/data/'))) e.protected = true;
     moveOldHome();
-    await MG.project.restore(fs, [HOME, '/galaxy'], [[OLD_HOME, HOME]]);
+    // (where the programs run on this computer – the local runner –, the files are those of its folder on disk, and what
+    // the page changes goes there: the browser keeps no copy of them – see exec-local.js)
+    await MG.exec.whenChosen();
+    let onDisk = !!MG.exec.capabilities.persistentFiles;
+    if (onDisk)
+      try {
+        await MG.exec.restore(fs, [HOME, '/galaxy']);
+      } catch (e) {
+        // (the runner answered, but its files cannot be had: the page runs the programs itself, and says why)
+        console.error(e);
+        for (const p of Array.from(fs.entries.keys())) if (p.startsWith(HOME + '/') || p.startsWith('/galaxy')) fs.entries.delete(p);
+        MG.exec.use('browser');
+        MG.exec.notices.length = 0;
+        MG.exec.fallback = { wanted: 'local', reason: String((e && e.message) || e), message: `The local runner answered, but the files of its folder could not be read (${(e && e.message) || e}). The programs run in this browser tab instead, with the files this browser keeps.` };
+        onDisk = false;
+      }
+    if (!onDisk) await MG.project.restore(fs, [HOME, '/galaxy'], [[OLD_HOME, HOME]]);
     fs.cwd = HOME;
-    // the first visit: a folder of notebooks to start from (a file that is there already is left alone)
-    if (!store.get('seeded', false)) {
+    // (with the runner, what the page writes from here on goes to the folder – the starter notebooks too)
+    if (onDisk) MG.exec.watch(fs);
+    // the first visit: a folder of notebooks to start from (a file that is there already is left alone). With the local
+    // runner: a new, empty folder – the files of an analysis that is there already get nothing added to them.
+    const first = onDisk ? !Array.from(fs.entries.keys()).some((p) => p.startsWith(HOME + '/')) : !store.get('seeded', false);
+    if (first) {
       for (const s of STARTERS) {
         const path = HOME + '/' + s.p;
         if (fs.exists(path)) continue;
@@ -67,9 +87,9 @@
         }
       }
       fs.mkdirp(HOME + '/notebooks');
-      store.set('seeded', true);
+      if (!onDisk) store.set('seeded', true);
     }
-    MG.project.watch(fs);
+    if (!onDisk) MG.project.watch(fs);
     return fs;
   }
 
@@ -81,7 +101,7 @@
       hostname: CFG.hostname || 'workbench',
       env: {},
       welcome:
-        `This is a Linux terminal (bash) with real bioinformatics programs, running in your browser. Your files: ~ (${HOME}). Examples (read-only): /data/examples. Type  help  for the programs,  man NAME  for one of them.` +
+        `This is a Linux terminal (bash) with real bioinformatics programs, running ${MG.exec.capabilities.where === 'local' ? 'on this computer' : 'in your browser'}. Your files: ~ (${HOME}). Examples (read-only): /data/examples. Type  help  for the programs,  man NAME  for one of them.` +
         (MG.user.name() === MG.user.DEFAULT ? ' To see your name in place of user, click “user” at the top of the page.' : '')
     });
     MG.app.nbApp = new MG.NotebookApp(document.getElementById('nbRoot'), { fs, dir: HOME + '/notebooks' });

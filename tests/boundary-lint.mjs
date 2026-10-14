@@ -9,7 +9,7 @@ import { fileURLToPath } from 'node:url';
 const here = path.dirname(fileURLToPath(import.meta.url));
 const js = path.join(here, '..', 'assets', 'js');
 // the backends, and the workers that only the browser backend starts
-const BACKEND = new Set(['exec-browser.js', 'exec-local.js', 'threads-worker.mjs', 'python-worker.mjs']);
+const BACKEND = new Set(['exec-engine.js', 'exec-browser.js', 'exec-local.js', 'threads-worker.mjs', 'python-worker.mjs']);
 const rules = [
   [/\bMG\.wasm\b/, 'the old global of the browser runner (MG.wasm): use MG.exec'],
   [/\bAioli\b/, "the browser backend's program runner (Aioli)"],
@@ -48,10 +48,10 @@ for (const f of fs.readdirSync(js).filter((f) => /\.(m?js)$/.test(f)).sort()) {
 }
 // (the page loads the contract before the backends, and the backends before the commands that use them)
 const page = fs.readFileSync(path.join(here, '..', 'index.html'), 'utf8');
-const order = ['vfs.js', 'exec.js', 'shell.js', 'exec-browser.js', 'exec-local.js', 'tools-wasm.js'].map((f) => page.indexOf(`src="assets/js/${f}"`));
+const order = ['vfs.js', 'exec.js', 'shell.js', 'exec-engine.js', 'exec-browser.js', 'exec-local.js', 'tools-wasm.js'].map((f) => page.indexOf(`src="assets/js/${f}"`));
 if (order.some((x) => x < 0) || order.some((x, i) => i && x < order[i - 1])) {
   bad++;
-  console.log('index.html: the scripts must load in this order: vfs.js, exec.js, shell.js, exec-browser.js, exec-local.js, tools-wasm.js');
+  console.log('index.html: the scripts must load in this order: vfs.js, exec.js, shell.js, exec-engine.js, exec-browser.js, exec-local.js, tools-wasm.js');
 }
 console.log(`${files} files checked: ${bad ? bad + ' PROBLEMS' : 'the boundary holds'}`);
 process.exit(bad ? 1 : 0);

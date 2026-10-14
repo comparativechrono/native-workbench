@@ -154,7 +154,10 @@
   async function runReal(ctx,program,opts={}){
     // this build of jq does not know its own version number
     if(program==='jq'&&ctx.args.length===1&&(ctx.args[0]==='--version'||ctx.args[0]==='-V')){ctx.out('jq-'+MG.exec.versions.jq+'\n');return 0;}
-    const binary=binaryOutput(program,ctx.args),r=await MG.exec.run(ctx,program,ctx.args,{...opts,binaryOut:binary});
+    // (output that goes into a file or on into a pipe is handed on as bytes, by its handle: it is not read as text –
+    // a run of the local runner can print more than the page should hold)
+    const textOut=!ctx.redirectTarget&&(!ctx.isPipedOut||!!ctx.toCaller);
+    const binary=binaryOutput(program,ctx.args),r=await MG.exec.run(ctx,program,ctx.args,{...opts,binaryOut:binary,textOut});
     if(r.stdinUsed!=null)ctx.stdinUsed=r.stdinUsed;
     // Messages and output that go the same way – to the terminal, or to whoever takes the output of the block or
     // the script this command stands in – are passed on in the order in which the program wrote them. (To the
@@ -238,7 +241,7 @@
       if(g!=null){if(t.one(g))out.push(a);else{dropped=a;if(t.cap)out.push(t.short,t.cap);}continue;}
       out.push(a);
     }
-    if(dropped&&io&&io.note)io.note(t.cap?`${name}: ${dropped.trim()} is ${t.short} ${t.cap} here – ${t.why}.`:`${name}: ${dropped.trim()} left out – ${t.why||'in the browser every program runs on one thread'}.`);
+    if(dropped&&io&&io.note)io.note(t.cap?`${name}: ${dropped.trim()} is ${t.short} ${t.cap} here – ${t.why}.`:`${name}: ${dropped.trim()} left out – ${t.why||(MG.exec.capabilities.where==='local'?'in the local runner':'in the browser')+' every program runs on one thread'}.`);
     return out;
   }
   /* Run with other arguments on the same context object: the shell reads what a program did

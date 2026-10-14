@@ -132,23 +132,22 @@ async function mockRunner({ token, protocol = 1 }) {
   await wb.close();
 }
 
-// ---- 3. a local runner that answers
+// ---- 3. a runner that answers who it is, and then cannot give the page its files (this stand-in answers nothing else;
+// the real runner is checked in local-runner.mjs)
 {
   const runner = await mockRunner({ token: 'S3CRET' });
   const wb = await openWorkbench(ROOT, { query: '?backend=local#runner-token=S3CRET', port: runner.port, server: true });
   const r = await wb.page.evaluate(async () => {
     await MG.exec.whenChosen();
-    return { id: MG.exec.id, label: MG.exec.label, versions: MG.exec.versions, ready: MG.exec.ready, hash: location.hash, kept: sessionStorage.getItem((window.MG_CONFIG.storePrefix || 'biowb') + '.runnerToken'), fallback: MG.exec.fallback };
+    const local = MG.exec.backends.find((b) => b.id === 'local');
+    return { id: MG.exec.id, label: local.label, hash: location.hash, kept: sessionStorage.getItem((window.MG_CONFIG.storePrefix || 'biowb') + '.runnerToken'), fallback: MG.exec.fallback };
   });
-  check('a runner that answers is used', r.id === 'local' && r.ready === true && !r.fallback, r);
-  check('… it says who it is and what it runs', r.label === 'the local runner (mock-runner 0.0)' && r.versions.samtools === '1.17', r);
-  check('… the token reached it, as a bearer token', runner.seen.length >= 1 && runner.seen.every((x) => x.auth === 'Bearer S3CRET'), runner.seen);
+  check('a runner that answers is asked who it is: its name and version', r.label === 'the local runner (mock-runner 0.0)', r);
+  check('… the key reached it, as a bearer token', runner.seen.length >= 1 && runner.seen.every((x) => x.auth === 'Bearer S3CRET'), runner.seen);
   check('… and left the address (kept for this tab only)', r.hash === '' && r.kept === 'S3CRET', r);
-  const s = await runStep(wb, { cmd: 'samtools --version', noSnapshot: true });
-  check('a program it cannot run yet: said in words, with a failing status', s.code !== 0 && /samtools: the local runner answered, but this version of the workbench cannot use it for that yet/.test(s.stderr || ''), s);
-  const e = await runStep(wb, { cmd: 'echo still here', noSnapshot: true });
-  check("the shell's own commands still work", e.code === 0 && e.stdout === 'still here\n', e);
-  check('no page errors', wb.errors.length === 0, wb.errors);
+  check('a runner that cannot give the page its files: the browser backend runs the programs, and the page says why', r.id === 'browser' && /the files of its folder could not be read/.test((r.fallback && r.fallback.message) || ''), r);
+  const e = await runStep(wb, { cmd: 'echo still here && samtools --version | head -1', noSnapshot: true });
+  check('… and works', e.code === 0 && e.stdout === 'still here\nsamtools 1.17\n', e);
   await wb.close();
   await runner.close();
 }

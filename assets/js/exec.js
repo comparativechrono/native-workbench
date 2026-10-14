@@ -76,6 +76,8 @@
     lostTimes: null, // after a forced stop: path → the time of the file that was lost
     lostEntries: null, // after a forced stop: path → its entry
     capabilities: null,
+    restore: async () => {}, // (fs, roots) → a backend whose files stay (capabilities.persistentFiles): the page's files at its start
+    watch: () => {}, // (fs) → … and what the page changes goes to them
     keep: async () => 0, // (list) → copies of these files, before a command of the AI agent
     putBack: async () => false, // (abs, entry, since) → the file is as it was before the agent's command
     dropKept: async () => {}
@@ -124,6 +126,8 @@
     wanted,
     /** after the page asked for another backend and got the browser's: { wanted, reason, message } */
     fallback: null,
+    /** what the backend has to tell the person as the page starts (the terminal shows it) */
+    notices: [],
     /** add a backend (exec-browser.js, exec-local.js). The browser's is active unless another is chosen. */
     register(b) {
       check(b);
@@ -290,6 +294,15 @@
     async settle(fs) {
       if (choosing) await choosing;
       return current().settle(fs);
+    },
+    /** a backend whose files stay where they are (the local runner's folder): the page's files at its start are those,
+        and what the page changes goes there – in place of the browser's own store (project.js) */
+    async restore(fs, roots) {
+      if (choosing) await choosing;
+      return (current().restore || OPTIONAL.restore).call(active, fs, roots);
+    },
+    watch(fs) {
+      if (active && active.watch) active.watch(fs);
     },
 
     // ---- for the AI agent: what a command changes outside the agent's folder is put back (assistant.js)
